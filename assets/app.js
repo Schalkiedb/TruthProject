@@ -14,7 +14,7 @@ const LIBRARY = [
     items: [
       {
         title: "Daniel 2: The Prophecy of the Kingdoms",
-        file: "Study guides/Daniel_2_Prophecy_Study_Guide.md",
+        file: "Study_guides/Daniel_2_Prophecy_Study_Guide.md",
         icon: "🗿",
         tag: "Daniel Series",
         tagClass: "blue",
@@ -22,7 +22,7 @@ const LIBRARY = [
       },
       {
         title: "Daniel 7 & 8: The Kingdoms Revealed",
-        file: "Study guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md",
+        file: "Study_guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md",
         icon: "🦁",
         tag: "Daniel Series",
         tagClass: "blue",
@@ -30,7 +30,7 @@ const LIBRARY = [
       },
       {
         title: "Daniel 9 — Part 1: The Messiah Foretold",
-        file: "Study guides/Daniel_9_Prophecy_Messiah_Part_1_Study_Guide.md",
+        file: "Study_guides/Daniel_9_Prophecy_Messiah_Part_1_Study_Guide.md",
         icon: "✡️",
         tag: "Daniel Series",
         tagClass: "blue",
@@ -38,7 +38,7 @@ const LIBRARY = [
       },
       {
         title: "Daniel 9 — Part 2: The Crucifixion & Resurrection",
-        file: "Study guides/Daniel_9_Prophecy_Messiah_Part_2_Study_Guide.md",
+        file: "Study_guides/Daniel_9_Prophecy_Messiah_Part_2_Study_Guide.md",
         icon: "✝️",
         tag: "Daniel Series",
         tagClass: "blue",
@@ -46,7 +46,7 @@ const LIBRARY = [
       },
       {
         title: "The Little Horn: Unmasking the Mystery Power",
-        file: "Study guides/The_Little_Horn_Complete_Study_Guide.md",
+        file: "Study_guides/The_Little_Horn_Complete_Study_Guide.md",
         icon: "📯",
         tag: "Revelation",
         tagClass: "red",
@@ -54,7 +54,7 @@ const LIBRARY = [
       },
       {
         title: "The Other Beast: America in Prophecy",
-        file: "Study guides/The_Other_Beast_Complete_Study_Guide.md",
+        file: "Study_guides/The_Other_Beast_Complete_Study_Guide.md",
         icon: "🦅",
         tag: "Revelation",
         tagClass: "red",
@@ -62,7 +62,7 @@ const LIBRARY = [
       },
       {
         title: "The Mark of the Beast: The Final Test of Loyalty",
-        file: "Study guides/The_Mark_of_the_Beast_Complete_Study_Guide.md",
+        file: "Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md",
         icon: "⚠️",
         tag: "Urgent",
         tagClass: "red",
@@ -70,7 +70,7 @@ const LIBRARY = [
       },
       {
         title: "God's Special Sign: The Sabbath Rest",
-        file: "Study guides/Gods_Special_Sign_Complete_Study_Guide.md",
+        file: "Study_guides/Gods_Special_Sign_Complete_Study_Guide.md",
         icon: "✨",
         tag: "Sabbath",
         tagClass: "green",
@@ -78,7 +78,7 @@ const LIBRARY = [
       },
       {
         title: "The Creator Challenged: Evolution vs. the First Angel",
-        file: "Study guides/The_Creator_Challenged_Complete_Study_Guide.md",
+        file: "Study_guides/The_Creator_Challenged_Complete_Study_Guide.md",
         icon: "🌍",
         tag: "Creation",
         tagClass: "green",
@@ -86,7 +86,7 @@ const LIBRARY = [
       },
       {
         title: "Battle at the End — Part 1: Armageddon & the Gathering",
-        file: "Study guides/Battle_at_the_End_Part_1_Complete_Study_Guide.md",
+        file: "Study_guides/Battle_at_the_End_Part_1_Complete_Study_Guide.md",
         icon: "⚔️",
         tag: "End Times",
         tagClass: "red",
@@ -94,7 +94,7 @@ const LIBRARY = [
       },
       {
         title: "Battle at the End — Part 2: Babylon's Fall & God's Final Call",
-        file: "Study guides/Battle_at_the_End_Part_2_Complete_Study_Guide.md",
+        file: "Study_guides/Battle_at_the_End_Part_2_Complete_Study_Guide.md",
         icon: "🔥",
         tag: "End Times",
         tagClass: "red",
@@ -102,7 +102,7 @@ const LIBRARY = [
       },
       {
         title: "Sabbath Study Guide: 39 Objections Answered",
-        file: "Study guides/Sabbath_study_guide.md",
+        file: "Study_guides/Sabbath_study_guide.md",
         icon: "📅",
         tag: "Sabbath",
         tagClass: "green",
@@ -489,9 +489,9 @@ async function loadDocument(filePath) {
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
     let md = await res.text();
 
-    // Fix relative image paths for files inside Study guides/
-    if (filePath.startsWith("Study guides/")) {
-      md = md.replace(/!\[([^\]]*)\]\(images\//g, "![$1](Study guides/images/");
+    // Fix relative image paths for files inside Study_guides/
+    if (filePath.startsWith("Study_guides/")) {
+      md = md.replace(/!\[([^\]]*)\]\(images\//g, "![$1](Study_guides/images/");
     }
 
     // Render markdown → HTML
