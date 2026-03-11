@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<style>
+*, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+:root { color-scheme: dark; }</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sabbath Timeline — From Saturday to Sunday</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #8B6914;
+    --parchment: #F4ECD8;
+    --parchment-dark: #E8D5B0;
+    --ink: #1A0F00;
+    --ink-mid: #3D2B00;
+    --saturday: #2D6A4F;
+    --saturday-light: #52B788;
+    --sunday: #8B1A1A;
+    --sunday-light: #C94040;
+    --transition: #6B4226;
+    --suppression: #4A1942;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #0D0800;
+    font-family: 'EB Garamond', serif;
+    color: var(--parchment);
+    overflow-x: hidden;
+  }
+
+  .page {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+    position: relative;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .header::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin-bottom: 30px;
+  }
+
+  .header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin-top: 30px;
+  }
+
+  .subtitle-top {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1.2;
+    text-shadow: 0 0 40px rgba(201,168,76,0.4);
+    margin-bottom: 12px;
+  }
+
+  .header-sub {
+    font-size: 19px;
+    font-style: italic;
+    color: var(--parchment-dark);
+    letter-spacing: 1px;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--parchment-dark);
+  }
+
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Timeline container */
+  .timeline {
+    position: relative;
+    padding-left: 120px;
+  }
+
+  /* Central spine */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, 
+      var(--saturday) 0%, 
+      var(--saturday) 40%, 
+      var(--transition) 50%, 
+      var(--sunday) 70%, 
+      var(--sunday) 100%
+    );
+  }
+
+  /* Era sections */
+  .era {
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .era-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .era-dot {
+    position: absolute;
+    left: -68px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--ink);
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .era-dot.saturday { background: var(--saturday); border-color: var(--saturday-light); }
+  .era-dot.transition { background: var(--transition); border-color: var(--gold); }
+  .era-dot.suppression { background: var(--suppression); border-color: #A05CB0; }
+  .era-dot.sunday { background: var(--sunday); border-color: var(--sunday-light); }
+  .era-dot.resistance { background: #1A4A6B; border-color: #4A90C4; }
+  .era-dot.revival { background: #1A4A2B; border-color: var(--saturday-light); }
+
+  .era-date {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .era-title {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--parchment);
+    flex: 1;
+  }
+
+  /* Event cards */
+  .events {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .events.single { grid-template-columns: 1fr; }
+  .events.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+  .event-card {
+    background: rgba(244,236,216,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+  }
+
+  .event-card.sat::before { background: var(--saturday); }
+  .event-card.trans::before { background: var(--transition); }
+  .event-card.sup::before { background: var(--suppression); }
+  .event-card.sun::before { background: var(--sunday); }
+  .event-card.resist::before { background: #1A4A6B; }
+  .event-card.revive::before { background: var(--saturday-light); }
+
+  .event-year {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .event-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .event-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(244,236,216,0.8);
+  }
+
+  .event-location {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.08);
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  /* Big quote cards */
+  .quote-card {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .quote-mark {
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    font-size: 60px;
+    color: var(--gold);
+    font-family: 'Cinzel Decorative', serif;
+    line-height: 1;
+    opacity: 0.4;
+  }
+
+  .quote-text {
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--parchment);
+  }
+
+  .quote-source {
+    margin-top: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-align: right;
+  }
+
+  /* Status bar at top */
+  .status-bar {
+    display: flex;
+    gap: 0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .status-seg {
+    flex: 1;
+  }
+
+  /* Footer ornament */
+  .ornament {
+    text-align: center;
+    font-size: 28px;
+    color: var(--gold-dim);
+    margin-top: 50px;
+    letter-spacing: 12px;
+  }
+
+  .infographic-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* Connecting line decorators */
+  .connector {
+    position: absolute;
+    left: -49px;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background: rgba(201,168,76,0.3);
+  }
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    @page { size: A3 landscape; margin: 0.5cm; }
+  }
+</style>
+
+<style id="print-force">
+/* ═══ PRINT COLOUR FORCE — auto-generated ═══ */
+*, *::before, *::after {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+@media print {
+  @page { size: A3 landscape; margin: 0.5cm; }
+  body {
+    background-color: #0D0800 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #F4ECD8 !important;
+  }
+  .header::before {
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .header::after {
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .subtitle-top {
+    color: #8B6914 !important;
+  }
+  h1 {
+    color: #C9A84C !important;
+  }
+  .header-sub {
+    color: #E8D5B0 !important;
+  }
+  .legend-item {
+    color: #E8D5B0 !important;
+  }
+  /* Central spine */
+  .timeline::before {
+    background: linear-gradient(180deg, !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .era-dot {
+    border: 2px solid #C9A84C !important;
+    background: #1A0F00 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .era-dot.saturday {
+    background: #2D6A4F !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #52B788 !important;
+  }
+  .era-dot.transition {
+    background: #6B4226 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #C9A84C !important;
+  }
+  .era-dot.suppression {
+    background: #4A1942 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #A05CB0 !important;
+  }
+  .era-dot.sunday {
+    background: #8B1A1A !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #C94040 !important;
+  }
+  .era-dot.resistance {
+    background: #1A4A6B !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #4A90C4 !important;
+  }
+  .era-dot.revival {
+    background: #1A4A2B !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #52B788 !important;
+  }
+  .era-date {
+    color: #C9A84C !important;
+  }
+  .era-title {
+    color: #F4ECD8 !important;
+  }
+  /* Event cards */
+  .events {
+    border-bottom: 1px solid rgba(201,168,76,0.15) !important;
+  }
+  .event-card {
+    background: rgba(244,236,216,0.04) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.2) !important;
+  }
+  .event-card.sat::before {
+    background: #2D6A4F !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .event-card.trans::before {
+    background: #6B4226 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .event-card.sup::before {
+    background: #4A1942 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .event-card.sun::before {
+    background: #8B1A1A !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .event-card.resist::before {
+    background: #1A4A6B !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .event-card.revive::before {
+    background: #52B788 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .event-year {
+    color: #8B6914 !important;
+  }
+  .event-title {
+    color: #E8C97A !important;
+  }
+  .event-text {
+    color: rgba(244,236,216,0.8) !important;
+  }
+  .event-location {
+    color: #8B6914 !important;
+    background: rgba(201,168,76,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  /* Big quote cards */
+  .quote-card {
+    background: rgba(201,168,76,0.06) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+  }
+  .quote-mark {
+    color: #C9A84C !important;
+  }
+  .quote-text {
+    color: #F4ECD8 !important;
+  }
+  .quote-source {
+    color: #8B6914 !important;
+  }
+  /* Footer ornament */
+  .ornament {
+    color: #8B6914 !important;
+  }
+  .infographic-label {
+    color: #8B6914 !important;
+  }
+  /* Connecting line decorators */
+  .connector {
+    background: rgba(201,168,76,0.3) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="subtitle-top">A Global Historical Record · 2000 Years of Evidence</div>
+    <h1>THE SABBATH<br>THROUGH THE AGES</h1>
+    <div class="header-sub">From Universal Saturday to Roman Sunday — and the World That Refused</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#2D6A4F"></div> Saturday Sabbath Kept</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#6B4226"></div> Transition & Pressure</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4A1942"></div> Active Suppression</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#8B1A1A"></div> Sunday Enforced</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1A4A6B"></div> Resistance & Survival</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#52B788"></div> Revival & Rediscovery</div>
+  </div>
+
+  <div class="status-bar">
+    <div class="status-seg" style="background:#2D6A4F;flex:3"></div>
+    <div class="status-seg" style="background:#4A7A3A;flex:1"></div>
+    <div class="status-seg" style="background:#6B4226;flex:1"></div>
+    <div class="status-seg" style="background:#4A1942;flex:1"></div>
+    <div class="status-seg" style="background:#8B1A1A;flex:2"></div>
+    <div class="status-seg" style="background:#6B1A1A;flex:1"></div>
+    <div class="status-seg" style="background:#1A4A6B;flex:2"></div>
+    <div class="status-seg" style="background:#52B788;flex:2"></div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- ERA 1 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot saturday"></div>
+        <div class="era-date">30 – 100 AD</div>
+        <div class="era-title">🕍 The Apostolic Era — Universal Saturday</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card sat">
+          <div class="event-year">30 AD</div>
+          <div class="event-title">Jesus and the Disciples Keep Saturday</div>
+          <div class="event-text">Jesus observes the Sabbath throughout his ministry. His disciples rest on Saturday after the crucifixion. No Sunday worship is mentioned anywhere in the Gospels.</div>
+          <span class="event-location">Jerusalem, Palestine</span>
+        </div>
+        <div class="event-card sat">
+          <div class="event-year">Matthew 24:20</div>
+          <div class="event-title">Future Saturday Keepers Assumed</div>
+          <div class="event-text">Jesus instructs followers to "pray that your flight be not in winter, nor on the Sabbath day" — written for a future audience still observing Saturday decades after the resurrection.</div>
+          <span class="event-location">Scripture Record</span>
+        </div>
+        <div class="event-card sat">
+          <div class="event-year">30–100 AD</div>
+          <div class="event-title">Zero Controversy — One Practice</div>
+          <div class="event-text">No early document, letter, or council record shows any conflict over Saturday vs. Sunday. Saturday is universal and unquestioned. The question of Sunday does not yet exist.</div>
+          <span class="event-location">Entire Christian World</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 2 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot transition"></div>
+        <div class="era-date">100 – 135 AD</div>
+        <div class="era-title">⚠️ The Roman Exception Begins</div>
+      </div>
+      <div class="events">
+        <div class="event-card trans">
+          <div class="event-year">~110 AD</div>
+          <div class="event-title">Ignatius of Antioch</div>
+          <div class="event-text">Often cited as opposing Saturday, but scholars note the Greek word for "day" is absent from the relevant passage. His target is Jewish cultural practices — not the Sabbath commandment itself. Saturday keepers remain numerous enough for him to comment on.</div>
+          <span class="event-location">Antioch, Syria</span>
+        </div>
+        <div class="event-card trans">
+          <div class="event-year">135 AD</div>
+          <div class="event-title">Hadrian's Anti-Jewish Decrees — The Hidden Root</div>
+          <div class="event-text">After crushing the Bar Kokhba revolt, Emperor Hadrian outlaws the Sabbath across the Roman Empire, renames Jerusalem "Aelia Capitolina," and bans Jews from the city. Roman Christians — fearing identification as Jews — begin distancing themselves from Saturday observance. This political survival decision is the true origin of Sunday worship in Rome.</div>
+          <span class="event-location">Rome / Jerusalem</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 3 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot transition"></div>
+        <div class="era-date">150 – 300 AD</div>
+        <div class="era-title">🌍 Saturday Everywhere — Sunday Only in Rome & Alexandria</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card trans">
+          <div class="event-year">~150 AD</div>
+          <div class="event-title">Justin Martyr — First Clear Sunday Record</div>
+          <div class="event-text">Writing from Rome, Justin Martyr is the first clear witness to Sunday worship — but only in Rome. He still acknowledges Saturday-keeping Christians and says he would fellowship with them.</div>
+          <span class="event-location">Rome, Italy</span>
+        </div>
+        <div class="event-card sat">
+          <div class="event-year">200–250 AD</div>
+          <div class="event-title">North Africa and the Oxyrhynchus Papyrus</div>
+          <div class="event-text">The Oxyrhynchus Papyrus documents Sabbath observance in North Africa. Origen of Alexandria (185–254 AD) promotes the original Mosaic Sabbath. Saturday is kept across the continent.</div>
+          <span class="event-location">North Africa / Egypt</span>
+        </div>
+        <div class="event-card sat">
+          <div class="event-year">220 AD</div>
+          <div class="event-title">Buddhist Monks Keep Saturday — India</div>
+          <div class="event-text">The Kushan dynasty of northern India convenes a council of Buddhist priests to address the problem of Buddhist monks who had converted and begun observing the Christian Sabbath after reading the Bible.</div>
+          <span class="event-location">North India</span>
+        </div>
+      </div>
+      <div class="events">
+        <div class="event-card sat">
+          <div class="event-year">225 AD</div>
+          <div class="event-title">Massive Eastern Sabbath Dioceses</div>
+          <div class="event-text">Large dioceses of Sabbath-keeping Eastern churches are documented from Palestine all the way to India — an arc of Saturday-keeping Christianity spanning over 3,000 miles, entirely outside Rome's reach and influence.</div>
+          <span class="event-location">Palestine → Persia → India</span>
+        </div>
+        <div class="event-card sat">
+          <div class="event-year">c. 270 AD</div>
+          <div class="event-title">Ambrose of Milan's Famous Confession</div>
+          <div class="event-text">Bishop Ambrose, one of the most influential Latin Church Fathers, admits: "When I am at Rome, I fast on Saturday; when I am at Milan, I do not." This gives rise to the saying: "When in Rome, do as the Romans do" — and reveals that outside Rome, Saturday was still the practice even in Italy itself.</div>
+          <span class="event-location">Milan, Italy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 4 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot suppression"></div>
+        <div class="era-date">300 – 400 AD</div>
+        <div class="era-title">⚔️ The Roman Decrees — State and Church Force Sunday</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card sun">
+          <div class="event-year">321 AD</div>
+          <div class="event-title">Constantine's Sunday Law</div>
+          <div class="event-text">Emperor Constantine — a sun-worshipper — issues the first civil Sunday enforcement law: "On the venerable Day of the Sun let all workshops be closed." This is a state law, not a church decree. Constantine still refers to it as the "Day of the Sun," not the Christian Lord's Day.</div>
+          <span class="event-location">Roman Empire</span>
+        </div>
+        <div class="event-card sup">
+          <div class="event-year">325 AD</div>
+          <div class="event-title">Council of Nicaea</div>
+          <div class="event-text">The Council separates Christian Easter from the Jewish Passover calendar — a deliberate act of distancing from Jewish practice. However, this Eastern-dominated council does not formally abolish the Saturday Sabbath. The East continues keeping both days.</div>
+          <span class="event-location">Nicaea, Asia Minor</span>
+        </div>
+        <div class="event-card sup">
+          <div class="event-year">364 AD</div>
+          <div class="event-title">Council of Laodicea — The Church Decree</div>
+          <div class="event-text">Canon 29 decrees: "Christians shall not Judaize and be idle on Saturday, but shall work on that day; but the Lord's Day they shall especially honour." The word "Judaize" reveals Saturday keeping was still widespread enough to require formal suppression. This is the first church law against Saturday.</div>
+          <span class="event-location">Laodicea, Asia Minor</span>
+        </div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">Pope Sylvester (314–335 AD) emphatically stated that Sunday enforcement was to show <em>"contempt for the Jews"</em> and for their Sabbath. Constantine declared: <em>"It appeared an unworthy thing that in the celebration of this most holy feast we should follow the practice of the Jews."</em></div>
+        <div class="quote-source">— Historical record of Constantine's motivation for Sunday law</div>
+      </div>
+    </div>
+
+    <!-- ERA 5 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot resistance"></div>
+        <div class="era-date">400 – 700 AD</div>
+        <div class="era-title">📜 Saturday Survives — The Eastern World Holds</div>
+      </div>
+      <div class="events">
+        <div class="event-card resist">
+          <div class="event-year">5th Century</div>
+          <div class="event-title">Socrates Scholasticus — The World Still Keeps Saturday</div>
+          <div class="event-text">The historian writes: "Almost all churches throughout the world celebrate the sacred mysteries on the Sabbath of every week, yet the Christians of Alexandria and at Rome, on account of some ancient tradition, have ceased to do this." Rome and Alexandria were the EXCEPTIONS — not the rule.</div>
+          <span class="event-location">Constantinople</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">5th Century</div>
+          <div class="event-title">Nestorians and Jacobites — 553 AD Record</div>
+          <div class="event-text">Both the Nestorian and Jacobite churches continue observing the Sabbath alongside Sunday, documented in records as late as 553 AD. The Nestorian Church spreads eastward along the Silk Road, carrying Saturday observance through Persia, Central Asia, India, and eventually into China and possibly Korea.</div>
+          <span class="event-location">Persia / Mesopotamia / Asia</span>
+        </div>
+      </div>
+      <div class="events triple">
+        <div class="event-card resist">
+          <div class="event-year">590–604 AD</div>
+          <div class="event-title">Pope Gregory's Outrage</div>
+          <div class="event-text">Pope Gregory I writes against "Roman citizens who forbid doing any work on the Sabbath." He calls teachers of seventh-day rest "prophets of the Antichrist" — proof Saturday keeping was still common enough in Rome itself to anger the Pope, 250 years after Constantine.</div>
+          <span class="event-location">Rome, Italy</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">692 AD</div>
+          <div class="event-title">Synod of Trullo — East Rebukes Rome</div>
+          <div class="event-text">The Eastern Church's Quinisext Council forbids fasting on Saturday — directly contradicting Rome's strategy of making Saturday a fast day to strip it of sacred character. Rome rejects this council entirely. The East is defending the Sabbath's holiness.</div>
+          <span class="event-location">Constantinople</span>
+        </div>
+        <div class="event-card sat">
+          <div class="event-year">781 AD</div>
+          <div class="event-title">Xi'an Stele — China's Saturday Record</div>
+          <div class="event-text">The famous marble monument erected in China documents Silk Road Christianity: "On the seventh day we offer sacrifices, having purified our hearts and having received forgiveness for our sins." Eight-century Chinese Christians observing Saturday, 4,000 miles from Rome.</div>
+          <span class="event-location">Xi'an, China</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 6 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot resistance"></div>
+        <div class="era-date">800 – 1400 AD</div>
+        <div class="era-title">🏔️ Medieval Survival — Hidden in Mountains & Forests</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card resist">
+          <div class="event-year">c. 900 AD</div>
+          <div class="event-title">Celtic Church — Ireland & Scotland</div>
+          <div class="event-text">Princeton Professor James Moffat writes: "It seems to have been customary in the Celtic churches to keep Saturday as a day of rest from labor." When Queen Margaret arrives in Scotland c. 1070 AD, she finds the entire nation working on Sundays and keeping Saturday. Rome backed her mission to change this.</div>
+          <span class="event-location">Scotland / Ireland / Wales</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">c. 1000 AD</div>
+          <div class="event-title">Wales — Saturday Until 1115 AD</div>
+          <div class="event-text">Records confirm Saturday observance throughout Wales until 1115 AD — when the first Roman bishop was installed at St. David's. The installation of a Roman bishop marks the end of Saturday keeping wherever it occurs. Pattern repeats across all of Europe.</div>
+          <span class="event-location">Wales</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">1054 AD</div>
+          <div class="event-title">Photius Charges Rome with Heresy</div>
+          <div class="event-text">Eastern Patriarch Photius writes to Pope Leo IX charging Rome with five heresies — the first being that Rome wrongly FASTS on the Sabbath, the seventh day, using it as a day of desecration rather than rest. The Great Schism between East and West seals permanent division over Sabbath treatment.</div>
+          <span class="event-location">Constantinople</span>
+        </div>
+      </div>
+      <div class="events">
+        <div class="event-card resist">
+          <div class="event-year">1100–1200 AD</div>
+          <div class="event-title">The Pasagini — Saturday Keepers in Lombardy, Italy</div>
+          <div class="event-text">A major movement in northern Italy — the heartland of Roman Catholic Europe — keeps the Saturday Sabbath, circumcision, and Mosaic practices. Catholic polemicist Bonacursus writes urgently about them: "Not a few, but many know what are the errors of those called Pasagini." Cardinal Humbert identifies them as linked to ancient Nazarene communities.</div>
+          <span class="event-location">Lombardy, Italy</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">1300s</div>
+          <div class="event-title">Waldensians — Alps Saturday Keepers</div>
+          <div class="event-text">Historian Johann Gottfried Hering (1756) identifies the "Sabbatati" sect of the Waldenses who kept Saturday with the Jews. Their prose tracts contain expositions of the Ten Commandments defending Sabbath keeping. A 15th-century Bohemian manuscript confirms Waldensians in Bohemia "celebrate the Sabbath with the Jews."</div>
+          <span class="event-location">Alps / Bohemia / Eastern Europe</span>
+        </div>
+      </div>
+      <div class="events triple">
+        <div class="event-card sat">
+          <div class="event-year">1273–1352</div>
+          <div class="event-title">Abba Ewostatewos — Ethiopia's Champion</div>
+          <div class="event-text">Ethiopian monk Ewostatewos defends Saturday Sabbath keeping, arguing it was the original apostolic practice. Historian Taddesse Tamrat documents this as not his innovation but an ancient Coptic tradition. Ethiopia resists Coptic attempts to abolish Saturday for centuries.</div>
+          <span class="event-location">Ethiopia</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">1415 AD</div>
+          <div class="event-title">Russian Strigolniks — 15th Century Moscow</div>
+          <div class="event-text">Saturday-keeping Christians in Russia known as Strigolniks are so numerous that Tsar Ivan III calls a national council to address them. The "One Hundred Head" Church Council of 1551 — under Ivan the Terrible — officially recognizes Saturday worship as valid, citing Apostles Peter and Paul. This ruling has never been annulled by the Russian Orthodox Church.</div>
+          <span class="event-location">Novgorod / Moscow, Russia</span>
+        </div>
+        <div class="event-card sat">
+          <div class="event-year">1445 AD</div>
+          <div class="event-title">Council of Dabra Metmaq — Ethiopia's Official Stand</div>
+          <div class="event-text">Ethiopia formally declares Saturday a sacred Sabbath for all Christians, enshrining in church law what had been practiced unbroken for over a millennium. This is a direct defiance of Roman Catholic and even Coptic pressure to abandon the ancient practice.</div>
+          <span class="event-location">Ethiopia</span>
+        </div>
+      </div>
+      <div class="events">
+        <div class="event-card rome">
+          <div class="event-year">1435 AD</div>
+          <div class="event-title">Bergen Council — Norway Bans Saturday Keeping</div>
+          <div class="event-text">The Catholic Provincial Council at Bergen, Norway issues an explicit decree against Saturday observance: "We are informed that some people in different districts of the kingdom have adopted and observed Saturday-keeping… Saturday-keeping must under no circumstances be permitted hereafter." (Dip. Norveg., 7, 397). The phrase "we are informed" proves the practice was widespread enough to require a law. Archbishop Aslak Bolt followed with additional prohibitions in 1436 and 1438. Civil Governor Christoffer Whitefeldt issued secular enforcement in 1544. Three tiers of suppression across 109 years — proof the practice persisted despite each decree.</div>
+          <span class="event-location">Bergen, Norway (then all Scandinavia)</span>
+        </div>
+        <div class="event-card rome">
+          <div class="event-year">1554–1602</div>
+          <div class="event-title">Lutheran Suppressions — Sweden & Finland</div>
+          <div class="event-text">Even after the Protestant Reformation broke Rome's ecclesiastical monopoly, Sabbatarians faced Lutheran state suppression. King Gustavus I of Sweden wrote a warning letter to Finnish Saturday-keepers in 1554. King Charles IX of Sweden formally opposed Sabbatarians in 1602. The same Saturday-keeping communities survived both the Catholic and Protestant suppressions — demonstrating the practice's deep roots across Scandinavia.</div>
+          <span class="event-location">Sweden / Finland</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 7 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot revive"></div>
+        <div class="era-date">1500 – 1700 AD</div>
+        <div class="era-title">📖 The Reformation — Saturday Rediscovered Worldwide</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">In the 1500s, for the very first time, the Bible was being translated into languages the common person could read. What happened was that, faced with what the Bible says about the Sabbath day, they realized they had no choice but to obey God by keeping it. They discovered one of traditional Christianity's darkest secrets: that Sunday worship is a man-made tradition.</div>
+        <div class="quote-source">— Historical record of the Reformation era rediscovery</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card revive">
+          <div class="event-year">1534 AD</div>
+          <div class="event-title">Ethiopian Ambassador Defends Saturday in Lisbon</div>
+          <div class="event-text">The Ethiopian ambassador to Portugal is asked why he keeps the Sabbath. His reply: "Because God, after he had finished the creation of the world, rested thereon." Simple, apostolic, unchanged after 1,500 years.</div>
+          <span class="event-location">Lisbon, Portugal</span>
+        </div>
+        <div class="event-card sup">
+          <div class="event-year">1588 AD</div>
+          <div class="event-title">Transylvanian Sabbatarians — 20,000 Strong</div>
+          <div class="event-text">András Eőssi — a nobleman who discovered Saturday through reading the Bible — founds the Sabbatarian movement in Transylvania. His successor Simon Péchi becomes Chancellor of Transylvania. At peak: 20,000 Saturday-keeping Christians in Eastern Europe. In 1595, Sabbatarianism is outlawed, property confiscated, writings burned. Survivors hide among other minority groups, keeping Saturday in secret for generations.</div>
+          <span class="event-location">Transylvania, Hungary</span>
+        </div>
+        <div class="event-card revive">
+          <div class="event-year">1599 AD</div>
+          <div class="event-title">Synod of Diamper — India's Saturday Burned Away</div>
+          <div class="event-text">Portuguese Archbishop Menezes convenes the Synod of Diamper, ordering all texts of the Syrian Nasrani Christians of Kerala burned. Their Aramaic liturgy, their Saturday Sabbath, their 1,500-year Jewish-Christian heritage — destroyed by fire. Portuguese records describe them as "Sabbath-keeping Judaizers." This directly parallels what Rome did to Saturday keepers across every other continent.</div>
+          <span class="event-location">Kerala, India</span>
+        </div>
+      </div>
+      <div class="events">
+        <div class="event-card revive">
+          <div class="event-year">1645 AD</div>
+          <div class="event-title">England — Seventh Day Baptists Emerge</div>
+          <div class="event-text">Henry Jessey converts to seventh-day observance. In 1649, under the Commonwealth, England's first Seventh Day Baptist Church is secured. In 1650, James Ockford publishes "The Doctrine of the Fourth Commandment, Deformed by Popery, Reformed and Restored to its Primitive Purity" — the title itself a declaration that Rome had corrupted the original commandment.</div>
+          <span class="event-location">London, England</span>
+        </div>
+        <div class="event-card sup">
+          <div class="event-year">Early 1600s</div>
+          <div class="event-title">Ethiopia Fights Catholic Colonial Pressure</div>
+          <div class="event-text">When Emperor Gelawdewos submitted to the Pope, he was ordered to forbid Saturday observance. The people rebelled. Emperor Gelawdewos wrote his famous "Confession" defending Saturday. After years of struggle, the Catholic tyranny was overthrown and Ethiopians returned to the Sabbath — and have kept it ever since.</div>
+          <span class="event-location">Abyssinia / Ethiopia</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 8 -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot revive"></div>
+        <div class="era-date">1664 – 1863</div>
+        <div class="era-title">🌎 Saturday Returns to the World</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card revive">
+          <div class="event-year">1664 AD</div>
+          <div class="event-title">First Seventh Day Baptists in America</div>
+          <div class="event-text">Stephen and Ann Mumford emigrate from England to Newport, Rhode Island. By 1671, five members form the first Seventh Day Baptist Church in America. By 1700, churches spread to New Jersey and Pennsylvania. By 1802, the Seventh Day Baptist General Conference is founded.</div>
+          <span class="event-location">Newport, Rhode Island</span>
+        </div>
+        <div class="event-card revive">
+          <div class="event-year">1860s AD</div>
+          <div class="event-title">Hannah More — Africa & Australia</div>
+          <div class="event-text">A Black American missionary, Hannah More, becomes the first Adventist Sabbath keeper in West Africa (Sierra Leone/Liberia, 1862–1866) and also seeds Saturday observance in Australia. Operating outside all official structures, she plants the Sabbath on two continents simultaneously — before any official missionary organization reaches either place.</div>
+          <span class="event-location">West Africa / Australia</span>
+        </div>
+        <div class="event-card revive">
+          <div class="event-year">1863 AD</div>
+          <div class="event-title">Seventh-day Adventist Church Founded</div>
+          <div class="event-text">Growing from the Millerite movement, the Seventh-day Adventist Church is formally organized with 3,500 members across 125 churches. Today it numbers 23 million members in over 200 countries — the largest organized Saturday-keeping movement in history, growing fastest in Africa, Asia, and Latin America.</div>
+          <span class="event-location">Battle Creek, Michigan, USA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 9: PERSECUTION IN AMERICA -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot sunday"></div>
+        <div class="era-date">1879 – 1896</div>
+        <div class="era-title">⛓ Saturday Persecution in the Land of Liberty</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card sup">
+          <div class="event-year">1885–1896</div>
+          <div class="event-title">100+ Adventists Jailed — Chain Gangs in Tennessee</div>
+          <div class="event-text">In the nation founded on religious liberty, Saturday-keeping farmers are arrested for hoeing potatoes, painting church buildings, and cultivating corn on Sundays. Over 100 prosecutions. 1,438 total days imprisoned. 455 days served on chain gangs — chained to criminals in public. Arkansas alone records 21 prosecutions. The targets: almost exclusively Seventh-day Adventists.</div>
+          <span class="event-location">Tennessee · Arkansas · Virginia · California</span>
+        </div>
+        <div class="event-card sup">
+          <div class="event-year">1888 AD</div>
+          <div class="event-title">The Blair Sunday-Rest Bill — One Senator Stands Between America and a National Sunday Law</div>
+          <div class="event-text">Senator Henry W. Blair (R-NH) introduces Senate Bill 2983 — banning all secular work, mail transport, and interstate commerce on Sundays. Coalition: National Reform Association, WCTU, American Sabbath Union, Knights of Labor, Cardinal Gibbons, Methodist, Presbyterian, Baptist, and Lutheran denominations. The SDA Church submits 260,000 opposing petition signatures — a three-foot-high stack in red, white, and blue binding. Alonzo T. Jones testifies before the Senate on December 13. The bill fails on the final day of session — by the opposition of a single senator.</div>
+          <span class="event-location">Washington D.C., United States Senate</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">1886–1906</div>
+          <div class="event-title">The Resistance — American Sentinel, Liberty Magazine & the NRLA</div>
+          <div class="event-text">The American Sentinel (launched January 1886, Oakland) — co-edited by Alonzo T. Jones and E.J. Waggoner — documents every prosecution and brings national newspaper coverage that ends the worst Arkansas persecutions. It becomes Liberty magazine, still published today for legislators and judges. The National Religious Liberty Association (founded July 1889) becomes the International Religious Liberty Association — today operating in 200+ countries. California's Sunday statute is repealed in 1883 after Adventists vote Democrat en masse in response to the prosecution of William C. White.</div>
+          <span class="event-location">Oakland, California · Washington D.C.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 10: PAPAL CHAIN -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot sunday"></div>
+        <div class="era-date">1891 – 2015</div>
+        <div class="era-title">✝ The Papal Chain — Four Popes, 124 Years, One Goal</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card sun">
+          <div class="event-year">1891 AD</div>
+          <div class="event-title">Leo XIII — Rerum Novarum — Sunday Rest Is "A Worker's Right the State Must Guarantee"</div>
+          <div class="event-text">Pope Leo XIII's landmark social encyclical on labour rights includes the first explicit papal assertion that Sunday rest is not merely a religious duty but a civil right that secular governments must enforce by law. This establishes the template all subsequent popes will use: framing Sunday enforcement as a worker-welfare measure — secular language carrying a theological mandate.</div>
+          <span class="event-location">Vatican · May 15, 1891</span>
+        </div>
+        <div class="event-card sun">
+          <div class="event-year">1998 AD</div>
+          <div class="event-title">Dies Domini — John Paul II Calls on Governments Worldwide to Enforce Sunday</div>
+          <div class="event-text">Pope John Paul II's Apostolic Letter goes further than any previous papal document: §66 cites Rerum Novarum to assert Sunday rest is "a worker's right which the State must guarantee." §67 explicitly instructs Catholics to "strive to ensure that civil legislation respects their duty to keep Sunday holy." This is a direct papal mandate for lobbying secular governments to codify Sunday into law — issued 17 years before Laudato Si', 28 years before the Heritage Foundation SR323, and never rescinded.</div>
+          <span class="event-location">Vatican · May 31, 1998</span>
+        </div>
+        <div class="event-card sun">
+          <div class="event-year">2015 AD</div>
+          <div class="event-title">Laudato Si' §237 — Francis Links Sunday Rest to Climate, Society and Human Healing</div>
+          <div class="event-text">Pope Francis's encyclical — addressed to "every person living on this planet" — states in §237: "Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world." The single paragraph is simultaneously cited in EU political lobbying (ESA/COMECE), US policy papers (Heritage Foundation SR323), and climate campaigns (Green Sabbath Project). One papal paragraph spanning six independent streams — the most politically potent Sabbath statement since Constantine's 321 AD edict.</div>
+          <span class="event-location">Vatican · June 18, 2015</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERA 11: THE CONVERGENCE -->
+    <div class="era">
+      <div class="era-header">
+        <div class="era-dot sunday"></div>
+        <div class="era-date">2011 – 2026</div>
+        <div class="era-title">⚠ The Convergence — Six Streams, One Outcome</div>
+      </div>
+      <div class="events triple">
+        <div class="event-card sun">
+          <div class="event-year">2011–2024</div>
+          <div class="event-title">European Sunday Alliance — 100+ Organisations Lobby EU Parliament</div>
+          <div class="event-text">Founded March 2011 at the EU Parliament, the ESA brings together Catholic bishops (COMECE), trade unions, family associations, and environmental groups to lobby for legally work-free Sundays across all 27 EU member states. On March 1, 2024, ahead of EU elections, they issue a new manifesto with cross-party MEP endorsements. On March 3, 2026 — their annual European Day for a Work-Free Sunday — COMECE, FAFCE, and labour confederations speak with one voice. The institutional line runs directly: Constantine 321 AD → Council of Laodicea 364 AD → COMECE 2024.</div>
+          <span class="event-location">Brussels, European Parliament</span>
+        </div>
+        <div class="event-card sun">
+          <div class="event-year">Jan 8, 2026</div>
+          <div class="event-title">Heritage Foundation SR323 — "A Culture-Wide Manhattan Project" for Sunday Rest</div>
+          <div class="event-text">The Heritage Foundation — authors of Project 2025, over 50% already implemented — releases "Saving America by Saving the Family." Its central proposal: amend the Fair Labor Standards Act to require time-and-a-half overtime for Sunday workers, creating economic pressure for businesses to close on Sundays without a direct legislative mandate. The document uses explicitly theological language: "God ordained the Sabbath as a day of rest." The SDA Church responds within 10 days. Within 60 days: Montenegro legislates Sunday rest, a United Methodist bishop endorses Sunday closing laws, and a Christian Nationalist scholar calls for government enforcement of Sunday observance.</div>
+          <span class="event-location">Washington D.C., United States · January 8, 2026</span>
+        </div>
+        <div class="event-card resist">
+          <div class="event-year">2026 AD</div>
+          <div class="event-title">The Pattern Repeats — The Same Community With the Same Institutional Memory Responds</div>
+          <div class="event-text">The SDA Church — whose members served on chain gangs in Tennessee in 1892 — issues its formal religious liberty warning on January 18, 2026, Religious Liberty Sabbath. A three-month NAD Religious Liberty Campaign (Jan 10 – March 31, 2026) sends Liberty magazine to federal and state judges, elected officials, and policymakers across North America — the most coordinated SDA counter-action since 1888. A national Religious Liberty Conference is scheduled for August 20–22, 2026 in Berrien Springs, Michigan. Socrates Scholasticus wrote in 440 AD: "Almost all churches throughout the world celebrate the sacred mysteries on the Sabbath." The question of which day — and who decides — has never been resolved. It has only been suppressed. And suppression, the historical record shows, is never permanent.</div>
+          <span class="event-location">Berrien Springs, Michigan · Global</span>
+        </div>
+      </div>
+      <div class="events">
+        <div class="event-card sun" style="border-color:rgba(201,168,76,0.5);background:rgba(201,168,76,0.07);">
+          <div class="event-year">~May 15, 2026</div>
+          <div class="event-title">⏳ Magnifica Humanitas — Leo XIV AI Encyclical (Pending)</div>
+          <div class="event-text">Pope Leo XIV's first major encyclical — on artificial intelligence, human dignity, and the future of work — is confirmed by Vatican sources and expected on or near May 15, 2026: the 135th anniversary of Rerum Novarum (1891), Leo XIII's foundational social encyclical that first defended Sunday rest as a worker's right. ZENIT and Aleteia report the encyclical will defend rest, human attention, and "authentic human time" against AI disruption — the exact themes driving the labour (Stream 3), digital (Stream 5), and environmental (Stream 4) Sunday-rest arguments. The papal chain: Leo XIII (1891) → John Paul II (1998) → Francis (2015) → Leo XIV (2026). Four popes. 135 years. One trajectory.</div>
+          <span class="event-location">Vatican · ~May 15, 2026 (135th anniversary of Rerum Novarum)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Quotes -->
+    <div class="quote-card" style="margin-top:40px; border-color:rgba(139,26,26,0.5); background:rgba(139,26,26,0.08)">
+      <div class="quote-mark" style="color:#C94040">"</div>
+      <div class="quote-text">"The Catholic Church, by virtue of her divine mission, changed the day from Saturday to Sunday... This act is a MARK of her ecclesiastical power and authority in religious matters."</div>
+      <div class="quote-source">— Cardinal Gibbons' Chancellor, 1895 AD</div>
+    </div>
+
+    <div class="quote-card" style="border-color:rgba(201,168,76,0.4)">
+      <div class="quote-mark">"</div>
+      <div class="quote-text">"You may read the Bible from Genesis to Revelation, and you will not find a single line authorizing the sanctification of Sunday. The Scriptures enforce the religious observance of Saturday."</div>
+      <div class="quote-source">— Cardinal James Gibbons, The Faith of Our Fathers</div>
+    </div>
+
+    <div class="quote-card" style="border-color:rgba(184,134,11,0.5); background:rgba(184,134,11,0.06)">
+      <div class="quote-mark" style="color:#C9A84C">"</div>
+      <div class="quote-text">"A uniform day of rest that limits commercial activity can provide temporal boundaries that help communities to set aside time for religious observance, family gatherings, outdoor activities, and rest. God ordained the Sabbath as a day of rest, and until recent years, the Judeo-Christian tradition sought to honor that mandate by moral and legal regulation."</div>
+      <div class="quote-source">— Heritage Foundation SR323 / Project 2025, Page 589 · January 8, 2026 · Washington D.C.</div>
+    </div>
+
+    <div class="quote-card" style="border-color:rgba(82,183,136,0.4); background:rgba(82,183,136,0.05)">
+      <div class="quote-mark" style="color:#52B788">"</div>
+      <div class="quote-text">"Almost all churches throughout the world celebrate the sacred mysteries on the Sabbath of every week, yet the Christians of Alexandria and at Rome, on account of some ancient tradition, have ceased to do this."</div>
+      <div class="quote-source">— Socrates Scholasticus, Ecclesiastical History, Book V, Chapter 22 · c. 440 AD · Constantinople</div>
+    </div>
+
+  </div><!-- end timeline -->
+
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="infographic-label">INFOGRAPHIC I · THE MASTER TIMELINE · 30 AD – 2026 AD</div>
+
+</div>
+</body>
+</html>

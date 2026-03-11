@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<style>
+*, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+:root { color-scheme: dark; }</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Denominations Today — Where Every Church Stands on the Sabbath</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #7A6020;
+    --parchment: #F2E8D0;
+    --bg: #030508;
+    --border: rgba(201,168,76,0.22);
+    --sat: #1A5C38;
+    --sat-light: #4AAA70;
+    --sat-pale: rgba(26,92,56,0.12);
+    --both: #3A4A1A;
+    --both-light: #88AA40;
+    --both-pale: rgba(58,74,26,0.12);
+    --sun: #5C1A1A;
+    --sun-light: #CC5050;
+    --sun-pale: rgba(92,26,26,0.1);
+    --mixed: #1A3A5C;
+    --mixed-light: #5090CC;
+    --mixed-pale: rgba(26,58,92,0.1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    font-family: 'EB Garamond', serif;
+    color: var(--parchment);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 60%);
+  }
+  .page { width:1200px; margin:0 auto; padding:60px 40px 80px; }
+
+  .header { text-align:center; margin-bottom:50px; }
+  .header-icon { font-size:50px; margin-bottom:10px; display:block; }
+  .label-top { font-family:'Cinzel',serif; font-size:10px; letter-spacing:6px; color:var(--gold-dim); margin-bottom:14px; }
+  h1 { font-family:'Cinzel Decorative',serif; font-size:36px; color:var(--gold); text-shadow:0 0 30px rgba(201,168,76,0.3); margin-bottom:10px; line-height:1.2; }
+  .subtitle { font-size:17px; font-style:italic; color:rgba(242,232,208,0.65); max-width:720px; margin:0 auto; line-height:1.6; }
+  .gold-rule { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:30px 0; }
+  h2 { font-family:'Cinzel Decorative',serif; font-size:21px; color:var(--gold); margin-bottom:22px; text-align:center; }
+
+  /* Denomination status legend */
+  .status-legend {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:40px;
+  }
+  .sl-item {
+    padding:14px;
+    border-radius:5px;
+    border:1px solid;
+    text-align:center;
+  }
+  .sl-sat   { background:var(--sat-pale);   border-color:rgba(26,92,56,0.4);   }
+  .sl-both  { background:var(--both-pale);  border-color:rgba(58,74,26,0.4);   }
+  .sl-sun   { background:var(--sun-pale);   border-color:rgba(92,26,26,0.3);   }
+  .sl-mixed { background:var(--mixed-pale); border-color:rgba(26,58,92,0.4);   }
+  .sl-dot   { width:12px; height:12px; border-radius:50%; margin:0 auto 8px; }
+  .sl-sat   .sl-dot { background:var(--sat-light); }
+  .sl-both  .sl-dot { background:var(--both-light); }
+  .sl-sun   .sl-dot { background:var(--sun-light); }
+  .sl-mixed .sl-dot { background:var(--mixed-light); }
+  .sl-name  { font-family:'Cinzel',serif; font-size:11px; letter-spacing:1.5px; }
+  .sl-sat  .sl-name  { color:var(--sat-light); }
+  .sl-both .sl-name  { color:var(--both-light); }
+  .sl-sun  .sl-name  { color:var(--sun-light); }
+  .sl-mixed .sl-name { color:var(--mixed-light); }
+  .sl-desc  { font-size:12px; color:rgba(242,232,208,0.55); margin-top:4px; font-style:italic; }
+
+  /* Denom grid */
+  .denom-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:16px;
+    margin-bottom:30px;
+  }
+
+  .denom-card {
+    border-radius:6px;
+    border:1px solid;
+    overflow:hidden;
+  }
+  .denom-card.sat-card   { background:var(--sat-pale);   border-color:rgba(26,92,56,0.45);   }
+  .denom-card.both-card  { background:var(--both-pale);  border-color:rgba(58,74,26,0.45);   }
+  .denom-card.sun-card   { background:var(--sun-pale);   border-color:rgba(92,26,26,0.35);   }
+  .denom-card.mixed-card { background:var(--mixed-pale); border-color:rgba(26,58,92,0.45);   }
+
+  .denom-header {
+    padding:14px 18px;
+    border-bottom:1px solid rgba(201,168,76,0.15);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  }
+  .denom-name { font-family:'Cinzel',serif; font-size:13px; font-weight:700; color:var(--parchment); line-height:1.3; }
+  .denom-founded { font-family:'Cinzel',serif; font-size:9px; letter-spacing:1.5px; color:var(--gold-dim); margin-top:2px; }
+
+  .status-pill {
+    font-family:'Cinzel',serif; font-size:8px; letter-spacing:1px;
+    padding:3px 10px; border-radius:20px; white-space:nowrap; flex-shrink:0; margin-left:8px;
+  }
+  .pill-sat   { background:rgba(26,92,56,0.3);   color:var(--sat-light);   border:1px solid rgba(26,92,56,0.5);   }
+  .pill-both  { background:rgba(58,74,26,0.3);   color:var(--both-light);  border:1px solid rgba(58,74,26,0.5);   }
+  .pill-sun   { background:rgba(92,26,26,0.25);  color:var(--sun-light);   border:1px solid rgba(92,26,26,0.4);   }
+  .pill-mixed { background:rgba(26,58,92,0.3);   color:var(--mixed-light); border:1px solid rgba(26,58,92,0.5);   }
+
+  .denom-body { padding:14px 18px; }
+  .denom-members { font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; color:var(--gold-dim); margin-bottom:8px; }
+  .denom-text { font-size:13px; line-height:1.65; color:rgba(242,232,208,0.78); }
+  .denom-quote { margin-top:10px; padding:8px 12px; border-left:2px solid rgba(201,168,76,0.25); font-size:12px; font-style:italic; color:rgba(242,232,208,0.6); line-height:1.6; }
+  .denom-basis { margin-top:8px; font-family:'Cinzel',serif; font-size:9px; letter-spacing:1.5px; color:var(--gold-dim); }
+
+  /* Global numbers */
+  .numbers-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-bottom:30px;
+  }
+  .num-card { padding:22px; border-radius:5px; border:1px solid var(--border); text-align:center; background:rgba(255,252,230,0.03); }
+  .num-big { font-family:'Cinzel Decorative',serif; font-size:34px; color:var(--gold); display:block; line-height:1; margin-bottom:6px; }
+  .num-label { font-family:'Cinzel',serif; font-size:9px; letter-spacing:2px; color:var(--gold-dim); line-height:1.5; }
+
+  /* Trend section */
+  .trend-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:30px; }
+  .trend-card { padding:22px; border-radius:5px; border:1px solid var(--border); background:rgba(255,252,230,0.03); }
+  .trend-title { font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px; color:var(--gold); margin-bottom:14px; }
+  ul.trend-list { list-style:none; }
+  ul.trend-list li { font-size:13px; line-height:1.7; color:rgba(242,232,208,0.78); padding:6px 0 6px 16px; position:relative; border-bottom:1px solid rgba(201,168,76,0.07); }
+  ul.trend-list li:last-child { border-bottom:none; }
+  ul.trend-list li::before { content:'›'; position:absolute; left:0; color:var(--gold-dim); }
+  ul.trend-list li strong { color:var(--gold-light); font-weight:500; }
+
+  /* Summary */
+  .summary-box { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.3); border-radius:5px; padding:30px 36px; margin-top:30px; text-align:center; }
+  .summary-title { font-family:'Cinzel Decorative',serif; font-size:18px; color:var(--gold); margin-bottom:20px; }
+  .summary-text  { font-size:15px; line-height:1.9; color:rgba(242,232,208,0.85); max-width:900px; margin:0 auto; }
+
+  .ornament { text-align:center; color:var(--gold-dim); font-size:22px; letter-spacing:10px; margin-top:50px; }
+  .inf-label { font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold-dim); text-align:center; margin-top:12px; }
+
+  @media print {
+    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
+    body { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    @page { size: A3 landscape; margin: 0.5cm; }
+  }
+</style>
+
+<style id="print-force">
+/* ═══ PRINT COLOUR FORCE — auto-generated ═══ */
+*, *::before, *::after {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+@media print {
+  @page { margin: 0.5cm; }
+  body {
+    background: #030508 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #F2E8D0 !important;
+  }
+  .label-top {
+    color: #7A6020 !important;
+  }
+  h1 {
+    color: #C9A84C !important;
+  }
+  .subtitle {
+    color: rgba(242,232,208,0.65) !important;
+  }
+  .gold-rule {
+    background: linear-gradient(90deg,transparent,#C9A84C,transparent) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  h2 {
+    color: #C9A84C !important;
+  }
+  .sl-item {
+    border: 1px solid !important;
+  }
+  .sl-sat {
+    background: rgba(26,92,56,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(26,92,56,0.4) !important;
+  }
+  .sl-both {
+    background: rgba(58,74,26,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(58,74,26,0.4) !important;
+  }
+  .sl-sun {
+    background: rgba(92,26,26,0.1) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(92,26,26,0.3) !important;
+  }
+  .sl-mixed {
+    background: rgba(26,58,92,0.1) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(26,58,92,0.4) !important;
+  }
+  .sl-sat   .sl-dot {
+    background: #4AAA70 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .sl-both  .sl-dot {
+    background: #88AA40 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .sl-sun   .sl-dot {
+    background: #CC5050 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .sl-mixed .sl-dot {
+    background: #5090CC !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .sl-sat  .sl-name {
+    color: #4AAA70 !important;
+  }
+  .sl-both .sl-name {
+    color: #88AA40 !important;
+  }
+  .sl-sun  .sl-name {
+    color: #CC5050 !important;
+  }
+  .sl-mixed .sl-name {
+    color: #5090CC !important;
+  }
+  .sl-desc {
+    color: rgba(242,232,208,0.55) !important;
+  }
+  .denom-card {
+    border: 1px solid !important;
+  }
+  .denom-card.sat-card {
+    background: rgba(26,92,56,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(26,92,56,0.45) !important;
+  }
+  .denom-card.both-card {
+    background: rgba(58,74,26,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(58,74,26,0.45) !important;
+  }
+  .denom-card.sun-card {
+    background: rgba(92,26,26,0.1) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(92,26,26,0.35) !important;
+  }
+  .denom-card.mixed-card {
+    background: rgba(26,58,92,0.1) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(26,58,92,0.45) !important;
+  }
+  .denom-header {
+    border-bottom: 1px solid rgba(201,168,76,0.15) !important;
+  }
+  .denom-name {
+    color: #F2E8D0 !important;
+  }
+  .denom-founded {
+    color: #7A6020 !important;
+  }
+  .pill-sat {
+    background: rgba(26,92,56,0.3) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #4AAA70 !important;
+    border: 1px solid rgba(26,92,56,0.5) !important;
+  }
+  .pill-both {
+    background: rgba(58,74,26,0.3) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #88AA40 !important;
+    border: 1px solid rgba(58,74,26,0.5) !important;
+  }
+  .pill-sun {
+    background: rgba(92,26,26,0.25) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #CC5050 !important;
+    border: 1px solid rgba(92,26,26,0.4) !important;
+  }
+  .pill-mixed {
+    background: rgba(26,58,92,0.3) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #5090CC !important;
+    border: 1px solid rgba(26,58,92,0.5) !important;
+  }
+  .denom-members {
+    color: #7A6020 !important;
+  }
+  .denom-text {
+    color: rgba(242,232,208,0.78) !important;
+  }
+  .denom-quote {
+    border-left: 2px solid rgba(201,168,76,0.25) !important;
+    color: rgba(242,232,208,0.6) !important;
+  }
+  .denom-basis {
+    color: #7A6020 !important;
+  }
+  .num-card {
+    border: 1px solid rgba(201,168,76,0.22) !important;
+    background: rgba(255,252,230,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .num-big {
+    color: #C9A84C !important;
+  }
+  .num-label {
+    color: #7A6020 !important;
+  }
+  .trend-card {
+    border: 1px solid rgba(201,168,76,0.22) !important;
+    background: rgba(255,252,230,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .trend-title {
+    color: #C9A84C !important;
+  }
+  ul.trend-list li {
+    color: rgba(242,232,208,0.78) !important;
+    border-bottom: 1px solid rgba(201,168,76,0.07) !important;
+  }
+  ul.trend-list li:last-child {
+    border-bottom: none !important;
+  }
+  ul.trend-list li::before {
+    color: #7A6020 !important;
+  }
+  ul.trend-list li strong {
+    color: #E8C97A !important;
+  }
+  /* Summary */
+  .summary-box {
+    background: rgba(201,168,76,0.05) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+  }
+  .summary-title {
+    color: #C9A84C !important;
+  }
+  .summary-text {
+    color: rgba(242,232,208,0.85) !important;
+  }
+  .ornament {
+    color: #7A6020 !important;
+  }
+  .inf-label {
+    color: #7A6020 !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <span class="header-icon">⛪</span>
+    <div class="label-top">2025 · Every Major Denomination · Their Position · Their Reasoning · Their Numbers</div>
+    <h1>THE DENOMINATIONS TODAY</h1>
+    <div class="subtitle">Where every major Christian body currently stands on the Saturday Sabbath question — their official position, their scriptural basis, their membership, and the growing movement back toward Saturday worldwide.</div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- Status Legend -->
+  <div class="status-legend">
+    <div class="sl-item sl-sat">
+      <div class="sl-dot"></div>
+      <div class="sl-name">SATURDAY ONLY</div>
+      <div class="sl-desc">Seventh day is the sacred Sabbath</div>
+    </div>
+    <div class="sl-item sl-both">
+      <div class="sl-dot"></div>
+      <div class="sl-name">SATURDAY + SUNDAY</div>
+      <div class="sl-desc">Both days observed as sacred</div>
+    </div>
+    <div class="sl-item sl-sun">
+      <div class="sl-dot"></div>
+      <div class="sl-name">SUNDAY ONLY</div>
+      <div class="sl-desc">First day replaces the Sabbath</div>
+    </div>
+    <div class="sl-item sl-mixed">
+      <div class="sl-dot"></div>
+      <div class="sl-name">DIVIDED / EVOLVING</div>
+      <div class="sl-desc">Internal debate or shifting position</div>
+    </div>
+  </div>
+
+  <!-- Global Numbers -->
+  <h2>The Global Numbers — 2025</h2>
+  <div class="numbers-grid">
+    <div class="num-card">
+      <span class="num-big">23.7M</span>
+      <span class="num-label">Seventh-day Adventist members in 200+ countries — 23,684,237 as of Dec 31, 2024 (GC Annual Statistical Report)</span>
+    </div>
+    <div class="num-card">
+      <span class="num-big">60M+</span>
+      <span class="num-label">Ethiopian Orthodox Tewahedo Church worldwide — the largest single Christian body observing Saturday on earth</span>
+    </div>
+    <div class="num-card">
+      <span class="num-big">70K</span>
+      <span class="num-label">Seventh Day Baptists in 17 countries — the oldest continuous Saturday Baptist tradition</span>
+    </div>
+    <div class="num-card">
+      <span class="num-big">2.4B</span>
+      <span class="num-label">Total Christians worldwide — the vast majority observing Sunday, the rest on Saturday</span>
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- Denominations Grid -->
+  <h2>Denomination by Denomination</h2>
+  <div class="denom-grid">
+
+    <!-- SDA -->
+    <div class="denom-card sat-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Seventh-day Adventist Church</div><div class="denom-founded">Founded 1863 · Battle Creek, Michigan</div></div>
+        <span class="status-pill pill-sat">Saturday Only</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 23,684,237 MEMBERS · 200+ COUNTRIES · DEC 31, 2024</div>
+        <div class="denom-text">The largest and fastest-growing Protestant denomination that observes Saturday. Observes the Sabbath from Friday sunset to Saturday sunset, following the Hebrew calendar. The church grew from the Millerite movement when Ellen White and Joseph Bates, among others, independently rediscovered the Saturday Sabbath through Bible study in the 1840s.</div>
+        <div class="denom-quote">"The Sabbath is a memorial of creation and a sign of sanctification, a token of our relationship with God."</div>
+        <div class="denom-basis">SCRIPTURAL BASIS: Exodus 20:8–11, Hebrews 4:9, Matthew 5:17–18</div>
+      </div>
+    </div>
+
+    <!-- Ethiopian Orthodox -->
+    <div class="denom-card both-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Ethiopian Orthodox Tewahedo Church</div><div class="denom-founded">Established c. 330 AD · Over 1,700 years</div></div>
+        <span class="status-pill pill-both">Saturday + Sunday</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 60+ MILLION MEMBERS WORLDWIDE · LARGEST SATURDAY-PRACTICING BODY ON EARTH</div>
+        <div class="denom-text">The longest unbroken Saturday Sabbath tradition in the world — over 1,700 years without interruption. Observes both Saturday (the Lesser Sabbath, memorial of creation) and Sunday (the Lord's Day, memorial of resurrection). Resisted Coptic, Catholic, and colonial pressure to abandon Saturday. The Council of Dabra Metmaq (1445) formally enshrined Saturday. The people expelled Jesuit missionaries in 1633 to preserve it.</div>
+        <div class="denom-quote">"We observe the Sabbath because God, after He had finished the creation of the world, rested thereon." — Ethiopian Ambassador, 1534</div>
+        <div class="denom-basis">SCRIPTURAL BASIS: Genesis 2:2–3, Exodus 20:8–11, Apostolic Constitutions</div>
+      </div>
+    </div>
+
+    <!-- Seventh Day Baptist -->
+    <div class="denom-card sat-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Seventh Day Baptist Church</div><div class="denom-founded">Founded 1650 · England · America 1671</div></div>
+        <span class="status-pill pill-sat">Saturday Only</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 70,000 MEMBERS · 17 COUNTRIES</div>
+        <div class="denom-text">The oldest continuously existing Protestant Saturday-keeping denomination. Emerged from the English Reformation when believers reading the Bible independently rediscovered Saturday. James Ockford's 1650 publication "The Doctrine of the Fourth Commandment, Deformed by Popery, Reformed and Restored to its Primitive Purity" became their founding document. The first American church established in Newport, Rhode Island in 1671. Directly influenced the early Adventist movement.</div>
+        <div class="denom-quote">The very title of their founding document says everything: the Sabbath was "deformed by popery" and must be "restored to its primitive purity."</div>
+        <div class="denom-basis">SCRIPTURAL BASIS: Exodus 20:8–11, Acts 17:2, Acts 13:44</div>
+      </div>
+    </div>
+
+    <!-- Roman Catholic -->
+    <div class="denom-card sun-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Roman Catholic Church</div><div class="denom-founded">Claims apostolic succession from Peter</div></div>
+        <span class="status-pill pill-sun">Sunday Only</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 1.3 BILLION MEMBERS · LARGEST CHRISTIAN BODY</div>
+        <div class="denom-text">Sunday is observed as the Lord's Day — the Day of Resurrection. Uniquely, the Catholic Church does not claim biblical authority for Sunday — it openly claims its own ecclesiastical authority as the basis for the change. The Catechism of the Catholic Church states Sunday observance is a "creative reinterpretation" by the Church. This is the only major denomination that explicitly acknowledges the change was made by human church authority, not scripture.</div>
+        <div class="denom-quote">"The Catholic Church, by virtue of her divine mission, changed the day from Saturday to Sunday. This act is a MARK of her ecclesiastical power." — Cardinal Gibbons' Chancellor, 1895</div>
+        <div class="denom-basis">STATED BASIS: Church authority — not biblical command. The Catholic Church challenges Protestants who use only the Bible to explain their Sunday observance.</div>
+      </div>
+    </div>
+
+    <!-- Eastern Orthodox -->
+    <div class="denom-card both-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Eastern Orthodox Church</div><div class="denom-founded">Traces to apostolic era · Schism 1054</div></div>
+        <span class="status-pill pill-both">Saturday Honored</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 250–300 MILLION MEMBERS</div>
+        <div class="denom-text">Sunday is the primary day of worship, but Saturday retains significant sacred status in the liturgical calendar. The Orthodox Church never fasts on Saturday (except Great Saturday) — a direct inheritance from the ancient prohibition against desecrating the Sabbath. Saturday is called a "feast day" — memorial of creation. The Apostolic Constitutions, which command both Saturday and Sunday, are part of the Eastern heritage. The Synod of Trullo (692 AD) formally condemned Rome's practice of fasting on Saturday.</div>
+        <div class="denom-quote">"In the liturgical tradition of the Orthodox Church, Saturday continued to be a festival, regarded as the memorial of the creation narrative. The Church never fasts on a Saturday." — Greek Orthodox Archdiocese</div>
+        <div class="denom-basis">PRACTICE: Sunday primary worship; Saturday as a feast day with its own Divine Liturgy; no Saturday fasting</div>
+      </div>
+    </div>
+
+    <!-- Protestant Mainline -->
+    <div class="denom-card sun-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Mainline Protestant Denominations</div><div class="denom-founded">Lutheran · Methodist · Presbyterian · Anglican</div></div>
+        <span class="status-pill pill-sun">Sunday Only</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 ~400 MILLION COMBINED</div>
+        <div class="denom-text">All major mainline Protestant denominations observe Sunday as the Lord's Day. Unlike the Catholic Church, they typically claim the change is supported by the New Testament — citing John 20:19, Acts 20:7, and 1 Corinthians 16:2. However, none can point to an explicit biblical command to transfer the Sabbath to Sunday. Martin Luther himself acknowledged: "Great, they say, is the power and authority of the Church, since it dispensed with one of the Ten Commandments." Calvin similarly struggled to provide a clear biblical basis for Sunday as opposed to Saturday.</div>
+        <div class="denom-quote">"There is no word of God that has prescribed the Lord's Day. I have already shown that Sunday is not a matter of faith." — Martin Luther</div>
+        <div class="denom-basis">STATED BASIS: Resurrection day theology, church tradition, New Testament "first day" texts</div>
+      </div>
+    </div>
+
+    <!-- Eritrean Orthodox -->
+    <div class="denom-card both-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Eritrean Orthodox Tewahedo Church</div><div class="denom-founded">Autocephalous since 1993</div></div>
+        <span class="status-pill pill-both">Saturday + Sunday</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 ~2.5 MILLION MEMBERS</div>
+        <div class="denom-text">Sister church to the Ethiopian Orthodox — shares the same ancient Sabbath tradition. Broke from the Ethiopian Orthodox Church in 1993 but maintained the same observance of both Saturday and Sunday. Like Ethiopia, traces its Christian heritage to the earliest centuries of the faith, preserving practices that predate Rome's Sunday legislation by centuries.</div>
+        <div class="denom-basis">PRACTICE: Same dual Saturday/Sunday observance as Ethiopian Orthodox, rooted in the same ancient Alexandrian and apostolic tradition</div>
+      </div>
+    </div>
+
+    <!-- Coptic Orthodox -->
+    <div class="denom-card both-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Coptic Orthodox Church of Alexandria</div><div class="denom-founded">Founded by Apostle Mark · c. 42 AD</div></div>
+        <span class="status-pill pill-both">Saturday Honored</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 ~15–18 MILLION MEMBERS</div>
+        <div class="denom-text">Founded by the Apostle Mark, the Coptic Church is one of the oldest Christian institutions in the world. Like the Eastern Orthodox, Saturday retains significant sacred status — it is not a fasting day, and a special Saturday Divine Liturgy exists. Historically the Coptic Church had Saturday-keeping as a stronger practice (documented in the Oxyrhynchus Papyrus, c. 200-250 AD) before gradually aligning closer to Rome's position, while never fully eliminating Saturday's sacred character.</div>
+        <div class="denom-basis">PRACTICE: Sunday primary worship; Saturday as a non-fasting feast day with its own liturgy; ancient heritage includes stronger Saturday observance</div>
+      </div>
+    </div>
+
+    <!-- Evangelical / Pentecostal -->
+    <div class="denom-card sun-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Evangelical & Pentecostal Churches</div><div class="denom-founded">19th–20th Century movements</div></div>
+        <span class="status-pill pill-sun">Sunday Only</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 ~600 MILLION MEMBERS GLOBALLY</div>
+        <div class="denom-text">The fastest-growing segment of global Christianity observes Sunday exclusively. While firmly "Bible only" in their stated theology, most evangelical and Pentecostal denominations do not engage deeply with the Saturday/Sunday historical question. Most teach that the Sabbath was "fulfilled" in Christ (Colossians 2:16–17) and that the resurrection established Sunday as the Christian day of worship. However, there is a growing minority Sabbath movement within Pentecostal circles, particularly in Africa and Latin America, driven by independent Bible reading.</div>
+        <div class="denom-basis">STATED BASIS: "Fulfillment" theology — the Sabbath pointed to Christ who is our rest; resurrection Sunday as the new creation day</div>
+      </div>
+    </div>
+
+    <!-- Hebrew Roots / Messianic -->
+    <div class="denom-card sat-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Messianic Judaism & Hebrew Roots Movement</div><div class="denom-founded">20th–21st Century · Growing rapidly</div></div>
+        <span class="status-pill pill-sat">Saturday Only</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 ~350,000–1 MILLION GLOBALLY · RAPID GROWTH</div>
+        <div class="denom-text">A rapidly growing movement of Jewish and Gentile believers who observe the full Torah including the Saturday Sabbath, while believing Jesus (Yeshua) is the Messiah. Saturday observance is seen as the natural continuation of first-century Jewish Christianity — the original Nazarene church. Many in this movement argue that Paul himself never stopped keeping Saturday and that the Gentile church's abandonment of the Sabbath was the syncretism that Paul actually warned against.</div>
+        <div class="denom-quote">"We are returning to the faith once delivered to the saints — the faith of the apostles, which included the Sabbath."</div>
+        <div class="denom-basis">SCRIPTURAL BASIS: The entire Torah including Exodus 20; Matthew 5:17–18; Acts 21:24 (Paul keeping Torah)</div>
+      </div>
+    </div>
+
+    <!-- Church of God (Seventh Day) -->
+    <div class="denom-card sat-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Church of God (Seventh Day)</div><div class="denom-founded">Founded 1858 · Michigan, USA</div></div>
+        <span class="status-pill pill-sat">Saturday Only</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 ~300,000 MEMBERS · WORLDWIDE</div>
+        <div class="denom-text">A precursor denomination to the Seventh-day Adventist Church — the early Adventists drew heavily from the Church of God (Seventh Day). Observes the Saturday Sabbath from sunset Friday to sunset Saturday. Does not share SDA beliefs about Ellen White's prophetic ministry, but shares the same scriptural foundation for Saturday observance. Present in Africa, Latin America, and Asia with significant membership growth in the Global South.</div>
+        <div class="denom-basis">SCRIPTURAL BASIS: The fourth commandment; the perpetuity of God's law; Isaiah 66:22–23</div>
+      </div>
+    </div>
+
+    <!-- Worldwide Church of God / Armstrong arc -->
+    <div class="denom-card sat-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Worldwide Church of God → 50+ Saturday Splinters</div><div class="denom-founded">Founded 1934 · Renamed Grace Communion International 2009</div></div>
+        <span class="status-pill pill-sat">Saturday (Splinters)</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 PEAK ~150,000 MEMBERS · 50+ SURVIVING SATURDAY SPLINTER GROUPS</div>
+        <div class="denom-text">Herbert W. Armstrong founded the Radio Church of God (1934), renamed Worldwide Church of God (WCG) in 1968. By Armstrong's death in January 1986 the church had grown to over 150,000 members worldwide, broadcasting <em>The World Tomorrow</em> on radio and television. The WCG kept the Saturday Sabbath, annual feasts of Leviticus 23, and clean/unclean food laws — a thoroughgoing biblical literalism. After Armstrong died, his successor Joseph Tkach Sr. progressively dismantled Sabbatarianism, formally announcing the shift to Sunday observance in December 1994 — triggering the largest single-event mass defection in modern church history.</div>
+        <div class="denom-quote">When the WCG abandoned Saturday in 1994–95, roughly two-thirds of its membership walked out rather than follow. They formed over 50 independent bodies — all retaining the Saturday Sabbath — demonstrating that Sabbath conviction, once deeply held, does not dissolve when institutional authority reverses.</div>
+        <div class="denom-basis">MAJOR SPLINTERS (all Saturday): United Church of God (UCG, ~17,000) · Living Church of God (~10,000) · Church of God International · Philadelphia Church of God. WCG renamed itself Grace Communion International (GCI) in 2009 and today observes Sunday. The Saturday splinters collectively number 60,000–80,000+ worldwide.</div>
+      </div>
+    </div>
+
+    <!-- Growing movements -->
+    <div class="denom-card mixed-card">
+      <div class="denom-header">
+        <div><div class="denom-name">Independent African & Asian Saturday Movements</div><div class="denom-founded">Ongoing · 21st Century Growth</div></div>
+        <span class="status-pill pill-mixed">Rapidly Growing</span>
+      </div>
+      <div class="denom-body">
+        <div class="denom-members">📊 MILLIONS · FASTEST GROWTH REGION GLOBALLY</div>
+        <div class="denom-text">Across sub-Saharan Africa and parts of Asia, independent Pentecostal and charismatic churches are independently arriving at Saturday observance through Bible reading — exactly repeating the pattern of the Protestant Reformation. In Nigeria, Ghana, Kenya, Uganda, and South Africa, significant church movements have shifted to Saturday worship without contact with organized Adventist or Baptist traditions. This phenomenon mirrors the 16th-century Reformation's independent rediscoveries and is perhaps the most historically significant current development in this story.</div>
+        <div class="denom-basis">DRIVER: Direct Bible reading in African languages without traditional denominational commentary — the same pattern that produced every previous Saturday revival</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Growth Trends -->
+  <div class="gold-rule"></div>
+  <h2>The Global Trend — Where Saturday Is Growing</h2>
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-title">REGIONS WHERE SATURDAY IS GROWING FASTEST</div>
+      <ul class="trend-list">
+        <li><strong>Sub-Saharan Africa:</strong> SDA church growing at 3–4% annually; independent Saturday movements emerging faster than official tracking can follow</li>
+        <li><strong>East Africa:</strong> SDA membership highest per capita in world in some East African nations; Ethiopian Orthodox maintains full Saturday tradition among 60M+ members worldwide</li>
+        <li><strong>Latin America:</strong> SDA strongest Protestant denomination in several countries; Messianic Jewish communities growing in Brazil, Argentina, and Colombia</li>
+        <li><strong>South Asia:</strong> SDA membership growing in India, Philippines, and Pacific Island nations</li>
+        <li><strong>Global South overall:</strong> Saturday-keeping Christianity is growing fastest in regions where Roman Catholic or mainline Protestant institutions are weakest</li>
+        <li><strong>Online:</strong> The Hebrew Roots / Messianic movement is growing explosively through social media and independent Bible study — not tied to any geography</li>
+      </ul>
+    </div>
+    <div class="trend-card">
+      <div class="trend-title">THE HISTORICAL IRONY OF THE TREND</div>
+      <ul class="trend-list">
+        <li><strong>Africa:</strong> The continent where Saturday survived longest (Ethiopia) and where Rome's suppression was most resisted is now the world's fastest-growing Saturday-keeping region</li>
+        <li><strong>The pattern repeats:</strong> Every time people in the Global South gain access to scripture in their own language, they independently rediscovery Saturday — exactly as European Reformers did in the 1500s</li>
+        <li><strong>The Catholic challenge unanswered:</strong> "Show us the verse that commands Sunday." As more Christians in Africa and Asia ask this question for the first time, they find the same answer as everyone before them</li>
+        <li><strong>Post-colonial Christianity:</strong> As African and Asian churches shed European colonial religious structures, they tend to return toward practices that predate Rome's influence — including Saturday</li>
+        <li><strong>The counter-trend:</strong> In Western Europe and North America, overall Christian practice is declining — meaning Sunday-keeping denominations are shrinking fastest in Rome's historical heartland</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="summary-title">THE STATE OF THE SABBATH — 2025</div>
+    <div class="summary-text">
+      More than 70 million Christians worldwide currently observe Saturday as a sacred day — more than at any point since the Council of Laodicea's decree of 364 AD. The Saturday-keeping movement is growing fastest in Africa, Latin America, and Asia — the same regions where Rome's historical suppression was most recently active, and where independent Bible reading is most vibrant.
+      <br><br>
+      The most remarkable feature of the 2025 landscape is that the Catholic Church remains the only major denomination to clearly and honestly explain why Sunday replaced Saturday: <em>"by virtue of her divine mission"</em> and <em>"as a mark of her ecclesiastical power."</em> Protestant Sunday-keeping denominations continue to cite disputed New Testament passages as their basis — passages that, as Cardinal Gibbons noted, do not actually command Sunday worship.
+      <br><br>
+      The trajectory of history — from universal Saturday, through Roman suppression, through Reformation revival, through global missionary rediscovery — is pointing back toward where it began. <strong style="color:var(--gold)">The day that God blessed and sanctified at Creation has never stopped being found by those who looked for it in scripture.</strong>
+    </div>
+  </div>
+
+  <div class="ornament">⛪ ✦ ⛪</div>
+  <div class="inf-label">INFOGRAPHIC VII OF VII · THE DENOMINATIONS TODAY</div>
+</div>
+</body>
+</html>

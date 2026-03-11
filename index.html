@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Babylon's Wine — The Constantine Legacy &amp; God's Final Call</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       SIDEBAR
+  ══════════════════════════════════════════════════════ -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo" onclick="showHome()" title="Go to Home">
+        <span class="logo-icon">✦</span>
+        <div class="logo-text">
+          <span class="logo-title">Babylon's Wine</span>
+          <span class="logo-sub">The Constantine Legacy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-search">
+      <input id="nav-search" type="text" placeholder="Search topics…" autocomplete="off" />
+      <span class="search-icon">⌕</span>
+    </div>
+
+    <nav id="sidebar-nav">
+      <!-- Populated by app.js -->
+    </nav>
+
+    <div class="sidebar-footer">
+      <button id="btn-home" onclick="showHome()">⌂ Home</button>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════════════════
+       MAIN AREA
+  ══════════════════════════════════════════════════════ -->
+  <div id="main-wrapper">
+
+    <!-- Top bar -->
+    <header id="topbar">
+      <button id="sidebar-toggle" onclick="toggleSidebar()" title="Toggle menu">☰</button>
+      <button id="topbar-home" onclick="showHome()" title="Home">⌂</button>
+      <div id="breadcrumb">
+        <span id="breadcrumb-section"></span>
+        <span id="breadcrumb-sep" style="display:none"> › </span>
+        <span id="breadcrumb-title"></span>
+      </div>
+      <div id="topbar-actions">
+        <button id="btn-print" onclick="window.print()" title="Print / Save as PDF">⎙ Print</button>
+      </div>
+    </header>
+
+    <!-- Content area -->
+    <main id="content-area">
+
+      <!-- HOME PAGE (shown by default) -->
+      <div id="home-page">
+        <div class="hero">
+          <div class="hero-badge">Bible Prophecy Study Library</div>
+          <h1 class="hero-title">Babylon's Wine</h1>
+          <p class="hero-subtitle">The Constantine Legacy &amp; God's Final Call</p>
+          <p class="hero-desc">
+            A complete prophetic study library covering Daniel, Revelation, the mark of the beast,
+            the Sabbath truth, and end-time events — built on Scripture alone.
+          </p>
+          <div class="hero-verse">"Come out of her, My people" — Revelation 18:4</div>
+        </div>
+
+        <!-- Study Guides cards -->
+        <section class="card-section">
+          <h2 class="section-heading">
+            <span class="section-icon">📖</span> Study Guides
+          </h2>
+          <div class="card-grid" id="study-guide-cards"></div>
+        </section>
+
+        <!-- Main Library cards -->
+        <section class="card-section">
+          <h2 class="section-heading">
+            <span class="section-icon">📚</span> Main Library
+          </h2>
+          <div class="card-grid" id="main-library-cards"></div>
+        </section>
+
+        <!-- Reference Materials -->
+        <section class="card-section">
+          <h2 class="section-heading">
+            <span class="section-icon">📋</span> Reference &amp; Source Documents
+          </h2>
+          <div class="card-grid" id="reference-cards"></div>
+        </section>
+
+        <!-- Infographics -->
+        <section class="card-section">
+          <h2 class="section-heading">
+            <span class="section-icon">🗺️</span> Infographics &amp; Visual Guides
+          </h2>
+          <div class="card-grid" id="infographics-cards"></div>
+        </section>
+      </div>
+
+      <!-- DOCUMENT VIEW (shown when a doc is selected) -->
+      <div id="doc-page" style="display:none">
+        <div id="doc-content" class="markdown-body"></div>
+        <!-- Infographic viewer: shown instead of doc-content for .html files -->
+        <iframe id="doc-iframe"
+          style="display:none; width:100%; border:none; overflow:hidden;"
+          scrolling="no"
+          title="Infographic viewer">
+        </iframe>
+        <div class="doc-nav-footer">
+          <button id="btn-prev" onclick="navigatePrev()">← Previous</button>
+          <button id="btn-back-home" onclick="showHome()">⌂ Home</button>
+          <button id="btn-next" onclick="navigateNext()">Next →</button>
+        </div>
+      </div>
+
+      <!-- LOADING SPINNER -->
+      <div id="loading" style="display:none">
+        <div class="spinner"></div>
+        <p>Loading document…</p>
+      </div>
+
+      <!-- ERROR STATE -->
+      <div id="error-state" style="display:none">
+        <div class="error-icon">⚠</div>
+        <h2>Could not load document</h2>
+        <p id="error-msg">Please ensure you are running this site through a local server (not file://). See <code>start_server.bat</code>.</p>
+        <button onclick="showHome()">← Back to Home</button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Back-to-top button -->
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

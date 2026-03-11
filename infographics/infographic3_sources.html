@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<style>
+*, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+:root { color-scheme: dark; }</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sabbath — Sources & Evidence</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #7A6020;
+    --parchment: #F0E8D0;
+    --bg: #060401;
+    --border: rgba(201,168,76,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'EB Garamond', serif;
+    color: var(--parchment);
+  }
+
+  .page {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .label-top {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--gold-dim);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 34px;
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(201,168,76,0.3);
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    font-style: italic;
+    color: rgba(240,232,208,0.7);
+  }
+
+  /* Two column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  /* Section headers */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Key quotes */
+  .quote-block {
+    background: rgba(201,168,76,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .quote-block::before {
+    content: '"';
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 50px;
+    color: rgba(201,168,76,0.15);
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.8;
+    color: rgba(240,232,208,0.9);
+    padding-left: 10px;
+  }
+
+  .quote-attribution {
+    margin-top: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-align: right;
+    padding-left: 10px;
+  }
+
+  .quote-category {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .cat-rome { background: rgba(139,26,26,0.2); color: #E05555; border: 1px solid rgba(139,26,26,0.4); }
+  .cat-east { background: rgba(26,74,107,0.2); color: #5BB0E0; border: 1px solid rgba(26,74,107,0.4); }
+  .cat-africa { background: rgba(45,106,79,0.2); color: #52B788; border: 1px solid rgba(45,106,79,0.4); }
+  .cat-historian { background: rgba(107,66,38,0.2); color: #D0905A; border: 1px solid rgba(107,66,38,0.4); }
+  .cat-scholar { background: rgba(74,25,107,0.2); color: #C07FD0; border: 1px solid rgba(74,25,107,0.4); }
+
+  /* Sources list */
+  .source-entry {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+
+  .source-entry:last-child { border-bottom: none; }
+
+  .source-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: var(--gold-dim);
+    display: inline-block;
+    width: 24px;
+    flex-shrink: 0;
+  }
+
+  .source-title {
+    font-size: 13.5px;
+    color: var(--parchment);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .source-detail {
+    font-size: 12px;
+    color: rgba(240,232,208,0.55);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .source-type {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1px;
+    padding: 1px 6px;
+    border-radius: 2px;
+    margin-top: 3px;
+  }
+
+  .type-primary { background: rgba(45,106,79,0.15); color: #52B788; border: 1px solid rgba(45,106,79,0.3); }
+  .type-secondary { background: rgba(26,74,107,0.15); color: #5BB0E0; border: 1px solid rgba(26,74,107,0.3); }
+  .type-church { background: rgba(139,26,26,0.15); color: #E05555; border: 1px solid rgba(139,26,26,0.3); }
+  .type-archaeology { background: rgba(107,66,38,0.15); color: #D0905A; border: 1px solid rgba(107,66,38,0.3); }
+  .type-council { background: rgba(74,25,107,0.15); color: #C07FD0; border: 1px solid rgba(74,25,107,0.3); }
+
+  .source-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  /* Key figures */
+  .figure-card {
+    background: rgba(255,248,230,0.03);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  .figure-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 3px;
+  }
+
+  .figure-dates {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+  }
+
+  .figure-bio {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(240,232,208,0.75);
+  }
+
+  .figure-significance {
+    margin-top: 8px;
+    font-size: 11.5px;
+    color: rgba(240,232,208,0.55);
+    font-style: italic;
+  }
+
+  /* Key councils/decrees */
+  .decree-card {
+    padding: 14px 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    border-left: 3px solid;
+  }
+
+  .decree-sat { background: rgba(45,106,79,0.08); border-color: #2D6A4F; }
+  .decree-sun { background: rgba(139,26,26,0.08); border-color: #8B1A1A; }
+  .decree-resist { background: rgba(26,74,107,0.08); border-color: #1A4A6B; }
+
+  .decree-date {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+
+  .decree-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--parchment);
+    margin-bottom: 6px;
+  }
+
+  .decree-text {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(240,232,208,0.7);
+  }
+
+  .ornament {
+    text-align: center;
+    color: var(--gold-dim);
+    font-size: 22px;
+    letter-spacing: 10px;
+    margin-top: 50px;
+  }
+
+  .infographic-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .full-width {
+    margin-bottom: 30px;
+  }
+
+  h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    @page { size: A3 landscape; margin: 0.5cm; }
+  }
+</style>
+
+<style id="print-force">
+/* ═══ PRINT COLOUR FORCE — auto-generated ═══ */
+*, *::before, *::after {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+@media print {
+  @page { size: A3 landscape; margin: 0.5cm; }
+  body {
+    background: #060401 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #F0E8D0 !important;
+  }
+  .header {
+    border-bottom: 1px solid rgba(201,168,76,0.2) !important;
+  }
+  .label-top {
+    color: #7A6020 !important;
+  }
+  h1 {
+    color: #C9A84C !important;
+  }
+  .subtitle {
+    color: rgba(240,232,208,0.7) !important;
+  }
+  /* Section headers */
+  .section-title {
+    color: #C9A84C !important;
+    border-bottom: 1px solid rgba(201,168,76,0.2) !important;
+  }
+  /* Key quotes */
+  .quote-block {
+    background: rgba(201,168,76,0.04) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.2) !important;
+  }
+  .quote-block::before {
+    color: rgba(201,168,76,0.15) !important;
+  }
+  .quote-text {
+    color: rgba(240,232,208,0.9) !important;
+  }
+  .quote-attribution {
+    color: #7A6020 !important;
+  }
+  .cat-rome {
+    background: rgba(139,26,26,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #E05555 !important;
+    border: 1px solid rgba(139,26,26,0.4) !important;
+  }
+  .cat-east {
+    background: rgba(26,74,107,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #5BB0E0 !important;
+    border: 1px solid rgba(26,74,107,0.4) !important;
+  }
+  .cat-africa {
+    background: rgba(45,106,79,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #52B788 !important;
+    border: 1px solid rgba(45,106,79,0.4) !important;
+  }
+  .cat-historian {
+    background: rgba(107,66,38,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #D0905A !important;
+    border: 1px solid rgba(107,66,38,0.4) !important;
+  }
+  .cat-scholar {
+    background: rgba(74,25,107,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #C07FD0 !important;
+    border: 1px solid rgba(74,25,107,0.4) !important;
+  }
+  /* Sources list */
+  .source-entry {
+    border-bottom: 1px solid rgba(201,168,76,0.08) !important;
+  }
+  .source-entry:last-child {
+    border-bottom: none !important;
+  }
+  .source-num {
+    color: #7A6020 !important;
+  }
+  .source-title {
+    color: #F0E8D0 !important;
+  }
+  .source-detail {
+    color: rgba(240,232,208,0.55) !important;
+  }
+  .type-primary {
+    background: rgba(45,106,79,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #52B788 !important;
+    border: 1px solid rgba(45,106,79,0.3) !important;
+  }
+  .type-secondary {
+    background: rgba(26,74,107,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #5BB0E0 !important;
+    border: 1px solid rgba(26,74,107,0.3) !important;
+  }
+  .type-church {
+    background: rgba(139,26,26,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #E05555 !important;
+    border: 1px solid rgba(139,26,26,0.3) !important;
+  }
+  .type-archaeology {
+    background: rgba(107,66,38,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #D0905A !important;
+    border: 1px solid rgba(107,66,38,0.3) !important;
+  }
+  .type-council {
+    background: rgba(74,25,107,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #C07FD0 !important;
+    border: 1px solid rgba(74,25,107,0.3) !important;
+  }
+  /* Key figures */
+  .figure-card {
+    background: rgba(255,248,230,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.2) !important;
+  }
+  .figure-name {
+    color: #E8C97A !important;
+  }
+  .figure-dates {
+    color: #7A6020 !important;
+  }
+  .figure-bio {
+    color: rgba(240,232,208,0.75) !important;
+  }
+  .figure-significance {
+    color: rgba(240,232,208,0.55) !important;
+  }
+  /* Key councils/decrees */
+  .decree-card {
+    border-left: 3px solid !important;
+  }
+  .decree-sat {
+    background: rgba(45,106,79,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #2D6A4F !important;
+  }
+  .decree-sun {
+    background: rgba(139,26,26,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #8B1A1A !important;
+  }
+  .decree-resist {
+    background: rgba(26,74,107,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: #1A4A6B !important;
+  }
+  .decree-date {
+    color: #7A6020 !important;
+  }
+  .decree-name {
+    color: #F0E8D0 !important;
+  }
+  .decree-text {
+    color: rgba(240,232,208,0.7) !important;
+  }
+  .ornament {
+    color: #7A6020 !important;
+  }
+  .infographic-label {
+    color: #7A6020 !important;
+  }
+  h2 {
+    color: #C9A84C !important;
+    border-bottom: 1px solid rgba(201,168,76,0.2) !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="label-top">Primary Sources · Church Records · Historical Testimony · Archaeological Evidence</div>
+    <h1>SOURCES & KEY TESTIMONY</h1>
+    <div class="subtitle">The Historical Record Behind the Sabbath Transition — Every Major Source Cited</div>
+  </div>
+
+  <!-- KEY QUOTES SECTION -->
+  <h2>THE MOST SIGNIFICANT TESTIMONY</h2>
+
+  <div class="three-col">
+
+    <div>
+      <div class="section-title">From Rome Itself — Self-Admission</div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-rome">ROME · SELF-ADMISSION</span>
+        <div class="quote-text">The Catholic Church, by virtue of her divine mission, changed the day from Saturday to Sunday. This act is a MARK of her ecclesiastical power and authority in religious matters.</div>
+        <div class="quote-attribution">Cardinal Gibbons' Chancellor · 1895 AD · Catholic Mirror</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-rome">ROME · CATECHISM</span>
+        <div class="quote-text">We observe Sunday instead of Saturday because the Catholic Church transferred the solemnity from Saturday to Sunday.</div>
+        <div class="quote-attribution">Catholic Convert's Catechism · Peter Geiermann · 1946</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-rome">ROME · SCRIPTURE CHALLENGE</span>
+        <div class="quote-text">You may read the Bible from Genesis to Revelation, and you will not find a single line authorizing the sanctification of Sunday. The Scriptures enforce the religious observance of Saturday.</div>
+        <div class="quote-attribution">Cardinal James Gibbons · The Faith of Our Fathers · 1876</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-rome">ROME · 20TH CENTURY</span>
+        <div class="quote-text">Perhaps the boldest thing, the most revolutionary change the Church ever did, happened in the first century. The holy day, the Sabbath, was changed from Saturday to Sunday — not from any direction noted in the Scriptures, but from the Church's sense of its own power.</div>
+        <div class="quote-attribution">St. Catherine Catholic Church Sentinel · Algonac, Michigan · 1995</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Historians & Scholars</div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-historian">HISTORIAN · 5TH CENTURY</span>
+        <div class="quote-text">Almost all churches throughout the world celebrate the sacred mysteries on the Sabbath of every week, yet the Christians of Alexandria and at Rome, on account of some ancient tradition, have ceased to do this.</div>
+        <div class="quote-attribution">Socrates Scholasticus · Ecclesiastical History · 5th Century AD</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-historian">HISTORIAN · 17TH CENTURY</span>
+        <div class="quote-text">From the Apostles' time until the Council of Laodicea, which was about the year 364, the holy observation of the Jews' Sabbath continued, as may be proved out of many authors: yea, notwithstanding the decree of the council against it.</div>
+        <div class="quote-attribution">John Ley · Sunday a Sabbath · 1641</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-scholar">SCHOLAR · PRINCETON</span>
+        <div class="quote-text">It seems to have been customary in the Celtic churches of early times, in Ireland as well as Scotland, to keep Saturday, the Jewish Sabbath, as a day of rest from labor. They obeyed the fourth commandment literally upon the seventh day of the week.</div>
+        <div class="quote-attribution">Prof. James C. Moffat · Church History at Princeton University</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-historian">HISTORIAN · ETHIOPIA</span>
+        <div class="quote-text">The Ethiopians observed the Sabbath because of the ancient custom of the primitive church, who observed that day perhaps out of complacency to the Jews, being long retained in the East, was at length carried into Ethiopia.</div>
+        <div class="quote-attribution">Ludolphus · History of Ethiopia · 1684</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Early Church & Eastern Sources</div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-east">EASTERN CHURCH · APOSTOLIC CONSTITUTIONS</span>
+        <div class="quote-text">But keep the Sabbath, and the Lord's Day festival; because the former is the memorial of the creation, and the latter of the resurrection. This was directed especially toward the church of Armenia and in other places.</div>
+        <div class="quote-attribution">Apostolic Constitutions · Early Church Document · Directed to Armenia</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-east">CHINA · ARCHAEOLOGICAL</span>
+        <div class="quote-text">On the seventh day we offer sacrifices, having purified our hearts and having received forgiveness for our sins.</div>
+        <div class="quote-attribution">Xi'an Nestorian Stele · Marble Monument · 781 AD · Xi'an, China</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-east">ROME · POPE'S OUTRAGE</span>
+        <div class="quote-text">Pope Gregory I (590–604 AD) wrote against Roman citizens who forbid doing any work on the Sabbath, calling teachers of seventh-day rest "prophets of the Antichrist" — proving Saturday keeping was still common in Rome itself, 250 years after Constantine.</div>
+        <div class="quote-attribution">Pope Gregory I · Letters · 590–604 AD</div>
+      </div>
+
+      <div class="quote-block">
+        <span class="quote-category cat-africa">ETHIOPIA · AMBASSADOR</span>
+        <div class="quote-text">Because God, after he had finished the creation of the world, rested thereon.</div>
+        <div class="quote-attribution">Ethiopian Ambassador · To the King of Portugal · Lisbon · 1534 AD</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY COUNCILS & DECREES -->
+  <h2>THE COUNCILS & DECREES THAT SHAPED THE SABBATH</h2>
+
+  <div class="two-col">
+    <div>
+      <div class="section-title">Decrees Against Saturday</div>
+
+      <div class="decree-card decree-sun">
+        <div class="decree-date">321 AD · CIVIL LAW</div>
+        <div class="decree-name">Constantine's Sunday Law</div>
+        <div class="decree-text">"On the venerable Day of the Sun let the magistrates and people residing in cities rest, and let all workshops be closed." — First civil Sunday enforcement law in history. Note: calls it "Day of the Sun" — a pagan sun-worship term, not a Christian designation. Issued by an emperor who was not baptized until his deathbed.</div>
+      </div>
+
+      <div class="decree-card decree-sun">
+        <div class="decree-date">364 AD · CHURCH LAW</div>
+        <div class="decree-name">Council of Laodicea — Canon 29</div>
+        <div class="decree-text">"Christians shall not Judaize and be idle on Saturday, but shall work on that day; but the Lord's Day they shall especially honour, and, as being Christians, shall, if possible, do no work on that day." — The word "Judaize" reveals Saturday keeping was so common it required formal suppression. If no one was doing it, there would be no need for the decree.</div>
+      </div>
+
+      <div class="decree-card decree-sun">
+        <div class="decree-date">1095–1595 · INQUISITION PERIOD</div>
+        <div class="decree-name">Inquisition Decrees Against Sabbath Keepers</div>
+        <div class="decree-text">Multiple Inquisition decrees across Spain, Italy, and Eastern Europe targeted Saturday keepers as "Judaizers." The Transylvanian outlawing of Sabbatarianism in 1595 included full property confiscation. The Synod of Diamper (1599) ordered all Nasrani texts burned in India. Each decree follows the same pattern: the practice was widespread enough to require legal force to eliminate.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Decrees Defending Saturday</div>
+
+      <div class="decree-card decree-sat">
+        <div class="decree-date">692 AD · EASTERN CHURCH</div>
+        <div class="decree-name">Quinisext Council (Synod of Trullo)</div>
+        <div class="decree-text">The Eastern Church's council explicitly forbade fasting on Saturday — directly rebuking Rome's strategy of using Saturday as a fast day to strip it of sacred character. Rome rejected this council entirely, refusing to ratify its decisions. The split over Sabbath treatment was a genuine contributing factor to the Great Schism of 1054.</div>
+      </div>
+
+      <div class="decree-card decree-sat">
+        <div class="decree-date">1445 AD · ETHIOPIA</div>
+        <div class="decree-name">Council of Dabra Metmaq</div>
+        <div class="decree-text">The Ethiopian Church formally declared Saturday a sacred Sabbath for all Christians — directly defying both Coptic and Roman Catholic pressure. This council codified what had been the unbroken practice of the Ethiopian church for over 14 centuries, making it the longest formally maintained Saturday Sabbath decision in Christian history.</div>
+      </div>
+
+      <div class="decree-card decree-resist">
+        <div class="decree-date">1551 AD · RUSSIA</div>
+        <div class="decree-name">"One Hundred Head" Church Council — Moscow</div>
+        <div class="decree-text">The Russian Orthodox council convened under Ivan the Terrible officially recognized Saturday worship as valid, citing authority of Apostles Peter and Paul. This ruling — passed in response to the large and growing Strigolnik Saturday-keeping movement — has never been annulled by the Russian Orthodox Church, making it technically still valid canon in Russian Orthodoxy today.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY FIGURES -->
+  <h2>KEY HISTORICAL FIGURES IN THE SABBATH STORY</h2>
+
+  <div class="three-col">
+    <div>
+      <div class="figure-card">
+        <div class="figure-name">Socrates Scholasticus</div>
+        <div class="figure-dates">380–450 AD · Constantinople</div>
+        <div class="figure-bio">Byzantine historian whose Ecclesiastical History is one of our most important sources for 4th–5th century Christianity. His observation that "almost all churches throughout the world" kept Saturday — with Rome and Alexandria as the exceptions — is the single most sweeping testimony to the universality of Saturday observance well after Constantine's Sunday law.</div>
+        <div class="figure-significance">Source: Ecclesiastical History, Book V, Chapter 22</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-name">Abba Ewostatewos</div>
+        <div class="figure-dates">1273–1352 AD · Ethiopia</div>
+        <div class="figure-bio">Ethiopian monk who defended Saturday Sabbath against Coptic pressure to abandon it. Scholar Taddesse Tamrat documents his argument as rooted in ancient Alexandrian practice, not personal innovation. Sparked a theological controversy that led to the formal Council of Dabra Metmaq ruling in 1445 — in his favor.</div>
+        <div class="figure-significance">Source: Taddesse Tamrat, Church and State in Ethiopia (1972)</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-name">András Eőssi</div>
+        <div class="figure-dates">c. 1530–1600 AD · Transylvania</div>
+        <div class="figure-bio">Transylvanian nobleman who independently discovered Saturday Sabbath through reading the Bible while bedridden after losing his wife and three sons. Founded the Sabbatarian movement in Transylvania that grew to 20,000 followers. Represents the Reformation-era pattern of scripture access leading to independent rediscovery of Saturday.</div>
+        <div class="figure-significance">Source: Transylvanian Sabbatarian historical records</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="figure-card">
+        <div class="figure-name">Hannah More</div>
+        <div class="figure-dates">c. 1830–1880s · USA / Africa / Australia</div>
+        <div class="figure-bio">Black American Christian missionary — one of the most historically overlooked figures in Sabbath history. Working independently in West Africa (Sierra Leone/Liberia) 1862–1866, she became the first Seventh-day Adventist Sabbath keeper in Africa. Her convert Alexander Dickenson became the first in Australia. One woman, operating outside all official missionary structures, planted Saturday Sabbath on two continents before any official organization reached either.</div>
+        <div class="figure-significance">Source: Adventist Historical Society records; Adventist Review</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-name">Cardinal James Gibbons</div>
+        <div class="figure-dates">1834–1921 AD · Baltimore, USA</div>
+        <div class="figure-bio">One of the most powerful American Catholic leaders of his era, whose writings contain some of the most explicit Catholic admissions that Sunday is a Church institution, not a biblical one. His challenge to Protestants — that if they followed only the Bible they would keep Saturday — remains one of the most quoted statements in Sabbath historical literature.</div>
+        <div class="figure-significance">Source: The Faith of Our Fathers (1876); Catholic Mirror (1893)</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-name">Samuele Bacchiocchi</div>
+        <div class="figure-dates">1938–2008 AD · Scholar</div>
+        <div class="figure-bio">Seventh-day Adventist scholar who became the first non-Catholic to earn a doctorate from the Pontifical Gregorian University in Rome — by writing his dissertation on the Saturday-to-Sunday transition. His research, conducted in Vatican archives, confirmed that Sunday observance originated as a Roman innovation tied to anti-Jewish sentiment, not apostolic tradition.</div>
+        <div class="figure-significance">Source: From Sabbath to Sunday (1977), Pontifical Gregorian University</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="figure-card">
+        <div class="figure-name">Emperor Constantine I</div>
+        <div class="figure-dates">272–337 AD · Roman Empire</div>
+        <div class="figure-bio">The sun-worshipping Roman emperor who issued the first civil Sunday law in 321 AD — calling it "the venerable Day of the Sun." Constantine was not baptized until his deathbed. His Sunday law predates his full adoption of Christianity. He explicitly stated his motivation was to have "nothing in common with the detestable Jewish crowd."</div>
+        <div class="figure-significance">Source: Edict of 321 AD; Eusebius, Life of Constantine</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-name">Archbishop Menezes</div>
+        <div class="figure-dates">1559–1617 AD · Portuguese Colonial India</div>
+        <div class="figure-bio">Portuguese Archbishop who convened the Synod of Diamper (1599) and ordered all texts of the ancient Nasrani (St. Thomas) Christians of Kerala burned. His actions destroyed 1,500 years of Jewish-Christian tradition in India — their Aramaic liturgy, their Saturday Sabbath, their independence from Rome. The most complete single-event cultural erasure in Sabbath history.</div>
+        <div class="figure-significance">Source: Synod of Diamper records (1599); Kerala church history</div>
+      </div>
+      <div class="figure-card">
+        <div class="figure-name">Emperor Hadrian</div>
+        <div class="figure-dates">76–138 AD · Roman Empire</div>
+        <div class="figure-bio">The Roman emperor whose anti-Jewish decrees after the Bar Kokhba revolt (135 AD) outlawed Sabbath observance across the empire and set the true political origin of Sunday in motion. Roman Christians under Hadrian began abandoning Saturday not for theological reasons but to avoid being identified — and persecuted — as Jews. This is the hidden root of the entire Sabbath transition.</div>
+        <div class="figure-significance">Source: Talmudic records; Eusebius; Samuele Bacchiocchi's research</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOURCES LIST -->
+  <h2>BIBLIOGRAPHY — PRIMARY AND SECONDARY SOURCES</h2>
+
+  <div class="two-col">
+    <div>
+      <div class="section-title">Primary Historical Sources</div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">1.</span>
+          <div>
+            <div class="source-title">Socrates Scholasticus — Ecclesiastical History</div>
+            <div class="source-detail">Book V, Chapter 22 · c. 440 AD · Constantinople<br>The most sweeping testimony to universal Saturday keeping in the post-Constantine era. Directly states Rome and Alexandria were the exceptions, not the global standard.</div>
+            <span class="source-type type-primary">Primary Source</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">2.</span>
+          <div>
+            <div class="source-title">Xi'an Nestorian Stele</div>
+            <div class="source-detail">Erected 781 AD · Xi'an (Chang'an), Tang Dynasty China<br>Archaeological marble monument documenting Christianity along the Silk Road. Contains direct reference to seventh-day worship. Now housed in the Forest of Stone Steles Museum, Xi'an.</div>
+            <span class="source-type type-archaeology">Archaeological</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">3.</span>
+          <div>
+            <div class="source-title">Constantine's Sunday Edict</div>
+            <div class="source-detail">March 7, 321 AD · Codex Justinianus, lib. 3, tit. 12, 3<br>The first civil Sunday law. Original Latin text preserved in the Codex Justinianus. Uses "dies Solis" (Day of the Sun) — not a Christian designation.</div>
+            <span class="source-type type-primary">Primary Source</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">4.</span>
+          <div>
+            <div class="source-title">Council of Laodicea — Canon 29</div>
+            <div class="source-detail">c. 364 AD · Laodicea, Asia Minor<br>The first formal church canon against Saturday observance. The existence of this decree proves Saturday keeping was still widespread enough to require legislation. Found in Philip Schaff, The Seven Ecumenical Councils.</div>
+            <span class="source-type type-council">Church Council</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">5.</span>
+          <div>
+            <div class="source-title">Apostolic Constitutions</div>
+            <div class="source-detail">c. 375–380 AD · Early Christian document<br>Commands both Saturday and Sunday observance. Directed specifically toward Armenia and "other places." One of the most explicit early documents treating Saturday as sacred. Found in Ante-Nicene Fathers, Vol. VII.</div>
+            <span class="source-type type-primary">Primary Source</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">6.</span>
+          <div>
+            <div class="source-title">Synod of Diamper Records</div>
+            <div class="source-detail">1599 AD · Diamper (Udayamperoor), Kerala, India<br>Complete records of the Portuguese colonial council that ordered Nasrani texts burned. Documents what was destroyed. Confirms the Saturday-keeping nature of the Thomas Christians. Available in Portuguese colonial archives.</div>
+            <span class="source-type type-council">Church Council</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">7.</span>
+          <div>
+            <div class="source-title">Bonacursus — Against the Heretics (Contra Catharos)</div>
+            <div class="source-detail">c. 1190 AD · Lombardy, Italy<br>Catholic polemical text documenting the Saturday-keeping Pasagini of northern Italy. One of the most important medieval sources on non-Roman Christian practice in the heart of Catholic Europe.</div>
+            <span class="source-type type-primary">Primary Source</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">8.</span>
+          <div>
+            <div class="source-title">Pope Gregory I — Epistles (Letters)</div>
+            <div class="source-detail">590–604 AD · Rome<br>Contains Gregory's denunciation of Roman citizens keeping Saturday rest. Identifies Saturday teachers as "prophets of the Antichrist." Proves Saturday observance survived in Rome itself 250+ years after Constantine.</div>
+            <span class="source-type type-primary">Primary Source</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Secondary Sources & Modern Scholarship</div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">9.</span>
+          <div>
+            <div class="source-title">Samuele Bacchiocchi — From Sabbath to Sunday</div>
+            <div class="source-detail">Doctoral dissertation · Pontifical Gregorian University, Rome · 1977<br>The most rigorously researched modern academic work on the Sabbath transition. Written by the first non-Catholic to earn a doctorate from the Gregorian using Vatican archives. Confirms Roman political origin of Sunday.</div>
+            <span class="source-type type-secondary">Academic Scholarship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">10.</span>
+          <div>
+            <div class="source-title">Taddesse Tamrat — Church and State in Ethiopia, 1270–1527</div>
+            <div class="source-detail">Oxford University Press · 1972<br>Definitive academic history of the Ethiopian Church. Documents the Ewostatewos Sabbath controversy and provides historical context for Ethiopia's unbroken Saturday tradition as rooted in ancient Coptic practice.</div>
+            <span class="source-type type-secondary">Academic Scholarship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">11.</span>
+          <div>
+            <div class="source-title">James C. Moffat — Church History (Princeton)</div>
+            <div class="source-detail">Professor of Church History, Princeton University<br>Documents Celtic church Saturday observance in Ireland and Scotland. One of the most frequently cited academic sources on British Sabbath history. Confirms Saturday was "customary" in Celtic Christianity.</div>
+            <span class="source-type type-secondary">Academic Scholarship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">12.</span>
+          <div>
+            <div class="source-title">P.Y. Saeki — The Nestorian Documents and Relics in China</div>
+            <div class="source-detail">Tokyo · 1937 · Second Edition<br>The authoritative study of Nestorian Christianity in China. Documents the Xi'an Stele and claims Christianity first reached Japan and Korea through Nestorian missionaries — meaning East Asia's first Christian contact was with Saturday-keeping churches.</div>
+            <span class="source-type type-secondary">Academic Scholarship</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">13.</span>
+          <div>
+            <div class="source-title">Cardinal James Gibbons — The Faith of Our Fathers</div>
+            <div class="source-detail">John Murphy Company, Baltimore · 1876 · 88th Edition by 1917<br>Widely distributed Catholic apologetics work containing the famous challenge to Protestants that the Bible commands Saturday, not Sunday. One of the most quoted Catholic sources in Sabbath historical literature.</div>
+            <span class="source-type type-church">Church Document</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">14.</span>
+          <div>
+            <div class="source-title">Catholic Mirror — Official Publication of Cardinal Gibbons</div>
+            <div class="source-detail">September 2, 9, 16, 23 · 1893 · Baltimore<br>Four-part series explicitly stating the Catholic Church changed the Sabbath from Saturday to Sunday by its own authority, challenging Protestants who use only the Bible to explain their Sunday observance.</div>
+            <span class="source-type type-church">Church Document</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">15.</span>
+          <div>
+            <div class="source-title">Ludolphus — A New History of Ethiopia</div>
+            <div class="source-detail">London · 1684<br>The first major Western scholarly account of Ethiopian Christianity after centuries of isolation. Documents Ethiopian Saturday observance and attributes it to "the ancient custom of the primitive church" retained from the East. Confirms it as a survival, not an innovation.</div>
+            <span class="source-type type-secondary">Historical Account</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">16.</span>
+          <div>
+            <div class="source-title">John Ley — Sunday a Sabbath</div>
+            <div class="source-detail">London · 1641<br>17th-century Protestant treatise containing the famous statement that from the Apostles' time until the Council of Laodicea (364 AD), Saturday observance continued — "as may be proved out of many authors." Represents the Reformation-era scholarly rediscovery of Saturday's antiquity.</div>
+            <span class="source-type type-secondary">Historical Account</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">17.</span>
+          <div>
+            <div class="source-title">William Twisse — A Brief Treatise of the Sabbath</div>
+            <div class="source-detail">London · 1641<br>Contains the statement: "For some hundred years in the primitive church, not the Lord's Day only, but the seventh day also, was religiously observed." Confirms dual Saturday-Sunday observance in early Christianity as mainstream Protestant scholarly consensus in the 17th century.</div>
+            <span class="source-type type-secondary">Historical Account</span>
+          </div>
+        </div>
+      </div>
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">18.</span>
+          <div>
+            <div class="source-title">Dies Domini — Pope John Paul II</div>
+            <div class="source-detail">Apostolic Letter · Vatican · May 31, 1998<br>The most explicit modern papal call for state enforcement of Sunday rest. §66 cites Leo XIII's Rerum Novarum to assert Sunday rest is "a worker's right which the State must guarantee." §67 instructs Catholics to "strive to ensure that civil legislation respects their duty to keep Sunday holy." Establishes the chain: Leo XIII (1891) → John Paul II (1998) → Francis/Laudato Si' (2015) → Leo XIV (2025–26). Never rescinded.</div>
+            <span class="source-type type-primary">Papal Document</span>
+          </div>
+        </div>
+      </div>
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">19.</span>
+          <div>
+            <div class="source-title">Heritage Foundation Special Report 323 — "Saving America by Saving the Family"</div>
+            <div class="source-detail">Roger Severino &amp; Jay W. Richards · The Heritage Foundation · January 8, 2026 · Washington D.C.<br>The most significant US Sunday law proposal in over a century. Proposes amending the Fair Labor Standards Act to require time-and-a-half overtime for Sunday workers. Describes the proposal as "a culture-wide Manhattan Project." Uses explicitly theological language: "God ordained the Sabbath as a day of rest." Preceded by Project 2025, p. 589 (2023). SDA Church formally responds January 18, 2026.</div>
+            <span class="source-type type-secondary">Policy Document</span>
+          </div>
+        </div>
+      </div>
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">20.</span>
+          <div>
+            <div class="source-title">North American Division SDA Church — Religious Liberty Statement</div>
+            <div class="source-detail">NAD Office of Public Affairs and Religious Liberty · January 18, 2026 · Released on Religious Liberty Sabbath<br>Formal institutional response to Heritage Foundation SR323. States the church "has forcefully advocated against any form of Sunday law for more than 160 years — as attempts to compel conscience, even when defended on pretextual secular grounds." Plans to remain engaged with policymakers, religious-liberty organizations, and interfaith partners. Released on the annual Religious Liberty Sabbath when the global SDA Church focuses on First Amendment advocacy.</div>
+            <span class="source-type type-secondary">Institutional Statement</span>
+          </div>
+        </div>
+      </div>
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">21.</span>
+          <div>
+            <div class="source-title">Bishop David Bard — United Methodist Church Statement</div>
+            <div class="source-detail">Chair, UMC Committee on Faith and Order · March 2, 2026<br>Publicly argues that "Sunday closing laws were seen as support for Christian churches" and calls for reviving civil structures that once aided religious life. Marks the re-entry of mainstream Protestantism into the civil Sunday enforcement debate at its highest institutional level after decades of retreat from such positions.</div>
+            <span class="source-type type-secondary">Institutional Statement</span>
+          </div>
+        </div>
+      </div>
+      <div class="source-entry">
+        <div class="source-row">
+          <span class="source-num">22.</span>
+          <div>
+            <div class="source-title">Stephen Wolfe — Christian Nationalism Sunday Enforcement Study</div>
+            <div class="source-detail">Stephen Wolfe (PhD Princeton) with two Presbyterian pastors · February 27, 2026<br>Argues that a Christian magistrate should enforce Sunday observance laws. Co-published and distributed directly to clergy. Wolfe is the author of "The Case for Christian Nationalism" (2022, Canon Press). His thesis: "You don't need a majority. You need a strong minority that shapes the imagination of the rest." First study from within the Christian Nationalism movement to explicitly address Sunday law enforcement in the modern legislative context.</div>
+            <span class="source-type type-secondary">Academic Study</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ornament">✦ ✦ ✦</div>
+  <div class="infographic-label">INFOGRAPHIC III · SOURCES, KEY TESTIMONY &amp; BIBLIOGRAPHY · Updated March 2026</div>
+
+</div>
+</body>
+</html>

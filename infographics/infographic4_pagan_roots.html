@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<style>
+*, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+:root { color-scheme: dark; }</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Roots of Sunday — Pagan Origins, Sol Invictus & The Full Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0D070;
+    --gold-dim: #7A6020;
+    --sun: #E8960A;
+    --sun-glow: rgba(232,150,10,0.3);
+    --sun-pale: rgba(232,150,10,0.08);
+    --deep: #0A0500;
+    --parchment: #F2E8D0;
+    --border: rgba(201,168,76,0.22);
+    --red: #C03030;
+    --red-pale: rgba(192,48,48,0.08);
+    --blue: #2060A0;
+    --blue-pale: rgba(32,96,160,0.08);
+    --green: #206840;
+    --green-pale: rgba(32,104,64,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    font-family: 'EB Garamond', serif;
+    color: var(--parchment);
+    background-image: 
+      radial-gradient(ellipse at 50% 0%, rgba(232,150,10,0.06) 0%, transparent 70%);
+  }
+
+  .page { width: 1200px; margin: 0 auto; padding: 60px 40px 80px; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .sun-symbol {
+    font-size: 56px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 20px var(--sun));
+    display: block;
+  }
+
+  .label-top {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    color: var(--gold-dim);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 38px;
+    color: var(--sun);
+    text-shadow: 0 0 40px var(--sun-glow), 0 0 80px rgba(232,150,10,0.15);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    font-style: italic;
+    color: rgba(242,232,208,0.65);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .gold-rule {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 30px 0;
+  }
+
+  h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 22px;
+    color: var(--gold);
+    margin-bottom: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Days of the Week display */
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .day-card {
+    background: rgba(255,248,220,0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 12px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .day-card.highlight-sunday {
+    background: var(--sun-pale);
+    border-color: rgba(232,150,10,0.5);
+    box-shadow: 0 0 20px rgba(232,150,10,0.12);
+  }
+
+  .day-card.highlight-saturday {
+    background: rgba(32,104,64,0.12);
+    border-color: rgba(32,104,64,0.5);
+  }
+
+  .day-english {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .highlight-sunday .day-english { color: var(--sun); }
+  .highlight-saturday .day-english { color: #52B788; }
+
+  .day-planet {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .day-latin {
+    font-size: 11px;
+    font-style: italic;
+    color: rgba(242,232,208,0.6);
+    margin-bottom: 4px;
+  }
+
+  .day-god {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--gold-dim);
+  }
+
+  .day-meaning {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(242,232,208,0.55);
+  }
+
+  /* The revelation box */
+  .revelation {
+    background: var(--sun-pale);
+    border: 1px solid rgba(232,150,10,0.4);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .revelation-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--sun);
+    margin-bottom: 12px;
+  }
+
+  .revelation-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--parchment);
+  }
+
+  /* Two and three col layouts */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 30px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+
+  /* Content cards */
+  .content-card {
+    background: rgba(255,248,220,0.03);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px;
+  }
+
+  .content-card.sun-card {
+    background: var(--sun-pale);
+    border-color: rgba(232,150,10,0.3);
+  }
+
+  .content-card.red-card {
+    background: var(--red-pale);
+    border-color: rgba(192,48,48,0.3);
+  }
+
+  .content-card.blue-card {
+    background: var(--blue-pale);
+    border-color: rgba(32,96,160,0.3);
+  }
+
+  .content-card.green-card {
+    background: var(--green-pale);
+    border-color: rgba(32,104,64,0.3);
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .sun-card .card-title { color: var(--sun); }
+  .red-card .card-title { color: #E06060; }
+  .blue-card .card-title { color: #60A0E0; }
+  .green-card .card-title { color: #52B788; }
+  .content-card:not(.sun-card):not(.red-card):not(.blue-card):not(.green-card) .card-title { color: var(--gold-light); }
+
+  .card-date {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-bottom: 10px;
+  }
+
+  .card-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(242,232,208,0.8);
+  }
+
+  .card-tag {
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+
+  .tag-pagan { background: rgba(232,150,10,0.15); color: var(--sun); border: 1px solid rgba(232,150,10,0.3); }
+  .tag-rome { background: rgba(192,48,48,0.15); color: #E06060; border: 1px solid rgba(192,48,48,0.3); }
+  .tag-church { background: rgba(74,25,107,0.15); color: #C07FD0; border: 1px solid rgba(74,25,107,0.4); }
+  .tag-archaeology { background: rgba(107,66,38,0.15); color: #D09060; border: 1px solid rgba(107,66,38,0.3); }
+  .tag-admission { background: rgba(32,96,160,0.15); color: #60A0E0; border: 1px solid rgba(32,96,160,0.3); }
+
+  /* Big quote */
+  .big-quote {
+    background: rgba(232,150,10,0.06);
+    border: 1px solid rgba(232,150,10,0.3);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .big-quote::before {
+    content: '"';
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 70px;
+    color: rgba(232,150,10,0.15);
+    position: absolute;
+    top: 0px;
+    left: 18px;
+    line-height: 1;
+  }
+
+  .big-quote-text {
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.9;
+    color: var(--parchment);
+    padding-left: 12px;
+  }
+
+  .big-quote-source {
+    margin-top: 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-align: right;
+    padding-left: 12px;
+  }
+
+  /* The Layers of the Shift */
+  .layer-block {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+
+  .layer-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 28px;
+    color: var(--sun);
+    min-width: 44px;
+    text-align: center;
+    opacity: 0.7;
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .layer-content {
+    flex: 1;
+    padding: 16px 20px;
+    background: rgba(255,248,220,0.03);
+    border-left: 3px solid var(--border);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .layer-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+  }
+
+  .layer-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(242,232,208,0.78);
+  }
+
+  /* Constantine's timeline */
+  .const-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 30px;
+    position: relative;
+  }
+
+  .const-timeline::before {
+    content: '';
+    position: absolute;
+    left: 80px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--sun), rgba(232,150,10,0.2));
+  }
+
+  .ct-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 14px 0;
+    position: relative;
+  }
+
+  .ct-date {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sun);
+    width: 70px;
+    text-align: right;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .ct-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--sun);
+    border: 2px solid var(--deep);
+    flex-shrink: 0;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 8px var(--sun);
+  }
+
+  .ct-content { flex: 1; }
+
+  .ct-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--parchment);
+    margin-bottom: 4px;
+  }
+
+  .ct-text {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: rgba(242,232,208,0.72);
+  }
+
+  /* Parallels grid */
+  .parallels {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    margin-bottom: 30px;
+    align-items: center;
+  }
+
+  .parallel-col {
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .parallel-col.left { background: var(--sun-pale); border-color: rgba(232,150,10,0.3); }
+  .parallel-col.right { background: rgba(32,104,64,0.06); border-color: rgba(32,104,64,0.3); }
+
+  .parallel-vs {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 22px;
+    color: var(--gold-dim);
+    text-align: center;
+    padding: 0 16px;
+  }
+
+  .parallel-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .left .parallel-title { color: var(--sun); }
+  .right .parallel-title { color: #52B788; }
+
+  .parallel-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+    font-size: 13px;
+    color: rgba(242,232,208,0.8);
+    line-height: 1.5;
+  }
+
+  .parallel-item:last-child { border-bottom: none; }
+
+  .parallel-item strong { color: var(--gold-light); font-weight: 500; }
+
+  /* What the languages reveal */
+  .language-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .lang-card {
+    background: rgba(255,248,220,0.03);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px;
+  }
+
+  .lang-name {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+  }
+
+  .lang-sunday {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--sun);
+    margin-bottom: 2px;
+  }
+
+  .lang-saturday {
+    font-size: 15px;
+    font-weight: 500;
+    color: #52B788;
+    margin-bottom: 2px;
+  }
+
+  .lang-meaning {
+    font-size: 11px;
+    color: rgba(242,232,208,0.5);
+    font-style: italic;
+  }
+
+  /* Final synthesis */
+  .synthesis {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 6px;
+    padding: 32px;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .synthesis-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .synthesis-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(242,232,208,0.85);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .ornament {
+    text-align: center;
+    color: var(--gold-dim);
+    font-size: 22px;
+    letter-spacing: 10px;
+    margin-top: 50px;
+  }
+
+  .infographic-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  ul.arrow-list { list-style: none; }
+  ul.arrow-list li {
+    font-size: 13px;
+    line-height: 1.7;
+    color: rgba(242,232,208,0.8);
+    padding: 5px 0 5px 16px;
+    position: relative;
+    border-bottom: 1px solid rgba(201,168,76,0.07);
+  }
+  ul.arrow-list li:last-child { border-bottom: none; }
+  ul.arrow-list li::before { content: '›'; position: absolute; left: 0; color: var(--gold-dim); }
+  ul.arrow-list li strong { color: var(--gold-light); font-weight: 500; }
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+    body {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    @page { size: A2 landscape; margin: 0.5cm; }
+  }
+</style>
+
+<style id="print-force">
+/* ═══ PRINT COLOUR FORCE — auto-generated ═══ */
+*, *::before, *::after {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+@media print {
+  @page { size: A2 landscape; margin: 0.5cm; }
+  body {
+    background: #0A0500 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #F2E8D0 !important;
+  }
+  .label-top {
+    color: #7A6020 !important;
+  }
+  h1 {
+    color: #E8960A !important;
+  }
+  .subtitle {
+    color: rgba(242,232,208,0.65) !important;
+  }
+  .gold-rule {
+    background: linear-gradient(90deg, transparent, #C9A84C, transparent) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  h2 {
+    color: #C9A84C !important;
+  }
+  h3 {
+    color: #C9A84C !important;
+    border-bottom: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .day-card {
+    background: rgba(255,248,220,0.04) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .day-card.highlight-sunday {
+    background: rgba(232,150,10,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(232,150,10,0.5) !important;
+  }
+  .day-card.highlight-saturday {
+    background: rgba(32,104,64,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(32,104,64,0.5) !important;
+  }
+  .highlight-sunday .day-english {
+    color: #E8960A !important;
+  }
+  .highlight-saturday .day-english {
+    color: #52B788 !important;
+  }
+  .day-latin {
+    color: rgba(242,232,208,0.6) !important;
+  }
+  .day-god {
+    color: #7A6020 !important;
+  }
+  .day-meaning {
+    color: rgba(242,232,208,0.55) !important;
+  }
+  /* The revelation box */
+  .revelation {
+    background: rgba(232,150,10,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(232,150,10,0.4) !important;
+  }
+  .revelation-title {
+    color: #E8960A !important;
+  }
+  .revelation-text {
+    color: #F2E8D0 !important;
+  }
+  /* Content cards */
+  .content-card {
+    background: rgba(255,248,220,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .content-card.sun-card {
+    background: rgba(232,150,10,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(232,150,10,0.3) !important;
+  }
+  .content-card.red-card {
+    background: rgba(192,48,48,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(192,48,48,0.3) !important;
+  }
+  .content-card.blue-card {
+    background: rgba(32,96,160,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(32,96,160,0.3) !important;
+  }
+  .content-card.green-card {
+    background: rgba(32,104,64,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(32,104,64,0.3) !important;
+  }
+  .sun-card .card-title {
+    color: #E8960A !important;
+  }
+  .red-card .card-title {
+    color: #E06060 !important;
+  }
+  .blue-card .card-title {
+    color: #60A0E0 !important;
+  }
+  .green-card .card-title {
+    color: #52B788 !important;
+  }
+  .content-card:not(.sun-card):not(.red-card):not(.blue-card):not(.green-card) .card-title {
+    color: #F0D070 !important;
+  }
+  .card-date {
+    color: #7A6020 !important;
+  }
+  .card-text {
+    color: rgba(242,232,208,0.8) !important;
+  }
+  .tag-pagan {
+    background: rgba(232,150,10,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #E8960A !important;
+    border: 1px solid rgba(232,150,10,0.3) !important;
+  }
+  .tag-rome {
+    background: rgba(192,48,48,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #E06060 !important;
+    border: 1px solid rgba(192,48,48,0.3) !important;
+  }
+  .tag-church {
+    background: rgba(74,25,107,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #C07FD0 !important;
+    border: 1px solid rgba(74,25,107,0.4) !important;
+  }
+  .tag-archaeology {
+    background: rgba(107,66,38,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #D09060 !important;
+    border: 1px solid rgba(107,66,38,0.3) !important;
+  }
+  .tag-admission {
+    background: rgba(32,96,160,0.15) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #60A0E0 !important;
+    border: 1px solid rgba(32,96,160,0.3) !important;
+  }
+  /* Big quote */
+  .big-quote {
+    background: rgba(232,150,10,0.06) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(232,150,10,0.3) !important;
+  }
+  .big-quote::before {
+    color: rgba(232,150,10,0.15) !important;
+  }
+  .big-quote-text {
+    color: #F2E8D0 !important;
+  }
+  .big-quote-source {
+    color: #7A6020 !important;
+  }
+  .layer-num {
+    color: #E8960A !important;
+  }
+  .layer-content {
+    background: rgba(255,248,220,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-left: 3px solid rgba(201,168,76,0.22) !important;
+  }
+  .layer-title {
+    color: #F0D070 !important;
+  }
+  .layer-text {
+    color: rgba(242,232,208,0.78) !important;
+  }
+  .const-timeline::before {
+    background: linear-gradient(180deg, #E8960A, rgba(232,150,10,0.2)) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .ct-date {
+    color: #E8960A !important;
+  }
+  .ct-dot {
+    background: #E8960A !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 2px solid #0A0500 !important;
+  }
+  .ct-title {
+    color: #F2E8D0 !important;
+  }
+  .ct-text {
+    color: rgba(242,232,208,0.72) !important;
+  }
+  .parallel-col {
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .parallel-col.left {
+    background: rgba(232,150,10,0.08) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(232,150,10,0.3) !important;
+  }
+  .parallel-col.right {
+    background: rgba(32,104,64,0.06) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(32,104,64,0.3) !important;
+  }
+  .parallel-vs {
+    color: #7A6020 !important;
+  }
+  .left .parallel-title {
+    color: #E8960A !important;
+  }
+  .right .parallel-title {
+    color: #52B788 !important;
+  }
+  .parallel-item {
+    border-bottom: 1px solid rgba(201,168,76,0.1) !important;
+    color: rgba(242,232,208,0.8) !important;
+  }
+  .parallel-item:last-child {
+    border-bottom: none !important;
+  }
+  .parallel-item strong {
+    color: #F0D070 !important;
+  }
+  .lang-card {
+    background: rgba(255,248,220,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .lang-name {
+    color: #7A6020 !important;
+  }
+  .lang-sunday {
+    color: #E8960A !important;
+  }
+  .lang-saturday {
+    color: #52B788 !important;
+  }
+  .lang-meaning {
+    color: rgba(242,232,208,0.5) !important;
+  }
+  /* Final synthesis */
+  .synthesis {
+    background: rgba(201,168,76,0.05) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.35) !important;
+  }
+  .synthesis-title {
+    color: #C9A84C !important;
+  }
+  .synthesis-text {
+    color: rgba(242,232,208,0.85) !important;
+  }
+  .ornament {
+    color: #7A6020 !important;
+  }
+  .infographic-label {
+    color: #7A6020 !important;
+  }
+  ul.arrow-list li {
+    color: rgba(242,232,208,0.8) !important;
+    border-bottom: 1px solid rgba(201,168,76,0.07) !important;
+  }
+  ul.arrow-list li:last-child {
+    border-bottom: none !important;
+  }
+  ul.arrow-list li::before {
+    color: #7A6020 !important;
+  }
+  ul.arrow-list li strong {
+    color: #F0D070 !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <span class="sun-symbol">☀</span>
+    <div class="label-top">The Layer Nobody Talks About · Pagan Origins · Sol Invictus · The Language Evidence</div>
+    <h1>THE HIDDEN ROOTS<br>OF SUNDAY</h1>
+    <div class="subtitle">Before Sunday was Christian, it was the Day of the Sun. Before Constantine was a Christian, he worshipped the Unconquered Sun. This is the layer beneath the layer.</div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- DAYS OF THE WEEK -->
+  <h2>The Seven Days — What Their Names Actually Reveal</h2>
+  <p style="text-align:center; font-size:14px; color:rgba(242,232,208,0.6); font-style:italic; margin-bottom:24px;">Every single day of the week is named after a pagan god or celestial body from Hellenistic astrology. This is not coincidence — it is history written into language itself.</p>
+
+  <div class="days-grid">
+    <div class="day-card highlight-sunday">
+      <div class="day-english">SUNDAY</div>
+      <div class="day-planet">☀️</div>
+      <div class="day-latin">Dies Solis</div>
+      <div class="day-god">Day of the Sun God</div>
+      <div class="day-meaning">Named after Sol — the Roman sun god. Constantine's Sunday law of 321 AD explicitly calls it "the venerable Day of the Sun." The first civil Sunday law was a <em>pagan solar worship decree</em>.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-english">MONDAY</div>
+      <div class="day-planet">🌙</div>
+      <div class="day-latin">Dies Lunae</div>
+      <div class="day-god">Day of the Moon</div>
+      <div class="day-meaning">Named after Luna, Roman goddess of the Moon. In French still "Lundi." In English, "Moon-day." Pure Hellenistic astrology.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-english">TUESDAY</div>
+      <div class="day-planet">⚔️</div>
+      <div class="day-latin">Dies Martis</div>
+      <div class="day-god">Day of Mars (Tiu)</div>
+      <div class="day-meaning">Latin: Day of Mars, god of war. Germanic tribes substituted their own war god Tiu/Tiw — giving English "Tuesday." French retains "Mardi."</div>
+    </div>
+    <div class="day-card">
+      <div class="day-english">WEDNESDAY</div>
+      <div class="day-planet">🪄</div>
+      <div class="day-latin">Dies Mercurii</div>
+      <div class="day-god">Day of Mercury (Woden)</div>
+      <div class="day-meaning">Latin: Day of Mercury. Germanic: Woden's Day — Woden being the All-Father of Norse mythology. French retains "Mercredi."</div>
+    </div>
+    <div class="day-card">
+      <div class="day-english">THURSDAY</div>
+      <div class="day-planet">⚡</div>
+      <div class="day-latin">Dies Jovis</div>
+      <div class="day-god">Day of Jupiter (Thor)</div>
+      <div class="day-meaning">Latin: Day of Jupiter, king of gods. Germanic: Thor's Day — the thunder god. French retains "Jeudi." English chose the Norse equivalent.</div>
+    </div>
+    <div class="day-card">
+      <div class="day-english">FRIDAY</div>
+      <div class="day-planet">💫</div>
+      <div class="day-latin">Dies Veneris</div>
+      <div class="day-god">Day of Venus (Freya)</div>
+      <div class="day-meaning">Latin: Day of Venus, goddess of love. Germanic: Freya's/Frigg's Day. French retains "Vendredi." Named after the goddess of love in both traditions.</div>
+    </div>
+    <div class="day-card highlight-saturday">
+      <div class="day-english">SATURDAY</div>
+      <div class="day-planet">🪐</div>
+      <div class="day-latin">Dies Saturni / Shabbat</div>
+      <div class="day-god">Day of Saturn / The Sabbath</div>
+      <div class="day-meaning">Unique: named after Saturn but its root is also the Hebrew <em>Shabbat</em>. In many Romance languages, Saturday was renamed directly after the Sabbath — the only day whose name acknowledges Hebrew origin.</div>
+    </div>
+  </div>
+
+  <div class="revelation">
+    <div class="revelation-title">THE LINGUISTIC REVELATION</div>
+    <div class="revelation-text">Every language in the world preserves this history in its very name for the first day of the week. <strong style="color:var(--sun)">Sunday = Dies Solis = Day of the Sun.</strong> The day that replaced the Biblical Saturday Sabbath was already named after the pagan Sun God <em>before Christianity adopted it.</em> Constantine did not rename it. He used its existing pagan name — because that is what it was to him.</div>
+  </div>
+
+  <!-- WHAT LANGUAGES REVEAL ABOUT SATURDAY -->
+  <h2>What Languages Say About Saturday — The Sabbath Preserved in Words</h2>
+  <p style="text-align:center; font-size:14px; color:rgba(242,232,208,0.6); font-style:italic; margin-bottom:24px;">In many languages, Saturday still carries the Hebrew word "Shabbat" — a linguistic fossil proving the ancient connection between Saturday and the Sabbath.</p>
+
+  <div class="language-grid">
+    <div class="lang-card">
+      <div class="lang-name">ARABIC</div>
+      <div class="lang-saturday">Yawm as-sabt</div>
+      <div class="lang-meaning">"Day of Sabbath" — directly from Hebrew Shabbat</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">GREEK</div>
+      <div class="lang-saturday">Sávvato (Σάββατο)</div>
+      <div class="lang-meaning">Directly from Hebrew Shabbat — preserved for 2,000 years</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">RUSSIAN</div>
+      <div class="lang-saturday">Subbota (Суббота)</div>
+      <div class="lang-meaning">From Shabbat — Slavic languages all preserved the Sabbath name</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">POLISH</div>
+      <div class="lang-saturday">Sobota</div>
+      <div class="lang-meaning">From Shabbat — same Slavic preservation of ancient Hebrew root</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">PORTUGUESE</div>
+      <div class="lang-saturday">Sábado</div>
+      <div class="lang-sunday">Domingo</div>
+      <div class="lang-meaning">Saturday from Shabbat. Sunday = "Lord's Day" — replaced Dies Solis by church decree of Martin of Dumio (c.520-580 AD)</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">SPANISH</div>
+      <div class="lang-saturday">Sábado</div>
+      <div class="lang-sunday">Domingo</div>
+      <div class="lang-meaning">Saturday from Shabbat. Near Barcelona: the city of <strong>Sabadell</strong> — "the valley of the Sabbath-keepers"</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">ITALIAN</div>
+      <div class="lang-saturday">Sabato</div>
+      <div class="lang-meaning">From Shabbat — Italy, heart of the Catholic world, still names Saturday after the Hebrew Sabbath</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">GERMAN</div>
+      <div class="lang-saturday">Samstag / Sonnabend</div>
+      <div class="lang-meaning">Samstag derives from Shabbat. Sonnabend = "Sun's Eve" — Saturday as the eve before Sunday. Both names reveal the ancient tension.</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">FRENCH</div>
+      <div class="lang-saturday">Samedi</div>
+      <div class="lang-sunday">Dimanche</div>
+      <div class="lang-meaning">Samedi from Latin "Sabbati dies." Sunday = Dimanche from "Dominicus" — the Lord's Day replacement for Dies Solis</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">HEBREW / JEWISH</div>
+      <div class="lang-saturday">Shabbat (שַׁבָּת)</div>
+      <div class="lang-meaning">The original. "To rest." First mentioned Genesis 2:2. The word Saturday literally derives from this in most world languages.</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">JAPANESE / KOREAN</div>
+      <div class="lang-saturday">土曜日 Do-yo-bi</div>
+      <div class="lang-meaning">East Asian languages name days after the Seven Luminaries — the same Hellenistic planetary system that named Western days, transmitted via Manichaeans in the 8th century</div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">PORTUGUESE (UNIQUE)</div>
+      <div class="lang-saturday">Segunda, Terça, Quarta...</div>
+      <div class="lang-meaning">Portugal is unique: Archbishop Martin of Dumio (520-580 AD) refused to name days after pagan gods, replacing Mon-Fri with ordinal numbers. The only Romance language that resisted pagan day names.</div>
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- SOL INVICTUS SECTION -->
+  <h2>Sol Invictus — The Sun God Whose Day Became Sunday</h2>
+
+  <div class="two-col" style="margin-bottom:24px;">
+    <div class="content-card sun-card">
+      <h3 style="color:var(--sun); border-color:rgba(232,150,10,0.3);">WHO WAS SOL INVICTUS?</h3>
+      <ul class="arrow-list">
+        <li><strong>"Invincible Sun" / "Unconquered Sun"</strong> — the official sun god of the late Roman Empire from 274 AD onward</li>
+        <li><strong>Emperor Aurelian (274 AD)</strong> revived and promoted Sol Invictus as the chief god of the empire. He built a great temple to Sol in Rome and declared December 25 his birthday — the same date later assigned to Jesus.</li>
+        <li><strong>Sol was equated with Mithras</strong> — as "Sol Invictus Mithra" he was considered the most powerful divine mediator between humans and the supreme god</li>
+        <li><strong>Sol appeared on Roman coinage</strong> — continuously from Aurelian through Constantine's reign. Constantine's coins bore the legend "SOLI INVICTO COMITI" — "To the Sun, Invincible Companion." Coins featured Sol until 325-326 AD.</li>
+        <li><strong>Statuettes of Sol</strong> were carried by standard-bearers in Constantine's own army, visible in three places on the Arch of Constantine</li>
+        <li><strong>The halo</strong> — now iconic in Christian art — originated as the radiant solar crown of Sol Invictus, Helios, and Mithras. Christianity inherited it wholesale.</li>
+      </ul>
+      <span class="card-tag tag-pagan">Pagan Deity</span>
+    </div>
+    <div class="content-card red-card">
+      <h3 style="color:#E06060; border-color:rgba(192,48,48,0.3);">CONSTANTINE'S DOUBLE IDENTITY</h3>
+      <ul class="arrow-list">
+        <li><strong>309 AD:</strong> Constantine mints coins depicting himself as a semi-divine figure associated with Sol Invictus, inscribed "Soli Invicto Comiti" — "To the Sun, my companion"</li>
+        <li><strong>312 AD:</strong> At the Battle of Milvian Bridge, Constantine has his famous vision — but Eusebius records it as a cross of light <em>above the sun</em>. The symbolism is ambiguous and blends both.</li>
+        <li><strong>313 AD:</strong> Still minting gold coins of "Unconquered Constantine" alongside Sol Invictus imagery</li>
+        <li><strong>321 AD:</strong> Issues Sunday law calling it "Dies Solis" — the Day of the Sun, not the Lord's Day. A pagan solar term.</li>
+        <li><strong>323 AD:</strong> More than a decade after his "conversion," Constantine publicly renounces Sol Invictus. Sol disappears from coins only now — 11 years after Milvian Bridge.</li>
+        <li><strong>337 AD:</strong> Constantine is baptized on his deathbed — not as a confirmed Christian throughout his reign but only at the end.</li>
+        <li>His Arch of Constantine was aligned with the colossal statue of Sol next to the Colosseum — so Sol formed the visual backdrop of his triumphal processions.</li>
+      </ul>
+      <span class="card-tag tag-rome">Roman Empire</span>
+    </div>
+  </div>
+
+  <!-- Archaeological Evidence -->
+  <h2>Archaeological Evidence — Christ as Sol Invictus</h2>
+  <div class="three-col">
+    <div class="content-card sun-card">
+      <div class="card-title">The Vatican Necropolis Mosaic</div>
+      <div class="card-date">c. 300 AD · Beneath St. Peter's Basilica</div>
+      <div class="card-text">In 1953, excavations beneath St. Peter's Basilica discovered ancient tombs. One Christian tomb contained a mosaic depicting Christ as Sol Invictus — radiant halo, riding a solar chariot through the sky. This is the most extraordinary archaeological piece in the entire history: Christ as the Sun God, buried beneath the seat of the papacy.</div>
+      <span class="card-tag tag-archaeology">Archaeological</span>
+    </div>
+    <div class="content-card">
+      <div class="card-title">The Arch of Constantine (315 AD)</div>
+      <div class="card-date">Rome · Still standing today</div>
+      <div class="card-text">Constantine's triumphal arch — built after his "conversion" — contains images of Sol Invictus in three separate relief panels. The arch was deliberately aligned with the colossal statue of Sol next to the Colosseum. A "Christian" monument covered in sun-god imagery.</div>
+      <span class="card-tag tag-archaeology">Archaeological</span>
+    </div>
+    <div class="content-card sun-card">
+      <div class="card-title">The Pompeii Graffito (60 AD)</div>
+      <div class="card-date">Pompeii, Italy</div>
+      <div class="card-text">The earliest known reference to "Dies Solis" (Sunday) as a day name in the Roman Empire — a graffito from Pompeii dated to February 6, 60 AD. This predates Christianity's Sunday by nearly a century. Sunday was already "the Day of the Sun" in pagan Rome long before any Christian adopted it.</div>
+      <span class="card-tag tag-archaeology">Archaeological</span>
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- CONSTANTINE TIMELINE -->
+  <h2>Constantine's Own Timeline — Sun Worshipper to "Christian"</h2>
+
+  <div class="const-timeline">
+    <div class="ct-item">
+      <div class="ct-date">272 AD</div>
+      <div class="ct-dot" style="background:#888"></div>
+      <div class="ct-content">
+        <div class="ct-title">Born into Sol Invictus Tradition</div>
+        <div class="ct-text">Constantine born in Naissus. His family associated with the cult of Sol from his earliest years. He was raised in a world where the Sun God was the supreme imperial deity.</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">274 AD</div>
+      <div class="ct-dot" style="background:var(--sun)"></div>
+      <div class="ct-content">
+        <div class="ct-title">Emperor Aurelian Makes Sol Chief God of Empire</div>
+        <div class="ct-text">The year Constantine is born, Aurelian establishes Sol Invictus as the empire's supreme deity, builds a great temple in Rome, and declares December 25 the birthday of the Sun. This is the religious world Constantine grows up in.</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">309 AD</div>
+      <div class="ct-dot" style="background:var(--sun)"></div>
+      <div class="ct-content">
+        <div class="ct-title">Coins: "To the Sun, My Invincible Companion"</div>
+        <div class="ct-text">Constantine mints coins inscribed "SOLI INVICTO COMITI" — "To the Unconquered Sun, my companion." He is depicted in divine association with Sol. This is 3 years before Milvian Bridge.</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">312 AD</div>
+      <div class="ct-dot" style="background:#C0C0C0"></div>
+      <div class="ct-content">
+        <div class="ct-title">Battle of Milvian Bridge — The Vision</div>
+        <div class="ct-text">Constantine reports seeing a cross of light above the sun. He attributes victory to the Christian God. He legalizes Christianity. But note: he is not baptized, does not stop worshipping Sol, and continues Sol imagery on coinage for 11 more years.</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">313 AD</div>
+      <div class="ct-dot" style="background:var(--sun)"></div>
+      <div class="ct-content">
+        <div class="ct-title">Still Minting Sol Invictus Gold Coins</div>
+        <div class="ct-text">A gold medallion from 313 AD depicts Constantine's bust twinned (jugate) with Sol Invictus — two profiles sharing one image. "Unconquered Constantine" paired with the Sun God on official imperial currency, one year after his "conversion."</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">321 AD</div>
+      <div class="ct-dot" style="background:var(--sun)"></div>
+      <div class="ct-content">
+        <div class="ct-title">Sunday Law — Called "Dies Solis" — The Day of the Sun</div>
+        <div class="ct-text">Constantine issues his famous Sunday enforcement law. He does NOT call it "the Lord's Day" or any Christian term. He calls it "Dies Solis" — the Day of the Sun. A sun-worshipper making a solar holiday into civil law. Saturday-keepers now break Roman law.</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">323 AD</div>
+      <div class="ct-dot" style="background:#C0C0C0"></div>
+      <div class="ct-content">
+        <div class="ct-title">Finally Renounces Sol Invictus — 11 Years After Milvian Bridge</div>
+        <div class="ct-text">More than a decade after his supposed conversion, Constantine publicly renounces Sol. Solar symbols disappear from coins. He begins donating substantial capital to the Church. Only now does he begin active Christian involvement.</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">325 AD</div>
+      <div class="ct-dot" style="background:#A0A0FF"></div>
+      <div class="ct-content">
+        <div class="ct-title">Council of Nicaea — Separating Easter from Passover</div>
+        <div class="ct-text">Constantine presides over Nicaea and declares: "It appeared an unworthy thing that in the celebration of this most holy feast we should follow the practice of the Jews." Anti-Jewish sentiment — not theology — drives the calendar separation.</div>
+      </div>
+    </div>
+    <div class="ct-item">
+      <div class="ct-date">337 AD</div>
+      <div class="ct-dot" style="background:#80C080"></div>
+      <div class="ct-content">
+        <div class="ct-title">Deathbed Baptism</div>
+        <div class="ct-text">Constantine is finally baptized on his deathbed — having waited deliberately, reportedly fearing that his oversight of capital punishment might be held against him in baptism. He rules as a "Christian emperor" for 25 years without being baptized.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- THE SIX LAYERS -->
+  <h2>The Six Layers of How Sunday Replaced Saturday</h2>
+  <p style="text-align:center; font-size:14px; color:rgba(242,232,208,0.6); font-style:italic; margin-bottom:28px;">Not one cause but six forces working in the same direction, over three centuries — each building on the last.</p>
+
+  <div class="layer-block">
+    <div class="layer-num">1</div>
+    <div class="layer-content" style="border-color:rgba(232,150,10,0.4);">
+      <div class="layer-title">THE PAGAN FOUNDATION — Dies Solis Already Existed</div>
+      <div class="layer-text">Before any Christian debate about worship days, Sunday already existed as "Dies Solis" — the Day of the Sun — in Hellenistic astrology and Roman religious practice. The Pompeii graffito of 60 AD proves it predates Christianity's Sunday by a century. The seven-day planetary week, named after gods, spread from Babylonian astrology through Greece to Rome. <strong>Sunday was a pagan sacred day before it was a Christian one.</strong></div>
+    </div>
+  </div>
+
+  <div class="layer-block">
+    <div class="layer-num">2</div>
+    <div class="layer-content" style="border-color:rgba(192,48,48,0.4);">
+      <div class="layer-title">HADRIAN'S PERSECUTION (135 AD) — The Political Trigger</div>
+      <div class="layer-text">Emperor Hadrian outlaws the Sabbath after crushing the Jewish revolt. Roman Christians — to avoid being identified as Jews and persecuted — begin distancing themselves from Saturday. This is not a theological decision. It is a survival decision. The true root of Sunday in Christianity is <strong>fear of being killed for appearing Jewish,</strong> not any scriptural instruction.</div>
+    </div>
+  </div>
+
+  <div class="layer-block">
+    <div class="layer-num">3</div>
+    <div class="layer-content" style="border-color:rgba(150,100,200,0.4);">
+      <div class="layer-title">THE MITHRAS PARALLEL — Syncretism in Action</div>
+      <div class="layer-text">Mithraism — the Cult of Mithras — was Christianity's chief competitor in the Roman Empire. Both were described with identical language: "the Way," "the Truth," "the Light," "the Life," "the Word," "the Son of God," "the Good Shepherd." Mithras worshippers met on the Day of the Sun. Roman Gentile converts arrived in Christianity already accustomed to solar Sunday worship. The syncretism flowed naturally: same day, rebranded deity.</div>
+    </div>
+  </div>
+
+  <div class="layer-block">
+    <div class="layer-num">4</div>
+    <div class="layer-content" style="border-color:rgba(232,150,10,0.5);">
+      <div class="layer-title">CONSTANTINE & SOL INVICTUS (321 AD) — State Enforcement</div>
+      <div class="layer-text">A sun-worshipper who took 11 years after his "conversion" to stop minting Sol Invictus coins made Sunday the law of the Roman Empire — calling it by its pagan name "Dies Solis." He explicitly stated his motivation was to have <em>"nothing in common with the detestable Jewish crowd."</em> His Sunday law was not a Christian theological statement. It was a solar-cult civil decree that Christianity then adopted and inhabited.</div>
+    </div>
+  </div>
+
+  <div class="layer-block">
+    <div class="layer-num">5</div>
+    <div class="layer-content" style="border-color:rgba(74,25,107,0.5);">
+      <div class="layer-title">THE COUNCIL OF LAODICEA (364 AD) — The Church Seals It</div>
+      <div class="layer-text">43 years after Constantine's civil law, the Church follows with Canon 29 — formally forbidding Saturday observance and commanding Sunday. The church decree follows the state decree. The sequence is revealing: <strong>the state coerced it first, the church codified it after.</strong> The very existence of the decree proves Saturday was still so widespread that legislation was required to suppress it — three centuries after Christ.</div>
+    </div>
+  </div>
+
+  <div class="layer-block">
+    <div class="layer-num">6</div>
+    <div class="layer-content" style="border-color:rgba(32,96,160,0.5);">
+      <div class="layer-title">THE THEOLOGICAL REINTERPRETATION — Retroactive Justification</div>
+      <div class="layer-text">After Sunday was already the practice, theologians worked backwards to justify it: Resurrection day theology, "first day of the week" interpretations, allegorical readings of Sabbath as "spiritual rest." As the Catholic Church candidly admitted centuries later: the change was made "from the Church's sense of its own power" — not from scriptural direction. The theology followed the politics. The Catholic Mirror challenged Protestants: <em>"You may read the Bible from Genesis to Revelation, and you will not find a single line authorizing Sunday."</em></div>
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- PARALLELS: SUNDAY WORSHIP VS SATURDAY WORSHIP -->
+  <h2>The Two Systems — What They Represent</h2>
+
+  <div class="parallels">
+    <div class="parallel-col left">
+      <div class="parallel-title">☀ SUNDAY WORSHIP</div>
+      <div class="parallel-item"><strong>Origin:</strong> Hellenistic astrology, pagan solar cults</div>
+      <div class="parallel-item"><strong>Name:</strong> "Dies Solis" — Day of the Sun God</div>
+      <div class="parallel-item"><strong>Enforced by:</strong> Roman Emperor Constantine, 321 AD</div>
+      <div class="parallel-item"><strong>Codified by:</strong> Council of Laodicea, 364 AD</div>
+      <div class="parallel-item"><strong>Biblical basis:</strong> None — "not found in a single line" (Cardinal Gibbons)</div>
+      <div class="parallel-item"><strong>Spread by:</strong> Military conquest, colonial power, Inquisition</div>
+      <div class="parallel-item"><strong>Motivation:</strong> Anti-Jewish sentiment; political identity separation</div>
+      <div class="parallel-item"><strong>Admitted by:</strong> Rome itself — "the mark of our ecclesiastical power"</div>
+    </div>
+    <div class="parallel-vs">VS</div>
+    <div class="parallel-col right">
+      <div class="parallel-title">🕍 SATURDAY SABBATH</div>
+      <div class="parallel-item"><strong>Origin:</strong> Genesis 2:2 — "God rested on the seventh day"</div>
+      <div class="parallel-item"><strong>Name:</strong> "Shabbat" — still embedded in Saturday's name worldwide</div>
+      <div class="parallel-item"><strong>Commanded by:</strong> The Fourth Commandment — Exodus 20:8-11</div>
+      <div class="parallel-item"><strong>Kept by:</strong> Jesus, the Apostles, the Jerusalem church</div>
+      <div class="parallel-item"><strong>Biblical basis:</strong> The Fourth Commandment; Genesis; all four Gospels</div>
+      <div class="parallel-item"><strong>Survived in:</strong> Ethiopia, India, Persia, Celtic Britain, China, Russia</div>
+      <div class="parallel-item"><strong>Rediscovered by:</strong> Every group that read the Bible independently</div>
+      <div class="parallel-item"><strong>Today:</strong> 23.7M Adventists + 60M+ Ethiopian Orthodox worldwide</div>
+    </div>
+  </div>
+
+  <!-- SECULAR HISTORIANS ON CONSTANTINE -->
+  <div class="gold-rule"></div>
+  <h2>What Secular Historians Say — Constantine & The Pagan Sunday</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px;">
+    <div class="big-quote" style="margin:0;">
+      <div class="big-quote-text">"This legislation by Constantine probably bore no relation to Christianity; it appears, on the contrary, that the emperor, in his capacity of Pontifex Maximus, was only adding the day of the sun, the worship of which was then firmly established in the Roman Empire, to the other festival days of the sacred calendar."</div>
+      <div class="big-quote-source">— Prof. Hutton Webster, Ph.D. (University of Nebraska) · <em>Rest Days</em>, p. 122</div>
+    </div>
+    <div class="big-quote" style="margin:0;">
+      <div class="big-quote-text">"This Sunday law constituted NO real favoritism for Christianity. It is evident from all his statutory provisions that the Emperor has sought the REALIZATION OF HIS RELIGIOUS AIMS: the amalgamation of heathenism and Christianity."</div>
+      <div class="big-quote-source">— Norwegian Bishop A. Chr. Bang · <em>Kirken og Romerstaten</em>, p. 256 (1879)</div>
+    </div>
+  </div>
+
+  <!-- THE FARMER EXEMPTION — DAMNING DETAIL -->
+  <div style="background:rgba(200,134,10,0.08);border:1px solid rgba(200,134,10,0.3);border-radius:8px;padding:24px 28px;margin-bottom:32px;">
+    <div style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;color:var(--gold);margin-bottom:12px;">THE FARMER EXEMPTION — A DAMNING DETAIL IN CONSTANTINE'S OWN TEXT</div>
+    <div style="font-size:14px;color:rgba(242,232,208,0.85);line-height:1.7;">
+      Constantine's Sunday law (Codex Justinianus 3.12.2, March 7, 321 AD) contains a clause that no theologian defending Sunday as the "Christian Sabbath" can explain: <strong style="color:var(--gold)">"Country people, however, may freely attend to the cultivation of the fields."</strong>
+      <br><br>
+      The biblical Sabbath — the Fourth Commandment — explicitly commands rest for <em>everyone</em>: "thou shalt not do any work, thou, nor thy son, nor thy daughter, thy manservant, nor thy maidservant, nor thy cattle, nor thy stranger" (Exodus 20:10). Agricultural workers are specifically included. If Constantine's Sunday decree had any biblical basis at all, farmers would be the last group to be exempted.
+      <br><br>
+      The exemption makes perfect sense for a pagan solar festival — market towns close, courts rest, but rural life continues. It makes <strong style="color:#E57373">no sense whatsoever</strong> for a transfer of the biblical Sabbath. The farmer clause is the clearest single proof that Constantine's Sunday law was a pagan solar observance — not a Christian Sabbath law.
+    </div>
+  </div>
+
+  <!-- SYNTHESIS -->
+  <div class="synthesis">
+    <div class="synthesis-title">THE COMPLETE PICTURE</div>
+    <div class="synthesis-text">
+      The names of the days of the week are an open archive, available to anyone who looks. <strong style="color:var(--sun)">Sunday</strong> is literally "the Day of the Sun" — named after the pagan solar deity worshipped by the same emperor who made it law. <strong style="color:#52B788">Saturday</strong> carries the Hebrew word <em>Shabbat</em> in nearly every language on earth — a 3,000-year linguistic fossil of the original sacred day.
+      <br><br>
+      What the full history shows is a six-layer convergence: a pagan planetary week that already had a Sun Day, persecution that drove Jewish-Christians to abandon their Saturday, syncretism with Mithras-worshippers who already venerated Sunday, a sun-worshipping emperor who made it civil law, a church council that made it religious law, and theologians who then worked backwards to justify what power had already decided.
+      <br><br>
+      Every time a community gained direct access to scripture without Rome as gatekeeper — in Celtic Scotland, in Alpine mountains, in Transylvanian forests, in Kerala's villages, in China's Silk Road cities, in Ethiopia's highlands — they arrived at the same conclusion: <em>the original day was Saturday, and Sunday was Rome's.</em>
+    </div>
+  </div>
+
+  <div class="ornament">☀ ✦ ☀</div>
+  <div class="infographic-label">INFOGRAPHIC IV OF IV · THE PAGAN ROOTS OF SUNDAY & THE COMPLETE HIDDEN HISTORY</div>
+
+</div>
+</body>
+</html>

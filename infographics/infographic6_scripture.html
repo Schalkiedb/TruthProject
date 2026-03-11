@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<style>
+*, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+:root { color-scheme: dark; }</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Scripture Evidence — Every Bible Verse on the Sabbath</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dim: #7A6020;
+    --parchment: #F2E8D0;
+    --bg: #040608;
+    --border: rgba(201,168,76,0.22);
+    --blue: #1A3A6A;
+    --blue-light: #4A7ACC;
+    --blue-pale: rgba(26,58,106,0.12);
+    --green: #1A4A2A;
+    --green-light: #52B788;
+    --green-pale: rgba(26,74,42,0.12);
+    --red: #6A1A1A;
+    --red-light: #C04040;
+    --red-pale: rgba(106,26,26,0.12);
+    --purple: #3A1A5A;
+    --purple-light: #9060C0;
+    --purple-pale: rgba(58,26,90,0.12);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--bg);
+    font-family: 'EB Garamond', serif;
+    color: var(--parchment);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(74,122,204,0.07) 0%, transparent 60%);
+  }
+  .page { width:1200px; margin:0 auto; padding:60px 40px 80px; }
+
+  .header { text-align:center; margin-bottom:50px; }
+  .scroll-icon { font-size:52px; margin-bottom:10px; display:block; }
+  .label-top { font-family:'Cinzel',serif; font-size:10px; letter-spacing:6px; color:var(--gold-dim); margin-bottom:14px; }
+  h1 { font-family:'Cinzel Decorative',serif; font-size:36px; color:var(--blue-light); text-shadow:0 0 40px rgba(74,122,204,0.4); margin-bottom:10px; line-height:1.2; }
+  .subtitle { font-size:17px; font-style:italic; color:rgba(242,232,208,0.65); max-width:720px; margin:0 auto; line-height:1.6; }
+  .gold-rule { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:30px 0; }
+  h2 { font-family:'Cinzel Decorative',serif; font-size:21px; color:var(--gold); margin-bottom:22px; text-align:center; }
+  h3 { font-family:'Cinzel',serif; font-size:12px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+  /* Scripture verse cards */
+  .verse-card {
+    background:rgba(255,252,240,0.03);
+    border:1px solid var(--border);
+    border-radius:5px;
+    padding:18px 20px;
+    margin-bottom:12px;
+    position:relative;
+    overflow:hidden;
+  }
+  .verse-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+  .verse-card.genesis::before  { background:var(--green-light); }
+  .verse-card.exodus::before   { background:var(--blue-light); }
+  .verse-card.jesus::before    { background:#E8C97A; }
+  .verse-card.paul::before     { background:var(--purple-light); }
+  .verse-card.rev::before      { background:var(--red-light); }
+  .verse-card.acts::before     { background:#60A0A0; }
+
+  .verse-ref { font-family:'Cinzel',serif; font-size:10px; letter-spacing:2px; color:var(--gold-dim); margin-bottom:5px; }
+  .verse-text { font-size:15px; font-style:italic; line-height:1.8; color:var(--parchment); margin-bottom:8px; border-left:1px solid rgba(201,168,76,0.2); padding-left:14px; }
+  .verse-note { font-size:12.5px; line-height:1.65; color:rgba(242,232,208,0.65); }
+  .verse-tag  { display:inline-block; font-family:'Cinzel',serif; font-size:8px; letter-spacing:1.5px; padding:2px 8px; border-radius:2px; margin-top:6px; }
+  .tag-sat  { background:rgba(32,104,64,0.2);  color:var(--green-light); border:1px solid rgba(32,104,64,0.4); }
+  .tag-both { background:rgba(201,168,76,0.1); color:var(--gold-light);  border:1px solid rgba(201,168,76,0.3); }
+  .tag-key  { background:rgba(74,122,204,0.2); color:var(--blue-light);  border:1px solid rgba(74,122,204,0.4); }
+  .tag-disputed { background:rgba(106,26,26,0.2); color:var(--red-light); border:1px solid rgba(106,26,26,0.4); }
+
+  /* Section panels */
+  .section-panel {
+    border:1px solid var(--border);
+    border-radius:6px;
+    overflow:hidden;
+    margin-bottom:28px;
+  }
+  .panel-header {
+    padding:16px 22px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border-bottom:1px solid var(--border);
+  }
+  .panel-header.genesis  { background:var(--green-pale); }
+  .panel-header.exodus   { background:var(--blue-pale);  }
+  .panel-header.jesus    { background:rgba(201,168,76,0.07); }
+  .panel-header.paul     { background:var(--purple-pale); }
+  .panel-header.acts     { background:rgba(32,96,96,0.1); }
+  .panel-header.rev      { background:var(--red-pale);    }
+
+  .panel-icon { font-size:28px; }
+  .panel-title-text {}
+  .panel-title { font-family:'Cinzel',serif; font-size:15px; font-weight:700; }
+  .panel-header.genesis  .panel-title { color:var(--green-light); }
+  .panel-header.exodus   .panel-title { color:var(--blue-light);  }
+  .panel-header.jesus    .panel-title { color:var(--gold-light);  }
+  .panel-header.paul     .panel-title { color:var(--purple-light);}
+  .panel-header.acts     .panel-title { color:#60B0B0; }
+  .panel-header.rev      .panel-title { color:var(--red-light);   }
+  .panel-subtitle { font-size:12px; font-style:italic; color:rgba(242,232,208,0.55); margin-top:2px; }
+  .panel-body { padding:20px 22px; }
+
+  /* Two/three col */
+  .two-col   { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:28px; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:28px; }
+
+  /* The disputed passages section */
+  .dispute-grid { display:grid; grid-template-columns:1fr 24px 1fr; gap:0; margin-bottom:30px; align-items:start; }
+  .dispute-col  { padding:20px; border:1px solid var(--border); border-radius:5px; }
+  .dispute-sat  { background:var(--green-pale); border-color:rgba(32,104,64,0.35); }
+  .dispute-sun  { background:var(--red-pale);   border-color:rgba(106,26,26,0.35); }
+  .dispute-mid  { display:flex; align-items:center; justify-content:center; padding:0 8px; }
+  .dispute-vs   { font-family:'Cinzel Decorative',serif; font-size:18px; color:var(--gold-dim); writing-mode:vertical-rl; text-orientation:mixed; }
+  .dispute-title{ font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; margin-bottom:14px; text-align:center; }
+  .dispute-sat .dispute-title { color:var(--green-light); }
+  .dispute-sun .dispute-title { color:var(--red-light);   }
+  .dispute-point { padding:10px 0; border-bottom:1px solid rgba(201,168,76,0.08); }
+  .dispute-point:last-child { border-bottom:none; }
+  .dispute-ref  { font-family:'Cinzel',serif; font-size:10px; color:var(--gold-dim); margin-bottom:3px; letter-spacing:1px; }
+  .dispute-text { font-size:13px; line-height:1.6; color:rgba(242,232,208,0.8); }
+  .dispute-note { font-size:11.5px; font-style:italic; color:rgba(242,232,208,0.5); margin-top:4px; }
+
+  /* Final summary */
+  .summary-box { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.3); border-radius:5px; padding:30px 36px; margin-top:30px; text-align:center; }
+  .summary-title { font-family:'Cinzel Decorative',serif; font-size:18px; color:var(--gold); margin-bottom:20px; }
+  .summary-text  { font-size:15px; line-height:1.9; color:rgba(242,232,208,0.85); max-width:900px; margin:0 auto; }
+
+  .content-card { background:rgba(255,252,240,0.03); border:1px solid var(--border); border-radius:5px; padding:18px; }
+  .card-title { font-family:'Cinzel',serif; font-size:12px; font-weight:700; color:var(--gold-light); margin-bottom:4px; }
+  .card-text  { font-size:13px; line-height:1.7; color:rgba(242,232,208,0.78); }
+
+  .ornament { text-align:center; color:var(--gold-dim); font-size:22px; letter-spacing:10px; margin-top:50px; }
+  .inf-label { font-family:'Cinzel',serif; font-size:10px; letter-spacing:3px; color:var(--gold-dim); text-align:center; margin-top:12px; }
+
+  ul.plain-list { list-style:none; }
+  ul.plain-list li { font-size:13px; line-height:1.7; color:rgba(242,232,208,0.8); padding:5px 0 5px 16px; position:relative; border-bottom:1px solid rgba(201,168,76,0.07); }
+  ul.plain-list li:last-child { border-bottom:none; }
+  ul.plain-list li::before { content:'›'; position:absolute; left:0; color:var(--gold-dim); }
+  ul.plain-list li strong { color:var(--gold-light); font-weight:500; }
+
+  @media print {
+    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
+    body { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    @page { size: A3 landscape; margin: 0.5cm; }
+  }
+</style>
+
+<style id="print-force">
+/* ═══ PRINT COLOUR FORCE — auto-generated ═══ */
+*, *::before, *::after {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+@media print {
+  @page { margin: 0.5cm; }
+  body {
+    background: #040608 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #F2E8D0 !important;
+  }
+  .label-top {
+    color: #7A6020 !important;
+  }
+  h1 {
+    color: #4A7ACC !important;
+  }
+  .subtitle {
+    color: rgba(242,232,208,0.65) !important;
+  }
+  .gold-rule {
+    background: linear-gradient(90deg,transparent,#C9A84C,transparent) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  h2 {
+    color: #C9A84C !important;
+  }
+  h3 {
+    color: #C9A84C !important;
+    border-bottom: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  /* Scripture verse cards */
+  .verse-card {
+    background: rgba(255,252,240,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .verse-card.genesis::before {
+    background: #52B788 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .verse-card.exodus::before {
+    background: #4A7ACC !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .verse-card.jesus::before {
+    background: #E8C97A !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .verse-card.paul::before {
+    background: #9060C0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .verse-card.rev::before {
+    background: #C04040 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .verse-card.acts::before {
+    background: #60A0A0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .verse-ref {
+    color: #7A6020 !important;
+  }
+  .verse-text {
+    color: #F2E8D0 !important;
+    border-left: 1px solid rgba(201,168,76,0.2) !important;
+  }
+  .verse-note {
+    color: rgba(242,232,208,0.65) !important;
+  }
+  .tag-sat {
+    background: rgba(32,104,64,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #52B788 !important;
+    border: 1px solid rgba(32,104,64,0.4) !important;
+  }
+  .tag-both {
+    background: rgba(201,168,76,0.1) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #E8C97A !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+  }
+  .tag-key {
+    background: rgba(74,122,204,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #4A7ACC !important;
+    border: 1px solid rgba(74,122,204,0.4) !important;
+  }
+  .tag-disputed {
+    background: rgba(106,26,26,0.2) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color: #C04040 !important;
+    border: 1px solid rgba(106,26,26,0.4) !important;
+  }
+  /* Section panels */
+  .section-panel {
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .panel-header {
+    border-bottom: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .panel-header.genesis {
+    background: rgba(26,74,42,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .panel-header.exodus {
+    background: rgba(26,58,106,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .panel-header.jesus {
+    background: rgba(201,168,76,0.07) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .panel-header.paul {
+    background: rgba(58,26,90,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .panel-header.acts {
+    background: rgba(32,96,96,0.1) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .panel-header.rev {
+    background: rgba(106,26,26,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .panel-header.genesis  .panel-title {
+    color: #52B788 !important;
+  }
+  .panel-header.exodus   .panel-title {
+    color: #4A7ACC !important;
+  }
+  .panel-header.jesus    .panel-title {
+    color: #E8C97A !important;
+  }
+  .panel-header.paul     .panel-title {
+    color: #9060C0 !important;
+  }
+  .panel-header.acts     .panel-title {
+    color: #60B0B0 !important;
+  }
+  .panel-header.rev      .panel-title {
+    color: #C04040 !important;
+  }
+  .panel-subtitle {
+    color: rgba(242,232,208,0.55) !important;
+  }
+  .dispute-col {
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .dispute-sat {
+    background: rgba(26,74,42,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(32,104,64,0.35) !important;
+  }
+  .dispute-sun {
+    background: rgba(106,26,26,0.12) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border-color: rgba(106,26,26,0.35) !important;
+  }
+  .dispute-vs {
+    color: #7A6020 !important;
+  }
+  .dispute-sat .dispute-title {
+    color: #52B788 !important;
+  }
+  .dispute-sun .dispute-title {
+    color: #C04040 !important;
+  }
+  .dispute-point {
+    border-bottom: 1px solid rgba(201,168,76,0.08) !important;
+  }
+  .dispute-point:last-child {
+    border-bottom: none !important;
+  }
+  .dispute-ref {
+    color: #7A6020 !important;
+  }
+  .dispute-text {
+    color: rgba(242,232,208,0.8) !important;
+  }
+  .dispute-note {
+    color: rgba(242,232,208,0.5) !important;
+  }
+  /* Final summary */
+  .summary-box {
+    background: rgba(201,168,76,0.05) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+  }
+  .summary-title {
+    color: #C9A84C !important;
+  }
+  .summary-text {
+    color: rgba(242,232,208,0.85) !important;
+  }
+  .content-card {
+    background: rgba(255,252,240,0.03) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 1px solid rgba(201,168,76,0.22) !important;
+  }
+  .card-title {
+    color: #E8C97A !important;
+  }
+  .card-text {
+    color: rgba(242,232,208,0.78) !important;
+  }
+  .ornament {
+    color: #7A6020 !important;
+  }
+  .inf-label {
+    color: #7A6020 !important;
+  }
+  ul.plain-list li {
+    color: rgba(242,232,208,0.8) !important;
+    border-bottom: 1px solid rgba(201,168,76,0.07) !important;
+  }
+  ul.plain-list li:last-child {
+    border-bottom: none !important;
+  }
+  ul.plain-list li::before {
+    color: #7A6020 !important;
+  }
+  ul.plain-list li strong {
+    color: #E8C97A !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <span class="scroll-icon">📖</span>
+    <div class="label-top">Genesis to Revelation · Old Testament · New Testament · The Complete Record</div>
+    <h1>THE SCRIPTURE EVIDENCE</h1>
+    <div class="subtitle">Every significant Bible passage relating to the Sabbath — from Creation through the Apostles — with what Saturday-keepers and Sunday-keepers each argue, and what the text actually says.</div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- GENESIS -->
+  <div class="section-panel">
+    <div class="panel-header genesis">
+      <div class="panel-icon">🌍</div>
+      <div class="panel-title-text">
+        <div class="panel-title">THE CREATION ACCOUNT — Genesis</div>
+        <div class="panel-subtitle">The Sabbath exists before the Law of Moses, before Israel, before any covenant — rooted in creation itself</div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="two-col">
+        <div>
+          <div class="verse-card genesis">
+            <div class="verse-ref">Genesis 2:2–3</div>
+            <div class="verse-text">"And on the seventh day God ended His work which He had made; and He rested on the seventh day from all His work which He had made. And God blessed the seventh day, and sanctified it: because that in it He had rested from all His work which God created and made."</div>
+            <div class="verse-note">Three actions: God rested, blessed, and sanctified the seventh day. This is before Adam sinned, before Abraham, before Moses, before Israel — the Sabbath is embedded in the structure of creation itself. Saturday-keepers argue this makes the Sabbath universal and eternal, not a Jewish institution.</div>
+            <span class="verse-tag tag-sat">Key Saturday Evidence</span>
+          </div>
+          <div class="verse-card genesis">
+            <div class="verse-ref">Genesis 2:3 — "Sanctified"</div>
+            <div class="verse-text">The Hebrew word "qadash" — sanctified, set apart as holy. This is the first use of "holy" in the entire Bible. It is applied to a day, not a place or person.</div>
+            <div class="verse-note">The significance: holiness is first assigned to time — specifically to the seventh day. Saturday-keepers argue no subsequent text ever removes this holiness or transfers it to another day.</div>
+            <span class="verse-tag tag-key">First Use of "Holy" in Scripture</span>
+          </div>
+        </div>
+        <div>
+          <div class="verse-card genesis">
+            <div class="verse-ref">Exodus 16:23–30 — Before Sinai</div>
+            <div class="verse-text">"Tomorrow is the rest of the holy Sabbath unto the LORD... the LORD hath given you the Sabbath... See, for that the LORD hath given you the Sabbath, therefore He giveth you on the sixth day the bread of two days."</div>
+            <div class="verse-note">The Sabbath is introduced to Israel in Exodus 16 — before the Ten Commandments at Sinai in Exodus 20. God gives them double manna on Friday and none on Saturday, establishing the pattern. This proves the Sabbath was known before the Law was formally given.</div>
+            <span class="verse-tag tag-sat">Pre-Sinai Evidence</span>
+          </div>
+          <div class="verse-card genesis">
+            <div class="verse-ref">Isaiah 66:22–23</div>
+            <div class="verse-text">"For as the new heavens and the new earth, which I will make, shall remain before me... And it shall come to pass, that from one new moon to another, and from one sabbath to another, shall all flesh come to worship before me, saith the LORD."</div>
+            <div class="verse-note">A prophetic passage describing worship in the New Creation — after Christ's return. It specifically names the Sabbath as the day of universal worship in eternity. Saturday-keepers cite this as the most powerful evidence that the Sabbath is eternal, not abolished.</div>
+            <span class="verse-tag tag-sat">Eternal Sabbath Prophecy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE TEN COMMANDMENTS -->
+  <div class="section-panel">
+    <div class="panel-header exodus">
+      <div class="panel-icon">🗿</div>
+      <div class="panel-title-text">
+        <div class="panel-title">THE FOURTH COMMANDMENT — Exodus & Deuteronomy</div>
+        <div class="panel-subtitle">The most detailed of all Ten Commandments — the only one beginning with "Remember"</div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="verse-card exodus" style="margin-bottom:16px;">
+        <div class="verse-ref">Exodus 20:8–11 — The Fourth Commandment</div>
+        <div class="verse-text">"Remember the sabbath day, to keep it holy. Six days shalt thou labour, and do all thy work: But the seventh day is the sabbath of the LORD thy God: in it thou shalt not do any work, thou, nor thy son, nor thy daughter, thy manservant, nor thy maidservant, nor thy cattle, nor thy stranger that is within thy gates: For in six days the LORD made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the LORD blessed the sabbath day, and hallowed it."</div>
+        <div class="verse-note">The most detailed of all Ten Commandments — 94 words compared to "Thou shalt not kill" (6 words). Begins with "Remember" — implying it was already known. Points back to Creation as its foundation. Includes strangers/foreigners — not limited to Israel. Saturday-keepers ask: if Sunday replaced Saturday, why is there no commandment to "Remember the first day"?</div>
+        <span class="verse-tag tag-key">The Fourth Commandment — Longest of the Ten</span>
+      </div>
+      <div class="two-col">
+        <div class="verse-card exodus">
+          <div class="verse-ref">Deuteronomy 5:12–15 — Second Record</div>
+          <div class="verse-text">"Keep the sabbath day to sanctify it, as the LORD thy God hath commanded thee... And remember that thou wast a servant in the land of Egypt, and that the LORD thy God brought thee out thence."</div>
+          <div class="verse-note">The second giving of the commandments adds a second reason for the Sabbath: remembrance of deliverance from slavery. Two foundations — Creation and Liberation — are woven into Saturday's sacred character.</div>
+          <span class="verse-tag tag-sat">Two Foundations: Creation + Liberation</span>
+        </div>
+        <div class="verse-card exodus">
+          <div class="verse-ref">Exodus 31:16–17</div>
+          <div class="verse-text">"Wherefore the children of Israel shall keep the sabbath, to observe the sabbath throughout their generations, for a perpetual covenant. It is a sign between me and the children of Israel for ever."</div>
+          <div class="verse-note">Sunday-keepers often cite this verse to argue the Sabbath was "a sign" specifically for Israel — and therefore not binding on Gentile Christians. Saturday-keepers counter that the covenant applies to all who are grafted into Israel through faith (Romans 11).</div>
+          <span class="verse-tag tag-disputed">Disputed: Israel-only or universal?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JESUS AND THE SABBATH -->
+  <div class="section-panel">
+    <div class="panel-header jesus">
+      <div class="panel-icon">✡️</div>
+      <div class="panel-title-text">
+        <div class="panel-title">JESUS AND THE SABBATH — The Gospels</div>
+        <div class="panel-subtitle">Jesus kept the Sabbath, taught in synagogues on Saturday, and declared himself "Lord of the Sabbath" — but never abolished it</div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="three-col">
+        <div>
+          <div class="verse-card jesus">
+            <div class="verse-ref">Luke 4:16</div>
+            <div class="verse-text">"And he came to Nazareth, where he had been brought up: and, as his custom was, he went into the synagogue on the sabbath day, and stood up for to read."</div>
+            <div class="verse-note">"As his custom was" — Jesus habitually, regularly kept the Sabbath. This is not a one-time act but a lifelong practice described as his personal custom.</div>
+            <span class="verse-tag tag-sat">Jesus' Personal Custom</span>
+          </div>
+          <div class="verse-card jesus">
+            <div class="verse-ref">Mark 2:27–28</div>
+            <div class="verse-text">"The sabbath was made for man, and not man for the sabbath: Therefore the Son of man is Lord also of the sabbath."</div>
+            <div class="verse-note">Saturday-keepers: "made for man" — for all humanity, not just Jews. Sunday-keepers: Jesus being "Lord of the Sabbath" means he has authority to change it. Saturday-keepers respond: a lord owns and preserves, not abolishes.</div>
+            <span class="verse-tag tag-disputed">Disputed: "Made for man" — all humanity?</span>
+          </div>
+        </div>
+        <div>
+          <div class="verse-card jesus">
+            <div class="verse-ref">Matthew 5:17–18</div>
+            <div class="verse-text">"Think not that I am come to destroy the law, or the prophets: I am not come to destroy, but to fulfil. For verily I say unto you, Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law, till all be fulfilled."</div>
+            <div class="verse-note">Saturday-keepers: "till heaven and earth pass" — heaven and earth still exist, therefore the law (including the Fourth Commandment) is still in force. Sunday-keepers: "fulfil" means Jesus completed the law's requirements, making ceremonial laws no longer binding. The debate is whether the Sabbath is "moral" or "ceremonial."</div>
+            <span class="verse-tag tag-disputed">Most Debated Passage</span>
+          </div>
+          <div class="verse-card jesus">
+            <div class="verse-ref">Matthew 24:20</div>
+            <div class="verse-text">"But pray ye that your flight be not in winter, neither on the sabbath day."</div>
+            <div class="verse-note">Jesus instructs his disciples — speaking prophetically about the destruction of Jerusalem in 70 AD and beyond — to pray that their future flight would not fall on the Sabbath. Written for a future audience still observing Saturday. Saturday-keepers: would Jesus instruct prayer about a day he intended to abolish?</div>
+            <span class="verse-tag tag-sat">Jesus Assumes Future Saturday Keeping</span>
+          </div>
+        </div>
+        <div>
+          <div class="verse-card jesus">
+            <div class="verse-ref">Luke 23:54–56 — After the Crucifixion</div>
+            <div class="verse-text">"And that day was the preparation, and the sabbath drew on... And they returned, and prepared spices and ointments; and rested the sabbath day according to the commandment."</div>
+            <div class="verse-note">The women who were closest to Jesus — after his death — "rested the sabbath day according to the commandment." The disciples kept Saturday even on the weekend of the resurrection. The resurrection itself occurred after the Sabbath rest was complete.</div>
+            <span class="verse-tag tag-sat">Disciples Rest on Saturday After Crucifixion</span>
+          </div>
+          <div class="verse-card jesus">
+            <div class="verse-ref">John 20:19 — "First Day" Appearances</div>
+            <div class="verse-text">"Then the same day at evening, being the first day of the week, when the doors were shut where the disciples were assembled for fear of the Jews..."</div>
+            <div class="verse-note">Sunday-keepers cite this as the first "Sunday worship" — Jesus appearing to disciples on the first day. Saturday-keepers: the disciples were hiding in fear, not worshipping. The text gives no instruction to make this a weekly observance. It is a single appearance, not a command to change the Sabbath.</div>
+            <span class="verse-tag tag-disputed">Disputed: Fear-gathering or Sunday worship?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTS OF THE APOSTLES -->
+  <div class="section-panel">
+    <div class="panel-header acts">
+      <div class="panel-icon">🕊️</div>
+      <div class="panel-title-text">
+        <div class="panel-title">THE ACTS OF THE APOSTLES — The Early Church</div>
+        <div class="panel-subtitle">Paul consistently worships on Saturday — including with Gentiles — throughout his entire missionary career</div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="three-col">
+        <div class="verse-card acts">
+          <div class="verse-ref">Acts 13:14, 42–44</div>
+          <div class="verse-text">"They came to Antioch in Pisidia, and went into the synagogue on the sabbath day... And when the Jews were gone out of the synagogue, the Gentiles besought that these words might be preached to them the next sabbath... And the next sabbath day came almost the whole city together to hear the word of God."</div>
+          <div class="verse-note">Paul preaches to both Jews and Gentiles on Saturday. The Gentiles specifically ask to hear more on "the next sabbath" — not on Sunday. "Almost the whole city" gathers the following Saturday. If Paul intended to change the Sabbath to Sunday, this was the moment to say so. He does not.</div>
+          <span class="verse-tag tag-sat">Gentiles Invited to Next Saturday</span>
+        </div>
+        <div class="verse-card acts">
+          <div class="verse-ref">Acts 16:13</div>
+          <div class="verse-text">"And on the sabbath we went out of the city by a river side, where prayer was wont to be made; and we sat down, and spake unto the women which resorted thither."</div>
+          <div class="verse-note">In Philippi — a Roman colony with no synagogue — Paul and his companions still observe the Sabbath by going to a riverside prayer meeting on Saturday. There is no synagogue to "reach Jews" as an excuse; this is pure Sabbath observance by the apostolic team.</div>
+          <span class="verse-tag tag-sat">Paul Keeps Saturday Outside Synagogue</span>
+        </div>
+        <div class="verse-card acts">
+          <div class="verse-ref">Acts 17:2</div>
+          <div class="verse-text">"And Paul, as his manner was, went in unto them, and three sabbath days reasoned with them out of the scriptures."</div>
+          <div class="verse-note">"As his manner was" — exactly the same phrase used of Jesus in Luke 4:16. Paul habitually, as his personal custom, observed the Sabbath. This is in Thessalonica — a predominantly Gentile city. Paul's manner was Saturday worship, not Sunday.</div>
+          <span class="verse-tag tag-sat">Paul's "Manner" = Saturday, Like Jesus</span>
+        </div>
+        <div class="verse-card acts">
+          <div class="verse-ref">Acts 18:4, 11</div>
+          <div class="verse-text">"And he reasoned in the synagogue every sabbath, and persuaded the Jews and the Greeks... And he continued there a year and six months, teaching the word of God among them."</div>
+          <div class="verse-note">In Corinth, Paul teaches every Saturday for 18 months. He teaches both Jews AND Greeks (Gentiles) on Saturday. 78 consecutive Saturdays of apostolic teaching — with no mention of Sunday worship replacing it.</div>
+          <span class="verse-tag tag-sat">78 Saturdays of Teaching — Jews & Gentiles</span>
+        </div>
+        <div class="verse-card acts">
+          <div class="verse-ref">Acts 20:7 — "First Day of the Week"</div>
+          <div class="verse-text">"And upon the first day of the week, when the disciples came together to break bread, Paul preached unto them, ready to depart on the morrow; and continued his speech until midnight."</div>
+          <div class="verse-note">The most frequently cited Sunday worship verse. Sunday-keepers: the church met on the first day. Saturday-keepers: this was a one-time farewell meeting before Paul's departure, not a regular Sunday service. The meeting went to midnight — consistent with Saturday night by Jewish reckoning (the first day begins at sunset Saturday).</div>
+          <span class="verse-tag tag-disputed">Most Cited Sunday Verse — Disputed</span>
+        </div>
+        <div class="verse-card acts">
+          <div class="verse-ref">Acts 20:7 — Saturday Night Interpretation</div>
+          <div class="verse-text">In Jewish reckoning, the day begins at sunset. "The first day of the week" beginning at Saturday sunset means this meeting was Saturday night — after the Sabbath ended. Paul then traveled on Sunday (the morrow/next morning), consistent with no Sunday rest obligation.</div>
+          <div class="verse-note">Saturday-keepers: the meeting was Saturday night, making it a post-Sabbath fellowship, not a Sunday worship service. This interpretation is consistent with Paul departing the very next morning.</div>
+          <span class="verse-tag tag-sat">Saturday Night by Jewish Reckoning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAUL'S LETTERS -->
+  <div class="section-panel">
+    <div class="panel-header paul">
+      <div class="panel-icon">✉️</div>
+      <div class="panel-title-text">
+        <div class="panel-title">PAUL'S LETTERS — The Most Debated Passages</div>
+        <div class="panel-subtitle">The passages Sunday-keepers rely on most heavily — and the Saturday-keeper responses</div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="dispute-grid">
+        <div class="dispute-col dispute-sat">
+          <div class="dispute-title">SATURDAY-KEEPER READING</div>
+          <div class="dispute-point">
+            <div class="dispute-ref">Colossians 2:16–17</div>
+            <div class="dispute-text">"Let no man therefore judge you in meat, or in drink, or in respect of an holyday, or of the new moon, or of the sabbath days: Which are a shadow of things to come; but the body is of Christ."</div>
+            <div class="dispute-note">The "sabbath days" here are annual ceremonial sabbaths (feast days), not the weekly Saturday Sabbath. The Greek word is plural "sabbatōn" referring to annual holy days. The weekly Sabbath in the commandment is singular. Paul is defending believers from being judged for how they observe ceremonial feast days.</div>
+          </div>
+          <div class="dispute-point">
+            <div class="dispute-ref">Romans 14:5</div>
+            <div class="dispute-text">"One man esteemeth one day above another: another esteemeth every day alike. Let every man be fully persuaded in his own mind."</div>
+            <div class="dispute-note">Context is about Jewish fast days and feast days — not the weekly Sabbath. The passage is about Christian freedom regarding ceremonial observances, not about changing the commandment Sabbath. No Saturday-keeping church in Rome is being rebuked.</div>
+          </div>
+        </div>
+        <div class="dispute-mid"><div class="dispute-vs">VS</div></div>
+        <div class="dispute-col dispute-sun">
+          <div class="dispute-title">SUNDAY-KEEPER READING</div>
+          <div class="dispute-point">
+            <div class="dispute-ref">Colossians 2:16–17</div>
+            <div class="dispute-text">The weekly Sabbath is included in "sabbath days" — Paul is saying the entire Sabbath system (weekly and annual) was a shadow pointing to Christ. Now that the reality (Christ) has come, the shadow (Sabbath) is no longer binding. Christians are not to be judged by others for not keeping it.</div>
+            <div class="dispute-note">This is the primary Sunday-keeper argument for Sabbath abolition — that Colossians 2:16 cancels the Fourth Commandment by making the weekly Sabbath ceremonial rather than moral.</div>
+          </div>
+          <div class="dispute-point">
+            <div class="dispute-ref">Romans 14:5</div>
+            <div class="dispute-text">Paul teaches that all days are equal to the mature Christian — no day is inherently more sacred than another. This includes Saturday. Christians are free to worship on any day; the Old Testament Sabbath is not specifically binding on New Testament believers.</div>
+            <div class="dispute-note">Sunday-keepers read this as Paul liberating Christians from the Sabbath commandment, replacing it with freedom of worship on any day.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="verse-card paul">
+          <div class="verse-ref">1 Corinthians 16:2 — "First Day" Offering</div>
+          <div class="verse-text">"Upon the first day of the week let every one of you lay by him in store, as God hath prospered him, that there be no gatherings when I come."</div>
+          <div class="verse-note">Sunday-keepers: Paul instructs first-day giving — implying a Sunday gathering. Saturday-keepers: "lay by him in store" means at home — private saving for a future collection, not a church offering at a Sunday service. No mention of Sunday worship here — Paul is trying to avoid having to collect money when he arrives.</div>
+          <span class="verse-tag tag-disputed">Home saving vs. Sunday collection</span>
+        </div>
+        <div class="verse-card paul">
+          <div class="verse-ref">Hebrews 4:9–10</div>
+          <div class="verse-text">"There remaineth therefore a rest to the people of God. For he that is entered into his rest, he also hath ceased from his own works, as God did from his."</div>
+          <div class="verse-note">The Greek word used is "sabbatismos" — literally "a Sabbath-keeping." Saturday-keepers: this explicitly says a Sabbath-keeping remains for God's people. Sunday-keepers: the "rest" is spiritual/eternal rest in Christ, not a weekly Saturday observance. The word "sabbatismos" appears nowhere else in the New Testament.</div>
+          <span class="verse-tag tag-sat">"Sabbatismos" — A Sabbath-keeping Remains</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVELATION -->
+  <div class="section-panel">
+    <div class="panel-header rev">
+      <div class="panel-icon">📿</div>
+      <div class="panel-title-text">
+        <div class="panel-title">REVELATION — "The Lord's Day" and the Eternal Sabbath</div>
+        <div class="panel-subtitle">The single most debated verse in the Sunday-vs-Saturday discussion</div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="two-col">
+        <div class="verse-card rev">
+          <div class="verse-ref">Revelation 1:10 — "The Lord's Day"</div>
+          <div class="verse-text">"I was in the Spirit on the Lord's day, and heard behind me a great voice, as of a trumpet."</div>
+          <div class="verse-note"><strong>Sunday-keeper reading:</strong> "The Lord's Day" = Sunday, the day of resurrection. By John's time (c. 95 AD) Sunday had become known as "the Lord's Day" among Christians. This is the earliest clear biblical reference to Sunday as a distinct Christian observance. <br><br><strong>Saturday-keeper reading:</strong> "The Lord's Day" in the Old Testament is "the Day of the LORD" — a prophetic concept of God's day of judgment (Isaiah 13:6, Joel 1:15, Amos 5:18). John, who was steeped in Hebrew prophetic tradition, used it in this sense — not to designate Sunday worship. Also: Jesus declared himself "Lord of the Sabbath" — making Saturday "the Lord's Day."</div>
+          <span class="verse-tag tag-disputed">The Most Debated Verse in the Debate</span>
+        </div>
+        <div class="verse-card rev">
+          <div class="verse-ref">Isaiah 58:13 — God Names the Day</div>
+          <div class="verse-text">"If thou turn away thy foot from the sabbath, from doing thy pleasure on my holy day; and call the sabbath a delight, the holy of the LORD, honourable..."</div>
+          <div class="verse-note">God calls the Sabbath "my holy day" — using "my" as a possessive. If the day that belongs to God is "the Lord's Day," Saturday-keepers argue this is the original scriptural claim on that title — predating Revelation by centuries. In Exodus 20:10 God calls it "the sabbath of the LORD thy God" — again using LORD as possessive of Saturday.</div>
+          <span class="verse-tag tag-sat">God's Own Name for His Day = Saturday</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gold-rule"></div>
+
+  <!-- The Scripture Scorecard -->
+  <h2>The Scripture Scorecard</h2>
+  <div class="three-col">
+    <div class="content-card">
+      <div class="card-title" style="color:var(--green-light)">PASSAGES EXPLICITLY NAMING SATURDAY AS SACRED</div>
+      <div class="card-text" style="margin-top:10px;">
+        <ul class="plain-list">
+          <li>Genesis 2:2–3 — God blesses and sanctifies the 7th day</li>
+          <li>Exodus 16 — Double manna on Friday before Sinai</li>
+          <li>Exodus 20:8–11 — The Fourth Commandment</li>
+          <li>Isaiah 66:22–23 — Eternal Sabbath in New Creation</li>
+          <li>Isaiah 58:13 — God calls Saturday "my holy day"</li>
+          <li>Luke 4:16 — Jesus' custom = Saturday synagogue</li>
+          <li>Luke 23:56 — Disciples rest on Saturday after crucifixion</li>
+          <li>Acts 13:42–44 — Gentiles invited back next Saturday</li>
+          <li>Acts 17:2 — Paul's manner = Saturday, like Jesus</li>
+          <li>Acts 18:4 — 78 Saturdays, Jews and Gentiles</li>
+          <li>Hebrews 4:9 — "Sabbatismos" remains for God's people</li>
+        </ul>
+      </div>
+    </div>
+    <div class="content-card">
+      <div class="card-title" style="color:var(--red-light)">PASSAGES CITED FOR SUNDAY</div>
+      <div class="card-text" style="margin-top:10px;">
+        <ul class="plain-list">
+          <li>John 20:19 — Disciples meet on first day (disputed: fear-gathering)</li>
+          <li>Acts 20:7 — Breaking bread on first day (disputed: Saturday night)</li>
+          <li>1 Cor. 16:2 — First-day offering (disputed: private home saving)</li>
+          <li>Rev. 1:10 — "Lord's Day" (disputed: which day?)</li>
+          <li>Col. 2:16–17 — Sabbath as shadow (disputed: annual vs. weekly)</li>
+          <li>Romans 14:5 — All days equal (disputed: feast days context)</li>
+        </ul>
+        <div style="margin-top:14px; font-size:13px; font-style:italic; color:rgba(242,232,208,0.55);">Note: None of these passages contain an explicit command to worship on Sunday or to transfer the Sabbath to the first day. The Catholic Church itself acknowledges this: "You may read the Bible from Genesis to Revelation, and you will not find a single line authorizing the sanctification of Sunday." — Cardinal Gibbons</div>
+      </div>
+    </div>
+    <div class="content-card">
+      <div class="card-title" style="color:var(--gold-light)">THE CENTRAL QUESTION</div>
+      <div class="card-text" style="margin-top:10px;">
+        <ul class="plain-list">
+          <li><strong>Was the Sabbath "moral" or "ceremonial"?</strong> If moral (like "do not murder"), it is permanent. If ceremonial (like sacrifices), Christ fulfilled and ended it.</li>
+          <li><strong>Is Colossians 2:16 about annual feasts or the weekly Sabbath?</strong> The answer changes everything about Paul's argument.</li>
+          <li><strong>What does "Lord's Day" mean in Revelation 1:10?</strong> Sunday resurrection day — or the Old Testament "Day of the LORD"?</li>
+          <li><strong>What does Jesus mean by "fulfil" in Matthew 5:17?</strong> Complete and end — or fill to the fullest meaning?</li>
+          <li><strong>If the Sabbath changed, where is the command?</strong> The Catholic Mirror's challenge: show us the verse that transfers the Sabbath to Sunday.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-box">
+    <div class="summary-title">WHAT THE SCRIPTURE RECORD SHOWS</div>
+    <div class="summary-text">
+      The Saturday Sabbath appears explicitly and positively in scripture from Genesis 2 through Isaiah 66, through the Fourth Commandment, through every Gospel account of Jesus' practice, through every recorded missionary journey of Paul. The New Testament contains no verse commanding Christians to worship on Sunday, no verse abolishing the Fourth Commandment, and no verse transferring the Sabbath from the seventh day to the first.
+      <br><br>
+      What the New Testament contains are disputed passages — <em>John 20:19, Acts 20:7, 1 Corinthians 16:2, Colossians 2:16, Revelation 1:10</em> — none of which unambiguously commands Sunday worship. The Catholic Church's own scholarship acknowledges this plainly. The historical record shows Sunday was established by state law (321 AD) and church decree (364 AD) — not by any text of scripture.
+      <br><br>
+      The most powerful single verse in the entire debate may be <strong style="color:var(--gold)">Hebrews 4:9</strong> — "There remaineth therefore a sabbatismos to the people of God" — which uses the unique Greek word for "a Sabbath-keeping" and says it <em>remains</em>.
+    </div>
+  </div>
+
+  <div class="ornament">📖 ✦ 📖</div>
+  <div class="inf-label">INFOGRAPHIC VI OF VII · THE SCRIPTURE EVIDENCE</div>
+</div>
+</body>
+</html>
