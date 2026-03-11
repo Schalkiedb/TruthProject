@@ -189,7 +189,7 @@ const LIBRARY = [
     items: [
       {
         title: "Quotes: Catholic & Protestant Admissions on the Sabbath",
-        file: "Quotes regarding sabbath change catholic and protestant.md",
+        file: "Quotes_regarding_sabbath_change_catholic_and_protestant.md",
         icon: "💬",
         tag: "Primary Sources",
         tagClass: "blue",
