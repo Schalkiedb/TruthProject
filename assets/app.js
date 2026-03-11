@@ -22,7 +22,7 @@ const LIBRARY = [
       },
       {
         title: "Daniel 7 & 8: The Kingdoms Revealed",
-        file: "Study guides/Daniel_7 & 8_The_Kingdoms_Revealed_Study_Guide.md",
+        file: "Study guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md",
         icon: "🦁",
         tag: "Daniel Series",
         tagClass: "blue",
@@ -102,7 +102,7 @@ const LIBRARY = [
       },
       {
         title: "Sabbath Study Guide: 39 Objections Answered",
-        file: "Study guides/Sabbath study guide.md",
+        file: "Study guides/Sabbath_study_guide.md",
         icon: "📅",
         tag: "Sabbath",
         tagClass: "green",
