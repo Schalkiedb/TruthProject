@@ -306,9 +306,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 0;          /* prevent flex child from overflowing parent */
-  max-width: 100%;       /* never wider than the viewport */
-  overflow-x: hidden;    /* clip here, not on html/body, so content is contained */
+  min-width: 0;    /* prevent flex child from overflowing parent */
+  width: 0;        /* forces flex to respect the available width only */
   transition: margin-left var(--transition);
 }
 
@@ -392,7 +391,9 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 #content-area {
   flex: 1;
   padding: 0;
-  overflow-x: hidden;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -572,6 +573,8 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   max-width: 860px;
   margin: 0 auto;
   padding: 40px 48px 60px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* Infographic mode — removes narrow max-width so iframe fills the content area */
@@ -763,7 +766,10 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 16px;
-  overflow-x: auto;
+  overflow-x: auto;   /* scroll wide code blocks — don't clip them */
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  box-sizing: border-box;
   margin: 16px 0 20px;
 }
 
