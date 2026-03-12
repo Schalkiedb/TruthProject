@@ -493,8 +493,10 @@ async function loadDocument(filePath) {
     let md = await res.text();
 
     // Fix relative image paths for files inside Study_guides/
+    // Handles both markdown syntax ![alt](images/...) and HTML <img src="images/...">
     if (filePath.startsWith("Study_guides/")) {
       md = md.replace(/!\[([^\]]*)\]\(images\//g, "![$1](Study_guides/images/");
+      md = md.replace(/(<img\s[^>]*src=["'])images\//gi, "$1Study_guides/images/");
     }
 
     // Set up DOM — show markdown view, hide iframe
