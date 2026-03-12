@@ -337,7 +337,10 @@ function buildSidebar() {
       navItem.className = "nav-item";
       navItem.dataset.file = item.file;
       navItem.innerHTML = `<span class="nav-item-icon">${item.icon}</span><span class="nav-item-title">${item.title}</span>`;
-      navItem.addEventListener("click", () => loadDocument(item.file));
+      navItem.addEventListener("click", () => {
+        if (window.innerWidth <= 900) closeMobileSidebar();
+        loadDocument(item.file);
+      });
       itemsEl.appendChild(navItem);
     });
 
@@ -494,88 +497,50 @@ async function loadDocument(filePath) {
       md = md.replace(/!\[([^\]]*)\]\(images\//g, "![$1](Study_guides/images/");
     }
 
-    // Render markdown → HTML
-    const rawHtml = marked.parse(md);
-    const cleanHtml =
-      typeof DOMPurify !== "undefined"
-        ? DOMPurify.sanitize(rawHtml, {
-            ADD_ATTR: ["align"],
-            ADD_TAGS: ["center"],
-          })
-        : rawHtml;
-
-    // Inject into DOM — make sure markdown view is shown, iframe hidden
+    // Set up DOM — show markdown view, hide iframe
     const contentEl = document.getElementById("doc-content");
     document.getElementById("doc-page").classList.remove("infographic-mode");
     contentEl.style.display = "";
     document.getElementById("doc-iframe").style.display = "none";
     document.getElementById("doc-iframe").src = "";
-    contentEl.innerHTML = cleanHtml;
+    contentEl.innerHTML = "";
 
-    // Make internal .md links and in-page #anchor links work
-    contentEl.querySelectorAll("a").forEach((anchor) => {
-      const href = anchor.getAttribute("href");
-      if (!href) return;
+    // ── Progressive rendering ─────────────────────────────────────────
+    // Split the markdown at top-level headings so we can render the first
+    // section immediately and append the rest during idle time.
+    // On slow mobile connections / CPUs this prevents the page from
+    // appearing frozen — the user sees content within ~1 second.
+    const sections = md.split(/(?=\n#{1,2} )/);
 
-      // In-page anchor links (e.g. TOC links like #the-7-day-week-cycle)
-      if (href.startsWith("#")) {
-        anchor.addEventListener("click", (e) => {
-          e.preventDefault();
-          const target = findAnchorTarget(href.slice(1));
-          if (target) {
-            const topbarH = document.getElementById("topbar").offsetHeight;
-            const targetY =
-              target.getBoundingClientRect().top +
-              window.scrollY -
-              topbarH -
-              12;
-            window.scrollTo({ top: targetY, behavior: "smooth" });
-          }
-        });
-        return;
-      }
-
-      // External links — open in new tab
-      if (href.startsWith("http://") || href.startsWith("https://")) {
-        anchor.setAttribute("target", "_blank");
-        anchor.setAttribute("rel", "noopener noreferrer");
-        return;
-      }
-      // Resolve .md links relative to current file's directory
-      const dir = filePath.includes("/")
-        ? filePath.substring(0, filePath.lastIndexOf("/") + 1)
-        : "";
-      const resolved = resolveRelativePath(dir, href);
-      const targetItem = ALL_ITEMS.find(
-        (i) => normalise(i.file) === normalise(resolved),
-      );
-      if (targetItem) {
-        anchor.href = "#";
-        anchor.addEventListener("click", (e) => {
-          e.preventDefault();
-          loadDocument(targetItem.file);
-        });
-      }
-    });
-
-    // Update prev/next button labels
-    const prevItem = ALL_ITEMS[currentIndex - 1];
-    const nextItem = ALL_ITEMS[currentIndex + 1];
-    const btnPrev = document.getElementById("btn-prev");
-    const btnNext = document.getElementById("btn-next");
-    btnPrev.textContent = prevItem
-      ? `← ${truncate(prevItem.title, 30)}`
-      : "← Home";
-    btnNext.textContent = nextItem ? `${truncate(nextItem.title, 30)} →` : "";
-    btnNext.style.visibility = nextItem ? "" : "hidden";
-
-    // Show doc page
+    // First section → paint it now
+    contentEl.innerHTML = sanitize(marked.parse(sections[0]));
     document.getElementById("home-page").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("doc-page").style.display = "";
-
-    // Scroll to top
     window.scrollTo({ top: 0 });
+
+    // Update prev/next immediately (don't wait for full render)
+    const prevItem = ALL_ITEMS[currentIndex - 1];
+    const nextItem = ALL_ITEMS[currentIndex + 1];
+    document.getElementById("btn-prev").textContent = prevItem
+      ? `← ${truncate(prevItem.title, 30)}`
+      : "← Home";
+    document.getElementById("btn-next").textContent = nextItem
+      ? `${truncate(nextItem.title, 30)} →`
+      : "";
+    document.getElementById("btn-next").style.visibility = nextItem ? "" : "hidden";
+
+    // Remaining sections — append one at a time in idle time
+    for (let i = 1; i < sections.length; i++) {
+      await idle(() => {
+        const div = document.createElement("div");
+        div.innerHTML = sanitize(marked.parse(sections[i]));
+        contentEl.appendChild(div);
+      });
+    }
+
+    // Wire up all links now that every section is in the DOM
+    processLinks(contentEl, filePath);
   } catch (err) {
     console.error("Failed to load document:", err);
     if (
@@ -593,6 +558,70 @@ async function loadDocument(filePath) {
   }
 }
 
+/* ── Render helpers ───────────────────────────────────────── */
+
+/** Sanitize HTML through DOMPurify when available */
+function sanitize(html) {
+  return typeof DOMPurify !== "undefined"
+    ? DOMPurify.sanitize(html, { ADD_ATTR: ["align"], ADD_TAGS: ["center"] })
+    : html;
+}
+
+/** Schedule work during browser idle time (iOS fallback: setTimeout) */
+function idle(fn) {
+  return new Promise((resolve) => {
+    const run = () => { fn(); resolve(); };
+    if (window.requestIdleCallback) requestIdleCallback(run, { timeout: 400 });
+    else setTimeout(run, 0);
+  });
+}
+
+/** Wire up in-page anchors, external links, and internal .md links */
+function processLinks(contentEl, filePath) {
+  contentEl.querySelectorAll("a").forEach((anchor) => {
+    const href = anchor.getAttribute("href");
+    if (!href) return;
+
+    // In-page anchor (e.g. TOC → #the-7-day-week-cycle)
+    if (href.startsWith("#")) {
+      anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = findAnchorTarget(href.slice(1));
+        if (target) {
+          const topbarH = document.getElementById("topbar").offsetHeight;
+          const targetY =
+            target.getBoundingClientRect().top + window.scrollY - topbarH - 12;
+          window.scrollTo({ top: targetY, behavior: "smooth" });
+        }
+      });
+      return;
+    }
+
+    // External link — open in new tab
+    if (href.startsWith("http://") || href.startsWith("https://")) {
+      anchor.setAttribute("target", "_blank");
+      anchor.setAttribute("rel", "noopener noreferrer");
+      return;
+    }
+
+    // Internal .md link — resolve and load via SPA
+    const dir = filePath.includes("/")
+      ? filePath.substring(0, filePath.lastIndexOf("/") + 1)
+      : "";
+    const resolved = resolveRelativePath(dir, href);
+    const targetItem = ALL_ITEMS.find(
+      (i) => normalise(i.file) === normalise(resolved),
+    );
+    if (targetItem) {
+      anchor.href = "#";
+      anchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        loadDocument(targetItem.file);
+      });
+    }
+  });
+}
+
 /* ── Navigation helpers ───────────────────────────────────── */
 function navigatePrev() {
   if (currentIndex <= 0) {
@@ -608,11 +637,19 @@ function navigateNext() {
 }
 
 /* ── Sidebar Toggle ───────────────────────────────────────── */
+function closeMobileSidebar() {
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("sidebar-overlay").classList.remove("visible");
+}
+
 function toggleSidebar() {
   const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebar-overlay");
   const isMobile = window.innerWidth <= 900;
   if (isMobile) {
+    const isOpening = !sidebar.classList.contains("open");
     sidebar.classList.toggle("open");
+    overlay.classList.toggle("visible", isOpening);
   } else {
     sidebar.classList.toggle("collapsed");
     document.body.classList.toggle("sidebar-collapsed");
@@ -667,7 +704,7 @@ function resolveRelativePath(base, relative) {
 document.addEventListener("keydown", (e) => {
   // Escape: close mobile sidebar
   if (e.key === "Escape") {
-    document.getElementById("sidebar").classList.remove("open");
+    closeMobileSidebar();
   }
   // Left/Right arrow keys for prev/next when doc is open
   if (document.getElementById("doc-page").style.display !== "none") {
@@ -677,10 +714,9 @@ document.addEventListener("keydown", (e) => {
 });
 
 /* ── Click outside sidebar to close on mobile ─────────────── */
+document.getElementById("sidebar-overlay").addEventListener("click", closeMobileSidebar);
 document.getElementById("main-wrapper").addEventListener("click", () => {
-  if (window.innerWidth <= 900) {
-    document.getElementById("sidebar").classList.remove("open");
-  }
+  if (window.innerWidth <= 900) closeMobileSidebar();
 });
 
 /* ── Slug helper (GitHub-compatible anchor IDs) ────────────
