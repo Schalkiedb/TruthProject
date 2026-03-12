@@ -39,8 +39,8 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--topbar-height) + 12px);
-  overflow-x: hidden;   /* stop any element from making the page wider */
-  max-width: 100%;
+  /* Do NOT set overflow-x: hidden on html — on iOS it silently clips
+     content off-screen with no way to scroll to it. */
 }
 
 body {
@@ -49,9 +49,9 @@ body {
   color: var(--text-primary);
   display: flex;
   min-height: 100vh;
-  overflow-x: hidden;
+  width: 100%;
   max-width: 100%;
-  /* Prevent iOS Safari from auto-scaling text, which triggers the zoom */
+  /* Prevent iOS Safari from auto-scaling text */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -306,6 +306,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 0;          /* prevent flex child from overflowing parent */
+  max-width: 100%;       /* never wider than the viewport */
+  overflow-x: hidden;    /* clip here, not on html/body, so content is contained */
   transition: margin-left var(--transition);
 }
 
@@ -596,10 +599,12 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   font-size: 16px;
   line-height: 1.75;
   color: var(--text-primary);
-  /* Break long URLs and unbreakable strings so they don't push the page wider */
+  /* Break long URLs/strings so they never push the layout wider */
   overflow-wrap: break-word;
   word-break: break-word;
+  /* Critical: prevent this flex child from expanding beyond its container */
   min-width: 0;
+  max-width: 100%;
 }
 
 /* Headings */
@@ -945,9 +950,10 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   #sidebar-toggle,
   #topbar-home    { min-width: 44px; min-height: 44px; }
 
-  .hero           { padding: 40px 24px 36px; }
+  .hero           { padding: 40px 20px 36px; }
   .card-section   { padding: 24px 16px 0; }
-  #doc-page       { padding: 24px 20px 40px; }
+  /* Equal padding on both sides — 20px keeps text away from screen edges */
+  #doc-page       { padding: 24px 20px 40px 20px; }
 
   .markdown-body  { font-size: 15px; }
 
@@ -960,8 +966,9 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   :root { --sidebar-width: 100vw; }
 
   .hero           { padding: 28px 16px 24px; }
-  .card-section   { padding: 20px 12px 0; }
-  #doc-page       { padding: 20px 14px 40px; }
+  .card-section   { padding: 20px 16px 0; }
+  /* 16px each side — matches Safari's default page margin */
+  #doc-page       { padding: 20px 16px 40px 16px; }
 
   .card-grid      { grid-template-columns: 1fr; }
 
