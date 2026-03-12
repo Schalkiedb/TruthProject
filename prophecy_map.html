@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prophecy Watch — Global Alert Map</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<style>
+/* ── Reset & Base ─────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c0f1a;color:#eaeef8;overflow:hidden}
+
+/* ── Header ──────────────────────────────────────────────── */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:2000;height:56px;
+  background:linear-gradient(135deg,#0f1420,#161b2e);
+  border-bottom:1px solid rgba(201,162,39,.35);
+  display:flex;align-items:center;gap:12px;padding:0 14px}
+#hdr h1{font-size:16px;color:#c9a227;font-weight:800;letter-spacing:.04em;white-space:nowrap}
+#hdr .pipe{color:rgba(201,162,39,.3);font-size:18px}
+#btn-back{display:flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(201,162,39,.12);
+  border:1px solid rgba(201,162,39,.3);border-radius:6px;color:#c9a227;
+  font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap;
+  transition:background .2s}
+#btn-back:hover{background:rgba(201,162,39,.22)}
+#filter-bar{display:flex;gap:6px;flex:1;overflow-x:auto;scrollbar-width:none;align-items:center}
+#filter-bar::-webkit-scrollbar{display:none}
+.flt{padding:5px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);color:#9aa3c0;font-size:12px;font-weight:600;
+  cursor:pointer;white-space:nowrap;transition:all .2s}
+.flt.active,.flt:hover{border-color:rgba(201,162,39,.5);background:rgba(201,162,39,.15);color:#e6c04c}
+#srch{margin-left:auto;padding:6px 12px;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);border-radius:20px;color:#eaeef8;
+  font-size:12px;width:150px;outline:none;transition:border .2s}
+#srch:focus{border-color:rgba(201,162,39,.5);width:190px}
+#srch::placeholder{color:#5c6580}
+
+/* ── Stats Bar ───────────────────────────────────────────── */
+#stats{position:fixed;top:56px;left:0;right:0;z-index:1999;height:34px;
+  background:rgba(10,13,26,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;gap:20px;padding:0 16px}
+.stat-item{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600}
+.stat-dot{width:9px;height:9px;border-radius:50%}
+.sd-red{background:#e53e3e}.sd-orange{background:#dd6b20}
+.sd-blue{background:#4299e1}.sd-green{background:#38a169}.sd-gray{background:#718096}
+.stat-item span{color:#9aa3c0}
+.stat-n{color:#eaeef8!important}
+
+/* ── Map ─────────────────────────────────────────────────── */
+#map{position:fixed;top:90px;left:0;right:430px;bottom:0;z-index:1}
+
+/* ── Detail Panel ────────────────────────────────────────── */
+#panel{position:fixed;top:90px;right:0;width:430px;bottom:0;z-index:1000;
+  background:linear-gradient(180deg,#10142a,#0c101f);
+  border-left:1px solid rgba(201,162,39,.18);
+  display:flex;flex-direction:column;overflow:hidden}
+#panel-welcome{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:14px;padding:30px;text-align:center;color:#5c6580}
+#panel-welcome .globe{font-size:64px;filter:drop-shadow(0 0 20px rgba(201,162,39,.3))}
+#panel-welcome h2{color:#9aa3c0;font-size:16px}
+#panel-welcome p{font-size:13px;line-height:1.7;max-width:300px}
+#panel-content{flex:1;display:none;flex-direction:column;overflow:hidden}
+
+/* Country header in panel */
+#p-head{padding:18px 18px 0;border-bottom:1px solid rgba(255,255,255,.06);padding-bottom:14px}
+#p-flag-name{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+#p-flag{font-size:32px;line-height:1}
+#p-name{font-size:20px;font-weight:700;color:#eaeef8}
+#p-badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;
+  font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.badge-red{background:rgba(229,62,62,.2);color:#fc8181;border:1px solid rgba(229,62,62,.4)}
+.badge-orange{background:rgba(221,107,32,.2);color:#f6ad55;border:1px solid rgba(221,107,32,.4)}
+.badge-blue{background:rgba(66,153,225,.2);color:#90cdf4;border:1px solid rgba(66,153,225,.4)}
+.badge-green{background:rgba(56,161,105,.2);color:#68d391;border:1px solid rgba(56,161,105,.4)}
+.badge-gray{background:rgba(113,128,150,.2);color:#cbd5e0;border:1px solid rgba(113,128,150,.4)}
+#p-summary{font-size:12.5px;line-height:1.7;color:#9aa3c0}
+
+/* Category tabs */
+#p-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
+.p-tab{flex:1;padding:10px 4px;text-align:center;font-size:11px;font-weight:600;
+  color:#5c6580;cursor:pointer;border-bottom:2px solid transparent;
+  transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:3px}
+.p-tab .ticon{font-size:16px}
+.p-tab:hover{color:#9aa3c0}
+.p-tab.active{color:#c9a227;border-bottom-color:#c9a227}
+
+/* Tab content */
+#p-body{flex:1;overflow-y:auto;padding:16px 18px;scrollbar-width:thin;scrollbar-color:#2d3748 transparent}
+#p-body::-webkit-scrollbar{width:4px}
+#p-body::-webkit-scrollbar-thumb{background:#2d3748;border-radius:2px}
+.cat-level-bar{display:flex;align-items:center;gap:8px;margin-bottom:14px;
+  padding:8px 12px;border-radius:8px;background:rgba(255,255,255,.04)}
+.cat-level-icon{font-size:20px}
+.cat-level-text{font-size:11px;font-weight:600}
+.lv-red{color:#fc8181}.lv-orange{color:#f6ad55}.lv-blue{color:#90cdf4}
+.lv-green{color:#68d391}.lv-gray{color:#cbd5e0}
+.cat-points{list-style:none;display:flex;flex-direction:column;gap:10px}
+.cat-points li{font-size:12.5px;line-height:1.65;color:#9aa3c0;padding-left:18px;
+  position:relative}
+.cat-points li::before{content:'▸';position:absolute;left:0;color:#c9a227}
+.cat-points li strong{color:#e6c04c}
+.guide-links{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
+.guide-links h4{font-size:11px;color:#5c6580;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.guide-link{display:flex;align-items:center;gap:8px;padding:7px 10px;
+  background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.2);
+  border-radius:6px;color:#c9a227;font-size:12px;cursor:pointer;
+  text-decoration:none;margin-bottom:6px;transition:background .2s}
+.guide-link:hover{background:rgba(201,162,39,.16)}
+
+/* ── Legend ──────────────────────────────────────────────── */
+#legend{position:fixed;bottom:20px;left:14px;z-index:1000;
+  background:rgba(10,13,26,.88);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 15px}
+#legend h4{font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:#5c6580;margin-bottom:9px}
+.leg-row{display:flex;align-items:center;gap:9px;font-size:12px;margin-bottom:6px}
+.leg-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.ld-red{background:#e53e3e;box-shadow:0 0 8px #e53e3e80}
+.ld-orange{background:#dd6b20;box-shadow:0 0 8px #dd6b2080}
+.ld-blue{background:#4299e1;box-shadow:0 0 8px #4299e180}
+.ld-green{background:#38a169;box-shadow:0 0 8px #38a16980}
+.ld-gray{background:#718096}
+.leg-row span{color:#9aa3c0}
+
+/* ── Custom Markers ──────────────────────────────────────── */
+.cmarker{border-radius:50%;display:flex;align-items:center;justify-content:center;
+  position:relative;cursor:pointer;transition:transform .15s}
+.cmarker:hover{transform:scale(1.25)!important}
+.cmarker .dot{border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:9px;font-weight:700;color:#fff;transition:all .2s}
+.cmarker .ring{position:absolute;inset:0;border-radius:50%;opacity:0}
+.cmarker.pulse .ring{animation:ripple 2.2s ease-out infinite}
+
+@keyframes ripple{
+  0%{transform:scale(1);opacity:.7}
+  100%{transform:scale(2.8);opacity:0}
+}
+.cmarker.selected .dot{outline:3px solid #fff;outline-offset:2px;transform:scale(1.15)}
+
+/* color theme per level */
+.lvl-red .dot{background:#e53e3e;box-shadow:0 0 12px #e53e3e90}
+.lvl-red .ring{background:rgba(229,62,62,.4)}
+.lvl-orange .dot{background:#dd6b20;box-shadow:0 0 10px #dd6b2080}
+.lvl-orange .ring{background:rgba(221,107,32,.4)}
+.lvl-blue .dot{background:#4299e1;box-shadow:0 0 10px #4299e180}
+.lvl-blue .ring{background:rgba(66,153,225,.35)}
+.lvl-green .dot{background:#38a169;box-shadow:0 0 10px #38a16980}
+.lvl-green .ring{background:rgba(56,161,105,.35)}
+.lvl-gray .dot{background:#718096}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media(max-width:800px){
+  #map{right:0;bottom:45vh}
+  #panel{top:55vh;width:100%;border-left:none;border-top:1px solid rgba(201,162,39,.2)}
+  #legend{display:none}
+  #hdr h1 .long{display:none}
+  #srch{width:100px}
+  #srch:focus{width:130px}
+}
+@media(max-width:500px){
+  .flt{padding:4px 8px;font-size:11px}
+  #hdr{gap:8px;padding:0 8px}
+  #stats{gap:10px}
+  .stat-item .lbl{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div id="hdr">
+  <a id="btn-back" href="index.html">← Library</a>
+  <span class="pipe">|</span>
+  <h1>🌍 <span class="long">Prophecy Watch — </span>Global Alert Map</h1>
+  <div id="filter-bar">
+    <div class="flt active" data-cat="all">🌐 All</div>
+    <div class="flt" data-cat="sl">📅 Sunday Laws</div>
+    <div class="flt" data-cat="cbdc">💳 CBDC</div>
+    <div class="flt" data-cat="did">👁 Digital ID</div>
+    <div class="flt" data-cat="rl">✝ Religious Liberty</div>
+    <div class="flt" data-cat="bs">🔗 Beast System</div>
+  </div>
+  <input id="srch" type="text" placeholder="🔍 Search country…">
+</div>
+
+<!-- Stats Bar -->
+<div id="stats">
+  <div class="stat-item"><div class="stat-dot sd-red"></div><span class="lbl">Critical: </span><span class="stat-n" id="s-red">0</span></div>
+  <div class="stat-item"><div class="stat-dot sd-orange"></div><span class="lbl">Warning: </span><span class="stat-n" id="s-orange">0</span></div>
+  <div class="stat-item"><div class="stat-dot sd-blue"></div><span class="lbl">Monitoring: </span><span class="stat-n" id="s-blue">0</span></div>
+  <div class="stat-item"><div class="stat-dot sd-green"></div><span class="lbl">Safer: </span><span class="stat-n" id="s-green">0</span></div>
+  <div class="stat-item"><div class="stat-dot sd-gray"></div><span class="lbl">Tracking: </span><span class="stat-n" id="s-gray">0</span></div>
+</div>
+
+<!-- Map -->
+<div id="map"></div>
+
+<!-- Detail Panel -->
+<div id="panel">
+  <div id="panel-welcome">
+    <div class="globe">🌍</div>
+    <h2>Select a country on the map</h2>
+    <p>Each marker shows the prophetic alert level based on Sunday law activity, CBDC rollout, digital surveillance, religious liberty, and beast-system connections.</p>
+    <p style="margin-top:10px;font-size:11px">🔴 Critical &nbsp;|&nbsp; 🟠 Warning &nbsp;|&nbsp; 🔵 Monitoring &nbsp;|&nbsp; 🟢 Relatively Free</p>
+  </div>
+  <div id="panel-content">
+    <div id="p-head">
+      <div id="p-flag-name"><div id="p-flag"></div><div id="p-name"></div></div>
+      <div id="p-badge"></div>
+      <div id="p-summary"></div>
+    </div>
+    <div id="p-tabs">
+      <div class="p-tab active" data-tab="sl"><span class="ticon">📅</span>Sunday Laws</div>
+      <div class="p-tab" data-tab="cbdc"><span class="ticon">💳</span>CBDC</div>
+      <div class="p-tab" data-tab="did"><span class="ticon">👁</span>Digital ID</div>
+      <div class="p-tab" data-tab="rl"><span class="ticon">✝</span>Liberty</div>
+      <div class="p-tab" data-tab="bs"><span class="ticon">🔗</span>Beast System</div>
+    </div>
+    <div id="p-body"></div>
+  </div>
+</div>
+
+<!-- Legend -->
+<div id="legend">
+  <h4>Threat Level</h4>
+  <div class="leg-row"><div class="leg-dot ld-red"></div><span>Critical / Active</span></div>
+  <div class="leg-row"><div class="leg-dot ld-orange"></div><span>Warning / Advancing</span></div>
+  <div class="leg-row"><div class="leg-dot ld-blue"></div><span>Monitoring / Developing</span></div>
+  <div class="leg-row"><div class="leg-dot ld-green"></div><span>Relatively Free</span></div>
+  <div class="leg-row"><div class="leg-dot ld-gray"></div><span>Limited Data</span></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+"use strict";
+
+/* ═══════════════════════════════════════════════════════════
+   COUNTRY DATA
+   sl  = Sunday Laws
+   cbdc = Digital Currency / CBDC
+   did  = Digital ID & Surveillance
+   rl   = Religious Liberty
+   bs   = Beast System Connections
+   level: "red" | "orange" | "blue" | "green" | "gray"
+═══════════════════════════════════════════════════════════ */
+
+const CATS = {
+  sl:   { label: "Sunday Laws",      icon: "📅" },
+  cbdc: { label: "CBDC / Digital Currency", icon: "💳" },
+  did:  { label: "Digital ID & Surveillance", icon: "👁" },
+  rl:   { label: "Religious Liberty", icon: "✝" },
+  bs:   { label: "Beast System Connections", icon: "🔗" }
+};
+
+const LEVEL_LABEL = {
+  red:    "🔴 CRITICAL ALERT",
+  orange: "🟠 WARNING",
+  blue:   "🔵 MONITORING",
+  green:  "🟢 RELATIVELY FREE",
+  gray:   "⚪ LIMITED DATA"
+};
+
+const COUNTRIES = {
+
+  /* ── NORTH AMERICA ──────────────────────────────────────── */
+  US: {
+    name:"United States", flag:"🇺🇸", lat:38, lng:-97, r:34, level:"orange",
+    summary:"Prophetically identified as the second beast of Revelation 13 — a nation rising with lamb-like principles (religious freedom, republicanism) that ultimately speaks as a dragon. Currently advancing CBDC infrastructure, biometric surveillance, and experiencing unprecedented Catholic political dominance, while historically the headquarters of global Sunday law advocacy.",
+    guides:["Daniel 2","Daniel 7 & 8","The Other Beast","The Mark of the Beast"],
+    sl:{ level:"orange", items:[
+      "<strong>Historical 'Blue Laws'</strong> — Sunday closing laws were enforced across all 50 states well into the 20th century; remnants remain in several states today",
+      "<strong>National Reform Association (NRLA)</strong> — actively lobbied Congress for a federal Sunday law throughout the 1800s and early 1900s, nearly succeeding multiple times",
+      "<strong>USCCB (US Conference of Catholic Bishops)</strong> actively lobbies Congress for 'workers day of rest' legislation framed as a labor rights issue",
+      "<strong>Sen. Marco Rubio's 'Day of Rest Act'</strong> (2015) proposed federal Sunday rest protections — signal of ongoing Catholic legislative agenda",
+      "Catholic legal think-tanks increasingly frame Sunday rest as a 'human dignity' issue to gain secular support",
+      "<strong>Pope Francis' encyclical Laudato Si'</strong> (2015) explicitly called for Sunday as the day of rest — placing papal authority behind the push"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>FedNow</strong> instant payment system launched July 2023 — the entire transaction infrastructure is now in place for a digital currency layer",
+      "<strong>Executive Order 14067</strong> (March 2022) mandated US government research and development of a Central Bank Digital Currency",
+      "<strong>Digital Dollar Project</strong> — private-sector consortium conducted pilot programs 2020–2024 with major banks",
+      "Federal Reserve discussion paper (Jan 2022) outlined CBDC architecture — retail CBDC would give government direct visibility into every transaction",
+      "bills in Congress both supporting and opposing CBDC — debate indicates the infrastructure is being built regardless",
+      "<strong>IMF Article IV consultations</strong> repeatedly pressure US toward CBDC interoperability with global systems"
+    ]},
+    did:{ level:"orange", items:[
+      "<strong>REAL ID Act</strong> — federally standardized biometric driver's license required for air travel and federal building access (enforcement deadline 2025)",
+      "<strong>TSA facial recognition</strong> deployed at 84+ major airports in 2024, expanding to all 430 — no opt-out prominently offered",
+      "<strong>CLEAR biometric ID</strong> (iris scan, fingerprint) now used in 50+ airports, 65+ sports stadiums and entertainment venues",
+      "<strong>NSA mass surveillance</strong> of financial transactions and communications — Snowden revelations (2013) confirmed bulk collection of American data",
+      "<strong>IRS Direct File</strong> system expanding — government building tax-linked central identity database",
+      "Social Security Number already functions as a de facto national ID linked to financial, medical, and government records"
+    ]},
+    rl:{ level:"blue", items:[
+      "<strong>First Amendment</strong> — strongest constitutional free exercise protection in the world, currently intact",
+      "<strong>Groff v. DeJost (2023)</strong> — Supreme Court significantly strengthened employer obligations to accommodate Sabbath observance",
+      "Growing secularism and progressive ideology applying legal pressure to faith-based adoption agencies, schools, and hospitals",
+      "<strong>COVID-19 precedent (2020–2022)</strong> — state governments shut down churches with legal backing; courts split on constitutionality",
+      "Non-profit status (501c3) increasingly weaponized: government can threaten tax-exempt status for 'political' speech",
+      "Military SDA members have successfully won Sabbath accommodation — strong legal precedent exists"
+    ]},
+    bs:{ level:"orange", items:[
+      "Controls the global <strong>SWIFT financial messaging system</strong> — has cut nations (Iran, Russia) off from global banking as a weapon",
+      "<strong>FATF (Financial Action Task Force)</strong> — US-led body drives global AML/KYC digital identity requirements onto all nations",
+      "72 million Catholics; majority-Catholic Supreme Court; deeply embedded Catholic political infrastructure in Washington D.C.",
+      "US military enforces global financial compliance — Pax Americana enforces the dollar-based system",
+      "<strong>IMF and World Bank</strong> headquartered in Washington D.C. — financial governance of the developing world runs through US-led institutions",
+      "Revelation 13:12 — the second beast 'causes the earth and those who dwell on it to worship the first beast' — via global political and economic power"
+    ]}
+  },
+
+  CA: {
+    name:"Canada", flag:"🇨🇦", lat:56, lng:-96, r:26, level:"orange",
+    summary:"Canada is rapidly advancing digital ID infrastructure, has a strong Catholic political influence, and its government showed willingness to use financial surveillance against citizens by freezing bank accounts of Freedom Convoy protesters in 2022 — a direct preview of economic coercion for belief.",
+    guides:["The Mark of the Beast","The Beast System Infrastructure"],
+    sl:{ level:"blue", items:[
+      "Federal Lord's Day Act repealed in 1985 — Sunday trading legally permitted nationally",
+      "Some provinces retain partial Sunday restrictions in practice (Quebec, parts of Ontario)",
+      "Catholic Church maintains strong cultural Sunday observance through political channels",
+      "No active federal Sunday law legislation currently on the table"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Bank of Canada Project Jasper</strong> — CBDC wholesale research ongoing since 2016",
+      "Bank of Canada confirmed 2023: retail CBDC research 'contingency' planning in progress",
+      "Canada actively participates in Project Icebreaker (BIS) — cross-border CBDC interoperability trials",
+      "Government exploring programmable payments tied to social benefit systems"
+    ]},
+    did:{ level:"orange", items:[
+      "<strong>Digital Charter Implementation Act</strong> provides legal framework for national digital identity",
+      "TrustID Digital Credentials pilot — federally backed digital ID wallet in development",
+      "<strong>Freedom Convoy 2022</strong> — Canadian government froze 200+ bank accounts of protesters using Emergency Act without court order. First use of financial surveillance as political weapon in a Western democracy",
+      "Canada Revenue Agency links banking, employment, and medical records in a single taxpayer profile"
+    ]},
+    rl:{ level:"blue", items:[
+      "Charter of Rights protects freedom of religion — currently respected",
+      "Bill C-4 (2022) — banned 'conversion therapy', broadly defined; raises concerns for faith-based counseling",
+      "Growing 'hate speech' legal pressure on pastors who preach traditional biblical teachings",
+      "Churches given 'essential service' status during COVID only after legal battles"
+    ]},
+    bs:{ level:"blue", items:[
+      "Member of G7 and FATF — part of global financial surveillance architecture",
+      "Strong Five Eyes intelligence sharing (US, UK, Australia, NZ, Canada) — full data sharing",
+      "Catholic political networks deeply embedded in Liberal Party and federal institutions"
+    ]}
+  },
+
+  MX: {
+    name:"Mexico", flag:"🇲🇽", lat:23, lng:-102, r:24, level:"orange",
+    summary:"Mexico is 82% Catholic, with the Catholic Church holding enormous cultural and political influence. The government is advancing biometric ID systems while the country experiences severe cartel violence that often targets evangelical and Seventh-day Adventist communities.",
+    guides:["The Mark of the Beast"],
+    sl:{ level:"orange", items:[
+      "Constitution historically tied to Catholic days of observance; Sunday widely treated as mandatory rest day in practice",
+      "Federal Labor Law mandates Sunday rest — workers who must work Sundays receive double pay (Article 71)",
+      "Catholic Church exerts strong cultural pressure to observe Sunday as the sacred day",
+      "National holiday system built entirely around Catholic calendar"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Banco de México launched <strong>CoDi</strong> digital payment system (2019) — QR-code based, 6 million users",
+      "Digital Peso research formally underway since 2021",
+      "Strong push to bank the unbanked through SPEI digital transfer system",
+      "Close economic alignment with US digital financial systems via USMCA"
+    ]},
+    did:{ level:"orange", items:[
+      "<strong>CURP</strong> (18-digit biometric national ID) — mandatory for all citizens, linked to medical, tax, and government records",
+      "INE (National Electoral Institute) holds biometric data on 90 million voters",
+      "Facial recognition rollout in Mexico City metro system (2022)"
+    ]},
+    rl:{ level:"blue", items:[
+      "Article 24 of Constitution guarantees religious freedom",
+      "Evangelical and SDA communities in southern states (Chiapas, Oaxaca) face community-level persecution, withheld public services, and expulsion",
+      "Over 200 evangelical families expelled from indigenous communities in Chiapas since 2019 for refusing Catholic festival fees",
+      "Cartel violence disproportionately targets religious leaders who oppose drug culture"
+    ]},
+    bs:{ level:"orange", items:[
+      "82% Catholic population; Catholic Church's Day of the Lord is central to national identity",
+      "Part of Latin American Catholic bloc that historically supported Vatican political agendas",
+      "USMCA economic integration ties Mexico deeply to US financial surveillance systems"
+    ]}
+  },
+
+  /* ── CARIBBEAN ──────────────────────────────────────────── */
+  BS: {
+    name:"Bahamas", flag:"🇧🇸", lat:25, lng:-76, r:14, level:"red",
+    summary:"The Bahamas launched the world's first fully operational Central Bank Digital Currency — the Sand Dollar — in October 2020. This makes the Bahamas the first real-world test case of a government controlling all citizen transactions through programmable digital money.",
+    sl:{ level:"orange", items:[
+      "Strong Protestant Sunday observance culture; Sunday trading restricted in many areas",
+      "Sunday liquor sales banned in several islands"
+    ]},
+    cbdc:{ level:"red", items:[
+      "<strong>Sand Dollar launched October 2020</strong> — world's FIRST nationally deployed retail CBDC",
+      "Issued by the Central Bank of The Bahamas; works on smartphones across all 700 islands",
+      "Government can set spending limits, geographic restrictions, and expiry dates on digital money",
+      "Fully programmable — money can be targeted, restricted, or cancelled by the central bank",
+      "Proof of concept: a government can technically implement Revelation 13:17 — 'no one may buy or sell' with this technology"
+    ]},
+    did:{ level:"orange", items:[
+      "National digital ID linked to Sand Dollar wallet for KYC (Know Your Customer) compliance",
+      "Biometric passport system in use"
+    ]},
+    rl:{ level:"green", items:["Protestant majority; religious freedom generally respected"]},
+    bs:{ level:"red", items:[
+      "World's first working CBDC — serves as the global proof-of-concept",
+      "IMF actively studies Sand Dollar as a model for other nations",
+      "Demonstrates that Rev. 13:17 economic control is now <strong>technically operational</strong>"
+    ]}
+  },
+
+  JM: {
+    name:"Jamaica", flag:"🇯🇲", lat:18, lng:-77, r:14, level:"red",
+    summary:"Jamaica launched JAM-DEX in 2022, making it the second country to launch a fully operational CBDC. The government offered incentives (5% bonus digital cash) to encourage adoption — demonstrating how economic incentives can drive citizens into digital currency systems.",
+    sl:{ level:"orange", items:[
+      "Shops Regulations Act restricts trading on Sunday (though partially relaxed since 2018)",
+      "Strong Christian (70% Protestant) Sunday observance culture"
+    ]},
+    cbdc:{ level:"red", items:[
+      "<strong>JAM-DEX</strong> (Jamaican Digital Exchange) launched May 2022 — second country to deploy a live CBDC",
+      "Bank of Jamaica issued the currency; Lynk app used for transactions",
+      "Government offered a <strong>J$2,500 bonus</strong> (approx. US$16) to citizens who signed up — using financial incentive to drive adoption",
+      "Fully programmable digital dollar — government has spending visibility on all transactions",
+      "Jamaica's small economy makes it politically easier to mandate CBDC adoption rapidly"
+    ]},
+    did:{ level:"blue", items:[
+      "National Identification System (NIDS) — biometric national ID project advanced but facing delays",
+      "NIS (National Insurance Scheme) number functions as a basic national ID"
+    ]},
+    rl:{ level:"blue", items:["Religious freedom generally respected; SDA churches active and influential"]},
+    bs:{ level:"red", items:[
+      "Second country to have a live operational CBDC — part of the Caribbean test rollout",
+      "Eastern Caribbean Central Bank also runs DCash CBDC across 8 islands — regional CBDC ecosystem building",
+      "Caribbean CBDC rollout serves as IMF-sponsored pilot for developing world adoption"
+    ]}
+  },
+
+  /* ── SOUTH AMERICA ──────────────────────────────────────── */
+  BR: {
+    name:"Brazil", flag:"🇧🇷", lat:-10, lng:-53, r:28, level:"orange",
+    summary:"Brazil — the world's largest Catholic country — is rapidly deploying DREX (its CBDC), has a sophisticated digital payment system (PIX), and is building out a digital ID infrastructure. The Catholic Church's political influence in Brazil is enormous, and Lula's government maintains strong Vatican ties.",
+    guides:["The Mark of the Beast"],
+    sl:{ level:"orange", items:[
+      "Brazil's labor law (CLT) mandates Sunday as the weekly rest day — legally enforced",
+      "Strong Catholic cultural enforcement of Sunday observance in rural and small-town Brazil",
+      "National holidays follow the Catholic liturgical calendar exclusively",
+      "<strong>Pope Francis visited Brazil (2013, World Youth Day)</strong> — Vatican event drew 3 million people, demonstrating papal reach"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>DREX</strong> (Reais Digital) — Brazilian CBDC in advanced pilot phase (2023–2025)",
+      "<strong>PIX</strong> instant payment system (2020) — 140 million users, processes more transactions than credit cards; the infrastructure backbone for CBDC deployment",
+      "Banco Central do Brasil set 2025 as target for full DREX rollout",
+      "DREX designed as programmable money — 'smart contracts' can restrict what the digital real is spent on",
+      "Brazil participates in Project mBridge (BIS multi-CBDC platform)"
+    ]},
+    did:{ level:"orange", items:[
+      "<strong>CPF</strong> (Taxpayer ID) — de facto national ID linked to all government services, banking, health, and employment",
+      "TSE (Electoral Court) holds biometric fingerprints of 150 million registered voters",
+      "Governo Digital program — all government services converging onto a single digital identity platform",
+      "Facial recognition deployed in 2022 federal election — cameras at all polling stations"
+    ]},
+    rl:{ level:"blue", items:[
+      "Constitution guarantees religious freedom — currently respected",
+      "Evangelical/Pentecostal church growing explosively (from 5% to 31% since 1980)",
+      "Catholic Church alarmed by evangelical growth — political pressure to maintain Catholic identity laws",
+      "SDA membership in Brazil: over 1.5 million — large and politically visible"
+    ]},
+    bs:{ level:"orange", items:[
+      "World's largest Catholic nation by population (130 million baptized Catholics)",
+      "Brazil occupies the cross-section of Vatican Catholic influence and BRICS digital currency development",
+      "Member of BRICS — participating in alternative to SWIFT financial messaging system",
+      "DREX CBDC if fully implemented gives government visibility into every transaction of 215 million people"
+    ]}
+  },
+
+  AR: {
+    name:"Argentina", flag:"🇦🇷", lat:-35, lng:-65, r:22, level:"blue",
+    summary:"Argentina is notable for being the birthplace of Pope Francis (Jorge Bergoglio), giving it deep Vatican ties. The country's economic crisis has driven aggressive digital payment experimentation. President Milei's government reversed CBDC plans but adopted Bitcoin as a means of economic stabilization.",
+    sl:{ level:"blue", items:[
+      "Catholic nation with Sunday rest culturally observed",
+      "National Commerce Law includes Sunday rest provisions",
+      "Pope Francis is Argentinian — deepest possible Vatican connection"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Previous government planned a CBDC; <strong>President Milei's administration (2024) reversed CBDC development</strong>",
+      "Argentina recognized Bitcoin as legal payment — turned toward decentralized crypto rather than government CBDC",
+      "Economic hyperinflation (200%+) driving massive dollarization and crypto adoption",
+      "Argentina's financial instability makes it a testing ground for alternative monetary systems"
+    ]},
+    did:{ level:"blue", items:[
+      "DNI (National Document of Identity) — biometric national ID mandatory from birth",
+      "ANSES social security database links employment, health, and benefit records"
+    ]},
+    rl:{ level:"green", items:[
+      "Constitution guarantees religious freedom; respected in practice",
+      "Large SDA community; Sabbath accommodation generally available"
+    ]},
+    bs:{ level:"orange", items:[
+      "<strong>Pope Francis is Argentinian</strong> — makes Argentina uniquely tied to the Vatican's global agenda",
+      "Argentina's BRICS application (approved 2023, then declined by Milei) — caught between global governance systems"
+    ]}
+  },
+
+  VE: {
+    name:"Venezuela", flag:"🇻🇪", lat:8, lng:-66, r:18, level:"orange",
+    summary:"Venezuela's Maduro government launched the world's first state-backed cryptocurrency (Petro) and has implemented a social rating system tied to a government-issued card (Carnet de la Patria) — a direct preview of a social credit system controlling food access based on political loyalty.",
+    sl:{ level:"blue", items:[
+      "Catholic majority; Sunday rest culturally enforced",
+      "Government has largely replaced religious observance with revolutionary political observance"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Petro cryptocurrency launched 2018</strong> — first government-issued cryptocurrency in the world (though largely failed as a currency)",
+      "Digital Bolivar (2021) — redenomination now moving toward app-based digital payments",
+      "Government actively experimenting with digital currency to evade US sanctions"
+    ]},
+    did:{ level:"red", items:[
+      "<strong>Carnet de la Patria</strong> (Homeland Card) — government card linked to food rations, subsidies, pensions, and healthcare",
+      "Citizens who oppose the government or protest risk losing access to their Carnet — direct 'no Carnet, no buy' food system",
+      "Database links political activity, social media, and benefit eligibility",
+      "This is the closest real-world analog to Revelation 13:17 currently operating"
+    ]},
+    rl:{ level:"orange", items:[
+      "Constitution guarantees freedom of religion but government increasingly hostile to churches that oppose Maduro",
+      "Evangelical pastors arrested for 'destabilizing' sermons",
+      "Churches forced to register with government"
+    ]},
+    bs:{ level:"red", items:[
+      "Carnet de la Patria system = economic control based on political/ideological compliance — direct Rev. 13:17 parallel",
+      "Government controls food distribution digitally — starvation as a political weapon",
+      "Aligned with Cuba, China, and Russia — outside Western financial system but building its own control architecture"
+    ]}
+  },
+
+  /* ── EUROPE ─────────────────────────────────────────────── */
+  DE: {
+    name:"Germany", flag:"🇩🇪", lat:51, lng:10, r:26, level:"red",
+    summary:"Germany has the strictest Sunday closing laws in the world — shops are legally closed on Sundays, loud music is banned in many areas, and Sunday work requires special government authorization. This is the strongest modern example of state-enforced Sunday rest in a major democracy, and it is deeply tied to Catholic political influence via the CDU/CSU party.",
+    guides:["The Mark of the Beast","The Sabbath Rest"],
+    sl:{ level:"red", items:[
+      "<strong>Ladenschlussgesetz</strong> — Sunday shop closing law is federal law; almost all retail shops must close every Sunday",
+      "Exceptions exist only for travel hubs, gas stations, and a handful of 'shopping Sundays' permitted by state governments (typically 4 per year max)",
+      "'Quiet Sunday' laws additionally prohibit lawn mowing, power tools, loud music, and many public activities before noon on Sundays",
+      "<strong>CDU/CSU (Christian Democratic Union)</strong> — the dominant political force in Germany for 70 years — has always maintained Sunday rest laws as a Christian social policy priority",
+      "Germany lobbies at the EU level for an EU-wide Sunday rest directive — explicitly citing Christian heritage",
+      "German Catholic and Protestant churches jointly fund the Sunday Alliance (Allianz für den freien Sonntag) which lobbies to strengthen Sunday laws across Europe",
+      "The Federal Constitutional Court of Germany has repeatedly upheld Sunday closing laws as protecting 'Christian-Western tradition'"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "Germany is part of the EU Digital Euro project — ECB pilot phase 2023–2025",
+      "<strong>Bundesbank</strong> is actively developing Germany's role in the digital euro architecture",
+      "Germany participates in Project Icebreaker (BIS) cross-border CBDC research",
+      "Strong political resistance to digital euro in Germany — polls show 70%+ skepticism — but ECB overrides national public opinion"
+    ]},
+    did:{ level:"orange", items:[
+      "<strong>eIDAS 2.0</strong> (EU Digital Identity Wallet) regulation — Germany implementing by 2026",
+      "German Personalausweis (national ID) with biometric chip — mandatory for all residents",
+      "BundID digital government identity platform in rollout",
+      "Germany operates one of the world's most sophisticated financial intelligence (FIU) operations"
+    ]},
+    rl:{ level:"blue", items:[
+      "Basic Law (Grundgesetz) Article 4 guarantees freedom of faith — respected in practice",
+      "Scientology designated as monitored organization by domestic intelligence (BfV)",
+      "Some SDA employers have faced legal challenges from Sunday-rest-law enforcement when operating on Sunday",
+      "Church tax (Kirchensteuer) system gives Catholic and Protestant churches direct access to state revenue collection"
+    ]},
+    bs:{ level:"red", items:[
+      "Germany is the economic engine of the EU — a revived Roman Empire territory",
+      "Sunday laws are the strongest in the EU and serve as the model for EU-wide Sunday rest advocacy",
+      "<strong>Germany is where Sunday rest law enforcement is most mature</strong> — the blueprint for what a global Sunday law could look like",
+      "CDU historically tied to Catholic social teaching — which explicitly calls for enforced Sunday rest",
+      "Luther's Reformation began here — the same territory now enforcing Sunday by law rather than by Scripture"
+    ]}
+  },
+
+  FR: {
+    name:"France", flag:"🇫🇷", lat:46, lng:2, r:24, level:"orange",
+    summary:"France, though officially secular (laïcité), has a complex history of Sunday rest laws and remains heavily influenced by Catholic tradition. France is the leading European CBDC pilot nation and participates in all major BIS digital currency projects.",
+    sl:{ level:"orange", items:[
+      "Code du Travail (Labor Code) — Article L3132-3 mandates that Sundays are the default weekly rest day for workers",
+      "Retail workers must receive 30% pay premium for Sunday work — creating systemic economic pressure against Sunday commerce",
+      "Extensive special permit system required to open stores on Sunday in most zones",
+      "'Grands Magasins' (Champs-Élysées district) and tourist zones have Sunday trading — but only after decades of legal battles",
+      "National Catholic Federation and trade unions jointly defend Sunday rest laws",
+      "The EELV party proposed expanding Sunday rest to include all state institutions"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Banque de France</strong> is the most active EU central bank in CBDC wholesale pilots",
+      "Completed Project Jura (2021) — cross-border wholesale CBDC settlement with Switzerland",
+      "Participates in Project Meridian (BIS) — DLT settlement infrastructure",
+      "France is the strongest advocate within the ECB for accelerating Digital Euro deployment",
+      "<strong>Banque de France CBDC pilot completed 2024</strong> — wholesale digital euro tested on live bond markets"
+    ]},
+    did:{ level:"orange", items:[
+      "<strong>Alicem</strong> — facial recognition biometric national digital ID system developed by French government (2019), delayed after controversy",
+      "Carte Nationale d'Identité (CNI) — biometric chip ID card, mandatory from 2021",
+      "SNIIRAM database — links all citizens' healthcare to a single national number (Numéro de Sécurité Sociale)",
+      "France deployed facial recognition surveillance at 2024 Paris Olympics — widespread public deployment"
+    ]},
+    rl:{ level:"blue", items:[
+      "Laïcité (strict secularism) — state is officially religion-neutral but this cuts against visible religious practice in public spaces",
+      "Law against 'cult-like' movements (2001, About-Picard Law) gives government broad power to ban religious groups",
+      "Jehovah's Witnesses have faced legal battles under the cult law",
+      "Muslim headscarf banned in schools; broader religious symbol restrictions in public service"
+    ]},
+    bs:{ level:"orange", items:[
+      "France is the leading force pushing Digital Euro acceleration within the ECB",
+      "Member of original EEC/EU — Revived Roman Empire core territory",
+      "Strong Vatican diplomatic ties; French government provides official protection for the Vatican in international forums"
+    ]}
+  },
+
+  IT: {
+    name:"Italy", flag:"🇮🇹", lat:42, lng:12, r:22, level:"red",
+    summary:"Home of the Vatican — the physical headquarters of the papal system identified in Revelation 17 as the great city on seven hills. Italy's Sunday trading laws are enforced by both law and culture. The Vatican's political influence over Italian governance is unparalleled.",
+    guides:["The Little Horn","Babylon's Wine"],
+    sl:{ level:"orange", items:[
+      "Sunday designated as official day of rest; Sunday trading restricted in many regions",
+      "Italian Labor Law mandates Sunday as the default weekly rest day",
+      "Vatican's proximity means Catholic influence on Sunday observance is overwhelming",
+      "Regional Sunday trading laws vary — southern Italy enforces stricter Sunday closings"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "Part of ECB Digital Euro project — Banca d'Italia participating in wholesale pilot",
+      "Italy's banking system is being restructured around digital payment infrastructure (PagoPA system)"
+    ]},
+    did:{ level:"orange", items:[
+      "Carta d'Identità Elettronica (CIE) — biometric national ID card deployed since 2016",
+      "SPID (Sistema Pubblico di Identità Digitale) — national digital identity system with 33 million users",
+      "Italy's tax authority (Agenzia delle Entrate) has full visibility into all bank transactions above €1,000 since 2012"
+    ]},
+    rl:{ level:"blue", items:[
+      "Religious freedom guaranteed by Constitution — respected for mainstream religions",
+      "Catholic Church receives 8‰ (per mil) of all income taxes — state tax financing of the Church",
+      "Religious instruction in state schools defaults to Catholic instruction",
+      "Non-Catholic religions must negotiate separate 'intese' agreements with the state for legal recognition"
+    ]},
+    bs:{ level:"red", items:[
+      "<strong>Vatican City is physically located within Italy</strong> — Rome is the headquarters of the first beast system",
+      "Seven Hills of Rome (Aventine, Caelian, Capitoline, Esquiline, Palatine, Quirinal, Viminal) — fulfilled in Revelation 17:9",
+      "Vatican is a sovereign state with global diplomatic presence (183 nations with Vatican diplomatic relations)",
+      "Italian government's Lateran Treaty (1929) with Mussolini established Vatican as a state — political beast-religion alliance",
+      "Pope's titles include 'Vicar of Christ', 'Pontifex Maximus' — titles with prophetic significance"
+    ]}
+  },
+
+  GB: {
+    name:"United Kingdom", flag:"🇬🇧", lat:54, lng:-2, r:24, level:"orange",
+    summary:"The UK's Sunday trading laws were partially liberalized in 1994 but large shops still face legal limits on Sunday trading hours. The UK is a global leader in CCTV surveillance (highest camera density per capita in the world) and is developing a digital pound CBDC.",
+    sl:{ level:"blue", items:[
+      "<strong>Sunday Trading Act 1994</strong> — large shops (>280m²) restricted to maximum 6 hours of Sunday trading",
+      "Keep Sunday Special campaign — ongoing lobbying to restore stricter Sunday closing laws",
+      "Sunday still treated as the day of worship in law — courts give Sunday special legal status",
+      "Post-Brexit, UK government considered whether to reform Sunday trading laws"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Digital Pound (Britcoin)</strong> — HM Treasury and Bank of England published consultation paper (2023)",
+      "Bank of England confirmed active research and development of retail CBDC",
+      "Project Rosalind (BIS) — UK participated in retail CBDC interface research",
+      "The King's Speech (2023) included financial infrastructure bills paving way for digital pound",
+      "<strong>Programmability concerns</strong> — BoE governor confirmed digital pound could have spending restrictions built in"
+    ]},
+    did:{ level:"orange", items:[
+      "<strong>UK has highest CCTV density in the world</strong> — estimated 5.2 million cameras (1 per 14 people)",
+      "National Identity Register (abandoned 2010) — but data collection continues through NHS, DVLA, HMRC",
+      "Facial recognition police trials in London — Mark 1 deployed in 2024 across the Metropolitan Police",
+      "Online Safety Act (2023) — gives government power to demand end-to-end encryption backdoors",
+      "UK government database Verify/GOV.UK One Login — national digital identity in rollout"
+    ]},
+    rl:{ level:"blue", items:[
+      "Freedom of religion generally protected under Human Rights Act 1998",
+      "Church of England is the state church — gives one denomination official state status",
+      "Growing legal pressure on churches regarding LGBT-inclusive teaching requirements",
+      "Christian street preachers repeatedly arrested under public order laws for quoting Scripture"
+    ]},
+    bs:{ level:"orange", items:[
+      "London is the global financial capital tied to the City of London Corporation — operates under ancient charters outside normal law",
+      "UK's post-Brexit regulatory framework being rebuilt — increasingly divergent from EU but maintaining US-aligned financial surveillance",
+      "GCHQ (signals intelligence) — part of Five Eyes global surveillance network"
+    ]}
+  },
+
+  ES: {
+    name:"Spain", flag:"🇪🇸", lat:40, lng:-4, r:22, level:"orange",
+    summary:"Spain is 70% Catholic and Sunday rest is both legally mandated and culturally entrenched. Regional governments (including Madrid and Barcelona) tightly control Sunday trading permits. Spain participates in EU CBDC development and has implemented a comprehensive digital ID.",
+    sl:{ level:"orange", items:[
+      "Workers' Statute mandates Sunday as the general weekly rest day",
+      "Regional laws vary — Catalonia, Madrid, and Valencia allow some Sunday tourism shopping; interior regions do not",
+      "National Catholic Conference lobbies for stricter Sunday enforcement across all regions",
+      "Catholic observance of Sunday as the Lord's Day is explicitly referenced in regional legislation preambles"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Part of ECB Digital Euro pilot — Banco de España participating",
+      "Bizum instant payment platform (30 million users) — infrastructure for CBDC overlay"
+    ]},
+    did:{ level:"orange", items:[
+      "DNI (Documento Nacional de Identidad) — biometric ID mandatory from age 14",
+      "Sistema Cl@ve — national digital identity platform for government services",
+      "Spain's tax authority (AEAT) has real-time visibility into all bank accounts above €50,000"
+    ]},
+    rl:{ level:"blue", items:[
+      "Constitution Article 16 guarantees freedom of religion",
+      "Catholic Church receives state funding through IRPF (income tax check-box system)",
+      "Evangelical and SDA communities generally protected; Sabbath accommodation varies by employer"
+    ]},
+    bs:{ level:"orange", items:[
+      "Catholic majority; Church-State relationship maintained despite official separation",
+      "Spain was the seat of the Spanish Inquisition — historically the enforcement arm of papal religious authority in the western hemisphere",
+      "Part of EU Revived Roman Empire territory"
+    ]}
+  },
+
+  PL: {
+    name:"Poland", flag:"🇵🇱", lat:52, lng:20, r:22, level:"red",
+    summary:"Poland is one of the most devout Catholic nations in Europe, and since 2018 has been progressively banning Sunday trading — with the most comprehensive Sunday trading bans in the EU currently under expansion. Poland is the strongest active enforcer of Sunday rest laws in a democratic nation.",
+    sl:{ level:"red", items:[
+      "<strong>Sunday Trading Ban Act (2018)</strong> — Poland progressively banned Sunday retail trading, phasing in a full ban by 2020",
+      "By 2020, shops are legally required to close almost every Sunday; only 7 Sundays per year are currently permitted for trading",
+      "Government has consistently voted to reduce the permitted trading Sundays further toward a <strong>complete ban</strong>",
+      "Polish Catholic Bishops' Conference was the primary driving force behind the Sunday ban — explicitly framed as 'defending the Lord's Day'",
+      "PiS (Law and Justice Party) passed the Sunday ban as part of their Catholic national conservative agenda",
+      "The law is framed as protecting 'family values' and 'Christian heritage' — identical framing to papal encyclicals on Sunday rest",
+      "Poland's Sunday ban is the most recent and most complete Sunday law enacted in a major European democracy — a prophetic signpost"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "National Bank of Poland conducting CBDC research; no active deployment yet",
+      "Blik instant payment system (most popular payment in Poland) — infrastructure for future CBDC",
+      "Part of EU Digital Euro framework as EU member state"
+    ]},
+    did:{ level:"orange", items:[
+      "PESEL number — universal national identification number linked to all government records",
+      "Polish national ID card (dowód osobisty) includes biometric chip since 2019",
+      "Government digital ID platform 'mObywatel' — mobile digital ID used for government services, police ID checks"
+    ]},
+    rl:{ level:"blue", items:[
+      "Constitution Article 53 guarantees freedom of religion; rights respected",
+      "Catholic Church's influence is so dominant that other faith groups face cultural (not legal) pressure",
+      "Jehovah's Witnesses have faced some legal harassment; evangelical churches operate freely",
+      "SDA community maintains Sabbath observance — Sunday ban means they benefit from Sunday closings while keeping Saturday"
+    ]},
+    bs:{ level:"red", items:[
+      "Poland's Sunday ban is the <strong>strongest test case</strong> that Sunday laws can be democratically enacted in modern Europe",
+      "The law was driven entirely by Catholic bishops — church-state Sunday enforcement in real time",
+      "If Poland's model spreads to the rest of the EU (which Catholic lobbying is working toward), it would create the first pan-European Sunday law"
+    ]}
+  },
+
+  AT: {
+    name:"Austria", flag:"🇦🇹", lat:47, lng:14, r:18, level:"red",
+    summary:"Austria enforces some of the strictest Sunday rest laws in the world. All retail shops are completely closed on Sundays — not just restricted. Combined with comprehensive digital ID and EU CBDC participation, Austria is a high-level prophetic alert country.",
+    sl:{ level:"red", items:[
+      "<strong>Öffnungszeitengesetz</strong> — Sundays are legally zero-commerce days in Austria; all shops must remain completely closed",
+      "There are almost no exceptions — airports and train station shops are the only limited exemptions",
+      "'Quiet Sunday' provisions additionally ban power tool use, loud music, and some vehicle operations",
+      "Austrian Catholic Bishops' Conference actively defends the Sunday ban as 'protecting the Christian character of society'",
+      "Austria's Sunday law is arguably even stricter than Germany's in practice"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "Part of ECB Digital Euro project as EU member state",
+      "Oesterreichische Nationalbank participating in BIS digital currency research groups"
+    ]},
+    did:{ level:"orange", items:[
+      "Personalausweis (Austrian ID) — biometric chip national ID mandatory",
+      "Handy-Signatur / ID Austria — digital identity system with 3 million users for government services",
+      "E-Government Act consolidates all citizen interactions into a central digital identity"
+    ]},
+    rl:{ level:"blue", items:[
+      "Religious freedom protected by law",
+      "Islam designated as a 'recognized religion' with special regulation (Islam Act 2015) — government oversight of mosque funding"
+    ]},
+    bs:{ level:"red", items:[
+      "Complete Sunday retail closure — already at the level of what a Sunday law mandate would require",
+      "Austria-Hungary was strongly allied with the Papacy historically — deep Catholic political tradition",
+      "Part of EU Revived Roman Empire territory"
+    ]}
+  },
+
+  CH: {
+    name:"Switzerland", flag:"🇨🇭", lat:47, lng:8, r:20, level:"orange",
+    summary:"Switzerland hosts all the key global governance institutions — BIS (Bank for International Settlements), WHO, WEF, and more. The BIS in Basel, Switzerland, is developing the global CBDC interoperability framework. Switzerland is the de facto headquarters of the global beast system infrastructure.",
+    sl:{ level:"orange", items:[
+      "Cantonal Sunday trading laws — most cantons restrict large retail on Sundays",
+      "Swiss Labor Act mandates Sunday as the official rest day",
+      "Tourist zones (Geneva, Lausanne) have partial Sunday trading exemptions"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Project Helvetia</strong> — Swiss National Bank wholesale CBDC issued on distributed ledger (live settlement with SIX Exchange)",
+      "Switzerland participated in Project Jura — cross-border CBDC with France (2021)",
+      "Swiss Franc wholesale CBDC settlement now operational on financial markets",
+      "Swiss National Bank among the most advanced wholesale CBDC deployers globally"
+    ]},
+    did:{ level:"blue", items:[
+      "Swiss ID card — biometric since 2022",
+      "E-ID (electronic identity) — digital ID law passed 2021 after first e-ID was rejected by referendum in 2020 (citizens pushed back)",
+      "Switzerland has stronger privacy protections than EU — GDPR-equivalent but stricter"
+    ]},
+    rl:{ level:"green", items:[
+      "Freedom of religion strongly protected; respected in practice",
+      "Switzerland has historically been a refuge for religious dissenters",
+      "Strong SDA and evangelical presence with full legal protection"
+    ]},
+    bs:{ level:"red", items:[
+      "<strong>BIS (Bank for International Settlements)</strong> headquartered in Basel — the 'central bank of central banks'. Drives global CBDC interoperability standards for ALL nations",
+      "<strong>WEF (World Economic Forum)</strong> headquartered in Davos — 'Great Reset', 'You will own nothing and be happy', global governance agenda",
+      "<strong>WHO headquarters</strong> in Geneva — used COVID emergency to override national sovereignty globally",
+      "<strong>UN Human Rights Council</strong> in Geneva",
+      "<strong>CERN</strong> near Geneva — particle physics with occult symbolism (Shiva statue, opening ceremony imagery)",
+      "Switzerland is arguably the most significant single piece of real estate in the beast system architecture"
+    ]}
+  },
+
+  RU: {
+    name:"Russia", flag:"🇷🇺", lat:61, lng:105, r:32, level:"orange",
+    summary:"Russia is advancing its digital ruble CBDC, has banned Jehovah's Witnesses as an 'extremist organization,' and is increasingly restricting non-Russian Orthodox religious practice. The Russian Orthodox Church and the state operate in close political partnership.",
+    sl:{ level:"blue", items:[
+      "Sunday is the de facto rest day (inherited from Soviet and Russian Orthodox tradition) but no formal Sunday closing law",
+      "Russian Orthodox Church actively promotes Sunday as the sacred day and lobbies for stronger observance protections"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Digital Ruble</strong> — launched in pilot form August 2023; Bank of Russia targeting full rollout 2025–2026",
+      "Digital ruble is programmable — government can set expiry dates, geographic restrictions, and spending categories",
+      "Russia developing CBDC partly to evade Western financial sanctions (SWIFT exclusion 2022)",
+      "Russia-China cross-border CBDC testing as alternative to dollar system",
+      "Digital ruble will eventually replace Mir payment system for government benefit transfers"
+    ]},
+    did:{ level:"red", items:[
+      "<strong>SORM-3</strong> — Federal Security Service (FSB) has legal access to all internet communications without a warrant",
+      "Gosuslugi (Government Services Portal) — centralized digital ID with 80 million users; links to tax, medical, and civil records",
+      "Facial recognition cameras across Moscow metro system (1,500+ cameras) — expanded after COVID",
+      "<strong>Russian Social Monitoring App</strong> (2020) — COVID enforcement app collected location data and sent police to quarantine violators",
+      "SIM card registration requires passport and biometric — all communications linkable to identity"
+    ]},
+    rl:{ level:"red", items:[
+      "<strong>Jehovah's Witnesses banned</strong> as 'extremist organization' since 2017 — 1,000+ prosecuted, some imprisoned",
+      "Scientology raided and banned in multiple cities",
+      "Seventh-day Adventists have faced registration difficulties in some Russian regions",
+      "Foreign missionary activity banned since 2016 (Yarovaya Law)",
+      "<strong>Russian Orthodox Church is the state religion</strong> in practice — other faiths operate at the government's tolerance"
+    ]},
+    bs:{ level:"orange", items:[
+      "Russia is building a CBDC specifically to operate outside the US-controlled SWIFT system — creating a parallel beast-system infrastructure",
+      "Russia-China-Iran bloc developing alternative to Western financial system",
+      "Religious persecution of non-Orthodox believers demonstrates the danger of a church-state union enforcing worship requirements"
+    ]}
+  },
+
+  VA: {
+    name:"Vatican City", flag:"🏛️", lat:41.9, lng:12.45, r:12, level:"red",
+    summary:"Vatican City is the sovereign headquarters of the Roman Catholic Church — the power identified in Revelation 17 as the woman sitting on seven hills. The Pope has directly called for Sunday to be enforced by law globally. The Vatican has diplomatic relations with 183 nations and unprecedented political reach.",
+    guides:["The Little Horn","Babylon's Wine","The Mark of the Beast"],
+    sl:{ level:"red", items:[
+      "<strong>Laudato Si' (2015)</strong> — Pope Francis explicitly calls for Sunday as the day of rest and urges governments to enforce it: 'On Sunday, our participation in the Eucharist has special importance'",
+      "<strong>Dies Domini (1998)</strong> — Pope John Paul II called for Sunday laws: 'In order to meet the needs of a pluralistic society' governments should ensure Sunday rest",
+      "The Vatican has been the longest-running institutional force pushing for state-enforced Sunday worship — since the Council of Laodicea (363 AD)",
+      "Catholic Catechism para. 2188 — calls on Catholics to 'advocate for laws that respect the Lord's Day'",
+      "The Vatican explicitly acknowledges it changed the Sabbath from Saturday to Sunday and that there is no biblical support for Sunday — this is documented in Catholic sources"
+    ]},
+    cbdc:{ level:"gray", items:[
+      "Vatican uses the Euro but operates its own unique financial system (Vatican Bank/IOR)",
+      "IOR has been historically involved in financial scandals — operates with minimal external oversight",
+      "Vatican City has no CBDC but supports digital financial integration through its diplomatic influence"
+    ]},
+    did:{ level:"gray", items:[
+      "Vatican City has its own internal ID documents for citizens and staff",
+      "Vatican's diplomatic passport network gives extraordinary legal protections globally"
+    ]},
+    rl:{ level:"gray", items:[
+      "Vatican itself enforces Catholicism — it IS the religious institution, not subject to external religious freedom law"
+    ]},
+    bs:{ level:"red", items:[
+      "<strong>183 nations</strong> maintain full diplomatic relations with the Vatican — more than with almost any other state",
+      "Revelation 17:9 — 'The seven heads are seven mountains on which the woman sits' — fulfilled perfectly by Rome",
+      "Revelation 17:18 — 'The woman you saw is the great city that rules over the kings of the earth' — Vatican has no army but rules diplomatically",
+      "The Pope's audience with US Presidents, UN General Assembly speeches, EU Parliament address — unprecedented political reach for a religious institution",
+      "<strong>This is the first beast of Revelation 13</strong> — power identified through 11 biblical marks including: rose from Rome, changed the law (Sabbath→Sunday), 42 months of dominance (538-1798 AD), received a deadly wound (1798), deadly wound healed (1929 Lateran Treaty)"
+    ]}
+  },
+
+  /* ── MIDDLE EAST ─────────────────────────────────────────── */
+  IL: {
+    name:"Israel", flag:"🇮🇱", lat:31, lng:35, r:16, level:"blue",
+    summary:"Israel is the only nation in the world that legally enforces Saturday (the biblical Sabbath) as its weekly rest day. Israel's national ID system is highly advanced, and the country is a world leader in surveillance technology. The rebuilding of Israeli society is prophetically significant.",
+    guides:["The Sabbath Rest","God's Special Sign"],
+    sl:{ level:"green", items:[
+      "<strong>Israel is the only country in the world with Shabbat (Saturday) legally protected as the day of rest</strong>",
+      "The Law of Return and Basic Laws recognize the Jewish Sabbath (Saturday) — shops close Friday at sunset, stay closed Saturday",
+      "Public buses don't operate on Shabbat in most cities; Sunday is a normal work day",
+      "This is the biblical pattern: the 7th day (Saturday) as the Sabbath — the law God wrote with His own finger (Exodus 20:8–11)"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Bank of Israel conducting digital shekel research since 2021",
+      "Digital shekel concept paper published 2022 — no active pilot yet",
+      "Israel's startup ecosystem driving fintech and payment innovation"
+    ]},
+    did:{ level:"orange", items:[
+      "Israeli Biometric Database — mandatory collection of fingerprints and facial scans since 2013 (after privacy referendum)",
+      "Teudat Zehut (national ID) — mandatory biometric ID card for all citizens 16+",
+      "<strong>NSO Group (Pegasus spyware)</strong> — Israel developed and exports the world's most invasive phone surveillance software to 45+ governments",
+      "Israeli military unit 8200 is the world's most advanced signals intelligence operation"
+    ]},
+    rl:{ level:"blue", items:[
+      "Freedom of religion for non-Jews is protected but complex",
+      "Christian missionaries face legal restrictions in proselytizing to Jews (though not prohibited)",
+      "Messianic Jews face community discrimination and some legal challenges",
+      "Strong SDA presence; Sabbath protection is built into the national framework"
+    ]},
+    bs:{ level:"blue", items:[
+      "Israel's Saturday-Sabbath model shows what biblical obedience looks like in civil law",
+      "The contrast between Israel (Saturday rest) and the Vatican push (Sunday law) illustrates the prophetic battle over the Sabbath",
+      "Israel exports surveillance (Pegasus) worldwide — Israeli tech is embedded in the global beast-system surveillance infrastructure"
+    ]}
+  },
+
+  SA: {
+    name:"Saudi Arabia", flag:"🇸🇦", lat:24, lng:45, r:22, level:"red",
+    summary:"Saudi Arabia enforces Islamic Sharia law — non-Muslim worship is prohibited in public. While not the Catholic beast system, Saudi Arabia represents another form of religious coercion where economic participation (oil wealth) is directly tied to political and religious compliance.",
+    sl:{ level:"gray", items:[
+      "Friday is the Islamic holy day; no Sunday legislation applies",
+      "All religious observance must conform to state-approved Sunni Islam"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Project Aber</strong> — Saudi Arabia and UAE jointly launched cross-border wholesale CBDC (2020) — already operational between the two countries",
+      "Saudi Central Bank (SAMA) advancing retail CBDC research",
+      "Saudi Arabia joins Project mBridge — multi-CBDC settlement platform with China, UAE, Hong Kong, Thailand"
+    ]},
+    did:{ level:"red", items:[
+      "National ID is mandatory and linked to all financial, employment, and government services",
+      "Absher app — government digital ID controls women's travel permissions; links guardianship to digital ID system",
+      "Complete financial surveillance — all transactions monitored for Sharia compliance and political loyalty"
+    ]},
+    rl:{ level:"red", items:[
+      "<strong>No non-Muslim public worship permitted</strong> — churches, synagogues, and non-Muslim places of worship are illegal",
+      "Apostasy from Islam is punishable by death under Sharia law",
+      "Bible importation restricted; proselytism illegal",
+      "Foreign Christians can worship privately in their homes — barely tolerated"
+    ]},
+    bs:{ level:"orange", items:[
+      "Petrodollar system — global oil trade in US dollars gives US-Saudi alliance control over global energy prices",
+      "Saudi participation in Project mBridge (with China) represents a hedge toward China's alternative financial system",
+      "Economic control of energy markets = leverage over all nations — a parallel coercive system to SWIFT"
+    ]}
+  },
+
+  IR: {
+    name:"Iran", flag:"🇮🇷", lat:32, lng:54, r:22, level:"red",
+    summary:"Iran enforces Islamic theocracy — Christianity and all non-Shia religions face severe persecution. Iran is building a national internet (intranet) to control digital communications and has implemented financial surveillance across its sanctioned economy.",
+    sl:{ level:"gray", items:["Friday is Islamic holy day; no Sunday significance in law"]},
+    cbdc:{ level:"orange", items:[
+      "Crypto-Rial — Iran developing CBDC partly to evade US sanctions",
+      "Iran is actively building a domestic digital currency system independent of SWIFT",
+      "Collaborating with Russia on sanctions-evasion digital payment infrastructure"
+    ]},
+    did:{ level:"red", items:[
+      "<strong>National Information Network (NIN)</strong> — Iran's domestic internet that can be isolated from the global web — full communication control",
+      "National ID card mandatory and linked to food ration subsidy system",
+      "Ration card system: citizens access subsidized food through government-controlled digital cards — near-CBDC level of economic control"
+    ]},
+    rl:{ level:"red", items:[
+      "<strong>Christians face arrest, torture, and execution</strong> for apostasy from Islam or proselytism",
+      "Over 800 Christians arrested in Iran since 2010",
+      "House churches routinely raided; Bibles confiscated",
+      "Iranian Constitution recognizes 'People of the Book' (Jews, Christians, Zoroastrians) but strictly limits their practice",
+      "Converting a Muslim to Christianity carries the death penalty"
+    ]},
+    bs:{ level:"orange", items:[
+      "Iran's sanctions-evasion CBDC demonstrates how even rogue states are building alternative economic control systems",
+      "Iran-Russia-China axis building financial infrastructure outside the Western beast system — potentially a second beast-system emerging"
+    ]}
+  },
+
+  TR: {
+    name:"Turkey", flag:"🇹🇷", lat:39, lng:35, r:22, level:"orange",
+    summary:"Turkey straddles Europe and Asia as a NATO member with an increasingly Islamic government under Erdoğan. Turkey is converting Hagia Sophia (once a church, then a museum) back into a mosque — a profound prophetic symbol. Turkey is implementing a comprehensive digital ID and advancing CBDC research.",
+    sl:{ level:"blue", items:[
+      "Sunday is legally a rest day under Turkish labor law (inherited from secular Kemalist tradition)",
+      "Friday is the Islamic day of prayer but Sunday remains the official legal weekly rest day",
+      "Erdoğan's AKP government has not moved to change Sunday rest law but religious pressure toward Friday is growing"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "Central Bank of Turkey CBDC pilot launched 2023 — Digital Lira in testing phase",
+      "Digital Lira project accelerated to hedge against 60%+ inflation and lira devaluation",
+      "Turkey participates in BIS Innovation Hub cross-border CBDC pilots"
+    ]},
+    did:{ level:"orange", items:[
+      "TC Kimlik (National ID) — centralized biometric ID mandatory for all Turkish citizens",
+      "e-Devlet (e-Government) portal — 61 million users; all government services linked to single ID",
+      "Hayat Eve Sığar (COVID contact tracing) app — government tracked citizens' movements and quarantine compliance"
+    ]},
+    rl:{ level:"orange", items:[
+      "Official secularism (Kemalism) under pressure from AKP Islamization agenda",
+      "Christian minorities (Greek Orthodox, Armenian, Syriac) face property seizures and no new church permits",
+      "Hagia Sophia reconverted to mosque (2020) — powerful symbol of Islamic reclamation of Christian heritage",
+      "Ecumenical Patriarchate of Constantinople (Greek Orthodox) restricted; Halki Seminary forced closed since 1971",
+      "Missionary activity faces social hostility and bureaucratic obstruction"
+    ]},
+    bs:{ level:"orange", items:[
+      "Turkey controls the Bosphorus — the strait between Europe and Asia; prophetically significant as the bridge between East and West",
+      "Turkey's NATO membership while pursuing Russia-aligned policies shows the dual allegiances of end-time political actors",
+      "Hagia Sophia as a mosque represents the continuing struggle between Christianity and Islam in the prophetic timeline"
+    ]}
+  },
+
+  /* ── AFRICA ──────────────────────────────────────────────── */
+  NG: {
+    name:"Nigeria", flag:"🇳🇬", lat:9, lng:8, r:24, level:"red",
+    summary:"Nigeria launched the eNaira — Africa's first CBDC — in October 2021. It is the first major African country to deploy a fully operational digital currency. Northern Nigeria enforces Sharia law, and Christian communities face severe persecution from Fulani herdsmen and Boko Haram.",
+    sl:{ level:"blue", items:[
+      "Christian majority (south) observes Sunday; Muslim majority (north) Friday",
+      "No national Sunday law; religious practice mirrors population distribution"
+    ]},
+    cbdc:{ level:"red", items:[
+      "<strong>eNaira launched October 2021</strong> — Africa's first CBDC and the world's third nationally deployed retail CBDC",
+      "Designed by Bitt Inc. (same company as Eastern Caribbean DCash), issued by Central Bank of Nigeria",
+      "Adoption was initially very low — government mandated taxi drivers, market vendors, and government workers accept eNaira",
+      "In 2023, government restricted ATM cash withdrawals to force eNaira adoption — explicit economic coercion",
+      "eNaira wallets are tiered by ID verification level — unverified accounts have spending limits (economic control by identity compliance)",
+      "200+ million people subject to the system — Africa's largest CBDC deployment"
+    ]},
+    did:{ level:"orange", items:[
+      "BVN (Bank Verification Number) — biometric bank ID mandatory for all financial transactions",
+      "NIN (National Identification Number) — biometric national ID linked to SIM cards; phone service cut for non-NIN holders in 2021",
+      "NIN+BVN linking means all communications and all financial transactions linked to a single identity",
+      "Nigeria demonstrated: government can mandate digital identity by cutting essential services for non-compliance"
+    ]},
+    rl:{ level:"red", items:[
+      "Boko Haram and Fulani herdsmen carry out systematic attacks on Christian villages in the Middle Belt",
+      "Over <strong>4,000 Christians killed in Nigeria in 2022–2023</strong> — the world's highest Christian death toll by far",
+      "Open Doors ranks Nigeria consistently in top 5 of world's worst countries for Christian persecution",
+      "State-level Sharia law enforced in 12 northern states — Christians face second-class legal status",
+      "Government response to attacks on Christians consistently inadequate — alleged political complicity"
+    ]},
+    bs:{ level:"red", items:[
+      "eNaira is already the most coercive CBDC in the world — government cut ATM access to force adoption",
+      "Biometric ID + CBDC + SIM card linkage = complete economic control infrastructure already operational in Africa's largest economy",
+      "Nigeria is the proof-of-concept that economic coercion can force CBDC adoption in developing world"
+    ]}
+  },
+
+  ET: {
+    name:"Ethiopia", flag:"🇪🇹", lat:9, lng:40, r:20, level:"blue",
+    summary:"Ethiopia is prophetically unique — the Ethiopian Orthodox Church has observed Saturday (the Sabbath) for 1,600 years, making it culturally the world's most Sabbath-observing nation. Ethiopia also has a large and growing SDA community. However, the country faces political instability and increasing digital surveillance.",
+    guides:["The Sabbath Rest","God's Special Sign"],
+    sl:{ level:"green", items:[
+      "<strong>Ethiopian Orthodox Church observes Saturday as the Sabbath</strong> — has done so continuously for over 1,600 years, making it one of the world's oldest Sabbath-keeping communities",
+      "Both Saturday AND Sunday are observed as sacred days in Ethiopia — but Saturday is the Sabbath of the Law and Sunday is the day of Resurrection, both considered holy",
+      "Ethiopian calendar and liturgical practice maintain the Saturday Sabbath more consistently than any other nation",
+      "Large Seventh-day Adventist community adds to Ethiopia's Sabbath-observing population"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "National Bank of Ethiopia researching digital birr",
+      "No active CBDC deployment yet",
+      "Telebirr mobile payment system (Ethiopian Telecom) — 40 million users; digital payment infrastructure building"
+    ]},
+    did:{ level:"blue", items:[
+      "Fayda biometric national ID program — iris and fingerprint collection underway",
+      "Implementation uneven; rural areas have low penetration",
+      "Ethiopian government increasingly using digital tools for political surveillance"
+    ]},
+    rl:{ level:"blue", items:[
+      "Ethiopian Orthodox, Protestant, and Muslim communities generally coexist",
+      "Religious violence between Orthodox and Muslim communities in rural areas",
+      "Tigray civil war (2020–2022) involved attacks on churches and clergy",
+      "Evangelical and SDA movement growing rapidly — 5 million+ SDA members"
+    ]},
+    bs:{ level:"green", items:[
+      "Ethiopia's Sabbath-keeping tradition stretches back to Queen of Sheba (1 Kings 10) and the Ethiopian eunuch (Acts 8:27)",
+      "Acts 8:27 — the gospel's first African recipient was an Ethiopian who treasured the Scriptures (Isaiah scroll)",
+      "Ethiopia represents the biblical prophetic link from the Old Testament to the New — a Sabbath-keeping bridge across history"
+    ]}
+  },
+
+  ZA: {
+    name:"South Africa", flag:"🇿🇦", lat:-29, lng:25, r:22, level:"blue",
+    summary:"South Africa is one of the most advanced African nations in terms of digital financial infrastructure. It participates in Project mBridge (cross-border CBDC) and has deployed biometric ID systems. The country is also home to a large and active SDA community.",
+    sl:{ level:"blue", items:[
+      "Shops Act restricts Sunday trading hours — large retailers face limitations",
+      "Christian Sunday observance is culturally strong in many communities",
+      "NFD (Dutch Reformed Church) historically dominant — Sunday sacredness deeply embedded in Afrikaner culture"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Project Khokha</strong> — South African Reserve Bank wholesale CBDC research (2018, 2021)",
+      "Project mBridge participant — multi-CBDC platform with China, Saudi Arabia, UAE, Hong Kong",
+      "South Africa among the most advanced developing nations in CBDC research"
+    ]},
+    did:{ level:"orange", items:[
+      "South African ID (green barcoded ID and new Smart ID Card with biometric chip)",
+      "HANIS (Home Affairs National Identification System) — biometric database of all citizens",
+      "FICA (Financial Intelligence Centre Act) — comprehensive financial surveillance"
+    ]},
+    rl:{ level:"blue", items:[
+      "Constitution Section 15 — freedom of religion protected",
+      "Large SDA presence; Sabbath widely respected by employers",
+      "Growing charismatic Christianity; religious freedom generally practiced"
+    ]},
+    bs:{ level:"blue", items:[
+      "Project mBridge participation means South Africa is connected to the China-led alternative CBDC system",
+      "BRICS membership (founding member) — part of the emerging alternative to Western financial systems"
+    ]}
+  },
+
+  EG: {
+    name:"Egypt", flag:"🇪🇬", lat:26, lng:30, r:20, level:"orange",
+    summary:"Egypt enforces Islamic governance (Friday as holy day) and has historically persecuted its Coptic Christian minority. Egypt is advancing biometric digital ID and CBDC while experiencing significant political repression.",
+    sl:{ level:"gray", items:["Friday is Islamic holy day; Sunday has no special legal status"]},
+    cbdc:{ level:"orange", items:[
+      "Central Bank of Egypt researching digital pound (Guinaya)",
+      "InstaPay — real-time digital payment platform launched 2022",
+      "Egypt participates in Arab Monetary Fund digital currency studies"
+    ]},
+    did:{ level:"orange", items:[
+      "National ID card mandatory — linked to religion (Christians must have 'Christian' on ID since 1952)",
+      "E-finance digital payment platform handles all government salary payments",
+      "Biometric data collection ongoing for smart ID rollout"
+    ]},
+    rl:{ level:"red", items:[
+      "Coptic Christians (10–15% of population) face systematic persecution, church burnings, and kidnapping of girls",
+      "Churches require a special presidential permit to be built — centuries of bureaucratic obstruction",
+      "Blasphemy laws (Article 98f) imprison Christians for comments deemed offensive to Islam",
+      "Over 50 churches burned in a single week during 2013 coup aftermath",
+      "Egyptian law still has apostasy provisions effectively in place"
+    ]},
+    bs:{ level:"orange", items:[
+      "Egypt is ground zero for the prophetic history of Exodus — God's people delivered from economic slavery",
+      "Modern parallels: government controlling digital ID access for Christians = 21st century 'No goshen' situation"
+    ]}
+  },
+
+  /* ── ASIA ────────────────────────────────────────────────── */
+  CN: {
+    name:"China", flag:"🇨🇳", lat:35, lng:105, r:38, level:"red",
+    summary:"China is the global leader in CBDC deployment, social credit scoring, biometric mass surveillance, and state-controlled religion. The e-CNY (Digital Yuan) is already used by hundreds of millions. China's surveillance and economic control system is the most advanced real-world prototype of Revelation 13 technology in existence.",
+    guides:["The Beast System Infrastructure","The Mark of the Beast"],
+    sl:{ level:"gray", items:[
+      "Sunday has no legal significance; China operates on a 5-day work week with Saturday and Sunday off",
+      "No Sunday law heritage — China is atheist-communist state"
+    ]},
+    cbdc:{ level:"red", items:[
+      "<strong>e-CNY (Digital Yuan)</strong> — CBDC pilots in 17+ cities; 300+ million digital wallets; used at 2022 Winter Olympics",
+      "e-CNY has built-in expiry dates — money expires if not spent, preventing saving",
+      "Government can freeze e-CNY wallets instantly for political/social compliance",
+      "e-CNY has programmable restrictions — can be limited to specific geographic areas or product categories",
+      "<strong>Full transaction visibility</strong>: People's Bank of China (PBoC) can see every purchase in real time",
+      "China using e-CNY to eliminate physical cash — China's cash usage dropped from 60% to 20% since 2018",
+      "Project mBridge (BIS) — China is the largest participant; building international e-CNY settlement"
+    ]},
+    did:{ level:"red", items:[
+      "<strong>Social Credit System</strong> — algorithmic scoring of citizens' behavior; low scores result in travel bans, school exclusions, and public shaming",
+      "700 million CCTV cameras across China — most per capita of any country",
+      "<strong>Xinjiang surveillance</strong> — DNA collection, iris scans, gait recognition; Uyghur minority under totalitarian surveillance",
+      "Facial recognition required for: SIM card purchase, plane tickets, train tickets, bank accounts, internet access, and apartment entry",
+      "WeChat and Alipay use analysed by authorities — all digital communications are monitored",
+      "China Tech firms (Huawei, Alibaba, Hikvision) export surveillance systems to 80+ countries"
+    ]},
+    rl:{ level:"red", items:[
+      "<strong>Sinicization policy</strong> — all religions must express 'patriotic' content; churches required to display Xi Jinping quotes alongside Scripture",
+      "Cross removal campaigns — thousands of church crosses forcibly removed since 2014",
+      "Underground ('house') church Christians face arrests, imprisonment, and torture; pastors tortured for refusing state registration",
+      "Uyghur Muslims face cultural genocide in Xinjiang — 1 million+ in camps",
+      "Falun Gong practitioners face organ harvesting",
+      "Bible sales online banned; physical Bibles restricted to official churches",
+      "All churches must register with state — registration requires accepting government censorship of sermons"
+    ]},
+    bs:{ level:"red", items:[
+      "China is building the most complete economic control system in history — <strong>the operational model for the mark of the beast</strong>",
+      "e-CNY + Social Credit + facial recognition = a government that can prevent any person from buying or selling",
+      "This has ALREADY been used against Christians: house church members' bank accounts frozen, travel banned",
+      "China exports its surveillance technology to developing countries — globalizing the control infrastructure",
+      "Project mBridge positions e-CNY as an alternative to SWIFT — a competing global beast-system",
+      "Daniel 11:44 connects to 'kings of the East' — China's rise is in the prophetic timeline"
+    ]}
+  },
+
+  JP: {
+    name:"Japan", flag:"🇯🇵", lat:35, lng:138, r:24, level:"blue",
+    summary:"Japan is orderly and technologically advanced but culturally resistant to both organized religion and financial surveillance. Japan is developing a digital yen CBDC but its culture presents less immediate prophetic concern. Japan has historically been influenced by both Buddhism and Shinto.",
+    sl:{ level:"green", items:[
+      "No Sunday rest laws — Japan has some of the world's most flexible retail trading hours",
+      "Sunday is the conventional day off but this has no religious basis in law",
+      "No Catholic Sunday law tradition in Japanese culture"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "Bank of Japan launched digital yen pilot (2023) — proof-of-concept phase",
+      "Japan participates in Project Stella (with ECB) — DLT payment research",
+      "Japan's digital yen timeline: 2026 for potential real-world pilot"
+    ]},
+    did:{ level:"blue", items:[
+      "My Number System — national ID number since 2015; linking to medical, tax, and banking systems (controversial)",
+      "2023 — government required linking My Number to health insurance and bank accounts",
+      "Strong privacy culture in Japan — My Number expansion faced significant public resistance"
+    ]},
+    rl:{ level:"green", items:[
+      "Religious freedom protected under Constitution Article 20",
+      "SDA community active; Sabbath accommodation generally available",
+      "No institutional religious persecution"
+    ]},
+    bs:{ level:"blue", items:[
+      "Japan is deeply integrated into the US financial system (largest foreign holder of US Treasury bonds)",
+      "G7 member participating in FATF global AML/KYC standards"
+    ]}
+  },
+
+  IN: {
+    name:"India", flag:"🇮🇳", lat:20, lng:78, r:32, level:"orange",
+    summary:"India has the world's largest biometric ID database (Aadhaar, 1.3 billion registered). The Digital Rupee CBDC is in pilot phase. India's Hindu nationalist BJP government is implementing anti-conversion laws across multiple states, threatening minority religious freedom — particularly for Christians and Muslims.",
+    sl:{ level:"gray", items:[
+      "Sunday is the legal weekly holiday (inherited from British colonial law)",
+      "No Sunday religious laws — India is constitutionally secular",
+      "Sunday rest is civil, not religious — though colonial Christian heritage embedded it"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>Digital Rupee (e₹)</strong> — Reserve Bank of India launched retail CBDC pilot December 2022",
+      "Wholesale digital rupee operational for government securities settlement",
+      "India plans full digital rupee rollout by 2026",
+      "UPI (Unified Payments Interface) — 300 million users; most advanced real-time payment system in the world (200+ million transactions/day)",
+      "India Tech Act modifying payment laws to mandate digital transaction reporting"
+    ]},
+    did:{ level:"red", items:[
+      "<strong>Aadhaar</strong> — world's largest biometric database: 1.38 billion iris scans, fingerprints, and photos",
+      "Aadhaar linked to: bank accounts, welfare payments, SIM cards, income tax, health records, voter ID, driving license",
+      "Supreme Court ruled Aadhaar constitutional but banned mandatory private-sector use — government continues expanding linkage",
+      "Aadhaar authentication failures have left millions unable to access food rations — people have died of starvation",
+      "India's facial recognition network connecting 42 million CCTV cameras under NATGRID project"
+    ]},
+    rl:{ level:"orange", items:[
+      "Constitution Article 25 protects freedom of religion — but anti-conversion laws in 11+ states now criminalize conversions",
+      "Anti-conversion laws define 'inducement' so broadly that giving food or medicine before sharing the gospel can be criminal",
+      "Violent attacks on Christians increased 300%+ since 2014 (BJP election)",
+      "Churches burned, pastors attacked, baptisms disrupted by Hindu nationalist (VHP/Bajrang Dal) mobs",
+      "Missionaries have been arrested; Christian orphanages raided",
+      "Open Doors ranks India #11 in world's worst countries for Christian persecution"
+    ]},
+    bs:{ level:"orange", items:[
+      "Aadhaar is the closest existing system to a universal biometric mark — 1.38 billion people enrolled",
+      "India is the test case that a democratic country can build a universal biometric control system",
+      "India-China-Russia collaboration through BRICS and SCO builds alternative financial surveillance architecture",
+      "If India's CBDC links to Aadhaar (currently being tested) — every transaction linked to a biometric identifier for 1.4 billion people"
+    ]}
+  },
+
+  PH: {
+    name:"Philippines", flag:"🇵🇭", lat:13, lng:122, r:20, level:"orange",
+    summary:"The Philippines is 80% Catholic — the only predominantly Catholic nation in Asia — giving the Vatican enormous cultural and political influence. Sunday is culturally sacrosanct. The Philippines has a large and growing SDA community (1.8 million members) and is advancing digital payment infrastructure.",
+    sl:{ level:"orange", items:[
+      "Labor Code mandates Sunday as the weekly rest day (Article 91)",
+      "Catholic culture enforces Sunday observance strongly — businesses in many areas voluntarily close Sunday mornings for mass",
+      "Catholic Bishops' Conference of the Philippines (CBCP) is one of the most politically influential institutions in the country",
+      "Attempts to pass Sunday trading laws have been made in Congress — framed as protecting 'family day'"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Bangko Sentral ng Pilipinas (BSP) researching digital peso",
+      "Project CBDCPh — BSP whitepaper published 2022; no live deployment yet",
+      "InstaPay and PESONet (BSP real-time payment systems) serving 80+ million accounts"
+    ]},
+    did:{ level:"orange", items:[
+      "Philippine Identification System (PhilSys) — national biometric ID program; 70 million enrolled",
+      "PhilSys ID links to PhilHealth, SSS, Pag-IBIG, census, and tax records",
+      "Facial recognition deployed at Manila international airports"
+    ]},
+    rl:{ level:"blue", items:[
+      "Constitutional separation of church and state; religious freedom generally respected",
+      "However, Catholic Church's political power means laws can be influenced by Catholic teaching",
+      "SDA community (1.8 million) — one of the largest in Asia; Sabbath accommodation generally available",
+      "Reproductive Health Bill (2012) — Church tried to block it, showing extent of Church political power"
+    ]},
+    bs:{ level:"orange", items:[
+      "Only majority-Catholic country in Asia — Vatican's Pacific foothold",
+      "Catholic Church's political dominance means Sunday legislation is always a possibility",
+      "Philippines is a prophetic example of how Catholic political power can dominate a democratic society"
+    ]}
+  },
+
+  ID: {
+    name:"Indonesia", flag:"🇮🇩", lat:-5, lng:120, r:28, level:"orange",
+    summary:"Indonesia is the world's largest Muslim-majority nation (277 million people). Religious tensions between the Muslim majority and Christian minorities (11%) are escalating. Indonesia is advancing a national digital ID and has launched a real-time payment system en route to CBDC. Blasphemy laws are regularly used against Christians.",
+    sl:{ level:"gray", items:[
+      "Friday is the Islamic holy day; Sunday is the official rest day under colonial-era labor code",
+      "Sunday trading is generally free; no religious Sunday law"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Bank Indonesia researching Digital Rupiah since 2022",
+      "BI-FAST real-time payment system launched 2021 — 100+ million transactions/month",
+      "Indonesia CBDC white paper issued; pilot in preparation"
+    ]},
+    did:{ level:"orange", items:[
+      "KTP-El (electronic national ID) — biometric chip ID mandatory for all citizens 17+",
+      "Indonesian citizens must declare their religion on the national ID — one of six recognized religions only; no 'none' option",
+      "NIK (National Identification Number) links all government services and banking"
+    ]},
+    rl:{ level:"red", items:[
+      "Blasphemy law (Law No. 1/PNPS/1965) — applied against Christians, Ahmadis, and others; prison sentences of up to 5 years",
+      "Governor Basuki 'Ahok' Purnama (Christian) jailed 2017 for alleged blasphemy against Islam — politically motivated",
+      "Churches regularly refused building permits by local Muslim-majority regional governments",
+      "Radical Islamic Defenders Front (FPI) has organized violent attacks on churches before government banned them in 2020",
+      "Anti-conversion pressure; Christian missionaries face extremist violence in Papua and Sulawesi"
+    ]},
+    bs:{ level:"orange", items:[
+      "Indonesia's religious ID requirement means the government knows every citizen's religion — CBDC + religious ID = ability to restrict economic access by faith",
+      "World's largest Muslim nation: Islamic financial governance norms increasingly influence regulation"
+    ]}
+  },
+
+  AU: {
+    name:"Australia", flag:"🇦🇺", lat:-25, lng:134, r:26, level:"orange",
+    summary:"Australia passed the world's most controversial Digital ID Act in 2024. The government demonstrated willingness to debank political opponents during COVID (church groups lost banking access). Australia is developing a CBDC and is a member of Five Eyes global intelligence sharing.",
+    sl:{ level:"blue", items:[
+      "Shopping Hours Act varies by state — some states restrict Sunday trading hours",
+      "Western Australia still has some of the strongest Sunday trading restrictions among developed nations",
+      "Catholic and Protestant churches maintain cultural Sunday observance pressure"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "<strong>RBA CBDC Project Acacia (2024)</strong> — Australian Reserve Bank concluding wholesale CBDC research",
+      "eAUD pilot conducted 2022–2023 — tested retail CBDC with live users",
+      "Australia participates in Project Icebreaker (BIS) cross-border CBDC interoperability",
+      "Treasury Digital Economy Strategy includes digital dollar roadmap"
+    ]},
+    did:{ level:"red", items:[
+      "<strong>Digital ID Act 2024</strong> — passed May 2024; creates a federal digital identity accreditation framework",
+      "myGovID — existing platform with 7 million users; now gaining new legal status as the national digital ID",
+      "COVID demonstrated willingness to use digital ID for exclusion: vaccine passport required in most states for venues, restaurants, and gyms",
+      "Debanking concerns: anti-COVID-lockdown church groups and political dissidents reportedly lost banking services",
+      "<strong>Five Eyes member</strong> — shares all intelligence with US, UK, Canada, and New Zealand; no digital privacy from allied governments"
+    ]},
+    rl:{ level:"blue", items:[
+      "Religious freedom generally protected",
+      "Religious Discrimination Bill — debated extensively; showed tension between LGBT rights and religious freedom",
+      "Churches lost banking access during COVID — some without cause given",
+      "Growing secularism and cultural pressure on orthodox religious beliefs"
+    ]},
+    bs:{ level:"orange", items:[
+      "Australia's COVID response was among the most authoritarian in the Western world — churches closed, people fined for outdoor prayer",
+      "Digital ID Act 2024 creates the legal architecture for vaccine-passport-style exclusion to be applied in the future",
+      "Five Eyes intelligence sharing = Australia is part of the global surveillance apparatus",
+      "Australia's COVID policies demonstrated that a 'free' Western democracy can implement Revelation 13:17 style exclusions rapidly"
+    ]}
+  },
+
+  KR: {
+    name:"South Korea", flag:"🇰🇷", lat:36, lng:128, r:20, level:"blue",
+    summary:"South Korea has the highest Protestant Christian percentage of any East Asian nation (27%). It is technologically advanced and running active CBDC pilots. Korea's large SDA community observes the Sabbath, and religious freedom is well protected.",
+    sl:{ level:"green", items:[
+      "No Sunday trading restrictions — 24/7 commerce is standard in Korea",
+      "Large Christian community observes Sunday; but Sunday is not legally enforced",
+      "Christian presence makes Korea culturally Sunday-observant but not legally"
+    ]},
+    cbdc:{ level:"orange", items:[
+      "Bank of Korea launched CBDC pilot — 100,000 participant test conducted (2023)",
+      "Bank of Korea among most advanced CBDC researchers in Asia",
+      "Digital won pilot results being assessed for broader rollout"
+    ]},
+    did:{ level:"orange", items:[
+      "Residence registration number (RRN) — national ID linked to all services since 1960s",
+      "COVID-19 contact tracing showed Korea's extensive digital monitoring capability",
+      "Facial recognition deployed in financial sector and transport"
+    ]},
+    rl:{ level:"green", items:[
+      "Religious freedom protected under Constitution",
+      "Large Christian presence — 27% Protestant, 11% Catholic",
+      "SDA community with Sabbath protections available",
+      "North Korean Christian refugees face unique challenges"
+    ]},
+    bs:{ level:"blue", items:[
+      "South Korea's technological integration in global systems means rapid CBDC adoption is possible",
+      "Proximity to North Korea (world's most totalitarian state) a constant geopolitical factor"
+    ]}
+  },
+
+  KP: {
+    name:"North Korea", flag:"🇰🇵", lat:40, lng:127, r:18, level:"red",
+    summary:"North Korea is an atheist totalitarian state where organized religion is banned. It occupies the #1 position on Open Doors' World Watch List for Christian persecution every year for the past 20+ years. Christians face execution, torture, and labor camps. North Korea is the prophetic endpoint of godless totalitarianism.",
+    sl:{ level:"gray", items:["No religious observance permitted — state ideology replaces all religion"]},
+    cbdc:{ level:"gray", items:[
+      "No CBDC — North Korea operates a command economy",
+      "North Korea uses cryptocurrency theft (hackers exploit $billions/year from global exchanges) — funding state operations"
+    ]},
+    did:{ level:"red", items:[
+      "Total surveillance state — informants at every level of society",
+      "Song-bun class system — citizens classified by political loyalty of their grandparents",
+      "No movement permitted without government authorization — internal passports required for travel between cities"
+    ]},
+    rl:{ level:"red", items:[
+      "<strong>#1 worst country for Christian persecution — 21 years running</strong> (Open Doors World Watch List)",
+      "Estimated <strong>50,000–70,000 Christians</strong> in labor camps (kwanliso) — conditions worse than Nazi concentration camps",
+      "Owning a Bible — 10 years to life in a labor camp",
+      "Being caught praying — public execution",
+      "Christians must worship in total secrecy — meeting in groups of more than 2 may mean death",
+      "State mandates worship of Kim Jong-un as a quasi-divine figure — forced false worship"
+    ]},
+    bs:{ level:"red", items:[
+      "North Korea demonstrates the endpoint of a totalitarian system that demands economic compliance and enforced worship of the state",
+      "The Kim dynasty demands worship that parallels what the beast system demands — forced reverence to a human authority instead of God",
+      "North Korea's system of labor camps for dissidents is the WARNING of what a fully implemented mark-of-the-beast economic system leads to"
+    ]}
+  }
+
+};
+
+/* ═══════════════════════════════════════════════════════════
+   MAP INIT
+═══════════════════════════════════════════════════════════ */
+const map = L.map('map', {
+  center: [20, 15],
+  zoom: 2,
+  minZoom: 2,
+  maxZoom: 8,
+  zoomControl: true,
+  attributionControl: false
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© CartoDB © OSM',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+L.control.attribution({ position: 'bottomright', prefix: '' }).addAttribution('© OpenStreetMap | CartoDB').addTo(map);
+
+/* ── Colour table ─────────────────────────────────────────── */
+const COL = { red:'#e53e3e', orange:'#dd6b20', blue:'#4299e1', green:'#38a169', gray:'#718096' };
+const BADGE_CLASS = { red:'badge-red', orange:'badge-orange', blue:'badge-blue', green:'badge-green', gray:'badge-gray' };
+const CAT_LV_CLASS = { red:'lv-red', orange:'lv-orange', blue:'lv-blue', green:'lv-green', gray:'lv-gray' };
+
+/* ── Markers ──────────────────────────────────────────────── */
+const markers = {};
+let selectedKey = null;
+let activeCat = 'all';
+
+function getLevel(key, cat) {
+  const c = COUNTRIES[key];
+  if (cat === 'all') return c.level;
+  return (c[cat] && c[cat].level) || 'gray';
+}
+
+function makeIcon(level, r, pulse) {
+  const c = COL[level] || '#718096';
+  const sz = r || 22;
+  return L.divIcon({
+    className: '',
+    html: `<div class="cmarker${pulse?' pulse':''} lvl-${level}" style="width:${sz}px;height:${sz}px">
+             <div class="ring" style="background:${c}40"></div>
+             <div class="dot" style="width:${sz}px;height:${sz}px;background:${c};box-shadow:0 0 ${sz/2}px ${c}80;border-radius:50%"></div>
+           </div>`,
+    iconSize: [sz, sz],
+    iconAnchor: [sz/2, sz/2]
+  });
+}
+
+Object.keys(COUNTRIES).forEach(key => {
+  const c = COUNTRIES[key];
+  const level = c.level;
+  const pulse = level === 'red';
+  const m = L.marker([c.lat, c.lng], { icon: makeIcon(level, c.r, pulse) }).addTo(map);
+  m.bindTooltip(c.flag + ' ' + c.name, { direction:'top', className:'', offset:[0,-4] });
+  m.on('click', () => selectCountry(key));
+  markers[key] = m;
+});
+
+/* ── Counter stats ────────────────────────────────────────── */
+function updateStats() {
+  const counts = { red:0, orange:0, blue:0, green:0, gray:0 };
+  Object.keys(COUNTRIES).forEach(k => {
+    const lv = getLevel(k, activeCat);
+    counts[lv] = (counts[lv]||0) + 1;
+  });
+  document.getElementById('s-red').textContent = counts.red||0;
+  document.getElementById('s-orange').textContent = counts.orange||0;
+  document.getElementById('s-blue').textContent = counts.blue||0;
+  document.getElementById('s-green').textContent = counts.green||0;
+  document.getElementById('s-gray').textContent = counts.gray||0;
+}
+updateStats();
+
+/* ── Category filter ──────────────────────────────────────── */
+document.querySelectorAll('.flt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    refreshMarkers();
+    updateStats();
+  });
+});
+
+function refreshMarkers() {
+  Object.keys(COUNTRIES).forEach(key => {
+    const c = COUNTRIES[key];
+    const level = getLevel(key, activeCat);
+    const pulse = level === 'red';
+    markers[key].setIcon(makeIcon(level, c.r, pulse));
+    if (key === selectedKey) {
+      // keep selected state visible — re-open panel won't change tabs
+    }
+  });
+  // if cat changed and a country is selected, re-open its tab
+  if (selectedKey && activeCat !== 'all') {
+    const tabs = document.querySelectorAll('.p-tab');
+    tabs.forEach(t => {
+      if (t.dataset.tab === activeCat) t.click();
+    });
+  }
+}
+
+/* ── Select country ───────────────────────────────────────── */
+function selectCountry(key) {
+  if (selectedKey && markers[selectedKey]) {
+    const c = COUNTRIES[selectedKey];
+    markers[selectedKey].setIcon(makeIcon(getLevel(selectedKey, activeCat), c.r, getLevel(selectedKey, activeCat) === 'red'));
+  }
+  selectedKey = key;
+  const c = COUNTRIES[key];
+
+  // Highlight selected
+  const selLevel = getLevel(key, activeCat);
+  const selCol = COL[selLevel];
+  const sz = c.r;
+  markers[key].setIcon(L.divIcon({
+    className: '',
+    html: `<div class="cmarker lvl-${selLevel} selected" style="width:${sz}px;height:${sz}px">
+             <div class="ring" style="background:${selCol}40"></div>
+             <div class="dot" style="width:${sz}px;height:${sz}px;background:${selCol};box-shadow:0 0 ${sz}px ${selCol};border-radius:50%;outline:3px solid #fff;outline-offset:2px"></div>
+           </div>`,
+    iconSize: [sz,sz], iconAnchor: [sz/2,sz/2]
+  }));
+
+  // Fill panel
+  document.getElementById('panel-welcome').style.display = 'none';
+  const pc = document.getElementById('panel-content');
+  pc.style.display = 'flex';
+  document.getElementById('p-flag').textContent = c.flag || '🌍';
+  document.getElementById('p-name').textContent = c.name;
+
+  const badge = document.getElementById('p-badge');
+  const overallLevel = c.level;
+  badge.textContent = LEVEL_LABEL[overallLevel];
+  badge.className = 'p-badge ' + BADGE_CLASS[overallLevel];
+
+  document.getElementById('p-summary').textContent = c.summary || '';
+
+  // Set active tab
+  const startTab = (activeCat !== 'all' && c[activeCat]) ? activeCat : 'sl';
+  document.querySelectorAll('.p-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.tab === startTab);
+  });
+  renderTab(key, startTab);
+}
+
+/* ── Render tab content ────────────────────────────────────── */
+function renderTab(key, cat) {
+  const c = COUNTRIES[key];
+  const body = document.getElementById('p-body');
+  const data = c[cat];
+
+  if (!data) {
+    body.innerHTML = `<p style="color:#5c6580;font-size:13px;margin-top:20px">No data available for this category in ${c.name}.</p>`;
+    return;
+  }
+
+  const catInfo = CATS[cat];
+  const lvClass = CAT_LV_CLASS[data.level] || 'lv-gray';
+  const lvLabel = LEVEL_LABEL[data.level] || 'Unknown';
+
+  let html = `<div class="cat-level-bar">
+    <span class="cat-level-icon">${catInfo.icon}</span>
+    <span class="cat-level-text ${lvClass}">${lvLabel}</span>
+  </div>
+  <ul class="cat-points">`;
+
+  (data.items || []).forEach(item => {
+    html += `<li>${item}</li>`;
+  });
+  html += `</ul>`;
+
+  // Guide links
+  if (c.guides && c.guides.length && cat !== 'did') {
+    html += `<div class="guide-links"><h4>📖 Related Study Guides</h4>`;
+    c.guides.forEach(g => {
+      const fileMap = {
+        'Daniel 2': 'Study_guides/Daniel_2_Prophecy_Study_Guide.md',
+        'Daniel 7 & 8': 'Study_guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md',
+        'The Little Horn': 'Study_guides/The_Little_Horn_Complete_Study_Guide.md',
+        'The Other Beast': 'Study_guides/The_Other_Beast_Complete_Study_Guide.md',
+        'The Mark of the Beast': 'Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md',
+        "The Sabbath Rest": 'Study_guides/Sabbath_study_guide.md',
+        "God's Special Sign": 'Study_guides/Gods_Special_Sign_Complete_Study_Guide.md',
+        "Babylon's Wine": 'Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md',
+        "The Beast System Infrastructure": 'The_Beast_System_Infrastructure_Complete_Guide.md'
+      };
+      const file = fileMap[g];
+      if (file) {
+        html += `<a class="guide-link" href="index.html#${encodeURIComponent(file)}">📖 ${g}</a>`;
+      }
+    });
+    html += `</div>`;
+  }
+
+  body.innerHTML = html;
+}
+
+/* ── Tab click events ─────────────────────────────────────── */
+document.querySelectorAll('.p-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    if (!selectedKey) return;
+    document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderTab(selectedKey, tab.dataset.tab);
+  });
+});
+
+/* ── Search ───────────────────────────────────────────────── */
+document.getElementById('srch').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  if (!q) return;
+  const found = Object.keys(COUNTRIES).find(k => COUNTRIES[k].name.toLowerCase().startsWith(q));
+  if (found) {
+    const c = COUNTRIES[found];
+    map.flyTo([c.lat, c.lng], 4, { duration: 1.2 });
+    setTimeout(() => selectCountry(found), 1300);
+  }
+});
+
+/* ── Deep-link via URL hash ───────────────────────────────── */
+if (location.hash) {
+  const key = location.hash.slice(1).toUpperCase();
+  if (COUNTRIES[key]) {
+    setTimeout(() => {
+      const c = COUNTRIES[key];
+      map.flyTo([c.lat, c.lng], 4, { duration: 1.5 });
+      setTimeout(() => selectCountry(key), 1600);
+    }, 800);
+  }
+}
+</script>
+</body>
+</html>

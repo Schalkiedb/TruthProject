@@ -111,6 +111,21 @@ const LIBRARY = [
     ],
   },
   {
+    section: "Interactive Tools",
+    icon: "🗺️",
+    id: "interactive-tools",
+    items: [
+      {
+        title: "Prophecy Watch: Global Alert Map",
+        file: "prophecy_map.html",
+        icon: "🌍",
+        tag: "Live Map",
+        tagClass: "red",
+        desc: "Interactive world map tracking Sunday law activity, CBDC rollout, digital surveillance, and religious liberty — country by country. Click any nation for a full prophetic briefing.",
+      },
+    ],
+  },
+  {
     section: "Main Library",
     icon: "📚",
     id: "main-library",
@@ -448,6 +463,12 @@ async function loadDocument(filePath) {
       item.sectionLabel;
     document.getElementById("breadcrumb-sep").style.display = "";
     document.getElementById("breadcrumb-title").textContent = item.title;
+  }
+
+  // Full-page interactive tools — navigate directly (they need full viewport)
+  if (filePath === "prophecy_map.html") {
+    window.location.href = filePath;
+    return;
   }
 
   // Infographic HTML files — load in iframe instead of parsing markdown
