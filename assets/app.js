@@ -797,6 +797,14 @@ function findAnchorTarget(hash) {
     return `<h${level} id="${id}">${text}</h${level}>\n`;
   };
 
+  // Wrap tables in a scrollable div so wide tables scroll horizontally
+  // on mobile instead of expanding the page and triggering iOS zoom.
+  renderer.table = function (header, body) {
+    // marked v4: header and body are already-rendered HTML strings
+    // (header includes <tr><th>...</th></tr>, body includes <tr><td>...</td></tr>)
+    return `<div class="table-scroll"><table><thead>${header}</thead><tbody>${body}</tbody></table></div>\n`;
+  };
+
   marked.use({ renderer, breaks: true, gfm: true });
 })();
 

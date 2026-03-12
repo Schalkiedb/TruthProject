@@ -36,7 +36,12 @@
   --transition:     0.2s ease;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--topbar-height) + 12px); }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--topbar-height) + 12px);
+  overflow-x: hidden;   /* stop any element from making the page wider */
+  max-width: 100%;
+}
 
 body {
   font-family: var(--font-sans);
@@ -45,6 +50,10 @@ body {
   display: flex;
   min-height: 100vh;
   overflow-x: hidden;
+  max-width: 100%;
+  /* Prevent iOS Safari from auto-scaling text, which triggers the zoom */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* ── Scrollbar ────────────────────────────────────────────── */
@@ -587,6 +596,10 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   font-size: 16px;
   line-height: 1.75;
   color: var(--text-primary);
+  /* Break long URLs and unbreakable strings so they don't push the page wider */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
 }
 
 /* Headings */
@@ -690,14 +703,20 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   margin: 6px 0 4px;
 }
 
-/* Tables */
+/* Tables — wrapped in .table-scroll div by the JS renderer */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
+  max-width: 100%;
+  margin: 20px 0 28px;
+  border-radius: var(--radius-sm);
+}
+
 .markdown-body table {
   width: 100%;
   border-collapse: collapse;
-  margin: 20px 0 28px;
   font-size: 14px;
-  overflow-x: auto;
-  display: block;
+  margin: 0; /* margin now on .table-scroll */
 }
 
 .markdown-body th {
