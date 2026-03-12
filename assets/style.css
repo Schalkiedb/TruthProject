@@ -912,21 +912,179 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 
 /* ══════════════════════════════════════════════════════════════
    PRINT STYLES
+   Rules here ONLY affect Ctrl+P / File → Print.
+   The website appearance is completely untouched.
 ══════════════════════════════════════════════════════════════ */
 @media print {
-  #sidebar, #topbar, #back-to-top, .doc-nav-footer, #btn-print { display: none !important; }
-  #main-wrapper { margin: 0; }
-  #doc-page { padding: 0; max-width: 100%; }
-  body { background: white; color: black; }
-  .markdown-body { color: black; }
-  .markdown-body h1 { color: #1a1a1a; border-bottom-color: #ccc; }
-  .markdown-body h2 { color: #2a2a2a; border-bottom-color: #ddd; }
-  .markdown-body h3 { color: #333; }
-  .markdown-body blockquote { border-left-color: #888; background: #f9f9f9; color: #333; }
-  .markdown-body a { color: #1a1a8a; }
-  .markdown-body th { background: #eee; color: #222; }
-  .markdown-body td { border-color: #ccc; }
-  .markdown-body strong { color: #1a1a1a; }
+  /* ── Page setup ── */
+  @page {
+    margin: 18mm 15mm 18mm 15mm;
+    size: A4;
+  }
+
+  /* ── Hide all UI chrome ── */
+  #sidebar,
+  #topbar,
+  #back-to-top,
+  .doc-nav-footer,
+  #btn-print,
+  .sidebar-backdrop,
+  #sidebar-toggle,
+  #topbar-home { display: none !important; }
+
+  /* ── Reset layout so content fills the page ── */
+  html, body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;       /* keep background colours in tables/blockquotes */
+  }
+
+  #main-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  #content-area,
+  #doc-page {
+    padding: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* ── Body text: all white/light text → black ── */
+  .markdown-body {
+    color: #111111 !important;
+    font-size: 11pt !important;
+    line-height: 1.7 !important;
+    max-width: 100% !important;
+  }
+
+  /* ── Headings: keep gold/amber so they stand out bold and large ──
+     Gold (#c9a227) prints well on white paper as a warm amber.
+     font-weight and font-size from the screen styles are preserved.   */
+  .markdown-body h1 {
+    color: #b8860b !important;      /* dark-gold — prints richly on white */
+    border-bottom: 2px solid #c9a227 !important;
+    page-break-after: avoid;
+  }
+  .markdown-body h2 {
+    color: #b8860b !important;
+    border-bottom: 1px solid #d4a017 !important;
+    page-break-after: avoid;
+  }
+  .markdown-body h3 {
+    color: #c9a227 !important;
+    page-break-after: avoid;
+  }
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    color: #b8860b !important;
+    page-break-after: avoid;
+  }
+
+  /* ── Bold / strong: keep gold so key points remain highlighted ── */
+  .markdown-body strong {
+    color: #b8860b !important;
+    font-weight: 700 !important;
+  }
+
+  /* ── Italic: dark grey so it's readable ── */
+  .markdown-body em { color: #333333 !important; }
+
+  /* ── Paragraphs and list items ── */
+  .markdown-body p,
+  .markdown-body li { color: #111111 !important; }
+  .markdown-body li::marker { color: #b8860b !important; }
+
+  /* ── Links: show URL after the link text (useful on paper) ── */
+  .markdown-body a {
+    color: #1a3a8a !important;
+    text-decoration: underline !important;
+  }
+  .markdown-body a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555555;
+  }
+
+  /* ── Blockquotes (Bible verses / key quotes) ── */
+  .markdown-body blockquote {
+    background: #faf7ee !important;        /* very light amber tint */
+    border-left: 4px solid #c9a227 !important;
+    color: #222222 !important;
+    padding: 10px 16px !important;
+    page-break-inside: avoid;
+  }
+  .markdown-body blockquote p { color: #222222 !important; }
+  .markdown-body blockquote strong { color: #b8860b !important; }
+
+  /* ── Tables ── */
+  .table-scroll { overflow: visible !important; }   /* no scroll box on paper */
+  .markdown-body table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: avoid;
+  }
+  .markdown-body th {
+    background: #f5e9c0 !important;   /* light gold fill */
+    color: #111111 !important;
+    border: 1px solid #c9a227 !important;
+    font-weight: 700 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .markdown-body td {
+    border: 1px solid #cccccc !important;
+    color: #111111 !important;
+    background: #ffffff !important;
+  }
+  .markdown-body tr:nth-child(even) td {
+    background: #fafafa !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── Code blocks ── */
+  .markdown-body pre {
+    background: #f4f4f4 !important;
+    border: 1px solid #cccccc !important;
+    color: #111111 !important;
+    white-space: pre-wrap !important;   /* wrap long lines instead of scrolling */
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .markdown-body code {
+    background: #eeeeee !important;
+    color: #222222 !important;
+    border: 1px solid #cccccc !important;
+  }
+  .markdown-body pre code {
+    background: transparent !important;
+    border: none !important;
+    color: #111111 !important;
+  }
+
+  /* ── Horizontal rules ── */
+  .markdown-body hr {
+    border-color: #cccccc !important;
+  }
+
+  /* ── Images: don't let them break across pages ── */
+  .markdown-body img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* ── Avoid orphaned headings at bottom of a page ── */
+  h1, h2, h3, h4, h5, h6 { page-break-after: avoid; }
+  p, li, blockquote { orphans: 3; widows: 3; }
 }
 
 /* ══════════════════════════════════════════════════════════════
