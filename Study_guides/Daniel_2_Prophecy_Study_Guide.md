@@ -367,7 +367,7 @@ FEET/TOES - Iron mixed with clay
 ```
 
 <p align="center">
-  <img src="images/image components.png" alt="The Image Components" width="500">
+  <img src="images/Image Components.png" alt="The Image Components" width="500">
   <br>
   <em>The Great Image - Components of Nebuchadnezzar's Dream</em>
 </p>
