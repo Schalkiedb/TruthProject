@@ -372,6 +372,12 @@ function applyInfographicMobileStyles(frameDoc) {
       grid-template-columns: 1fr !important;
     }
 
+    .wide,
+    [style*="grid-column: span 3"],
+    [style*="grid-column:span 3"] {
+      grid-column: auto !important;
+    }
+
     .tna {
       display: none !important;
     }
@@ -458,7 +464,6 @@ function applyInfographicMobileStyles(frameDoc) {
     .verse-card,
     .quote-block,
     .denom-card,
-    .region-card,
     .method-badge,
     .sl-item,
     .sup-content,
@@ -468,6 +473,29 @@ function applyInfographicMobileStyles(frameDoc) {
     .dispute-col,
     .day-card {
       padding: 12px !important;
+    }
+
+    .region-card {
+      padding: 0 !important;
+      overflow: visible !important;
+    }
+
+    .region-header {
+      padding: 12px !important;
+    }
+
+    .region-body {
+      padding: 12px !important;
+    }
+
+    .status-badge {
+      position: static !important;
+      display: inline-block !important;
+      margin-top: 8px !important;
+      right: auto !important;
+      top: auto !important;
+      white-space: normal !important;
+      max-width: 100% !important;
     }
 
     [style*="padding:30px 42px"], [style*="padding: 30px 42px"],
@@ -503,7 +531,6 @@ function applyInfographicMobileStyles(frameDoc) {
       .verse-card,
       .quote-block,
       .denom-card,
-      .region-card,
       .method-badge,
       .sl-item,
       .sup-content,
@@ -512,6 +539,11 @@ function applyInfographicMobileStyles(frameDoc) {
       .panel-body,
       .dispute-col,
       .day-card {
+        padding: 10px !important;
+      }
+
+      .region-header,
+      .region-body {
         padding: 10px !important;
       }
     }
