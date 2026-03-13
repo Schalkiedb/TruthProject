@@ -151,10 +151,12 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 
 /* ── Mobile ──────────────────────────────────────────────── */
 #panel-handle{display:none}
-#mob-open{display:none}
+#mob-fab{display:none}
+#mob-overlay{display:none}
 
 @media(max-width:800px){
   #map{right:0;bottom:0;top:90px}
+  #panel{display:none}
 
   /* Panel handle shown on mobile as sticky top bar (styled via this CSS;
      position/size/transform controlled entirely by JS inline styles) */
@@ -186,7 +188,7 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
   }
 
   /* Floating open-panel button on map */
-  #mob-open{
+  #mob-fab{
     display:flex;
     position:fixed;
     bottom:24px;right:16px;
@@ -1712,6 +1714,7 @@ Object.keys(COUNTRIES).forEach(key => {
   const m = L.marker([c.lat, c.lng], { icon: makeIcon(level, c.r, pulse) }).addTo(map);
   m.bindTooltip(c.flag + ' ' + c.name, { direction:'top', className:'', offset:[0,-4] });
   m.on('click', () => selectCountry(key));
+  m.on('touchstart', () => selectCountry(key));
   markers[key] = m;
 });
 
