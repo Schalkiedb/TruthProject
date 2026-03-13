@@ -229,6 +229,12 @@ const LIBRARY = [
     ],
   },
   {
+    section: "Source Documents (Catholic)",
+    icon: "🏛️",
+    id: "source-documents-catholic",
+    items: [],
+  },
+  {
     section: "Infographics",
     icon: "🗺️",
     id: "infographics",
@@ -318,9 +324,106 @@ const LIBRARY = [
 ];
 
 /* Flat list of all items for linear prev/next navigation */
-const ALL_ITEMS = LIBRARY.flatMap((section) =>
-  section.items.map((item) => ({ ...item, sectionLabel: section.section })),
-);
+let ALL_ITEMS = [];
+
+const SOURCE_DOCS_SECTION_ID = "source-documents-catholic";
+const SOURCE_DOCS_ROOT = "Supporting Documents/";
+
+function rebuildAllItems() {
+  ALL_ITEMS = LIBRARY.flatMap((section) =>
+    section.items.map((item) => ({ ...item, sectionLabel: section.section })),
+  );
+}
+
+function formatSourceDocTitle(filePath) {
+  const fileName = decodeURIComponent(filePath.split("/").pop() || filePath);
+  const withoutExt = fileName.replace(/\.pdf$/i, "");
+  return withoutExt.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+}
+
+async function discoverPdfFiles(rootDir) {
+  const visitedDirs = new Set();
+  const foundPdfs = new Set();
+  const rootNormalized = decodeURIComponent(rootDir).replace(/\\/g, "/");
+
+  async function crawl(dirPath) {
+    const normalizedDir = decodeURIComponent(dirPath)
+      .replace(/\\/g, "/")
+      .replace(/\/+$/, "") + "/";
+
+    if (visitedDirs.has(normalizedDir)) return;
+    visitedDirs.add(normalizedDir);
+
+    let html = "";
+    try {
+      const response = await fetch(encodeURI(normalizedDir), { cache: "no-store" });
+      if (!response.ok) return;
+      html = await response.text();
+    } catch {
+      return;
+    }
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const hrefs = [...doc.querySelectorAll("a[href]")]
+      .map((anchor) => anchor.getAttribute("href") || "")
+      .filter(Boolean);
+
+    const baseUrl = new URL(encodeURI(normalizedDir), window.location.href);
+
+    for (const href of hrefs) {
+      if (
+        href.startsWith("../") ||
+        href.startsWith("#") ||
+        href.startsWith("?") ||
+        /^[a-z]+:/i.test(href)
+      ) {
+        continue;
+      }
+
+      let resolvedPath = "";
+      try {
+        resolvedPath = decodeURIComponent(
+          new URL(href, baseUrl).pathname.replace(/^\/+/, ""),
+        );
+      } catch {
+        continue;
+      }
+
+      if (!resolvedPath.toLowerCase().startsWith(rootNormalized.toLowerCase())) {
+        continue;
+      }
+
+      if (href.endsWith("/") || resolvedPath.endsWith("/")) {
+        await crawl(resolvedPath);
+      } else if (resolvedPath.toLowerCase().endsWith(".pdf")) {
+        foundPdfs.add(resolvedPath);
+      }
+    }
+  }
+
+  await crawl(rootDir);
+  return [...foundPdfs].sort((a, b) =>
+    formatSourceDocTitle(a).localeCompare(formatSourceDocTitle(b)),
+  );
+}
+
+async function populateSourceDocumentsSection() {
+  const sourceSection = LIBRARY.find((section) => section.id === SOURCE_DOCS_SECTION_ID);
+  if (!sourceSection) return;
+
+  const pdfFiles = await discoverPdfFiles(SOURCE_DOCS_ROOT);
+  sourceSection.items = pdfFiles.map((filePath) => ({
+    title: formatSourceDocTitle(filePath),
+    file: filePath,
+    icon: "📄",
+    tag: "Source PDF",
+    tagClass: "blue",
+    desc: "Primary Catholic source document.",
+  }));
+
+  rebuildAllItems();
+}
 
 let currentIndex = -1;
 let infographicRefitTimer = null;
@@ -779,12 +882,46 @@ async function loadDocument(filePath) {
     return;
   }
 
+  // PDF documents — open in browser/native PDF viewer inside iframe
+  if (filePath.toLowerCase().endsWith(".pdf")) {
+    const iframe = document.getElementById("doc-iframe");
+    const contentEl = document.getElementById("doc-content");
+    const docPage = document.getElementById("doc-page");
+
+    contentEl.style.display = "none";
+    iframe.style.display = "block";
+    iframe.setAttribute("scrolling", "auto");
+    iframe.style.height = window.innerWidth <= 900 ? "68vh" : "calc(100vh - 210px)";
+    iframe.src = `${encodeURI(filePath).replace(/#/g, "%23")}#view=FitH`;
+
+    docPage.classList.remove("infographic-mode");
+    docPage.classList.add("pdf-mode");
+    document.getElementById("home-page").style.display = "none";
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("doc-page").style.display = "";
+
+    const _prev = ALL_ITEMS[currentIndex - 1];
+    const _next = ALL_ITEMS[currentIndex + 1];
+    document.getElementById("btn-prev").textContent = _prev
+      ? `← ${truncate(_prev.title, 30)}`
+      : "← Home";
+    document.getElementById("btn-next").textContent = _next
+      ? `${truncate(_next.title, 30)} →`
+      : "";
+    document.getElementById("btn-next").style.visibility = _next ? "" : "hidden";
+
+    window.scrollTo({ top: 0 });
+    return;
+  }
+
   // Infographic HTML files — load in iframe instead of parsing markdown
   if (filePath.endsWith(".html")) {
     const iframe = document.getElementById("doc-iframe");
     const contentEl = document.getElementById("doc-content");
+    const docPage = document.getElementById("doc-page");
     contentEl.style.display = "none";
     iframe.style.display = "block";
+    iframe.setAttribute("scrolling", "no");
     iframe.style.height = "80vh"; // initial height while loading
     iframe.src = filePath;
     iframe.onload = () => {
@@ -792,7 +929,8 @@ async function loadDocument(filePath) {
       setTimeout(() => fitInfographicViewport(iframe), 250);
       setTimeout(() => fitInfographicViewport(iframe), 900);
     };
-    document.getElementById("doc-page").classList.add("infographic-mode");
+    docPage.classList.remove("pdf-mode");
+    docPage.classList.add("infographic-mode");
     document.getElementById("home-page").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("doc-page").style.display = "";
@@ -828,6 +966,7 @@ async function loadDocument(filePath) {
     // Set up DOM — show markdown view, hide iframe
     const contentEl = document.getElementById("doc-content");
     document.getElementById("doc-page").classList.remove("infographic-mode");
+    document.getElementById("doc-page").classList.remove("pdf-mode");
     contentEl.style.display = "";
     document.getElementById("doc-iframe").style.display = "none";
     document.getElementById("doc-iframe").src = "";
@@ -1143,6 +1282,16 @@ function findAnchorTarget(hash) {
 })();
 
 /* ── Init ─────────────────────────────────────────────────── */
-buildSidebar();
-buildHomeCards();
-showHome();
+async function initApp() {
+  rebuildAllItems();
+  try {
+    await populateSourceDocumentsSection();
+  } catch (error) {
+    console.warn("Could not auto-load source PDFs:", error);
+  }
+  buildSidebar();
+  buildHomeCards();
+  showHome();
+}
+
+initApp();
