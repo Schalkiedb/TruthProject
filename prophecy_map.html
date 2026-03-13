@@ -253,7 +253,7 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 <div id="map"></div>
 
 <!-- Mobile: floating button -->
-<button id="mob-fab">🌍 Countries</button>
+<button id="mob-fab" onclick="mobOvlOpen()">🌍 Countries</button>
 
 <!-- Mobile: full-screen overlay (country list + detail) -->
 <div id="mob-overlay">
@@ -262,7 +262,7 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
   <div style="display:flex;align-items:center;gap:10px;height:56px;flex-shrink:0;
               padding:0 14px;background:linear-gradient(135deg,#0f1420,#161b2e);
               border-bottom:1px solid rgba(201,162,39,.35)">
-    <button id="mob-ovl-back"
+    <button id="mob-ovl-back" onclick="mobOvlBack()"
       style="display:flex;align-items:center;gap:6px;padding:7px 14px;
              background:rgba(201,162,39,.14);border:1px solid rgba(201,162,39,.35);
              border-radius:8px;color:#c9a227;font-size:13px;font-weight:700;
@@ -275,7 +275,7 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
              white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
       🌍 Countries
     </span>
-    <button id="mob-ovl-close"
+    <button id="mob-ovl-close" onclick="mobOvlClose()"
       style="display:flex;align-items:center;gap:6px;padding:7px 14px;
              background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
              border-radius:8px;color:#9aa3c0;font-size:13px;font-weight:700;
@@ -2081,20 +2081,26 @@ if (location.hash) {
   }
 
   /* ── Events ── */
-  if (fab)      fab.addEventListener('click', function(){ openOverlay(); showList(); });
-  if (btnClose) btnClose.addEventListener('click', closeOverlay);
-  if (btnBack)  btnBack.addEventListener('click', showList);
-  if (srchBox)  srchBox.addEventListener('input', function(){ buildList(this.value.trim()); });
+  if (srchBox) srchBox.addEventListener('input', function(){ buildList(this.value.trim()); });
+
+  /* Expose as globals so onclick="" HTML attributes work (most reliable on mobile) */
+  window.mobOvlOpen = function(label) {
+    openOverlay();
+    if (label) {
+      var key = Object.keys(COUNTRIES).find(function(k){
+        return (COUNTRIES[k].flag+' '+COUNTRIES[k].name) === label;
+      });
+      if (key) { showDetail(key); return; }
+    }
+    showList();
+  };
+  window.mobOvlClose = closeOverlay;
+  window.mobOvlBack  = showList;
 
   /* Called by selectCountry() when a map marker is tapped on mobile */
   window._mobileOpenPanel = function(label) {
     if (window.innerWidth > 800) return;
-    /* label is "🇺🇸 United States" — find matching key */
-    var key = Object.keys(COUNTRIES).find(function(k){
-      return (COUNTRIES[k].flag+' '+COUNTRIES[k].name) === label;
-    });
-    openOverlay();
-    if (key) showDetail(key); else showList();
+    window.mobOvlOpen(label);
   };
   window._mobileClosePanel = closeOverlay;
 
