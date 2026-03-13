@@ -357,6 +357,11 @@ function applyInfographicMobileStyles(frameDoc) {
       padding-right: 16px !important;
     }
 
+    .page, .broadsheet {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
     .g2, .g3, .g4, .g6,
     .two-col, .three-col,
     .regions-grid, .denom-grid,
@@ -377,6 +382,29 @@ function applyInfographicMobileStyles(frameDoc) {
 
     .timeline::before {
       display: none !important;
+    }
+
+    .era-dot,
+    .tld {
+      left: 0 !important;
+      position: static !important;
+      display: inline-block !important;
+      margin-bottom: 8px !important;
+    }
+
+    .tlw {
+      padding-left: 12px !important;
+      border-left-width: 2px !important;
+    }
+
+    .sec-head {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      margin-left: -16px !important;
+      margin-right: -16px !important;
     }
 
     [style*="grid-template-columns:repeat(6,1fr)"],
@@ -401,6 +429,91 @@ function applyInfographicMobileStyles(frameDoc) {
     img, svg, table, iframe, video {
       max-width: 100% !important;
       height: auto !important;
+    }
+
+    h1 {
+      font-size: clamp(24px, 7vw, 34px) !important;
+      line-height: 1.15 !important;
+      letter-spacing: 0 !important;
+      word-break: break-word !important;
+    }
+
+    h2 {
+      font-size: clamp(18px, 5.5vw, 26px) !important;
+      line-height: 1.25 !important;
+    }
+
+    h3 {
+      font-size: clamp(13px, 4vw, 18px) !important;
+      line-height: 1.35 !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    p, li, .subtitle, .header-sub, .deck, .quote-text, .sup-text, .denom-text {
+      font-size: clamp(13px, 3.6vw, 16px) !important;
+      line-height: 1.6 !important;
+    }
+
+    .quote-box,
+    .verse-card,
+    .quote-block,
+    .denom-card,
+    .region-card,
+    .method-badge,
+    .sl-item,
+    .sup-content,
+    .sup-region,
+    .sup-date,
+    .panel-body,
+    .dispute-col,
+    .day-card {
+      padding: 12px !important;
+    }
+
+    [style*="padding:30px 42px"], [style*="padding: 30px 42px"],
+    [style*="padding:32px 44px"], [style*="padding: 32px 44px"],
+    [style*="padding:48px 50px"], [style*="padding: 48px 50px"] {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+
+    @media (max-width: 430px) {
+      .content {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+
+      .sec-head {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        margin-left: -12px !important;
+        margin-right: -12px !important;
+      }
+
+      h1 { font-size: clamp(22px, 8vw, 30px) !important; }
+      h2 { font-size: clamp(17px, 6vw, 22px) !important; }
+      h3 { font-size: clamp(12px, 4.5vw, 16px) !important; }
+
+      p, li, .subtitle, .header-sub, .deck, .quote-text, .sup-text, .denom-text {
+        font-size: 13px !important;
+        line-height: 1.58 !important;
+      }
+
+      .quote-box,
+      .verse-card,
+      .quote-block,
+      .denom-card,
+      .region-card,
+      .method-badge,
+      .sl-item,
+      .sup-content,
+      .sup-region,
+      .sup-date,
+      .panel-body,
+      .dispute-col,
+      .day-card {
+        padding: 10px !important;
+      }
     }
   `;
 
