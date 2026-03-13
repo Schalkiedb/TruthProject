@@ -348,8 +348,31 @@ function getSourceDocumentKind(filePath) {
   return isPdfFile(filePath) ? "pdf" : isSourceImageFile(filePath) ? "image" : "file";
 }
 
+function shouldUseNativePdfViewer() {
+  const ua = navigator.userAgent || "";
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+  const isAndroid = /Android/i.test(ua);
+  const hasTouch = (navigator.maxTouchPoints || 0) > 0;
+  const coarsePointer =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(pointer: coarse)").matches;
+  const smallViewport =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(max-width: 1024px)").matches;
+
+  return isIOS || isAndroid || (hasTouch && (coarsePointer || smallViewport));
+}
+
 function openInNativeViewer(filePath) {
+  const ua = navigator.userAgent || "";
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
   const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
+
+  if (isIOS) {
+    window.location.href = encodedPath;
+    return;
+  }
+
   const popup = window.open(encodedPath, "_blank", "noopener,noreferrer");
   if (!popup) {
     window.location.href = encodedPath;
@@ -950,11 +973,9 @@ function showError(msg) {
 
 /* ── Load & Render Document ───────────────────────────────── */
 async function loadDocument(filePath) {
-  const isMobile = window.innerWidth <= 900;
-
   // Mobile PDF behaviour: open in the browser's native viewer so users can
   // scroll all pages reliably (iOS Safari iframe PDF is often first-page only).
-  if (isPdfFile(filePath) && isMobile) {
+  if (isPdfFile(filePath) && shouldUseNativePdfViewer()) {
     openInNativeViewer(filePath);
     return;
   }
