@@ -297,6 +297,31 @@ body {
   border-color: var(--gold-dim);
 }
 
+#btn-refresh-sources {
+  width: 100%;
+  margin-top: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+
+#btn-refresh-sources:hover {
+  background: var(--bg-panel-hover);
+  color: var(--gold-light);
+  border-color: var(--gold-dim);
+}
+
+#btn-refresh-sources:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
 /* ══════════════════════════════════════════════════════════════
    MAIN WRAPPER
 ══════════════════════════════════════════════════════════════ */

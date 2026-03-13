@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -eu
+
+repo_root="$(git rev-parse --show-toplevel)"
+manifest_path="assets/source-documents-catholic.json"
+
+echo "[pre-push] Regenerating source document manifest..."
+python "$repo_root/scripts/generate_source_manifest.py"
+
+if ! git diff --quiet -- "$manifest_path" || ! git diff --cached --quiet -- "$manifest_path"; then
+  echo "[pre-push] Manifest changed or uncommitted: $manifest_path"
+  echo "[pre-push] Run: git add $manifest_path ; git commit -m \"Update source documents manifest\""
+  echo "[pre-push] Push aborted to avoid publishing stale source document index."
+  exit 1
+fi
+
+echo "[pre-push] Source document manifest is up to date."
+exit 0
