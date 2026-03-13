@@ -329,6 +329,24 @@ let ALL_ITEMS = [];
 const SOURCE_DOCS_SECTION_ID = "source-documents-catholic";
 const SOURCE_DOCS_ROOT = "Supporting Documents/";
 const SOURCE_DOCS_MANIFEST = "assets/source-documents-catholic.json";
+const SOURCE_DOCS_IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg"];
+
+function isPdfFile(filePath) {
+  return String(filePath).toLowerCase().endsWith(".pdf");
+}
+
+function isSourceImageFile(filePath) {
+  const lower = String(filePath).toLowerCase();
+  return SOURCE_DOCS_IMAGE_EXTENSIONS.some((ext) => lower.endsWith(ext));
+}
+
+function isSourceDocumentFile(filePath) {
+  return isPdfFile(filePath) || isSourceImageFile(filePath);
+}
+
+function getSourceDocumentKind(filePath) {
+  return isPdfFile(filePath) ? "pdf" : isSourceImageFile(filePath) ? "image" : "file";
+}
 
 function rebuildAllItems() {
   ALL_ITEMS = LIBRARY.flatMap((section) =>
@@ -338,13 +356,13 @@ function rebuildAllItems() {
 
 function formatSourceDocTitle(filePath) {
   const fileName = decodeURIComponent(filePath.split("/").pop() || filePath);
-  const withoutExt = fileName.replace(/\.pdf$/i, "");
+  const withoutExt = fileName.replace(/\.(pdf|png|jpe?g)$/i, "");
   return withoutExt.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
-async function discoverPdfFiles(rootDir) {
+async function discoverSourceDocumentFiles(rootDir) {
   const visitedDirs = new Set();
-  const foundPdfs = new Set();
+  const foundFiles = new Set();
   const rootNormalized = decodeURIComponent(rootDir).replace(/\\/g, "/");
 
   async function crawl(dirPath) {
@@ -397,19 +415,19 @@ async function discoverPdfFiles(rootDir) {
 
       if (href.endsWith("/") || resolvedPath.endsWith("/")) {
         await crawl(resolvedPath);
-      } else if (resolvedPath.toLowerCase().endsWith(".pdf")) {
-        foundPdfs.add(resolvedPath);
+      } else if (isSourceDocumentFile(resolvedPath)) {
+        foundFiles.add(resolvedPath);
       }
     }
   }
 
   await crawl(rootDir);
-  return [...foundPdfs].sort((a, b) =>
+  return [...foundFiles].sort((a, b) =>
     formatSourceDocTitle(a).localeCompare(formatSourceDocTitle(b)),
   );
 }
 
-async function loadSourcePdfManifest() {
+async function loadSourceDocumentManifest() {
   try {
     const response = await fetch(SOURCE_DOCS_MANIFEST, { cache: "no-store" });
     if (!response.ok) return [];
@@ -419,7 +437,7 @@ async function loadSourcePdfManifest() {
 
     return json
       .map((entry) => String(entry || "").trim().replace(/\\/g, "/"))
-      .filter((entry) => entry.toLowerCase().endsWith(".pdf"));
+      .filter((entry) => isSourceDocumentFile(entry));
   } catch {
     return [];
   }
@@ -429,20 +447,37 @@ async function populateSourceDocumentsSection() {
   const sourceSection = LIBRARY.find((section) => section.id === SOURCE_DOCS_SECTION_ID);
   if (!sourceSection) return;
 
-  const discovered = await discoverPdfFiles(SOURCE_DOCS_ROOT);
-  const manifestFiles = await loadSourcePdfManifest();
-  const pdfFiles = [...new Set([...discovered, ...manifestFiles])].sort((a, b) =>
+  let discovered = [];
+  let manifestFiles = [];
+
+  try {
+    discovered = await discoverSourceDocumentFiles(SOURCE_DOCS_ROOT);
+  } catch (error) {
+    console.warn("Source folder discovery failed:", error);
+  }
+
+  try {
+    manifestFiles = await loadSourceDocumentManifest();
+  } catch (error) {
+    console.warn("Source manifest load failed:", error);
+  }
+
+  const sourceFiles = [...new Set([...discovered, ...manifestFiles])].sort((a, b) =>
     formatSourceDocTitle(a).localeCompare(formatSourceDocTitle(b)),
   );
 
-  sourceSection.items = pdfFiles.map((filePath) => ({
+  sourceSection.items = sourceFiles.map((filePath) => {
+    const kind = getSourceDocumentKind(filePath);
+    const isImage = kind === "image";
+    return {
     title: formatSourceDocTitle(filePath),
     file: filePath,
-    icon: "📄",
-    tag: "Source PDF",
+    icon: isImage ? "🖼️" : "📄",
+    tag: isImage ? "Source Image" : "Source PDF",
     tagClass: "blue",
     desc: "Primary Catholic source document.",
-  }));
+  };
+  });
 
   rebuildAllItems();
 }
@@ -944,8 +979,8 @@ async function loadDocument(filePath) {
     return;
   }
 
-  // PDF documents — open in browser/native PDF viewer inside iframe
-  if (filePath.toLowerCase().endsWith(".pdf")) {
+  // Source files (PDF/images) — open in native browser viewer inside iframe
+  if (isPdfFile(filePath) || isSourceImageFile(filePath)) {
     const iframe = document.getElementById("doc-iframe");
     const contentEl = document.getElementById("doc-content");
     const docPage = document.getElementById("doc-page");
@@ -954,7 +989,8 @@ async function loadDocument(filePath) {
     iframe.style.display = "block";
     iframe.setAttribute("scrolling", "auto");
     iframe.style.height = window.innerWidth <= 900 ? "68vh" : "calc(100vh - 210px)";
-    iframe.src = `${encodeURI(filePath).replace(/#/g, "%23")}#view=FitH`;
+    const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
+    iframe.src = isPdfFile(filePath) ? `${encodedPath}#view=FitH` : encodedPath;
 
     docPage.classList.remove("infographic-mode");
     docPage.classList.add("pdf-mode");

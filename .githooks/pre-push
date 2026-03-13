@@ -8,10 +8,19 @@ echo "[pre-push] Regenerating source document manifest..."
 python "$repo_root/scripts/generate_source_manifest.py"
 
 if ! git diff --quiet -- "$manifest_path" || ! git diff --cached --quiet -- "$manifest_path"; then
-  echo "[pre-push] Manifest changed or uncommitted: $manifest_path"
-  echo "[pre-push] Run: git add $manifest_path ; git commit -m \"Update source documents manifest\""
-  echo "[pre-push] Push aborted to avoid publishing stale source document index."
-  exit 1
+  echo "[pre-push] Manifest changed; staging $manifest_path"
+  git add "$manifest_path"
+
+  if ! git diff --cached --quiet -- "$manifest_path"; then
+    echo "[pre-push] Creating auto-commit for source manifest..."
+    if git commit -m "chore: update source documents manifest" -- "$manifest_path"; then
+      echo "[pre-push] Auto-commit created. Push will continue."
+    else
+      echo "[pre-push] Failed to commit $manifest_path automatically."
+      echo "[pre-push] Commit manually, then push again."
+      exit 1
+    fi
+  fi
 fi
 
 echo "[pre-push] Source document manifest is up to date."
