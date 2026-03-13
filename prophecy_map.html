@@ -183,6 +183,8 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
     height:52px;
     position:relative;
     cursor:pointer;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:rgba(201,162,39,.2);
     background:linear-gradient(180deg,#141830,#10142a);
     border-radius:16px 16px 0 0;
     border-bottom:1px solid rgba(255,255,255,.07);
@@ -1843,10 +1845,7 @@ if (location.hash) {
   const closeBtn  = document.getElementById('panel-close');
   const handleLbl = document.getElementById('handle-label');
 
-  function isMobile() { return window.innerWidth <= 800; }
-
   function openPanel(label) {
-    if (!isMobile()) return;
     if (label) handleLbl.textContent = label;
     panel.classList.add('open');
   }
@@ -1855,19 +1854,25 @@ if (location.hash) {
     handleLbl.textContent = 'Tap a country on the map';
   }
 
-  // Handle bar tap: toggle open/closed
+  // Support both click and touchend for maximum mobile compatibility
+  function toggleOnTap(e) {
+    e.preventDefault();  // prevent ghost click after touchend
+    panel.classList.contains('open') ? closePanel() : openPanel();
+  }
   handle.addEventListener('click', () => {
-    if (!isMobile()) return;
     panel.classList.contains('open') ? closePanel() : openPanel();
   });
+  handle.addEventListener('touchend', toggleOnTap, { passive: false });
 
-  // Close button tap
-  closeBtn.addEventListener('click', e => {
+  function closeOnTap(e) {
     e.stopPropagation();
+    e.preventDefault();
     closePanel();
-  });
+  }
+  closeBtn.addEventListener('click', e => { e.stopPropagation(); closePanel(); });
+  closeBtn.addEventListener('touchend', closeOnTap, { passive: false });
 
-  // Expose so selectCountry() can call
+  // Expose so selectCountry() can call (CSS handles desktop vs mobile visually)
   window._mobileOpenPanel = openPanel;
   window._mobileClosePanel = closePanel;
 })();
