@@ -328,6 +328,7 @@ let ALL_ITEMS = [];
 
 const SOURCE_DOCS_SECTION_ID = "source-documents-catholic";
 const SOURCE_DOCS_ROOT = "Supporting Documents/";
+const SOURCE_DOCS_MANIFEST = "assets/source-documents-catholic.json";
 
 function rebuildAllItems() {
   ALL_ITEMS = LIBRARY.flatMap((section) =>
@@ -408,11 +409,32 @@ async function discoverPdfFiles(rootDir) {
   );
 }
 
+async function loadSourcePdfManifest() {
+  try {
+    const response = await fetch(SOURCE_DOCS_MANIFEST, { cache: "no-store" });
+    if (!response.ok) return [];
+
+    const json = await response.json();
+    if (!Array.isArray(json)) return [];
+
+    return json
+      .map((entry) => String(entry || "").trim().replace(/\\/g, "/"))
+      .filter((entry) => entry.toLowerCase().endsWith(".pdf"));
+  } catch {
+    return [];
+  }
+}
+
 async function populateSourceDocumentsSection() {
   const sourceSection = LIBRARY.find((section) => section.id === SOURCE_DOCS_SECTION_ID);
   if (!sourceSection) return;
 
-  const pdfFiles = await discoverPdfFiles(SOURCE_DOCS_ROOT);
+  const discovered = await discoverPdfFiles(SOURCE_DOCS_ROOT);
+  const manifestFiles = await loadSourcePdfManifest();
+  const pdfFiles = [...new Set([...discovered, ...manifestFiles])].sort((a, b) =>
+    formatSourceDocTitle(a).localeCompare(formatSourceDocTitle(b)),
+  );
+
   sourceSection.items = pdfFiles.map((filePath) => ({
     title: formatSourceDocTitle(filePath),
     file: filePath,
@@ -427,6 +449,46 @@ async function populateSourceDocumentsSection() {
 
 let currentIndex = -1;
 let infographicRefitTimer = null;
+let sourceRefreshInProgress = false;
+
+function setSourceRefreshButtonState(isBusy) {
+  const button = document.getElementById("btn-refresh-sources");
+  if (!button) return;
+  button.disabled = isBusy;
+  button.textContent = isBusy ? "↻ Refreshing…" : "↻ Refresh Sources";
+}
+
+async function refreshSourceDocuments() {
+  if (sourceRefreshInProgress) return;
+  sourceRefreshInProgress = true;
+  setSourceRefreshButtonState(true);
+
+  const activeFile = currentIndex >= 0 && ALL_ITEMS[currentIndex]
+    ? ALL_ITEMS[currentIndex].file
+    : null;
+
+  try {
+    await populateSourceDocumentsSection();
+    buildSidebar();
+    buildHomeCards();
+
+    if (activeFile) {
+      const activeNav = document.querySelector(
+        `.nav-item[data-file="${CSS.escape(activeFile)}"]`,
+      );
+      if (activeNav) {
+        activeNav.classList.add("active");
+        const section = activeNav.closest(".nav-section");
+        if (section) section.classList.remove("collapsed");
+      }
+    }
+  } catch (error) {
+    console.warn("Failed to refresh source documents:", error);
+  } finally {
+    sourceRefreshInProgress = false;
+    setSourceRefreshButtonState(false);
+  }
+}
 
 function applyInfographicMobileStyles(frameDoc, frameUrl = "") {
   const styleId = "infographic-mobile-overrides";
