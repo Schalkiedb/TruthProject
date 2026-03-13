@@ -323,6 +323,143 @@ const ALL_ITEMS = LIBRARY.flatMap((section) =>
 );
 
 let currentIndex = -1;
+let infographicRefitTimer = null;
+
+function applyInfographicMobileStyles(frameDoc) {
+  const styleId = "infographic-mobile-overrides";
+  const existing = frameDoc.getElementById(styleId);
+  const isMobile = window.innerWidth <= 900;
+
+  if (!isMobile) {
+    if (existing) existing.remove();
+    return;
+  }
+
+  if (existing) return;
+
+  const styleEl = frameDoc.createElement("style");
+  styleEl.id = styleId;
+  styleEl.textContent = `
+    html, body {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: auto !important;
+    }
+
+    .page, .broadsheet {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+
+    .content {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+
+    .g2, .g3, .g4, .g6,
+    .two-col, .three-col,
+    .regions-grid, .denom-grid,
+    .status-legend, .methods-legend,
+    .days-grid, .ag,
+    .dispute-grid, .sup-row,
+    .tn {
+      grid-template-columns: 1fr !important;
+    }
+
+    .tna {
+      display: none !important;
+    }
+
+    .timeline {
+      padding-left: 0 !important;
+    }
+
+    .timeline::before {
+      display: none !important;
+    }
+
+    [style*="grid-template-columns:repeat(6,1fr)"],
+    [style*="grid-template-columns:repeat(4,1fr)"],
+    [style*="grid-template-columns:1fr 1fr 1fr"],
+    [style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    [style*="padding:0 42px"], [style*="padding: 0 42px"],
+    [style*="padding:0 44px"], [style*="padding: 0 44px"] {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+    }
+
+    [style*="margin:0 -42px"], [style*="margin: 0 -42px"],
+    [style*="margin:0 -44px"], [style*="margin: 0 -44px"] {
+      margin-left: -16px !important;
+      margin-right: -16px !important;
+    }
+
+    img, svg, table, iframe, video {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  `;
+
+  frameDoc.head.appendChild(styleEl);
+}
+
+function fitInfographicViewport(iframe) {
+  try {
+    const frameDoc = iframe.contentWindow.document;
+    applyInfographicMobileStyles(frameDoc);
+
+    const root =
+      frameDoc.querySelector(".page, .broadsheet") ||
+      frameDoc.body.firstElementChild ||
+      frameDoc.body;
+    if (!root) return;
+
+    root.style.transform = "";
+    root.style.transformOrigin = "";
+    root.style.width = "";
+    root.style.maxWidth = "";
+
+    const viewportWidth = Math.max(iframe.clientWidth, 1);
+    const contentWidth = Math.max(
+      root.scrollWidth,
+      frameDoc.body.scrollWidth,
+      frameDoc.documentElement.scrollWidth,
+    );
+    let scale = 1;
+    const isMobile = window.innerWidth <= 900;
+
+    if (isMobile && contentWidth > viewportWidth + 2) {
+      scale = viewportWidth / contentWidth;
+      root.style.transformOrigin = "top left";
+      root.style.transform = `scale(${scale})`;
+      root.style.width = `${contentWidth}px`;
+      root.style.maxWidth = "none";
+    }
+
+    const contentHeight = Math.max(
+      root.scrollHeight,
+      frameDoc.body.scrollHeight,
+      frameDoc.documentElement.scrollHeight,
+    );
+    iframe.style.height = Math.max(Math.ceil(contentHeight * scale) + 8, 600) + "px";
+  } catch (err) {
+    iframe.style.height = "2400px";
+  }
+}
+
+function scheduleInfographicRefit() {
+  const iframe = document.getElementById("doc-iframe");
+  if (!iframe || iframe.style.display === "none" || !iframe.src) return;
+
+  if (infographicRefitTimer) clearTimeout(infographicRefitTimer);
+  infographicRefitTimer = setTimeout(() => {
+    fitInfographicViewport(iframe);
+  }, 90);
+}
 
 /* ── Build Sidebar ────────────────────────────────────────── */
 function buildSidebar() {
@@ -480,12 +617,9 @@ async function loadDocument(filePath) {
     iframe.style.height = "80vh"; // initial height while loading
     iframe.src = filePath;
     iframe.onload = () => {
-      try {
-        const h = iframe.contentWindow.document.documentElement.scrollHeight;
-        iframe.style.height = Math.max(h, 600) + "px";
-      } catch (e) {
-        iframe.style.height = "2400px"; // fallback
-      }
+      fitInfographicViewport(iframe);
+      setTimeout(() => fitInfographicViewport(iframe), 250);
+      setTimeout(() => fitInfographicViewport(iframe), 900);
     };
     document.getElementById("doc-page").classList.add("infographic-mode");
     document.getElementById("home-page").style.display = "none";
@@ -665,7 +799,8 @@ function closeMobileSidebar() {
   document.getElementById("sidebar-overlay").classList.remove("visible");
 }
 
-function toggleSidebar() {
+function toggleSidebar(event) {
+  if (event) event.stopPropagation();
   const sidebar = document.getElementById("sidebar");
   const overlay = document.getElementById("sidebar-overlay");
   const isMobile = window.innerWidth <= 900;
@@ -738,9 +873,14 @@ document.addEventListener("keydown", (e) => {
 
 /* ── Click outside sidebar to close on mobile ─────────────── */
 document.getElementById("sidebar-overlay").addEventListener("click", closeMobileSidebar);
-document.getElementById("main-wrapper").addEventListener("click", () => {
-  if (window.innerWidth <= 900) closeMobileSidebar();
+document.getElementById("main-wrapper").addEventListener("click", (event) => {
+  if (window.innerWidth > 900) return;
+  if (!document.getElementById("sidebar").classList.contains("open")) return;
+  if (event.target.closest("#topbar")) return;
+  closeMobileSidebar();
 });
+
+window.addEventListener("resize", scheduleInfographicRefit);
 
 /* ── Slug helper (GitHub-compatible anchor IDs) ────────────
    Matches the algorithm GitHub and most markdown processors use
