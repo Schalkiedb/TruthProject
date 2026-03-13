@@ -7,6 +7,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = REPO_ROOT / "Supporting Documents"
 OUTPUT_FILE = REPO_ROOT / "assets" / "source-documents-catholic.json"
+SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
 
 
 def collect_pdf_paths() -> list[str]:
@@ -15,8 +16,8 @@ def collect_pdf_paths() -> list[str]:
 
     pdfs = [
         path.relative_to(REPO_ROOT).as_posix()
-        for path in SOURCE_DIR.rglob("*.pdf")
-        if path.is_file()
+        for path in SOURCE_DIR.rglob("*")
+        if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS
     ]
     pdfs.sort(key=str.casefold)
     return pdfs
