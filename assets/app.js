@@ -325,20 +325,46 @@ const ALL_ITEMS = LIBRARY.flatMap((section) =>
 let currentIndex = -1;
 let infographicRefitTimer = null;
 
-function applyInfographicMobileStyles(frameDoc) {
+function applyInfographicMobileStyles(frameDoc, frameUrl = "") {
   const styleId = "infographic-mobile-overrides";
   const existing = frameDoc.getElementById(styleId);
   const isMobile = window.innerWidth <= 900;
+  const source = String(frameUrl || frameDoc.URL || "").toLowerCase();
+  const isScaleOnly =
+    source.includes("infographic8_global_push.html") ||
+    source.includes("infographic9_restday_push.html") ||
+    source.includes("infographic10_persecution.html");
+  const mode = isScaleOnly ? "scale-only" : "reflow";
 
   if (!isMobile) {
     if (existing) existing.remove();
     return;
   }
 
-  if (existing) return;
+  if (existing && existing.dataset.mode === mode) return;
+  if (existing) existing.remove();
 
   const styleEl = frameDoc.createElement("style");
   styleEl.id = styleId;
+  styleEl.dataset.mode = mode;
+
+  if (isScaleOnly) {
+    styleEl.textContent = `
+      html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: visible !important;
+      }
+
+      img, svg, table, iframe, video {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+    `;
+    frameDoc.head.appendChild(styleEl);
+    return;
+  }
+
   styleEl.textContent = `
     html, body {
       width: 100% !important;
@@ -555,7 +581,7 @@ function applyInfographicMobileStyles(frameDoc) {
 function fitInfographicViewport(iframe) {
   try {
     const frameDoc = iframe.contentWindow.document;
-    applyInfographicMobileStyles(frameDoc);
+    applyInfographicMobileStyles(frameDoc, iframe.src || frameDoc.URL || "");
 
     const root =
       frameDoc.querySelector(".page, .broadsheet") ||
