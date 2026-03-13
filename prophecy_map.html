@@ -149,70 +149,64 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 .lvl-green .ring{background:rgba(56,161,105,.35)}
 .lvl-gray .dot{background:#718096}
 
-/* ── Mobile — Bottom-Sheet Panel ────────────────────────── */
-#panel-handle{display:none} /* hidden on desktop */
+/* ── Mobile — Full-screen slide-up panel ────────────────── */
+/* Hidden on desktop; shown as sticky bar inside the panel on mobile */
+#panel-handle{display:none}
 
 @media(max-width:800px){
-  /* Map takes full screen under header */
   #map{right:0;bottom:0;top:90px}
 
-  /* Panel becomes a sliding bottom sheet overlaying the map */
+  /* Panel = full-screen overlay, hidden below the screen by default */
   #panel{
-    top:auto;
-    bottom:0;
-    width:100%;
-    height:calc(100% - 90px);
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    width:100%;height:100%;
     border-left:none;
-    border-top:2px solid rgba(201,162,39,.35);
-    border-radius:16px 16px 0 0;
-    transform:translateY(calc(100% - 52px));
-    transition:transform .35s cubic-bezier(.4,0,.2,1);
-    z-index:2001;
-    box-shadow:0 -8px 32px rgba(0,0,0,.6);
+    border-radius:0;
+    transform:translateY(100%);
+    transition:transform .3s ease-out;
+    z-index:9000;
+    overflow:hidden;
   }
-  #panel.open{
-    transform:translateY(0);
-  }
+  /* Slide into view */
+  #panel.open{transform:translateY(0)}
 
-  /* Drag handle area — always visible at top of panel */
+  /* Sticky back-button bar at top of panel */
   #panel-handle{
     display:flex;
     align-items:center;
-    justify-content:center;
+    gap:12px;
     flex-shrink:0;
-    height:52px;
-    position:relative;
+    position:sticky;
+    top:0;
+    z-index:1;
+    height:54px;
+    padding:0 14px;
+    background:linear-gradient(135deg,#0f1420,#161b2e);
+    border-bottom:1px solid rgba(201,162,39,.35);
+  }
+  #panel-back{
+    display:flex;align-items:center;gap:6px;
+    padding:6px 12px;
+    background:rgba(201,162,39,.12);
+    border:1px solid rgba(201,162,39,.3);
+    border-radius:6px;
+    color:#c9a227;font-size:13px;font-weight:700;
     cursor:pointer;
     touch-action:manipulation;
-    -webkit-tap-highlight-color:rgba(201,162,39,.2);
-    background:linear-gradient(180deg,#141830,#10142a);
-    border-radius:16px 16px 0 0;
-    border-bottom:1px solid rgba(255,255,255,.07);
-    gap:10px;
-  }
-  .handle-bar{
-    width:40px;height:4px;border-radius:2px;
-    background:rgba(255,255,255,.3);
+    -webkit-tap-highlight-color:transparent;
+    white-space:nowrap;
+    flex-shrink:0;
   }
   #handle-label{
-    font-size:12px;font-weight:600;color:#9aa3c0;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px;
+    flex:1;
+    font-size:14px;font-weight:700;color:#eaeef8;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
-  #panel-close{
-    position:absolute;right:14px;top:50%;transform:translateY(-50%);
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-    border-radius:50%;width:28px;height:28px;
-    color:#9aa3c0;font-size:14px;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    transition:background .2s;
-  }
-  #panel-close:hover{background:rgba(255,255,255,.16)}
 
-  /* Welcome message still shown inside; hide on very small when open */
-  #panel-welcome{padding:20px}
-
-  /* Make panel content scrollable on iOS */
+  /* Panel body scrollable on iOS */
   #p-body{-webkit-overflow-scrolling:touch}
+  #panel-welcome{padding:20px}
 
   #legend{display:none}
   #hdr h1 .long{display:none}
@@ -262,9 +256,8 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 <!-- Detail Panel -->
 <div id="panel">
   <div id="panel-handle">
-    <div class="handle-bar"></div>
-    <span id="handle-label">Tap a country on the map</span>
-    <button id="panel-close" aria-label="Close panel">↓</button>
+    <button id="panel-back" aria-label="Back to map">← Map</button>
+    <span id="handle-label">Select a country</span>
   </div>
   <div id="panel-welcome">
     <div class="globe">🌍</div>
@@ -1838,41 +1831,35 @@ if (location.hash) {
   }
 }
 
-/* ── Mobile panel bottom-sheet control ────────────────────── */
+/* ── Mobile panel full-screen control ─────────────────────── */
 (function() {
-  const panel     = document.getElementById('panel');
-  const handle    = document.getElementById('panel-handle');
-  const closeBtn  = document.getElementById('panel-close');
+  const panel    = document.getElementById('panel');
+  const backBtn  = document.getElementById('panel-back');
   const handleLbl = document.getElementById('handle-label');
+  if (!backBtn) return;
 
   function openPanel(label) {
     if (label) handleLbl.textContent = label;
     panel.classList.add('open');
+    // Prevent map scrolling while panel is open
+    document.body.style.overflow = 'hidden';
   }
   function closePanel() {
     panel.classList.remove('open');
-    handleLbl.textContent = 'Tap a country on the map';
+    handleLbl.textContent = 'Select a country';
+    document.body.style.overflow = '';
   }
 
-  // Support both click and touchend for maximum mobile compatibility
-  function toggleOnTap(e) {
-    e.preventDefault();  // prevent ghost click after touchend
-    panel.classList.contains('open') ? closePanel() : openPanel();
-  }
-  handle.addEventListener('click', () => {
-    panel.classList.contains('open') ? closePanel() : openPanel();
+  // click only — touch-action:manipulation on the button eliminates 300ms delay
+  backBtn.addEventListener('click', closePanel);
+
+  // Close panel automatically when a guide/document link is tapped
+  panel.addEventListener('click', function(e) {
+    if (e.target.closest('.guide-link')) {
+      closePanel();
+    }
   });
-  handle.addEventListener('touchend', toggleOnTap, { passive: false });
 
-  function closeOnTap(e) {
-    e.stopPropagation();
-    e.preventDefault();
-    closePanel();
-  }
-  closeBtn.addEventListener('click', e => { e.stopPropagation(); closePanel(); });
-  closeBtn.addEventListener('touchend', closeOnTap, { passive: false });
-
-  // Expose so selectCountry() can call (CSS handles desktop vs mobile visually)
   window._mobileOpenPanel = openPanel;
   window._mobileClosePanel = closePanel;
 })();
