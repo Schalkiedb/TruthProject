@@ -251,10 +251,71 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 
 <!-- Map -->
 <div id="map"></div>
-<!-- Mobile floating button to open the country panel -->
-<button id="mob-open" aria-label="Open country panel">🌍 Countries</button>
 
-<!-- Detail Panel -->
+<!-- Mobile: floating button -->
+<button id="mob-fab">🌍 Countries</button>
+
+<!-- Mobile: full-screen overlay (country list + detail) -->
+<div id="mob-overlay">
+
+  <!-- Header bar -->
+  <div style="display:flex;align-items:center;gap:10px;height:56px;flex-shrink:0;
+              padding:0 14px;background:linear-gradient(135deg,#0f1420,#161b2e);
+              border-bottom:1px solid rgba(201,162,39,.35)">
+    <button id="mob-ovl-back"
+      style="display:flex;align-items:center;gap:6px;padding:7px 14px;
+             background:rgba(201,162,39,.14);border:1px solid rgba(201,162,39,.35);
+             border-radius:8px;color:#c9a227;font-size:13px;font-weight:700;
+             cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+             white-space:nowrap;visibility:hidden">
+      ← List
+    </button>
+    <span id="mob-ovl-title"
+      style="flex:1;font-size:15px;font-weight:700;color:#c9a227;
+             white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+      🌍 Countries
+    </span>
+    <button id="mob-ovl-close"
+      style="display:flex;align-items:center;gap:6px;padding:7px 14px;
+             background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+             border-radius:8px;color:#9aa3c0;font-size:13px;font-weight:700;
+             cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+             white-space:nowrap">
+      🗺️ Map
+    </button>
+  </div>
+
+  <!-- LIST VIEW -->
+  <div id="mob-list-view"
+    style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+    <div style="padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0">
+      <input id="mob-srch-box" type="search" placeholder="🔍 Search country…"
+        style="width:100%;padding:9px 14px;background:rgba(255,255,255,.07);
+               border:1px solid rgba(255,255,255,.12);border-radius:20px;
+               color:#eaeef8;font-size:13px;outline:none;font-family:inherit;-webkit-appearance:none">
+    </div>
+    <div id="mob-country-list"
+      style="overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1">
+    </div>
+  </div>
+
+  <!-- DETAIL VIEW -->
+  <div id="mob-detail-view"
+    style="display:none;flex-direction:column;flex:1;overflow:hidden">
+    <div id="mob-d-head"
+      style="padding:16px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0">
+    </div>
+    <div id="mob-d-tabs"
+      style="display:flex;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0">
+    </div>
+    <div id="mob-d-body"
+      style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px">
+    </div>
+  </div>
+
+</div>
+
+<!-- Detail Panel (desktop only) -->
 <div id="panel">
   <div id="panel-handle">
     <button id="panel-back" aria-label="Back to map">← Map</button>
@@ -1832,61 +1893,211 @@ if (location.hash) {
   }
 }
 
-/* ── Mobile panel — fully JS-driven (inline styles = max specificity) ── */
+/* ══ MOBILE FULL-SCREEN OVERLAY ═════════════════════════════════ */
 (function() {
-  var panel    = document.getElementById('panel');
-  var backBtn  = document.getElementById('panel-back');
-  var lbl      = document.getElementById('handle-label');
-  var fabOpen  = document.getElementById('mob-open');
 
-  function isMob() { return window.innerWidth <= 800; }
+  var overlay    = document.getElementById('mob-overlay');
+  var fab        = document.getElementById('mob-fab');
+  var btnBack    = document.getElementById('mob-ovl-back');
+  var btnClose   = document.getElementById('mob-ovl-close');
+  var titleEl    = document.getElementById('mob-ovl-title');
+  var listView   = document.getElementById('mob-list-view');
+  var detailView = document.getElementById('mob-detail-view');
+  var cList      = document.getElementById('mob-country-list');
+  var srchBox    = document.getElementById('mob-srch-box');
+  var dHead      = document.getElementById('mob-d-head');
+  var dTabs      = document.getElementById('mob-d-tabs');
+  var dBody      = document.getElementById('mob-d-body');
 
-  /* Apply the full-screen position & off-screen transform via inline styles.
-     Inline styles beat ALL stylesheet rules regardless of specificity. */
-  function mobileInit() {
-    if (!isMob()) {
-      /* Restore desktop inline style overrides */
-      panel.removeAttribute('style');
+  if (!overlay) return;
+
+  /* Badge styles per level */
+  var BS = {
+    red:    'background:rgba(229,62,62,.2);color:#fc8181;border:1px solid rgba(229,62,62,.4)',
+    orange: 'background:rgba(221,107,32,.2);color:#f6ad55;border:1px solid rgba(221,107,32,.4)',
+    blue:   'background:rgba(66,153,225,.2);color:#90cdf4;border:1px solid rgba(66,153,225,.4)',
+    green:  'background:rgba(56,161,105,.2);color:#68d391;border:1px solid rgba(56,161,105,.4)',
+    gray:   'background:rgba(113,128,150,.2);color:#cbd5e0;border:1px solid rgba(113,128,150,.4)'
+  };
+  var BL = {red:'Critical',orange:'Warning',blue:'Monitoring',green:'Safer',gray:'Tracking'};
+  var LC = {red:'#fc8181',orange:'#f6ad55',blue:'#90cdf4',green:'#68d391',gray:'#cbd5e0'};
+  var LL = {red:'Critical / Active',orange:'Warning / Advancing',blue:'Monitoring',green:'Relatively Free',gray:'Being Tracked'};
+  var FM = {
+    'Daniel 2':'Study_guides/Daniel_2_Prophecy_Study_Guide.md',
+    'Daniel 7 & 8':'Study_guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md',
+    'The Little Horn':'Study_guides/The_Little_Horn_Complete_Study_Guide.md',
+    'The Other Beast':'Study_guides/The_Other_Beast_Complete_Study_Guide.md',
+    'The Mark of the Beast':'Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md',
+    "The Sabbath Rest":'Study_guides/Sabbath_study_guide.md',
+    "God's Special Sign":'Study_guides/Gods_Special_Sign_Complete_Study_Guide.md',
+    "Babylon's Wine":'Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md',
+    "The Beast System Infrastructure":'The_Beast_System_Infrastructure_Complete_Guide.md'
+  };
+  var TABS = [
+    {id:'sl', icon:'📅',label:'Sunday Laws'},
+    {id:'cbdc',icon:'💳',label:'CBDC'},
+    {id:'did', icon:'👁',label:'Digital ID'},
+    {id:'rl',  icon:'✝',label:'Liberty'},
+    {id:'bs',  icon:'🔗',label:'Beast System'}
+  ];
+
+  /* ── Open/close overlay ── */
+  function openOverlay() {
+    overlay.style.cssText =
+      'display:flex;flex-direction:column;' +
+      'position:fixed;top:0;left:0;right:0;bottom:0;' +
+      'width:100%;height:100%;z-index:99999;' +
+      'background:#0c0f1a;overflow:hidden;' +
+      "font-family:'Segoe UI',system-ui,sans-serif;color:#eaeef8";
+    if (fab) fab.style.display = 'none';
+  }
+  function closeOverlay() {
+    overlay.style.display = 'none';
+    if (fab) fab.style.display = '';
+  }
+
+  /* ── Build country list ── */
+  function buildList(filter) {
+    var keys = Object.keys(COUNTRIES).sort(function(a,b){
+      return COUNTRIES[a].name.localeCompare(COUNTRIES[b].name);
+    });
+    if (filter) {
+      var f = filter.toLowerCase();
+      keys = keys.filter(function(k){ return COUNTRIES[k].name.toLowerCase().indexOf(f) !== -1; });
+    }
+    cList.innerHTML = '';
+    if (!keys.length) {
+      cList.innerHTML = '<p style="padding:20px;color:#5c6580">No countries found.</p>';
       return;
     }
-    panel.style.cssText = [
-      'position:fixed',
-      'top:0', 'left:0', 'right:0', 'bottom:0',
-      'width:100%', 'height:100%',
-      'border-left:none', 'border-radius:0',
-      'overflow:hidden auto',
-      'z-index:9000',
-      'transition:transform 0.35s ease-out',
-      'transform:translateY(100%)'
-    ].join(';');
+    keys.forEach(function(key) {
+      var c = COUNTRIES[key];
+      var lv = c.level || 'gray';
+      var div = document.createElement('div');
+      div.className = 'mob-cc';
+      div.innerHTML =
+        '<div class="mob-cc-flag">'+(c.flag||'🌍')+'</div>'+
+        '<div style="flex:1;min-width:0">'+
+          '<div class="mob-cc-name">'+c.name+'</div>'+
+          '<div class="mob-cc-sub">'+(c.summary||'')+'</div>'+
+        '</div>'+
+        '<span class="mob-cc-badge" style="'+BS[lv]+'">'+BL[lv]+'</span>';
+      div.addEventListener('click', function(){ showDetail(key); });
+      cList.appendChild(div);
+    });
   }
 
-  function openPanel(label) {
-    if (!isMob()) return;
-    if (label) lbl.textContent = label;
-    panel.style.transform = 'translateY(0)';
-    if (fabOpen) fabOpen.style.display = 'none';
+  /* ── Show list view ── */
+  function showList() {
+    titleEl.textContent = '🌍 Countries';
+    btnBack.style.visibility = 'hidden';
+    listView.style.display = 'flex';
+    detailView.style.display = 'none';
+    buildList(srchBox ? srchBox.value.trim() : '');
   }
 
-  function closePanel() {
-    panel.style.transform = 'translateY(100%)';
-    lbl.textContent = 'Select a country';
-    if (fabOpen) fabOpen.style.display = '';
+  /* ── Show country detail ── */
+  function showDetail(key) {
+    var c = COUNTRIES[key];
+    var lv = c.level || 'gray';
+    titleEl.textContent = (c.flag||'')+'\u2002'+c.name;
+    btnBack.style.visibility = 'visible';
+    listView.style.display = 'none';
+    detailView.style.display = 'flex';
+
+    /* Header */
+    dHead.innerHTML =
+      '<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">'+
+        '<span style="font-size:38px">'+(c.flag||'🌍')+'</span>'+
+        '<div>'+
+          '<div style="font-size:20px;font-weight:700;color:#eaeef8">'+c.name+'</div>'+
+          '<span style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;'+
+            'padding:3px 10px;border-radius:12px;'+BS[lv]+'">'+BL[lv]+'</span>'+
+        '</div>'+
+      '</div>'+
+      '<div style="font-size:12.5px;line-height:1.7;color:#9aa3c0">'+(c.summary||'')+'</div>';
+
+    /* Tabs */
+    dTabs.innerHTML = '';
+    var firstTab = 'sl';
+    TABS.forEach(function(t) {
+      var el = document.createElement('div');
+      el.style.cssText = 'flex:1;padding:10px 2px;text-align:center;font-size:10px;font-weight:600;'+
+        'cursor:pointer;touch-action:manipulation;color:#5c6580;'+
+        'border-bottom:2px solid transparent;display:flex;flex-direction:column;align-items:center;gap:3px';
+      el.innerHTML = '<span style="font-size:15px">' + t.icon + '</span>' + t.label;
+      el.dataset.tid = t.id;
+      if (t.id === firstTab) { el.style.color='#c9a227'; el.style.borderBottomColor='#c9a227'; }
+      el.addEventListener('click', function(){
+        Array.from(dTabs.children).forEach(function(x){
+          x.style.color='#5c6580'; x.style.borderBottomColor='transparent';
+        });
+        el.style.color='#c9a227'; el.style.borderBottomColor='#c9a227';
+        renderDetail(key, t.id);
+      });
+      dTabs.appendChild(el);
+    });
+    renderDetail(key, firstTab);
   }
 
-  mobileInit();
-  window.addEventListener('resize', mobileInit);
+  /* ── Render tab content ── */
+  function renderDetail(key, cat) {
+    var c = COUNTRIES[key];
+    var data = c[cat];
+    if (!data) {
+      dBody.innerHTML = '<p style="color:#5c6580;font-size:13px;margin-top:16px">No data for this category in '+c.name+'.</p>';
+      return;
+    }
+    var lv = data.level || 'gray';
+    var html =
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;'+
+        'padding:8px 12px;border-radius:8px;background:rgba(255,255,255,.04)">'+
+        '<span style="font-size:11px;font-weight:600;color:'+(LC[lv]||'#cbd5e0')+'">'+(LL[lv]||lv)+'</span>'+
+      '</div>';
+    html += '<ul style="list-style:none;display:flex;flex-direction:column;gap:10px;padding:0">';
+    (data.items||[]).forEach(function(item){
+      html += '<li style="font-size:12.5px;line-height:1.65;color:#9aa3c0;padding-left:18px;position:relative">'+
+        '<span style="position:absolute;left:0;color:#c9a227">▸</span>'+item+'</li>';
+    });
+    html += '</ul>';
+    if (c.guides && c.guides.length && cat !== 'did') {
+      html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)">'+
+        '<h4 style="font-size:11px;color:#5c6580;font-weight:600;text-transform:uppercase;'+
+          'letter-spacing:.08em;margin-bottom:10px">📖 Related Study Guides</h4>';
+      c.guides.forEach(function(g){
+        var file = FM[g];
+        if (file) {
+          html += '<a href="index.html#'+encodeURIComponent(file)+'" '+
+            'style="display:flex;align-items:center;gap:8px;padding:10px 12px;margin-bottom:8px;'+
+            'background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.2);'+
+            'border-radius:8px;color:#c9a227;font-size:13px;font-weight:600;text-decoration:none;'+
+            'touch-action:manipulation">📖 '+g+'</a>';
+        }
+      });
+      html += '</div>';
+    }
+    dBody.innerHTML = html;
+    dBody.scrollTop = 0;
+  }
 
-  if (backBtn) backBtn.addEventListener('click', closePanel);
-  if (fabOpen) fabOpen.addEventListener('click', function() { openPanel(); });
+  /* ── Events ── */
+  if (fab)      fab.addEventListener('click', function(){ openOverlay(); showList(); });
+  if (btnClose) btnClose.addEventListener('click', closeOverlay);
+  if (btnBack)  btnBack.addEventListener('click', showList);
+  if (srchBox)  srchBox.addEventListener('input', function(){ buildList(this.value.trim()); });
 
-  /* Auto-close when a study guide link is tapped */
-  panel.addEventListener('click', function(e) {
-    if (e.target.closest('.guide-link')) closePanel();
-  });
+  /* Called by selectCountry() when a map marker is tapped on mobile */
+  window._mobileOpenPanel = function(label) {
+    if (window.innerWidth > 800) return;
+    /* label is "🇺🇸 United States" — find matching key */
+    var key = Object.keys(COUNTRIES).find(function(k){
+      return (COUNTRIES[k].flag+' '+COUNTRIES[k].name) === label;
+    });
+    openOverlay();
+    if (key) showDetail(key); else showList();
+  };
+  window._mobileClosePanel = closeOverlay;
 
-  window._mobileOpenPanel  = openPanel;
-  window._mobileClosePanel = closePanel;
 })();
 </script>
 </body>
