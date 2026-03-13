@@ -588,6 +588,21 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   margin: 0 auto;
 }
 
+/* PDF mode — use native browser PDF viewer in a large viewport frame */
+#doc-page.pdf-mode {
+  max-width: none;
+  padding: 14px 20px 26px;
+}
+#doc-page.pdf-mode #doc-iframe {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #0f1420;
+}
+#doc-page.pdf-mode .doc-nav-footer {
+  max-width: 980px;
+  margin: 14px auto 0;
+}
+
 /* The iframe that displays standalone infographic HTML files */
 #doc-iframe {
   display: block;
@@ -1118,6 +1133,7 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   .card-section   { padding: 24px 16px 0; }
   /* Equal padding on both sides — 20px keeps text away from screen edges */
   #doc-page       { padding: 24px 20px 40px 20px; }
+  #doc-page.pdf-mode { padding: 12px 12px 20px; }
 
   .markdown-body  { font-size: 15px; }
 
@@ -1133,6 +1149,7 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   .card-section   { padding: 20px 16px 0; }
   /* 16px each side — matches Safari's default page margin */
   #doc-page       { padding: 20px 16px 40px 16px; }
+  #doc-page.pdf-mode { padding: 10px; }
 
   .card-grid      { grid-template-columns: 1fr; }
 
