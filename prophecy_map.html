@@ -149,10 +149,69 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 .lvl-green .ring{background:rgba(56,161,105,.35)}
 .lvl-gray .dot{background:#718096}
 
-/* ── Mobile ──────────────────────────────────────────────── */
+/* ── Mobile — Bottom-Sheet Panel ────────────────────────── */
+#panel-handle{display:none} /* hidden on desktop */
+
 @media(max-width:800px){
-  #map{right:0;bottom:45vh}
-  #panel{top:55vh;width:100%;border-left:none;border-top:1px solid rgba(201,162,39,.2)}
+  /* Map takes full screen under header */
+  #map{right:0;bottom:0;top:90px}
+
+  /* Panel becomes a sliding bottom sheet overlaying the map */
+  #panel{
+    top:auto;
+    bottom:0;
+    width:100%;
+    height:calc(100% - 90px);
+    border-left:none;
+    border-top:2px solid rgba(201,162,39,.35);
+    border-radius:16px 16px 0 0;
+    transform:translateY(calc(100% - 52px));
+    transition:transform .35s cubic-bezier(.4,0,.2,1);
+    z-index:2001;
+    box-shadow:0 -8px 32px rgba(0,0,0,.6);
+  }
+  #panel.open{
+    transform:translateY(0);
+  }
+
+  /* Drag handle area — always visible at top of panel */
+  #panel-handle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+    height:52px;
+    position:relative;
+    cursor:pointer;
+    background:linear-gradient(180deg,#141830,#10142a);
+    border-radius:16px 16px 0 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    gap:10px;
+  }
+  .handle-bar{
+    width:40px;height:4px;border-radius:2px;
+    background:rgba(255,255,255,.3);
+  }
+  #handle-label{
+    font-size:12px;font-weight:600;color:#9aa3c0;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px;
+  }
+  #panel-close{
+    position:absolute;right:14px;top:50%;transform:translateY(-50%);
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;width:28px;height:28px;
+    color:#9aa3c0;font-size:14px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s;
+  }
+  #panel-close:hover{background:rgba(255,255,255,.16)}
+
+  /* Welcome message still shown inside; hide on very small when open */
+  #panel-welcome{padding:20px}
+
+  /* Make panel content scrollable on iOS */
+  #p-body{-webkit-overflow-scrolling:touch}
+
   #legend{display:none}
   #hdr h1 .long{display:none}
   #srch{width:100px}
@@ -163,6 +222,8 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
   #hdr{gap:8px;padding:0 8px}
   #stats{gap:10px}
   .stat-item .lbl{display:none}
+  #srch{width:80px}
+  #srch:focus{width:110px}
 }
 </style>
 </head>
@@ -198,6 +259,11 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 
 <!-- Detail Panel -->
 <div id="panel">
+  <div id="panel-handle">
+    <div class="handle-bar"></div>
+    <span id="handle-label">Tap a country on the map</span>
+    <button id="panel-close" aria-label="Close panel">↓</button>
+  </div>
   <div id="panel-welcome">
     <div class="globe">🌍</div>
     <h2>Select a country on the map</h2>
@@ -283,10 +349,10 @@ const COUNTRIES = {
     cbdc:{ level:"orange", items:[
       "<strong>FedNow</strong> instant payment system launched July 2023 — the entire transaction infrastructure is now in place for a digital currency layer",
       "<strong>Executive Order 14067</strong> (March 2022) mandated US government research and development of a Central Bank Digital Currency",
-      "<strong>Digital Dollar Project</strong> — private-sector consortium conducted pilot programs 2020–2024 with major banks",
-      "Federal Reserve discussion paper (Jan 2022) outlined CBDC architecture — retail CBDC would give government direct visibility into every transaction",
-      "bills in Congress both supporting and opposing CBDC — debate indicates the infrastructure is being built regardless",
-      "<strong>IMF Article IV consultations</strong> repeatedly pressure US toward CBDC interoperability with global systems"
+      "<strong>Trump Executive Order (Jan 2025)</strong> — halted all retail CBDC development; US is now the only major economy to formally reverse CBDC plans. However wholesale CBDC (bank-to-bank settlement) continues via Project Agorá and FedNow remains fully operational.",
+      "<strong>Digital Dollar Project</strong> — private-sector consortium conducted pilot programs 2020–2024 with major banks; infrastructure and research fully complete regardless of political reversal",
+      "CBDC infrastructure built regardless: FedNow (real-time payments), REAL ID (federated digital ID), TSA facial recognition, IRS Direct File — the rails are all in place",
+      "<strong>IMF Article IV consultations</strong> repeatedly pressure US toward CBDC interoperability with global systems — external pressure continues even with Trump EO"
     ]},
     did:{ level:"orange", items:[
       "<strong>REAL ID Act</strong> — federally standardized biometric driver's license required for air travel and federal building access (enforcement deadline 2025)",
@@ -322,6 +388,7 @@ const COUNTRIES = {
       "Federal Lord's Day Act repealed in 1985 — Sunday trading legally permitted nationally",
       "Some provinces retain partial Sunday restrictions in practice (Quebec, parts of Ontario)",
       "Catholic Church maintains strong cultural Sunday observance through political channels",
+      "<strong>Ontario Right to Disconnect — Nov 2021</strong>: Ontario passed the Working for Workers Act 2021 (Bill 27), the first Canadian province to require employers with 25+ employees to have a formal policy on disconnecting from work outside of hours. Effective March 2022. Mirrors France's pioneering Right to Disconnect law and encodes rest as a workplace right.",
       "No active federal Sunday law legislation currently on the table"
     ]},
     cbdc:{ level:"orange", items:[
@@ -947,6 +1014,64 @@ const COUNTRIES = {
     ]}
   },
 
+  SK: {
+    name:"Slovakia", flag:"🇸🇰", lat:48.7, lng:19.7, r:13, level:"orange",
+    summary:"Slovakia passed one of Europe's earliest Right to Disconnect laws in March 2021 and is home to MEP Miriam Lexmann, the principal co-sponsor of the EU's 'Sunday Protection' resolution lobbied by the European Sunday Alliance (100+ organisations). Slovakia exemplifies how Catholic political networks in Central Europe are driving the convergence of rest legislation and Sunday advocacy.",
+    sl:{ level:"orange", items:[
+      "<strong>Right to Disconnect — March 1, 2021</strong>: Slovakia amended its Labour Code (Act No. 311/2001) granting all remote and home workers the right to abstain from work communications during rest periods, including weekends, public holidays and annual leave (Section 52(10)). Employers cannot treat disconnection as a breach of duty.",
+      "<strong>MEP Miriam Lexmann (EPP, Slovakia)</strong> — principal sponsor of the EU Parliamentary Resolution on Sunday Protection (2024), initiated through the European Sunday Alliance. Represents the Catholic-political nexus driving Sunday rest into EU law from Central Europe.",
+      "Slovakia's Sunday rest is protected under Labour Code — Sunday premium pay and restricted commercial hours enforced",
+      "ESA coalition lobbying with 100+ organisations includes Slovak church federations"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Eurozone member — participates in ECB Digital Euro project",
+      "National Bank of Slovakia involved in wholesale digital euro pilots"
+    ]},
+    did:{ level:"blue", items:[
+      "Slovak eID card — national biometric ID mandatory since 2013",
+      "EU GDPR enforcement in Slovakia; Slovak DPA (data protection authority) active"
+    ]},
+    rl:{ level:"blue", items:[
+      "Predominantly Catholic (62%); freedom of religion generally protected",
+      "SDA and evangelical communities operate legally",
+      "Catholic Church deeply embedded in national identity and political culture"
+    ]},
+    bs:{ level:"orange", items:[
+      "Slovakia is a key node in the EU's Catholic political bloc driving Sunday legislation from within the European Parliament",
+      "MEP Lexmann's leadership of the Sunday Protection resolution places Slovakia at the center of the prophetic Sunday law push in Europe",
+      "Right to Disconnect law + ESA lobbying = secular and religious Sunday enforcement converging from the same Catholic political network"
+    ]}
+  },
+
+  SI: {
+    name:"Slovenia", flag:"🇸🇮", lat:46.1, lng:14.8, r:13, level:"orange",
+    summary:"Slovenia passed Europe's most recent major Right to Disconnect law in November 2024 — part of a wave of European countries legislating mandatory rest. As a Catholic-majority EU member, Slovenia exemplifies the convergence of secular rest legislation with the Catholic political framework driving Sunday protection across Europe.",
+    sl:{ level:"orange", items:[
+      "<strong>Right to Disconnect — November 16, 2024</strong>: Slovenia's amended Employment Relationships Act (ZDR-1D) entered into force, requiring employers to provide workers with the right to be unavailable (disconnected from digital tools) during rest periods, weekends, annual leave, sick leave, and holidays. Collective agreements set the specific terms; where no agreement exists, the employer must regulate via internal policy.",
+      "This is the most recently passed Right to Disconnect law in Europe as of 2025 — part of the rolling wave of EU member states encoding mandatory rest.",
+      "Sunday is the statutory weekly rest day; retail restrictions vary by municipality",
+      "Catholic Church influences national culture strongly — Sunday as sacred rest day is culturally embedded"
+    ]},
+    cbdc:{ level:"blue", items:[
+      "Eurozone member — participates in ECB Digital Euro project",
+      "Bank of Slovenia participating in wholesale digital euro research"
+    ]},
+    did:{ level:"blue", items:[
+      "Slovenian national ID — mandatory eID card with biometric chip",
+      "EU GDPR framework applied; privacy protections generally strong"
+    ]},
+    rl:{ level:"blue", items:[
+      "Predominantly Catholic; freedom of religion protected under Constitution",
+      "Small SDA community; Sabbath accommodation available",
+      "No significant religious persecution"
+    ]},
+    bs:{ level:"blue", items:[
+      "Slovenia's Right to Disconnect follows Belgium (2023), Australia (2024), and France (2017) — the global wave of secular rest legislation is systematically encoding weekly rest boundaries",
+      "Each new Right to Disconnect law strengthens the cultural and legal infrastructure that makes Sunday laws politically palatable",
+      "European Sunday Alliance (ESA) has lobbying networks in all Eurozone countries including Slovenia"
+    ]}
+  },
+
   /* ── MIDDLE EAST ─────────────────────────────────────────── */
   IL: {
     name:"Israel", flag:"🇮🇱", lat:31, lng:35, r:16, level:"blue",
@@ -992,7 +1117,8 @@ const COUNTRIES = {
     cbdc:{ level:"orange", items:[
       "<strong>Project Aber</strong> — Saudi Arabia and UAE jointly launched cross-border wholesale CBDC (2020) — already operational between the two countries",
       "Saudi Central Bank (SAMA) advancing retail CBDC research",
-      "Saudi Arabia joins Project mBridge — multi-CBDC settlement platform with China, UAE, Hong Kong, Thailand"
+      "<strong>Project mBridge</strong> (China, UAE, Thailand, Hong Kong, Saudi Arabia) — <strong>now operating without BIS (Bank for International Settlements) oversight</strong>; managed directly by participating central banks since 2024. Represents China-led challenge to SWIFT. Saudi Arabia's mBridge participation signals a petrodollar pivot toward China's alternative financial system.",
+      "Cross-border CBDC settlements between Saudi Arabia and China reduce dependence on US dollar oil pricing"
     ]},
     did:{ level:"red", items:[
       "National ID is mandatory and linked to all financial, employment, and government services",
@@ -1024,7 +1150,8 @@ const COUNTRIES = {
     did:{ level:"red", items:[
       "<strong>National Information Network (NIN)</strong> — Iran's domestic internet that can be isolated from the global web — full communication control",
       "National ID card mandatory and linked to food ration subsidy system",
-      "Ration card system: citizens access subsidized food through government-controlled digital cards — near-CBDC level of economic control"
+      "Ration card system: citizens access subsidized food through government-controlled digital cards — near-CBDC level of economic control",
+      "<strong>Digital Monitoring Law — September 2023</strong>: Iran's government approved legislation giving instant, undeniable access to all digital life of citizens — including location data, photos, and all records tied to real identities. Part of Iran's 7th Quinquennial Development Program. Iran becomes the first country to explicitly legislate real-time warrantless access to every aspect of citizens' digital life."
     ]},
     rl:{ level:"red", items:[
       "<strong>Christians face arrest, torture, and execution</strong> for apostasy from Islam or proselytism",
@@ -1080,12 +1207,12 @@ const COUNTRIES = {
       "No national Sunday law; religious practice mirrors population distribution"
     ]},
     cbdc:{ level:"red", items:[
-      "<strong>eNaira launched October 2021</strong> — Africa's first CBDC and the world's third nationally deployed retail CBDC",
+      "<strong>eNaira launched October 2021</strong> — one of only <strong>3 fully-launched retail CBDCs in the world</strong> (along with Bahamas Sand Dollar and Jamaica JAM-DEX) — Africa's first CBDC (Atlantic Council CBDC Tracker, 2025)",
       "Designed by Bitt Inc. (same company as Eastern Caribbean DCash), issued by Central Bank of Nigeria",
       "Adoption was initially very low — government mandated taxi drivers, market vendors, and government workers accept eNaira",
-      "In 2023, government restricted ATM cash withdrawals to force eNaira adoption — explicit economic coercion",
+      "In 2023, government restricted ATM cash withdrawals to force eNaira adoption — explicit economic coercion; historic proof-of-concept for CBDC adoption by financial exclusion",
       "eNaira wallets are tiered by ID verification level — unverified accounts have spending limits (economic control by identity compliance)",
-      "200+ million people subject to the system — Africa's largest CBDC deployment"
+      "<strong>220+ million people</strong> subject to the system — Africa's largest CBDC deployment by population"
     ]},
     did:{ level:"orange", items:[
       "BVN (Bank Verification Number) — biometric bank ID mandatory for all financial transactions",
@@ -1206,21 +1333,23 @@ const COUNTRIES = {
       "No Sunday law heritage — China is atheist-communist state"
     ]},
     cbdc:{ level:"red", items:[
-      "<strong>e-CNY (Digital Yuan)</strong> — CBDC pilots in 17+ cities; 300+ million digital wallets; used at 2022 Winter Olympics",
+      "<strong>e-CNY (Digital Yuan)</strong> — CBDC active in 17+ provinces; 300+ million digital wallets; used at 2022 Winter Olympics",
+      "<strong>¥7 trillion ($986 billion) in total transactions by June 2024</strong> — nearly 4× the 2023 figure of $253B; growing at extraordinary speed (Atlantic Council, 2025)",
       "e-CNY has built-in expiry dates — money expires if not spent, preventing saving",
       "Government can freeze e-CNY wallets instantly for political/social compliance",
       "e-CNY has programmable restrictions — can be limited to specific geographic areas or product categories",
       "<strong>Full transaction visibility</strong>: People's Bank of China (PBoC) can see every purchase in real time",
       "China using e-CNY to eliminate physical cash — China's cash usage dropped from 60% to 20% since 2018",
-      "Project mBridge (BIS) — China is the largest participant; building international e-CNY settlement"
+      "<strong>Project mBridge</strong> (China, UAE, Thailand, Hong Kong, Saudi Arabia) — now managed by participating central banks WITHOUT BIS involvement; positions e-CNY as an alternative to SWIFT"
     ]},
     did:{ level:"red", items:[
       "<strong>Social Credit System</strong> — algorithmic scoring of citizens' behavior; low scores result in travel bans, school exclusions, and public shaming",
-      "700 million CCTV cameras across China — most per capita of any country",
-      "<strong>Xinjiang surveillance</strong> — DNA collection, iris scans, gait recognition; Uyghur minority under totalitarian surveillance",
+      "<strong>700 million+ CCTV cameras</strong> across China — 8 of the 10 most-surveilled cities in the world are in China (Comparitech 2019)",
+      "<strong>AI-turbocharging of surveillance (2025)</strong> — CNN reported (Dec 2025): China's censorship and surveillance have been dramatically amplified by AI systems; facial recognition now uses AI to track movement patterns, detect emotions, and identify political dissent in real time",
+      "<strong>Xinjiang surveillance</strong> — DNA collection, iris scans, gait recognition; Uyghur minority under totalitarian surveillance; 1 million+ detained in camps",
       "Facial recognition required for: SIM card purchase, plane tickets, train tickets, bank accounts, internet access, and apartment entry",
       "WeChat and Alipay use analysed by authorities — all digital communications are monitored",
-      "China Tech firms (Huawei, Alibaba, Hikvision) export surveillance systems to 80+ countries"
+      "China Tech firms (Huawei, Alibaba, Hikvision) export surveillance systems to 80+ countries — globalizing the model"
     ]},
     rl:{ level:"red", items:[
       "<strong>Sinicization policy</strong> — all religions must express 'patriotic' content; churches required to display Xi Jinping quotes alongside Scripture",
@@ -1235,8 +1364,8 @@ const COUNTRIES = {
       "China is building the most complete economic control system in history — <strong>the operational model for the mark of the beast</strong>",
       "e-CNY + Social Credit + facial recognition = a government that can prevent any person from buying or selling",
       "This has ALREADY been used against Christians: house church members' bank accounts frozen, travel banned",
-      "China exports its surveillance technology to developing countries — globalizing the control infrastructure",
-      "Project mBridge positions e-CNY as an alternative to SWIFT — a competing global beast-system",
+      "China exports its surveillance technology to developing countries — globalizing the control infrastructure to 80+ nations",
+      "<strong>Project mBridge (now China-led, without BIS)</strong> — positions e-CNY as an alternative to SWIFT for cross-border settlement; 72+ countries now in advanced CBDC phase globally, creating a parallel global financial system that could bypass Western sanctions infrastructure",
       "Daniel 11:44 connects to 'kings of the East' — China's rise is in the prophetic timeline"
     ]}
   },
@@ -1279,9 +1408,10 @@ const COUNTRIES = {
       "Sunday rest is civil, not religious — though colonial Christian heritage embedded it"
     ]},
     cbdc:{ level:"orange", items:[
-      "<strong>Digital Rupee (e₹)</strong> — Reserve Bank of India launched retail CBDC pilot December 2022",
+      "<strong>Digital Rupee (e₹)</strong> — Reserve Bank of India launched retail CBDC pilot December 2022; now the <strong>world's 2nd largest CBDC pilot</strong> (Atlantic Council, 2025)",
+      "<strong>₹10.16 billion in circulation by March 2025 — up 334% from 2024</strong>; growing faster than any other CBDC pilot globally",
       "Wholesale digital rupee operational for government securities settlement",
-      "India plans full digital rupee rollout by 2026",
+      "India plans full digital rupee rollout by 2026 — legislative framework being developed",
       "UPI (Unified Payments Interface) — 300 million users; most advanced real-time payment system in the world (200+ million transactions/day)",
       "India Tech Act modifying payment laws to mandate digital transaction reporting"
     ]},
@@ -1289,6 +1419,7 @@ const COUNTRIES = {
       "<strong>Aadhaar</strong> — world's largest biometric database: 1.38 billion iris scans, fingerprints, and photos",
       "Aadhaar linked to: bank accounts, welfare payments, SIM cards, income tax, health records, voter ID, driving license",
       "Supreme Court ruled Aadhaar constitutional but banned mandatory private-sector use — government continues expanding linkage",
+      "<strong>360-degree citizen profiling</strong>: Andhra Pradesh and Telangana are using Aadhaar-linked data across agencies to create full 360° profiles of every citizen — other states following the model (Wikipedia, Mass Surveillance in India)",
       "Aadhaar authentication failures have left millions unable to access food rations — people have died of starvation",
       "India's facial recognition network connecting 42 million CCTV cameras under NATGRID project"
     ]},
@@ -1372,10 +1503,12 @@ const COUNTRIES = {
 
   AU: {
     name:"Australia", flag:"🇦🇺", lat:-25, lng:134, r:26, level:"orange",
-    summary:"Australia passed the world's most controversial Digital ID Act in 2024. The government demonstrated willingness to debank political opponents during COVID (church groups lost banking access). Australia is developing a CBDC and is a member of Five Eyes global intelligence sharing.",
+    summary:"Australia passed the world's most controversial Digital ID Act in 2024, along with a global-first Right to Disconnect law encoding the right to rest. The government demonstrated willingness to debank political opponents during COVID (church groups lost banking access). Australia is developing a CBDC and is a member of Five Eyes global intelligence sharing.",
     sl:{ level:"blue", items:[
       "Shopping Hours Act varies by state — some states restrict Sunday trading hours",
       "Western Australia still has some of the strongest Sunday trading restrictions among developed nations",
+      "<strong>Right to Disconnect — Feb 12, 2024</strong>: Australia passed the Fair Work Legislation Amendment (Closing Loopholes No. 2) Bill 2024, granting all employees the legal right to refuse work-related communications outside of work hours. The Fair Work Commission oversees enforcement. Australia becomes one of the most significant non-European nations to encode a right to disconnect — effectively a legally mandated daily rest boundary.",
+      "<strong>Smartphone ban for children under 16 — Nov 2024</strong>: Australia enacted the world's strictest children's smartphone ban, influenced by psychologist Jonathan Haidt's research (*The Anxious Generation*). Haidt publicly cites the need for a 'phone-free childhood' citing technology's disruption of rest, sleep, and Sabbath-like offline time. Australia joins Brazil, France, and other nations in this global movement.",
       "Catholic and Protestant churches maintain cultural Sunday observance pressure"
     ]},
     cbdc:{ level:"orange", items:[
@@ -1606,6 +1739,9 @@ function selectCountry(key) {
 
   document.getElementById('p-summary').textContent = c.summary || '';
 
+  // Open mobile bottom-sheet when a country is selected
+  if (window._mobileOpenPanel) window._mobileOpenPanel(c.flag + ' ' + c.name);
+
   // Set active tab
   const startTab = (activeCat !== 'all' && c[activeCat]) ? activeCat : 'sl';
   document.querySelectorAll('.p-tab').forEach(t => {
@@ -1699,6 +1835,42 @@ if (location.hash) {
     }, 800);
   }
 }
+
+/* ── Mobile panel bottom-sheet control ────────────────────── */
+(function() {
+  const panel     = document.getElementById('panel');
+  const handle    = document.getElementById('panel-handle');
+  const closeBtn  = document.getElementById('panel-close');
+  const handleLbl = document.getElementById('handle-label');
+
+  function isMobile() { return window.innerWidth <= 800; }
+
+  function openPanel(label) {
+    if (!isMobile()) return;
+    if (label) handleLbl.textContent = label;
+    panel.classList.add('open');
+  }
+  function closePanel() {
+    panel.classList.remove('open');
+    handleLbl.textContent = 'Tap a country on the map';
+  }
+
+  // Handle bar tap: toggle open/closed
+  handle.addEventListener('click', () => {
+    if (!isMobile()) return;
+    panel.classList.contains('open') ? closePanel() : openPanel();
+  });
+
+  // Close button tap
+  closeBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    closePanel();
+  });
+
+  // Expose so selectCountry() can call
+  window._mobileOpenPanel = openPanel;
+  window._mobileClosePanel = closePanel;
+})();
 </script>
 </body>
 </html>
