@@ -149,37 +149,20 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 .lvl-green .ring{background:rgba(56,161,105,.35)}
 .lvl-gray .dot{background:#718096}
 
-/* ── Mobile — Full-screen slide-up panel ────────────────── */
-/* Hidden on desktop; shown as sticky bar inside the panel on mobile */
+/* ── Mobile ──────────────────────────────────────────────── */
 #panel-handle{display:none}
+#mob-open{display:none}
 
 @media(max-width:800px){
   #map{right:0;bottom:0;top:90px}
 
-  /* Panel = full-screen overlay, hidden below the screen by default */
-  #panel{
-    position:fixed;
-    top:0;left:0;right:0;bottom:0;
-    width:100%;height:100%;
-    border-left:none;
-    border-radius:0;
-    transform:translateY(100%);
-    transition:transform .3s ease-out;
-    z-index:9000;
-    overflow:hidden;
-  }
-  /* Slide into view */
-  #panel.open{transform:translateY(0)}
-
-  /* Sticky back-button bar at top of panel */
+  /* Panel handle shown on mobile as sticky top bar (styled via this CSS;
+     position/size/transform controlled entirely by JS inline styles) */
   #panel-handle{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
     flex-shrink:0;
-    position:sticky;
-    top:0;
-    z-index:1;
     height:54px;
     padding:0 14px;
     background:linear-gradient(135deg,#0f1420,#161b2e);
@@ -187,26 +170,42 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
   }
   #panel-back{
     display:flex;align-items:center;gap:6px;
-    padding:6px 12px;
-    background:rgba(201,162,39,.12);
-    border:1px solid rgba(201,162,39,.3);
-    border-radius:6px;
+    padding:7px 14px;
+    background:rgba(201,162,39,.15);
+    border:1px solid rgba(201,162,39,.35);
+    border-radius:8px;
     color:#c9a227;font-size:13px;font-weight:700;
     cursor:pointer;
     touch-action:manipulation;
     -webkit-tap-highlight-color:transparent;
-    white-space:nowrap;
-    flex-shrink:0;
+    white-space:nowrap;flex-shrink:0;
   }
   #handle-label{
-    flex:1;
-    font-size:14px;font-weight:700;color:#eaeef8;
+    flex:1;font-size:14px;font-weight:700;color:#eaeef8;
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
 
-  /* Panel body scrollable on iOS */
+  /* Floating open-panel button on map */
+  #mob-open{
+    display:flex;
+    position:fixed;
+    bottom:24px;right:16px;
+    z-index:8000;
+    align-items:center;gap:8px;
+    padding:13px 20px;
+    background:#c9a227;
+    border:none;border-radius:32px;
+    color:#0c0f1a;font-size:13px;font-weight:800;
+    cursor:pointer;
+    box-shadow:0 4px 24px rgba(201,162,39,.55);
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  /* Panel internal scrolling */
+  #panel-welcome{padding:20px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #panel-content{overflow:hidden auto;-webkit-overflow-scrolling:touch}
   #p-body{-webkit-overflow-scrolling:touch}
-  #panel-welcome{padding:20px}
 
   #legend{display:none}
   #hdr h1 .long{display:none}
@@ -252,6 +251,8 @@ html,body{height:100%;font-family:'Segoe UI',system-ui,sans-serif;background:#0c
 
 <!-- Map -->
 <div id="map"></div>
+<!-- Mobile floating button to open the country panel -->
+<button id="mob-open" aria-label="Open country panel">🌍 Countries</button>
 
 <!-- Detail Panel -->
 <div id="panel">
@@ -1831,36 +1832,60 @@ if (location.hash) {
   }
 }
 
-/* ── Mobile panel full-screen control ─────────────────────── */
+/* ── Mobile panel — fully JS-driven (inline styles = max specificity) ── */
 (function() {
-  const panel    = document.getElementById('panel');
-  const backBtn  = document.getElementById('panel-back');
-  const handleLbl = document.getElementById('handle-label');
-  if (!backBtn) return;
+  var panel    = document.getElementById('panel');
+  var backBtn  = document.getElementById('panel-back');
+  var lbl      = document.getElementById('handle-label');
+  var fabOpen  = document.getElementById('mob-open');
+
+  function isMob() { return window.innerWidth <= 800; }
+
+  /* Apply the full-screen position & off-screen transform via inline styles.
+     Inline styles beat ALL stylesheet rules regardless of specificity. */
+  function mobileInit() {
+    if (!isMob()) {
+      /* Restore desktop inline style overrides */
+      panel.removeAttribute('style');
+      return;
+    }
+    panel.style.cssText = [
+      'position:fixed',
+      'top:0', 'left:0', 'right:0', 'bottom:0',
+      'width:100%', 'height:100%',
+      'border-left:none', 'border-radius:0',
+      'overflow:hidden auto',
+      'z-index:9000',
+      'transition:transform 0.35s ease-out',
+      'transform:translateY(100%)'
+    ].join(';');
+  }
 
   function openPanel(label) {
-    if (label) handleLbl.textContent = label;
-    panel.classList.add('open');
-    // Prevent map scrolling while panel is open
-    document.body.style.overflow = 'hidden';
+    if (!isMob()) return;
+    if (label) lbl.textContent = label;
+    panel.style.transform = 'translateY(0)';
+    if (fabOpen) fabOpen.style.display = 'none';
   }
+
   function closePanel() {
-    panel.classList.remove('open');
-    handleLbl.textContent = 'Select a country';
-    document.body.style.overflow = '';
+    panel.style.transform = 'translateY(100%)';
+    lbl.textContent = 'Select a country';
+    if (fabOpen) fabOpen.style.display = '';
   }
 
-  // click only — touch-action:manipulation on the button eliminates 300ms delay
-  backBtn.addEventListener('click', closePanel);
+  mobileInit();
+  window.addEventListener('resize', mobileInit);
 
-  // Close panel automatically when a guide/document link is tapped
+  if (backBtn) backBtn.addEventListener('click', closePanel);
+  if (fabOpen) fabOpen.addEventListener('click', function() { openPanel(); });
+
+  /* Auto-close when a study guide link is tapped */
   panel.addEventListener('click', function(e) {
-    if (e.target.closest('.guide-link')) {
-      closePanel();
-    }
+    if (e.target.closest('.guide-link')) closePanel();
   });
 
-  window._mobileOpenPanel = openPanel;
+  window._mobileOpenPanel  = openPanel;
   window._mobileClosePanel = closePanel;
 })();
 </script>
