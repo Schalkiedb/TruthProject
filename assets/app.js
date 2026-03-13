@@ -348,6 +348,14 @@ function getSourceDocumentKind(filePath) {
   return isPdfFile(filePath) ? "pdf" : isSourceImageFile(filePath) ? "image" : "file";
 }
 
+function openInNativeViewer(filePath) {
+  const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
+  const popup = window.open(encodedPath, "_blank", "noopener,noreferrer");
+  if (!popup) {
+    window.location.href = encodedPath;
+  }
+}
+
 function rebuildAllItems() {
   ALL_ITEMS = LIBRARY.flatMap((section) =>
     section.items.map((item) => ({ ...item, sectionLabel: section.section })),
@@ -942,6 +950,15 @@ function showError(msg) {
 
 /* ── Load & Render Document ───────────────────────────────── */
 async function loadDocument(filePath) {
+  const isMobile = window.innerWidth <= 900;
+
+  // Mobile PDF behaviour: open in the browser's native viewer so users can
+  // scroll all pages reliably (iOS Safari iframe PDF is often first-page only).
+  if (isPdfFile(filePath) && isMobile) {
+    openInNativeViewer(filePath);
+    return;
+  }
+
   showLoading();
 
   // Find index in flat list
@@ -979,7 +996,7 @@ async function loadDocument(filePath) {
     return;
   }
 
-  // Source files (PDF/images) — open in native browser viewer inside iframe
+  // Source files (PDF/images) — desktop keeps in-app iframe viewer
   if (isPdfFile(filePath) || isSourceImageFile(filePath)) {
     const iframe = document.getElementById("doc-iframe");
     const contentEl = document.getElementById("doc-content");
