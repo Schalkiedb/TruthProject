@@ -330,6 +330,9 @@ const SOURCE_DOCS_SECTION_ID = "source-documents-catholic";
 const SOURCE_DOCS_ROOT = "Supporting Documents/";
 const SOURCE_DOCS_MANIFEST = "assets/source-documents-catholic.json";
 const SOURCE_DOCS_IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg"];
+const INFOGRAPHICS_SECTION_ID = "infographics";
+const INFOGRAPHICS_ROOT = "infographics/";
+const INFOGRAPHICS_MANIFEST = "assets/infographics-manifest.json";
 
 function isPdfFile(filePath) {
   return String(filePath).toLowerCase().endsWith(".pdf");
@@ -346,6 +349,50 @@ function isSourceDocumentFile(filePath) {
 
 function getSourceDocumentKind(filePath) {
   return isPdfFile(filePath) ? "pdf" : isSourceImageFile(filePath) ? "image" : "file";
+}
+
+function isInfographicFile(filePath) {
+  return String(filePath).toLowerCase().endsWith(".html");
+}
+
+function toTitleCase(value) {
+  return String(value)
+    .split(" ")
+    .map((word) => (word ? word[0].toUpperCase() + word.slice(1) : word))
+    .join(" ");
+}
+
+function formatInfographicTitle(filePath) {
+  const fileName = decodeURIComponent(filePath.split("/").pop() || filePath).replace(/\.html$/i, "");
+  const cleaned = fileName.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+  const match = cleaned.match(/^infographic\s*(\d+)\s*(.*)$/i);
+
+  if (match) {
+    const number = match[1];
+    const remainder = match[2] ? ` — ${toTitleCase(match[2])}` : "";
+    return `Infographic ${number}${remainder}`;
+  }
+
+  return toTitleCase(cleaned);
+}
+
+function sortInfographicFiles(paths) {
+  return [...paths].sort((a, b) => {
+    const aName = decodeURIComponent(a.split("/").pop() || a).toLowerCase();
+    const bName = decodeURIComponent(b.split("/").pop() || b).toLowerCase();
+    const aMatch = aName.match(/^infographic(\d+)/);
+    const bMatch = bName.match(/^infographic(\d+)/);
+
+    if (aMatch && bMatch) {
+      const aNum = Number(aMatch[1]);
+      const bNum = Number(bMatch[1]);
+      if (aNum !== bNum) return aNum - bNum;
+      return aName.localeCompare(bName);
+    }
+    if (aMatch && !bMatch) return -1;
+    if (!aMatch && bMatch) return 1;
+    return aName.localeCompare(bName);
+  });
 }
 
 function shouldUseNativePdfViewer() {
@@ -474,6 +521,87 @@ async function loadSourceDocumentManifest() {
   }
 }
 
+async function discoverInfographicFiles(rootDir) {
+  const visitedDirs = new Set();
+  const foundFiles = new Set();
+  const rootNormalized = decodeURIComponent(rootDir).replace(/\\/g, "/");
+
+  async function crawl(dirPath) {
+    const normalizedDir = decodeURIComponent(dirPath)
+      .replace(/\\/g, "/")
+      .replace(/\/+$/, "") + "/";
+
+    if (visitedDirs.has(normalizedDir)) return;
+    visitedDirs.add(normalizedDir);
+
+    let html = "";
+    try {
+      const response = await fetch(encodeURI(normalizedDir), { cache: "no-store" });
+      if (!response.ok) return;
+      html = await response.text();
+    } catch {
+      return;
+    }
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const hrefs = [...doc.querySelectorAll("a[href]")]
+      .map((anchor) => anchor.getAttribute("href") || "")
+      .filter(Boolean);
+
+    const baseUrl = new URL(encodeURI(normalizedDir), window.location.href);
+
+    for (const href of hrefs) {
+      if (
+        href.startsWith("../") ||
+        href.startsWith("#") ||
+        href.startsWith("?") ||
+        /^[a-z]+:/i.test(href)
+      ) {
+        continue;
+      }
+
+      let resolvedPath = "";
+      try {
+        resolvedPath = decodeURIComponent(
+          new URL(href, baseUrl).pathname.replace(/^\/+/, ""),
+        );
+      } catch {
+        continue;
+      }
+
+      if (!resolvedPath.toLowerCase().startsWith(rootNormalized.toLowerCase())) {
+        continue;
+      }
+
+      if (href.endsWith("/") || resolvedPath.endsWith("/")) {
+        await crawl(resolvedPath);
+      } else if (isInfographicFile(resolvedPath)) {
+        foundFiles.add(resolvedPath);
+      }
+    }
+  }
+
+  await crawl(rootDir);
+  return sortInfographicFiles(foundFiles);
+}
+
+async function loadInfographicsManifest() {
+  try {
+    const response = await fetch(INFOGRAPHICS_MANIFEST, { cache: "no-store" });
+    if (!response.ok) return [];
+
+    const json = await response.json();
+    if (!Array.isArray(json)) return [];
+
+    return json
+      .map((entry) => String(entry || "").trim().replace(/\\/g, "/"))
+      .filter((entry) => isInfographicFile(entry));
+  } catch {
+    return [];
+  }
+}
+
 async function populateSourceDocumentsSection() {
   const sourceSection = LIBRARY.find((section) => section.id === SOURCE_DOCS_SECTION_ID);
   if (!sourceSection) return;
@@ -513,6 +641,49 @@ async function populateSourceDocumentsSection() {
   rebuildAllItems();
 }
 
+async function populateInfographicsSection() {
+  const section = LIBRARY.find((entry) => entry.id === INFOGRAPHICS_SECTION_ID);
+  if (!section) return;
+
+  const existingMeta = new Map(section.items.map((item) => [normalise(item.file), item]));
+  const existingFiles = section.items.map((item) => item.file);
+
+  let discovered = [];
+  let manifestFiles = [];
+
+  try {
+    discovered = await discoverInfographicFiles(INFOGRAPHICS_ROOT);
+  } catch (error) {
+    console.warn("Infographic discovery failed:", error);
+  }
+
+  try {
+    manifestFiles = await loadInfographicsManifest();
+  } catch (error) {
+    console.warn("Infographic manifest load failed:", error);
+  }
+
+  const mergedFiles = sortInfographicFiles(
+    new Set([...existingFiles, ...discovered, ...manifestFiles]),
+  );
+
+  section.items = mergedFiles.map((filePath) => {
+    const existing = existingMeta.get(normalise(filePath));
+    if (existing) return { ...existing, file: filePath };
+
+    return {
+      title: formatInfographicTitle(filePath),
+      file: filePath,
+      icon: "🗺️",
+      tag: "Visual",
+      tagClass: "blue",
+      desc: "Auto-discovered infographic.",
+    };
+  });
+
+  rebuildAllItems();
+}
+
 let currentIndex = -1;
 let infographicRefitTimer = null;
 let sourceRefreshInProgress = false;
@@ -535,6 +706,7 @@ async function refreshSourceDocuments() {
 
   try {
     await populateSourceDocumentsSection();
+    await populateInfographicsSection();
     buildSidebar();
     buildHomeCards();
 
@@ -1150,10 +1322,15 @@ async function loadDocument(filePath) {
       err.message.includes("Failed to fetch") ||
       err.message.includes("NetworkError")
     ) {
+      const currentOrigin =
+        window.location.origin && window.location.origin !== "null"
+          ? window.location.origin
+          : "";
       showError(
-        "Could not fetch the document. This website must be served through a local server " +
-          "(not opened directly as a file). Run start_server.bat (Windows) or " +
-          '"python -m http.server 8080" in this folder, then open http://localhost:8080',
+        "Could not fetch the document. The local server appears to be unreachable. " +
+          (currentOrigin ? `Current preview URL: ${currentOrigin}. ` : "") +
+          "Run start_server.bat (Windows) or " +
+          '"python -m http.server 3030" in this folder, then open http://localhost:3030',
       );
     } else {
       showError(err.message);
@@ -1424,6 +1601,11 @@ async function initApp() {
     await populateSourceDocumentsSection();
   } catch (error) {
     console.warn("Could not auto-load source PDFs:", error);
+  }
+  try {
+    await populateInfographicsSection();
+  } catch (error) {
+    console.warn("Could not auto-load infographics:", error);
   }
   buildSidebar();
   buildHomeCards();

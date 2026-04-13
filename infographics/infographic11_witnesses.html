@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hall of Witnesses — Sabbath Keepers Through the Ages</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #07060B;
+    --ink2: #0D0B14;
+    --ink3: #130F1A;
+    --gold: #C8A84A;
+    --gold-hi: #EDD98A;
+    --gold-lo: #7A6020;
+    --blood: #8B1A1A;
+    --fire: #C84010;
+    --exile: #1A3868;
+    --prison: #3A2808;
+    --book: #1A4820;
+    --warn: #705010;
+    --text: rgba(240,232,210,0.95);
+    --text-dim: rgba(220,210,185,0.65);
+    --text-faint: rgba(200,190,160,0.40);
+    --red-badge: #C02020;
+    --orange-badge: #C86010;
+    --green-badge: #207040;
+    --blue-badge: #204878;
+    --w: 1400px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+  @page { size: A2 landscape; margin: 10mm; }
+
+  html, body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 13px;
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  /* ── NOISE GRAIN ── */
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:1000;
+  }
+
+  /* ── VIGNETTE ── */
+  body::after {
+    content:'';
+    position:fixed; inset:0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.6) 100%);
+    pointer-events:none; z-index:999;
+  }
+
+  .page {
+    max-width: var(--w);
+    margin: 0 auto;
+    padding: 32px 36px 48px;
+    position: relative;
+  }
+
+  /* ── HEADER ── */
+  .hdr {
+    text-align: center;
+    padding: 32px 0 28px;
+    border-bottom: 1px solid rgba(200,168,74,0.25);
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .hdr::before, .hdr::after {
+    content: '';
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+    width: 80%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hdr::before { top: 0; }
+  .hdr::after  { bottom: 0; }
+
+  .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-lo);
+    margin-bottom: 10px;
+  }
+  .main-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold-hi);
+    line-height: 1.15;
+    text-shadow: 0 0 60px rgba(200,168,74,0.35);
+    margin-bottom: 8px;
+  }
+  .sub-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .intro {
+    max-width: 860px;
+    margin: 0 auto;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  /* ── ERA DIVIDERS ── */
+  .era-block {
+    margin-bottom: 36px;
+  }
+  .era-hdr {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(200,168,74,0.18);
+  }
+  .era-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .era-dot.blood   { background: var(--blood); box-shadow: 0 0 8px var(--blood); }
+  .era-dot.fire    { background: var(--fire); box-shadow: 0 0 8px var(--fire); }
+  .era-dot.exile   { background: var(--exile); box-shadow: 0 0 8px var(--exile); }
+  .era-dot.chain   { background: var(--prison); box-shadow: 0 0 8px rgba(180,120,40,0.6); }
+  .era-dot.book    { background: var(--book); box-shadow: 0 0 8px rgba(40,140,80,0.5); }
+  .era-dot.gold    { background: var(--gold); box-shadow: 0 0 8px rgba(200,168,74,0.6); }
+
+  .era-name {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .era-dates {
+    font-family: 'EB Garamond', serif;
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-left: auto;
+  }
+
+  /* ── WITNESS GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .grid.three  { grid-template-columns: repeat(3, 1fr); }
+  .grid.two    { grid-template-columns: repeat(2, 1fr); }
+  .grid.five   { grid-template-columns: repeat(5, 1fr); }
+
+  /* ── WITNESS CARD ── */
+  .card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(200,168,74,0.12);
+    border-top: 3px solid var(--card-accent, rgba(200,168,74,0.3));
+    padding: 12px 13px 11px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .card:hover { background: rgba(255,255,255,0.042); }
+  .card.martyred    { --card-accent: var(--blood); }
+  .card.burned      { --card-accent: var(--fire); }
+  .card.exiled      { --card-accent: var(--exile); }
+  .card.imprisoned  { --card-accent: var(--prison); }
+  .card.drowned     { --card-accent: #1A4868; }
+  .card.survived    { --card-accent: var(--book); }
+  .card.suppressed  { --card-accent: #505020; }
+
+  .fate-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    margin-bottom: 7px;
+    font-weight: 700;
+  }
+  .fb-martyred   { background: rgba(139,26,26,0.35);  color: #FF8080; border: 1px solid rgba(139,26,26,0.5); }
+  .fb-burned     { background: rgba(200,64,16,0.3);   color: #FFA060; border: 1px solid rgba(200,64,16,0.5); }
+  .fb-exiled     { background: rgba(26,56,104,0.4);   color: #80A8E0; border: 1px solid rgba(26,56,104,0.5); }
+  .fb-drowned    { background: rgba(16,56,104,0.4);   color: #70B0E0; border: 1px solid rgba(16,56,104,0.5); }
+  .fb-imprisoned { background: rgba(80,50,8,0.5);     color: #D0A060; border: 1px solid rgba(100,70,20,0.5); }
+  .fb-beheaded   { background: rgba(100,0,0,0.4);     color: #FF7070; border: 1px solid rgba(120,10,10,0.5); }
+  .fb-suppressed { background: rgba(60,60,20,0.4);    color: #C8C860; border: 1px solid rgba(80,80,20,0.4); }
+  .fb-survived   { background: rgba(20,80,40,0.35);   color: #70D090; border: 1px solid rgba(30,100,50,0.4); }
+  .fb-drawn      { background: rgba(120,20,20,0.4);   color: #FF8090; border: 1px solid rgba(150,20,20,0.5); }
+  .fb-hanged     { background: rgba(80,20,20,0.45);   color: #FF9090; border: 1px solid rgba(100,20,20,0.5); }
+  .fb-pilloried  { background: rgba(80,50,0,0.45);    color: #E0B060; border: 1px solid rgba(100,60,10,0.5); }
+  .fb-books-burned { background: rgba(40,60,20,0.4);  color: #A0C870; border: 1px solid rgba(50,70,20,0.4); }
+
+  .c-name {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold-hi);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .c-dates {
+    font-family: 'EB Garamond', serif;
+    font-size: 10.5px;
+    color: var(--text-faint);
+    margin-bottom: 5px;
+    font-style: italic;
+  }
+  .c-what {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+  }
+  .c-fate {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: var(--text);
+    padding-top: 5px;
+    border-top: 1px solid rgba(200,168,74,0.1);
+  }
+  .c-fate strong { color: var(--gold-hi); font-style: normal; }
+  .c-location {
+    font-size: 9.5px;
+    color: var(--text-faint);
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  /* ── SPECIAL WIDE CARD ── */
+  .card-wide {
+    grid-column: span 2;
+  }
+
+  /* ── SECTION CONTEXT BLOCKS ── */
+  .context-block {
+    background: rgba(200,168,74,0.05);
+    border-left: 3px solid var(--gold-lo);
+    padding: 10px 14px;
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
+  /* ── QUOTE BLOCK ── */
+  .pull-quote {
+    text-align: center;
+    padding: 22px 40px;
+    margin: 28px 0;
+    position: relative;
+  }
+  .pull-quote::before, .pull-quote::after {
+    content: '';
+    position: absolute;
+    left: 10%; width: 80%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,168,74,0.3), transparent);
+  }
+  .pull-quote::before { top: 0; }
+  .pull-quote::after  { bottom: 0; }
+  .pq-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: rgba(237,217,138,0.85);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .pq-source {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-lo);
+  }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(200,168,74,0.15);
+    margin: 28px 0;
+    overflow: hidden;
+  }
+  .stat-cell {
+    flex: 1;
+    padding: 14px 10px;
+    text-align: center;
+    border-right: 1px solid rgba(200,168,74,0.12);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-lbl {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(200,168,74,0.1);
+  }
+  .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .leg-pip {
+    width: 8px; height: 8px;
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(200,168,74,0.15);
+    font-size: 9px;
+    color: var(--text-faint);
+    line-height: 1.6;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { padding: 8mm; }
+    .card:hover { background: rgba(255,255,255,0.025); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="eyebrow">Truth Project — Prophetic Research Series · Infographic XI</div>
+    <div class="main-title">The Hall of Witnesses</div>
+    <div class="sub-title">Sabbath Keepers, Reformers & Martyrs · Pagan Rome to the Present · 135 AD – 2026 AD</div>
+    <p class="intro">Every individual and community documented as teaching, defending, or dying for the seventh-day Sabbath across nineteen centuries of suppression. Their crime was always the same: honouring the Fourth Commandment as written. Their persecutors changed — Rome, Constantinople, the Inquisition, Protestant kings, and American courts — but the pattern never did.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#FF7070">23+</span>
+      <span class="stat-lbl">Martyred / Executed</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#FFA060">12+</span>
+      <span class="stat-lbl">Burned at the Stake</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#80A8E0">18+</span>
+      <span class="stat-lbl">Exiled / Expelled</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#D0A060">31+</span>
+      <span class="stat-lbl">Imprisoned</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#C8C860">9+</span>
+      <span class="stat-lbl">Books Burned</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#EDD98A">1,900</span>
+      <span class="stat-lbl">Years of Suppression</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#70D090">0</span>
+      <span class="stat-lbl">Times the Sabbath Was Destroyed</span>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="leg-item"><div class="leg-pip" style="background:#FF7070"></div>Executed / Martyred</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#FFA060"></div>Burned at the Stake</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#FF9090"></div>Hanged / Drawn / Quartered</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#70B0E0"></div>Drowned</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#80A8E0"></div>Exiled / Expelled</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#D0A060"></div>Imprisoned</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#E0B060"></div>Pilloried / Publicly Tortured</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#A0C870"></div>Books/Writings Burned</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#C8C860"></div>Suppressed / Fined</div>
+    <div class="leg-item"><div class="leg-pip" style="background:#70D090"></div>Survived / Vindicated</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA I — PAGAN ROME (135–313 AD)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot blood"></div>
+      <div class="era-name">Era I — Pagan Rome's War on the Sabbath</div>
+      <div class="era-dates">135 AD – 313 AD</div>
+    </div>
+    <div class="context-block">
+      Emperor Hadrian's 135 AD edict banning Sabbath observance across the Roman Empire was the first state law in history to target Saturday worship. It was driven by anti-Jewish politics following the Bar Kokhba revolt — not theology. Jewish and Sabbath-keeping Gentile Christians alike were targeted. The penalty: death. The communities: scattered but not destroyed.
+    </div>
+    <div class="grid five">
+      <div class="card martyred">
+        <div class="fate-badge fb-martyred">Executed</div>
+        <div class="c-name">Bar Kokhba Revolt Sabbath-Keepers</div>
+        <div class="c-dates">135 AD</div>
+        <div class="c-what">Tens of thousands of Jews and Jewish Christians executed or enslaved after the Bar Kokhba Revolt. Sabbath observance banned empire-wide. Jerusalem renamed Aelia Capitolina — Jews and Sabbath-keepers forbidden to enter.</div>
+        <div class="c-fate"><strong>Fate:</strong> Mass execution, enslavement, exile from Jerusalem. Sabbath banned by imperial decree.</div>
+        <div class="c-location">Palestine / Judaea</div>
+      </div>
+      <div class="card martyred">
+        <div class="fate-badge fb-martyred">Martyred</div>
+        <div class="c-name">Nazarene Communities of Asia Minor</div>
+        <div class="c-dates">2nd–4th century</div>
+        <div class="c-what">Jewish Christians who kept both Torah and faith in Jesus — including the Sabbath. Documented by Epiphanius of Salamis (c. 375 AD) as still keeping Saturday in Asia Minor. Persecuted by Roman authorities and increasingly marginalised by Sunday-keeping Gentile churches.</div>
+        <div class="c-fate"><strong>Fate:</strong> Systematic marginalisation; communities eventually dispersed. Epiphanius calls them neither fully Jewish nor fully Christian — but acknowledges their Saturday observance continued into the 4th century.</div>
+        <div class="c-location">Asia Minor (modern Turkey)</div>
+      </div>
+      <div class="card exiled">
+        <div class="fate-badge fb-exiled">Displaced</div>
+        <div class="c-name">Ebionites</div>
+        <div class="c-dates">2nd–4th century</div>
+        <div class="c-what">Jewish Christian group keeping Torah including the Saturday Sabbath. Called heretics by Justin Martyr and Irenaeus. Expelled from mainstream Christianity while holding to original apostolic practice including Saturday worship.</div>
+        <div class="c-fate"><strong>Fate:</strong> Declared heretical; expelled from church communion. Communities survived in Syria and Transjordan into the 4th century before disappearing from historical record.</div>
+        <div class="c-location">Syria / Transjordan</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Survived — Vindicated</div>
+        <div class="c-name">Christians of Gaul — Letter from the Churches</div>
+        <div class="c-dates">c. 177 AD</div>
+        <div class="c-what">Persecuted Christians in Gaul (modern France) under Marcus Aurelius wrote: "None can fully set forth the weight of our misery, the madness and rage of the Gentiles against the saints… their feet were dragged out and compressed to the utmost tension… several suffocated in prison." Sabbath was described as "the only comfort in their hard lives and the steps towards the kingdom of heaven."</div>
+        <div class="c-fate"><strong>Fate:</strong> Massacred in Lyon 177 AD. Blandina and companions tortured to death. Their letter preserved in Eusebius. The Sabbath comfort testimony survived.</div>
+        <div class="c-location">Lyon, Gaul (France)</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Survived Attempt</div>
+        <div class="c-name">Churches of Asia Minor (Polycarp Tradition)</div>
+        <div class="c-dates">2nd–3rd century</div>
+        <div class="c-what">Eastern churches — Smyrna, Ephesus, Sardis — observed Saturday as primary worship day alongside Sunday. Rejected Roman Easter dating. Victor of Rome (c. 195 AD) attempted to excommunicate all Asian churches for their different calendar. They refused to comply.</div>
+        <div class="c-fate"><strong>Fate:</strong> Victor's excommunication attempt failed — Irenaeus of Lyon publicly rebuked him. The East maintained independence. The refusal to submit to Rome on calendar matters preserved the Saturday tradition for two more centuries.</div>
+        <div class="c-location">Asia Minor / Eastern Mediterranean</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA II — CONSTANTINE & THE COUNCILS (313–600)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot fire"></div>
+      <div class="era-name">Era II — Constantine, the Councils & the Forced Transition</div>
+      <div class="era-dates">313 AD – 600 AD</div>
+    </div>
+    <div class="context-block">
+      The Council of Laodicea (364 AD) Canon 29 was the institutional death warrant for Saturday worship: "Christians shall not Judaize and be idle on Saturday… but shall work on that day; but the Lord's day they shall especially honour." Yet Socrates Scholasticus wrote in 440 AD that "almost all churches throughout the world celebrate the sacred mysteries on the Sabbath of every week." The law and the reality diverged completely.
+    </div>
+    <div class="grid four">
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Condemned</div>
+        <div class="c-name">Saturday-Keepers in Rome (c. 600 AD)</div>
+        <div class="c-dates">c. 590–604 AD</div>
+        <div class="c-what">A class of Sabbath-keeping Christians existed in the city of Rome itself — strict enough in their Saturday observance to anger Pope Gregory I. He wrote against "Roman citizens who forbid doing any work on the Sabbath day" and called teachers of seventh-day rest "prophets of the Antichrist."</div>
+        <div class="c-fate"><strong>Fate:</strong> Pope Gregory's decree. The community scattered. Their existence in Rome itself, 250 years after Constantine, proves the suppression was never total.</div>
+        <div class="c-location">Rome, Italy</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Condemned by Council</div>
+        <div class="c-name">Hypsistari / Sabbath-Keepers of Cappadocia</div>
+        <div class="c-dates">4th century</div>
+        <div class="c-what">A sect in Cappadocia (modern Turkey) who combined Jewish and Christian practices including Saturday Sabbath, rejecting idols and sacrifices. Documented by Gregory of Nazianzus, whose own father had been a member before converting. Gregory describes them as those who "honour the Sabbath."</div>
+        <div class="c-fate"><strong>Fate:</strong> Condemned by local councils. Gregory's description is one of the few sympathetic accounts of a Sabbath-keeping community in 4th-century Christian literature.</div>
+        <div class="c-location">Cappadocia (modern Turkey)</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Survived — Eastern Shield</div>
+        <div class="c-name">Ewostatewos of Ethiopia (1273–1352)</div>
+        <div class="c-dates">1273–1352 AD</div>
+        <div class="c-what">Ethiopian monk who championed the Saturday Sabbath within the Ethiopian Orthodox Church. Defended it to the Patriarch of Alexandria in person. When Abuna Yaqob opposed his views, he left Ethiopia — visiting Sudan, Cairo, Jerusalem, Cyprus, and finally settling in Armenia where he died in exile.</div>
+        <div class="c-fate"><strong>Fate:</strong> Voluntary exile to Armenia where he died September 23, 1352. His followers in Ethiopia were persecuted and confined to border regions. VINDICATED 98 years later: Emperor Zara Yaqob forced the Coptic Church to concede Saturday observance at the Council of Dabra Metmaq (1450). Canonised as a saint. His cause is still embodied in the Ethiopian Orthodox Church's dual-Sabbath practice today.</div>
+        <div class="c-location">Ethiopia / Armenia</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Survived — Never Reversed</div>
+        <div class="c-name">Arian Christians</div>
+        <div class="c-dates">4th–5th century</div>
+        <div class="c-what">A major 4th-century Christian movement. Socrates Scholasticus documents (Book 6, ch. 8) that Arians in Constantinople held Saturday assemblies alongside Sunday assemblies — maintaining both days. Their Saturday assemblies were "performed with great solemnity." When the Emperor expelled them from the city, they worshipped outside the walls — still keeping Saturday.</div>
+        <div class="c-fate"><strong>Fate:</strong> Condemned as heretical at Nicaea for theological reasons unrelated to the Sabbath. Their documented Saturday practice survived in Socrates' historical record — proving the dual-day tradition was mainstream, not fringe, in the 4th-5th century Eastern church.</div>
+        <div class="c-location">Constantinople</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <div class="pq-text">"Almost all churches throughout the world celebrate the sacred mysteries on the Sabbath of every week, yet the Christians of Alexandria and at Rome, on account of some ancient tradition, have ceased to do this."</div>
+    <div class="pq-source">— Socrates Scholasticus, Ecclesiastical History, c. 440 AD (Book 5, ch. 22) · Written from Constantinople</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA III — DARK AGES & THE CELTIC CHURCH (400–1100)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot exile"></div>
+      <div class="era-name">Era III — The Celtic Church & Dark Ages Survivors</div>
+      <div class="era-dates">400 AD – 1100 AD</div>
+    </div>
+    <div class="context-block">
+      The Celtic church — Ireland, Scotland, Wales, Iona, Iceland, the Faroes — kept Saturday for five centuries outside Rome's direct reach. Prof. James Moffat (Princeton): "It seems to have been customary in the Celtic churches to keep Saturday as a day of rest from labour." Prof. Andrew Lang: "They worked on Sunday, but kept Saturday in a Sabbatical manner." When Rome finally extended control, the installation of a Roman bishop was the mechanism of suppression — not military force.
+    </div>
+    <div class="grid five">
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Preserved — 500 Years</div>
+        <div class="c-name">St. Patrick (c. 387–461 AD)</div>
+        <div class="c-dates">c. 387–461 AD</div>
+        <div class="c-what">Ireland's patron saint, trained in the Celtic tradition of Saturday Sabbath. His own Confession contains no reference to Rome's authority over the calendar. Prof. Andrew Lang: Celtic Christians "worked on Sunday, but kept Saturday in a Sabbatical manner." Stories attributing Sunday-keeping to Patrick were written by Probus and Joscelyn c. 1130 AD — 500 years after his death — as retrospective claim-staking by Rome.</div>
+        <div class="c-fate"><strong>Fate:</strong> Died peacefully. His Saturday-keeping tradition survived in Ireland for 600+ more years. Rome's counter-narrative written 5 centuries later is the admission that the original needed covering.</div>
+        <div class="c-location">Ireland</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Preserved — Died at Peace</div>
+        <div class="c-name">St. Columba of Iona (c. 521–597 AD)</div>
+        <div class="c-dates">c. 521–597 AD</div>
+        <div class="c-what">Founded the monastery of Iona (563 AD) — the spiritual centre of Celtic Christianity. Deathbed words, June 9, 597 AD: "This day is called the Sabbath, that is, the rest day, and it is truly the Sabbath to me, for it will put an end to my labours." Butler's Lives of the Saints records this directly. From Iona, Celtic missionaries carried Saturday observance to Iceland and the Faroe Islands.</div>
+        <div class="c-fate"><strong>Fate:</strong> Died peacefully at Iona on a Saturday. His tradition survived for 500+ more years in the British Isles, Iceland, and the Faroe Islands before Rome's bishops arrived to suppress it.</div>
+        <div class="c-location">Iona, Scotland</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Preserved — Died in Mission</div>
+        <div class="c-name">Columbanus (c. 540–615 AD)</div>
+        <div class="c-dates">c. 540–615 AD</div>
+        <div class="c-what">Greatest Celtic missionary to the European continent. Founded monasteries in Burgundy, Switzerland, and Northern Italy. His direct quote on the Sabbath: "We are bidden to work on six days, but on the seventh which is the Sabbath, we are restrained from every servile work." Clashed repeatedly with the Roman Church over Celtic calendar practices.</div>
+        <div class="c-fate"><strong>Fate:</strong> Expelled from Burgundy by the Frankish bishops for refusing to conform to Rome. Died at Bobbio, Italy, 615 AD — still keeping the Celtic calendar. His monasteries continued for decades after his death.</div>
+        <div class="c-location">Ireland / Burgundy / Italy</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Suppressed by Roman Bishop</div>
+        <div class="c-name">Scottish Church Under Queen Margaret</div>
+        <div class="c-dates">c. 1070 AD</div>
+        <div class="c-what">Queen Margaret arrived in Scotland c. 1070 AD to find the entire nation "working on Sundays and keeping Saturday." She systematically replaced Celtic practices with Roman ones, backed by a Norman king. Saturday-keeping — practised across Scotland for 500+ years — was the explicit target.</div>
+        <div class="c-fate"><strong>Fate:</strong> Saturday-keeping driven out of Scotland through institutional pressure and the replacement of Celtic bishops with Roman appointments. No individual executions recorded — but a 500-year tradition was ended by royal decree within a generation.</div>
+        <div class="c-location">Scotland</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Suppressed — Last Celtic Holdout</div>
+        <div class="c-name">Church of Wales (to 1115 AD)</div>
+        <div class="c-dates">1115 AD</div>
+        <div class="c-what">Wales maintained Celtic Saturday observance until 1115 AD — when the first Roman bishop was installed at St. David's. The pattern: wherever Rome placed a bishop, Saturday-keeping ended within a generation. Wales was the last Celtic holdout on the British mainland.</div>
+        <div class="c-fate"><strong>Fate:</strong> Saturday practice eliminated through the installation of a Roman bishop at St. David's, 1115 AD. A 700-year tradition ended with an appointment. No violence recorded; institutional control achieved what persecution could not.</div>
+        <div class="c-location">Wales</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA IV — MEDIEVAL INQUISITION (1100–1500)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot fire"></div>
+      <div class="era-name">Era IV — The Medieval Inquisition: Fire and Sword</div>
+      <div class="era-dates">1100 AD – 1500 AD</div>
+    </div>
+    <div class="context-block">
+      Pope Lucius III's 1184 bull Ad Abolendam and Pope Innocent III's launch of the Albigensian Crusade (1209) institutionalised the suppression of Sabbath-adjacent movements. The Third Lateran Council (1179) condemned the Passagini by name. The Fourth Lateran Council (1215) mandated civic cooperation in hunting heretics. For 300 years, holding a different view of the Sabbath carried the death penalty across most of Europe.
+    </div>
+    <div class="grid four">
+      <div class="card burned card-wide">
+        <div class="fate-badge fb-burned">Crusade — Mass Killing</div>
+        <div class="c-name">The Passagini (Passagii / Insabbatati) — Northern Italy</div>
+        <div class="c-dates">c. 1150–1260 AD</div>
+        <div class="c-what">A distinct Sabbatarian movement in Lombardy — among the earliest groups to articulate sola scriptura. Kept the seventh-day Sabbath, refused circumcision of theology with Catholic practice. Named by Pope Lucius III's 1184 bull. Inquisitor Bonacursus (c. 1190) documented their Sabbath theology in detail: "Not a few, but many know what the errors of those called Passagini are." Condemned by the Third Lateran Council (1179) by name. Targeted in the Albigensian Crusade alongside Cathari and Waldenses.</div>
+        <div class="c-fate"><strong>Fate:</strong> Eradicated through the Albigensian Crusade (1209–1229) and the medieval Inquisition. No surviving institutional trace. Their theology was preserved only in the writings of their enemies. The Inquisitor's documentation of their Sabbath belief is the clearest proof that Saturday observance was their defining practice.</div>
+        <div class="c-location">Lombardy, Northern Italy</div>
+      </div>
+      <div class="card burned card-wide">
+        <div class="fate-badge fb-burned">Crusade — Tens of Thousands Killed</div>
+        <div class="c-name">The Cathari / Albigenses — Southern France</div>
+        <div class="c-dates">1209–1350 AD</div>
+        <div class="c-what">A major Christian reform movement in southern France and northern Italy. Catholic inquisitors documented their Sabbath-adjacent practices including rejection of Sunday feast days as papal inventions. Pope Innocent III launched the Albigensian Crusade in 1209. At the sack of Béziers (July 22, 1209), the papal legate was asked how to distinguish Cathars from Catholics. Reported response: "Kill them all — God will know his own." Estimated 20,000+ killed in one day. Raphael Lemkin (who coined "genocide") cited this as "one of the most conclusive cases of genocide in religious history."</div>
+        <div class="c-fate"><strong>Fate:</strong> The Albigensian Crusade and subsequent Inquisition killed tens of thousands and eradicated all discernible traces of Catharism by 1350. The last known Cathar perfectus, Guilhem Bélibaste, was burned at Villerouge-Termenès in 1321.</div>
+        <div class="c-location">Languedoc, Southern France</div>
+      </div>
+      <div class="card burned">
+        <div class="fate-badge fb-burned">Massacred</div>
+        <div class="c-name">The Waldensians (Valdesi / Insabbatati) — Alps</div>
+        <div class="c-dates">c. 1173 – Ongoing</div>
+        <div class="c-what">Named "Insabbatati" by Catholic inquisitors — Sabbath-keepers. Jesuit Inquisitor Francis Pegne cited their Sabbath observance "according to the custom of Jews." 12th-century Inquisitor Moneta of Cremona "railed against the Waldenses for seventh day sabbath keeping." The Piedmontese Easter massacre (April 24, 1655): 1,712 killed in one day in the Waldensian valleys. Oliver Cromwell raised funds across Protestant Europe for survivors. Six centuries of continuous persecution — crusades 1209, 1487; massacres 1488, 1545, 1655.</div>
+        <div class="c-fate"><strong>Fate:</strong> 600 years of attempted extermination — crusades, massacres, Inquisition — failed to destroy them. The Waldensian Church (Chiesa Valdese) exists to this day, merged with the Italian Methodist Church in 1975, as the living institutional descendant of medieval Sabbatarians.</div>
+        <div class="c-location">Piedmont, Northern Italy / Alps</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Condemned by Council</div>
+        <div class="c-name">Norse / Scandinavian Saturday-Keepers</div>
+        <div class="c-dates">1435–1544 AD</div>
+        <div class="c-what">Catholic Provincial Council of Bergen (1435): "We are informed that some people in different districts of the kingdom have adopted and observed Saturday-keeping… Saturday-keeping must under no circumstances be permitted hereafter." The phrase "we are informed" proves widespread practice. Archbishop Aslak Bolt issued follow-up prohibitions in 1436 and 1438. Civil Governor Christoffer Whitefeldt issued a civil enforcement ordinance in 1544.</div>
+        <div class="c-fate"><strong>Fate:</strong> Three levels of suppression across 109 years. Each successive attempt proved the previous failed. Bishop Anjou of Sweden records: "This zeal for Saturday-keeping continued for a long time; even little things which might strengthen the practice of keeping Saturday were punished." The communities survived into the Lutheran era.</div>
+        <div class="c-location">Norway / Sweden / Finland</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA V — THE REFORMATION (1500–1620)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot chain"></div>
+      <div class="era-name">Era V — The Reformation: Sabbath Truth Re-emerges Across Europe</div>
+      <div class="era-dates">1500 AD – 1620 AD</div>
+    </div>
+    <div class="context-block">
+      "When the Reformation had lifted the veil of darkness that covered the nations of Europe, Sabbath-keepers were found in Transylvania, Bohemia, Russia, Germany, Holland, France, and England. It was not the Reformation which gave existence to these Sabbatarians — on the contrary, these observers appear to be remnants of the ancient Sabbath-keeping churches that had witnessed for the truth during the Dark Ages." (J.N. Andrews, History of the Sabbath, 1862). Both Catholics AND Protestants persecuted them — proving the Sabbath had no institutional champion.
+    </div>
+    <div class="grid four">
+      <div class="card burned">
+        <div class="fate-badge fb-burned">Burned at Smithfield</div>
+        <div class="c-name">John Frith — England</div>
+        <div class="c-dates">c. 1503–1533</div>
+        <div class="c-what">Friend and collaborator of William Tyndale; assisted in translating the Bible into English. Explicitly questioned Sunday authority: "The Jews have the word of God for their Saturday, since it is the seventh day… we have not the word of God for us, but rather against us; for we keep not the seventh day as the Jews do, but the first, which is not commanded by God's law."</div>
+        <div class="c-fate"><strong>Fate:</strong> Burned at the stake at Smithfield, London, July 4, 1533. Age: approximately 30. One of the first English Reformation martyrs. His testimony on the Sabbath was preserved in the historical record by fellow reformers who held him in the highest esteem.</div>
+        <div class="c-location">London, England</div>
+      </div>
+      <div class="card drowned">
+        <div class="fate-badge fb-drowned">Drowned in the Danube</div>
+        <div class="c-name">Oswald Glait — Bohemia / Austria</div>
+        <div class="c-dates">c. 1490–1546</div>
+        <div class="c-what">Former Franciscan monk and Lutheran who became the first Anabaptist leader to explicitly teach seventh-day Sabbath observance. Wrote a groundbreaking book on Sabbath theology. Raised Sabbatarian communities across Bohemia and Moravia (1532). Convinced most Lutherans in Moravia to keep the Sabbath alongside Andreas Fischer. Erasmus of Rotterdam specifically referenced these German Sabbatarians in his letters, alarmed by their numbers.</div>
+        <div class="c-fate"><strong>Fate:</strong> Arrested in Austria in 1546. Drowned in the Danube. Left behind his wife and children. His companion Andreas Fischer was martyred in Slovakia. Martin Luther wrote an entire letter against them: "Against the Sabbatarians: Letter to a Good Friend" (1538) — the letter is the admission that the movement was too large to ignore.</div>
+        <div class="c-location">Austria / Bohemia / Moravia</div>
+      </div>
+      <div class="card burned">
+        <div class="fate-badge fb-burned">Executed</div>
+        <div class="c-name">Andreas Fischer — Slovakia</div>
+        <div class="c-dates">d. c. 1540</div>
+        <div class="c-what">Companion and fellow missionary of Oswald Glait. Carried Sabbath truth to Slovakia — the land of his birth. Raised Sabbatarian communities independently. Together with Glait, their movement was large enough that Martin Luther addressed it directly and Erasmus mentioned it in correspondence.</div>
+        <div class="c-fate"><strong>Fate:</strong> Martyred in Slovakia for his Sabbatarian beliefs. Date and method not precisely recorded. Both Catholics and Lutherans rose against the Sabbatarian Anabaptists simultaneously — two opposing confessions united only in suppressing Saturday.</div>
+        <div class="c-location">Slovakia</div>
+      </div>
+      <div class="card burned">
+        <div class="fate-badge fb-burned">Executed</div>
+        <div class="c-name">Barbara of Thiers — Holland / Germany</div>
+        <div class="c-dates">d. 1529</div>
+        <div class="c-what">Her final testimony before execution, preserved in the Martyrology of the Churches of Christ: "God has commanded us to rest on the seventh day." Among the clearest and most concise statements of Sabbatarian theology by a martyr. Executed in 1529 — six years before the Council of Bergen banned Saturday in Norway.</div>
+        <div class="c-fate"><strong>Fate:</strong> Executed 1529. Source: Martyrology of the Churches of Christ, commonly called Baptists, during the era of the Reformation, from the Dutch of T.J. Van Braght, London 1850, pp. 113–114.</div>
+        <div class="c-location">Holland / Germany</div>
+      </div>
+      <div class="card burned">
+        <div class="fate-badge fb-burned">Executed</div>
+        <div class="c-name">Christina Tolingerin — Germany</div>
+        <div class="c-dates">16th century</div>
+        <div class="c-what">Testimony preserved in the Reformation-era martyrologies: "Concerning holy days and Sundays, she said: 'In six days the Lord made the world, on the seventh day he rested. The other holy days have been instituted by popes, cardinals, and archbishops.'" Her statement is a precise two-sentence summary of the entire Sabbatarian theological argument.</div>
+        <div class="c-fate"><strong>Fate:</strong> Executed. Source: Martyrology of the Churches of Christ commonly called Baptists, from the Dutch of T.J. Van Braght.</div>
+        <div class="c-location">Germany</div>
+      </div>
+      <div class="card burned">
+        <div class="fate-badge fb-burned">Burned in Cages</div>
+        <div class="c-name">Kuritzyn, Ivan Maximow, Kassian — Russia</div>
+        <div class="c-dates">Executed Dec 27, 1503</div>
+        <div class="c-what">Leaders of the Russian Sabbatarian movement (Strigolniki). Kuritzyn was Secretary of State to Tsar Ivan III — the most powerful layman in Russia. When summoned to face charges, "they openly acknowledged the new faith, and defended the same." The movement had grown large enough to include the tsar's own state secretary.</div>
+        <div class="c-fate"><strong>Fate:</strong> Condemned to death at the Moscow Council (1503). Burned publicly in cages on December 27, 1503. Source: H. Sternberf, Geschichte der Juden (Leipzig, 1873), pp. 117–122. The movement continued despite this execution.</div>
+        <div class="c-location">Moscow, Russia</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Death Penalty Enacted</div>
+        <div class="c-name">Swedish-Finnish Sabbatarians</div>
+        <div class="c-dates">1554–1632</div>
+        <div class="c-what">King Gustavus I of Sweden wrote directly to Saturday-keeping communities in Finland in 1554: "Some time ago we heard that some people in Finland had fallen into a great error and observed the seventh day, called Saturday." King Gustavus II (1594–1632) invoked the death penalty against Sabbath-keepers. Bishop Anjou: "This zeal for Saturday-keeping continued for a long time; even little things which might strengthen the practice of keeping Saturday were punished."</div>
+        <div class="c-fate"><strong>Fate:</strong> Death penalty imposed 1594–1632. Many gave their lives rather than recant. The three-layer suppression — Catholic, then Lutheran ecclesiastical, then Lutheran civil — across 78 years is the most sustained national anti-Sabbath campaign in Scandinavian history.</div>
+        <div class="c-location">Sweden / Finland</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Vindicated — Still Exists</div>
+        <div class="c-name">András Eőssi — Transylvania (1520s–1599)</div>
+        <div class="c-dates">c. 1520s–1599</div>
+        <div class="c-what">Hungarian nobleman who became the leader of the Sabbatarian movement in Transylvania. Under the Edict of Torda (1568) — the first law of religious tolerance in European history — Sabbatarians briefly had legal protection in Transylvania. Eőssi gathered 20,000 followers in the Székely region. After his death, the movement was driven underground. The village of Bözödújfalu became a Sabbatarian stronghold for 350 years — until Communist dictator Ceaușescu flooded it with a reservoir in 1988 to destroy the community.</div>
+        <div class="c-fate"><strong>Fate:</strong> Eőssi died 1599. His followers endured repeated persecution. The Bohemia-Moravia Sabbatarians' books and writings were confiscated and burned by the Karlsburg Consistory (1635–1867). Joseph II's Edict of Tolerance (1782) did NOT apply to Sabbatarians; many again lost all possessions. The village of Bözödújfalu physically flooded by Communist regime in 1988 — the final act of 400 years of suppression.</div>
+        <div class="c-location">Transylvania (Romania)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA VI — ENGLAND & THE SEVENTH DAY BAPTISTS (1617–1700)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot chain"></div>
+      <div class="era-name">Era VI — England: Pilloried, Imprisoned, Hanged, and Drawn</div>
+      <div class="era-dates">1617 AD – 1700 AD</div>
+    </div>
+    <div class="context-block">
+      England produced the most documented individual case histories of Sabbath persecution in the 17th century. The Star Chamber, the Court of High Commission, and the laws against Dissenters combined to make Saturday observance a prosecutable offence. Eleven Sabbatarian churches flourished in England by 1700 — despite continuous persecution.
+    </div>
+    <div class="grid four">
+      <div class="card pilloried">
+        <div class="fate-badge fb-pilloried">Pilloried · Whipped · Imprisoned</div>
+        <div class="c-name">John Trask — London</div>
+        <div class="c-dates">c. 1585–1636</div>
+        <div class="c-what">Began teaching seventh-day Sabbath in London c. 1617. Brought before the infamous Star Chamber — Archbishop Laud presiding. Bishop Andrews introduced a new argument there: that early martyrs were tested by the question "Hast thou kept the Lord's Day?" — the first use of this argument in history.</div>
+        <div class="c-fate"><strong>Fate:</strong> "Sentenced, on account of his being a Sabbatarian, to be set upon the pillory at Westminster, and from thence to be whipped to the Fleet prison" — about two miles of public whipping. Imprisoned for three years. Eventually recanted under duress. His wife Dorothy refused to recant.</div>
+        <div class="c-location">London, England</div>
+      </div>
+      <div class="card imprisoned">
+        <div class="fate-badge fb-imprisoned">15 Years' Imprisonment — Died in Prison</div>
+        <div class="c-name">Dorothy Trask — London</div>
+        <div class="c-dates">d. c. 1645</div>
+        <div class="c-what">Wife of John Trask. When her husband recanted, she refused. Her "crime": continuing to observe the seventh-day Sabbath and observe Old Testament dietary laws. Kept in Fleet prison for fifteen years for refusing to abandon Saturday observance. Described by contemporaries as a woman of exceptional courage and conviction.</div>
+        <div class="c-fate"><strong>Fate:</strong> Fifteen years in Fleet prison. Died in prison — still refusing to recant. One of the most sustained individual imprisonments for Sabbath observance in English history. Her husband's recantation is remembered; her death in prison is not.</div>
+        <div class="c-location">Fleet Prison, London</div>
+      </div>
+      <div class="card books-burned">
+        <div class="fate-badge fb-books-burned">Book Burned by Church Order</div>
+        <div class="c-name">James Ockford — London</div>
+        <div class="c-dates">c. 1600–1660</div>
+        <div class="c-what">Published "The Doctrine of the Fourth Commandment, Deformed by Popery, Reformed and Restored to its Primitive Purity" (c. 1642). The title is the entire argument. Closely familiar with the Trask and Brabourne cases — wrote his book in direct response to what he saw as their forced recantations.</div>
+        <div class="c-fate"><strong>Fate:</strong> Book burned by order of authorities in the established Church. Ockford himself not imprisoned — but his work's destruction represents the institutional determination to eliminate Sabbatarian literature. The Mill Yard Church he helped establish in London (c. 1650) became the first formal Seventh Day Baptist congregation in the world.</div>
+        <div class="c-location">London, England</div>
+      </div>
+      <div class="card hanged">
+        <div class="fate-badge fb-drawn">Hanged · Drawn · Quartered</div>
+        <div class="c-name">John James — London</div>
+        <div class="c-dates">c. 1620–1661</div>
+        <div class="c-what">Pastor of London's seventh-day Mill Yard congregation. A poor silk weaver. On October 19, 1661, while preaching from Revelation 11:15, Justice Chard and a headborough entered and commanded him to be silent. James took no notice and continued preaching. Arrested for alleged treason against King Charles II — a pretext, as the Fifth Monarchist revolt of January 1661 had made the government hostile to any Sabbatarian dissenter.</div>
+        <div class="c-fate"><strong>Fate:</strong> Convicted and condemned. Hanged, drawn, and quartered — October 26, 1661. His head was placed on a pole above his congregation's meeting-house. His martyrdom is one of the most thoroughly documented of the decade (Crosby's History of the English Baptists). Stephen Mumford left London three years later (1664) as a missionary to Newport, Rhode Island — directly seeding the American Sabbatarian tradition.</div>
+        <div class="c-location">London, England</div>
+      </div>
+      <div class="card imprisoned">
+        <div class="fate-badge fb-imprisoned">Repeatedly Imprisoned</div>
+        <div class="c-name">Francis Bampfield — London</div>
+        <div class="c-dates">1615–1684</div>
+        <div class="c-what">Anglican minister who became a Seventh Day Baptist. Imprisoned multiple times for preaching without a license and for his Sabbatarian beliefs. His brother Thomas Bampfield, former Speaker of one of Cromwell's Parliaments, was also imprisoned for Sabbatarian views in Ilchester jail. Francis established a Sabbatarian congregation at Pinner's Hall, London.</div>
+        <div class="c-fate"><strong>Fate:</strong> Died in Newgate Prison, 1684. Imprisoned at least three separate times, including a 9-year stretch in Dorchester jail. Refused to give up Sabbath or preaching throughout. His congregation eventually merged with the Mill Yard Church.</div>
+        <div class="c-location">London / Dorset, England</div>
+      </div>
+      <div class="card imprisoned">
+        <div class="fate-badge fb-imprisoned">Imprisoned · Recanted · Returned</div>
+        <div class="c-name">Theophilus Brabourne — Norwich</div>
+        <div class="c-dates">c. 1590–c. 1662</div>
+        <div class="c-what">Anglican minister who published "A Defence of the most Ancient and Sacred Ordinance of God's, the Sabbath-day" (1632), dedicated to King Charles I requesting royal restoration of the Sabbath. Charles employed Dr. White (Bishop of Ely) to write against him and Dr. Heylyn to write the "History of the Sabbath." Brought before Archbishop Laud and the Court of High Commission.</div>
+        <div class="c-fate"><strong>Fate:</strong> Intimidated by Archbishop Laud into temporary submission. Recanted. Then returned to Sabbath advocacy and wrote further books. His recantation was extracted under coercion and did not hold. A congregation of Sabbatarians at Norwich was gathered under his oversight — still meeting after his death.</div>
+        <div class="c-location">Norwich, England</div>
+      </div>
+      <div class="card imprisoned">
+        <div class="fate-badge fb-imprisoned">Imprisoned — Died Destitute</div>
+        <div class="c-name">Edward Stennett — London</div>
+        <div class="c-dates">c. 1600–1705</div>
+        <div class="c-what">Published "The Royal Law Contended For" (1658). First of four generations of Stennett family Sabbatarian ministers. "He was an able and devoted minister, but dissenting from the established church, he was deprived of the means of support. He suffered much persecution… not only from those in power, by whom he was kept a long time in prison, but also much distress from unfriendly dissenting brethren who strove to destroy his influence." Published "The seventh Day is the Sabbath of the Lord" (1664).</div>
+        <div class="c-fate"><strong>Fate:</strong> Long imprisonment. Died impoverished but still in the faith. His descendants continued four generations of Sabbatarian ministry — the most sustained family advocacy for the Sabbath in British history.</div>
+        <div class="c-location">London, England</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Disinherited by Family</div>
+        <div class="c-name">John Purser — Natton, England</div>
+        <div class="c-dates">17th century</div>
+        <div class="c-what">Of considerable wealth and influence. When he kept the seventh-day Sabbath and became its minister at Natton, "he was disinherited by his father because he kept the seventh-day Sabbath." A different order of cost — not imprisonment or execution, but family destruction and loss of inheritance for the choice to honour the Fourth Commandment.</div>
+        <div class="c-fate"><strong>Fate:</strong> Disinherited. Continued ministry. Led the Natton Sabbatarian congregation with "the best of results." The economic cost of Saturday observance — long before Sunday laws made it a criminal matter — was already built into family and social structures.</div>
+        <div class="c-location">Natton, Gloucestershire, England</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PULL QUOTE 2 -->
+  <div class="pull-quote">
+    <div class="pq-text">"In six days the Lord made the world, on the seventh day He rested. The other holy days have been instituted by popes, cardinals, and archbishops."</div>
+    <div class="pq-source">— Christina Tolingerin, Martyr · Executed, 16th century Germany · Source: Martyrology of the Churches of Christ (Van Braght, 1660)</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA VII — AMERICA: COLONIAL TO CIVIL WAR (1664–1888)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot chain"></div>
+      <div class="era-name">Era VII — The New World: Suppression in the Land of Liberty</div>
+      <div class="era-dates">1664 AD – 1888 AD</div>
+    </div>
+    <div class="context-block">
+      Stephen Mumford arrived in Newport, Rhode Island in 1664 — three years after John James's execution — carrying Sabbatarian belief to the New World. By 1671 the first Seventh Day Baptist church in America was founded at Newport. By 1863 the Seventh-day Adventist Church was organised with 3,500 members. By 1888, a national Sunday Rest Bill came within one senator's vote of making Saturday-keeping economically suicidal across the entire United States.
+    </div>
+    <div class="grid five">
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Founded New World Tradition</div>
+        <div class="c-name">Stephen Mumford — Newport, RI</div>
+        <div class="c-dates">c. 1639–1707</div>
+        <div class="c-what">First Sabbath-keeper in America. Arrived from London 1664, three years after witnessing or being shaped by John James's martyrdom. Brought the conviction that "the whole of the ten commandments as delivered from Sinai are moral and immutable; and that it was the Antichristian power which thought to change times and laws that changed the Sabbath from the seventh to the first day."</div>
+        <div class="c-fate"><strong>Fate:</strong> Lived and died peacefully in Newport. Founded a community that grew into the Seventh Day Baptist General Conference (1802) and, through Rachel Oakes Preston (1801–1868), seeded the Saturday conviction that became the Seventh-day Adventist Church.</div>
+        <div class="c-location">Newport, Rhode Island</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Legally Persecuted — Pennsylvania</div>
+        <div class="c-name">German Seventh Day Baptists — Ephrata</div>
+        <div class="c-dates">1728–19th century</div>
+        <div class="c-what">Conrad Beissel, a German immigrant, founded the Ephrata community in Lancaster County, Pennsylvania (1728). "This people have suffered much persecution because of their observance of the seventh day, the laws of Pennsylvania being particularly oppressive toward Sabbatarians." Established a Sabbath-school 40 years before Robert Raikes introduced Sunday-schools.</div>
+        <div class="c-fate"><strong>Fate:</strong> Survived through the colonial and early republic periods despite Pennsylvania's oppressive Sabbatarian laws. Their institutional innovation — the Sabbath-school — was adopted by Sunday-keeping churches who didn't credit its Saturday-observing origin.</div>
+        <div class="c-location">Lancaster County, Pennsylvania</div>
+      </div>
+      <div class="card imprisoned">
+        <div class="fate-badge fb-martyred">100+ Prosecuted · Chain Gangs</div>
+        <div class="c-name">American Adventists — 16 States</div>
+        <div class="c-dates">1885–1896</div>
+        <div class="c-what">Over 100 Seventh-day Adventists prosecuted in 16 states for working on Sunday — their non-sacred day — after resting on Saturday. 1,438 total imprisonment days. 455 days on public chain gangs. $2,269 in fines. 21 prosecutions in Arkansas alone. Charges: hoeing potatoes, painting a church, cultivating corn on Sunday. Robert M. King died November 10, 1891 — heart attack while imprisoned; wife and six children left without support. The Henry County, Tennessee chain gang (July 18, 1892) was photographed and published — generating national outrage.</div>
+        <div class="c-fate"><strong>Fate:</strong> Thirteen men and women documented on chain gangs in the nation founded on religious liberty. The cases generated the founding of what became Liberty magazine (1886) — still published today. The American Sentinel (forerunner of Liberty) provided the blueprint for the 2026 NAD Religious Liberty Campaign.</div>
+        <div class="c-location">Tennessee · Arkansas · Virginia · California · 16 States</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Defeated By One Senator</div>
+        <div class="c-name">Alonzo T. Jones — Washington D.C.</div>
+        <div class="c-dates">1850–1923</div>
+        <div class="c-what">SDA minister and editor of American Sentinel who testified before the US Senate on December 13, 1888 against the Blair Sunday Rest Bill. The coalition behind the Blair Bill: National Reform Association, WCTU, Knights of Labor, Cardinal Gibbons, Methodist, Presbyterian, Baptist, and Lutheran denominations. Jones presented 260,000 opposing petition signatures — a three-foot stack. The bill failed by the opposition of a single senator on the last day of session.</div>
+        <div class="c-fate"><strong>Fate:</strong> Jones lived and continued writing. The Blair Bill was reintroduced December 9, 1889 — and again failed. One senator stood between America and a national Sunday law in 1888. In 2026, Heritage Foundation SR323 uses an identical mechanism — updated from criminal prosecution to overtime penalty, but targeting the same community.</div>
+        <div class="c-location">Washington D.C., United States</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Expelled from Church</div>
+        <div class="c-name">J.W. Morton — Haiti</div>
+        <div class="c-dates">19th century</div>
+        <div class="c-what">Sent by the Reformed Presbyterians as a missionary to Haiti in 1847. There he encountered Sabbatarian publications. After careful study, he concluded the seventh day was the Sabbath of the Lord. As an honest man, he immediately obeyed. Returned home to report his finding.</div>
+        <div class="c-fate"><strong>Fate:</strong> "Summarily expelled from the Reformed Presbyterian church without being suffered to state the reasons which had governed his decision." No hearing. No opportunity to present his evidence. Expelled for the honesty of informing his denomination of what he had found. The mechanism of suppression had evolved from execution to institutional exclusion — but the result was the same.</div>
+        <div class="c-location">Haiti / United States</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ERA VIII — MODERN ERA (1900–2026)
+  ════════════════════════════════════════════ -->
+  <div class="era-block">
+    <div class="era-hdr">
+      <div class="era-dot gold"></div>
+      <div class="era-name">Era VIII — Modern Era: Legal Cases, Workplace Discrimination & the Living Witnesses</div>
+      <div class="era-dates">1900 AD – 2026 AD</div>
+    </div>
+    <div class="context-block">
+      The mode of suppression shifted in the 20th century — from criminal prosecution to employment law. Sabbath-keepers lost jobs, promotions, and court cases for refusing Sunday work after resting on Saturday. TWA v. Hardison (1977) made it legally trivial for employers to refuse Sabbath accommodation. Groff v. DeJoy (2023) overturned 46 years of that precedent. GC of SDA v. Horton (2025) is on appeal at the 4th Circuit. The mechanism changes. The target remains the same.
+  </div>
+    <div class="grid four">
+      <div class="card imprisoned">
+        <div class="fate-badge fb-imprisoned">Imprisoned · Decades-Long Suppression</div>
+        <div class="c-name">Sabbatarians in Communist Eastern Europe</div>
+        <div class="c-dates">1945–1989</div>
+        <div class="c-what">Under Soviet-bloc communism, Saturday-keeping was suppressed as part of the broader anti-religious campaign. In Romania, SDA communities faced property confiscation, church closures, and imprisonment. The village of Bözödújfalu (Transylvania) — a Sabbatarian community since the 16th century — was physically flooded by Nicolae Ceaușescu in 1988; a reservoir was built over it to destroy the last living community of Transylvanian Sabbatarians.</div>
+        <div class="c-fate"><strong>Fate:</strong> Bözödújfalu flooded 1988. The community scattered. A 400-year tradition of Sabbatarian life in the Székely region ended not by burning or imprisonment but by engineering — the most physically total act of cultural suppression in Sabbatarian history.</div>
+        <div class="c-location">Romania / Eastern Europe</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Precedent — 46 Years of Harm</div>
+        <div class="c-name">TWA v. Hardison (US Supreme Court, 1977)</div>
+        <div class="c-dates">1977–2023</div>
+        <div class="c-what">The US Supreme Court ruled 7–2 that employers need only make a "de minimis" (trivially minimal) effort to accommodate religious Sabbath observance. For 46 years this made it legally easy for any employer to refuse Saturday-keeping employees any accommodation. Hundreds of thousands of Sabbath-keepers in the US workforce faced the choice: abandon Saturday or lose employment.</div>
+        <div class="c-fate"><strong>Fate:</strong> 46 years of legal suppression by a Supreme Court ruling that made Sabbath accommodation economically optional. OVERTURNED: Groff v. DeJoy (June 29, 2023) — unanimous ruling by the US Supreme Court. New standard: "substantial increased costs." The SDA General Conference and NAD filed amicus briefs. 46 years reversed in one decision.</div>
+        <div class="c-location">United States</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Overturned — Appeal Pending</div>
+        <div class="c-name">Gerald Groff (USPS Letter Carrier, Pennsylvania)</div>
+        <div class="c-dates">2017–2023</div>
+        <div class="c-what">USPS letter carrier who refused Sunday delivery shifts after Amazon contract began. Faced progressive discipline — warnings, suspension — for refusing Sunday work as a Sabbath-keeper. Resigned rather than violate his conscience. Filed suit. The case reached the US Supreme Court, which ruled unanimously in his favour on June 29, 2023.</div>
+        <div class="c-fate"><strong>Fate:</strong> Won. Unanimous Supreme Court ruling. New legal standard for religious accommodation across the US workforce. The case overturned 46 years of precedent that had made Sabbath-keeping economically perilous for every American worker.</div>
+        <div class="c-location">Pennsylvania, United States</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Active Case — 2025–2026</div>
+        <div class="c-name">General Conference of SDA v. Horton (Maryland)</div>
+        <div class="c-dates">2024–2026</div>
+        <div class="c-what">A Maryland case involving Sabbath accommodation by an SDA institutional employer. The GC of SDA itself was the defendant — unusual in that the case involves internal application of Sabbath accommodation principles. The church ruled against the complainant at the district court level (June 2025). The Becket Fund for Religious Liberty is representing the appellant.</div>
+        <div class="c-fate"><strong>Fate:</strong> Appealed to the 4th Circuit Court of Appeals, September 8, 2025. Decision expected 2026. The outcome will shape how post-Groff standards apply to religious institutional employers — a new frontier in Sabbath employment law.</div>
+        <div class="c-location">Maryland, United States</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Persecuted — Active</div>
+        <div class="c-name">Sabbath-Keepers in China (House Churches)</div>
+        <div class="c-dates">2018–Present</div>
+        <div class="c-what">The True Jesus Church — China's largest indigenous Sabbatarian body (2+ million members globally) — faces increasing pressure under Xi Jinping's 2018 religion law. House churches (unregistered) face raids, fines, and imprisonment. The same government that deploys the most advanced CBDC surveillance system on earth (e-CNY) classifies unregistered Saturday-keeping Christians as a threat to social stability.</div>
+        <div class="c-fate"><strong>Fate:</strong> Active suppression. Unregistered congregations raided; pastors imprisoned; members' social credit scores penalised for religious activity. The e-CNY programmable currency infrastructure — with confirmed spending restrictions and social scoring integration — creates the first technically operational infrastructure for the financial exclusion of Saturday-keepers in history.</div>
+        <div class="c-location">China</div>
+      </div>
+      <div class="card suppressed">
+        <div class="fate-badge fb-suppressed">Active Legal Campaign</div>
+        <div class="c-name">SDA Communities — Nigeria and DRC</div>
+        <div class="c-dates">Ongoing</div>
+        <div class="c-what">In Nigeria (largest SDA community in Africa) and the DRC, Saturday-keeping communities face workplace and community enforcement of Sunday rest laws — a colonial inheritance now reinforced by government and church. Government Sunday enforcement has created documented cases where SDA members have lost government employment for Sabbath observance.</div>
+        <div class="c-fate"><strong>Fate:</strong> Active and ongoing. Legal framework inherited from colonial Sunday laws is being reinforced rather than dismantled in both countries. The African Sabbatarian communities that represent the fastest-growing segment of the SDA church face the same structural discrimination as their 1880s American predecessors — loss of employment, not imprisonment, but the mechanism is identical.</div>
+        <div class="c-location">Nigeria · Democratic Republic of Congo</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Active Resistance — 2026</div>
+        <div class="c-name">SDA General Conference — Global</div>
+        <div class="c-dates">2026</div>
+        <div class="c-what">On January 18, 2026, Religious Liberty Sabbath, the SDA General Conference and NAD issued formal responses to SR323. The NAD launched a three-month Religious Liberty Campaign (Jan 10–March 31, 2026) distributing Liberty magazine to federal and state judges, elected officials, and policymakers — the most coordinated SDA counter-action since 1888. A national Religious Liberty Conference is scheduled August 20–22, 2026 in Berrien Springs, Michigan.</div>
+        <div class="c-fate"><strong>Fate:</strong> Active. Institutional memory intact. The same organisation that submitted 260,000 petition signatures to the Senate in 1888 is distributing Liberty magazine to the same class of recipients in 2026. The mechanism of advocacy is identical; only the medium — print magazine — and the century have changed.</div>
+        <div class="c-location">Global</div>
+      </div>
+      <div class="card survived">
+        <div class="fate-badge fb-survived">Independent Rediscovery — 2M+ Members</div>
+        <div class="c-name">True Jesus Church — China / Global</div>
+        <div class="c-dates">1909–Present</div>
+        <div class="c-what">In December 1909, Lin-Shen Chang, a Presbyterian deacon in Shandong, independently rediscovered the seventh-day Sabbath through Scripture — with no Adventist or Seventh Day Baptist contact. He shared the discovery with Paul Wei, who incorporated it as a founding tenet of the True Jesus Church (1918). Now 2+ million members globally — the largest indigenous Chinese Sabbatarian body and the largest non-SDA Sabbatarian institution outside Ethiopia.</div>
+        <div class="c-fate"><strong>Fate:</strong> Survives — despite Communist suppression from 1949, renewed pressure from 2018, and operating in the world's most advanced digital surveillance state. The 1840s Taiping rediscovery and the 1909 True Jesus Church rediscovery are two independent Chinese cases within 60 years — confirming the universal pattern: the Sabbath is not taught; it is rediscovered whenever people read the Bible for themselves.</div>
+        <div class="c-location">China / Taiwan / Global</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL PULL QUOTE -->
+  <div class="pull-quote">
+    <div class="pq-text">"Rome never succeeded in driving the Sabbath wholly from its dominions. We have reasons to believe that there have been Sabbath-keepers functioning in every century — some in the wildernesses, and some in and around the Alps."</div>
+    <div class="pq-source">— J.N. Andrews, History of the Sabbath and First Day of the Week (1862)</div>
+  </div>
+
+  <!-- CONCLUSION BLOCK -->
+  <div style="background:rgba(200,168,74,0.04);border:1px solid rgba(200,168,74,0.15);padding:22px 28px;margin:8px 0 28px;">
+    <div style="font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">The Pattern That Never Changes</div>
+    <p style="font-size:12.5px;line-height:1.75;color:var(--text-dim);">
+      Nineteen centuries. Seven eras. One pattern: whenever the Sabbath is taught, the institution in power — Roman pagan, Catholic, Protestant, Communist, or democratic — moves to suppress it. The tools change: execution, exile, imprisonment, employment law, social credit scoring. The target remains identical. And the suppression never works permanently. From the Nazarenes of Asia Minor to the True Jesus Church of China, every generation produces independent rediscovery — communities reading the Bible without institutional guidance and arriving at Saturday. The implication is theological: if the Sabbath had no divine authority, it would not require seventeen centuries of institutional effort to suppress. That effort is, itself, the strongest evidence for its importance.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Infographic XI · The Hall of Witnesses · Sabbath Keepers, Reformers & Martyrs · Pagan Rome to 2026 AD · Truth Project — Prophetic Research Series · Updated March 2026<br>
+    Sources: J.N. Andrews, History of the Sabbath and First Day of the Week (1862) · Martyrology of the Churches of Christ / Van Braght (1660) · Butler's Lives of the Saints · Socrates Scholasticus, Ecclesiastical History (c. 440 AD) · Eusebius, Church History · Bishop Anjou, Svenska Kirkans Historia · State Library at Helsingfors, Reichsregister (1554) · H. Sternberf, Geschichte der Juden (Leipzig, 1873) · J.N. Andrews citing Moscow Council records (1503) · Crosby's History of the English Baptists · Moffat, The Church in Scotland · O.A. Anderson, Monumenta Historica Norvegiae · Butler, Lives of the Fathers, Martyrs, and Principle Saints (St. Columba, 597 AD) · Bonacursus, Adversus Haereticos (c. 1190) · Wikipedia: Ewostatewos, Waldensians, Catharism, Albigensian Crusade · Britannica: Ewostatewos · Kelly McDonald Jr., The Passagini (Sabbath Sentinel, 2022) · Kelly McDonald Jr., Anabaptist Sabbatarians in 16th Century Germany (2021) · GCI Archive, From Sunday to Sabbath (2018) · Groff v. DeJoy, 600 U.S. 447 (2023) · SDA GC Religious Liberty Statement (Jan. 18, 2026) · NAD Liberty Magazine Campaign (Jan–March 2026) · China religious freedom reports 2018–2026 · Raphael Lemkin citation re Albigensian Crusade · Imsmessenger.org, Sabbath Reform (2002)
+  </div>
+
+</div>
+</body>
+</html>

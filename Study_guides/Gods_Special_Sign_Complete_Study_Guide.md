@@ -9,6 +9,12 @@ After studying the prophecies of Daniel and Revelation, after understanding who 
 
 **This isn't just another doctrine**—it's the sign of the covenant between God and His people. It's the memorial of Creation, the test of obedience, the seal of God's law, and the promise of rest for those who trust Him.
 
+Even voices outside traditional Sabbatarian circles have recognised what is at stake. Charlie Kirk, Turning Point USA founder, writes in *Stop in the Name of God*:
+
+> *"The Sabbath commandment is the longest, most detailed of the Ten, and the only one that explicitly identifies God as creator. It makes sense, then, that in an apocalyptic age defined by spiritual deception and false worship, the Sabbath would re-emerge as a sign of fidelity."*
+
+This is precisely what this study guide explores — **why** the Sabbath is God's special sign, and **why** it re-emerges at the centre of the final great controversy over worship.
+
 **Foundation Principle**: The Sabbath is God's special sign—a mark of His creative power, His sanctifying grace, and His covenant relationship with His people.
 
 **Study Methodology**: Let Scripture reveal when the Sabbath was established, who made it, why it matters, how it's observed, and what it means for God's end-time people.

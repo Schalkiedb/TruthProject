@@ -6,41 +6,68 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIR = REPO_ROOT / "Supporting Documents"
-OUTPUT_FILE = REPO_ROOT / "assets" / "source-documents-catholic.json"
-SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
+SOURCE_OUTPUT_FILE = REPO_ROOT / "assets" / "source-documents-catholic.json"
+INFOGRAPHICS_DIR = REPO_ROOT / "infographics"
+INFOGRAPHICS_OUTPUT_FILE = REPO_ROOT / "assets" / "infographics-manifest.json"
+SOURCE_SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
+INFOGRAPHICS_SUPPORTED_EXTENSIONS = {".html"}
 
 
-def collect_pdf_paths() -> list[str]:
-    if not SOURCE_DIR.exists():
+def collect_paths(directory: Path, extensions: set[str]) -> list[str]:
+    if not directory.exists():
         return []
 
-    pdfs = [
+    paths = [
         path.relative_to(REPO_ROOT).as_posix()
-        for path in SOURCE_DIR.rglob("*")
-        if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS
+        for path in directory.rglob("*")
+        if path.is_file() and path.suffix.lower() in extensions
     ]
-    pdfs.sort(key=str.casefold)
-    return pdfs
+    paths.sort(key=str.casefold)
+    return paths
 
 
-def write_manifest(paths: list[str]) -> bool:
+def write_manifest(output_file: Path, paths: list[str]) -> bool:
     content = json.dumps(paths, indent=2, ensure_ascii=False) + "\n"
-    old_content = OUTPUT_FILE.read_text(encoding="utf-8") if OUTPUT_FILE.exists() else ""
+    old_content = output_file.read_text(encoding="utf-8") if output_file.exists() else ""
     if old_content == content:
         return False
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_FILE.write_text(content, encoding="utf-8")
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    output_file.write_text(content, encoding="utf-8")
     return True
 
 
 def main() -> int:
-    pdfs = collect_pdf_paths()
-    changed = write_manifest(pdfs)
-    if changed:
-        print(f"Updated {OUTPUT_FILE.relative_to(REPO_ROOT).as_posix()} with {len(pdfs)} PDF entries.")
+    source_paths = collect_paths(SOURCE_DIR, SOURCE_SUPPORTED_EXTENSIONS)
+    source_changed = write_manifest(SOURCE_OUTPUT_FILE, source_paths)
+    if source_changed:
+        print(
+            "Updated "
+            f"{SOURCE_OUTPUT_FILE.relative_to(REPO_ROOT).as_posix()} "
+            f"with {len(source_paths)} source entries."
+        )
     else:
-        print(f"Manifest already up to date ({len(pdfs)} PDF entries).")
+        print(
+            "Manifest already up to date "
+            f"({len(source_paths)} source entries): "
+            f"{SOURCE_OUTPUT_FILE.relative_to(REPO_ROOT).as_posix()}"
+        )
+
+    infographic_paths = collect_paths(INFOGRAPHICS_DIR, INFOGRAPHICS_SUPPORTED_EXTENSIONS)
+    infographics_changed = write_manifest(INFOGRAPHICS_OUTPUT_FILE, infographic_paths)
+    if infographics_changed:
+        print(
+            "Updated "
+            f"{INFOGRAPHICS_OUTPUT_FILE.relative_to(REPO_ROOT).as_posix()} "
+            f"with {len(infographic_paths)} infographic entries."
+        )
+    else:
+        print(
+            "Manifest already up to date "
+            f"({len(infographic_paths)} infographic entries): "
+            f"{INFOGRAPHICS_OUTPUT_FILE.relative_to(REPO_ROOT).as_posix()}"
+        )
+
     return 0
 
 
