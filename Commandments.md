@@ -99,6 +99,13 @@ Splitting the 10th commandment into two restores the total count to ten, making 
 
 > **Note:** The Bible contains no record of God, Christ, or the Apostles commanding or authorizing this change. The Resurrection occurred on the first day, but no commandment to thereafter worship on that day is recorded in Scripture.
 
+**Why This Commandment Above All Others?** — A modern conservative voice articulates it well:
+
+> *"The Sabbath commandment is the longest, most detailed of the Ten, and the only one that explicitly identifies God as creator. It makes sense, then, that in an apocalyptic age defined by spiritual deception and false worship, the Sabbath would re-emerge as a sign of fidelity."*
+> — **Charlie Kirk**, *Turning Point USA Founder*, *Stop in the Name of God*
+
+This observation from a mainstream evangelical conservative is significant: even outside traditional Sabbatarian circles, thoughtful observers recognise that the 4th Commandment's unique identification of God as Creator makes it the natural battleground in the final great controversy over worship.
+
 ---
 
 ## The Removal of the 2nd Commandment — What Was Taken Out

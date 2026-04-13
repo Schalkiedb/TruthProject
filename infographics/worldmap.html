@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truth Project — Global Prophetic Intelligence Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<style>
+/* ══════════════════════════════════════════════════
+   ROOT TOKENS
+══════════════════════════════════════════════════ */
+:root {
+  --ink:       #06050A;
+  --ink2:      #0B0A10;
+  --ink3:      #100F18;
+  --panel:     #0C0B12;
+  --border:    rgba(180,155,80,0.22);
+  --border2:   rgba(180,155,80,0.08);
+  --gold:      #C8A84A;
+  --gold-hi:   #EDD98A;
+  --gold-lo:   #7A6425;
+  --gold-glow: rgba(200,168,74,0.35);
+  --parchment: #F0E8CC;
+
+  --c-red:     #D63030;
+  --c-orange:  #D4700C;
+  --c-yellow:  #C8A818;
+  --c-blue:    #2860AA;
+  --c-green:   #228840;
+  --c-teal:    #1A8878;
+  --c-neutral: #2A2838;
+
+  --r-red:     rgba(214,48,48,0.18);
+  --r-orange:  rgba(212,112,12,0.18);
+  --r-yellow:  rgba(200,168,24,0.18);
+  --r-blue:    rgba(40,96,170,0.18);
+  --r-green:   rgba(34,136,64,0.18);
+
+  --text:      rgba(240,232,204,0.9);
+  --text-mid:  rgba(240,232,204,0.6);
+  --text-dim:  rgba(240,232,204,0.38);
+
+  --panel-w:   420px;
+  --header-h:  56px;
+}
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+
+html, body {
+  width:100%; height:100%; overflow:hidden;
+  background:var(--ink);
+  color:var(--text);
+  font-family:'EB Garamond', Georgia, serif;
+  cursor:default;
+}
+
+/* ══ NOISE GRAIN OVERLAY ══ */
+body::after {
+  content:'';
+  position:fixed; inset:0; pointer-events:none; z-index:9999;
+  opacity:0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:256px 256px;
+}
+
+/* ══════════════ LAYOUT ══════════════ */
+#layout {
+  display:grid;
+  grid-template-rows: var(--header-h) 1fr;
+  grid-template-columns: 1fr var(--panel-w);
+  height:100vh;
+}
+
+/* ══════════════ HEADER ══════════════ */
+#hdr {
+  grid-column:1/-1;
+  background: linear-gradient(90deg,
+    #06050A 0%,
+    #0E0C16 30%,
+    #0E0C16 70%,
+    #06050A 100%);
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 28px;
+  position:relative; overflow:hidden;
+  z-index:100;
+}
+/* Gold ruled lines top/bottom of header */
+#hdr::before, #hdr::after {
+  content:'';
+  position:absolute; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold-lo), var(--gold), var(--gold-lo), transparent);
+}
+#hdr::before { top:0; }
+#hdr::after  { bottom:0; opacity:0.4; }
+
+.hdr-left { display:flex; flex-direction:column; gap:3px; }
+.hdr-eyebrow {
+  font-family:'Cinzel',serif;
+  font-size:8px; letter-spacing:5px; text-transform:uppercase;
+  color:var(--gold-lo);
+}
+.hdr-title {
+  font-family:'Cinzel Decorative',serif;
+  font-size:15px; letter-spacing:2px;
+  color:var(--gold-hi);
+  text-shadow:0 0 30px var(--gold-glow);
+}
+
+/* Legend */
+.hdr-legend {
+  display:flex; align-items:center; gap:18px;
+}
+.leg {
+  display:flex; align-items:center; gap:6px;
+  font-family:'Cinzel',serif; font-size:8px;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--text-dim);
+}
+.leg-pip {
+  width:9px; height:9px; border-radius:50%;
+  flex-shrink:0; position:relative;
+}
+.leg-pip::after {
+  content:''; position:absolute; inset:-3px;
+  border-radius:50%;
+  opacity:0.35;
+}
+.lp-red    { background:var(--c-red);    box-shadow:0 0 7px var(--c-red); }
+.lp-red::after    { background:var(--c-red); }
+.lp-orange { background:var(--c-orange); box-shadow:0 0 7px var(--c-orange); }
+.lp-yellow { background:var(--c-yellow); box-shadow:0 0 7px var(--c-yellow); }
+.lp-blue   { background:var(--c-blue);   box-shadow:0 0 7px var(--c-blue); }
+.lp-green  { background:var(--c-green);  box-shadow:0 0 7px var(--c-green); }
+
+/* ══════════════ MAP CONTAINER ══════════════ */
+#map-wrap {
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 60% at 45% 55%, #0D0C1A 0%, #06050A 75%);
+}
+
+/* Subtle vignette */
+#map-wrap::before {
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:2;
+  background:radial-gradient(ellipse 100% 100% at 50% 50%,
+    transparent 55%, rgba(6,5,10,0.7) 100%);
+}
+
+/* Latitude/longitude grid drawn by D3 */
+#map-svg {
+  display:block; width:100%; height:100%;
+  position:relative; z-index:1;
+}
+
+/* Country paths */
+.country {
+  stroke:#1C1A2A;
+  stroke-width:0.4;
+  transition:fill 0.2s, stroke 0.2s, stroke-width 0.15s;
+  cursor:pointer;
+}
+.country:hover {
+  stroke:var(--gold);
+  stroke-width:1.2;
+}
+.country.active {
+  stroke:var(--gold-hi);
+  stroke-width:1.5;
+}
+
+/* Threat fills */
+.t-critical { fill:#5A1010; }
+.t-high     { fill:#5A2E08; }
+.t-watch    { fill:#3A3008; }
+.t-monitor  { fill:#0C1E3A; }
+.t-good     { fill:#0C2E18; }
+.t-neutral  { fill:#13111E; }
+.t-dim      { fill:#0E0D16; opacity:0.35; }
+
+.country:hover.t-critical { fill:#8B1A1A; }
+.country:hover.t-high     { fill:#7A3E10; }
+.country:hover.t-watch    { fill:#5A4A0C; }
+.country:hover.t-monitor  { fill:#1A3060; }
+.country:hover.t-good     { fill:#1A4825; }
+.country:hover.t-neutral  { fill:#201D30; }
+.country:hover.t-dim      { fill:#1A1828; opacity:0.5; }
+
+.country:hover.t-critical { fill:#8B1A1A; }
+.country:hover.t-high     { fill:#7A3E10; }
+.country:hover.t-watch    { fill:#5A4A0C; }
+.country:hover.t-monitor  { fill:#1A3060; }
+.country:hover.t-good     { fill:#1A4825; }
+.country:hover.t-neutral  { fill:#201D30; }
+
+.country.active.t-critical { fill:#AA2020; }
+.country.active.t-high     { fill:#996018; }
+.country.active.t-watch    { fill:#886810; }
+.country.active.t-monitor  { fill:#2248A0; }
+.country.active.t-good     { fill:#287838; }
+.country.active.t-neutral  { fill:#302C48; }
+
+/* Graticule (grid lines) */
+.graticule {
+  fill:none;
+  stroke:rgba(180,155,80,0.06);
+  stroke-width:0.5;
+}
+.sphere { fill:#080712; }
+
+/* Pulsing beacon for critical */
+@keyframes beacon {
+  0%,100% { r:5; opacity:0.9; }
+  50%      { r:9; opacity:0.4; }
+}
+.beacon { pointer-events:none; }
+.beacon-ring {
+  fill:none;
+  stroke:var(--c-red);
+  stroke-width:1.2;
+  animation:beacon 2.2s ease-in-out infinite;
+}
+.beacon-dot {
+  fill:var(--c-red);
+  filter:drop-shadow(0 0 5px var(--c-red));
+}
+
+/* ══════════════ MAP CONTROLS ══════════════ */
+#controls {
+  position:absolute; bottom:20px; left:20px; z-index:10;
+  display:flex; flex-direction:column; gap:4px;
+}
+.ctrl-btn {
+  width:32px; height:32px;
+  background:rgba(6,5,10,0.88);
+  border:1px solid var(--border);
+  color:var(--gold);
+  font-size:18px; line-height:1;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.18s;
+  font-family:'Cinzel',serif;
+  user-select:none;
+}
+.ctrl-btn:hover {
+  background:rgba(200,168,74,0.12);
+  border-color:var(--gold);
+  box-shadow:0 0 12px rgba(200,168,74,0.2);
+}
+
+/* Stats overlay */
+#stats {
+  position:absolute; bottom:20px; right:calc(var(--panel-w) + 20px); z-index:10;
+  background:rgba(6,5,10,0.92);
+  border:1px solid var(--border);
+  padding:14px 16px; min-width:170px;
+  backdrop-filter:blur(8px);
+}
+.stats-title {
+  font-family:'Cinzel',serif; font-size:8px;
+  letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold-lo); margin-bottom:10px;
+  padding-bottom:6px;
+  border-bottom:1px solid var(--border2);
+}
+.stat-row {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:6px;
+}
+.stat-label {
+  font-family:'Cinzel',serif; font-size:8.5px;
+  letter-spacing:1px; text-transform:uppercase;
+  color:var(--text-dim); display:flex; align-items:center; gap:6px;
+}
+.stat-val {
+  font-family:'Cinzel',serif; font-size:13px; font-weight:700;
+}
+
+/* Category filters */
+#filters {
+  position:absolute; top:14px; left:14px; z-index:10;
+  display:flex; gap:5px; flex-wrap:wrap; max-width:340px;
+}
+.filt {
+  font-family:'Cinzel',serif; font-size:8px;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:5px 11px;
+  background:rgba(6,5,10,0.85);
+  border:1px solid rgba(180,155,80,0.2);
+  color:var(--text-dim); cursor:pointer;
+  transition:all 0.18s;
+  backdrop-filter:blur(4px);
+  user-select:none;
+}
+.filt:hover { border-color:var(--gold); color:var(--gold); }
+.filt.on {
+  background:rgba(200,168,74,0.14);
+  border-color:var(--gold);
+  color:var(--gold-hi);
+  box-shadow:inset 0 0 12px rgba(200,168,74,0.08);
+}
+
+/* Tooltip */
+#tip {
+  position:fixed; pointer-events:none; z-index:9000;
+  background:rgba(6,5,10,0.97);
+  border:1px solid var(--border);
+  padding:10px 14px; max-width:240px;
+  opacity:0; transition:opacity 0.12s;
+  backdrop-filter:blur(10px);
+}
+#tip::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.tip-name {
+  font-family:'Cinzel',serif; font-size:12px;
+  color:var(--gold-hi); margin-bottom:4px;
+}
+.tip-sub {
+  font-family:'Cinzel',serif; font-size:8px;
+  letter-spacing:1px; text-transform:uppercase;
+  color:var(--text-dim);
+}
+
+/* ══════════════ SIDE PANEL ══════════════ */
+#panel {
+  background:var(--panel);
+  border-left:1px solid var(--border);
+  overflow:hidden; display:flex; flex-direction:column;
+  position:relative;
+}
+/* Gold top line */
+#panel::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ── WELCOME ── */
+#welcome {
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:40px 28px; text-align:center;
+}
+.welcome-symbol {
+  font-size:48px; margin-bottom:22px;
+  animation:float 5s ease-in-out infinite;
+  filter:drop-shadow(0 0 20px rgba(200,168,74,0.5));
+}
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-10px); }
+}
+.welcome-hed {
+  font-family:'Cinzel',serif; font-size:13px;
+  letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:12px;
+}
+.welcome-body {
+  font-size:14px; line-height:1.8; color:var(--text-mid);
+  max-width:300px; margin-bottom:24px;
+}
+.welcome-hint {
+  font-family:'Cinzel',serif; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold-lo); padding:8px 18px;
+  border:1px solid var(--border);
+  animation:pulse-hint 3s ease-in-out infinite;
+}
+@keyframes pulse-hint {
+  0%,100% { border-color:rgba(180,155,80,0.22); }
+  50% { border-color:rgba(180,155,80,0.55); }
+}
+
+/* ── REGION DETAIL ── */
+#detail { display:none; flex-direction:column; height:100%; }
+
+/* Region header */
+.det-hdr {
+  padding:16px 20px 14px;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(200,168,74,0.07) 0%, transparent 100%);
+  flex-shrink:0;
+  position:relative;
+}
+.det-back {
+  font-family:'Cinzel',serif; font-size:8px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold-lo); cursor:pointer;
+  display:inline-flex; align-items:center; gap:5px;
+  margin-bottom:9px; transition:color 0.15s;
+}
+.det-back:hover { color:var(--gold); }
+.det-name {
+  font-family:'Cinzel Decorative',serif;
+  font-size:17px; color:var(--gold-hi);
+  letter-spacing:0.5px; margin-bottom:3px;
+  line-height:1.2;
+}
+.det-sub {
+  font-family:'Cinzel',serif; font-size:9px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--text-dim); margin-bottom:10px;
+}
+.det-badges {
+  display:flex; gap:5px; flex-wrap:wrap;
+}
+.badge {
+  font-family:'Cinzel',serif; font-size:7.5px;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:3px 8px;
+}
+.bd-red    { background:rgba(214,48,48,0.15);  border:1px solid rgba(214,48,48,0.4);  color:#EE9090; }
+.bd-orange { background:rgba(212,112,12,0.15); border:1px solid rgba(212,112,12,0.4); color:#EEA870; }
+.bd-yellow { background:rgba(200,168,24,0.15); border:1px solid rgba(200,168,24,0.4); color:#D8C050; }
+.bd-blue   { background:rgba(40,96,170,0.15);  border:1px solid rgba(40,96,170,0.4);  color:#88B8E8; }
+.bd-green  { background:rgba(34,136,64,0.15);  border:1px solid rgba(34,136,64,0.4);  color:#88D898; }
+
+/* Tabs */
+.tab-bar {
+  display:flex; border-bottom:1px solid var(--border);
+  background:var(--ink2); flex-shrink:0;
+  overflow-x:auto; scrollbar-width:none;
+}
+.tab-bar::-webkit-scrollbar { display:none; }
+.tab {
+  font-family:'Cinzel',serif; font-size:8px;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:10px 15px; cursor:pointer; white-space:nowrap;
+  color:var(--text-dim);
+  border-bottom:2px solid transparent;
+  transition:all 0.18s; flex-shrink:0;
+}
+.tab:hover { color:var(--gold); }
+.tab.on {
+  color:var(--gold-hi);
+  border-bottom-color:var(--gold);
+  background:rgba(200,168,74,0.06);
+}
+
+/* Tab content area */
+.tab-body {
+  flex:1; overflow-y:auto; padding:16px 18px;
+  scrollbar-width:thin; scrollbar-color:var(--gold-lo) transparent;
+}
+.tab-body::-webkit-scrollbar { width:3px; }
+.tab-body::-webkit-scrollbar-thumb { background:var(--gold-lo); }
+.tab-pane { display:none; }
+.tab-pane.on { display:block; }
+
+/* Intelligence cards */
+.icard {
+  position:relative; overflow:hidden;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(180,155,80,0.1);
+  margin-bottom:10px;
+  transition:border-color 0.18s;
+}
+.icard::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+}
+.ic-red::before    { background:var(--c-red); }
+.ic-orange::before { background:var(--c-orange); }
+.ic-yellow::before { background:var(--c-yellow); }
+.ic-blue::before   { background:var(--c-blue); }
+.ic-green::before  { background:var(--c-green); }
+.ic-teal::before   { background:var(--c-teal); }
+
+.icard:hover { border-color:rgba(180,155,80,0.25); }
+
+.ic-inner { padding:10px 12px 10px 15px; }
+.ic-date {
+  font-family:'Cinzel',serif; font-size:7.5px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold-lo); margin-bottom:4px;
+}
+.ic-title {
+  font-size:13.5px; font-weight:500; line-height:1.35;
+  color:var(--gold-hi); margin-bottom:6px;
+}
+.ic-text {
+  font-size:12.5px; line-height:1.7; color:var(--text-mid);
+}
+.ic-tags { display:flex; gap:5px; flex-wrap:wrap; margin-top:8px; }
+.ic-tag {
+  font-family:'Cinzel',serif; font-size:7px;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:2px 7px;
+}
+.tg-crit    { background:rgba(214,48,48,0.18);  color:#EE9090; border:1px solid rgba(214,48,48,0.3); }
+.tg-warn    { background:rgba(212,112,12,0.18); color:#EEA870; border:1px solid rgba(212,112,12,0.3); }
+.tg-watch   { background:rgba(40,96,170,0.18);  color:#88B8E8; border:1px solid rgba(40,96,170,0.3); }
+.tg-pos     { background:rgba(34,136,64,0.18);  color:#88D898; border:1px solid rgba(34,136,64,0.3); }
+.tg-pend    { background:rgba(200,168,24,0.18); color:#D8C050; border:1px solid rgba(200,168,24,0.3); }
+
+/* Quote block */
+.qblock {
+  border-left:3px solid var(--gold-lo);
+  padding:8px 12px; margin:8px 0;
+  background:rgba(200,168,74,0.04);
+  font-style:italic; font-size:12px; line-height:1.75;
+  color:var(--text-mid);
+}
+.qsrc {
+  font-style:normal; font-family:'Cinzel',serif;
+  font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--gold-lo); margin-top:5px; display:block;
+}
+
+/* Progress bar */
+.prog-wrap {
+  background:rgba(255,255,255,0.06); height:5px; margin:8px 0 4px;
+}
+.prog-bar {
+  height:100%; transition:width 0.8s ease;
+}
+.pb-r { background:linear-gradient(90deg, #8B1A1A, var(--c-red)); }
+.pb-o { background:linear-gradient(90deg, #6A3008, var(--c-orange)); }
+.pb-y { background:linear-gradient(90deg, #6A5808, var(--c-yellow)); }
+.pb-b { background:linear-gradient(90deg, #102050, var(--c-blue)); }
+.pb-g { background:linear-gradient(90deg, #0E3818, var(--c-green)); }
+.prog-lbl {
+  display:flex; justify-content:space-between;
+  font-family:'Cinzel',serif; font-size:8px;
+  color:var(--text-dim); letter-spacing:1px;
+}
+
+/* Scan line animation on map */
+@keyframes scan-line {
+  0%   { transform:translateY(-100%); opacity:0; }
+  10%  { opacity:1; }
+  90%  { opacity:0.6; }
+  100% { transform:translateY(200%); opacity:0; }
+}
+#scan {
+  position:absolute; left:0; right:0; height:1px; pointer-events:none; z-index:3;
+  background:linear-gradient(90deg, transparent, rgba(200,168,74,0.15), var(--gold), rgba(200,168,74,0.15), transparent);
+  animation:scan-line 10s linear infinite;
+  top:0;
+}
+</style>
+</head>
+<body>
+
+<div id="layout">
+
+  <!-- ══ HEADER ══ -->
+  <header id="hdr">
+    <div class="hdr-left">
+      <div class="hdr-eyebrow">Truth Project — Prophetic Research Series · Last updated: March 2026</div>
+      <div class="hdr-title">Global Prophetic Intelligence Map</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <select id="jump-select" onchange="jumpToRegion(this.value)" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;background:rgba(6,5,10,0.92);border:1px solid rgba(200,168,74,0.35);color:var(--text-dim);padding:5px 10px;cursor:pointer;outline:none;max-width:200px;" title="Jump to region">
+        <option value="">↗ Jump to Region…</option>
+        <optgroup label="── Critical ──" style="color:var(--c-red)">
+          <option value="156">China</option>
+          <option value="276">Germany</option>
+          <option value="380">Italy / Vatican</option>
+          <option value="840">United States</option>
+        </optgroup>
+        <optgroup label="── High Alert ──" style="color:var(--c-orange)">
+          <option value="036">Australia</option>
+          <option value="040">Austria</option>
+          <option value="076">Brazil</option>
+          <option value="191">Croatia</option>
+          <option value="300">Greece</option>
+          <option value="356">India</option>
+          <option value="499">Montenegro</option>
+          <option value="616">Poland</option>
+          <option value="620">Portugal</option>
+          <option value="724">Spain</option>
+          <option value="826">United Kingdom</option>
+        </optgroup>
+        <optgroup label="── Watch ──" style="color:var(--c-yellow)">
+          <option value="056">Belgium / EU HQ</option>
+          <option value="208">Denmark</option>
+          <option value="246">Finland</option>
+          <option value="250">France</option>
+          <option value="348">Hungary</option>
+          <option value="376">Israel</option>
+          <option value="392">Japan</option>
+          <option value="643">Russia</option>
+          <option value="410">South Korea</option>
+          <option value="578">Norway / Scandinavia</option>
+          <option value="752">Sweden</option>
+          <option value="792">Turkey</option>
+        </optgroup>
+        <optgroup label="── Monitor ──" style="color:#4070C0">
+          <option value="180">DRC</option>
+          <option value="566">Nigeria</option>
+          <option value="608">Philippines</option>
+          <option value="764">Thailand</option>
+        </optgroup>
+        <optgroup label="── Positive ──" style="color:#4A9060">
+          <option value="231">Ethiopia</option>
+          <option value="404">Kenya</option>
+          <option value="800">Uganda</option>
+        </optgroup>
+      </select>
+      <div class="hdr-legend">
+        <div class="leg"><div class="leg-pip lp-red"></div>Critical</div>
+        <div class="leg"><div class="leg-pip lp-orange"></div>High Alert</div>
+        <div class="leg"><div class="leg-pip lp-yellow"></div>Watch</div>
+        <div class="leg"><div class="leg-pip lp-blue"></div>Monitor</div>
+        <div class="leg"><div class="leg-pip lp-green"></div>Positive</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ MAP ══ -->
+  <div id="map-wrap">
+    <div id="scan"></div>
+
+    <div id="filters">
+      <div class="filt on"  onclick="setFilt(this,'all')">All</div>
+      <div class="filt" onclick="setFilt(this,'sabbath')">⛪ Sabbath</div>
+      <div class="filt" onclick="setFilt(this,'sunday')">☀ Sunday Laws</div>
+      <div class="filt" onclick="setFilt(this,'cbdc')">💳 CBDC</div>
+      <div class="filt" onclick="setFilt(this,'beast')">👁 Beast System</div>
+    </div>
+
+    <svg id="map-svg"></svg>
+
+    <div id="controls">
+      <div class="ctrl-btn" onclick="zoom(1.35)" title="Zoom In">+</div>
+      <div class="ctrl-btn" onclick="zoom(1/1.35)" title="Zoom Out">−</div>
+      <div class="ctrl-btn" onclick="resetView()" title="Reset" style="font-size:13px;font-family:'Cinzel',serif;">⌂</div>
+    </div>
+
+    <div id="stats">
+      <div class="stats-title">Threat Summary</div>
+      <div class="stat-row">
+        <div class="stat-label"><span style="color:var(--c-red)">●</span> Critical</div>
+        <div class="stat-val" style="color:var(--c-red)">4</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-label"><span style="color:var(--c-orange)">●</span> High Alert</div>
+        <div class="stat-val" style="color:var(--c-orange)">11</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-label"><span style="color:var(--c-yellow)">●</span> Watch</div>
+        <div class="stat-val" style="color:var(--c-yellow)">12</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-label"><span style="color:var(--c-blue)">●</span> Monitor</div>
+        <div class="stat-val" style="color:var(--c-blue)">4</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-label"><span style="color:var(--c-green)">●</span> Positive</div>
+        <div class="stat-val" style="color:var(--c-green)">3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PANEL ══ -->
+  <div id="panel">
+
+    <div id="welcome">
+      <div class="welcome-symbol">🌍</div>
+      <div class="welcome-hed">Select a Region</div>
+      <div class="welcome-body">
+        Click any highlighted country to open a deep intelligence brief — covering Sabbath history, Sunday law developments, CBDC rollout, persecution records, and beast system indicators. <strong style="color:var(--gold)">34 regions</strong> mapped across 6 continents. <span style="color:var(--c-red)">●</span> Critical · <span style="color:var(--c-orange)">●</span> High Alert · <span style="color:var(--c-yellow)">●</span> Watch · <span style="color:var(--c-blue)">●</span> Monitor · <span style="color:#4A9060">●</span> Positive
+      </div>
+      <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-top:12px;margin-bottom:6px;">New — March 2026 · 34 Regions</div>
+      <div style="font-size:10px;color:var(--text-dim);line-height:1.8;text-align:left;width:100%;padding:0 8px;">
+        🇫🇷 <strong style="color:var(--text)">France</strong> — Albigensian Crusade · Notre-Dame 2024 · Most active ECB CBDC participant<br>
+        🇭🇺 <strong style="color:var(--text)">Hungary</strong> — Only EU country to enact then <em>reverse</em> a Sunday law (2014–2016)<br>
+        🇧🇪 <strong style="color:var(--text)">Belgium</strong> — COMECE + ESA + SWIFT + BIS all headquartered here<br>
+        🇸🇪 <strong style="color:var(--text)">Sweden</strong> — e-Krona · &lt;9% cash · BankID 22 years ahead of EUDI Wallet<br>
+        🇳🇬 <strong style="color:var(--text)">Nigeria</strong> — First African CBDC · Cash elimination crisis 2023<br>
+        🇵🇭 <strong style="color:var(--text)">Philippines</strong> — Digital peso · Asia's most politically active Catholic bishops<br>
+        🇰🇪 <strong style="color:var(--text)">Kenya</strong> + 🇺🇬 <strong style="color:var(--text)">Uganda</strong> — East African Saturday belt fully documented<br>
+        + Groff v. DeJoy · Leo XIV 380M persecuted · Modi Sunday admission · UK Digital Pound Lab
+      </div>
+      <div class="welcome-hint">← Click any country · ↗ Use dropdown to jump</div>
+    </div>
+
+    <div id="detail">
+      <div class="det-hdr">
+        <div class="det-back" onclick="closeDetail()">← All Regions</div>
+        <div class="det-name" id="d-name"></div>
+        <div class="det-sub"  id="d-sub"></div>
+        <div class="det-badges" id="d-badges"></div>
+      </div>
+      <div class="tab-bar" id="d-tabs"></div>
+      <div class="tab-body" id="d-body"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Tooltip -->
+<div id="tip">
+  <div class="tip-name" id="tip-name"></div>
+  <div class="tip-sub"  id="tip-sub"></div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════
+//  REGION DATA
+// ════════════════════════════════════════════════════════
+const REGIONS = {
+
+  // ── USA ──────────────────────────────────────────────
+  "840": {
+    name:"United States",
+    sub:"North America",
+    threat:"critical",
+    badges:["bd-red:Sunday Law Push Active","bd-red:White House Faith Office","bd-orange:CBDC Paused by EO","bd-yellow:RL Campaign 2026"],
+    tabs:["sabbath","sunday","cbdc","persecution","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"1671 AD",title:"Newport, Rhode Island — First Seventh Day Baptist Church in America",text:"Stephen Mumford arrives from England's Mill Yard Church and founds the first continuous Saturday-keeping Baptist congregation in the New World. This church directly seeds the future Adventist movement 190 years later through Rachel Oakes Preston's influence on the Millerite preachers.",tags:["tg-pos:Historical Foundation"]},
+        {bar:"ic-green",date:"1844–1863",title:"Ellen White, Joseph Bates & the SDA Founding",text:"After the Great Disappointment of October 22, 1844, a small remnant independently rediscovers the Saturday Sabbath through scripture alone — unassisted by any tradition. The SDA Church is formally organised in Battle Creek, Michigan, May 21, 1863. Today 23,684,237 members in 200+ countries.",tags:["tg-pos:Bible-Only Rediscovery"]},
+        {bar:"ic-blue",date:"Jan 10 – Mar 31, 2026",title:"NAD Religious Liberty Campaign — Most Coordinated Response Since 1888",text:"Every SDA church in North America distributing Liberty magazine to federal and state judges, elected officials, and policymakers. The magazine was founded in 1886 as the American Sentinel — in direct response to the Blair Bill. In 2026, the same publication goes to the same recipients. The mechanism is identical; only the century has changed.",tags:["tg-watch:Active Now"]},
+        {bar:"ic-orange",date:"Feb 27, 2026",title:"Andrews University Religious Liberty Vespers — John Nay Quote",text:"Former US Ambassador John Nay (IRLA President) at Pi Sigma Alpha Vespers: \"If you wind up where he said, when truth doesn't matter, then that makes for a very dangerous time.\" Andrews University — the same institution that trained Alonzo T. Jones, who testified before the US Senate in 1888.",tags:["tg-warn:Warning Issued"]}
+      ],
+      sunday:[
+        {bar:"ic-red",date:"Jan 8, 2026",title:"Heritage Foundation 'Saving America' — Calls SR323 a 'Culture-Wide Manhattan Project'",text:"Heritage Foundation releases 'Saving America by Saving the Family' on January 8, 2026 (authored by Roger Severino & Jay W. Richards). Frames the Sunday rest proposal as a 'culture-wide Manhattan Project' (p. 6) needed before the nation's 250th anniversary July 4, 2026. FLSA amendment: time-and-a-half overtime for Sunday work creates economic pressure for closures without direct legislation. Language: 'God ordained the Sabbath as a day of rest' (p. 589). Explicitly cites McGowan v. Maryland (1961) as constitutional cover. The document itself undermines that defense by linking the law to curing 'spiritual homelessness' — which is a religious purpose the McGowan secular standard cannot shelter. SDA General Conference and NAD both issue formal responses.",tags:["tg-crit:Culture-Wide Manhattan Project — Published Jan 8 2026"]},
+        {bar:"ic-red",date:"Feb 7, 2025",title:"White House Faith Office — Permanent Executive Pipeline",text:"Paula White-Cain appointed director. Permanent pipeline from religious lobbies into the Domestic Policy Council. Signed the same day as the Task Force to Eradicate Anti-Christian Bias. SR323 now has an institutional receptor inside the executive branch.",tags:["tg-crit:Established By EO"]},
+        {bar:"ic-red",date:"Feb 7, 2025",title:"Task Force to Eradicate Anti-Christian Bias",text:"Signed at the 74th National Prayer Breakfast. DOJ/AG Pam Bondi mandate. Reviews every federal agency. 2-year funded. Reports to the President at 120 days, 1 year, and final. No equivalent task force exists for any other faith. Historical inversion: 1880s targeted Saturday-keepers; 2025 creates exclusive Christian executive protection.",tags:["tg-crit:No Equivalent For Any Other Faith"]},
+        {bar:"ic-red",date:"Jan 1, 2026",title:"\"Year of Celebration and Rededication\" Proclamation",text:"All of 2026 declared a national religious rededication. Bible cited as explicit basis. \"One Nation under God.\" Religious Freedom Day 2026 frames Christian participation as civic virtue, not personal choice — a departure from all prior neutral presidential language on religion.",tags:["tg-crit:Unprecedented Proclamation"]},
+        {bar:"ic-red",date:"Mar 2, 2026",title:"Bishop David Bard (UMC) — 'Sunday Closing Laws Supported Christian Churches'",text:"Bishop David Bard, Chair of the Committee on Faith and Order in the United Methodist Church (one of America's largest Protestant denominations), publicly calls for reviving civil structures that once 'played a beneficial role in supporting religious life.' Direct quote: 'Sunday closing laws were seen as support for Christian churches.' The UMC speaking openly about Sunday law restoration as a pastoral good is a theological permission structure for political action — the same role Cardinal Gibbons played in 1888.",tags:["tg-crit:UMC Bishop Publicly Endorses Sunday Closing Laws — March 2026"]},
+        {bar:"ic-red",date:"May 7 + May 17, 2026",title:"Two Federal Christian Events — 10 Days Apart (Unprecedented)",text:"National Day of Prayer (May 7) confirmed SEPARATE from Rededicate 250 (May 17 — 12-hour National Mall event). Announced at National Prayer Breakfast by Trump, Paula White-Cain, Speaker Johnson, Gov. Bill Lee — three branches, one stage. First time in modern US history two distinct federal Christian observances occur within 10 days.",tags:["tg-crit:First Time In Modern US History"]},
+        {bar:"ic-yellow",date:"Current",title:"Blue Law Infrastructure — 49 States Still Armed · McGowan (1961) Is the Shield",text:"49 states retain Sunday laws. 46 restrict alcohol. 17 restrict car sales. 22 prohibit legal procedures. Nebraska, Minnesota, and New York call Sunday 'the Sabbath' in statute. McGowan v. Maryland (1961) allows secular-framed Sunday laws as constitutional. Heritage cites McGowan explicitly — but their own document's language about 'spiritual homelessness' and 'religious observance' (p. 38) may inadvertently destroy the secular cover McGowan requires. SR323 is built on McGowan's foundation while simultaneously undermining it.",tags:["tg-warn:McGowan Legal Shield — Heritage's Language May Break It"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"Jul 2023 – Present",title:"FedNow — Real-Time Payment Rails (Not Yet CBDC)",text:"Federal Reserve FedNow launched July 2023. Not a retail CBDC — but represents the real-time settlement rails that a future retail CBDC would run on. The infrastructure layer exists.",prog:{pct:40,cls:"pb-o",lbl:"Phase 2 of 5 — Infrastructure Layer"}},
+        {bar:"ic-blue",date:"Jan 2025",title:"Trump EO Blocks Retail CBDC Development",text:"Trump's January 2025 Executive Order explicitly prohibits federal agencies from developing or promoting a retail CBDC. A significant reversal from Biden-era working groups. However, the wholesale layer (bank-to-bank) continues independently via BIS participation.",tags:["tg-watch:Retail Paused — Wholesale Continues"]},
+        {bar:"ic-orange",date:"July 18, 2025",title:"GENIUS Act SIGNED — Stablecoins Federally Regulated as Private CBDC Proxy",text:"Trump signed the GENIUS Act on July 18, 2025 — the first federal stablecoin framework. Simultaneously, the House passed the Anti-CBDC Surveillance State Act banning Federal Reserve retail CBDC issuance. Structural paradox: government bans state programmable money while creating federal infrastructure for private programmable money with identical capabilities. $200B+ stablecoins outstanding, 97% USD-pegged. Full AML/KYC surveillance requirements identical to a CBDC — only the issuer changes. The surveillance outcome is achieved without the political liability of 'government digital money.'",tags:["tg-crit:Signed Into Law — July 18, 2025"]},
+        {bar:"ic-red",date:"Ongoing",title:"Project mBridge — US Banks in Wholesale CBDC Experiments",text:"US financial institutions participate in BIS Project mBridge — a wholesale CBDC cross-border settlement system alongside China, UAE, Saudi Arabia, and Thailand. The wholesale infrastructure advances regardless of retail CBDC politics.",tags:["tg-warn:Wholesale Layer Active Globally"]}
+      ],
+      persecution:[
+        {bar:"ic-red",date:"1885–1896",title:"100+ Adventists Imprisoned — 455 Days on Chain Gangs",text:"Over 100 Seventh-day Adventists prosecuted in 16 states for working on Sunday — their non-sacred day — after resting on Saturday. 1,438 total imprisonment days. 455 days on public chain gangs. $2,269 in fines. 21 prosecutions in Arkansas alone. Robert M. King died November 10, 1891 — heart attack while imprisoned, wife and six children left without support.",tags:["tg-crit:Historical Record Documented"]},
+        {bar:"ic-red",date:"Jul 18, 1892",title:"Henry County Chain Gang, Tennessee",text:"Saturday-keeping Adventists sentenced to public chain gang labour for hoeing their own fields on Sunday. Photographed and published in the American Sentinel, generating national outrage. The visual evidence of Christian men in chains for observing Sunday rest laws on their own property was the turning point in public opinion.",tags:["tg-crit:Photographed & Published"]},
+        {bar:"ic-orange",date:"Dec 13, 1888",title:"Blair Sunday-Rest Bill — Senate Testimony by Alonzo T. Jones",text:"Jones testifies against Senate Bill 2983. Supporting coalition: National Reform Association + WCTU + American Sabbath Union + Knights of Labor + Cardinal Gibbons + Methodist/Presbyterian/Baptist/Lutheran denominations. SDA submits 260,000 petition signatures. Defeated by ONE senator. Reintroduced Dec 9, 1889 — also failed.",tags:["tg-warn:Defeated By One Senator"]},
+        {bar:"ic-blue",date:"2026",title:"Current Mechanism — Economic, Not Criminal (Yet)",text:"SR323's FLSA mechanism creates financial penalties for Sunday work — same coercive outcome as 1880s criminal prosecution but via overtime liability rather than arrest warrants. The double burden on Saturday-keepers: lose income on Saturday AND face overtime penalty exposure on Sunday. Mirrors the 1880s double-jeopardy pattern exactly.",tags:["tg-watch:Same Template — New Mechanism"]}
+      ],
+      beast:[
+        {bar:"ic-red",date:"2025–2026",title:"White House Christian Governance Architecture — Four Interlocking Structures",text:"White House Faith Office (permanent pipeline to Oval Office) + Task Force to Eradicate Anti-Christian Bias (DOJ mandate, every agency) + Presidential Commission on Religious Liberty (Dan Patrick chair, Ben Carson vice-chair) + \"Year of Rededication\" proclamation. Unprecedented concentration of executive religious infrastructure, all active simultaneously.",tags:["tg-crit:Four Structures Simultaneously Active"]},
+        {bar:"ic-orange",date:"2023 – Present",title:"Project 2025 — 50%+ Implemented",text:"Mandate for Leadership, p. 589 explicitly proposes national Sunday rest via federal labour law — the same mechanism as the 1888 Blair Bill, updated language. Over 50% of Project 2025's agenda items are already implemented as of early 2026. The religious liberty infrastructure and Sunday rest proposal are in the same document.",tags:["tg-warn:50%+ Already Implemented"]},
+        {bar:"ic-yellow",date:"Feb 27, 2026",title:"Stephen Wolfe — \"Act of Tyranny / Duty-Bound\" Distributed to Clergy",text:"Presbyterian academic study distributed directly to clergy argues that Sunday business openings are an \"act of tyranny\" and that Christian magistrates are \"duty-bound\" to impose closing laws. Provides theological/intellectual cover for political action. Same function as Cardinal Gibbons' theological support for the Blair Bill in 1888.",tags:["tg-pend:Theological Cover — Distributed To Clergy"]},
+        {bar:"ic-yellow",date:"2026",title:"1888 Coalition Pattern Confirmed — Same Four Partners",text:"Heritage Foundation (≈ NRA 1888) + Vatican/COMECE (≈ Cardinal Gibbons) + ESA/Labour (≈ WCTU/Knights of Labor) + White House Faith Office (≈ National Reform Association). The same four coalition partners as the Blair Sunday Bill, 138 years later, in the same configuration.",tags:["tg-pend:Pattern Verified"]}
+      ]
+    }
+  },
+
+  // ── EUROPE (France, Germany, etc.) ───────────────────
+  "276": {
+    name:"Germany",
+    sub:"Western Europe",
+    threat:"critical",
+    badges:["bd-red:ESA Brussels HQ","bd-red:Sunday Retail Laws","bd-orange:Digital Euro Phase 4","bd-yellow:Right to Disconnect"],
+    tabs:["sabbath","sunday","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"c. 1150–1545 AD",title:"Waldensians — The Alps Saturday-Keepers (\"Sabbatati\")",text:"Waldensian communities in the Alps known as \"Sabbatati\" (from their Saturday keeping). Historian Hering (1756): the Sabbatati sect kept Saturday alongside Jews. Their prose tracts contain full expositions of the Fourth Commandment. The Waldensian massacre at Mérindol (1545) kills 3,000+.",tags:["tg-pos:Historical Record"]},
+        {bar:"ic-orange",date:"Mar 3, 2026",title:"ESA Launches 2026 Manifesto — \"Never Been More Evident\"",text:"European Sunday Alliance publishes new manifesto on their annual European Day for a Work-Free Sunday: \"At a time when work is becoming ever more fragmented by digitalisation, teleworking and extended working hours, the value of a common day of rest has never been more evident.\" More urgent language than any previous year.",tags:["tg-warn:Escalating Language"]}
+      ],
+      sunday:[
+        {bar:"ic-red",date:"Founded 2011",title:"European Sunday Alliance — Brussels, 100+ Organisations",text:"COMECE (Catholic Bishops of EU) is the backbone. Labour confederations, family associations, environmental groups. Lobbies EU Parliament for legally work-free Sundays across all 27 member states. MEP Miriam Lexmann leads cross-party support. Institutional line: Constantine 321 AD → Council of Laodicea 364 AD → COMECE 2026.",tags:["tg-crit:Institutionalised Lobby"]},
+        {bar:"ic-orange",date:"Ongoing",title:"Germany Ladenschlussgesetz — Federal Sunday Retail Closures",text:"One of Europe's most comprehensive federal Sunday retail closure laws. Secular justification now dominates all official communications: worker health, family time, social cohesion. The religious origin is never mentioned. This is precisely the SR323 playbook — Christian law re-justified with secular language.",tags:["tg-warn:Religious Law With Secular Cover"]},
+        {bar:"ic-red",date:"Jan 26, 2026",title:"Avvenire / CEI — \"Sunday Is a Social Resource\" — 13 Days Before SR323",text:"Rome's official Catholic newspaper publishes \"Sunday Is a Social Resource — It's Time to Free It Up.\" Identical secular framing to SR323: gender equality, family fragmentation, temporal inequality. Thirteen days before Heritage Foundation publishes SR323. Catholic and Protestant playbooks for Sunday legislation are now identical, two continents, one week.",tags:["tg-crit:Coordinated? 13 Days Before SR323"]},
+        {bar:"ic-red",date:"Dec 2023",title:"German Supreme Court Rules Robots Must Keep Sunday — Cites Constantine 321 AD",text:"The Supreme Administrative Court of Hesse rules that Tegut's 40 fully automated 'Teo' stores must observe Sunday rest despite employing zero workers on Sunday. The judges explicitly cited the '1,700-year-old Christian principle of Sunday rest' proclaimed by Emperor Constantine. Trade union Verdi and the Church both filed challenges. This is not history — it is a 2023 German court invoking a 321 AD template to regulate 21st-century technology.",tags:["tg-crit:Constantine 321 AD Cited In 2023 Ruling"]},
+        {bar:"ic-orange",date:"Aug 1, 2025",title:"Bavaria Passes Own Shop Closing Act — 74% of Germans Oppose Sunday Liberalisation",text:"Bavaria, Germany's most Catholic and conservative state, enacted its Bayerisches Ladenschlussgesetz on August 1, 2025 — the last German state to exercise post-2006 federal authority on shop hours. Sunday closure fully preserved; micro-markets (≤150m²) granted a narrow round-the-clock exception, immediately challenged by the Allianz für den freien Sonntag (church-union coalition). YouGov August 2025: 74% of Germans oppose relaxing Sunday hours. 54% say Sunday shopping would not benefit the economy. The political constituency for Sunday closure is stronger than any party.",tags:["tg-warn:74% German Public Defend Sunday Closure — 2025"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"Oct 2023 – Present",title:"Digital Euro — Preparation Phase (ECB)",text:"European Central Bank officially in preparation phase since October 2023. Design complete by 2025. Digital Euro Regulation progressing through EU Parliament. Estimated rollout 2027–2028. The EU is the furthest-advanced CBDC in the democratic West, covering 340+ million people.",prog:{pct:72,cls:"pb-o",lbl:"Phase 4 of 5 — Legislation/Preparation"}},
+        {bar:"ic-orange",date:"2024–2025",title:"Privacy Architecture — €3,000 Anonymous Limit Confirmed",text:"ECB confirmed Digital Euro will cap anonymous transactions at €3,000. Offline functionality limited. Civil liberties groups in Germany and Netherlands flag programmability risks — the ability to set expiry dates, restrict by category, or exclude individuals.",tags:["tg-warn:Surveillance Architecture Confirmed"]}
+      ],
+      beast:[
+        {bar:"ic-red",date:"2015+",title:"Laudato Si' §237 — The Most Politically Potent Sabbath Statement Since Constantine",text:"\"Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world.\" Simultaneously cited in EU political lobbying (ESA/COMECE), US policy papers (SR323), and global climate campaigns. One paragraph spanning six independent streams. The first time a single papal statement has been simultaneously weaponised across secular labour, environmental, and conservative religious politics.",tags:["tg-crit:Cited In All Six Convergence Streams"]},
+        {bar:"ic-yellow",date:"~May 15, 2026",title:"⏳ Magnifica Humanitas — Leo XIV AI Encyclical (Confirmed, Pending)",text:"Pope Leo XIV's confirmed first encyclical on AI and human dignity. Expected on May 15, 2026 — the 135th anniversary of Rerum Novarum (1891), the encyclical that first enshrined Sunday rest as a worker's right. Four-pope chain: Leo XIII (1891) → John Paul II (1998) → Francis (2015) → Leo XIV (2026). 135 years. One unbroken trajectory.",tags:["tg-pend:Expected ~May 15 2026"]},
+        {bar:"ic-orange",date:"Feb 2 + Aug 2, 2025",title:"EU AI Act — Social Scoring Ban Enters Force · Acknowledges the Threat Is Real",text:"Article 5(1)(c) of the EU AI Act became applicable February 2, 2025: social scoring of citizens by public authorities using AI is now banned across all 27 EU member states. Enforcement provisions entered force August 2, 2025 with fines up to €35M or 7% of global annual turnover. No enforcement action announced yet. The significance: the EU has formally banned in law what China has deployed operationally — and in doing so has officially acknowledged in binding legislation that AI-driven social scoring leading to buy-sell exclusion is a genuine and present threat. The ban is the admission. The infrastructure being built for the Digital Euro runs alongside the same AI systems the EU just banned for scoring people.",tags:["tg-warn:The Ban Is the Admission — The Risk Is Real"]}
+      ]
+    }
+  },
+
+  // ── ITALY ────────────────────────────────────────────
+  "380": {
+    name:"Italy",
+    sub:"Southern Europe · Vatican State",
+    threat:"critical",
+    badges:["bd-red:Vatican Sunday Mandate","bd-red:St. Francis Holiday 247-2","bd-orange:Waldensians Survived Inquisition","bd-orange:Digital Euro Participant"],
+    tabs:["sabbath","sunday","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"c. 1100–1280 AD",title:"The Pasagini — Saturday Keepers in Lombardy, the Heart of Catholic Europe",text:"A major Sabbatarian movement in northern Italy — the heartland of Catholic authority. Catholic polemicist Bonacursus: \"Not a few, but many know what the errors are of those called Pasagini.\" Suppressed by Inquisition by the mid-13th century. Their existence in Rome's own backyard proves Saturday was kept even where papal authority was strongest.",tags:["tg-pos:Historical Evidence — Rome's Backyard"]},
+        {bar:"ic-green",date:"12th century – Present",title:"The Waldensians (Valdesi) — Saturday-Keeping Survivors of the Inquisition",text:"The Waldensians (followers of Peter Waldo of Lyon, c. 1173) were named 'Insabbatati' by Catholic inquisitors — Sabbath-keepers. Centred in the Piedmont valleys of northwestern Italy (the 'Waldensian Valleys'), they survived 600 years of Inquisition, crusades against them (1209, 1487), and massacre (the 'Piedmontese Easter' of April 24, 1655 — 1,712 killed in one day). Oliver Cromwell raised funds for survivors across Protestant Europe. Today the Waldensian Church (Chiesa Valdese) exists as a small Protestant denomination in Italy — the living institutional descendant of medieval Sabbatarians who never converted to Rome.",tags:["tg-pos:600 Years — Survived Crusade and Inquisition"]},
+        {bar:"ic-red",date:"1192 AD",title:"Alfonso II Insabbatatos Edict — First Civil Law Naming Saturday-Keepers",text:"King Alfonso II of Aragon (whose territory included parts of Provence, adjacent to the Waldensian heartland) issues an edict naming Sabbath-keepers 'Insabbatatos' — heretics who rest on Saturday. First civil law in Western Europe to identify Saturday-keepers by a specific legal term alongside Waldensians and Cathari.",tags:["tg-crit:First Named Suppression — Western Europe 1192 AD"]}
+      ],
+      sunday:[
+        {bar:"ic-red",date:"Oct 2025",title:"Italy Parliament Restores St. Francis Feast Day — 247 Votes to 2",text:"The Italian Parliament — a G7 secular legislature — restores the Feast of St. Francis of Assisi (October 4) as a mandatory national public holiday. 247 votes to 2. Endorsed by Cardinal Matteo Zuppi (CEI) and PM Giorgia Meloni. Same template as Constantine 321 AD: state power enforcing Catholic religious observance with near-total parliamentary consensus.",tags:["tg-crit:247 to 2 — Near Unanimous"]},
+        {bar:"ic-red",date:"Jan 26, 2026",title:"Avvenire / CEI — 'Sunday Is a Social Resource' — 13 Days Before SR323",text:"The Italian Episcopal Conference's official newspaper Avvenire publishes 'Sunday Is a Social Resource — It's Time to Free It Up' — using identical secular framing to Heritage's SR323: gender equality, family fragmentation, worker wellbeing. Published 13 days before SR323 was introduced in the US Senate. Transatlantic coordination of message without coordination of timing.",tags:["tg-crit:Rome + Heritage — Same Day Same Frame"]},
+        {bar:"ic-red",date:"May 31, 1998",title:"Dies Domini §§66–67 — Papal Mandate to Lobby Governments",text:"John Paul II §66 cites Rerum Novarum: Sunday rest is 'a worker's right which the State must guarantee.' §67 instructs Catholics to 'strive to ensure that civil legislation respects their duty to keep Sunday holy.' A direct papal mandate for lobbying secular governments — never rescinded.",tags:["tg-crit:Never Rescinded — Binding Papal Directive"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2023–2027",title:"Digital Euro — Banca d'Italia Active ECB Participant",text:"Italy is a founding Eurozone member. Banca d'Italia is an active design participant in the ECB's Digital Euro project — one of the larger national central banks in the consultation process. No national CBDC; Italy's programmable currency future is entirely ECB-determined. Bancomat (Italy's domestic card payment network) already 98%+ penetration — the consumer infrastructure for CBDC adoption is fully in place.",prog:{pct:68,cls:"pb-o",lbl:"ECB Phase 2 — Active Participant, 2027–28 Target"}},
+        {bar:"ic-yellow",date:"2025",title:"Italy's Cashless Push — PagoPA and the 'Cashless Society' Incentive",text:"The Italian government has run tax-rebate schemes rewarding digital payments (Cashback di Stato, ended 2021 but policy continues). PagoPA — the state digital payment gateway — handles all government service payments. Italy has moved from one of Europe's most cash-intensive economies to one with aggressive government-driven cashless incentives in under a decade.",tags:["tg-warn:Government-Driven Cashless Push — Infrastructure Ready"]}
+      ],
+      beast:[
+        {bar:"ic-red",date:"1891–2026",title:"The Four-Pope Chain — 135 Years, One Trajectory",text:"Leo XIII: Rerum Novarum (1891). John Paul II: Dies Domini (1998). Francis: Laudato Si' §237 (2015). Leo XIV: Magnifica Humanitas (~May 15, 2026). Each encyclical builds on the previous. The trajectory has never reversed. Constantine (321 AD) issued a Sunday law. The church codified it 43 years later (364 AD). The modern sequence: church lobbies first, state acts after.",tags:["tg-crit:135-Year Papal Chain — Never Reversed"]},
+        {bar:"ic-red",date:"Jan 9, 2026",title:"Leo XIV 'State of the World' — 380 Million Persecuted Christians · 'Religious Freedom Is a Privilege'",text:"Pope Leo XIV told the Roman Curia on January 9, 2026: 'The persecution of Christians remains one of the most widespread human-rights crises today, affecting over 380 million believers worldwide — one in seven Christians globally.' He stated religious freedom is now 'considered in many contexts more as a privilege or concession than a fundamental human right.' The irony: the institution that historically imposed Sunday by law now warns that religious coercion is universal.",tags:["tg-warn:Rome Warns Religious Coercion Is Global"]}
+      ]
+    }
+  },
+
+  // ── GREECE ───────────────────────────────────────────
+  "300": {
+    name:"Greece",
+    sub:"Southern Europe · Eastern Orthodox",
+    threat:"high",
+    badges:["bd-red:Every Sunday Mandatory Holiday","bd-red:75% Overtime Penalty","bd-green:Byzantine Saturday Liturgy","bd-orange:Digital Euro Participant"],
+    tabs:["sabbath","sunday","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"692 AD – Present",title:"Byzantine Saturday — Council of Trullo Forbids Saturday Fasting",text:"The Quinisext Council (Trullo, 692 AD) Canon 55 explicitly forbade fasting on Saturday — because Saturday is a holy feast day, not a fast day. This ruling directly contradicts Rome's practice of Saturday fasting (used to suppress Sabbath worship). The Eastern Orthodox church has maintained this Saturday feast tradition for 1,333 years. The Ecumenical Patriarchate of Constantinople still celebrates the Divine Liturgy on Saturday. In Greece, Saturday remains a liturgically significant day — the Resurrection Vigil begins Saturday night.",tags:["tg-pos:1,333 Years — Byzantine Saturday Feast Tradition"]},
+        {bar:"ic-green",date:"Historical",title:"Socrates Scholasticus (5th Century) — 'Almost All Churches Celebrate on the Sabbath'",text:"Greek church historian Socrates Scholasticus wrote c. 440 AD: 'Almost all churches throughout the world celebrate the sacred mysteries on the Sabbath of every week, yet the Christians of Alexandria and at Rome, on account of some ancient tradition, have ceased to do this.' Written from Constantinople — the centre of Greek Christianity — this eyewitness account confirms that Rome and Alexandria were the exceptions, not the rule.",tags:["tg-pos:5th Century — Rome Was the Exception"]}
+      ],
+      sunday:[
+        {bar:"ic-red",date:"Current Law",title:"Greece — Only EU Member Where Every Sunday Is a Statutory Public Holiday with 75% Penalty",text:"Every Sunday is a mandatory public holiday in Greek law — unique in the European Union. A 75% overtime premium applies to any Sunday worker. This is the most legally comprehensive Sunday rest regime in the EU, predating the current political push by decades. Greece is the proof-of-concept that a full statutory Sunday system can coexist with a modern EU economy.",tags:["tg-crit:Most Restrictive Sunday Regime in EU"]},
+        {bar:"ic-orange",date:"Historical",title:"Greek Orthodox Heritage — Saturday and Sunday Both Sacred",text:"Greece's Orthodox heritage gives Saturday sacred status alongside Sunday. The liturgical calendar treats Saturday as a feast day (Great and Holy Saturday being the most prominent). The Sunday rest law thus builds on a dual sacred day tradition — not a purely Sunday-focused theology.",tags:["tg-warn:Dual Sacred Day Heritage"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2023–2027",title:"Digital Euro — Mandatory Eurozone Participant",text:"As a Eurozone member, Greece is a mandatory participant in the Digital Euro rollout. No opt-out mechanism exists. Estimated deployment 2027–2028. The Bank of Greece is an ECB shareholder and participates in design consultations.",prog:{pct:72,cls:"pb-o",lbl:"ECB Preparation Phase — 2027–28 Target"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"Ongoing",title:"Greece as EU Sunday Template — The Only Complete Model",text:"Greece's statutory Sunday system is the complete template for what the European Sunday Alliance lobbies to achieve across all 27 EU member states. MEP Miriam Lexmann's Working Time Directive campaign would effectively 'Greecify' the rest of Europe. The ESA does not need to convince anyone a statutory Sunday system works in a modern democracy — Greece proves it already does.",tags:["tg-warn:Greece = The Working Template For All EU States"]}
+      ]
+    }
+  },
+
+  // ── UK ───────────────────────────────────────────────
+  "826": {
+    name:"United Kingdom",
+    sub:"British Isles",
+    threat:"high",
+    badges:["bd-orange:Sunday Trading Act 1994","bd-green:Celtic Saturday 500 Years","bd-blue:Digital Pound Research"],
+    tabs:["sabbath","sunday","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"5th Century AD",title:"St. Patrick — Celtic Christianity Founded on Saturday Sabbath",text:"Patrick (c. 387–461 AD), Ireland's patron saint, was trained in the Celtic tradition that 'kept Saturday, the Jewish Sabbath, as a day of rest from labour' (Prof. James Moffat, Princeton, The Church in Scotland, p. 140). Prof. Andrew Lang: 'They worked on Sunday, but kept Saturday in a Sabbatical manner.' Patrick's own Confession contains no mention of Rome's authority. Catholic historians fabricated stories of Patrick's Sunday-keeping more than 500 years after his death (Probus and Joscelyn, c. 1130 AD) — to retroactively claim the Celtic church for Rome.",tags:["tg-pos:St. Patrick — Celtic Saturday Keeper · Rome's Counter-Narrative 500 Years Later"]},
+        {bar:"ic-green",date:"563–1115 AD",title:"Celtic Church — Saturday Kept Across British Isles, Iceland, and Faroe Islands for 500+ Years",text:"Princeton Prof. Moffat: 'It seems to have been customary in the Celtic churches to keep Saturday as a day of rest from labour.' St. Columba of Iona (died June 9, 597 AD): 'This day is called the Sabbath, that is, the rest day, and it is truly the Sabbath to me.' Columbanus (c. 540–615): 'We are bidden to work on six days, but on the seventh which is the Sabbath, we are restrained from every servile work.' Celtic missionaries from Iona spread to Iceland and the Faroe Islands — O.A. Anderson's Monumenta Historica Norvegiae documents that their earliest inhabitants observed Saturday. Queen Margaret suppresses Saturday in Scotland c. 1070. Wales yields to a Roman bishop at St. David's in 1115 AD.",tags:["tg-pos:500 Years Celtic Saturday — To Iceland and the Faroes"]},
+        {bar:"ic-green",date:"1650–1651 AD",title:"Mill Yard Church, London — First Seventh Day Baptist Congregation in the World",text:"James Ockford's 1650 publication: 'The Doctrine of the Fourth Commandment, Deformed by Popery, Reformed and Restored to its Primitive Purity.' The very title is the entire theological argument. This London congregation directly seeds the Newport, Rhode Island church of 1671, which seeds the SDA movement via Rachel Oakes Preston.",tags:["tg-pos:Origin of Seventh Day Baptist Tradition"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Current",title:"Sunday Trading Act 1994 — Still In Force",text:"Major retailers in England and Wales restricted to 6 hours of Sunday trading. Multiple attempts to liberalise have been resisted by a coalition of unions, churches, and family groups — a direct echo of the ESA lobby model.",tags:["tg-warn:Retail Restriction Remains"]},
+        {bar:"ic-blue",date:"2022–2024",title:"World's Largest Four-Day Week Trial — 61 Companies",text:"UK conducted the world's largest four-day week trial: 61 companies, 2,900 workers. 92% of companies continued after the trial. Parliament discussing legislation.",tags:["tg-watch:Secular Pathway — Same Outcome"]}
+      ],
+      cbdc:[
+        {bar:"ic-blue",date:"Aug 2025 – Jul 2026",title:"Digital Pound Lab — Phase 2 Active · Blueprint Decision 2026",text:"Bank of England Digital Pound Lab Phase 1 launched August 2025 (3-month industry testing). Phase 2 launched November 2025 and runs until July 2026 — testing 'innovative use cases that do not yet exist.' Participants include Fluxpay, LINK, Consult Hyperion, Applied Blockchain, and others. Offline payments found 'technically feasible' (April 2025 report). Aliases and privacy-preserving pseudonymisation under active design. Blueprint expected 2026; HM Treasury and Bank jointly decide whether to proceed to build phase. If yes, primary legislation required — earliest launch 'second half of the decade.' The Bank's message: 'No decision has been made, but we cannot risk falling behind.'",prog:{pct:42,cls:"pb-b",lbl:"Phase 2–3 — Lab Active, Blueprint 2026, Decision Pending"}},
+        {bar:"ic-yellow",date:"2016 · April 2016 + Nov 2016 Defeat",title:"Sunday Trading Liberalisation Defeated 317–286 — Cameron Government Rebellion",text:"In 2016, PM David Cameron attempted to devolve Sunday trading powers to local councils — which would have effectively liberalised large-store Sunday hours. The measure was defeated 317–286, with Labour MPs, Scottish National Party members, and Conservative backbench rebels voting together. The Keep Sunday Special campaign, backed by the Lord's Day Observance Society (founded 1831 — 195 years of continuous Sunday advocacy) and trade unions, led the resistance. The same coalition that defeated Sunday liberalisation in 1988, 1994, and 2016 remains intact.",tags:["tg-warn:Coalition Defeats Every Liberalisation — Intact Since 1831"]}
+      ]
+    }
+  },
+
+  // ── ETHIOPIA ─────────────────────────────────────────
+  "231": {
+    name:"Ethiopia",
+    sub:"Horn of Africa — The Unbroken Witness",
+    threat:"good",
+    badges:["bd-green:1700 Years Unbroken Saturday","bd-green:60M+ Members Worldwide","bd-green:Resisted Every Suppression"],
+    tabs:["sabbath"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"c. 330 AD – Present",title:"Ethiopian Orthodox Tewahedo — 1,700 Years Unbroken Saturday Observance",text:"60+ million members worldwide. Observes both Saturday (Lesser Sabbath — memorial of creation) and Sunday (Lord's Day — memorial of resurrection). The Apostolic Constitutions tradition preserved here predates Rome's Sunday dominance by centuries. Resisted Coptic, Catholic, and colonial pressure for 1,700 years.",tags:["tg-pos:Longest Unbroken Saturday Tradition On Earth"]},
+        {bar:"ic-green",date:"1273–1352 AD",title:"Abba Ewostatewos — Martyrdom and Vindication",text:"Ethiopian monk defends Saturday observance against Coptic pressure, citing original apostolic practice. Persecuted — exiled to Armenia where he dies. His followers arrested in 1400. Vindicated by the Council of Dabra Metmaq (1445): the Emperor challenges the bishops to find a single scripture abolishing Saturday. They cannot find one.",tags:["tg-pos:Emperor Challenged Bishops — They Had No Scripture"]},
+        {bar:"ic-green",date:"1633 AD",title:"The Great Expulsion — Jesuit Missionaries Expelled to Preserve Saturday",text:"After Jesuit missionaries attempted to impose Sunday-only observance, Emperor Fasilides expels all Jesuits from Ethiopia in 1633 and formally restores Saturday observance. The only case in history where a national church completely reversed Rome-backed Sabbath suppression — and held it for 400 years.",tags:["tg-pos:Only Nation To Fully Reverse Rome's Suppression"]},
+        {bar:"ic-green",date:"1534 AD",title:"Ethiopian Ambassador to Pope Clement VII",text:"\"We observe the Sabbath because God, after He had finished the creation of the world, rested thereon.\" Spoken directly to the Pope's face in Rome. The clearest possible statement of the Ethiopian Church's theological position to the highest Roman authority.",tags:["tg-pos:Direct Statement To The Pope"]}
+      ]
+    }
+  },
+
+  // ── INDIA ─────────────────────────────────────────────
+  "356": {
+    name:"India",
+    sub:"South Asia",
+    threat:"high",
+    badges:["bd-orange:St. Thomas Christians Erased 1599","bd-red:Digital Rupee Live","bd-red:Aadhaar+CBDC Integration"],
+    tabs:["sabbath","cbdc","persecution"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"52 AD – 1599 AD",title:"St. Thomas Christians of Kerala — 1,547 Years of Saturday Sabbath",text:"Apostle Thomas tradition arrives in Kerala, 52 AD. The Nasrani (St. Thomas Christian) communities observed the Saturday Sabbath as primary day of worship for 1,547 years — completely independent of Rome. The most sustained documented Saturday-keeping outside Ethiopia.",tags:["tg-pos:1547 Years — Apostolic Saturday Tradition"]},
+        {bar:"ic-red",date:"1599 AD",title:"Synod of Diamper — Book-Burning to Erase Saturday Identity",text:"Portuguese bishop Aleixo de Menezes convenes the Synod of Diamper (Udayamperoor, Kerala). All Nasrani texts ordered burned. Decree: \"None should presume to keep Saturday as holy day.\" The most thoroughly documented book-burning of any Saturday-keeping community in history.",tags:["tg-crit:Colonial Book-Burning Documented"]},
+        {bar:"ic-orange",date:"1890 · May 2024",title:"Modi Acknowledges Colonial Sunday Origin — 'Linked to Christian Community'",text:"Sunday became India's official weekly holiday on June 10, 1890 — after a 7-year campaign by Narayan Meghaji Lokhande, leader of Bombay mill workers. The British governor had rejected earlier proposals; Lokhande reframed Sunday as the holiday of the Hindu deity 'Khandoba' as well as a Christian rest day. In May 2024, Prime Minister Narendra Modi said at a political rally in Dumka: \"In our country, there is a holiday on Sunday. Sunday holiday has its roots in the British colonial period and is associated with the Christian community.\" He was criticising opponents attempting to change the weekly holiday to Friday. India's secular PM publicly acknowledging — in an election campaign — that Sunday is a Christian colonial institution is among the most politically remarkable admissions in the infographic series.",tags:["tg-warn:PM Modi Acknowledges Sunday's Christian Colonial Origin — 2024"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"Dec 2022 – Present",title:"Digital Rupee (e₹) — One of Only Three Live Retail CBDCs on Earth",text:"RBI launched the digital rupee retail pilot in December 2022. Expanded to multiple banks by 2024. 5 million wallets. Full rollout targeted 2025–2026. One of the most advanced live retail CBDC deployments alongside China and the Bahamas.",prog:{pct:78,cls:"pb-r",lbl:"Phase 4 of 5 — Live Expanding Pilot"}},
+        {bar:"ic-red",date:"2024–2025",title:"Aadhaar + Digital Rupee — Biometric Identity Linked to Currency",text:"India's Aadhaar biometric ID system (1.4 billion enrolled — largest on earth) is being integrated with the digital rupee infrastructure. This creates the most comprehensive biometric identity + programmable currency link of any democracy on earth.",tags:["tg-crit:Biometric ID + CBDC = Total Surveillance Capability"]}
+      ],
+      persecution:[
+        {bar:"ic-red",date:"1599 AD",title:"Diamper to Digital — The Same Pattern",text:"What the Portuguese did through book-burning in 1599, modern systems can achieve through digital identity exclusion. The Nasrani's 1,547-year Saturday tradition was erased in a single synod by destroying their records and forcing integration into the dominant religious system. Today, programmable CBDC systems can achieve the same exclusion without burning a single page.",tags:["tg-crit:Ancient Template — Modern Capability"]}
+      ]
+    }
+  },
+
+  // ── CHINA ─────────────────────────────────────────────
+  "156": {
+    name:"China",
+    sub:"East Asia",
+    threat:"critical",
+    badges:["bd-red:Digital Yuan Fully Deployed","bd-red:Social Credit Live","bd-red:Religious Persecution Active","bd-red:Project mBridge Global"],
+    tabs:["sabbath","cbdc","beast","persecution"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"635 AD",title:"Nestorian Mission & the Xi'an Stele — Saturday on the Silk Road",text:"Nestorian Christians arrive at the Tang Dynasty capital Chang'an in 635 AD under Emperor Taizong. The Xi'an Stele (781 AD) records their practice: 'On the seventh day we offer sacrifices, after having purified our hearts.' Documentary evidence of Saturday Sabbath observance at the imperial capital of China — the easternmost known reach of the original Sabbath tradition.",tags:["tg-pos:Xi'an Stele 781 AD — Hard Evidence"]},
+        {bar:"ic-green",date:"1840s",title:"The Taiping Rebellion — Independent Chinese Sabbath Rediscovery",text:"The Taiping Heavenly Kingdom (1851–1864), led by Hong Xiuquan, adopted the seventh-day Sabbath independently — despite all their instruction coming from Sunday-keeping Protestant missionaries. When Europeans visited Nanjing after the Taipings captured it, they asked how they came to observe Saturday. The answer: 'First, because the Bible taught it, and second, because their ancestors observed it as a day of worship.' This is the definitive case of independent East Asian Sabbath rediscovery from Scripture alone — without SDA contact or Western Sabbatarian influence.",tags:["tg-pos:Independent Rediscovery — From Bible Alone, 1840s China"]},
+        {bar:"ic-green",date:"1909 – Present",title:"True Jesus Church — China's Largest Indigenous Sabbatarian Church",text:"In December 1909, Lin-Shen Chang, a Presbyterian deacon in Shandong, received a vision revealing the seventh-day Sabbath's importance. He shared the discovery with Paul Wei of the True Jesus Church in 1918 — and Saturday became a founding cardinal tenet of China's largest indigenous Christian denomination. The True Jesus Church now has 2+ million members globally, with its largest concentration in Taiwan and China. It is the single most significant institutional Sabbatarian body to emerge outside the SDA Church.",tags:["tg-pos:True Jesus Church — 2M+ Members, Largest Indigenous Chinese Sabbatarian Body"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"2020 – Present",title:"Digital Yuan (e-CNY) — World's First Major Deployed CBDC",text:"260 million wallets opened. Used at 2022 Beijing Winter Olympics. Programmable features confirmed operational: expiry dates on currency, usage restrictions by category, geographic restrictions. 17 pilot cities. Cross-border payments via Project mBridge. This is not a pilot — it is a deployed system.",prog:{pct:94,cls:"pb-r",lbl:"Phase 5 of 5 — Deployed & Expanding"}},
+        {bar:"ic-red",date:"2024 – Present",title:"Project mBridge — Global CBDC Cross-Border Infrastructure",text:"China's e-CNY in BIS Project mBridge alongside UAE, Hong Kong, Saudi Arabia, Thailand. Enables CBDC cross-border settlement bypassing SWIFT entirely. This is the global infrastructure layer for programmable currency transfer between central banks. Its adoption expands every quarter.",tags:["tg-crit:Global CBDC Bypass Infrastructure"]}
+      ],
+      beast:[
+        {bar:"ic-red",date:"2018 – Present",title:"Social Credit System — The Complete Beast System Template",text:"Financial access linked to behavioural compliance. Low scores restrict travel, loans, school enrollment, government services, internet access. Unified with digital yuan: currency expenditure data feeds the score. This is the complete template: digital identity + programmable currency + behavioural scoring = total economic control. Revelation 13:17 describes inability to buy or sell. China has built the infrastructure.",tags:["tg-crit:The Complete Template Is Operational"]},
+        {bar:"ic-red",date:"Current",title:"Religious Practice Scoring — Faith as a Threat Category",text:"All religious activity online requires government registration. Unregistered (house church) Christians categorised as threats to social stability — directly affecting social credit scores. Uyghur Muslims face AI-driven predictive policing — the pilot infrastructure for faith-based economic exclusion.",tags:["tg-crit:Faith-Based Economic Penalty — Live"]}
+      ],
+      persecution:[
+        {bar:"ic-red",date:"2018 – Present",title:"Cross Removal Campaign + Church Demolitions",text:"Government-mandated removal of crosses across multiple provinces. Complete church demolitions. Forced registration suppresses house churches. SDA churches in China face the same registration requirements as all other unregistered bodies.",tags:["tg-crit:Active Persecution"]}
+      ]
+    }
+  },
+
+  // ── ISRAEL ────────────────────────────────────────────
+  "376": {
+    name:"Israel",
+    sub:"Middle East — The Origin Point",
+    threat:"watch",
+    badges:["bd-green:Shabbat Is National Law","bd-green:105 Languages Say Sabbath","bd-yellow:Digital Shekel Research","bd-yellow:Biometric Border System"],
+    tabs:["sabbath","sunday","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Genesis 2:2",title:"The Origin — Shabbat Embedded in 105 Languages",text:"The word for Saturday in 105 living languages still means 'Sabbath': Hebrew Shabbat → Sabbatum (Latin) → Sábado (Spanish/Portuguese) → Samedi (French) → Sabtu (Indonesian/Malay) → Subbota (Russian) → Szombat (Hungarian). This is a 3,000-year linguistic fossil — preserved in every language that received the calendar before Rome renamed it 'Dies Solis.'",tags:["tg-pos:105 Languages Still Name Saturday 'Sabbath'"]},
+        {bar:"ic-green",date:"Current",title:"Shabbat — The Only Nation On Earth Where Saturday Is the Legal Rest Day",text:"Israel is the only modern nation-state where the original biblical Sabbath is the official national day of rest. Shabbat begins Friday sunset. Most businesses, government offices, and public transport stop. The original command — preserved in law for the only time on earth. Sunday is a regular workday in Israel. The institutional irony is total: the only country with a legal Saturday rest day is the one Rome claimed to have superseded.",tags:["tg-pos:Only Nation With Saturday As Legal Rest Day"]}
+      ],
+      sunday:[
+        {bar:"ic-yellow",date:"Historical",title:"Sunday Is a Regular Workday in Israel — Rome's Day Has No Authority Here",text:"Sunday has no special status in Israeli law. It is a standard Monday-equivalent workday. Israeli businesses, courts, schools, and government offices all operate on Sunday. The Roman calendar system that renamed Saturn's Day as the 'Lord's Day' carries no weight in the only nation that has maintained the original calendar. Christians in Israel, notably, worship on Sunday as a personal practice — not by law.",tags:["tg-watch:Sunday Has No Legal Status Here"]},
+        {bar:"ic-orange",date:"Historical Irony",title:"The Nation That Gave the World Saturday Now Watches the World Fight Over Sunday",text:"The Sabbath command was given at Sinai (Exodus 20) and reaffirmed throughout the Hebrew scriptures. Rome transferred global worship to Sunday through imperial power — not scriptural authority. Israel is the only country that has continuously observed the seventh-day Sabbath as a national institution for 3,500 years. The global Sunday law push of 2025–2026 is, historically, an argument about which empire's calendar Christians should follow.",tags:["tg-warn:Historical Context — 3,500 Years vs 1,700 Years"]}
+      ],
+      cbdc:[
+        {bar:"ic-yellow",date:"2017–2025",title:"Digital Shekel — Advanced Research Phase",text:"Bank of Israel researching a digital shekel since 2017. Advanced research paper 2021. A dedicated CBDC research team was established. No deployment announced. Closely monitored due to proximity to Project mBridge participants UAE and Saudi Arabia — cross-border CBDC interoperability is a strategic concern.",prog:{pct:28,cls:"pb-y",lbl:"Phase 2 of 5 — Research Only"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2021–Present",title:"Biometric Border Control — Facial Recognition at All Entry Points Since 2021",text:"Israel deployed AI-powered facial recognition at all international border crossings in 2021. Finger biometrics required for all non-citizen entries since 2008. The population registry (Misrad HaPnim database) links national ID, biometrics, and civil status. Israeli citizens carry a 'Teudat Zehut' — a mandatory national identity card with a unique ID number used for all government and financial transactions. This is the most complete biometric identity infrastructure of any democracy in the Middle East.",tags:["tg-warn:Most Complete Biometric ID System in Middle East"]},
+        {bar:"ic-yellow",date:"Prophetic Context",title:"The Irony: The Nation That Kept Saturday Is Now the Surveillance Model",text:"The nation that preserved Shabbat for 3,500 years also has one of the world's most advanced biometric identity and financial surveillance infrastructures. The same population that was required to be 'marked' for identification throughout European history (the yellow star, the ghetto register) now operates a mandatory national identity system that is the template other nations study. The prophetic tension is acute.",tags:["tg-warn:Prophetic Tension — Both Saturday And Surveillance"]}
+      ]
+    }
+  },
+
+  // ── NORWAY ────────────────────────────────────────────
+  "578": {
+    name:"Norway",
+    sub:"Scandinavia — Bergen Suppression Heritage",
+    threat:"watch",
+    badges:["bd-yellow:Bergen 1435 — Suppression Documented","bd-red:Less Than 3% Cash Transactions","bd-orange:Sweden e-Krona + Less Than 9% Cash"],
+    tabs:["sabbath","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-red",date:"1435 AD",title:"Catholic Provincial Council of Bergen — Explicit Saturday Ban",text:"\"We are informed that some people in different districts of the kingdom have adopted and observed Saturday-keeping… Saturday-keeping must under no circumstances be permitted hereafter.\" (Dip. Norveg., 7, 397). The phrase \"we are informed\" proves the practice was geographically widespread — otherwise a national law would have been unnecessary. Archbishop Aslak Bolt issued follow-up prohibitions in 1436 and 1438.",tags:["tg-crit:Suppression Proves Practice Was Widespread"]},
+        {bar:"ic-red",date:"1435–1544 AD",title:"Three-Tier Suppression — Ecclesiastical, Archiepiscopal, and Civil",text:"Catholic Provincial Council Bergen 1435 (ecclesiastical) → Archbishop Bolt 1436 & 1438 (archiepiscopal) → Civil Governor Christoffer Whitefeldt enforcement ordinance 1544 (civil). Three levels of suppression across 109 years — each successive attempt proving the previous one failed. The practice was alive for over a century after the first decree.",tags:["tg-warn:109 Years of Failed Suppression Attempts"]},
+        {bar:"ic-orange",date:"1554–1602 AD",title:"Lutheran Suppressions — Sweden & Finland",text:"Even after the Protestant Reformation broke Rome's monopoly, Sabbatarians faced Lutheran state suppression: King Gustavus I of Sweden letter to Finnish Saturday-keepers (1554); King Charles IX of Sweden opposes Sabbatarians (1602). The same communities survived both Catholic and Protestant suppressions across Scandinavia — proving the roots were deeper than any institutional pressure.",tags:["tg-warn:Survived Both Catholic and Protestant Suppression"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2016–2025",title:"Norges Bank — Digital Krone Advanced Research · Norway &lt;3% Cash Transactions",text:"Norway is among the world's most cashless societies: less than 3% of transactions use cash. Norges Bank completed Phase 4 CBDC research by 2023. The social infrastructure for CBDC rollout is more complete than almost anywhere — a population that does not use cash is a population that cannot resist digital currency. The technical layer is the last remaining step.",prog:{pct:55,cls:"pb-o",lbl:"Phase 3–4 — Advanced Research, Policy Decision Pending"}},
+        {bar:"ic-orange",date:"2017–2025",title:"Sweden e-Krona — Most Advanced Retail CBDC Research in Northern Europe · &lt;9% Cash",text:"Sweden is the world's most cashless major economy: less than 9% of transactions use cash. The Riksbank has researched the e-Krona since 2017 and issued multiple detailed technical reports. In 2025, the Riksbank itself called for 'urgent' legislation to legally protect cash access — because it is disappearing fast enough to worry the institution developing the digital replacement. Under Swedish contract law, businesses may legally refuse cash. Sweden is the proof-of-concept: a democratic nation voluntarily eliminating the analogue financial system without any government mandate.",prog:{pct:50,cls:"pb-y",lbl:"Phase 3 of 5 — Advanced Research, No Pilot Launched"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"Ongoing",title:"Scandinavia — The Voluntary Cashless Model: How Digital Control Arrives Without Coercion",text:"Scandinavia demonstrates the most important principle of the digital control architecture: coercion is not required. Norway (less than 3% cash), Sweden (less than 9% cash), Denmark (less than 10% cash), and Finland (among Europe's most cashless) have eliminated cash through consumer preference and commercial incentives — not government mandates. When a CBDC launches in these countries, there will be no analogue fallback. The population will have no alternative. The control architecture requires two things: programmable money and no alternative money. Scandinavia has already achieved the second condition voluntarily.",tags:["tg-crit:Voluntary Cashless — Control Architecture Precondition Already Met"]}
+      ]
+    }
+  },
+
+  // ── BRAZIL ────────────────────────────────────────────
+  "076": {
+    name:"Brazil",
+    sub:"South America",
+    threat:"high",
+    badges:["bd-orange:Sunday Law Pressure","bd-red:Drex CBDC Live","bd-green:3rd Largest SDA Church"],
+    tabs:["sabbath","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"Brazil — World's Third Largest SDA Membership",text:"Over 2 million SDA members in Brazil — the world's third-largest national SDA community. The church operates schools, hospitals, and media networks including a major television and radio network. A major Saturday-keeping presence in the world's largest Catholic country.",tags:["tg-pos:2M+ Saturday-Keeping Members"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"2023–Present",title:"Drex (Digital Real) — Live Retail CBDC with Confirmed Smart Contract Programmability",text:"Brazil's Central Bank launched Drex in 2023. Built on permissioned blockchain. Smart contract functionality confirmed — enabling programmable spending restrictions, time-limited transfers, and conditional payments. One of the most technologically sophisticated retail CBDCs globally. Full rollout 2025–2026.",prog:{pct:68,cls:"pb-o",lbl:"Phase 3–4 — Pilot to Full Rollout"}},
+        {bar:"ic-red",date:"2020–Present",title:"Pix Instant Payment + CPF — The Pre-CBDC Infrastructure Is Complete",text:"Brazil's Pix instant payment system (launched Nov 2020) has 140 million+ registered users — the fastest CBDC-adjacent payment adoption in any large democracy. Government can freeze Pix accounts instantly. Every Brazilian has a CPF (Cadastro de Pessoas Físicas) number used for all financial transactions — the universal ID layer already in place. Drex simply adds programmability to an already-complete infrastructure.",tags:["tg-crit:Pix + CPF + Drex = Complete Control Architecture"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Current",title:"Brazilian Sunday Rest — CLT 1943 + Evangelical Church Coalition",text:"Brazil's Consolidação das Leis do Trabalho (CLT, 1943) enshrines Sunday as the official weekly rest day. Brazil is both the world's largest Catholic country and has the world's largest evangelical Protestant population — 31% evangelical, growing. The Catholic and evangelical churches both advocate for Sunday rest, creating the same coalition as 1888 America. Congressional proposals for a four-day week (with Sunday as anchor) have been introduced in the Brazilian Congress.",tags:["tg-warn:World's Largest Catholic + Evangelical Country — Same Coalition"]}
+      ],
+      beast:[
+        {bar:"ic-red",date:"2023–2026",title:"Drex Smart Contracts — The Technical Template for Buy/Sell Exclusion",text:"Drex's confirmed smart contract architecture means it can encode: spending category restrictions (you cannot buy certain goods), time-of-day restrictions (you cannot transact on Saturday), geographic restrictions (you cannot spend outside your region), and recipient restrictions (you cannot transfer to certain entities). The infrastructure for Revelation 13:17 economic exclusion — unable to buy or sell — does not require a new system. Drex has already built it.",tags:["tg-crit:Smart Contract Buy/Sell Exclusion — Technically Possible Now"]}
+      ]
+    }
+  },
+
+  // ── RUSSIA ────────────────────────────────────────────
+  "643": {
+    name:"Russia",
+    sub:"Eastern Europe / Central Asia",
+    threat:"watch",
+    badges:["bd-blue:Strigolniki History","bd-orange:Digital Ruble Pilot","bd-orange:State-Church Merger"],
+    tabs:["sabbath","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"c. 1415 – 1551 AD",title:"Russian Strigolniki — Saturday-Keepers So Numerous Ivan III Convenes a National Council",text:"Saturday-keeping Christians in Russia known as Strigolniki become so numerous in Novgorod and Moscow by the 15th century that Tsar Ivan III convenes a national council. The \"One Hundred Head\" Church Council of 1551 (under Ivan the Terrible) officially recognises Saturday worship as valid, citing Apostles Peter and Paul. This ruling has never been formally annulled.",tags:["tg-pos:Unrevoked Council Ruling — 1551 AD"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"Aug 2023 – Present",title:"Digital Ruble — Pilot Phase Under Sanctions",text:"Russia's central bank launched the digital ruble pilot in August 2023 despite Western sanctions. Testing with major Russian banks. Framed domestically as reducing SWIFT dependence. Full rollout planned 2025–2026.",prog:{pct:52,cls:"pb-o",lbl:"Phase 3 of 5 — Active Pilot"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2022–2026",title:"Russian Orthodox Church + State — Theological Justification for War",text:"Patriarch Kirill has theologically framed the war in Ukraine as a holy war against Western liberal values. The merger of Russian state power with Orthodox Church authority is advancing rapidly — a parallel track to the US White House Faith Office model, but without any constitutional separation of church and state.",tags:["tg-warn:State-Church Merger Advancing"]}
+      ]
+    }
+  },
+
+  // ── POLAND ────────────────────────────────────────────
+  "616": {
+    name:"Poland",
+    sub:"Central Europe — EU Member",
+    threat:"high",
+    badges:["bd-red:Sunday Trading Banned 2018","bd-red:Solidarność + Church Coalition","bd-orange:Digital Zloty Research"],
+    tabs:["sunday","cbdc","beast"],
+    data:{
+      sunday:[
+        {bar:"ic-red",date:"March 1, 2018 — Full Force 2020",title:"Poland Sunday Trading Ban — Most Comprehensive Blue Law in the EU",text:"Poland enacted Europe's most comprehensive Sunday retail closure law — the direct product of a coalition of the Solidarność trade union, the Polish Catholic Church, and the ruling Law and Justice (PiS) government. By 2020, only 7–8 Sundays per year are designated shopping Sundays; all others fully closed. Violators face fines of PLN 1,000–100,000 (~€230–€23,000); repeat offenders face prison sentences. Citizen-reportable to the National Labour Inspectorate. This is SR323's proof-of-concept in a nominally secular EU state.",tags:["tg-crit:Full Sunday Ban — Active Law","tg-crit:Coalition Template for SR323"]},
+        {bar:"ic-orange",date:"December 2024",title:"Christmas Eve Added as 14th Public Holiday — Law Tightened",text:"President signed a bill adding Christmas Eve (December 24) as Poland's 14th public holiday — the first modification to the Sunday trading law, expanding rather than loosening it. The three Sundays before Christmas are now designated shopping Sundays (up from two). Overall trajectory: tightening.",tags:["tg-warn:Expanding Not Contracting"]},
+        {bar:"ic-yellow",date:"2018 — Ongoing",title:"The SR323 Coalition Template — Already Proven in the EU",text:"SR323's exact coalition: labour (workers need rest) + Catholic Church (Sunday is the Lord's Day) + family values (mothers in retail deserve Sunday with children). Ministry of Family and Social Policy: \"A work-free Sunday gives all family members the opportunity to spend time together and restores the original purpose of the day.\" Zero religious language in the statute. The Catholic Church's role was acknowledged but not cited. Poland is the legal proof that this coalition works in a modern democracy.",tags:["tg-warn:Secular Framing — Religious Outcome"]}
+      ],
+      cbdc:[
+        {bar:"ic-yellow",date:"2023–2026",title:"Digital Zloty — NBP Research Phase",text:"The National Bank of Poland (NBP) is researching a digital zloty but has not announced a pilot. Poland must implement the EU's EUDI Wallet by December 2026 as an EU member state — so even without a domestic CBDC, every Polish citizen receives the digital identity layer by December 2026.",prog:{pct:20,cls:"pb-y",lbl:"Phase 1 of 5 — Research Only"}},
+        {bar:"ic-blue",date:"Dec 2026 — Mandatory",title:"EUDI Wallet Mandatory Rollout — Every Polish Citizen Enrolled",text:"As an EU member state, Poland is legally required to provide every citizen and resident with an EU Digital Identity Wallet by December 2026 under Regulation 2024/1183. Banks and public services must accept it by 2027. Identity, bank accounts, health records, travel credentials, and social security entitlements linked in one wallet.",tags:["tg-warn:Mandatory EU Framework — Dec 2026"]}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2015 – 2026",title:"Law and Justice Government — Catholic Nationalism and Church Power",text:"Poland under PiS (2015–2023, now opposition) and the continuing Catholic nationalist movement merged Church and state closer than any other EU member. Sunday trading ban was the flagship policy. Constitutional Court was packed. The new Tusk government faces pressure not to roll back Sunday laws — both trade unions AND the Church defend them. The coalition that passed the ban is more durable than the government that created it.",tags:["tg-warn:Cross-Party Coalition Durability"]}
+      ]
+    }
+  },
+
+  // ── AUSTRALIA ─────────────────────────────────────────
+  "036": {
+    name:"Australia",
+    sub:"Oceania",
+    threat:"high",
+    badges:["bd-orange:Sunday Trading State Battles","bd-blue:Project Acacia CBDC Pilot","bd-green:SDA Fastest-Growing","bd-orange:Digital ID Act 2024"],
+    tabs:["sabbath","sunday","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"SDA Church — Australia's Fastest-Growing Non-Catholic Denomination",text:"The SDA Church is Australia's fastest-growing non-Catholic Christian denomination. Sanitarium Health (SDA-owned) is one of Australia's largest food companies — Weet-Bix is Australia's most consumed breakfast cereal. Active religious liberty advocacy through the National Council of Churches.",tags:["tg-pos:Fastest Growing Non-Catholic"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Ongoing",title:"Sunday Trading Legislation — State-by-State Battles",text:"South Australia maintains one of the most restrictive Sunday trading regimes in the English-speaking world. Queensland, Victoria, and NSW have deregulated significantly. Ongoing legislative battles in multiple states — the same contested political terrain as 1880s America.",tags:["tg-warn:Active Legislative Contests"]}
+      ],
+      cbdc:[
+        {bar:"ic-blue",date:"2022–2024",title:"Project Acacia — RBA Wholesale CBDC Pilot Complete",text:"Reserve Bank of Australia completed Project Acacia (wholesale CBDC pilot) in 2024. No retail CBDC announced. Infrastructure being built at wholesale level.",prog:{pct:35,cls:"pb-b",lbl:"Phase 2 of 5 — Wholesale Research Complete"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2024–Present",title:"Australia Digital ID Act — National Digital Identity Framework in Force",text:"Australia's Digital ID Act 2024 established a national digital identity system. myGovID serves as the primary credential — already used for tax, Medicare, immigration, and government benefits. 2025 consultations on expanded private sector integration. Australia is a Five Eyes partner — surveillance data sharing with US, UK, Canada, and New Zealand. The Digital ID Act creates the identity layer; CBDC will add the financial transaction layer.",tags:["tg-warn:Five Eyes Digital ID — National Framework Active"]},
+        {bar:"ic-yellow",date:"Ongoing",title:"Australia's Misinformation Bill — Defining Truth by Government Decree",text:"The Australian government's Communications Legislation Amendment (Combating Misinformation and Disinformation) Bill was controversially withdrawn in 2024 after fierce public opposition — but reintroduced in modified form. Critics including Liberty Victoria and the Law Council of Australia warned it would give ACMA power to define 'misinformation' with no independent oversight. If passed, the same government that operates the Digital ID system would also control what information Australians can share about it.",tags:["tg-warn:Government Truth Arbitration — Withdrawn But Revived"]}
+      ]
+    }
+  },
+
+  // ── MONTENEGRO ───────────────────────────────────────
+  "499": {
+    name:"Montenegro",
+    sub:"Balkans",
+    threat:"high",
+    badges:["bd-red:First New Sunday Law of 2026","bd-yellow:Bipartisan Vote","bd-orange:Euro Without Eurozone"],
+    tabs:["sabbath","sunday","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Historical",title:"Serbian Orthodox Church — Saturday Feast Day Tradition in the Balkans",text:"Montenegro's majority Serbian Orthodox Christian population inherits the Byzantine Saturday feast tradition (Council of Trullo, 692 AD). The Serbian Orthodox Church — Montenegro's largest religious institution — liturgically observes Saturday as a feast day. The irony: the nation that just enacted a Sunday law does so on top of an Orthodox heritage that treats Saturday as sacred.",tags:["tg-pos:Byzantine Saturday Tradition — Still Liturgically Active"]}
+      ],
+      sunday:[
+        {bar:"ic-red",date:"Feb 16, 2026",title:"Montenegro Parliament Reinstates Sunday Rest — First New Sunday Law of 2026",text:"The Montenegrin Parliament voted to legally reinstate Sunday as a mandatory day of rest. Bipartisan support — both left and right parties agreed. Framed as worker health and wellbeing. The first new Sunday rest law enacted in Europe in 2026. Constantine's 321 AD template: secular framing (public health), theologically-rooted outcome (Sunday rest).",tags:["tg-crit:First New Sunday Law Enacted In 2026"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"Ongoing",title:"Montenegro Uses Euro Without Being In the Eurozone — No Opt-Out From Digital Euro",text:"Montenegro adopted the euro unilaterally as its currency — it is not an EU member and not in the Eurozone, meaning it has no central bank seat, no ECB representation, and no vote in currency design. When the Digital Euro launches, Montenegro will be required to accept it in transactions with Eurozone partners — without having participated in a single design decision. Maximum exposure, zero democratic input.",tags:["tg-warn:Euro User With No ECB Seat — Zero Input On CBDC"]}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"Feb 2026",title:"Pattern: Peripheral Nations Lead — Centre Follows",text:"The Montenegro vote precedes anticipated similar legislation in Serbia and Croatia. Historical pattern from 1880s: states on the periphery enact Sunday laws first, then larger bodies follow. Arkansas preceded the Blair Bill; Montenegro may precede a broader EU Sunday rest directive.",tags:["tg-warn:Peripheral-to-Centre Pattern"]}
+      ]
+    }
+  },
+
+  // ── CROATIA ──────────────────────────────────────────
+  "191": {
+    name:"Croatia",
+    sub:"Balkans / EU Member",
+    threat:"high",
+    badges:["bd-red:Sunday Trading Ban July 2023","bd-red:PM: 'Sundays Should Be His Day'","bd-orange:Eurozone CBDC Participant"],
+    tabs:["sunday","cbdc","beast"],
+    data:{
+      sunday:[
+        {bar:"ic-red",date:"July 1, 2023",title:"Croatia Sunday Trading Ban — Third Legislative Attempt Succeeds — 'His Day'",text:"Croatia's Trade Act entered force July 1, 2023 — the third legislative attempt after two previous versions were overturned by the Constitutional Court on challenges from multinational retail chains (Westgate, Emmezeta, Lidl). The new law limits retail to a maximum of 16 Sundays per year, with retailers choosing which Sundays to use their exemptions. PM Andrej Plenkovic (HDZ, Catholic conservative): 'Sundays should be His day' and the law is 'a step in strengthening the family.' Economy Minister Filipovic used exclusively secular language in the statute — zero religious text — but the PM's framing was openly theological. 44% of Croatians identify as highly religious (Pew).",tags:["tg-crit:In Force July 2023 — Third Attempt"]},
+        {bar:"ic-orange",date:"Pattern",title:"Third Attempt — Proof That Institutional Persistence Wins",text:"The same Sunday trading restriction was attempted twice before, both times struck down. The third attempt succeeded. This is the exact pattern of the Blair Sunday-Rest Bill (1888 defeated, 1889 defeated, reintroduced repeatedly). Institutional persistence — combined with shifting political alliances — eventually overcomes constitutional obstacles. Croatia is the proof that repeated legislative attempts are not failures; they are a ratchet.",tags:["tg-warn:Ratchet Pattern — Each Attempt Normalises The Idea"]},
+        {bar:"ic-orange",date:"Ongoing",title:"Tourist Country Exemption — Same Tactic as 1888 Blair Bill",text:"Croatia's law exempts gas stations, airports, hotels, marinas, bakeries (7am–1pm), and other tourist-essential services — preserving the law's political viability in a heavily tourist-dependent economy. The 1888 Blair Bill had similar exemptions (mail carriers, emergency workers). Targeted exemptions are the mechanism that makes otherwise sweeping Sunday legislation politically survivable.",tags:["tg-warn:Strategic Exemptions Preserve Coalition"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"Jan 1, 2023",title:"Croatia Joins Eurozone — Digital Euro Mandatory Participant",text:"Croatia adopted the euro on January 1, 2023 — making it the 20th Eurozone member and a mandatory participant in the Digital Euro rollout planned for 2027–2028. No opt-out mechanism exists. Croatia cannot independently refuse the ECB's programmable currency framework.",prog:{pct:72,cls:"pb-o",lbl:"ECB Preparation Phase — 2027–28 Target"}}
+      ],
+      beast:[
+        {bar:"ic-red",date:"July 2023 + Feb 2026",title:"The Balkan Cluster — Croatia + Montenegro = Regional Sunday Law Wave",text:"Croatia enacted a Sunday trading ban in July 2023. Montenegro reinstated Sunday rest in February 2026. Both are Balkan nations, both Catholic/Orthodox majority, both used secular justification for theologically-motivated legislation. Serbia is watching. The peripheral-to-centre pattern: small Balkan nations set the precedent, larger EU bodies follow. Montenegro in 2026 is a successor to Croatia in 2023 — and both precede the anticipated EU Working Time Directive Sunday clause revival.",tags:["tg-crit:Regional Sunday Law Wave — Balkans to Brussels"]}
+      ]
+    }
+  },
+
+  // ── SPAIN ──────────────────────────────────────────────
+  "724": {
+    name:"Spain",
+    sub:"Iberian Peninsula",
+    threat:"high",
+    badges:["bd-red:Insabbatatos Edict 1192","bd-orange:37.5-hr Workweek Bill","bd-orange:Digital Euro Participant"],
+    tabs:["sabbath","sunday","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-red",date:"1192 AD",title:"King Alfonso II of Aragon — First Civil Law in Western Europe Naming Saturday-Keepers",text:"Alfonso II issued an edict naming Sabbath-keepers 'Insabbatatos' — heretics who rest on Saturday. Listed alongside Waldensians and Cathari as royal suppression targets. The first civil law in Western Europe to identify Saturday-keepers by a specific legal term. The word 'Insabbatatos' (from the Latin for Sabbath) reveals the practice was geographically widespread enough to require a royal classification.",tags:["tg-crit:First Named Suppression — Western Europe 1192 AD"]},
+        {bar:"ic-red",date:"Medieval",title:"Inquisition and the Marranos — Crypto-Sabbath Keeping Under Death Penalty",text:"After 1492, Spanish Jews forced to convert (conversos/Marranos) continued Sabbath-keeping secretly. The Spanish Inquisition made Saturday rest a primary evidence of crypto-Judaism — laundering clothes on Friday, not lighting fires on Saturday, or eating different food could mean death. Tens of thousands were tried; hundreds burned. The most intensive sustained institutional suppression of Saturday practice in Western history.",tags:["tg-crit:Inquisition — Death Penalty for Sabbath"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Approved May 6, 2025 · Rejected Sept 10, 2025",title:"Spain 37.5-Hour Workweek Bill — Rejected, Now Being Renegotiated",text:"The Yolanda Díaz (Sumar/left coalition) bill to reduce the standard workweek from 40 to 37.5 hours passed initial approval May 6, 2025 — then failed its final Senate vote September 10, 2025 (178 votes to 170) as Catalan nationalist bloc voted against. The government is renegotiating with unions and employer groups. A reduced-hours workweek is the labour-stream pathway to the same outcome as Sunday rest legislation — fewer working hours, structured rest days.",tags:["tg-warn:Failed Sept 2025 — Renegotiating"]},
+        {bar:"ic-blue",date:"Ongoing",title:"ESA European Day (March 3, 2026) — Spain's Catholic-Labour Sunday Coalition Active",text:"Spain is a member of the European Sunday Alliance — the 100+ organisation COMECE-backed lobby for mandatory Sunday rest at EU level. Spain's combination of Catholic Church institutional weight and strong trade union culture mirrors exactly the coalition that produced Poland's 2018 ban. MEP Miriam Lexmann's push at EU Parliament level would affect Spain directly.",tags:["tg-warn:ESA Member — Coalition Building Active"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2025–2027",title:"Digital Euro — Spain as ECB Participant · Phase 2 Preparation",text:"Spain is a Eurozone member subject to the ECB's Digital Euro rollout, targeted 2027–2028. Banco de España is an active participant in ECB design consultations. No separate national CBDC — Spain's programmable currency future is entirely ECB-determined.",prog:{pct:60,cls:"pb-o",lbl:"ECB Phase 2 — National Bank Participating"}}
+      ]
+    }
+  },
+
+  // ── PORTUGAL ───────────────────────────────────────────
+  "620": {
+    name:"Portugal",
+    sub:"Iberian Peninsula",
+    threat:"high",
+    badges:["bd-orange:Catholic Nation — Sunday Advocacy Growing","bd-orange:Digital Euro Participant","bd-green:ESA Member"],
+    tabs:["sunday","cbdc","beast"],
+    data:{
+      sunday:[
+        {bar:"ic-orange",date:"2023–2026",title:"Catholic Organisations — Active Sunday Legislation Campaign",text:"Portugal currently has no mandatory Sunday retail closure law — but Catholic organisations are actively campaigning for one. Portugal's combination of high nominal Catholicism (85%+ Catholic identity, Pew 2018) and ESA membership gives the Sunday advocacy coalition a strong institutional base. Portugal's labour law already provides for Sunday rest as a preference; the campaign is to make it mandatory.",tags:["tg-warn:Campaign Active — No Law Yet"]},
+        {bar:"ic-blue",date:"March 3, 2026",title:"ESA European Day — Portugal Signatory",text:"Portugal signed the ESA European Day of Rest manifesto. The March 3, 2026 ESA statement used the most urgent language in ESA history: 'The value of a common day of rest has never been more evident.' Portugal's signature adds southern European Catholic bloc weight to the campaign.",tags:["tg-watch:ESA Signatory — Building Political Pressure"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2025–2027",title:"Digital Euro — Banco de Portugal as ECB Participant",text:"Portugal is a founding Eurozone member. Banco de Portugal participates in ECB Digital Euro design. No opt-out from a Digital Euro rollout. Every Portuguese citizen will receive EUDI Wallet access by December 2026 under eIDAS 2.0.",prog:{pct:60,cls:"pb-o",lbl:"ECB Phase 2 — National Bank Participating"}}
+      ],
+      beast:[
+        {bar:"ic-yellow",date:"Historical Context",title:"The Inquisition Heritage — Same Institution, New Mechanisms",text:"The Portuguese Inquisition (1536–1821) was second only to Spain's in the suppression of crypto-Sabbath keeping among conversos. The same ecclesiastical institution that burned Marranos for resting on Saturday now lobbies for a Sunday rest law through parliamentary channels. The mechanism has changed completely; the institution has not.",tags:["tg-watch:Same Institution — Different Mechanism"]}
+      ]
+    }
+  },
+
+  // ── AUSTRIA ─────────────────────────────────────────────
+  "040": {
+    name:"Austria",
+    sub:"Central Europe — EU Member",
+    threat:"high",
+    badges:["bd-orange:Arbeitszeitgesetz Sunday Protection","bd-red:Freier Sonntag Allianz Active","bd-orange:Digital Euro Participant"],
+    tabs:["sunday","cbdc","beast"],
+    data:{
+      sunday:[
+        {bar:"ic-red",date:"Current · 2024 Amendment Contested",title:"Austrian Arbeitszeitgesetz — Sunday Worker Protection Under Active Defence",text:"Austrian labour law (Arbeitszeitgesetz) legally entitles workers to Sundays off. A 2024 amendment allows employers to require workers to do up to 4 Sundays or public holidays per year — the Freier Sonntag Allianz (Austria's Sunday Alliance, a church-union coalition mirroring ESA) is actively campaigning against this 'softening.' Austria's COMECE office in Vienna coordinates Sunday advocacy directly with the Austrian Parliament.",tags:["tg-crit:Active Defence — 2024 Amendment Being Challenged"]},
+        {bar:"ic-orange",date:"2011–2026",title:"Freier Sonntag Allianz — Church-Union Coalition in Active Campaign",text:"Austria's Allianz für den freien Sonntag is a founding ESA member and among Europe's strongest Sunday rest coalitions. Backed by the Austrian Catholic Bishops' Conference, the Austrian Trade Union Federation (ÖGB), and Protestant churches. In 2025–2026, the coalition is specifically targeting the rollback of the 2024 amendment that introduced mandatory Sunday exceptions. This is the same coalition model as Poland (Solidarność + Church) and Germany (Verdi + EKD/DBK).",tags:["tg-warn:Founding ESA Member — Coalition Model"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2025–2027",title:"Digital Euro — Oesterreichische Nationalbank Participant",text:"Austria is a Eurozone member. The Oesterreichische Nationalbank participates in ECB Digital Euro design. EUDI Wallet mandatory for all Austrian citizens by December 2026.",prog:{pct:62,cls:"pb-o",lbl:"ECB Phase 2 — National Bank Active"}}
+      ],
+      beast:[
+        {bar:"ic-yellow",date:"Historical",title:"Habsburg Catholic Empire Heritage — Church-State Unity Template",text:"The Austro-Hungarian Empire maintained one of Europe's most rigid Catholic state-church architectures until 1918. The Sunday rest tradition in Austria is not merely cultural — it is a direct legacy of the Habsburg church-state fusion. The Freier Sonntag Allianz explicitly invokes this heritage in its advocacy materials. Austria is the institutional memory of continental Sunday enforcement.",tags:["tg-watch:Habsburg Heritage — Institutional Memory"]}
+      ]
+    }
+  },
+
+  // ── JAPAN ────────────────────────────────────────────────
+  "392": {
+    name:"Japan",
+    sub:"East Asia",
+    threat:"watch",
+    badges:["bd-orange:Four-Day Workweek Expanding","bd-blue:Digital Yen Pilot Active","bd-yellow:Sunday Colonial Import"],
+    tabs:["sunday","cbdc"],
+    data:{
+      sunday:[
+        {bar:"ic-orange",date:"2021–2026",title:"Japan — Four-Day Workweek Expanding Rapidly · Toyota, Panasonic, Hitachi",text:"The Japanese government began formally recommending four-day workweeks in 2021. By 2025, major corporations have adopted or expanded four-day models: Panasonic (2021), Hitachi (2022), Toyota (2023 pilot), NEC. Tokyo Metropolitan Government (Japan's largest employer at ~160,000 staff) launched a four-day week programme in 2024. The government's 'Work Style Reform' targets 'karoshi' (death by overwork) — Japan's notorious overwork culture becoming a four-day model is the most significant non-European shift to structured weekly rest.",tags:["tg-warn:Four-Day Week Expanding — 2025 Acceleration"]},
+        {bar:"ic-yellow",date:"Historical",title:"Sunday as Japanese Holiday — Colonial and Western Import",text:"Sunday became Japan's official day of rest through Westernisation in the Meiji era (1868–1912). The 1876 Dajokan decree designated Sunday as an official rest day — modelled on Western (specifically Christian) practice. Like India, Japan's Sunday is a colonial-era Western import with no indigenous theological basis. The Japanese word for Sunday (日曜日, Nichiyōbi — 'Sun Day') directly mirrors the Latin 'Dies Solis' — the same Roman solar cult name adopted by Constantine.",tags:["tg-watch:Sunday as Colonial Western Import — No Indigenous Basis"]}
+      ],
+      cbdc:[
+        {bar:"ic-blue",date:"2021–2026",title:"Digital Yen — Bank of Japan Proof-of-Concept and Pilot Phases",text:"Bank of Japan launched digital yen Proof of Concept Phase 1 (2021), Phase 2 (2022), Pilot Programme (2023–present). Collaborating with three major city banks and regional banks. CBDC Council established. No deployment decision yet. Japan's extensive electronic payment infrastructure (Suica, PayPay, Line Pay, Rakuten Pay) means a CBDC would integrate with existing rails rather than replace them.",prog:{pct:48,cls:"pb-b",lbl:"Phase 3 of 5 — Active Pilot, No Deployment Decision"}}
+      ]
+    }
+  },
+
+  // ── SOUTH KOREA ─────────────────────────────────────────
+  "410": {
+    name:"South Korea",
+    sub:"East Asia",
+    threat:"watch",
+    badges:["bd-orange:Large SDA and Protestant Community","bd-blue:Digital Won Pilot","bd-yellow:Sunday Legal Holiday"],
+    tabs:["sabbath","sunday","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"South Korea — Significant Saturday-Keeping Protestant and SDA Community",text:"South Korea has one of Asia's largest evangelical Protestant communities. The SDA Church in South Korea operates universities, hospitals, and media. The Korean Union Conference is one of the GC's stronger Asian divisions. Independent Sabbatarian groups also active — influenced by both SDA missions and Hebrew Roots movements spreading via Korean YouTube and social media.",tags:["tg-pos:Active SDA Presence — Growing Messianic Movement"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"1953 · Ongoing",title:"Labour Standards Act — Sunday as Default Weekly Holiday Since 1953",text:"South Korea's Labour Standards Act (1953) enshrines Sunday as the default weekly holiday. A major 52-hour workweek reform was enacted in 2018, reducing maximum weekly hours from 68. A further four-day week pilot programme was launched by the government in 2023 — with Sunday as the anchor rest day in all models. The combination of the world's highest work hours culture and government-led reduction reform makes South Korea a key Asia-Pacific test case for structured weekly rest.",tags:["tg-warn:52-Hour Reform + Four-Day Pilot — 2023"]}
+      ],
+      cbdc:[
+        {bar:"ic-blue",date:"2020–2026",title:"Digital Won — Bank of Korea Pilot Programme",text:"Bank of Korea has conducted CBDC research since 2020. Phase 1 basic CBDC test (2021). Phase 2 interoperability test with BIS (2022). Currently collaborating with BIS Project mCBDC Bridge. The digital won is designed for interoperability with regional CBDC systems — including China's e-CNY — raising geopolitical concerns about cross-border CBDC surveillance.",prog:{pct:40,cls:"pb-b",lbl:"Phase 2–3 — Research and BIS Collaboration"}}
+      ]
+    }
+  },
+
+  // ── FRANCE ────────────────────────────────────────────
+  "250": {
+    name:"France",
+    sub:"Western Europe",
+    threat:"watch",
+    badges:["bd-orange:Code du Travail Sunday Rest","bd-red:Republican Calendar Abolished Sunday 1792","bd-blue:Digital Euro — Most Active ECB Participant","bd-yellow:Notre-Dame Reopening Dec 2024"],
+    tabs:["sabbath","sunday","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-orange",date:"1792–1806",title:"Republican Calendar — France Abolished Sunday and Saturday Both",text:"The French Revolution abolished the seven-day week in 1792, replacing it with a ten-day 'decade' — the most radical attempt in history to eliminate the Sabbath by eliminating the very week that contains it. Sunday, Saturday, and all Christian holidays were abolished. Napoleon restored the Gregorian calendar in 1806. The experiment lasted 14 years and required an emperor to reverse it — proving the seven-day week cannot be removed without destroying social order.",tags:["tg-warn:The Most Radical Sunday Abolition in History — And It Failed"]},
+        {bar:"ic-red",date:"1209–1229 AD",title:"Albigensian Crusade — 20,000+ Killed in One Day for Rejecting Rome's Calendar",text:"Pope Innocent III launched the Albigensian Crusade against the Cathars of southern France — a movement partly characterised by rejection of Catholic Sunday observance. The sack of Béziers (July 22, 1209) killed an estimated 20,000+ — the largest single-day massacre of the medieval period. Papal legate Arnaud Amalric's reported words: 'Kill them all, God will know his own.' The Waldensians in Provence were simultaneously suppressed. Southern France was the most intense zone of Sabbatarian-adjacent suppression in all of medieval Europe.",tags:["tg-crit:20,000+ Killed in Béziers 1209 — Largest Medieval Religious Massacre"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Current",title:"Code du Travail — Sunday Rest as French Labour Law",text:"France's Code du Travail Article L3132-3 establishes Sunday as the default day of rest. Exceptions require sectoral or prefectoral government authorisation. The 2015 Macron Law created 'international tourist zones' (Paris, Nice, Deauville) permitting Sunday trading — a strategic exception preserving the principle while acknowledging economic reality. The French trade unions (CGT, CFDT) vigorously defend Sunday rest as a labour right.",tags:["tg-warn:Sunday Rest Is Statutory — Exceptions Require Government Permission"]},
+        {bar:"ic-orange",date:"Dec 7–8, 2024",title:"Notre-Dame Reopening — Emmanuel Macron's Catholic State Ceremony for 50+ World Leaders",text:"President Macron hosted the Notre-Dame reopening ceremony December 7–8, 2024 — attended by Trump, Charles III, and 50+ world leaders. Macron declared Notre-Dame 'une cathédrale pour tous' but hosted explicitly Catholic ceremonies including a solemn Mass. The French republic — officially secular (laïcité since 1905) — staged the most high-profile Catholic religious state event in a generation, signalling that European secularism and Catholic institutional power are converging rather than diverging.",tags:["tg-warn:Laïque Republic Hosts Global Catholic State Ceremony"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"2021–2026",title:"Banque de France — Most Active ECB CBDC Participant · Project Jura + Project Mariana",text:"Banque de France is the ECB's most active national bank participant in Digital Euro experiments. Project Jura (2021): cross-border wholesale CBDC settlement with Switzerland. Project Mariana (2023): cross-border CBDC with Singapore and Switzerland using AMM (automated market maker) technology. France is the most technically advanced national bank in the Digital Euro programme — and a founding member of the ECB.",prog:{pct:75,cls:"pb-o",lbl:"ECB Phase 2 — Most Active National Participant"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2023–Present",title:"France Identité — National Digital ID App and the Laïcité Paradox",text:"France Connect and the new France Identité smartphone app (2023) allow French citizens to use their national ID card digitally for all government services. The CNIL (France's data protection authority) approved the framework. France's paradox: the world's most aggressively secular state (laïcité, no religious symbols in public service) is simultaneously building one of Europe's most centralised digital identity infrastructures. The same state that bans headscarves from schools tracks every citizen's digital identity for tax, health, and legal transactions.",tags:["tg-warn:Most Secular + Most Identity-Tracking EU State Simultaneously"]}
+      ]
+    }
+  },
+
+  // ── HUNGARY ──────────────────────────────────────────
+  "348": {
+    name:"Hungary",
+    sub:"Central Europe — EU Member",
+    threat:"watch",
+    badges:["bd-red:Sunday Ban 2014 ENACTED then REPEALED 2016","bd-red:Only EU Country to Reverse a Sunday Law","bd-yellow:Digital Forint Research"],
+    tabs:["sunday","cbdc","beast"],
+    data:{
+      sunday:[
+        {bar:"ic-red",date:"2014–2016",title:"Hungary Enacts Then Repeals Sunday Trading Ban — The ONLY EU Reversal",text:"Hungary enacted a Sunday trading ban in 2014 under PM Viktor Orbán's Fidesz government — the first EU country after Germany and Austria to do so in the modern era. Retail stores closed on Sundays; only small family-run shops exempted. In 2016, facing a referendum campaign by opposition parties and significant public backlash, Orbán voluntarily repealed the law rather than risk a referendum defeat. Hungary is the ONLY EU country to enact a Sunday trading ban and then fully reverse it.",tags:["tg-crit:Only EU Reversal — The Risk Model Every Sunday Advocate Studies"]},
+        {bar:"ic-orange",date:"2016–Present",title:"The Reversal Lessons — What Every Sunday Law Architect Now Avoids",text:"Sunday law advocates study Hungary's 2016 failure as the definitive anti-template. Key failure factors: (1) enacted without multi-year coalition building — Poland spent 7 years, Croatia attempted twice before succeeding; (2) applied uniformly without strategic exemptions — no 'shopping Sunday' safety valve; (3) the referendum mechanism gave opponents a clean political weapon; (4) no labour union co-ownership of the bill. The Polish, Croatian, and Montenegro Sunday laws were all specifically designed to avoid Hungary's failure points. Hungary is the reason every subsequent Sunday law has been slower, more carefully constructed, and more coalition-dependent.",tags:["tg-warn:Anti-Template — The Failure Every Subsequent Sunday Law Was Designed To Avoid"]}
+      ],
+      cbdc:[
+        {bar:"ic-yellow",date:"2022–2026",title:"Digital Forint — Magyar Nemzeti Bank Research Phase",text:"Hungary retains the forint — it is an EU member but not in the Eurozone. The Magyar Nemzeti Bank (MNB) is researching a digital forint independently. No pilot announced. As a non-Eurozone state, Hungary could develop its own CBDC independently of the ECB's Digital Euro — or adopt the Digital Euro voluntarily when it joins the Eurozone (a path Hungary has delayed indefinitely).",prog:{pct:20,cls:"pb-y",lbl:"Phase 1–2 — Research and Consultation Only"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2010–2026",title:"Orbán's Christian Democracy — Church-State Fusion Without a Sunday Law",text:"Viktor Orbán has made Hungary a self-described 'Christian democracy' — with constitutional embedding of Christian heritage, privileged church status, state funding of Catholic and Reformed schools, and an explicitly anti-liberal political theology. The Sunday law reversal did not stop the broader church-state integration. Orbán's model demonstrates that Sunday law failure does not mean the underlying Christian nationalist movement fails — it simply finds other channels.",tags:["tg-warn:Sunday Law Reversed — Christian Nationalism Still Advancing"]}
+      ]
+    }
+  },
+
+  // ── BELGIUM / EU HQ ───────────────────────────────────
+  "056": {
+    name:"Belgium / EU Headquarters",
+    sub:"Western Europe — COMECE & ESA Epicentre",
+    threat:"watch",
+    badges:["bd-red:COMECE Headquarters Brussels","bd-red:ESA Founded Brussels 2011","bd-red:SWIFT Headquarters Brussels","bd-orange:Digital Euro ECB Participant"],
+    tabs:["sunday","cbdc","beast"],
+    data:{
+      sunday:[
+        {bar:"ic-red",date:"2011–2026",title:"Brussels — Operational Headquarters of the 33-Year EU Sunday Law Campaign",text:"The European Sunday Alliance (ESA) — 100+ organisations lobbying for mandatory EU Sunday rest — was founded in Brussels in 2011 and operates from the EU institutions quarter. Its primary backer is COMECE (Commission of the Bishops' Conferences of the EU), headquartered in Brussels. MEP Miriam Lexmann leads the current Parliament push to add Sunday to the Working Time Directive — the same clause the ECJ annulled in 1996. Every EU Sunday law effort for 33 years has been coordinated from this city.",tags:["tg-crit:Brussels Is The Operational HQ of the EU Sunday Campaign"]},
+        {bar:"ic-red",date:"March 3, 2026",title:"ESA European Day of Rest — Most Urgent Manifesto Language in 15-Year History",text:"The March 3, 2026 ESA European Day of Rest statement: 'The value of a common day of rest has never been more evident.' Language more urgent than any previous year. 100+ organisations signed. Timed before the European Parliament's new legislative session to maximise political impact. COMECE explicitly framed this as preparation for a Working Time Directive Sunday amendment push.",tags:["tg-crit:Most Urgent ESA Language — Timed for Parliament"]},
+        {bar:"ic-yellow",date:"Current",title:"Belgium's Own Shop Closing Act — Sunday Rest as Labour Law",text:"Belgium's Shop Closing Act restricts Sunday trading. Brussels' tourist zones and airport are exempt under the same strategic exemption model as Croatia and France. The Belgian trade union federation (FGTB/CSC) actively defends Sunday closure as a labour right — the same union-church coalition that produces Sunday laws across Europe.",tags:["tg-warn:Belgium Has Its Own Sunday Law — Union-Church Coalition Active"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"2023–2027",title:"Brussels — SWIFT + BIS + ECB + NBB: Most Concentrated Financial Infrastructure City on Earth",text:"Brussels/Belgium contains: SWIFT headquarters (interbank messaging for 11,000+ institutions in 200+ countries), the BIS Innovation Hub European Centre (CBDC technical standards), the National Bank of Belgium (ECB participant), and the EU Commission (regulatory authority for 450M people). No other city concentrates this combination of financial infrastructure power. Every CBDC interoperability standard developed at BIS or ECB passes through institutions within a 10km radius of the EU Parliament.",prog:{pct:72,cls:"pb-o",lbl:"SWIFT + BIS + ECB All Operational Here"}}
+      ],
+      beast:[
+        {bar:"ic-red",date:"Ongoing",title:"The Convergence Capital — EU Parliament + SWIFT + BIS + COMECE + ESA: All In One City",text:"In one city: EU Parliament and Commission (political authority, 450M people), SWIFT HQ (financial messaging, 200 countries), BIS Innovation Hub (CBDC design), COMECE (Catholic institutional lobbying into EU law), ESA (Sunday law institutional campaign). The prophetic convergence of church + state + economic control infrastructure is not metaphorical in Brussels. It is a physical address.",tags:["tg-crit:Church + State + Financial Control — Literally All Headquartered Here"]}
+      ]
+    }
+  },
+
+  // ── SWEDEN ────────────────────────────────────────────
+  "752": {
+    name:"Sweden",
+    sub:"Scandinavia — World's Most Cashless Major Economy",
+    threat:"watch",
+    badges:["bd-red:Less Than 9% Cash Transactions","bd-orange:e-Krona Research Since 2017","bd-orange:Lutheran Suppression of Sabbatarians 1554","bd-yellow:Riksbank Urgently Warning Cash Disappearing"],
+    tabs:["sabbath","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-red",date:"1554–1602 AD",title:"King Gustavus I — Lutheran Suppression of Swedish-Finnish Sabbatarians",text:"King Gustavus I of Sweden wrote directly to Saturday-keeping communities in Finland (then Swedish territory) in 1554, ordering cessation. King Charles IX issued further prohibitions in 1602. The same communities that survived Catholic pressure then survived Lutheran state suppression — 48 years of sustained dual-church persecution. The practice was alive under both the Catholic and Protestant institutional orders.",tags:["tg-warn:48 Years of Failed Dual Suppression — Catholic then Lutheran"]},
+        {bar:"ic-green",date:"18th Century",title:"Swedish Pietist Sabbatarian Revivals — Independent Rediscovery Through Bible Study",text:"Independent Sabbatarian revivals occurred in 18th-century Sweden through pietist movements. Small communities arrived at Saturday observance through scripture reading without SDA contact — repeating the universal pattern. The Riksdag (Swedish Parliament) received petitions about Saturday-keeping communities as late as the 1760s.",tags:["tg-pos:Independent Rediscovery — Same Pattern As Every Reformation"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2017–2026",title:"e-Krona — 9 Years of the World's Most Detailed Retail CBDC Research",text:"Riksbank e-Krona research began 2017. Phase 1 (2020). Phase 2 (2021). Pilot with Accenture (2021–2023) testing retail payments, programmable features, and offline capability. The Riksbank has produced more detailed public CBDC research than almost any central bank on earth. In 2025, the Riksbank called for 'urgent' legislation to legally protect cash — because it is disappearing faster than the e-Krona's development schedule.",prog:{pct:55,cls:"pb-y",lbl:"Phase 3 — Pilot Complete, Policy Decision Pending"}},
+        {bar:"ic-red",date:"Current",title:"Less Than 9% Cash — The CBDC Precondition Is Voluntarily Almost Met",text:"Sweden is the world's most cashless major economy. Under Swedish contract law, businesses may legally refuse cash. Riksbank's 2025 report warns cash is disappearing so fast it needs urgent protective legislation. The paradox: the central bank researching the digital replacement is simultaneously trying to slow the elimination of analogue money. Sweden proves cashless societies emerge voluntarily — CBDC coercion is not required when consumer preference eliminates cash on its own.",tags:["tg-crit:Voluntary Cashless — The Most Important CBDC Precondition Case Study"]}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2003–Present",title:"BankID — Sweden's Accidental 22-Year Head Start on the EUDI Wallet",text:"BankID (issued by commercial banks since 2003) is Sweden's de facto national digital identity — used for tax, healthcare, courts, social security, and banking. 8.5 million Swedes (82% of population) use it actively. The EU's EUDI Wallet (mandated by Dec 2026) does essentially what BankID has done since 2003 — Sweden accidentally built it through commercial initiative 22 years early. This is precisely the 'private infrastructure achieves public control outcome' dynamic of the GENIUS Act stablecoin model.",tags:["tg-warn:Private BankID = Public EUDI Wallet — 22 Years Before Mandate"]}
+      ]
+    }
+  },
+
+  // ── NIGERIA ───────────────────────────────────────────
+  "566": {
+    name:"Nigeria",
+    sub:"West Africa — Largest SDA Community in Africa",
+    threat:"monitor",
+    badges:["bd-green:Largest SDA Community in Africa","bd-red:e-Naira First African CBDC Launched 2021","bd-red:Government Forced Adoption by Restricting Cash 2023"],
+    tabs:["sabbath","sunday","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"Nigeria — Largest Seventh-day Adventist National Community in Africa",text:"Nigeria has the largest SDA national membership on the African continent. The West-Central Africa Division covers Nigeria and surrounding nations. Babcock University (Ogun State, SDA-founded) is one of Nigeria's most respected private universities. SDA hospitals and schools operate across the country.",tags:["tg-pos:Largest SDA Community in Africa"]},
+        {bar:"ic-green",date:"Current",title:"Independent Sabbatarian Movements — Growing Outside SDA Structures in Yoruba and Igbo Communities",text:"Independent Saturday-keeping church movements have grown rapidly through direct Bible study without SDA contact — particularly in Yoruba and Igbo communities. These groups mirror the universal rediscovery dynamic: communities reading scripture in their own language independently arrive at Saturday.",tags:["tg-pos:Independent Rediscovery — Yoruba and Igbo Communities"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Historical · Ongoing",title:"British Colonial Sunday Laws + Dual Rest Day System",text:"Nigeria inherited British colonial Sunday rest laws. Catholic and Protestant churches actively lobby for Sunday protection. In predominantly Christian southern states, Sunday rest is culturally enforced. In Kano and northern states, Friday is the effective rest day. Nigeria's religious geography creates two parallel rest day systems within one nation — the only country where both Sunday and Friday rest traditions operate simultaneously at scale.",tags:["tg-warn:Dual Rest Day Systems — Sunday South, Friday North"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"Oct 2021–2023",title:"e-Naira — First African CBDC · Government Forced Adoption by Eliminating Cash",text:"Nigeria launched the e-Naira in October 2021 — Africa's first CBDC. Initial adoption was below 0.5% in year one. The CBN responded in 2023 by restricting ATM cash withdrawals to ₦20,000/day (~$13) and ₦100,000/week — a direct policy of forcing CBDC adoption by eliminating the alternative. The resulting 2023 cash crisis caused massive economic disruption, fuel and food shortages, and deaths. The Supreme Court later ruled the currency swap was unconstitutional. Nigeria is the world's clearest case study of CBDC-via-cash-elimination — and the social resistance it generates.",prog:{pct:30,cls:"pb-b",lbl:"Phase 2 — Launched, Forced Adoption Caused Crisis, Now Stabilising"},tags:["tg-crit:First African CBDC + First Government Cash Elimination Attempt + First Resulting Constitutional Crisis"]}
+      ]
+    }
+  },
+
+  // ── PHILIPPINES ───────────────────────────────────────
+  "608": {
+    name:"Philippines",
+    sub:"Southeast Asia — Only Catholic-Majority Asian Nation",
+    threat:"monitor",
+    badges:["bd-green:Large SDA Community","bd-orange:Digital Peso Pilot","bd-orange:CBCP Most Politically Active Catholic Bishops in Asia"],
+    tabs:["sabbath","sunday","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"Philippines — Large SDA Presence in Asia's Only Catholic-Majority Nation",text:"The SDA Church operates universities, hospitals, and schools across the Philippines. The Adventist University of the Philippines (AUP) and Philippine Union College are significant institutions. SDA membership is among the highest per-capita of any predominantly Catholic nation — a direct test of Saturday Christianity within a Catholic cultural framework.",tags:["tg-pos:Significant SDA Presence — Among Highest Per-Capita in Catholic Nations"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Current",title:"Catholic Bishops' Conference (CBCP) — Asia's Most Politically Active Episcopal Body",text:"The Philippine Catholic Bishops' Conference (CBCP) is among Asia's most politically active. Sunday Mass attendance is among Asia's highest. The Labour Code establishes Sunday as the default rest day. Government offices, courts, and schools close on Sunday. Philippine politics is uniquely characterised by Catholic episcopal intervention — the CBCP played decisive roles in the EDSA People Power Revolution (1986) and subsequent elections.",tags:["tg-warn:CBCP Among Asia's Most Politically Active — Decisive Electoral History"]}
+      ],
+      cbdc:[
+        {bar:"ic-blue",date:"2020–2026",title:"Digital Peso (CBDCPh) — Remittance-Driven Adoption Strategy",text:"The Bangko Sentral ng Pilipinas (BSP) has researched a digital peso since 2020. Pilot launched 2022. The Philippines has one of the world's highest remittance-to-GDP ratios — $35B+ annually from overseas Filipino workers. CBDC adoption is being driven by the remittance use case, giving it unusually strong consumer incentives compared to economies without large diaspora populations.",prog:{pct:38,cls:"pb-b",lbl:"Phase 2–3 — Pilot Active, Remittance Focus"}}
+      ]
+    }
+  },
+
+  // ── KENYA ─────────────────────────────────────────────
+  "404": {
+    name:"Kenya",
+    sub:"East Africa — SDA Heartland",
+    threat:"good",
+    badges:["bd-green:Highest SDA Per-Capita Globally","bd-green:East-Central Africa Division HQ","bd-blue:M-Pesa — First Mass Mobile Money (2007)"],
+    tabs:["sabbath","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"Kenya — Among the World's Highest Per-Capita SDA Concentrations",text:"Kenya's Rift Valley — particularly around Kisii, Kisumu, and the western highlands — has among the highest per-capita SDA concentrations on earth. The East-Central Africa Division HQ is in Nairobi. The University of Eastern Africa, Baraton (est. 1978) is sub-Saharan Africa's oldest private university. SDA schools serve hundreds of thousands.",tags:["tg-pos:Among Highest Per-Capita SDA Globally"]},
+        {bar:"ic-green",date:"1930s–1950s",title:"East African Revival — Prepared Soil for Sabbath Rediscovery",text:"Kenya was a centre of the East African Revival — a grassroots Christianity movement emphasising direct Bible reading. Multiple communities independently reached Sabbatarian conclusions. SDA missions benefited from this prepared soil: communities already questioning traditional Christian practices were receptive to Sabbath theology. This is the purest documented case of independent rediscovery in 20th-century Africa.",tags:["tg-pos:East African Revival — Independent Sabbath Rediscovery Documented"]}
+      ],
+      cbdc:[
+        {bar:"ic-blue",date:"2007–Present",title:"M-Pesa — Kenya Built the World's First Mass Mobile Money System 17 Years Before CBDC Era",text:"M-Pesa (launched March 2007) made Kenya the first country with mass mobile money adoption. 30+ million active users. 70%+ of adult Kenyans use M-Pesa. The CBK has studied a digital shilling but concluded M-Pesa already provides most CBDC coverage. Kenya proves financial digitisation can happen through private mobile infrastructure — without government programmable money. M-Pesa has no spending restrictions, no expiry dates, no geographic locks. It is the counter-model to programmable CBDC.",prog:{pct:22,cls:"pb-b",lbl:"Research Only — M-Pesa Provides Functional Coverage"},tags:["tg-pos:Private Mobile Money Without CBDC Programmability — The Counter-Model"]}
+      ]
+    }
+  },
+
+  // ── UGANDA ────────────────────────────────────────────
+  "800": {
+    name:"Uganda",
+    sub:"East Africa — Saturday Belt",
+    threat:"good",
+    badges:["bd-green:Strong SDA Presence","bd-green:Part of East African Saturday Belt","bd-yellow:Digital Shilling Research"],
+    tabs:["sabbath","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"Uganda — Part of the East African Saturday Belt",text:"Uganda is part of the East-Central Africa Division of the SDA Church — one of the fastest-growing SDA divisions globally. The corridor from Uganda through Kenya, Tanzania, and Ethiopia represents the highest concentration of Saturday observance per capita on earth. Ethiopian Orthodox (Saturday-keeping) influence extends southward into Uganda through diaspora communities and shared border regions.",tags:["tg-pos:Part of World's Highest Saturday Concentration Corridor"]},
+        {bar:"ic-green",date:"Historical",title:"Saturday Christianity Outside Rome's Historical Reach",text:"The entire East African Saturday belt — Uganda, Kenya, Tanzania, Ethiopia — developed its Christian identity largely outside Rome's direct historical influence. Ethiopian Orthodox Christianity shaped the region's theology; British missionary Christianity brought Sunday norms; but the combination of Ethiopian influence and SDA mission created a region where Saturday observance is culturally normal rather than countercultural.",tags:["tg-pos:Christian Identity Formed Outside Rome's Historical Reach"]}
+      ],
+      cbdc:[
+        {bar:"ic-yellow",date:"2022–2026",title:"Bank of Uganda — Digital Shilling Exploratory Research",text:"The Bank of Uganda has studied a digital shilling as part of its financial inclusion mandate. No pilot announced. Uganda's relatively low smartphone penetration and high rural population make CBDC rollout challenging without significant infrastructure investment — the same barriers that protected Kenya until M-Pesa solved them through mobile-first design.",prog:{pct:15,cls:"pb-y",lbl:"Phase 1 — Exploratory Research Only"}}
+      ]
+    }
+  },
+
+  // ── TURKEY ────────────────────────────────────────────
+  "792": {
+    name:"Turkey",
+    sub:"Eurasian Crossroads — Byzantine Heritage",
+    threat:"watch",
+    badges:["bd-green:Constantinople — Eastern Orthodox Capital","bd-orange:Nazarene Saturday-Keepers","bd-blue:Digital Lira Research"],
+    tabs:["sabbath","cbdc","beast"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"1st–4th Century AD",title:"Nazarenes of Asia Minor — Saturday-Keepers Through the 4th Century",text:"The Nazarenes — Jewish Christians who kept the Mosaic law including Saturday Sabbath — were concentrated in Asia Minor (modern Turkey). Epiphanius of Salamis (c. 375 AD) documented their continued Saturday observance. They were distinct from both mainstream Christianity (which had shifted to Sunday in Rome) and Judaism. Asia Minor was the heartland of the churches Paul founded — all of which originally kept Saturday.",tags:["tg-pos:Nazarenes in Asia Minor — 4th Century Saturday Documented"]},
+        {bar:"ic-green",date:"330–1453 AD",title:"Constantinople — Capital of Saturday-Feast Eastern Christianity for 1,123 Years",text:"Constantinople (modern Istanbul) was the capital of the Byzantine Empire and the Eastern Orthodox Church for 1,123 years. The Byzantine liturgical tradition — which treats Saturday as a sacred feast day (not a fast day) — was codified at the Council of Trullo (692 AD) held in Constantinople. The city that most resisted Rome's Sunday dominance for over a millennium. The Hagia Sophia — built 537 AD, now a mosque — was the cathedral where Saturday liturgies were celebrated for 916 years.",tags:["tg-pos:Byzantine Capital — Saturday Feast Tradition 1123 Years"]}
+      ],
+      cbdc:[
+        {bar:"ic-blue",date:"2021–2026",title:"Digital Lira — CBRT Research and Pilot Phase",text:"The Central Bank of the Republic of Turkey (CBRT) has been researching a digital lira since 2021. Pilot programme launched 2023 with limited participants. Turkey's high inflation environment (peak 85% in 2022) has driven unusual interest in CBDC as an inflation-tracking tool. The digital lira is being designed with programmable features for government subsidy distribution.",prog:{pct:35,cls:"pb-b",lbl:"Phase 2–3 — Pilot Programme Active"}}
+      ],
+      beast:[
+        {bar:"ic-orange",date:"2010–2026",title:"Erdoğan's Religious Nationalism — Neo-Ottoman Islam + State Power",text:"President Erdoğan has progressively merged Turkish state authority with Sunni Islamic identity. Hagia Sophia reconverted to a mosque (2020). Friday is effectively Turkey's day of rest for government and religious institutions. Turkey represents the Islamic variant of the state-church merger dynamic — parallel to the Catholic and Orthodox Christian variants in Poland, Hungary, and Russia.",tags:["tg-warn:Islamic State-Church Merger — Parallel to Christian Models"]}
+      ]
+    }
+  },
+
+  // ── DENMARK ───────────────────────────────────────────
+  "208": {
+    name:"Denmark",
+    sub:"Scandinavia",
+    threat:"watch",
+    badges:["bd-orange:Sunday Trading Restrictions","bd-red:Less Than 10% Cash","bd-blue:Digital Krone Research"],
+    tabs:["sunday","cbdc","beast"],
+    data:{
+      sunday:[
+        {bar:"ic-orange",date:"Current",title:"Danish Sunday Trading — Restricted Hours, Church-Labour Coalition Defends",text:"Denmark maintains Sunday trading restrictions. Large stores face limited opening hours on Sundays. The Danish trade unions (LO) and the Church of Denmark (state church — Lutheran, 75% of Danes are members) both support Sunday rest protection. The Butiksloven (Shop Act) governs trading hours. Denmark is a consistent ESA member.",tags:["tg-warn:Church-Labour Coalition Defends Sunday — Consistent ESA Member"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2017–2026",title:"Danmarks Nationalbank — Digital Krone Research · Less Than 10% Cash",text:"Denmark's central bank researched a digital krone extensively. In 2022, the Nationalbank concluded it would NOT issue a retail CBDC for now — but would participate in the ECB Digital Euro framework. Denmark retains the krone (it is not in the Eurozone but pegs to the euro). Less than 10% of Danish transactions use cash. MobilePay (owned by Danske Bank) is used by 90% of the adult population — Denmark's private sector has pre-built the CBDC infrastructure.",prog:{pct:30,cls:"pb-b",lbl:"Research Complete — Decided Not to Issue Own CBDC; ECB Participant"}}
+      ],
+      beast:[
+        {bar:"ic-yellow",date:"2003–Present",title:"MobilePay — 90% Adoption Private Digital Payment = Pre-CBDC Infrastructure",text:"MobilePay (launched 2013) reaches 90% of Danish adults — the highest single private payment app penetration of any country. The Danish government uses MobilePay for government transfers. The infrastructure for complete financial digitisation exists privately. When the Digital Euro launches, Denmark's population will have no practical experience using cash for a decade.",tags:["tg-warn:90% Private Digital Payment Penetration — CBDC Adoption Will Be Frictionless"]}
+      ]
+    }
+  },
+
+  // ── FINLAND ───────────────────────────────────────────
+  "246": {
+    name:"Finland",
+    sub:"Scandinavia",
+    threat:"watch",
+    badges:["bd-orange:Lutheran Sabbatarian Suppression 1554","bd-orange:Sunday Trading Restricted","bd-blue:Digital Euro Participant"],
+    tabs:["sabbath","sunday","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-red",date:"1554 AD",title:"Finnish Sabbatarians — Target of King Gustavus I's Direct Suppression Letter",text:"King Gustavus I of Sweden wrote directly to Saturday-keeping communities in Finland (then under Swedish rule) in 1554 — ordering them to cease. The existence of a royal letter targeted specifically at Finnish Sabbatarians proves the communities were geographically identifiable and institutionally persistent. Finland was part of the Scandinavian Sabbatarian belt that survived both Catholic and Lutheran suppressions.",tags:["tg-crit:Royal Letter Proves Community Was Geographically Documented — 1554"]}
+      ],
+      sunday:[
+        {bar:"ic-orange",date:"Current",title:"Finnish Sunday Trading — Restricted, ESA Member",text:"Finland maintains Sunday trading restrictions under the Trading Hours Act. Large grocery stores may not open on Sundays outside tourist seasons. The Evangelical Lutheran Church of Finland (state church, 67% of Finns are members) supports Sunday rest. Finland is a consistent ESA signatory.",tags:["tg-warn:State Church + ESA — Sunday Coalition Active"]}
+      ],
+      cbdc:[
+        {bar:"ic-orange",date:"2023–2027",title:"Digital Euro — Bank of Finland Active ECB Participant · Suomi Is Eurozone Founding Member",text:"Finland is a founding Eurozone member. The Bank of Finland participates actively in ECB Digital Euro design. Finland's digital payment penetration is among Europe's highest — the infrastructure precondition for CBDC adoption is already met. The Finnish government has run extensive digital identity infrastructure (Suomi.fi) since 2017.",prog:{pct:68,cls:"pb-o",lbl:"ECB Phase 2 — Active Participant, 2027–28 Target"}}
+      ]
+    }
+  },
+
+  // ── DRC ───────────────────────────────────────────────
+  "180": {
+    name:"Democratic Republic of Congo",
+    sub:"Central Africa",
+    threat:"monitor",
+    badges:["bd-green:Large SDA Presence","bd-orange:Sunday Law Enforcement Cases","bd-yellow:Digital Franc Research"],
+    tabs:["sabbath","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"DRC — Significant SDA Presence in Central Africa",text:"The Democratic Republic of Congo has a significant SDA presence. The Central Africa Division of the SDA Church covers the DRC and surrounding nations. SDA schools and health centres operate across the country despite ongoing conflict in eastern regions. SDA missionaries arrived in the early 20th century and built one of the church's most durable African presences.",tags:["tg-pos:Significant SDA Presence — Central Africa Division"]},
+        {bar:"ic-orange",date:"Historical · Ongoing",title:"Congo Sunday Law Enforcement — Colonial Heritage and Church Pressure",text:"The DRC inherited Belgian colonial Sunday rest laws. The Catholic Church remains dominant (50%+ of population) and actively supports Sunday rest observance. In government-controlled urban areas, Sunday closures are broadly observed. The SDA community's Saturday worship practices have historically created workplace and community friction.",tags:["tg-warn:Belgian Colonial Sunday Law + Catholic Church Pressure"]}
+      ],
+      cbdc:[
+        {bar:"ic-yellow",date:"2022–2026",title:"Digital Franc (e-CDF) — Banque Centrale du Congo Research",text:"The Banque Centrale du Congo has explored a digital franc. Congo's financial infrastructure is severely underdeveloped — 75%+ of the population is unbanked. Mobile money (Airtel Money, M-Pesa Congo, Orange Money) provides basic financial access. A CBDC here would depend entirely on mobile infrastructure rather than bank rails.",prog:{pct:10,cls:"pb-y",lbl:"Phase 1 — Exploratory Only"}}
+      ]
+    }
+  },
+
+  // ── THAILAND ──────────────────────────────────────────
+  "764": {
+    name:"Thailand",
+    sub:"Southeast Asia — Project mBridge Participant",
+    threat:"monitor",
+    badges:["bd-orange:Project mBridge CBDC Participant","bd-green:SDA Presence","bd-yellow:Digital Baht Research"],
+    tabs:["sabbath","cbdc"],
+    data:{
+      sabbath:[
+        {bar:"ic-green",date:"Current",title:"Thailand — SDA Presence in Buddhist-Majority Nation",text:"The SDA Church operates in Thailand with hospitals, schools, and community programmes. Thailand Mission and the Thailand Adventist Hospital in Bangkok serve both Thai and expatriate communities. Saturday observance within a predominantly Buddhist society creates unusual dynamics — Buddhist temple observance on different days means Saturday is less commercially pressured than in Christian-majority contexts.",tags:["tg-pos:SDA Active — Buddhist Context Creates Less Saturday Pressure"]}
+      ],
+      cbdc:[
+        {bar:"ic-red",date:"2021–Present",title:"Project mBridge — Thailand as CBDC Cross-Border Infrastructure Participant",text:"Thailand is a founding participant in BIS Project mBridge — the wholesale CBDC cross-border settlement system alongside China, UAE, Hong Kong, and Saudi Arabia. The Bank of Thailand's retail CBDC research (Project Inthanon, 2018–2020) was among Asia's earliest. Thailand bridges the China-dominated CBDC infrastructure to Southeast Asia. Project mBridge means Thailand's financial system is already partially integrated with China's e-CNY infrastructure.",prog:{pct:45,cls:"pb-o",lbl:"Wholesale: Phase 3 (mBridge Active) · Retail: Phase 2 (Research)"},tags:["tg-crit:Project mBridge — Directly Integrated with China e-CNY Infrastructure"]}
+      ]
+    }
+  }
+
+};
+
+// ════════════════════════════════════════════════════════
+//  MAP RENDER — D3 + Natural Earth TopoJSON
+// ════════════════════════════════════════════════════════
+
+// Threat class map by ISO numeric code
+const THREAT = {
+  "840":"t-critical","276":"t-critical","380":"t-critical","156":"t-critical",
+  "826":"t-high","356":"t-high","076":"t-high","036":"t-high","499":"t-high",
+  "300":"t-high","724":"t-high","620":"t-high","040":"t-high",
+  "616":"t-high","191":"t-high",
+  "643":"t-watch","578":"t-watch","376":"t-watch","792":"t-watch",
+  "752":"t-watch","246":"t-watch","208":"t-watch","056":"t-watch",
+  "392":"t-watch","410":"t-watch","250":"t-watch","348":"t-watch",
+  "231":"t-good","404":"t-good","800":"t-good",
+  "566":"t-monitor","180":"t-monitor","764":"t-monitor","608":"t-monitor",
+};
+
+const TOOLTIPS = {
+  "840":"United States · Critical — Sunday Law Infrastructure + CBDC + Beast System",
+  "276":"Germany · Critical — Sonntagsruhe Constitutional + Digital Euro",
+  "380":"Italy / Vatican · Critical — Four-Pope Chain · St. Francis 247-2",
+  "156":"China · Critical — e-CNY Deployed · Social Credit Live",
+  "826":"United Kingdom · High Alert — Celtic Saturday 500yr · Digital Pound Lab",
+  "356":"India · High Alert — St. Thomas 1547yr · Modi Sunday Admission",
+  "076":"Brazil · High Alert — Drex CBDC · 3rd Largest SDA",
+  "036":"Australia · High Alert — Digital ID Act 2024 · SDA Growing",
+  "499":"Montenegro · High Alert — First New Sunday Law of 2026",
+  "300":"Greece · High Alert — Only EU State: Every Sunday Mandatory Holiday",
+  "616":"Poland · High Alert — Sunday Trading Banned 2018 · SR323 Template",
+  "191":"Croatia · High Alert — Sunday Ban July 2023 · 'His Day'",
+  "724":"Spain · High Alert — Insabbatatos 1192 · ESA Member",
+  "620":"Portugal · High Alert — Sunday Advocacy Active · ESA Member",
+  "040":"Austria · High Alert — Freier Sonntag Allianz Active",
+  "250":"France · Watch — Code du Travail Sunday · Notre-Dame 2024 · Most Active CBDC",
+  "348":"Hungary · Watch — ONLY EU Country to Reverse a Sunday Law",
+  "056":"Belgium · Watch — COMECE + ESA + SWIFT + BIS All Here",
+  "752":"Sweden · Watch — e-Krona · Less Than 9% Cash · BankID",
+  "643":"Russia · Watch — Strigolniki 1551 · Digital Ruble · Church-State Merger",
+  "578":"Norway · Watch — Bergen 1435 · Less Than 3% Cash",
+  "376":"Israel · Watch — Shabbat Is National Law · 105 Languages",
+  "792":"Turkey · Watch — Constantinople Byzantine Capital · Digital Lira Pilot",
+  "208":"Denmark · Watch — MobilePay 90% · Less Than 10% Cash · ESA Member",
+  "246":"Finland · Watch — Finnish Sabbatarians 1554 · Digital Euro Participant",
+  "180":"DRC · Monitor — SDA Presence · Belgian Colonial Sunday Law",
+  "764":"Thailand · Monitor — Project mBridge Participant · Digital Baht",
+  "392":"Japan · Watch — Four-Day Week Expanding · Digital Yen Pilot",
+  "410":"South Korea · Watch — Digital Won · SDA Community",
+  "231":"Ethiopia · Positive — 1,700 Years Unbroken Saturday",
+  "404":"Kenya · Positive — Highest Per-Capita SDA · M-Pesa",
+  "800":"Uganda · Positive — East African Saturday Belt",
+  "566":"Nigeria · Monitor — Largest SDA in Africa · e-Naira Crisis",
+  "180":"DRC · Monitor","764":"Thailand · Monitor","608":"Philippines · Monitor — Digital Peso · CBCP Active",
+};
+
+const svgEl = d3.select("#map-svg");
+const wrap  = document.getElementById("map-wrap");
+
+let width, height, projection, path, geoTransform;
+let currentActive = null;
+
+function init() {
+  width  = wrap.clientWidth;
+  height = wrap.clientHeight;
+
+  svgEl.attr("width", width).attr("height", height);
+
+  projection = d3.geoNaturalEarth1()
+    .scale(width / 6.28)
+    .translate([width / 2, height / 2]);
+
+  path = d3.geoPath().projection(projection);
+
+  // Graticule
+  const graticule = d3.geoGraticule()();
+  svgEl.append("path")
+    .datum({type:"Sphere"})
+    .attr("class","sphere")
+    .attr("d", path);
+  svgEl.append("path")
+    .datum(graticule)
+    .attr("class","graticule")
+    .attr("d", path);
+
+  // Load world map
+  fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
+    .then(r => r.json())
+    .then(world => {
+      const countries = topojson.feature(world, world.objects.countries);
+
+      svgEl.selectAll(".country")
+        .data(countries.features)
+        .enter().append("path")
+        .attr("class", d => {
+          const id = d.id ? String(d.id) : "";
+          const tc  = THREAT[id] || "t-neutral";
+          return `country ${tc}`;
+        })
+        .attr("d", path)
+        .on("mouseover", (event, d) => {
+          const id = d.id ? String(d.id) : "";
+          const tt = TOOLTIPS[id];
+          if (tt) {
+            document.getElementById("tip-name").textContent = tt.split("·")[0].trim();
+            document.getElementById("tip-sub").textContent  = tt.split("·").slice(1).join("·").trim();
+            document.getElementById("tip").style.opacity = "1";
+          }
+        })
+        .on("mousemove", event => {
+          const t = document.getElementById("tip");
+          t.style.left = (event.clientX + 14) + "px";
+          t.style.top  = (event.clientY - 10) + "px";
+        })
+        .on("mouseout", () => {
+          document.getElementById("tip").style.opacity = "0";
+        })
+        .on("click", (event, d) => {
+          const id = d.id ? String(d.id) : "";
+          if (!REGIONS[id]) return;
+
+          // Deselect previous
+          if (currentActive) d3.select(currentActive).classed("active", false);
+          currentActive = event.currentTarget;
+          d3.select(currentActive).classed("active", true);
+
+          openRegion(id);
+          document.getElementById("tip").style.opacity = "0";
+        });
+
+      // Add border lines
+      svgEl.append("path")
+        .datum(topojson.mesh(world, world.objects.countries, (a,b) => a !== b))
+        .attr("fill","none")
+        .attr("stroke","rgba(28,26,42,0.8)")
+        .attr("stroke-width","0.4")
+        .attr("d", path);
+
+      // Beacons on critical capitals
+      const beacons = [
+        {lat:38.9, lon:-77.0, id:"840"},  // Washington DC
+        {lat:41.9, lon:12.5,  id:"380"},  // Rome / Vatican
+        {lat:39.9, lon:116.4, id:"156"},  // Beijing
+        {lat:50.8, lon:4.35,  id:"276"},  // Brussels
+      ];
+      beacons.forEach(b => {
+        const [x,y] = projection([b.lon, b.lat]);
+        const g = svgEl.append("g").attr("class","beacon");
+        g.append("circle").attr("cx",x).attr("cy",y).attr("r",5)
+          .attr("class","beacon-ring");
+        g.append("circle").attr("cx",x).attr("cy",y).attr("r",2.5)
+          .attr("class","beacon-dot");
+      });
+
+      // Setup zoom/pan
+      geoTransform = d3.zoom()
+        .scaleExtent([0.8, 12])
+        .on("zoom", ({transform}) => {
+          svgEl.selectAll("path, circle, g.beacon").attr("transform", transform);
+        });
+      svgEl.call(geoTransform);
+    })
+    .catch(err => {
+      // Fallback if CDN fails
+      svgEl.append("text").attr("x", width/2).attr("y", height/2)
+        .attr("text-anchor","middle")
+        .attr("fill","rgba(200,168,74,0.5)")
+        .attr("font-family","Cinzel, serif")
+        .attr("font-size","14px")
+        .text("Requires internet connection to load map data");
+    });
+}
+
+// ════════════════════════════════════════════════════════
+//  PANEL LOGIC
+// ════════════════════════════════════════════════════════
+
+const tabLabels = {
+  sabbath:"⛪ Sabbath",
+  sunday:"☀ Sunday Laws",
+  cbdc:"💳 CBDC",
+  persecution:"⚖️ Persecution",
+  beast:"👁 Beast System"
+};
+
+function openRegion(id) {
+  const r = REGIONS[id];
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("detail").style.display  = "flex";
+
+  document.getElementById("d-name").textContent = r.name;
+  document.getElementById("d-sub").textContent  = r.sub;
+
+  // Badges
+  document.getElementById("d-badges").innerHTML = r.badges
+    .map(b => {
+      const [cls, txt] = b.split(":");
+      return `<span class="badge ${cls}">${txt}</span>`;
+    }).join("");
+
+  // Tabs
+  const tabBar = document.getElementById("d-tabs");
+  tabBar.innerHTML = r.tabs
+    .map((t, i) => `<div class="tab${i===0?" on":""}" data-tab="${t}" onclick="switchTab('${t}')">${tabLabels[t]||t}</div>`)
+    .join("");
+
+  // Content panes
+  const body = document.getElementById("d-body");
+  body.innerHTML = r.tabs
+    .map((t, i) => `<div class="tab-pane${i===0?" on":""}" id="pane-${t}">${renderCards(r.data[t]||[])}</div>`)
+    .join("");
+}
+
+function renderCards(items) {
+  if (!items.length) return '<p style="color:var(--text-dim);font-style:italic;padding:8px 0;">No data on record for this category.</p>';
+  return items.map(c => {
+    const tags = (c.tags||[]).map(t => {
+      const [cls,txt] = t.split(":");
+      return `<span class="ic-tag ${cls}">${txt}</span>`;
+    }).join("");
+    const prog = c.prog ? `
+      <div class="prog-wrap"><div class="prog-bar ${c.prog.cls}" style="width:${c.prog.pct}%"></div></div>
+      <div class="prog-lbl"><span>${c.prog.lbl}</span><span>${c.prog.pct}%</span></div>
+    ` : "";
+    return `
+      <div class="icard ${c.bar}">
+        <div class="ic-inner">
+          <div class="ic-date">${c.date}</div>
+          <div class="ic-title">${c.title}</div>
+          <div class="ic-text">${c.text}</div>
+          ${prog}
+          ${tags ? `<div class="ic-tags">${tags}</div>` : ""}
+        </div>
+      </div>`;
+  }).join("");
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll(".tab").forEach(t =>
+    t.classList.toggle("on", t.dataset.tab === tabId));
+  document.querySelectorAll(".tab-pane").forEach(p =>
+    p.classList.toggle("on", p.id === `pane-${tabId}`));
+}
+
+function closeDetail() {
+  document.getElementById("welcome").style.display = "flex";
+  document.getElementById("detail").style.display  = "none";
+  if (currentActive) {
+    d3.select(currentActive).classed("active", false);
+    currentActive = null;
+  }
+}
+
+// ════════════════════════════════════════════════════════
+//  CONTROLS
+// ════════════════════════════════════════════════════════
+
+function zoom(factor) {
+  if (!geoTransform) return;
+  svgEl.transition().duration(300)
+    .call(geoTransform.scaleBy, factor);
+}
+function resetView() {
+  if (!geoTransform) return;
+  svgEl.transition().duration(500)
+    .call(geoTransform.transform, d3.zoomIdentity);
+}
+function jumpToRegion(id) {
+  if (!id) return;
+  const region = REGIONS[id];
+  if (region) {
+    openDetail(id);
+  }
+  // Reset select
+  document.getElementById("jump-select").value = "";
+}
+
+function setFilt(el, f) {
+  document.querySelectorAll(".filt").forEach(b => b.classList.remove("on"));
+  el.classList.add("on");
+
+  // Rebuild which countries are highlighted based on filter
+  const svg = d3.select("#map-svg");
+
+  svg.selectAll("path.country").each(function(d) {
+    const id = String(d.id);
+    const region = REGIONS[id];
+    const threat = THREAT[id];
+
+    if (!threat) { d3.select(this).attr("class","country t-neutral"); return; }
+
+    if (f === "all") {
+      // Restore normal threat classes
+      d3.select(this).attr("class", "country " + threat);
+    } else {
+      // Check if this country has data for this category
+      if (region && region.data && region.data[f] && region.data[f].length > 0) {
+        // Has data for this category — use normal threat colour
+        d3.select(this).attr("class", "country " + threat);
+      } else if (region) {
+        // Has region but not this category — dim it
+        d3.select(this).attr("class", "country t-dim");
+      } else {
+        d3.select(this).attr("class", "country t-neutral");
+      }
+    }
+  });
+}
+
+// Resize handler
+window.addEventListener("resize", () => {
+  svgEl.selectAll("*").remove();
+  init();
+});
+
+init();
+</script>
+</body>
+</html>

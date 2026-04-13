@@ -2,26 +2,34 @@
 set -eu
 
 repo_root="$(git rev-parse --show-toplevel)"
-manifest_path="assets/source-documents-catholic.json"
+source_manifest="assets/source-documents-catholic.json"
+infographics_manifest="assets/infographics-manifest.json"
 
-echo "[pre-push] Regenerating source document manifest..."
+echo "[pre-push] Regenerating site manifests..."
 python "$repo_root/scripts/generate_source_manifest.py"
 
-if ! git diff --quiet -- "$manifest_path" || ! git diff --cached --quiet -- "$manifest_path"; then
-  echo "[pre-push] Manifest changed; staging $manifest_path"
-  git add "$manifest_path"
+changed=0
 
-  if ! git diff --cached --quiet -- "$manifest_path"; then
-    echo "[pre-push] Creating auto-commit for source manifest..."
-    if git commit -m "chore: update source documents manifest" -- "$manifest_path"; then
+for manifest_path in "$source_manifest" "$infographics_manifest"; do
+  if ! git diff --quiet -- "$manifest_path" || ! git diff --cached --quiet -- "$manifest_path"; then
+    echo "[pre-push] Manifest changed; staging $manifest_path"
+    git add "$manifest_path"
+    changed=1
+  fi
+done
+
+if [ "$changed" -eq 1 ]; then
+  if ! git diff --cached --quiet -- "$source_manifest" "$infographics_manifest"; then
+    echo "[pre-push] Creating auto-commit for updated manifests..."
+    if git commit -m "chore: update generated manifests" -- "$source_manifest" "$infographics_manifest"; then
       echo "[pre-push] Auto-commit created. Push will continue."
     else
-      echo "[pre-push] Failed to commit $manifest_path automatically."
+      echo "[pre-push] Failed to commit manifests automatically."
       echo "[pre-push] Commit manually, then push again."
       exit 1
     fi
   fi
 fi
 
-echo "[pre-push] Source document manifest is up to date."
+echo "[pre-push] Manifests are up to date."
 exit 0

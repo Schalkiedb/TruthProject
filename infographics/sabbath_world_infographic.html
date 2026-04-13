@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Global History of Sabbath Keeping</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dark: #8a6820;
+    --crimson: #8b1a1a;
+    --parchment: #f5ead0;
+    --parchment-dark: #e8d5a8;
+    --ink: #1a120a;
+    --ink-light: #3a2a1a;
+    --stone: #6b5c45;
+    --stone-light: #a08060;
+    --blue-deep: #1a2a4a;
+    --blue-med: #2a4a7a;
+    --green-deep: #1a3a2a;
+    --green-med: #2a5a3a;
+    --amber: #d4860a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0e0a06;
+    color: var(--parchment);
+    font-family: 'Crimson Pro', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: radial-gradient(ellipse at 50% 30%, #2a1800 0%, #0e0a06 70%);
+    text-align: center;
+    padding: 60px 40px 50px;
+    position: relative;
+    border-bottom: 2px solid var(--gold-dark);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-ornament {
+    font-size: 2rem;
+    color: var(--gold);
+    letter-spacing: 0.5rem;
+    margin-bottom: 12px;
+    opacity: 0.7;
+  }
+  .hero h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    text-shadow: 0 2px 30px rgba(201,168,76,0.4);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .hero h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(0.9rem, 2vw, 1.4rem);
+    font-weight: 400;
+    color: var(--stone-light);
+    letter-spacing: 0.15rem;
+    margin-bottom: 20px;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--parchment-dark);
+    max-width: 700px;
+    margin: 0 auto 24px;
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    display: block;
+  }
+  .hero-stat .lbl {
+    font-size: 0.75rem;
+    color: var(--stone-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+  /* ===== DIVIDER ===== */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 40px;
+    margin: 40px 0 20px;
+  }
+  .section-divider::before, .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dark));
+  }
+  .section-divider::after {
+    background: linear-gradient(to left, transparent, var(--gold-dark));
+  }
+  .section-divider-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    white-space: nowrap;
+  }
+
+  /* ===== GLOBAL TIMELINE ===== */
+  .timeline-section {
+    padding: 0 40px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .timeline-wrap {
+    position: relative;
+    padding-left: 30px;
+  }
+  .timeline-wrap::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold-dark), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 22px;
+    padding-left: 24px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--gold-dark);
+    box-shadow: 0 0 8px rgba(201,168,76,0.5);
+  }
+  .timeline-date {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.1rem;
+    margin-bottom: 3px;
+  }
+  .timeline-text {
+    font-size: 0.9rem;
+    color: var(--parchment-dark);
+    line-height: 1.5;
+  }
+  .timeline-text strong {
+    color: var(--parchment);
+  }
+
+  /* ===== REGION GRID ===== */
+  .regions-section {
+    padding: 0 30px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 24px;
+  }
+
+  /* ===== REGION CARD ===== */
+  .region-card {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .region-header {
+    padding: 18px 22px 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+  .region-header:hover { filter: brightness(1.1); }
+  .region-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  .region-title-group { flex: 1; }
+  .region-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    margin-bottom: 2px;
+  }
+  .region-summary {
+    font-size: 0.78rem;
+    opacity: 0.8;
+    font-style: italic;
+  }
+  .region-toggle {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+  .region-card.open .region-toggle { transform: rotate(180deg); }
+  .region-body {
+    display: none;
+    padding: 0 22px 20px;
+  }
+  .region-card.open .region-body { display: block; }
+  .country-list {
+    list-style: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 14px;
+  }
+  .country-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .country-item:last-child { border-bottom: none; }
+  .country-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .country-flag { font-size: 1.1rem; }
+  .country-detail {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    opacity: 0.85;
+  }
+  .country-detail .highlight {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+  .badge {
+    font-size: 0.62rem;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-family: 'Crimson Pro', serif;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+  }
+
+  /* AFRICA */
+  .card-africa { background: linear-gradient(135deg, #1a0f05 0%, #2a1a08 100%); border: 1px solid rgba(201,168,76,0.3); }
+  .card-africa .region-header { background: linear-gradient(135deg, #3a1f05, #2a1500); }
+  .card-africa .region-name { color: #f0c060; }
+  .card-africa .region-summary { color: #c89840; }
+  .card-africa .country-name { color: #f0c060; }
+  .card-africa .country-detail { color: #e0c090; }
+  .card-africa .badge { background: rgba(201,168,76,0.2); color: #f0c060; border: 1px solid rgba(201,168,76,0.4); }
+
+  /* EUROPE */
+  .card-europe { background: linear-gradient(135deg, #080e1e 0%, #0e1830 100%); border: 1px solid rgba(80,120,200,0.3); }
+  .card-europe .region-header { background: linear-gradient(135deg, #0e1e40, #0a1530); }
+  .card-europe .region-name { color: #80b0f0; }
+  .card-europe .region-summary { color: #6090d0; }
+  .card-europe .country-name { color: #a0c8f8; }
+  .card-europe .country-detail { color: #c0d8f0; }
+  .card-europe .badge { background: rgba(80,120,200,0.2); color: #80b0f0; border: 1px solid rgba(80,120,200,0.4); }
+
+  /* AMERICAS */
+  .card-americas { background: linear-gradient(135deg, #0e1a08 0%, #162a10 100%); border: 1px solid rgba(80,180,80,0.3); }
+  .card-americas .region-header { background: linear-gradient(135deg, #162a08, #102008); }
+  .card-americas .region-name { color: #80e080; }
+  .card-americas .region-summary { color: #60c060; }
+  .card-americas .country-name { color: #a0f0a0; }
+  .card-americas .country-detail { color: #b0e0b0; }
+  .card-americas .badge { background: rgba(80,180,80,0.2); color: #80e080; border: 1px solid rgba(80,180,80,0.4); }
+
+  /* ASIA */
+  .card-asia { background: linear-gradient(135deg, #1a0a18 0%, #2a1028 100%); border: 1px solid rgba(200,80,200,0.3); }
+  .card-asia .region-header { background: linear-gradient(135deg, #2e0e2e, #200820); }
+  .card-asia .region-name { color: #e080e0; }
+  .card-asia .region-summary { color: #c060c0; }
+  .card-asia .country-name { color: #f0a0f0; }
+  .card-asia .country-detail { color: #e0c0e0; }
+  .card-asia .badge { background: rgba(200,80,200,0.2); color: #e080e0; border: 1px solid rgba(200,80,200,0.4); }
+
+  /* PACIFIC */
+  .card-pacific { background: linear-gradient(135deg, #071518 0%, #0e2028 100%); border: 1px solid rgba(60,180,200,0.3); }
+  .card-pacific .region-header { background: linear-gradient(135deg, #0e2030, #081828); }
+  .card-pacific .region-name { color: #60d8e8; }
+  .card-pacific .region-summary { color: #40b8c8; }
+  .card-pacific .country-name { color: #80e8f8; }
+  .card-pacific .country-detail { color: #b0e0e8; }
+  .card-pacific .badge { background: rgba(60,180,200,0.2); color: #60d8e8; border: 1px solid rgba(60,180,200,0.4); }
+
+  /* MIDDLE EAST */
+  .card-mideast { background: linear-gradient(135deg, #181208 0%, #281e10 100%); border: 1px solid rgba(220,160,40,0.3); }
+  .card-mideast .region-header { background: linear-gradient(135deg, #2e1e08, #201408); }
+  .card-mideast .region-name { color: #e8c060; }
+  .card-mideast .region-summary { color: #c8a040; }
+  .card-mideast .country-name { color: #f0d080; }
+  .card-mideast .country-detail { color: #e0c890; }
+  .card-mideast .badge { background: rgba(220,160,40,0.2); color: #e8c060; border: 1px solid rgba(220,160,40,0.4); }
+
+  /* ===== STATS BAR ===== */
+  .stats-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px 40px;
+    background: linear-gradient(135deg, #150e05, #0e0a06);
+    border-top: 1px solid var(--gold-dark);
+    border-bottom: 1px solid var(--gold-dark);
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .stat-box {
+    text-align: center;
+    min-width: 140px;
+  }
+  .stat-box .s-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-box .s-label {
+    font-size: 0.7rem;
+    color: var(--stone-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+    line-height: 1.3;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 30px 40px;
+    text-align: center;
+    border-top: 1px solid var(--gold-dark);
+    background: #080604;
+  }
+  .footer-text {
+    font-size: 0.78rem;
+    color: var(--stone);
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .footer-verse {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.75rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.1rem;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 700px) {
+    .hero { padding: 40px 20px 35px; }
+    .regions-section, .timeline-section { padding-left: 16px; padding-right: 16px; }
+    .regions-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+    .stats-bar { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-ornament">✦ ✦ ✦</div>
+  <h1>The Global History of</h1>
+  <h2>Saturday Sabbath Keeping</h2>
+  <p class="hero-subtitle">A comprehensive survey of the seventh-day Sabbath across every region of the world — from ancient Ethiopia to the diamond fields of Kimberley, from the monasteries of Ireland to the jungles of Papua New Guinea.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">23.7M</span><span class="lbl">SDA Members Globally (2024)</span></div>
+    <div class="hero-stat"><span class="num">200+</span><span class="lbl">Countries with SDA Presence</span></div>
+    <div class="hero-stat"><span class="num">20M+</span><span class="lbl">African Sabbath-Keepers</span></div>
+    <div class="hero-stat"><span class="num">1863</span><span class="lbl">SDA Church Founded</span></div>
+    <div class="hero-stat"><span class="num">~330AD</span><span class="lbl">Ethiopia — First African Christian Nation</span></div>
+  </div>
+</div>
+
+<!-- GLOBAL TIMELINE DIVIDER -->
+<div class="section-divider">
+  <span class="section-divider-title">⚔ Global Historical Timeline ⚔</span>
+</div>
+
+<div class="timeline-section">
+  <div class="timeline-wrap">
+    <div class="timeline-item">
+      <div class="timeline-date">c.330 AD — Ethiopia</div>
+      <div class="timeline-text"><strong>Frumentius</strong> brings Christianity to Ethiopia. The Ethiopian Orthodox Tewahedo Church maintains dual Saturday–Sunday Sabbath practice from earliest times — one of the world's oldest unbroken Sabbath-keeping traditions.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">c.635 AD — China</div>
+      <div class="timeline-text"><strong>Nestorian missionaries</strong> from Syria arrive at the Tang court. The Xi'an Stele (erected 781 AD) records: <em>"On the Seventh Day we offer sacrifices after having purified our hearts."</em> Sabbath observance documented in ancient China.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">c.800–1100 — Celtic Church, Ireland & Scotland</div>
+      <div class="timeline-text"><strong>Celtic Christians</strong> observed the seventh-day Sabbath in Ireland, Scotland, and Wales for centuries before Roman Catholicism displaced the practice. Historical records confirm Saturday worship in Celtic monasteries.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1120 — Waldensians, Northern Italy</div>
+      <div class="timeline-text"><strong>Peter Waldo</strong> founds the Waldensian movement. Documentary evidence from 1120 onward confirms Saturday Sabbath observance: <em>"Observance of the Sabbath by ceasing from worldly labours, is enjoined."</em> Persecuted across Europe for centuries.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1310 — Bohemia (Czech Republic)</div>
+      <div class="timeline-text">As much as <strong>one quarter of Bohemia's population</strong> kept the seventh-day Sabbath, according to records of the time. This Sabbatarianism persisted until at least the 16th century, noted by Erasmus.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1337 — Ethiopia (Ewostatewos)</div>
+      <div class="timeline-text"><strong>Abba Ewostatewos</strong> (c.1273–1352) leads a Sabbatarian revival in Ethiopia, insisting the Church return to biblical teaching. His followers, the Ewostathians, are exiled but spread Sabbath-keeping across the Eritrean highlands. Emperor Zara Yaqob officially recognises the Sabbath at the Synod of Tegulet, 1450.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1588 — Transylvania (Romania)</div>
+      <div class="timeline-text">The <strong>Szekler Sabbatarians</strong> emerge from Transylvania's Unitarian Church. They maintain a vigorous Saturday Sabbath tradition until converting to Judaism in the 1870s.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1617 — England</div>
+      <div class="timeline-text">The <strong>Mill Yard Seventh Day Baptist Church</strong>, London, established 1617. It is the oldest surviving Sabbatarian congregation in the modern world. Seventh Day Baptists spread to America by 1672.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1844–1863 — United States</div>
+      <div class="timeline-text">The <strong>Millerite movement</strong> produces the Seventh-day Adventist Church, formally organised in 1863. The Sabbath truth passes from Rachel Oakes (SDB) to Joseph Bates to James and Ellen White. By 1880 membership stands at 15,570 — mostly in North America.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1874 — Europe (Switzerland)</div>
+      <div class="timeline-text"><strong>J. N. Andrews</strong>, first official SDA foreign missionary, goes to Switzerland. By 1876 Germany organises its first SDA church; 1877 Scandinavia; 1878 England; 1880 first baptisms in England and Denmark.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1878–1887 — South Africa (Kimberley)</div>
+      <div class="timeline-text"><strong>William Hunt</strong>, a Welsh miner, witnesses to Dutch farmers George Van Druten and Pieter Wessels in Kimberley's diamond fields. In 1887, the first official missionaries arrive. The Beaconsfield SDA Church in Kimberley becomes <em>the first SDA congregation on the African continent</em>.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1885–1891 — Australia & Pacific</div>
+      <div class="timeline-text">First SDA missionaries to <strong>Australia</strong> in 1885. The Pitcairn Island community (descendants of Bounty mutineers) converts to Adventism around 1890–1891 — the entire island becoming Sabbath-keepers. Australia Union Conference organised 1894.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1888–1903 — Asia Expansion</div>
+      <div class="timeline-text"><strong>Abram LaRue</strong> goes to Hong Kong in 1888. Work opens in Japan 1896, Indonesia 1900, India 1893, China 1888. The True Jesus Church founded in Beijing 1917 with ~2 million members today.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1894 — Zimbabwe (Solusi Mission)</div>
+      <div class="timeline-text"><strong>Solusi Mission</strong> opens near Bulawayo — the first SDA mission established among native African peoples anywhere on earth. Cecil Rhodes grants 12,000 acres. Solusi becomes "the mother and almoner of them all" for African Adventist missions.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">1920 — African Division Organized</div>
+      <div class="timeline-text">The <strong>African Division</strong> is formally established. By this point, 11 native mission stations are active across Southern Africa. The division undergoes multiple restructurings, becoming today's <strong>Southern Africa-Indian Ocean Division (SID)</strong> in 2003.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024 — Present</div>
+      <div class="timeline-text">Global SDA membership reaches <strong>23,684,237</strong>. The East-Central Africa Division alone has 5.7 million members. Africa is the engine of global Adventist growth. An estimated <strong>20 million</strong> non-SDA Christian Sabbath-keepers also exist in Africa.</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-box"><span class="s-num">5.7M</span><span class="s-label">East-Central Africa<br>Division Members</span></div>
+  <div class="stat-box"><span class="s-num">4.2M</span><span class="s-label">Southern Africa-<br>Indian Ocean Division</span></div>
+  <div class="stat-box"><span class="s-num">3.7M</span><span class="s-label">Inter-American<br>Division</span></div>
+  <div class="stat-box"><span class="s-num">2.7M</span><span class="s-label">South American<br>Division</span></div>
+  <div class="stat-box"><span class="s-num">1.29M</span><span class="s-label">North American<br>Division</span></div>
+  <div class="stat-box"><span class="s-num">276K</span><span class="s-label">Europe (EUD + TED<br>+ ESD)</span></div>
+  <div class="stat-box"><span class="s-num">1.16M</span><span class="s-label">Southern Asia<br>Division</span></div>
+  <div class="stat-box"><span class="s-num">651K</span><span class="s-label">South Pacific<br>Division</span></div>
+</div>
+
+<!-- REGION CARDS DIVIDER -->
+<div class="section-divider">
+  <span class="section-divider-title">✦ Country-by-Country Survey ✦</span>
+</div>
+
+<div class="regions-section">
+<div class="regions-grid">
+
+<!-- ===== AFRICA ===== -->
+<div class="region-card card-africa">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌍</div>
+    <div class="region-title-group">
+      <div class="region-name">East Africa</div>
+      <div class="region-summary">Ancient Sabbatarian roots — Ethiopia, Kenya, Tanzania & beyond</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇪🇹</span> Ethiopia <span class="badge">ANCIENT</span></div>
+        <div class="country-detail">The most ancient Sabbath-keeping nation on earth. <span class="highlight">The Ethiopian Orthodox Tewahedo Church (36–49M members)</span> has observed Saturday alongside Sunday since the 4th century. Monk Ewostatewos (1273–1352) led a Sabbatarian revival; the Synod of Tegulet (1450) officially confirmed Saturday Sabbath practice. Portuguese Catholic missionaries in the 1500s tried to abolish it; Emperor Gelawdewos wrote a famous theological defence. Ethiopia was isolated from Rome for centuries — allowing this practice to survive. SDA missionaries arrived c.1907. Today Ethiopia has one of the largest SDA populations in Africa.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇪🇷</span> Eritrea <span class="badge">ANCIENT</span></div>
+        <div class="country-detail">The Ewostathian Sabbatarian movement from Ethiopia spread powerfully into <span class="highlight">the Eritrean highlands in the 14th century</span>. Ewostathian monasteries and communities dotted the highlands. Eritrea shares the deep Sabbatarian tradition of its Orthodox Tewahedo Church heritage, predating modern denominations by a millennium.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇰🇪</span> Kenya <span class="badge">STRONG GROWTH</span></div>
+        <div class="country-detail">Adventist work began in the late 19th century. Today Sabbath-keeping is so widespread that <span class="highlight">the government cannot hold elections on Saturdays</span> in the Kisii District, where Sabbath-keepers form the majority. Kenya is a major centre of East-Central Africa Division growth, contributing substantially to its 5.7M membership.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇹🇿</span> Tanzania <span class="badge">1903</span></div>
+        <div class="country-detail">SDA work established 1903. <span class="highlight">Tanzania grew into one of the strongholds of Adventism in the East-Central Africa Division</span>. The church spread rapidly through a network of mission schools that combined education with Sabbath-keeping evangelism.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇺🇬</span> Uganda</div>
+        <div class="country-detail">Part of the East-Central Africa Division. <span class="highlight">Strong SDA growth</span> throughout the 20th century, with the church deeply embedded in education and healthcare.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇷🇼</span> Rwanda &amp; <span class="country-flag">🇧🇮</span> Burundi</div>
+        <div class="country-detail">Both nations have significant SDA communities. The church maintained congregations even during the tragic 1994 genocide period in Rwanda, with some churches becoming sites of profound sorrow and later, reconciliation witness.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="region-card card-africa">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌍</div>
+    <div class="region-title-group">
+      <div class="region-name">Southern Africa</div>
+      <div class="region-summary">Birthplace of organised African Adventism — Kimberley 1878</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇿🇦</span> South Africa <span class="badge">PIONEER 1878</span></div>
+        <div class="country-detail">William Hunt, a Welsh-born Nevada miner, brings Adventism to the Kimberley diamond fields c.1878. Dutch Reformed farmers George Van Druten and Pieter Wessels independently discover the Saturday Sabbath from Bible study. Their 1885 letter to the General Conference triggers the first SDA missionaries (Boyd &amp; Robinson) arriving <span class="highlight">July 28, 1887</span>. The Beaconsfield Church, Kimberley is the first SDA church in Africa. Cape Town Conference organised 1892. South Africa becomes the continental springboard for all sub-Saharan missions. The Basotho tribe's pre-colonial memory of "God with scars in His hands" was observed to include Sabbath rest by Adventist historian Bertram Melbourne. SID headquarters is in Pretoria. 4.2M+ members in the division covering SA and surrounding nations.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇿🇼</span> Zimbabwe <span class="badge">SOLUSI 1894</span></div>
+        <div class="country-detail">Solusi Mission (1894) near Bulawayo is <span class="highlight">the first SDA mission to native Africans on the continent</span>. Cecil Rhodes grants 12,000 acres free. Jim Mainza, first indigenous Zimbabwean Adventist, walks 60 miles to buy a Bible. Nyazura Mission (Mashonaland, 1910) spreads Sabbath-keeping among the Shona. Colonial officials noted SDAs observe "Saturday as the Sabbath Day, which tends to cause confusion in the native mind." Today Zimbabwe has three union conferences.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇿🇲</span> Zambia <span class="badge">1905</span></div>
+        <div class="country-detail">The SDA message spread north from South Africa and Zimbabwe. <span class="highlight">Malamulo Mission (1902)</span> in neighbouring Malawi served as a base; Zambia received the Sabbath message in the early 1900s. Today Zambia has two union conferences (Northern and Southern Zambia) within SID.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇲🇼</span> Malawi <span class="badge">1902</span></div>
+        <div class="country-detail">Joseph Booth brings the Sabbath message c.1893. When Booth preached the Fourth Commandment near Nsanje, headman Chataika replied: <span class="highlight">"Tell us which is that day; we are ready to give God His."</span> Malamulo Mission established 1902 — a landmark of Central African Adventism.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇲🇿</span> Mozambique</div>
+        <div class="country-detail">Part of SID's coverage. Sabbath-keeping communities extend from the Zimbabwe and Malawi borders. <span class="highlight">Growth has been consistent</span> despite periods of civil war, with the church active in education and health.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇧🇼</span> Botswana &amp; <span class="country-flag">🇸🇿</span> Eswatini &amp; <span class="country-flag">🇱🇸</span> Lesotho</div>
+        <div class="country-detail">All three are within SID coverage. David Kalaka of <span class="highlight">Basutoland (Lesotho)</span> is mentioned among the division's earliest native colporteurs alongside Richard Moko and Jim Mayinza. Lesotho's Basotho people have the additional distinction of the pre-colonial "Molimo O Diatla Di Maroba Rammolobi" tradition noted by historians.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇳🇦</span> Namibia &amp; <span class="country-flag">🇦🇴</span> Angola</div>
+        <div class="country-detail">Part of SID. SDA work in Namibia (then South-West Africa) followed the expansion from South Africa. Angola presents a challenging mission field; the church established work during the 20th century with <span class="highlight">growing membership</span> despite the civil war (1975–2002).</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="region-card card-africa">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌍</div>
+    <div class="region-title-group">
+      <div class="region-name">West &amp; Central Africa</div>
+      <div class="region-summary">Nigeria, Ghana, Congo — exploding growth, deep Sabbath roots</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇳🇬</span> Nigeria <span class="badge">RAPIDLY GROWING</span></div>
+        <div class="country-detail"><span class="highlight">One of the top Sabbath-keeping nations on earth</span>. Bradford's "Sabbath Roots" documents extensive indigenous Sabbatarian traditions in Nigeria. The SDA Church entered Nigeria in 1914. Today Nigeria is one of Africa's largest SDA countries. Independent African Sabbath-keeping churches (not SDA) also flourish, rooted in indigenous Bible study.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇬🇭</span> Ghana <span class="badge">1894</span></div>
+        <div class="country-detail">SDA missionaries E.L. Sanford and R.G. Rudolph entered Ghana with the Sabbath message in <span class="highlight">1894</span>, the same year as Solusi Mission in Zimbabwe. Ghana today has a significant and growing SDA community within the West-Central Africa Division (WAD).</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇨🇩</span> DR Congo</div>
+        <div class="country-detail">Part of the West-Central Africa Division. The Congo region has <span class="highlight">some of the fastest-growing Adventist communities</span> in the world. Bradford's research notes Sabbath-keeping as "exploding in Congo." The political instability has complicated church growth but not stopped it.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇸🇳</span> Senegal · <span class="country-flag">🇨🇲</span> Cameroon · <span class="country-flag">🇬🇦</span> Gabon</div>
+        <div class="country-detail">All within WAD's 22-country coverage. Bradford specifically mentions <span class="highlight">Gabon as a centre of Sabbath growth</span>. Despite majority-Muslim Senegal, SDA communities exist. Cameroon and Gabon have more established Adventist histories with schools and hospitals.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== EUROPE ===== -->
+<div class="region-card card-europe">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌍</div>
+    <div class="region-title-group">
+      <div class="region-name">Western Europe</div>
+      <div class="region-summary">Ancient Waldensians, Celtic Sabbath, medieval underground</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇮🇹</span> Italy <span class="badge">WALDENSIANS 1120</span></div>
+        <div class="country-detail">The <span class="highlight">Waldensians</span>, founded by Peter Waldo c.1173, are regarded as among the first post-Constantinian Christians to recover seventh-day Sabbath observance. Documents from 1120 confirm Saturday rest. They were brutally persecuted by the Inquisition but survived in the Alps. Italy today has a small but historic SDA community (Inter-European Division).</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇨🇭</span> Switzerland <span class="badge">1874 — JN Andrews</span></div>
+        <div class="country-detail"><span class="highlight">J. N. Andrews</span>, the first official SDA foreign missionary, arrives in Switzerland in 1874. He published the first SDA paper in Europe. Switzerland becomes the European headquarters for Adventist work, with deep Waldensian soil to build upon.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇩🇪</span> Germany <span class="badge">1876</span></div>
+        <div class="country-detail">First SDA church organized in Germany in 1876. Germany's SDA community faced a major crisis in WWI when European church leaders counselled compliance with military service, <span class="highlight">triggering the SDA Reform Movement schism</span> (1914–1920) — a group which still exists today.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇫🇷</span> France <span class="badge">1876</span></div>
+        <div class="country-detail">France "hears the third angel's message" in 1876. Historical Sabbatarian communities existed in France much earlier — <span class="highlight">Peter de Bruys stirred southern France for 20 years</span> in the 12th century; Louis IX's 1229 statute targeted "Sabbath-keepers" as heretics.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span> Scotland &amp; <span class="country-flag">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span> Wales <span class="badge">CELTIC ANCIENT</span></div>
+        <div class="country-detail">Celtic Christians in Wales and Scotland observed the seventh-day Sabbath for centuries. <span class="highlight">In Wales, Sabbath observance prevailed until 1115 AD</span> when the first Roman bishop was installed at St. David's. The first organised SDA church in Scotland came 1901.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇬🇧</span> England <span class="badge">MILL YARD 1617</span></div>
+        <div class="country-detail">The <span class="highlight">Mill Yard Seventh Day Baptist Church</span> (London, 1617) is the oldest continuously existing Sabbatarian congregation in the world. SDA work began with Ings and Loughborough in 1878; first baptisms in England in 1880. Today England has the Trans-European Division presence.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇮🇪</span> Ireland <span class="badge">CELTIC ANCIENT</span></div>
+        <div class="country-detail">Irish Celtic Christianity, with its Columban monastic tradition, observed the seventh day. The <span class="highlight">Columban missionaries carried Sabbatarian practice</span> across Britain and into Europe in the 6th–8th centuries before Roman practices gradually displaced it.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="region-card card-europe">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌍</div>
+    <div class="region-title-group">
+      <div class="region-name">Eastern Europe &amp; Scandinavia</div>
+      <div class="region-summary">Bohemian Sabbatarians, Russia's underground church, Nordic missions</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇨🇿</span> Czech Republic (Bohemia) <span class="badge">1310</span></div>
+        <div class="country-detail">Up to <span class="highlight">one quarter of Bohemia's population kept the seventh-day Sabbath in 1310</span>. This remarkable Sabbatarian movement persisted for over two centuries, noted by Erasmus in the 16th century. It represents one of the most widespread medieval Sabbatarian revivals in Europe outside Ethiopia.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇷🇴</span> Romania (Transylvania) <span class="badge">SZEKLER 1588</span></div>
+        <div class="country-detail">The <span class="highlight">Szekler Sabbatarians</span> emerge from Transylvania's Unitarian Church in 1588. They maintain Saturday Sabbath practice for nearly 300 years until converting to Judaism in the 1870s. Romania also hosts a significant SDA Reform Movement community.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇷🇺</span> Russia <span class="badge">1886</span></div>
+        <div class="country-detail">First SDA church in Russia organised in 1886. The Soviet era produced <span class="highlight">the "True and Free Seventh-day Adventists"</span> — a schism group refusing to compromise Sabbath observance under Communist pressure. Many were imprisoned or exiled to Siberia. The movement still exists across the former Soviet Union. The Euro-Asia Division (57K members) covers Russia today.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇸🇪</span> Sweden &amp; <span class="country-flag">🇳🇴</span> Norway <span class="badge">1877</span></div>
+        <div class="country-detail">J.G. Matteson becomes <span class="highlight">first SDA missionary to Scandinavia in 1877</span>. Norway hosted the first European SDA campmeeting in 1887 (the same year missionaries left for South Africa). Swedish Baptists were debating Sabbath observance as early as 1863.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇩🇰</span> Denmark <span class="badge">1880</span></div>
+        <div class="country-detail">First SDA conference outside North America was organised in Denmark in 1880. <span class="highlight">Denmark's Adventist community</span> has deep roots and continues in the Trans-European Division today.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇫🇮</span> Finland &amp; <span class="country-flag">🇮🇸</span> Iceland</div>
+        <div class="country-detail">SDA work begins in Finland 1892; Iceland 1897. Both are within the Trans-European Division. <span class="highlight">Iceland's isolation</span> meant the Sabbath message arrived relatively late but took firm hold.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== AMERICAS ===== -->
+<div class="region-card card-americas">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌎</div>
+    <div class="region-title-group">
+      <div class="region-name">North America</div>
+      <div class="region-summary">Birthplace of modern Adventism — 1844 Great Disappointment</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇺🇸</span> United States <span class="badge">BIRTHPLACE 1844</span></div>
+        <div class="country-detail">The modern SDA Sabbath movement begins here. Rachel Oakes Preston (Seventh Day Baptist) gives a Sabbath tract to a Millerite preacher; it reaches Joseph Bates, then Ellen and James White. <span class="highlight">The SDA Church formally organised May 21, 1863</span> in Battle Creek, Michigan. First Sabbath Day Baptists arrived in Newport, Rhode Island in 1672. Today the NAD has 1.29M members. The US and Jewish community joined forces to promote Sabbath accommodation laws throughout the 20th century.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇨🇦</span> Canada</div>
+        <div class="country-detail">Part of the North American Division. Canada's Adventist community has deep 19th-century roots parallel to the US church. <span class="highlight">Significant Seventh Day Baptist presence</span> existed in the Maritime provinces before SDAs. Canada is home to important Adventist educational institutions.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇲🇽</span> Mexico <span class="badge">1891</span></div>
+        <div class="country-detail">SDA work established in Mexico in 1891. <span class="highlight">Mexico is part of the Inter-American Division</span> and has grown substantially — a major Latin American Adventist presence today.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="region-card card-americas">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌎</div>
+    <div class="region-title-group">
+      <div class="region-name">Caribbean &amp; Central America</div>
+      <div class="region-summary">Inter-American Division — 3.73M members, remarkable density</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇯🇲</span> Jamaica <span class="badge">1892</span></div>
+        <div class="country-detail">SDA work began in Jamaica in 1892. <span class="highlight">Jamaica has one of the highest per-capita Adventist populations in the world</span>, with Sabbath observance deeply woven into national culture. The Caribbean islands within the Inter-American Division are among the most Adventist-dense territories globally.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇨🇺</span> Cuba <span class="badge">SOLDIERS OF CROSS 1920s</span></div>
+        <div class="country-detail">The <span class="highlight">Soldiers of the Cross Church</span> — a Sabbatarian Pentecostal group — was organised in Havana in the early 1920s by Ernest William Sellers. Cuba also has an SDA presence and the Inter-American Division includes Cuba.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇵🇷</span> Puerto Rico <span class="badge">1901</span></div>
+        <div class="country-detail">SDA work entered Puerto Rico in 1901. <span class="highlight">La Iglesia de Dios Incorporada</span>, a Sabbatarian Pentecostal church, was established in Puerto Rico in 1939. Puerto Rico contributes to the strong Inter-American Division numbers.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇹🇹</span> Trinidad &amp; <span class="country-flag">🇧🇧</span> Barbados</div>
+        <div class="country-detail">Trinidad (SDA from 1893) and Barbados (SDA from 1889) are among the <span class="highlight">earliest Caribbean Adventist fields</span>. The density of Sabbath-keepers in these islands rivals any territory on earth per capita.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇬🇾</span> Guyana <span class="badge">1887</span></div>
+        <div class="country-detail">Adventist colporteurs entered Guyana in 1887 — <span class="highlight">the same year as South Africa</span>. Guyana has a long Adventist heritage and is part of the Inter-American Division.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="region-card card-americas">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌎</div>
+    <div class="region-title-group">
+      <div class="region-name">South America</div>
+      <div class="region-summary">South American Division — 2.7M members, led by Brazil</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇧🇷</span> Brazil <span class="badge">1892</span></div>
+        <div class="country-detail">SDA work began in Brazil in 1892. <span class="highlight">Brazil is the largest Adventist population in South America</span> and among the largest nationally in the world. The South American Division (Brazil, Argentina, Bolivia, Chile, Ecuador, Paraguay, Peru, Uruguay) has 2.7M members total, with Brazil the dominant contributor.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇦🇷</span> Argentina &amp; <span class="country-flag">🇨🇱</span> Chile</div>
+        <div class="country-detail">Both have <span class="highlight">strong, established Adventist communities</span> since the late 19th century. Chile entered in 1894 (same year as Solusi Mission). Argentina faces the most challenging member-retention issues in the division per 2023 statistics.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇵🇪</span> Peru &amp; <span class="country-flag">🇧🇴</span> Bolivia</div>
+        <div class="country-detail">Peru entered 1898. <span class="highlight">Peru has particularly large indigenous Adventist communities</span> among Quechua and Aymara peoples — Lake Titicaca became a famous center of early mission work in the early 1900s.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== MIDDLE EAST ===== -->
+<div class="region-card card-mideast">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🕌</div>
+    <div class="region-title-group">
+      <div class="region-name">Middle East &amp; North Africa</div>
+      <div class="region-summary">Sabbath's birthplace — Israel, ancient Egypt, challenging territory</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇮🇱</span> Israel / Holy Land <span class="badge">ORIGINATION</span></div>
+        <div class="country-detail">The <span class="highlight">birthplace of the Sabbath</span>. Sabbath observance in Canaan and Israel is documented throughout the Old Testament. Jewish Shabbat continues unbroken to this day. The SDA Middle East Union Mission operates in the region with great difficulty. Despite 30+ years designated "high priority" for church planting, SDA membership growth remains limited in this predominantly Muslim and Jewish context.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇹🇷</span> Turkey <span class="badge">1889</span></div>
+        <div class="country-detail">First SDA missionaries to Turkey in 1889. The ancient regions of Asia Minor were among the earliest Christian Sabbath-keeping territories. <span class="highlight">The Seventh-day churches of Revelation 2–3</span> were located in what is now western Turkey.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇪🇬</span> Egypt</div>
+        <div class="country-detail">The <span class="highlight">Coptic Orthodox Church</span> of Egypt (12M+ members) preserves ancient Sabbath elements alongside Sunday worship — Augustine noted neighbouring African churches still keeping the seventh-day Sabbath in his era. Egypt's SDA community is small but persistent within the Middle East Union Mission.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇱🇧</span> Lebanon &amp; surrounding Arab nations</div>
+        <div class="country-detail">The Middle East Union Mission covers Lebanon, Jordan, Syria, Iraq, and the Gulf states. <span class="highlight">Growth is stagnant</span> but small communities of Adventist Sabbath-keepers exist, often among minority Christian populations.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== ASIA ===== -->
+<div class="region-card card-asia">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌏</div>
+    <div class="region-title-group">
+      <div class="region-name">South &amp; Southeast Asia</div>
+      <div class="region-summary">India — 1.16M members; Philippines, Indonesia — surging growth</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇮🇳</span> India <span class="badge">1893</span></div>
+        <div class="country-detail">SDA work entered India in 1893. <span class="highlight">The Southern Asia Division (India and surrounding countries)</span> has 1.16M members — remarkable given India's population of 1.4 billion. The SDA Church operates hundreds of hospitals, schools, and colleges. India also has indigenous Sabbath-keeping movements predating modern missions in some northeastern tribal communities.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇵🇭</span> Philippines <span class="badge">RAPID GROWTH</span></div>
+        <div class="country-detail">The Philippines has one of the <span class="highlight">fastest-growing and most Adventist-dense populations</span> in Asia. The Southern Asia-Pacific Division (SSD) includes the Philippines, Indonesia, Malaysia, Thailand, and others with 1.59M members. The Philippines significantly dominates this figure.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇮🇩</span> Indonesia <span class="badge">1900</span></div>
+        <div class="country-detail">SDA work in Sumatra began in 1900. <span class="highlight">Indonesia has the world's largest Muslim population</span>, yet maintains one of Asia's more substantial SDA communities, particularly in Sulawesi, Sumatra, and Papua (West Papua).</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇲🇲</span> Myanmar (Burma)</div>
+        <div class="country-detail">Myanmar has a historically strong SDA presence among the Karen and other ethnic minority peoples. <span class="highlight">The Karen people have shown remarkable receptivity</span> to Adventism since the early 20th century mission work.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇧🇩</span> Bangladesh &amp; <span class="country-flag">🇱🇰</span> Sri Lanka</div>
+        <div class="country-detail">Both are part of the Southern Asia-Pacific Division. <span class="highlight">Bangladesh and Sri Lanka have small but established SDA communities</span> with a network of schools and health facilities.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="region-card card-asia">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌏</div>
+    <div class="region-title-group">
+      <div class="region-name">East Asia</div>
+      <div class="region-summary">China — ancient Nestorian Sabbath 635 AD; True Jesus Church 1917</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇨🇳</span> China <span class="badge">ANCIENT 635 AD</span></div>
+        <div class="country-detail">The <span class="highlight">Xi'an (Chang-An) Stele (781 AD)</span> records Nestorian Christians from Syria arriving in the Tang capital in 635 AD, declaring: "On the Seventh Day we offer sacrifices after having purified our hearts." First official SDA missionary, Abram LaRue, goes to Hong Kong in 1888. The <span class="highlight">True Jesus Church</span>, founded in Beijing in 1917, is a Sabbatarian Pentecostal body with approximately 2 million worldwide members. The Chinese Union Mission today has 84 members per accession — a significant mission challenge. Estimates suggest 3–5 million Protestant Christians in China observe the seventh-day Sabbath.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇯🇵</span> Japan <span class="badge">1896</span></div>
+        <div class="country-detail">First SDA missionary to Japan in 1896. <span class="highlight">Japan's SDA community</span> is part of the Northern Asia-Pacific Division (NSD). Japan presents a mission challenge — highly secular society with strong traditions of Buddhism and Shinto.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇰🇷</span> South Korea <span class="badge">MISSION CHALLENGE</span></div>
+        <div class="country-detail">Korea has an SDA community, but <span class="highlight">the Korean Union Conference has the highest member-to-accession ratio in the world</span> — 97 members per baptism — indicating a highly challenging evangelism environment. Christianity in general is substantial in South Korea, but Adventism faces stiff competition from other denominations.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇹🇼</span> Taiwan &amp; <span class="country-flag">🇲🇳</span> Mongolia</div>
+        <div class="country-detail">Both are in the NSD. <span class="highlight">Taiwan has an established SDA community</span>; Mongolia is a frontier mission field where the church has made inroads among a traditionally nomadic, Buddhist-shamanist population.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== PACIFIC ===== -->
+<div class="region-card card-pacific">
+  <div class="region-header" onclick="toggle(this)">
+    <div class="region-icon">🌊</div>
+    <div class="region-title-group">
+      <div class="region-name">Australia, New Zealand &amp; Pacific Islands</div>
+      <div class="region-summary">Pitcairn — entire island converted 1890 | PNG — explosive growth 2024</div>
+    </div>
+    <div class="region-toggle">▼</div>
+  </div>
+  <div class="region-body">
+    <ul class="country-list">
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇦🇺</span> Australia <span class="badge">1885</span></div>
+        <div class="country-detail">First SDA missionaries arrive 1885. Ellen White herself moves to Australia 1891–1900, establishing Avondale College (1897) and energising the work. <span class="highlight">Australia Union Conference organised 1894 — the first union conference outside North America</span>. The South Pacific Division (Australia, New Zealand, Papua New Guinea, Pacific Islands) has 651K members.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇳🇿</span> New Zealand</div>
+        <div class="country-detail">Part of the South Pacific Division. <span class="highlight">New Zealand is among the most "missionally challenged" territories</span> per SDA statistics (highly secular population), with the New Zealand Pacific Union Conference having a high member-to-accession ratio.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇵🇬</span> Papua New Guinea <span class="badge">EXPLOSIVE 2024</span></div>
+        <div class="country-detail"><span class="highlight">The single most dramatic growth story in 2024 Adventist history</span>. PNG membership grew from 422,756 to 623,276 in one year — an increase of over 200,000 members. PNG has become one of the most Adventist-dense nations on earth per capita.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🏝️</span> Pitcairn Island <span class="badge">ENTIRE ISLAND 1890</span></div>
+        <div class="country-detail">The descendants of the Bounty mutineers (population ~50) converted entirely to Seventh-day Adventism around <span class="highlight">1890–1891</span>. Pitcairn Island remains one of the world's most famous Adventist communities. The conversion followed literature sent by the SDA missionary ship <em>Pitcairn</em>. An interesting quirk: early missionaries thought the islanders already kept the seventh-day Sabbath, when in fact they were keeping Sunday by an east-of-dateline reckoning.</div>
+      </li>
+      <li class="country-item">
+        <div class="country-name"><span class="country-flag">🇫🇯</span> Fiji &amp; Pacific Islands</div>
+        <div class="country-detail">Numerous Pacific island nations have strong SDA communities. <span class="highlight">Fiji, Tonga, Samoa, Vanuatu, and the Solomon Islands</span> all have well-established Adventist churches, often with significant proportions of the population. The date-line question has historically complicated which day to observe on some western Pacific islands.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /regions-grid -->
+</div><!-- /regions-section -->
+
+<!-- FOOTER -->
+<div class="section-divider">
+  <span class="section-divider-title">✦ Sources &amp; Notes ✦</span>
+</div>
+<div class="footer">
+  <p class="footer-text">
+    Sources: Charles E. Bradford, <em>Sabbath Roots: The African Connection</em> (1990) · Adventist Review · Adventist News Network · Adventist Encyclopedia (ESDA) · Spectrum Magazine · Adventist Archives · Wikipedia (Sabbath in Christianity; Sabbath in Seventh-day Churches) · Adventist University of Africa · Andrews University Journal of Adventist Mission Studies · South African History Online · Adventist Today · SID Statistics 2024 · General Conference Annual Statistical Report 2025 (Advance). Division membership figures as of December 31, 2024. Non-SDA Sabbath-keeper estimates from Bradford (1990) and Sabbath in Africa Study Group.
+  </p>
+  <p class="footer-verse">"Remember the Sabbath day, to keep it holy." — Exodus 20:8</p>
+</div>
+
+<script>
+function toggle(header) {
+  const card = header.parentElement;
+  card.classList.toggle('open');
+}
+
+// Auto-open first card in each color group on load
+document.addEventListener('DOMContentLoaded', () => {
+  // Optional: keep all closed by default for cleaner load
+  // Uncomment to auto-open first:
+  // document.querySelectorAll('.region-card')[0].classList.add('open');
+});
+</script>
+
+</body>
+</html>
