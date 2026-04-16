@@ -2093,6 +2093,67 @@ function wireVerseReferences(container) {
   if (pill && count > 0) {
     pill.style.display = "flex";
   }
+
+  // Auto-expand all verse references in the currently selected translation
+  if (count > 0) {
+    const sel = document.getElementById("verse-default-translation");
+    if (sel) expandAllInlineVerses(container, sel.value);
+  }
+}
+
+/**
+ * Expand all .verse-ref elements in a container to show the verse text
+ * inline in the given translation. Creates or updates a .verse-inline-text
+ * block after each reference.
+ */
+async function expandAllInlineVerses(container, translationId) {
+  if (!container) return;
+  const refs = container.querySelectorAll(".verse-ref[data-verse-ref]");
+  if (refs.length === 0) return;
+
+  for (const el of refs) {
+    const ref = el.dataset.verseRef;
+    if (!ref) continue;
+
+    // Find or create the inline preview block
+    let preview = el.parentElement?.querySelector(
+      `.verse-inline-text[data-for="${CSS.escape(ref)}"]`
+    );
+    if (!preview) {
+      preview = document.createElement("div");
+      preview.className = "verse-inline-text";
+      preview.dataset.for = ref;
+      // Insert after the <strong> tag's parent <p>, or after the <strong> itself
+      if (el.parentElement && el.parentElement.tagName === "P") {
+        el.parentElement.after(preview);
+      } else {
+        el.after(preview);
+      }
+    }
+
+    // Show loading state
+    const tLabel = BIBLE_TRANSLATIONS.find((t) => t.id === translationId)?.label || translationId.toUpperCase();
+    preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span> <span class="verse-inline-loading">Loading…</span>`;
+
+    // Fetch and display (don't await each one — fire them in parallel)
+    fetchVerse(ref, translationId).then((data) => {
+      let text = "";
+      if (data.verses && data.verses.length > 0) {
+        text = data.verses.map((v) => {
+          const num = v.verse ? `${v.verse} ` : "";
+          return num + v.text.trim();
+        }).join(" ");
+      } else if (data.text) {
+        text = data.text.trim();
+      }
+      preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span> ${escapeHtml(text)}`;
+      if (data.copyright) {
+        preview.innerHTML += ` <span class="verse-inline-copy">${escapeHtml(data.copyright.replace(/<[^>]+>/g, ""))}</span>`;
+      }
+    }).catch(() => {
+      preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span> <em class="verse-inline-err">Unavailable in this translation</em>`;
+    });
+  }
 }
 
 /**
@@ -2353,6 +2414,12 @@ async function initApp() {
   // Works whether the modal is open or closed.
   document.getElementById("verse-default-translation")?.addEventListener("change", (e) => {
     const newTranslation = e.target.value;
+
+    // Re-expand all inline verse texts in the new translation
+    const contentEl = document.getElementById("doc-content");
+    if (contentEl) expandAllInlineVerses(contentEl, newTranslation);
+
+    // If the modal is open, switch it too
     const overlay = document.getElementById("verse-modal-overlay");
     const isOpen = overlay && overlay.classList.contains("active");
 
@@ -2366,8 +2433,6 @@ async function initApp() {
       const ref = document.getElementById("verse-modal-ref")?.textContent;
       if (ref) loadVerseInModal(ref, newTranslation);
     }
-    // If modal is closed, the new value is stored in the select element and
-    // will be picked up automatically the next time a verse is clicked.
   });
 }
 

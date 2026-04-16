@@ -1158,6 +1158,51 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   border-bottom-color: var(--gold-light);
 }
 
+/* Inline verse text expansion below each reference */
+.verse-inline-text {
+  display: block;
+  margin: 6px 0 16px;
+  padding: 10px 14px;
+  background: rgba(201,162,39,.04);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  transition: opacity .3s;
+}
+.verse-inline-tag {
+  display: inline-block;
+  font-style: normal;
+  font-family: var(--font-ui, -apple-system, sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  background: rgba(201,162,39,.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+  letter-spacing: .5px;
+}
+.verse-inline-loading {
+  color: var(--text-muted);
+  font-style: italic;
+}
+.verse-inline-err {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+.verse-inline-copy {
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
 /* Floating translation selector pill — visible on document pages */
 #verse-translation-pill {
   position: fixed;
