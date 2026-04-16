@@ -2276,6 +2276,24 @@ async function initApp() {
   buildSidebar();
   buildHomeCards();
   showHome();
+
+  // When the default-translation pill dropdown changes, immediately switch the
+  // active translation — both in any open modal AND for all future verse clicks.
+  document.getElementById("verse-default-translation")?.addEventListener("change", (e) => {
+    const newTranslation = e.target.value;
+    const overlay = document.getElementById("verse-modal-overlay");
+    if (!overlay || !overlay.classList.contains("active")) return;
+
+    // Update the active tab highlight
+    const tabsEl = document.getElementById("verse-modal-tabs");
+    tabsEl?.querySelectorAll(".vm-tab").forEach((tab) => {
+      tab.classList.toggle("active", tab.dataset.translation === newTranslation);
+    });
+
+    // Load the newly selected translation
+    const ref = document.getElementById("verse-modal-ref")?.textContent;
+    if (ref) loadVerseInModal(ref, newTranslation);
+  });
 }
 
 initApp();
