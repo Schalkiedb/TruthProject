@@ -321,6 +321,149 @@ const LIBRARY = [
       },
     ],
   },
+  {
+    section: "False Doctrines Exposed",
+    icon: "⚡",
+    id: "false-doctrines",
+    items: [
+      {
+        title: "Papal Titles and the Claim to Divine Authority",
+        file: "False_Doctrines/01_Papal_Titles_and_Biblical_Blasphemy.md",
+        icon: "👑",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "How the titles, claims, and actions of the papal system match the Bible's warnings of a power that would speak 'pompous words against the Most High.'",
+      },
+      {
+        title: "The State of the Dead — Soul Sleep",
+        file: "False_Doctrines/02_State_of_the_Dead_Soul_Sleep.md",
+        icon: "💤",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "Are the dead conscious or unconscious? The answer determines whether spiritualism, prayers for the dead, purgatory, and saint invocation have any biblical basis.",
+      },
+      {
+        title: "Hell — Eternal Torment or Final Destruction?",
+        file: "False_Doctrines/03_Hell_and_Final_Punishment.md",
+        icon: "🔥",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "The traditional doctrine of eternal conscious torment examined against what Scripture actually teaches about the final punishment of the wicked.",
+      },
+      {
+        title: "The Immortal Soul — Does the Bible Teach It?",
+        file: "False_Doctrines/04_The_Immortal_Soul.md",
+        icon: "👻",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "Challenges the doctrine that every human possesses an indestructible soul surviving death — the phrase 'immortal soul' never appears in Scripture.",
+      },
+      {
+        title: "The Mass and the Eucharist — Is Christ Re-Sacrificed?",
+        file: "False_Doctrines/05_The_Mass_and_Eucharist.md",
+        icon: "🍞",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "The Catholic teaching of transubstantiation — is Christ's sacrifice actually re-offered at every Mass? Examined against biblical evidence.",
+      },
+      {
+        title: "The Trinity Doctrine — What Does Scripture Teach?",
+        file: "False_Doctrines/06_The_Holy_Spirit_and_Trinity.md",
+        icon: "🕊️",
+        tag: "Doctrine",
+        tagClass: "blue",
+        desc: "Does the specific Trinitarian formulation defined at Nicaea (325 CE) and Constantinople (381 CE) reflect what Scripture teaches about the Godhead?",
+      },
+      {
+        title: "The Millennium and the Secret Rapture",
+        file: "False_Doctrines/07_The_Millennium_and_Rapture.md",
+        icon: "☁️",
+        tag: "End Times",
+        tagClass: "red",
+        desc: "The doctrines of the secret rapture and pre-tribulation removal of believers — examined against two centuries of evangelical teaching.",
+      },
+      {
+        title: "Futurism and Preterism — Jesuit Counter-Reformation",
+        file: "False_Doctrines/08_Futurism_and_Preterism.md",
+        icon: "🎭",
+        tag: "History",
+        tagClass: "red",
+        desc: "How Jesuit scholars created two prophetic systems specifically to deflect the Reformers' identification of the papacy as the Antichrist.",
+      },
+      {
+        title: "Marian Doctrines — What Does Scripture Say?",
+        file: "False_Doctrines/09_Marian_Doctrines.md",
+        icon: "🌹",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "Four specific Catholic doctrines about Mary — distinguishing between honouring a chosen servant and elevating her beyond Scripture.",
+      },
+      {
+        title: "Idol Worship and the Second Commandment",
+        file: "False_Doctrines/10_Idol_Worship_and_Praying_to_Statues.md",
+        icon: "🗿",
+        tag: "Commandments",
+        tagClass: "red",
+        desc: "How the Catholic Church removed the Second Commandment — which directly forbids making and bowing down to images.",
+      },
+      {
+        title: "The Rosary and Vain Repetitive Prayer",
+        file: "False_Doctrines/11_Rosary_and_Vain_Repetitive_Prayer.md",
+        icon: "📿",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "The practice of the Rosary was directly, explicitly, and specifically prohibited by Jesus in the very passage where He taught how to pray.",
+      },
+      {
+        title: "Praying to Saints — Seeking the Dead",
+        file: "False_Doctrines/12_Prayer_to_Saints_Intercession_of_Dead.md",
+        icon: "🪦",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "Praying to saints combines two condemned biblical practices: seeking communication with the dead and bypassing Christ as sole mediator.",
+      },
+      {
+        title: "Infant Baptism and Sprinkling",
+        file: "False_Doctrines/13_Infant_Baptism_and_Sprinkling.md",
+        icon: "💧",
+        tag: "Doctrine",
+        tagClass: "blue",
+        desc: "Who is the proper candidate for baptism? What is the proper mode — immersion or sprinkling? Scripture answers both questions clearly.",
+      },
+      {
+        title: "Sacred Tradition vs. Scripture Alone",
+        file: "False_Doctrines/14_Sacred_Tradition_vs_Scripture.md",
+        icon: "📜",
+        tag: "Foundation",
+        tagClass: "blue",
+        desc: "The most foundational question: does God's Word alone have final authority, or does human tradition hold equal or greater weight?",
+      },
+      {
+        title: "Indulgences and Confession to Priests",
+        file: "False_Doctrines/15_Indulgences_and_Confession_to_Priests.md",
+        icon: "💰",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "Can men forgive sins? The Catholic teaching that sins must be confessed to an ordained priest who grants absolution — examined by Scripture.",
+      },
+      {
+        title: "Mandatory Priestly Celibacy",
+        file: "False_Doctrines/16_Mandatory_Priestly_Celibacy.md",
+        icon: "⛪",
+        tag: "Doctrine",
+        tagClass: "red",
+        desc: "A doctrine Paul explicitly called a 'doctrine of demons' — specifically naming the forbidding of marriage (1 Timothy 4:1-3).",
+      },
+      {
+        title: "Christmas and Easter — Pagan Origins",
+        file: "False_Doctrines/17_Christmas_and_Easter_Pagan_Origins.md",
+        icon: "🎄",
+        tag: "History",
+        tagClass: "red",
+        desc: "The historical and pagan origins of Christmas and Easter — does God care how He is worshipped, not just that He is worshipped?",
+      },
+    ],
+  },
 ];
 
 /* Flat list of all items for linear prev/next navigation */
@@ -1086,6 +1229,8 @@ function buildHomeCards() {
       "study-guides": "study-guide-cards",
       reference: "reference-cards",
       infographics: "infographics-cards",
+      "interactive-tools": "interactive-tools-cards",
+      "false-doctrines": "false-doctrines-cards",
     };
     const grid = document.getElementById(gridMap[section.id]);
     if (!grid) return;
@@ -1094,6 +1239,7 @@ function buildHomeCards() {
     section.items.forEach((item) => {
       const card = document.createElement("div");
       card.className = "topic-card";
+      if (item.tagClass) card.dataset.accent = item.tagClass;
       card.innerHTML = `
         <div class="card-icon">${item.icon}</div>
         <div class="card-title">${item.title}</div>
@@ -1104,6 +1250,9 @@ function buildHomeCards() {
       grid.appendChild(card);
     });
   });
+
+  // Activate scroll-reveal for card sections and staggered card entrance
+  requestAnimationFrame(() => initScrollReveal());
 }
 
 /* ── Show / Hide States ───────────────────────────────────── */
@@ -1126,6 +1275,9 @@ function showHome() {
 
   // Scroll to top
   window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Re-trigger scroll reveal for sections that may not have been seen yet
+  requestAnimationFrame(() => initScrollReveal());
 }
 
 function showLoading() {
@@ -1593,6 +1745,40 @@ function findAnchorTarget(hash) {
 
   marked.use({ renderer, breaks: true, gfm: true });
 })();
+
+/* ── Scroll Reveal for Card Sections ──────────────────────── */
+function initScrollReveal() {
+  const sections = document.querySelectorAll(".card-section");
+  if (!sections.length) return;
+
+  if (!("IntersectionObserver" in window)) {
+    // Fallback: just show everything
+    sections.forEach((s) => {
+      s.classList.add("revealed");
+      s.querySelectorAll(".topic-card").forEach((c) => c.classList.add("card-visible"));
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const section = entry.target;
+        section.classList.add("revealed");
+        // Stagger card entrance
+        const cards = section.querySelectorAll(".topic-card");
+        cards.forEach((card, i) => {
+          setTimeout(() => card.classList.add("card-visible"), i * 60);
+        });
+        observer.unobserve(section);
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
 
 /* ── Init ─────────────────────────────────────────────────── */
 async function initApp() {
