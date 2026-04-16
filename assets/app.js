@@ -1795,13 +1795,132 @@ function initScrollReveal() {
 ══════════════════════════════════════════════════════════════ */
 
 const BIBLE_TRANSLATIONS = [
-  { id: "kjv",    label: "KJV",          desc: "King James Version (1611)" },
-  { id: "web",    label: "WEB",          desc: "World English Bible (Modern)" },
-  { id: "asv",    label: "ASV",          desc: "American Standard (1901)" },
-  { id: "bbe",    label: "BBE",          desc: "Bible in Basic English" },
-  { id: "oeb-us", label: "OEB",          desc: "Open English Bible (Modern)" },
-  { id: "darby",  label: "Darby",        desc: "Darby Translation" },
+  // Free translations via bible-api.com (no API key needed)
+  { id: "kjv",    label: "KJV",   desc: "King James Version (1611)",    source: "free" },
+  { id: "web",    label: "WEB",   desc: "World English Bible (Modern)", source: "free" },
+  { id: "asv",    label: "ASV",   desc: "American Standard (1901)",     source: "free" },
+  { id: "bbe",    label: "BBE",   desc: "Bible in Basic English",       source: "free" },
+  { id: "oeb-us", label: "OEB",   desc: "Open English Bible (Modern)",  source: "free" },
+  { id: "darby",  label: "Darby", desc: "Darby Translation",            source: "free" },
+  // Copyrighted translations via api.bible (requires free API key)
+  { id: "niv",  label: "NIV",  desc: "New International Version",  source: "api.bible", bibleId: "78a9f6124f344018-01" },
+  { id: "nlt",  label: "NLT",  desc: "New Living Translation",     source: "api.bible", bibleId: "d6e14a625393b4da-01" },
+  { id: "nkjv", label: "NKJV", desc: "New King James Version",     source: "api.bible", bibleId: "63097d2a0a2f7db3-01" },
 ];
+
+/* ── api.bible API key management ────────────────────────── */
+const API_BIBLE_KEY_STORAGE = "apiBibleApiKey";
+// Built-in key — works for all visitors out of the box (free non-commercial tier).
+// Override via the ⚙️ settings button if you have your own key.
+const API_BIBLE_BUILTIN_KEY = "IYyhVb_8ypT1jinjBioh9";
+
+function getApiBibleKey() {
+  // Prefer a user-supplied key from localStorage, fall back to the built-in key
+  return localStorage.getItem(API_BIBLE_KEY_STORAGE) || API_BIBLE_BUILTIN_KEY;
+}
+function setApiBibleKey(key) {
+  localStorage.setItem(API_BIBLE_KEY_STORAGE, key.trim());
+}
+
+/**
+ * Book name → api.bible 3-letter code mapping.
+ */
+const BOOK_TO_API_CODE = {
+  "genesis":"GEN","exodus":"EXO","leviticus":"LEV","numbers":"NUM","deuteronomy":"DEU",
+  "joshua":"JOS","judges":"JDG","ruth":"RUT",
+  "1 samuel":"1SA","2 samuel":"2SA","1 kings":"1KI","2 kings":"2KI",
+  "1 chronicles":"1CH","2 chronicles":"2CH",
+  "ezra":"EZR","nehemiah":"NEH","esther":"EST","job":"JOB",
+  "psalm":"PSA","psalms":"PSA","proverbs":"PRO","ecclesiastes":"ECC",
+  "song of solomon":"SNG",
+  "isaiah":"ISA","jeremiah":"JER","lamentations":"LAM","ezekiel":"EZK","daniel":"DAN",
+  "hosea":"HOS","joel":"JOL","amos":"AMO","obadiah":"OBA","jonah":"JON",
+  "micah":"MIC","nahum":"NAM","habakkuk":"HAB","zephaniah":"ZEP",
+  "haggai":"HAG","zechariah":"ZEC","malachi":"MAL",
+  "matthew":"MAT","mark":"MRK","luke":"LUK","john":"JHN",
+  "acts":"ACT","romans":"ROM",
+  "1 corinthians":"1CO","2 corinthians":"2CO",
+  "galatians":"GAL","ephesians":"EPH","philippians":"PHP","colossians":"COL",
+  "1 thessalonians":"1TH","2 thessalonians":"2TH",
+  "1 timothy":"1TI","2 timothy":"2TI","titus":"TIT","philemon":"PHM",
+  "hebrews":"HEB","james":"JAS",
+  "1 peter":"1PE","2 peter":"2PE","1 john":"1JN","2 john":"2JN","3 john":"3JN",
+  "jude":"JUD","revelation":"REV",
+  // Common abbreviations
+  "gen":"GEN","exo":"EXO","exod":"EXO","lev":"LEV","num":"NUM","deut":"DEU",
+  "josh":"JOS","judg":"JDG","sam":"1SA",
+  "kgs":"1KI","chr":"1CH","neh":"NEH","esth":"EST",
+  "psa":"PSA","ps":"PSA","prov":"PRO","eccl":"ECC",
+  "isa":"ISA","jer":"JER","lam":"LAM","ezek":"EZK","dan":"DAN",
+  "hos":"HOS","mic":"MIC","zech":"ZEC","mal":"MAL",
+  "matt":"MAT","mat":"MAT","mk":"MRK","lk":"LUK","jn":"JHN",
+  "rom":"ROM","cor":"1CO","gal":"GAL","eph":"EPH","phil":"PHP",
+  "col":"COL","thess":"1TH","tim":"1TI","heb":"HEB","jas":"JAS",
+  "pet":"1PE","rev":"REV",
+};
+
+/**
+ * Convert a human-readable reference like "Genesis 2:1-3" to
+ * api.bible passage ID format like "GEN.2.1-GEN.2.3".
+ */
+function toApiBiblePassageId(reference) {
+  const ref = reference.trim();
+  // Match: "Book Chapter:VerseStart[-VerseEnd]"
+  const m = ref.match(/^(.+?)\s+(\d+)\s*:\s*(\d+)(?:\s*[-–]\s*(\d+))?/);
+  if (!m) return null;
+
+  const bookRaw = m[1].trim().toLowerCase().replace(/\.$/, "");
+  const chapter = m[2];
+  const verseStart = m[3];
+  const verseEnd = m[4] || null;
+
+  const code = BOOK_TO_API_CODE[bookRaw];
+  if (!code) return null;
+
+  if (verseEnd) {
+    return `${code}.${chapter}.${verseStart}-${code}.${chapter}.${verseEnd}`;
+  }
+  return `${code}.${chapter}.${verseStart}`;
+}
+
+/**
+ * Fetch a passage from api.bible.
+ * Returns a normalised object matching the bible-api.com shape.
+ */
+async function fetchVerseApiBible(reference, bibleId) {
+  const apiKey = getApiBibleKey();
+  if (!apiKey) throw new Error("API_KEY_MISSING");
+
+  const passageId = toApiBiblePassageId(reference);
+  if (!passageId) throw new Error("Could not parse reference for api.bible.");
+
+  const url = `https://rest.api.bible/v1/bibles/${bibleId}/passages/${passageId}`
+    + `?content-type=text&include-verse-numbers=true&include-titles=false&include-chapter-numbers=false`;
+
+  const res = await fetch(url, {
+    headers: { "api-key": apiKey },
+  });
+
+  if (!res.ok) {
+    if (res.status === 401) throw new Error("Invalid API key. Check your api.bible key in settings.");
+    if (res.status === 403) throw new Error("This Bible version is not available for your API key.");
+    if (res.status === 404) throw new Error("Verse not found in this translation.");
+    throw new Error(`api.bible error (${res.status})`);
+  }
+
+  const json = await res.json();
+  const data = json.data || {};
+
+  // Handle FUMS tracking (required by api.bible terms)
+  if (json.meta && json.meta.fumsId && typeof _BAPI !== "undefined" && _BAPI.t) {
+    try { _BAPI.t(json.meta.fumsId); } catch (_) { /* non-critical */ }
+  }
+
+  // Parse plain-text content into verse-like structure
+  const text = (data.content || "").trim();
+  const copyright = data.copyright || "";
+  return { text, reference: data.reference || reference, copyright, _raw: data };
+}
 
 /** Cache for fetched verses: key = "ref|translation" */
 const _verseCache = new Map();
@@ -1908,25 +2027,31 @@ function wireVerseReferences(container) {
 }
 
 /**
- * Fetch a Bible verse from bible-api.com.
+ * Fetch a Bible verse — routes to the correct API based on translation source.
  * Returns { text, verses[], reference, translation } or throws.
  */
 async function fetchVerse(reference, translationId) {
   const cacheKey = `${reference}|${translationId}`;
   if (_verseCache.has(cacheKey)) return _verseCache.get(cacheKey);
 
-  // Normalise the reference for the API
-  const apiRef = encodeURIComponent(reference.trim());
-  const url = `https://bible-api.com/${apiRef}?translation=${translationId}`;
+  const t = BIBLE_TRANSLATIONS.find((x) => x.id === translationId);
 
-  const res = await fetch(url);
-  if (!res.ok) {
-    if (res.status === 404) throw new Error("Verse not found in this translation.");
-    throw new Error(`API error (${res.status})`);
+  let data;
+  if (t && t.source === "api.bible") {
+    // Copyrighted translations via api.bible
+    data = await fetchVerseApiBible(reference, t.bibleId);
+  } else {
+    // Free translations via bible-api.com
+    const apiRef = encodeURIComponent(reference.trim());
+    const url = `https://bible-api.com/${apiRef}?translation=${translationId}`;
+    const res = await fetch(url);
+    if (!res.ok) {
+      if (res.status === 404) throw new Error("Verse not found in this translation.");
+      throw new Error(`API error (${res.status})`);
+    }
+    data = await res.json();
+    if (data.error) throw new Error(data.error);
   }
-
-  const data = await res.json();
-  if (data.error) throw new Error(data.error);
 
   _verseCache.set(cacheKey, data);
   return data;
@@ -1948,14 +2073,20 @@ function openBibleModal(reference) {
 
   // Build translation tabs
   const defaultTranslation = document.getElementById("verse-default-translation")?.value || "web";
+  const hasApiKey = !!getApiBibleKey();
   tabsEl.innerHTML = "";
-  BIBLE_TRANSLATIONS.forEach((t, i) => {
+  BIBLE_TRANSLATIONS.forEach((t) => {
     const tab = document.createElement("div");
-    tab.className = "vm-tab" + (t.id === defaultTranslation ? " active" : "");
-    tab.textContent = t.label;
-    tab.title = t.desc;
+    const isLocked = t.source === "api.bible" && !hasApiKey;
+    tab.className = "vm-tab" + (t.id === defaultTranslation ? " active" : "") + (isLocked ? " locked" : "");
+    tab.textContent = t.label + (isLocked ? " 🔒" : "");
+    tab.title = isLocked ? `${t.desc} — requires free api.bible key (click to set up)` : t.desc;
     tab.dataset.translation = t.id;
     tab.addEventListener("click", () => {
+      if (isLocked) {
+        openApiBibleSettings();
+        return;
+      }
       tabsEl.querySelectorAll(".vm-tab").forEach((el) => el.classList.remove("active"));
       tab.classList.add("active");
       loadVerseInModal(reference, t.id);
@@ -1967,8 +2098,11 @@ function openBibleModal(reference) {
   overlay.classList.add("active");
   document.body.style.overflow = "hidden";
 
-  // Load default translation
-  loadVerseInModal(reference, defaultTranslation);
+  // Load default translation (fall back to 'web' if the default is a locked api.bible one)
+  let startTranslation = defaultTranslation;
+  const startT = BIBLE_TRANSLATIONS.find((x) => x.id === defaultTranslation);
+  if (startT && startT.source === "api.bible" && !hasApiKey) startTranslation = "web";
+  loadVerseInModal(reference, startTranslation);
 
   // Close on overlay click
   overlay.onclick = (e) => {
@@ -2000,22 +2134,112 @@ async function loadVerseInModal(reference, translationId) {
 
     // Render verse text with verse numbers
     if (data.verses && data.verses.length > 0) {
+      // bible-api.com response with individual verses
       const html = data.verses.map((v) => {
         const num = v.verse || "";
         return `<span class="verse-num">${num}</span>${escapeHtml(v.text.trim())} `;
       }).join("");
       textEl.innerHTML = sanitize(html);
     } else if (data.text) {
+      // api.bible returns plain text or bible-api.com single text
       textEl.textContent = data.text;
     } else {
       errEl.textContent = "No verse text returned.";
     }
+
+    // Show copyright notice for api.bible translations
+    if (data.copyright) {
+      const copy = document.createElement("div");
+      copy.className = "verse-copyright";
+      copy.textContent = data.copyright.replace(/<[^>]+>/g, "");
+      textEl.appendChild(copy);
+    }
   } catch (err) {
     loadEl.style.display = "none";
+    if (err.message === "API_KEY_MISSING") {
+      errEl.innerHTML = `Could not connect to api.bible. Please try again shortly.`;
+      return;
+    }
     errEl.innerHTML = err.message.includes("not found")
       ? `This verse may not be available in this translation. Try KJV or WEB.`
       : `Could not fetch verse: ${escapeHtml(err.message)}`;
   }
+}
+
+/**
+ * Open the api.bible API key settings dialog.
+ */
+function openApiBibleSettings() {
+  const existing = document.getElementById("api-bible-settings-overlay");
+  if (existing) existing.remove();
+
+  const storedKey = localStorage.getItem(API_BIBLE_KEY_STORAGE) || "";
+  const overlay = document.createElement("div");
+  overlay.id = "api-bible-settings-overlay";
+  overlay.innerHTML = `
+    <div class="api-settings-panel">
+      <h3>⚙️ api.bible API Key</h3>
+      <p>NIV, NLT, and NKJV are already enabled for all visitors using the built-in key.</p>
+      <p>If you have your own <a href="https://scripture.api.bible/signup" target="_blank" rel="noopener">api.bible</a> key and want to use it instead, paste it below. Leave blank to use the default.</p>
+      <input type="text" id="api-bible-key-input" placeholder="Paste your own API key (optional)…"
+             value="${escapeHtml(storedKey)}" spellcheck="false" autocomplete="off" />
+      <div class="api-settings-buttons">
+        <button id="api-bible-save-btn" class="btn-gold">Save</button>
+        <button id="api-bible-clear-btn" class="btn-ghost">Use Default</button>
+        <button id="api-bible-cancel-btn" class="btn-ghost">Cancel</button>
+      </div>
+      <p class="api-settings-note">A custom key is stored in this browser's localStorage only.</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  // Focus input
+  const input = document.getElementById("api-bible-key-input");
+  setTimeout(() => input.focus(), 100);
+
+  // Save
+  document.getElementById("api-bible-save-btn").addEventListener("click", () => {
+    const key = input.value.trim();
+    if (key) {
+      setApiBibleKey(key);
+      // Clear cache for api.bible translations so they re-fetch
+      for (const [k] of _verseCache) {
+        const tId = k.split("|")[1];
+        const t = BIBLE_TRANSLATIONS.find((x) => x.id === tId);
+        if (t && t.source === "api.bible") _verseCache.delete(k);
+      }
+    }
+    overlay.remove();
+    // Refresh modal tabs if the verse modal is open
+    const verseOverlay = document.getElementById("verse-modal-overlay");
+    if (verseOverlay && verseOverlay.classList.contains("active")) {
+      const ref = document.getElementById("verse-modal-ref")?.textContent;
+      if (ref) openBibleModal(ref);
+    }
+  });
+
+  // Cancel
+  document.getElementById("api-bible-cancel-btn").addEventListener("click", () => overlay.remove());
+
+  // Clear override — revert to built-in key
+  document.getElementById("api-bible-clear-btn").addEventListener("click", () => {
+    localStorage.removeItem(API_BIBLE_KEY_STORAGE);
+    for (const [k] of _verseCache) {
+      const tId = k.split("|")[1];
+      const t = BIBLE_TRANSLATIONS.find((x) => x.id === tId);
+      if (t && t.source === "api.bible") _verseCache.delete(k);
+    }
+    overlay.remove();
+  });
+
+  // Close on overlay click
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) overlay.remove(); });
+
+  // Close on Escape
+  const escHandler = (e) => {
+    if (e.key === "Escape") { overlay.remove(); document.removeEventListener("keydown", escHandler); }
+  };
+  document.addEventListener("keydown", escHandler);
 }
 
 /** Escape HTML entities */

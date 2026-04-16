@@ -1267,6 +1267,134 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 }
 .vm-tab:hover { color: var(--text-secondary); }
 .vm-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+.vm-tab.locked { opacity: .45; font-style: italic; }
+.vm-tab.locked:hover { color: var(--gold-dim); opacity: .7; }
+
+/* Copyright line for api.bible translations */
+.verse-copyright {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-size: 10px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* API key setup button in error state */
+.api-key-setup-btn {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: var(--gold);
+  color: #0c0f1a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.api-key-setup-btn:hover { background: #d4af37; }
+
+/* Pill settings button */
+#pill-api-key-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 4px;
+  opacity: .6;
+  transition: opacity .2s;
+}
+#pill-api-key-btn:hover { opacity: 1; }
+
+/* ── api.bible Settings Overlay ─────────────────────────── */
+#api-bible-settings-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10100;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.api-settings-panel {
+  background: linear-gradient(160deg, #13172a 0%, #1a1f36 100%);
+  border: 1px solid rgba(201,162,39,.2);
+  border-radius: 14px;
+  padding: 28px 32px;
+  max-width: 460px;
+  width: 92%;
+  color: var(--text-primary);
+}
+.api-settings-panel h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: var(--gold);
+}
+.api-settings-panel p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 10px;
+}
+.api-settings-panel ol {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.api-settings-panel a { color: var(--gold); text-decoration: underline; }
+.api-settings-panel input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(0,0,0,.3);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  margin-bottom: 14px;
+  box-sizing: border-box;
+}
+.api-settings-panel input[type="text"]:focus {
+  outline: none;
+  border-color: var(--gold-dim);
+}
+.api-settings-buttons {
+  display: flex;
+  gap: 10px;
+}
+.btn-gold {
+  padding: 9px 22px;
+  background: var(--gold);
+  color: #0c0f1a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-gold:hover { background: #d4af37; }
+.btn-ghost {
+  padding: 9px 22px;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-ghost:hover { border-color: var(--text-secondary); color: var(--text-secondary); }
+.api-settings-note {
+  margin-top: 12px;
+  font-size: 11px !important;
+  color: var(--text-muted) !important;
+  font-style: italic;
+}
 
 /* Verse body */
 #verse-modal-body {
