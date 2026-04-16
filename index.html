@@ -175,6 +175,43 @@
   <!-- Back-to-top button -->
   <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
 
-  <script src="assets/app.js?v=20260410"></script>
+  <!-- ══════════════════════════════════════════════════════
+       BIBLE VERSE TRANSLATION LOOKUP
+  ══════════════════════════════════════════════════════ -->
+
+  <!-- Floating translation pill (visible when reading a document) -->
+  <div id="verse-translation-pill" title="Click a Bible reference to compare translations">
+    <span class="pill-icon">📖</span>
+    <select id="verse-default-translation" aria-label="Default Bible translation">
+      <option value="kjv">KJV</option>
+      <option value="web" selected>WEB (Modern)</option>
+      <option value="asv">ASV</option>
+      <option value="bbe">BBE (Simple)</option>
+      <option value="oeb-us">OEB (Modern)</option>
+      <option value="darby">Darby</option>
+    </select>
+  </div>
+
+  <!-- Verse lookup modal -->
+  <div id="verse-modal-overlay">
+    <div id="verse-modal" role="dialog" aria-label="Bible verse translation comparison">
+      <div id="verse-modal-header">
+        <span class="vm-icon">📖</span>
+        <span id="verse-modal-ref">Loading…</span>
+        <button id="verse-modal-close" onclick="closeBibleModal()" title="Close">✕</button>
+      </div>
+      <div id="verse-modal-tabs"></div>
+      <div id="verse-modal-body">
+        <div id="verse-loading"><span class="spin">⟳</span> Fetching verse…</div>
+        <div id="verse-text"></div>
+        <div id="verse-error"></div>
+      </div>
+      <div id="verse-modal-footer">
+        Click any <strong>bold Bible reference</strong> in the study guide to compare translations &bull; Powered by bible-api.com
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/app.js?v=20260416"></script>
 </body>
 </html>
