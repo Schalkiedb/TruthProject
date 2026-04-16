@@ -2115,20 +2115,17 @@ async function expandAllInlineVerses(container, translationId) {
     const ref = el.dataset.verseRef;
     if (!ref) continue;
 
-    // Find or create the inline preview block
-    let preview = el.parentElement?.querySelector(
-      `.verse-inline-text[data-for="${CSS.escape(ref)}"]`
-    );
-    if (!preview) {
+    // Find or create the single inline preview block for this reference.
+    // It lives as the next sibling of the <p> (or of the <strong> itself).
+    const anchor = (el.parentElement && el.parentElement.tagName === "P") ? el.parentElement : el;
+    let preview = anchor.nextElementSibling;
+    if (!preview || !preview.classList.contains("verse-inline-text") || preview.dataset.for !== ref) {
+      // Remove any stale previews for this ref anywhere in the container
+      container.querySelectorAll(`.verse-inline-text[data-for="${CSS.escape(ref)}"]`).forEach((old) => old.remove());
       preview = document.createElement("div");
       preview.className = "verse-inline-text";
       preview.dataset.for = ref;
-      // Insert after the <strong> tag's parent <p>, or after the <strong> itself
-      if (el.parentElement && el.parentElement.tagName === "P") {
-        el.parentElement.after(preview);
-      } else {
-        el.after(preview);
-      }
+      anchor.after(preview);
     }
 
     // Show loading state
