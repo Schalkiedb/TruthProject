@@ -1128,6 +1128,25 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
    BIBLE VERSE LOOKUP — Translation Comparison Feature
 ══════════════════════════════════════════════════════════════ */
 
+/* ── Video Embed ─────────────────────────────────────────── */
+.video-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  margin: 28px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 24px rgba(0,0,0,.5);
+}
+.video-embed-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* Clickable verse references in rendered markdown */
 .verse-ref {
   cursor: pointer;

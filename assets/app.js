@@ -1473,6 +1473,9 @@ async function loadDocument(filePath) {
     // Wire up all links now that every section is in the DOM
     processLinks(contentEl, filePath);
 
+    // Embed YouTube and Google Drive video links as inline players
+    wireVideoEmbeds(contentEl);
+
     // Wire up Bible verse references for translation comparison
     wireVerseReferences(contentEl);
   } catch (err) {
@@ -1558,6 +1561,72 @@ function processLinks(contentEl, filePath) {
         loadDocument(targetItem.file);
       });
     }
+  });
+}
+
+/**
+ * Scan rendered content for YouTube and Google Drive video links and replace
+ * them with responsive embedded players.
+ *
+ * Supported link formats in markdown:
+ *   YouTube:
+ *     https://www.youtube.com/watch?v=VIDEO_ID
+ *     https://youtu.be/VIDEO_ID
+ *     https://www.youtube.com/shorts/VIDEO_ID
+ *
+ *   Google Drive video (shared as "Anyone with the link"):
+ *     https://drive.google.com/file/d/FILE_ID/view
+ *     https://drive.google.com/open?id=FILE_ID
+ *
+ * A link is embedded when it is the ONLY content in its paragraph
+ * (i.e. a bare URL on its own line), so prose links are never replaced.
+ */
+function wireVideoEmbeds(container) {
+  if (!container) return;
+
+  const YT_REGEX = /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/;
+  const DRIVE_REGEX = /drive\.google\.com\/(?:file\/d\/([A-Za-z0-9_-]+)\/(?:view|preview)|open\?(?:.*&)?id=([A-Za-z0-9_-]+))/;
+
+  // Look for <p> tags that contain exactly one <a> and nothing else
+  container.querySelectorAll("p").forEach((p) => {
+    const anchors = p.querySelectorAll("a");
+    if (anchors.length !== 1) return;
+    // The paragraph text must essentially just be the link (trim whitespace/newlines)
+    const paraText = p.textContent.trim();
+    const linkText = anchors[0].textContent.trim();
+    if (paraText !== linkText && paraText !== anchors[0].href) return;
+
+    const href = anchors[0].href || "";
+
+    let embedUrl = null;
+    let title = "";
+
+    // YouTube
+    const ytMatch = href.match(YT_REGEX);
+    if (ytMatch) {
+      embedUrl = `https://www.youtube-nocookie.com/embed/${ytMatch[1]}?rel=0`;
+      title = "YouTube video";
+    }
+
+    // Google Drive
+    if (!embedUrl) {
+      const drMatch = href.match(DRIVE_REGEX);
+      if (drMatch) {
+        const fileId = drMatch[1] || drMatch[2];
+        embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+        title = "Google Drive video";
+      }
+    }
+
+    if (!embedUrl) return;
+
+    // Build responsive wrapper + iframe
+    const wrapper = document.createElement("div");
+    wrapper.className = "video-embed-wrapper";
+    wrapper.innerHTML = `<iframe src="${embedUrl}" title="${title}" allowfullscreen
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      loading="lazy" frameborder="0"></iframe>`;
+    p.replaceWith(wrapper);
   });
 }
 
@@ -2089,6 +2158,9 @@ function openBibleModal(reference) {
       }
       tabsEl.querySelectorAll(".vm-tab").forEach((el) => el.classList.remove("active"));
       tab.classList.add("active");
+      // Keep the pill dropdown in sync with the tab
+      const pill = document.getElementById("verse-default-translation");
+      if (pill) pill.value = t.id;
       loadVerseInModal(reference, t.id);
     });
     tabsEl.appendChild(tab);
@@ -2277,22 +2349,25 @@ async function initApp() {
   buildHomeCards();
   showHome();
 
-  // When the default-translation pill dropdown changes, immediately switch the
-  // active translation — both in any open modal AND for all future verse clicks.
+  // When the pill dropdown changes, keep everything in sync.
+  // Works whether the modal is open or closed.
   document.getElementById("verse-default-translation")?.addEventListener("change", (e) => {
     const newTranslation = e.target.value;
     const overlay = document.getElementById("verse-modal-overlay");
-    if (!overlay || !overlay.classList.contains("active")) return;
+    const isOpen = overlay && overlay.classList.contains("active");
 
-    // Update the active tab highlight
-    const tabsEl = document.getElementById("verse-modal-tabs");
-    tabsEl?.querySelectorAll(".vm-tab").forEach((tab) => {
-      tab.classList.toggle("active", tab.dataset.translation === newTranslation);
-    });
-
-    // Load the newly selected translation
-    const ref = document.getElementById("verse-modal-ref")?.textContent;
-    if (ref) loadVerseInModal(ref, newTranslation);
+    if (isOpen) {
+      // Update the active tab highlight
+      const tabsEl = document.getElementById("verse-modal-tabs");
+      tabsEl?.querySelectorAll(".vm-tab").forEach((tab) => {
+        tab.classList.toggle("active", tab.dataset.translation === newTranslation);
+      });
+      // Reload the verse in the new translation
+      const ref = document.getElementById("verse-modal-ref")?.textContent;
+      if (ref) loadVerseInModal(ref, newTranslation);
+    }
+    // If modal is closed, the new value is stored in the select element and
+    // will be picked up automatically the next time a verse is clicked.
   });
 }
 
