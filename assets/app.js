@@ -1276,6 +1276,10 @@ function showHome() {
   // Scroll to top
   window.scrollTo({ top: 0, behavior: "smooth" });
 
+  // Hide the Bible verse translation pill on home page
+  const pill = document.getElementById("verse-translation-pill");
+  if (pill) pill.style.display = "none";
+
   // Re-trigger scroll reveal for sections that may not have been seen yet
   requestAnimationFrame(() => initScrollReveal());
 }
@@ -1468,6 +1472,9 @@ async function loadDocument(filePath) {
 
     // Wire up all links now that every section is in the DOM
     processLinks(contentEl, filePath);
+
+    // Wire up Bible verse references for translation comparison
+    wireVerseReferences(contentEl);
   } catch (err) {
     console.error("Failed to load document:", err);
     if (
@@ -1778,6 +1785,255 @@ function initScrollReveal() {
   );
 
   sections.forEach((section) => observer.observe(section));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BIBLE VERSE TRANSLATION LOOKUP
+   Detects Bible references in rendered markdown, makes them
+   clickable, and shows a modal with the verse in multiple
+   translations via bible-api.com (free, CORS-enabled).
+══════════════════════════════════════════════════════════════ */
+
+const BIBLE_TRANSLATIONS = [
+  { id: "kjv",    label: "KJV",          desc: "King James Version (1611)" },
+  { id: "web",    label: "WEB",          desc: "World English Bible (Modern)" },
+  { id: "asv",    label: "ASV",          desc: "American Standard (1901)" },
+  { id: "bbe",    label: "BBE",          desc: "Bible in Basic English" },
+  { id: "oeb-us", label: "OEB",          desc: "Open English Bible (Modern)" },
+  { id: "darby",  label: "Darby",        desc: "Darby Translation" },
+];
+
+/** Cache for fetched verses: key = "ref|translation" */
+const _verseCache = new Map();
+
+/**
+ * Bible book names — used for detecting verse references.
+ * Includes full names and common abbreviations.
+ */
+const BIBLE_BOOKS_PATTERN = (function () {
+  const books = [
+    "Genesis","Exodus","Leviticus","Numbers","Deuteronomy",
+    "Joshua","Judges","Ruth",
+    "1 Samuel","2 Samuel","1 Kings","2 Kings",
+    "1 Chronicles","2 Chronicles",
+    "Ezra","Nehemiah","Esther",
+    "Job","Psalms?","Proverbs","Ecclesiastes","Song of Solomon",
+    "Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel",
+    "Hosea","Joel","Amos","Obadiah","Jonah","Micah",
+    "Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi",
+    "Matthew","Mark","Luke","John",
+    "Acts","Romans",
+    "1 Corinthians","2 Corinthians",
+    "Galatians","Ephesians","Philippians","Colossians",
+    "1 Thessalonians","2 Thessalonians",
+    "1 Timothy","2 Timothy","Titus","Philemon",
+    "Hebrews","James",
+    "1 Peter","2 Peter","1 John","2 John","3 John",
+    "Jude","Revelation",
+    // Abbreviations
+    "Gen","Exod?","Lev","Num","Deut","Josh","Judg","Sam","Kgs",
+    "Chr","Neh","Esth","Psa?","Prov","Eccl","Isa","Jer","Lam",
+    "Ezek","Dan","Hos","Mic","Zech","Mal",
+    "Matt?","Mk","Lk","Jn","Rom","Cor","Gal","Eph","Phil",
+    "Col","Thess","Tim","Heb","Jas","Pet","Rev",
+  ];
+  return books.join("|");
+})();
+
+/**
+ * Regex to detect Bible references inside <strong> tags.
+ * Matches patterns like: Genesis 2:1-3, Psalm 119:105, 1 John 2:15-17
+ * Also handles comma-separated verses like Matthew 25:31-33,46
+ */
+const VERSE_REF_REGEX = new RegExp(
+  "\\b((?:" + BIBLE_BOOKS_PATTERN + ")\\.?\\s*\\d+\\s*:\\s*\\d+(?:\\s*[-–]\\s*\\d+)?(?:\\s*,\\s*\\d+(?:\\s*[-–]\\s*\\d+)?)*)\\b",
+  "gi"
+);
+
+/**
+ * After the markdown is rendered, scan the document for Bible references
+ * inside <strong> tags and make them clickable.
+ */
+function wireVerseReferences(container) {
+  if (!container) return;
+
+  // Find all <strong> tags that contain Bible references
+  const strongs = container.querySelectorAll("strong");
+  let count = 0;
+
+  strongs.forEach((el) => {
+    const text = el.textContent.trim();
+    // Quick check: does it look like a verse reference?
+    // Must contain a book name, chapter number, and colon+verse
+    if (!/\d+\s*:\s*\d+/.test(text)) return;
+    if (!VERSE_REF_REGEX.test(text)) return;
+    VERSE_REF_REGEX.lastIndex = 0; // Reset regex state
+
+    // Extract just the reference part (strip trailing punctuation like ":" or "-")
+    const refMatch = text.match(VERSE_REF_REGEX);
+    if (!refMatch) return;
+
+    const ref = refMatch[0].trim();
+
+    // Don't double-wrap
+    if (el.closest(".verse-ref")) return;
+
+    // Wrap in a clickable span
+    el.classList.add("verse-ref");
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("title", `Click to compare translations: ${ref}`);
+    el.dataset.verseRef = ref;
+
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openBibleModal(ref);
+    });
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openBibleModal(ref);
+      }
+    });
+
+    count++;
+  });
+
+  // Show the floating pill if we found verses
+  const pill = document.getElementById("verse-translation-pill");
+  if (pill && count > 0) {
+    pill.style.display = "flex";
+  }
+}
+
+/**
+ * Fetch a Bible verse from bible-api.com.
+ * Returns { text, verses[], reference, translation } or throws.
+ */
+async function fetchVerse(reference, translationId) {
+  const cacheKey = `${reference}|${translationId}`;
+  if (_verseCache.has(cacheKey)) return _verseCache.get(cacheKey);
+
+  // Normalise the reference for the API
+  const apiRef = encodeURIComponent(reference.trim());
+  const url = `https://bible-api.com/${apiRef}?translation=${translationId}`;
+
+  const res = await fetch(url);
+  if (!res.ok) {
+    if (res.status === 404) throw new Error("Verse not found in this translation.");
+    throw new Error(`API error (${res.status})`);
+  }
+
+  const data = await res.json();
+  if (data.error) throw new Error(data.error);
+
+  _verseCache.set(cacheKey, data);
+  return data;
+}
+
+/**
+ * Open the verse comparison modal for a given reference.
+ */
+function openBibleModal(reference) {
+  const overlay = document.getElementById("verse-modal-overlay");
+  const refEl = document.getElementById("verse-modal-ref");
+  const tabsEl = document.getElementById("verse-modal-tabs");
+  const textEl = document.getElementById("verse-text");
+  const loadEl = document.getElementById("verse-loading");
+  const errEl = document.getElementById("verse-error");
+
+  // Set reference title
+  refEl.textContent = reference;
+
+  // Build translation tabs
+  const defaultTranslation = document.getElementById("verse-default-translation")?.value || "web";
+  tabsEl.innerHTML = "";
+  BIBLE_TRANSLATIONS.forEach((t, i) => {
+    const tab = document.createElement("div");
+    tab.className = "vm-tab" + (t.id === defaultTranslation ? " active" : "");
+    tab.textContent = t.label;
+    tab.title = t.desc;
+    tab.dataset.translation = t.id;
+    tab.addEventListener("click", () => {
+      tabsEl.querySelectorAll(".vm-tab").forEach((el) => el.classList.remove("active"));
+      tab.classList.add("active");
+      loadVerseInModal(reference, t.id);
+    });
+    tabsEl.appendChild(tab);
+  });
+
+  // Show modal
+  overlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  // Load default translation
+  loadVerseInModal(reference, defaultTranslation);
+
+  // Close on overlay click
+  overlay.onclick = (e) => {
+    if (e.target === overlay) closeBibleModal();
+  };
+
+  // Close on Escape
+  document._verseEscHandler = (e) => {
+    if (e.key === "Escape") closeBibleModal();
+  };
+  document.addEventListener("keydown", document._verseEscHandler);
+}
+
+/**
+ * Load a specific translation into the modal body.
+ */
+async function loadVerseInModal(reference, translationId) {
+  const textEl = document.getElementById("verse-text");
+  const loadEl = document.getElementById("verse-loading");
+  const errEl = document.getElementById("verse-error");
+
+  textEl.innerHTML = "";
+  errEl.innerHTML = "";
+  loadEl.style.display = "flex";
+
+  try {
+    const data = await fetchVerse(reference, translationId);
+    loadEl.style.display = "none";
+
+    // Render verse text with verse numbers
+    if (data.verses && data.verses.length > 0) {
+      const html = data.verses.map((v) => {
+        const num = v.verse || "";
+        return `<span class="verse-num">${num}</span>${escapeHtml(v.text.trim())} `;
+      }).join("");
+      textEl.innerHTML = sanitize(html);
+    } else if (data.text) {
+      textEl.textContent = data.text;
+    } else {
+      errEl.textContent = "No verse text returned.";
+    }
+  } catch (err) {
+    loadEl.style.display = "none";
+    errEl.innerHTML = err.message.includes("not found")
+      ? `This verse may not be available in this translation. Try KJV or WEB.`
+      : `Could not fetch verse: ${escapeHtml(err.message)}`;
+  }
+}
+
+/** Escape HTML entities */
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/** Close the verse modal */
+function closeBibleModal() {
+  const overlay = document.getElementById("verse-modal-overlay");
+  overlay.classList.remove("active");
+  document.body.style.overflow = "";
+  if (document._verseEscHandler) {
+    document.removeEventListener("keydown", document._verseEscHandler);
+    document._verseEscHandler = null;
+  }
 }
 
 /* ── Init ─────────────────────────────────────────────────── */

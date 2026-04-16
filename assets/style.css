@@ -1125,6 +1125,212 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 #back-to-top:hover { background: var(--bg-panel-hover); border-color: var(--gold-dim); }
 
 /* ══════════════════════════════════════════════════════════════
+   BIBLE VERSE LOOKUP — Translation Comparison Feature
+══════════════════════════════════════════════════════════════ */
+
+/* Clickable verse references in rendered markdown */
+.verse-ref {
+  cursor: pointer;
+  border-bottom: 1px dashed var(--gold-dim);
+  transition: color .2s, border-color .2s;
+}
+.verse-ref:hover {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold-light);
+}
+
+/* Floating translation selector pill — visible on document pages */
+#verse-translation-pill {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 5000;
+  display: none;              /* shown when a doc is loaded */
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  transition: background .2s, border-color .2s, transform .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+#verse-translation-pill:hover {
+  background: var(--bg-panel-hover);
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
+}
+#verse-translation-pill .pill-icon { font-size: 16px; }
+#verse-translation-pill select {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 2px;
+}
+#verse-translation-pill select option {
+  background: var(--bg-panel);
+  color: var(--text-primary);
+}
+
+/* Verse lookup modal / panel */
+#verse-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+#verse-modal-overlay.active { display: flex; align-items: center; justify-content: center; }
+
+#verse-modal {
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  background: linear-gradient(180deg, #141929, #0f1320);
+  border: 1px solid rgba(201,162,39,.25);
+  border-radius: 14px;
+  box-shadow: 0 16px 64px rgba(0,0,0,.65);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: verseModalIn .25s ease-out;
+}
+@keyframes verseModalIn {
+  from { opacity: 0; transform: translateY(24px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Modal header */
+#verse-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(201,162,39,.15);
+  flex-shrink: 0;
+}
+#verse-modal-header .vm-icon { font-size: 22px; }
+#verse-modal-ref {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--gold);
+}
+#verse-modal-close {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s;
+}
+#verse-modal-close:hover { background: rgba(255,255,255,.14); }
+
+/* Translation tabs */
+#verse-modal-tabs {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  flex-shrink: 0;
+  padding: 0 16px;
+}
+#verse-modal-tabs::-webkit-scrollbar { display: none; }
+.vm-tab {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: all .2s;
+}
+.vm-tab:hover { color: var(--text-secondary); }
+.vm-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* Verse body */
+#verse-modal-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #2d3748 transparent;
+}
+#verse-modal-body::-webkit-scrollbar { width: 4px; }
+#verse-modal-body::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 2px; }
+
+#verse-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+#verse-text .verse-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold-dim);
+  vertical-align: super;
+  margin-right: 2px;
+}
+
+#verse-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+#verse-loading .spin { animation: vspin 1s linear infinite; display: inline-block; }
+@keyframes vspin { to { transform: rotate(360deg); } }
+
+#verse-error {
+  padding: 20px;
+  color: var(--accent-red);
+  font-size: 13px;
+  text-align: center;
+}
+#verse-error a { color: var(--gold); }
+
+/* Footer hint */
+#verse-modal-footer {
+  padding: 10px 20px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  #verse-translation-pill { bottom: 14px; right: 14px; padding: 8px 14px; font-size: 12px; }
+  #verse-modal { width: 96%; max-height: 88vh; border-radius: 12px; }
+  #verse-modal-ref { font-size: 15px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
    PRINT STYLES
    Rules here ONLY affect Ctrl+P / File → Print.
    The website appearance is completely untouched.
@@ -1145,7 +1351,9 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   #btn-print,
   .sidebar-backdrop,
   #sidebar-toggle,
-  #topbar-home { display: none !important; }
+  #topbar-home,
+  #verse-translation-pill,
+  #verse-modal-overlay { display: none !important; }
 
   /* ── Reset layout so content fills the page ── */
   html, body {
