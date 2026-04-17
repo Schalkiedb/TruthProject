@@ -2390,6 +2390,78 @@ function closeBibleModal() {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   VIDEO LIBRARY
+   Reads assets/videos.json and renders category-grouped players
+   on the home page. To add a video just edit videos.json.
+══════════════════════════════════════════════════════════════ */
+
+async function populateVideoSection() {
+  const container = document.getElementById("video-library-container");
+  if (!container) return;
+
+  let categories = [];
+  try {
+    const res = await fetch("assets/videos.json");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    categories = await res.json();
+  } catch (err) {
+    console.warn("Could not load videos.json:", err);
+    return;
+  }
+
+  container.innerHTML = "";
+
+  categories.forEach((cat) => {
+    if (!cat.videos || cat.videos.length === 0) return;
+
+    // Category heading
+    const heading = document.createElement("h3");
+    heading.className = "video-category-heading";
+    heading.innerHTML = `<span>${cat.icon || "🎬"}</span> ${escapeHtml(cat.category)}`;
+    container.appendChild(heading);
+
+    // Grid of video cards
+    const grid = document.createElement("div");
+    grid.className = "video-card-grid";
+    container.appendChild(grid);
+
+    cat.videos.forEach((v) => {
+      const card = document.createElement("div");
+      card.className = "video-card";
+      card.innerHTML = `
+        <div class="video-card-thumb" data-ytid="${escapeHtml(v.youtubeId)}">
+          <img src="https://i.ytimg.com/vi/${escapeHtml(v.youtubeId)}/hqdefault.jpg"
+               alt="${escapeHtml(v.title)}" loading="lazy" />
+          <div class="video-card-play">▶</div>
+        </div>
+        <div class="video-card-info">
+          <div class="video-card-title">${escapeHtml(v.title)}</div>
+          <div class="video-card-desc">${escapeHtml(v.desc || "")}</div>
+          <div class="video-card-tags">${(v.tags || []).map((t) => `<span class="video-tag">${escapeHtml(t)}</span>`).join("")}</div>
+        </div>
+      `;
+
+      // Click thumbnail → embed the player inside the card
+      card.querySelector(".video-card-thumb").addEventListener("click", () => {
+        const ytid = v.youtubeId;
+        const thumb = card.querySelector(".video-card-thumb");
+        thumb.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${ytid}?autoplay=1&rel=0"
+          title="${escapeHtml(v.title)}" allowfullscreen loading="lazy" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>`;
+        thumb.classList.add("playing");
+      });
+
+      grid.appendChild(card);
+    });
+  });
+
+  // Show section only if we have videos
+  const section = document.getElementById("video-library-section");
+  if (section) section.style.display = categories.length > 0 ? "" : "none";
+}
+
 /* ── Init ─────────────────────────────────────────────────── */
 async function initApp() {
   rebuildAllItems();
@@ -2402,6 +2474,11 @@ async function initApp() {
     await populateInfographicsSection();
   } catch (error) {
     console.warn("Could not auto-load infographics:", error);
+  }
+  try {
+    await populateVideoSection();
+  } catch (error) {
+    console.warn("Could not load video library:", error);
   }
   buildSidebar();
   buildHomeCards();
