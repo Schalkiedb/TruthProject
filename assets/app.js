@@ -1183,6 +1183,7 @@ function buildSidebar() {
   const nav = document.getElementById("sidebar-nav");
   nav.innerHTML = "";
 
+  // ── Document sections from LIBRARY ──────────────────────
   LIBRARY.forEach((section) => {
     const sectionEl = document.createElement("div");
     sectionEl.className = "nav-section";
@@ -1217,6 +1218,38 @@ function buildSidebar() {
     sectionEl.appendChild(itemsEl);
     nav.appendChild(sectionEl);
   });
+
+  // ── Video Library section (from videos.json) ─────────────
+  if (_videosData.length > 0) {
+    const sectionEl = document.createElement("div");
+    sectionEl.className = "nav-section";
+    sectionEl.dataset.sectionId = "videos";
+
+    const header = document.createElement("div");
+    header.className = "nav-section-header";
+    header.innerHTML = `<span>🎬 Video Library</span><span class="section-chevron">▾</span>`;
+    header.addEventListener("click", () => sectionEl.classList.toggle("collapsed"));
+    sectionEl.classList.add("collapsed");
+
+    const itemsEl = document.createElement("div");
+    itemsEl.className = "nav-section-items";
+
+    _videosData.forEach((cat, idx) => {
+      const navItem = document.createElement("div");
+      navItem.className = "nav-item";
+      navItem.dataset.videoCat = idx;
+      navItem.innerHTML = `<span class="nav-item-icon">${cat.icon || "🎬"}</span><span class="nav-item-title">${escapeHtml(cat.category)} <span class="nav-video-count">${cat.videos.length}</span></span>`;
+      navItem.addEventListener("click", () => {
+        if (window.innerWidth <= 900) closeMobileSidebar();
+        showVideoCategory(idx);
+      });
+      itemsEl.appendChild(navItem);
+    });
+
+    sectionEl.appendChild(header);
+    sectionEl.appendChild(itemsEl);
+    nav.appendChild(sectionEl);
+  }
 }
 
 /* ── Build Home Cards ─────────────────────────────────────── */
@@ -1261,6 +1294,8 @@ function showHome() {
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "none";
   document.getElementById("error-state").style.display = "none";
+  const vcPage = document.getElementById("video-cat-page");
+  if (vcPage) vcPage.style.display = "none";
 
   // Clear active nav
   document
@@ -2393,13 +2428,15 @@ function closeBibleModal() {
 /* ══════════════════════════════════════════════════════════════
    VIDEO LIBRARY
    Reads assets/videos.json and renders category-grouped players
-   on the home page. To add a video just edit videos.json.
+   on the home page and in the sidebar.
+   TO ADD VIDEOS: just edit assets/videos.json.
+   TO ADD A CATEGORY: add a new object to the top-level array in videos.json.
 ══════════════════════════════════════════════════════════════ */
 
-async function populateVideoSection() {
-  const container = document.getElementById("video-library-container");
-  if (!container) return;
+/** Loaded video categories — shared between sidebar and page views. */
+let _videosData = [];
 
+async function populateVideoSection() {
   let categories = [];
   try {
     const res = await fetch("assets/videos.json");
@@ -2410,56 +2447,105 @@ async function populateVideoSection() {
     return;
   }
 
-  container.innerHTML = "";
+  _videosData = categories.filter((c) => c.videos && c.videos.length > 0);
 
-  categories.forEach((cat) => {
-    if (!cat.videos || cat.videos.length === 0) return;
+  // ── Home page video section ──────────────────────────────
+  const container = document.getElementById("video-library-container");
+  if (container) {
+    container.innerHTML = "";
+    _videosData.forEach((cat, catIdx) => {
+      const heading = document.createElement("h3");
+      heading.className = "video-category-heading";
+      heading.innerHTML = `<span>${cat.icon || "🎬"}</span> ${escapeHtml(cat.category)}`;
+      // Make the heading clickable — navigates to the category page
+      heading.style.cursor = "pointer";
+      heading.title = `View all videos in "${cat.category}"`;
+      heading.addEventListener("click", () => showVideoCategory(catIdx));
+      container.appendChild(heading);
 
-    // Category heading
-    const heading = document.createElement("h3");
-    heading.className = "video-category-heading";
-    heading.innerHTML = `<span>${cat.icon || "🎬"}</span> ${escapeHtml(cat.category)}`;
-    container.appendChild(heading);
-
-    // Grid of video cards
-    const grid = document.createElement("div");
-    grid.className = "video-card-grid";
-    container.appendChild(grid);
-
-    cat.videos.forEach((v) => {
-      const card = document.createElement("div");
-      card.className = "video-card";
-      card.innerHTML = `
-        <div class="video-card-thumb" data-ytid="${escapeHtml(v.youtubeId)}">
-          <img src="https://i.ytimg.com/vi/${escapeHtml(v.youtubeId)}/hqdefault.jpg"
-               alt="${escapeHtml(v.title)}" loading="lazy" />
-          <div class="video-card-play">▶</div>
-        </div>
-        <div class="video-card-info">
-          <div class="video-card-title">${escapeHtml(v.title)}</div>
-          <div class="video-card-desc">${escapeHtml(v.desc || "")}</div>
-          <div class="video-card-tags">${(v.tags || []).map((t) => `<span class="video-tag">${escapeHtml(t)}</span>`).join("")}</div>
-        </div>
-      `;
-
-      // Click thumbnail → embed the player inside the card
-      card.querySelector(".video-card-thumb").addEventListener("click", () => {
-        const ytid = v.youtubeId;
-        const thumb = card.querySelector(".video-card-thumb");
-        thumb.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${ytid}?autoplay=1&rel=0"
-          title="${escapeHtml(v.title)}" allowfullscreen loading="lazy" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-        </iframe>`;
-        thumb.classList.add("playing");
-      });
-
-      grid.appendChild(card);
+      const grid = document.createElement("div");
+      grid.className = "video-card-grid";
+      cat.videos.forEach((v) => grid.appendChild(buildVideoCard(v)));
+      container.appendChild(grid);
     });
-  });
+  }
 
-  // Show section only if we have videos
   const section = document.getElementById("video-library-section");
-  if (section) section.style.display = categories.length > 0 ? "" : "none";
+  if (section) section.style.display = _videosData.length > 0 ? "" : "none";
+
+  // Rebuild the sidebar now that we have video data
+  buildSidebar();
+}
+
+/** Build a single video card DOM element. */
+function buildVideoCard(v) {
+  const card = document.createElement("div");
+  card.className = "video-card";
+  card.innerHTML = `
+    <div class="video-card-thumb">
+      <img src="https://i.ytimg.com/vi/${escapeHtml(v.youtubeId)}/hqdefault.jpg"
+           alt="${escapeHtml(v.title)}" loading="lazy" />
+      <div class="video-card-play">▶</div>
+    </div>
+    <div class="video-card-info">
+      <div class="video-card-title">${escapeHtml(v.title)}</div>
+      <div class="video-card-desc">${escapeHtml(v.desc || "")}</div>
+      <div class="video-card-tags">${(v.tags || []).map((t) => `<span class="video-tag">${escapeHtml(t)}</span>`).join("")}</div>
+    </div>
+  `;
+  card.querySelector(".video-card-thumb").addEventListener("click", () => {
+    const thumb = card.querySelector(".video-card-thumb");
+    thumb.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(v.youtubeId)}?autoplay=1&rel=0"
+      title="${escapeHtml(v.title)}" allowfullscreen loading="lazy" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+    </iframe>`;
+    thumb.classList.add("playing");
+  });
+  return card;
+}
+
+/**
+ * Show the video category page for a given category index.
+ * Called from sidebar nav items and from the category headings on home page.
+ */
+function showVideoCategory(catIdx) {
+  const cat = _videosData[catIdx];
+  if (!cat) return;
+
+  // Hide other views
+  document.getElementById("home-page").style.display = "none";
+  document.getElementById("doc-page").style.display = "none";
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("error-state").style.display = "none";
+  document.getElementById("video-cat-page").style.display = "";
+
+  // Set heading
+  document.getElementById("video-cat-icon").textContent = cat.icon || "🎬";
+  document.getElementById("video-cat-title").textContent = cat.category;
+
+  // Build the grid
+  const grid = document.getElementById("video-cat-grid");
+  grid.innerHTML = "";
+  cat.videos.forEach((v) => grid.appendChild(buildVideoCard(v)));
+
+  // Update breadcrumb
+  document.getElementById("breadcrumb-section").textContent = "Videos";
+  document.getElementById("breadcrumb-sep").style.display = "";
+  document.getElementById("breadcrumb-title").textContent = cat.category;
+
+  // Mark active in sidebar
+  document.querySelectorAll(".nav-item").forEach((el) => el.classList.remove("active"));
+  const navItem = document.querySelector(`.nav-item[data-video-cat="${catIdx}"]`);
+  if (navItem) {
+    navItem.classList.add("active");
+    navItem.scrollIntoView({ block: "nearest" });
+  }
+
+  window.scrollTo({ top: 0 });
+
+  // Hide the verse pill (not a document)
+  const pill = document.getElementById("verse-translation-pill");
+  if (pill) pill.style.display = "none";
 }
 
 /* ── Init ─────────────────────────────────────────────────── */
