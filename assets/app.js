@@ -1359,7 +1359,7 @@ function showError(msg) {
 }
 
 /* ── Load & Render Document ───────────────────────────────── */
-async function loadDocument(filePath) {
+async function loadDocument(filePath, fragment) {
   // Mobile PDF behaviour: open in the browser's native viewer so users can
   // scroll all pages reliably (iOS Safari iframe PDF is often first-page only).
   if (isPdfFile(filePath) && shouldUseNativePdfViewer()) {
@@ -1415,7 +1415,9 @@ async function loadDocument(filePath) {
     iframe.setAttribute("scrolling", "auto");
     iframe.style.height = window.innerWidth <= 900 ? "68vh" : "calc(100vh - 210px)";
     const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
-    iframe.src = isPdfFile(filePath) ? `${encodedPath}#view=FitH` : encodedPath;
+    // Use #search= fragment if provided (for jumping to quote text), otherwise default to #view=FitH
+    const pdfFragment = fragment && fragment.startsWith("#search=") ? fragment : "#view=FitH";
+    iframe.src = isPdfFile(filePath) ? `${encodedPath}${pdfFragment}` : encodedPath;
 
     docPage.classList.remove("infographic-mode");
     docPage.classList.add("pdf-mode");
@@ -1610,14 +1612,18 @@ function processLinks(contentEl, filePath) {
       ? filePath.substring(0, filePath.lastIndexOf("/") + 1)
       : "";
     const resolved = resolveRelativePath(dir, href);
+    // Separate any #fragment (e.g. #search=...) from the file path
+    const hashIdx = resolved.indexOf("#");
+    const resolvedFile = hashIdx >= 0 ? resolved.substring(0, hashIdx) : resolved;
+    const resolvedFragment = hashIdx >= 0 ? resolved.substring(hashIdx) : "";
     const targetItem = ALL_ITEMS.find(
-      (i) => normalise(i.file) === normalise(resolved),
+      (i) => normalise(i.file) === normalise(resolvedFile),
     );
     if (targetItem) {
       anchor.href = "#";
       anchor.addEventListener("click", (e) => {
         e.preventDefault();
-        loadDocument(targetItem.file);
+        loadDocument(targetItem.file, resolvedFragment);
       });
     }
   });
