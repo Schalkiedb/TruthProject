@@ -244,6 +244,198 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   #srch{width:80px}
   #srch:focus{width:110px}
 }
+
+/* ══ LIVE EVENTS FEED ─────────────────────────────────────── */
+#live-btn{
+  display:flex;align-items:center;gap:6px;padding:5px 12px;
+  background:rgba(56,178,172,.12);border:1px solid rgba(56,178,172,.3);
+  border-radius:20px;color:#4fd1c5;font-size:12px;font-weight:700;
+  cursor:pointer;white-space:nowrap;transition:all .2s;position:relative;
+  flex-shrink:0;
+}
+#live-btn:hover{background:rgba(56,178,172,.22);border-color:rgba(56,178,172,.5)}
+#live-btn.has-critical{
+  background:rgba(229,62,62,.15);border-color:rgba(229,62,62,.4);color:#fc8181;
+  animation:live-pulse 2s ease-in-out infinite;
+}
+@keyframes live-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(229,62,62,0)}
+  50%{box-shadow:0 0 12px 4px rgba(229,62,62,.3)}
+}
+#live-badge{
+  position:absolute;top:-4px;right:-4px;min-width:16px;height:16px;
+  background:#e53e3e;border-radius:8px;font-size:9px;font-weight:800;
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  padding:0 4px;display:none;
+}
+#live-dot{width:7px;height:7px;border-radius:50%;background:#4fd1c5;
+  animation:dot-blink 1.5s ease-in-out infinite}
+@keyframes dot-blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Live feed panel overlay */
+#live-panel{
+  position:fixed;top:90px;left:0;bottom:0;width:420px;z-index:3000;
+  background:linear-gradient(180deg,#0a0e1e,#080c18);
+  border-right:1px solid rgba(56,178,172,.2);
+  box-shadow:4px 0 32px rgba(0,0,0,.5);
+  transform:translateX(-100%);transition:transform .3s ease;
+  display:flex;flex-direction:column;overflow:hidden;
+}
+#live-panel.open{transform:translateX(0)}
+
+#live-panel-hdr{
+  padding:14px 16px 12px;border-bottom:1px solid rgba(56,178,172,.15);
+  display:flex;flex-direction:column;gap:10px;flex-shrink:0;
+}
+#live-panel-title{
+  display:flex;align-items:center;justify-content:space-between;
+}
+#live-panel-title h3{
+  font-size:15px;font-weight:700;color:#4fd1c5;display:flex;align-items:center;gap:8px;
+}
+#live-close{
+  padding:5px 10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:6px;color:#9aa3c0;font-size:11px;cursor:pointer;transition:all .2s;
+}
+#live-close:hover{background:rgba(255,255,255,.12);color:#eaeef8}
+
+#live-meta{
+  display:flex;align-items:center;gap:12px;font-size:11px;color:#5c6580;
+}
+#live-meta .lm-count{color:#4fd1c5;font-weight:600}
+#live-refresh-btn{
+  padding:3px 8px;background:rgba(56,178,172,.1);border:1px solid rgba(56,178,172,.2);
+  border-radius:4px;color:#4fd1c5;font-size:10px;cursor:pointer;transition:all .2s;
+}
+#live-refresh-btn:hover{background:rgba(56,178,172,.2)}
+#live-refresh-btn.spinning{animation:spin .8s linear infinite}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* Category filter pills in live panel */
+#live-filters{
+  display:flex;gap:5px;flex-wrap:wrap;
+}
+.lf-pill{
+  padding:4px 9px;border-radius:12px;font-size:10px;font-weight:600;
+  border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);
+  color:#7a839c;cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.lf-pill.active{border-color:rgba(56,178,172,.4);background:rgba(56,178,172,.12);color:#4fd1c5}
+.lf-pill:hover{border-color:rgba(56,178,172,.3);color:#9aa3c0}
+.lf-pill .lf-n{
+  display:inline-block;min-width:14px;text-align:center;margin-left:3px;
+  padding:1px 4px;border-radius:6px;background:rgba(255,255,255,.08);font-size:9px;
+}
+
+/* Live event cards */
+#live-events-list{
+  flex:1;overflow-y:auto;padding:12px 14px;
+  display:flex;flex-direction:column;gap:10px;
+  scrollbar-width:thin;scrollbar-color:#1e2740 transparent;
+}
+#live-events-list::-webkit-scrollbar{width:4px}
+#live-events-list::-webkit-scrollbar-thumb{background:#1e2740;border-radius:2px}
+
+.le-card{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;padding:12px 14px;cursor:pointer;transition:all .2s;
+  position:relative;
+}
+.le-card:hover{background:rgba(255,255,255,.06);border-color:rgba(56,178,172,.2)}
+.le-card.sev-critical{border-left:3px solid #e53e3e}
+.le-card.sev-high{border-left:3px solid #dd6b20}
+.le-card.sev-medium{border-left:3px solid #4299e1}
+.le-card.sev-low{border-left:3px solid #718096}
+
+.le-card .le-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.le-card .le-cat{
+  padding:2px 7px;border-radius:8px;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.le-cat-sl{background:rgba(201,162,39,.15);color:#e6c04c}
+.le-cat-cbdc{background:rgba(221,107,32,.15);color:#f6ad55}
+.le-cat-did{background:rgba(66,153,225,.15);color:#90cdf4}
+.le-cat-rl{background:rgba(56,161,105,.15);color:#68d391}
+.le-cat-bs{background:rgba(159,122,234,.15);color:#b794f4}
+
+.le-card .le-sev{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.le-sev-critical{color:#fc8181}.le-sev-high{color:#f6ad55}
+.le-sev-medium{color:#90cdf4}.le-sev-low{color:#a0aec0}
+
+.le-card .le-church-state{
+  padding:2px 6px;border-radius:4px;
+  background:rgba(229,62,62,.15);color:#fc8181;
+  font-size:8px;font-weight:800;letter-spacing:.05em;
+}
+
+.le-card .le-title{font-size:13px;font-weight:600;color:#e2e8f0;line-height:1.4;margin-bottom:6px}
+.le-card .le-snippet{font-size:11px;color:#718096;line-height:1.5;margin-bottom:8px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+.le-card .le-footer{display:flex;align-items:center;gap:8px;font-size:10px;color:#4a5568;flex-wrap:wrap}
+.le-card .le-source{color:#63b3ed;font-weight:600}
+.le-card .le-countries{display:flex;gap:3px}
+.le-card .le-country-tag{
+  padding:1px 5px;border-radius:3px;background:rgba(201,162,39,.1);
+  color:#c9a227;font-size:9px;font-weight:600;cursor:pointer;
+}
+.le-card .le-country-tag:hover{background:rgba(201,162,39,.2)}
+
+/* Ticker bar */
+#live-ticker{
+  position:fixed;bottom:0;left:0;right:0;z-index:2500;height:32px;
+  background:rgba(10,14,30,.95);backdrop-filter:blur(8px);
+  border-top:1px solid rgba(56,178,172,.15);
+  display:flex;align-items:center;overflow:hidden;
+  opacity:0;transform:translateY(100%);transition:all .3s;
+}
+#live-ticker.visible{opacity:1;transform:translateY(0)}
+#live-ticker-label{
+  flex-shrink:0;padding:0 12px;font-size:10px;font-weight:800;
+  color:#4fd1c5;letter-spacing:.06em;
+  border-right:1px solid rgba(56,178,172,.15);
+  display:flex;align-items:center;gap:5px;height:100%;
+}
+#live-ticker-track{
+  flex:1;overflow:hidden;position:relative;
+}
+#live-ticker-content{
+  display:flex;align-items:center;gap:40px;
+  white-space:nowrap;animation:ticker-scroll 60s linear infinite;
+  padding-left:100%;
+}
+@keyframes ticker-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-100%)}
+}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:8px;font-size:11px;color:#9aa3c0;
+  flex-shrink:0;
+}
+.ticker-item .ti-sev{font-size:10px}
+.ticker-item .ti-cat{font-size:9px;font-weight:700;padding:1px 5px;border-radius:4px}
+.ticker-item a{color:#e2e8f0;text-decoration:none}
+.ticker-item a:hover{color:#4fd1c5;text-decoration:underline}
+
+/* Loading state */
+#live-loading{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding:40px;color:#5c6580;flex:1;
+}
+#live-loading .spinner{
+  width:28px;height:28px;border:3px solid rgba(79,209,197,.2);
+  border-top-color:#4fd1c5;border-radius:50%;animation:spin .8s linear infinite;
+}
+#live-empty{
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;padding:40px;color:#5c6580;flex:1;text-align:center;
+}
+#live-empty .le-icon{font-size:40px;opacity:.5}
+
+@media(max-width:800px){
+  #live-panel{width:100%;border-right:none}
+  #live-ticker{display:none}
+}
 </style>
 </head>
 <body>
@@ -262,6 +454,11 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     <div class="flt" data-cat="bs">🔗 Beast System</div>
   </div>
   <input id="srch" type="text" placeholder="🔍 Search country…">
+  <div id="live-btn" onclick="toggleLivePanel()">
+    <div id="live-dot"></div>
+    <span>📡 Live Feed</span>
+    <div id="live-badge">0</div>
+  </div>
 </div>
 
 <!-- Stats Bar -->
@@ -365,6 +562,53 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       <div class="p-tab" data-tab="bs"><span class="ticon">🔗</span>Beast System</div>
     </div>
     <div id="p-body"></div>
+  </div>
+</div>
+
+<!-- ══ LIVE EVENTS PANEL ══ -->
+<div id="live-panel">
+  <div id="live-panel-hdr">
+    <div id="live-panel-title">
+      <h3><div id="live-dot-panel" style="width:7px;height:7px;border-radius:50%;background:#4fd1c5;animation:dot-blink 1.5s ease-in-out infinite"></div> Live Prophecy Event Feed</h3>
+      <button id="live-close" onclick="toggleLivePanel()">✕ Close</button>
+    </div>
+    <div id="live-meta">
+      <span>Events: <span class="lm-count" id="live-count">0</span></span>
+      <span>|</span>
+      <span>Updated: <span id="live-updated">Never</span></span>
+      <button id="live-refresh-btn" onclick="refreshLiveFeed()">🔄 Refresh</button>
+    </div>
+    <div id="live-filters">
+      <div class="lf-pill active" data-lf="all">All <span class="lf-n" id="lf-n-all">0</span></div>
+      <div class="lf-pill" data-lf="sl">📅 Sunday Laws <span class="lf-n" id="lf-n-sl">0</span></div>
+      <div class="lf-pill" data-lf="cbdc">💳 CBDC <span class="lf-n" id="lf-n-cbdc">0</span></div>
+      <div class="lf-pill" data-lf="did">👁 Digital ID <span class="lf-n" id="lf-n-did">0</span></div>
+      <div class="lf-pill" data-lf="rl">✝ Liberty <span class="lf-n" id="lf-n-rl">0</span></div>
+      <div class="lf-pill" data-lf="bs">🔗 Beast System <span class="lf-n" id="lf-n-bs">0</span></div>
+      <div class="lf-pill" data-lf="church-state">⚠️ Church-State <span class="lf-n" id="lf-n-cs">0</span></div>
+    </div>
+  </div>
+  <div id="live-loading">
+    <div class="spinner"></div>
+    <span>Scanning global news sources...</span>
+    <span style="font-size:10px">GDELT · Google News · Reddit</span>
+  </div>
+  <div id="live-empty">
+    <div class="le-icon">📡</div>
+    <span>No events found for this filter.</span>
+    <span style="font-size:11px">Try selecting a different category or refresh.</span>
+  </div>
+  <div id="live-events-list"></div>
+</div>
+
+<!-- ══ LIVE TICKER BAR ══ -->
+<div id="live-ticker">
+  <div id="live-ticker-label">
+    <div style="width:6px;height:6px;border-radius:50%;background:#4fd1c5;animation:dot-blink 1.5s ease-in-out infinite"></div>
+    LIVE
+  </div>
+  <div id="live-ticker-track">
+    <div id="live-ticker-content"></div>
   </div>
 </div>
 
@@ -2048,6 +2292,10 @@ const markers = {};
 let selectedKey = null;
 let activeCat = 'all';
 
+/* Expose for live-events integration */
+window.COUNTRIES = COUNTRIES;
+window.selectedKey = null;
+
 function getLevel(key, cat) {
   const c = COUNTRIES[key];
   if (cat === 'all') return c.level;
@@ -2131,6 +2379,7 @@ function selectCountry(key) {
     markers[selectedKey].setIcon(makeIcon(getLevel(selectedKey, activeCat), c.r, getLevel(selectedKey, activeCat) === 'red'));
   }
   selectedKey = key;
+  window.selectedKey = key;
   const c = COUNTRIES[key];
 
   // Highlight selected
@@ -2232,6 +2481,10 @@ document.querySelectorAll('.p-tab').forEach(tab => {
     renderTab(selectedKey, tab.dataset.tab);
   });
 });
+
+/* ── Expose for live-events integration ───────────────────── */
+window.selectCountry = selectCountry;
+window.renderTab = renderTab;
 
 /* ── Search ───────────────────────────────────────────────── */
 document.getElementById('srch').addEventListener('input', function() {
@@ -2467,6 +2720,296 @@ if (location.hash) {
     window.mobOvlOpen(label);
   };
   window._mobileClosePanel = closeOverlay;
+
+})();
+</script>
+
+<!-- ══ LIVE EVENTS ENGINE ══ -->
+<script src="assets/live-events.js"></script>
+<script>
+"use strict";
+
+/* ══════════════════════════════════════════════════════════════
+   LIVE FEED UI — Integration with prophecy map
+══════════════════════════════════════════════════════════════ */
+(function () {
+
+  var livePanelOpen = false;
+  var activeFilter = "all";
+
+  /* ── Toggle panel ────────────────────────────────────────── */
+  window.toggleLivePanel = function () {
+    var panel = document.getElementById("live-panel");
+    livePanelOpen = !livePanelOpen;
+    panel.classList.toggle("open", livePanelOpen);
+
+    // Adjust map left edge when panel opens (desktop only)
+    if (window.innerWidth > 800) {
+      document.getElementById("map").style.left = livePanelOpen ? "420px" : "0";
+      setTimeout(function () { map.invalidateSize(); }, 350);
+    }
+  };
+
+  /* ── Refresh button ──────────────────────────────────────── */
+  window.refreshLiveFeed = function () {
+    var btn = document.getElementById("live-refresh-btn");
+    btn.classList.add("spinning");
+    document.getElementById("live-loading").style.display = "flex";
+    document.getElementById("live-events-list").style.display = "none";
+    document.getElementById("live-empty").style.display = "none";
+    LiveEvents.forceRefresh().then(function () {
+      btn.classList.remove("spinning");
+    });
+  };
+
+  /* ── Render events when LiveEvents updates ───────────────── */
+  function onEventsUpdate(events) {
+    // Hide loading
+    document.getElementById("live-loading").style.display = "none";
+
+    // Update counts
+    var counts = { all: events.length, sl: 0, cbdc: 0, did: 0, rl: 0, bs: 0, cs: 0 };
+    events.forEach(function (e) {
+      if (counts[e.category] !== undefined) counts[e.category]++;
+      if (e.churchStateFlag) counts.cs++;
+    });
+
+    document.getElementById("live-count").textContent = counts.all;
+    document.getElementById("lf-n-all").textContent = counts.all;
+    document.getElementById("lf-n-sl").textContent = counts.sl;
+    document.getElementById("lf-n-cbdc").textContent = counts.cbdc;
+    document.getElementById("lf-n-did").textContent = counts.did;
+    document.getElementById("lf-n-rl").textContent = counts.rl;
+    document.getElementById("lf-n-bs").textContent = counts.bs;
+    document.getElementById("lf-n-cs").textContent = counts.cs;
+
+    // Update badge on header button
+    var critical = events.filter(function (e) { return e.severity === "critical" || e.severity === "high"; });
+    var badge = document.getElementById("live-badge");
+    if (critical.length > 0) {
+      badge.style.display = "flex";
+      badge.textContent = critical.length;
+      document.getElementById("live-btn").classList.add("has-critical");
+    } else {
+      badge.style.display = "none";
+      document.getElementById("live-btn").classList.remove("has-critical");
+    }
+
+    // Update timestamp
+    var ts = LiveEvents.getLastUpdateTime();
+    if (ts) {
+      document.getElementById("live-updated").textContent = formatTime(ts);
+    }
+
+    // Render list
+    renderEventsList(events);
+
+    // Render ticker
+    renderTicker(events);
+  }
+
+  /* ── Render event cards ──────────────────────────────────── */
+  function renderEventsList(events) {
+    var filtered = filterEvents(events);
+    var list = document.getElementById("live-events-list");
+    var empty = document.getElementById("live-empty");
+
+    if (filtered.length === 0) {
+      list.style.display = "none";
+      empty.style.display = "flex";
+      return;
+    }
+
+    empty.style.display = "none";
+    list.style.display = "flex";
+
+    var html = "";
+    filtered.forEach(function (e) {
+      var catLabel = (LiveEvents.KEYWORD_GROUPS[e.category] || {}).label || e.category;
+      var catIcon = (LiveEvents.KEYWORD_GROUPS[e.category] || {}).icon || "📰";
+      var sevIcon = { critical: "🔴", high: "🟠", medium: "🔵", low: "⚪" }[e.severity] || "⚪";
+      var timeAgo = getTimeAgo(e.date);
+
+      html += '<div class="le-card sev-' + e.severity + '" onclick="window.open(\'' + escHtml(e.url) + '\',\'_blank\')">';
+      html += '<div class="le-top">';
+      html += '<span class="le-cat le-cat-' + e.category + '">' + catIcon + " " + catLabel + "</span>";
+      html += '<span class="le-sev le-sev-' + e.severity + '">' + sevIcon + " " + e.severity + "</span>";
+      if (e.churchStateFlag) {
+        html += '<span class="le-church-state">⚠️ CHURCH-STATE</span>';
+      }
+      html += "</div>";
+      html += '<div class="le-title">' + escHtml(e.title) + "</div>";
+      if (e.snippet) {
+        html += '<div class="le-snippet">' + escHtml(e.snippet) + "</div>";
+      }
+      html += '<div class="le-footer">';
+      html += '<span class="le-source">' + escHtml(e.source) + "</span>";
+      html += "<span>·</span>";
+      html += "<span>" + timeAgo + "</span>";
+      if (e.countries && e.countries.length) {
+        html += '<div class="le-countries">';
+        e.countries.forEach(function (cc) {
+          var country = window.COUNTRIES && window.COUNTRIES[cc];
+          var flag = country ? country.flag : "🌐";
+          var countryName = country ? country.name : cc;
+          html +=
+            '<span class="le-country-tag" onclick="event.stopPropagation();flyToCountry(\'' +
+            cc + '\')" title="' + escHtml(countryName) + '">' +
+            flag + " " + cc + "</span>";
+        });
+        html += "</div>";
+      }
+      html += "</div></div>";
+    });
+
+    list.innerHTML = html;
+  }
+
+  /* ── Filter logic ────────────────────────────────────────── */
+  function filterEvents(events) {
+    if (activeFilter === "all") return events;
+    if (activeFilter === "church-state") {
+      return events.filter(function (e) { return e.churchStateFlag; });
+    }
+    return events.filter(function (e) { return e.category === activeFilter; });
+  }
+
+  /* ── Filter pill clicks ──────────────────────────────────── */
+  document.querySelectorAll(".lf-pill").forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      document.querySelectorAll(".lf-pill").forEach(function (p) { p.classList.remove("active"); });
+      pill.classList.add("active");
+      activeFilter = pill.dataset.lf;
+      renderEventsList(LiveEvents.getEvents());
+    });
+  });
+
+  /* ── Ticker ──────────────────────────────────────────────── */
+  function renderTicker(events) {
+    // Show top events in ticker
+    var top = events.filter(function (e) {
+      return e.severity === "critical" || e.severity === "high";
+    }).slice(0, 15);
+
+    if (top.length === 0) top = events.slice(0, 10);
+
+    var ticker = document.getElementById("live-ticker");
+    var content = document.getElementById("live-ticker-content");
+
+    if (top.length === 0) {
+      ticker.classList.remove("visible");
+      return;
+    }
+
+    var html = "";
+    top.forEach(function (e) {
+      var sevIcon = { critical: "🔴", high: "🟠", medium: "🔵", low: "⚪" }[e.severity] || "⚪";
+      var catIcon = (LiveEvents.KEYWORD_GROUPS[e.category] || {}).icon || "📰";
+      html += '<span class="ticker-item">';
+      html += '<span class="ti-sev">' + sevIcon + "</span>";
+      html += '<span class="ti-cat le-cat-' + e.category + '">' + catIcon + "</span>";
+      html += '<a href="' + escHtml(e.url) + '" target="_blank" rel="noopener">' + escHtml(truncate(e.title, 80)) + "</a>";
+      html += "</span>";
+    });
+    // Duplicate for seamless loop
+    html += html;
+
+    content.innerHTML = html;
+    // Adjust animation duration based on content
+    content.style.animationDuration = Math.max(top.length * 6, 30) + "s";
+    ticker.classList.add("visible");
+  }
+
+  /* ── Fly to country from event card ──────────────────────── */
+  window.flyToCountry = function (code) {
+    var c = window.COUNTRIES && window.COUNTRIES[code];
+    if (c && window.map) {
+      window.map.flyTo([c.lat, c.lng], 4, { duration: 1.2 });
+      setTimeout(function () {
+        if (typeof selectCountry === "function") selectCountry(code);
+      }, 1300);
+    }
+  };
+
+  /* ── Show country's live events in panel ─────────────────── */
+  // Patch selectCountry to also show live events for that country
+  var _origSelect =
+    typeof window.selectCountry === "function" ? window.selectCountry : null;
+
+  function injectLiveEventsIntoPanel(countryKey) {
+    var countryEvents = LiveEvents.getEventsForCountry(countryKey);
+    if (!countryEvents.length) return;
+
+    var body = document.getElementById("p-body");
+    if (!body) return;
+
+    // Check if already injected
+    if (body.querySelector(".live-inject")) return;
+
+    var html = '<div class="live-inject" style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(56,178,172,.15)">';
+    html += '<h4 style="font-size:11px;color:#4fd1c5;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;align-items:center;gap:6px">';
+    html += '<span style="width:6px;height:6px;border-radius:50%;background:#4fd1c5;animation:dot-blink 1.5s ease-in-out infinite"></span>';
+    html += " Live Events (" + countryEvents.length + ")</h4>";
+
+    countryEvents.slice(0, 5).forEach(function (e) {
+      var sevColor = { critical: "#fc8181", high: "#f6ad55", medium: "#90cdf4", low: "#a0aec0" }[e.severity] || "#a0aec0";
+      html += '<a href="' + escHtml(e.url) + '" target="_blank" rel="noopener" class="guide-link" style="border-color:rgba(56,178,172,.2);background:rgba(56,178,172,.06);flex-direction:column;align-items:flex-start;gap:4px">';
+      html += '<span style="font-size:11px;color:' + sevColor + ';font-weight:600">' + escHtml(truncate(e.title, 70)) + "</span>";
+      html += '<span style="font-size:10px;color:#5c6580">' + escHtml(e.source) + " · " + getTimeAgo(e.date) + "</span>";
+      html += "</a>";
+    });
+
+    if (countryEvents.length > 5) {
+      html += '<div style="font-size:10px;color:#5c6580;text-align:center;padding:6px">+' + (countryEvents.length - 5) + " more — open Live Feed panel</div>";
+    }
+
+    html += "</div>";
+    body.insertAdjacentHTML("beforeend", html);
+  }
+
+  // Hook into tab rendering to inject live events
+  var _origRenderTab = typeof window.renderTab === "function" ? window.renderTab : null;
+  if (_origRenderTab) {
+    window.renderTab = function () {
+      _origRenderTab.apply(this, arguments);
+      if (window.selectedKey) {
+        setTimeout(function () { injectLiveEventsIntoPanel(window.selectedKey); }, 50);
+      }
+    };
+  }
+
+  /* ── Utilities ───────────────────────────────────────────── */
+  function escHtml(str) {
+    if (!str) return "";
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
+  function truncate(str, n) {
+    if (!str) return "";
+    return str.length > n ? str.slice(0, n) + "…" : str;
+  }
+
+  function formatTime(d) {
+    if (!(d instanceof Date)) d = new Date(d);
+    return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + ", " + d.toLocaleDateString();
+  }
+
+  function getTimeAgo(dateStr) {
+    var now = Date.now();
+    var then = new Date(dateStr).getTime();
+    var diff = now - then;
+    var mins = Math.floor(diff / 60000);
+    if (mins < 1) return "Just now";
+    if (mins < 60) return mins + "m ago";
+    var hrs = Math.floor(mins / 60);
+    if (hrs < 24) return hrs + "h ago";
+    var days = Math.floor(hrs / 24);
+    if (days < 7) return days + "d ago";
+    return new Date(dateStr).toLocaleDateString();
+  }
+
+  /* ── Initialize ──────────────────────────────────────────── */
+  LiveEvents.init(onEventsUpdate);
 
 })();
 </script>
