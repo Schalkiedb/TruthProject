@@ -198,9 +198,9 @@ const LIBRARY = [
     ],
   },
   {
-    section: "Reference & Source Documents",
-    icon: "📋",
-    id: "reference",
+    section: "Primary Sources & Admissions",
+    icon: "💬",
+    id: "primary-sources",
     items: [
       {
         title: "Quotes: Catholic & Protestant Admissions on the Sabbath",
@@ -218,6 +218,34 @@ const LIBRARY = [
         tagClass: "blue",
         desc: "The complete archive: 75+ primary quotes with full citations, publication details, and access instructions.",
       },
+    ],
+  },
+  {
+    section: "Source Documents (Catholic)",
+    icon: "🏛️",
+    id: "source-documents-catholic",
+    items: [],
+  },
+  {
+    section: "Creation vs. Evolution",
+    icon: "🌍",
+    id: "creation-vs-evolution",
+    items: [
+      {
+        title: "Genesis Conflict — Prof. Walter Veith",
+        file: "Evolution deception/Genesis_Conflict_Study_Guide.md",
+        icon: "🧬",
+        tag: "Creation",
+        tagClass: "green",
+        desc: "The Genesis Conflict lecture series by Prof. Walter Veith (Amazing Discoveries) — scientific evidence for creation, the flood, genetics, and the archaeological record.",
+      },
+    ],
+  },
+  {
+    section: "Library Index",
+    icon: "📋",
+    id: "library-index",
+    items: [
       {
         title: "Document Verification Status",
         file: "DOCUMENT_VERIFICATION_STATUS.md",
@@ -227,12 +255,6 @@ const LIBRARY = [
         desc: "Verification status, cross-references, and completeness tracker for the entire library.",
       },
     ],
-  },
-  {
-    section: "Source Documents (Catholic)",
-    icon: "🏛️",
-    id: "source-documents-catholic",
-    items: [],
   },
   {
     section: "Infographics",
@@ -1260,7 +1282,9 @@ function buildHomeCards() {
     const gridMap = {
       "main-library": "main-library-cards",
       "study-guides": "study-guide-cards",
-      reference: "reference-cards",
+      "primary-sources": "primary-sources-cards",
+      "creation-vs-evolution": "creation-vs-evolution-cards",
+      "library-index": "library-index-cards",
       infographics: "infographics-cards",
       "interactive-tools": "interactive-tools-cards",
       "false-doctrines": "false-doctrines-cards",

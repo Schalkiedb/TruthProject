@@ -16,5 +16,59 @@
         "tags": ["Sunday Law", "Sabbath", "Prophecy"]
       }
     ]
+  },
+  {
+    "category": "Creation vs. Evolution — Genesis Conflict",
+    "icon": "🌍",
+    "videos": [
+      {
+        "title": "101 — The Earth in Time and Space",
+        "youtubeId": "qMU1soRrtJk",
+        "desc": "Prof. Walter Veith examines the origin of the universe, the age of the earth, and the assumptions behind evolutionary cosmology. Genesis Conflict lecture series by Amazing Discoveries.",
+        "tags": ["Creation", "Evolution", "Walter Veith", "Genesis Conflict"]
+      },
+      {
+        "title": "102 — A Universal Flood",
+        "youtubeId": "HZrxogY9Pnc",
+        "desc": "Evidence for a universal flood — geological strata, fossil distribution, and the biblical account examined against the evolutionary model. Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Creation", "Flood", "Walter Veith", "Genesis Conflict"]
+      },
+      {
+        "title": "103 — Bones in Stones",
+        "youtubeId": "G7HQzhi8UPM",
+        "desc": "The fossil record and what it really tells us — missing links, the Cambrian explosion, and the problems with evolutionary paleontology. Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Creation", "Fossils", "Walter Veith", "Genesis Conflict"]
+      },
+      {
+        "title": "104 — Where Mammals Reigned",
+        "youtubeId": "_3R0bh9LtSc",
+        "desc": "Examining the mammal fossil record, evolutionary assumptions about the rise of mammals, and what the evidence actually supports. Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Creation", "Mammals", "Walter Veith", "Genesis Conflict"]
+      },
+      {
+        "title": "105 — The Genes of Genesis",
+        "youtubeId": "KJ3IgGYf29k",
+        "desc": "DNA, genetics, and the complexity of life — can random mutations and natural selection explain the genetic code? Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Creation", "Genetics", "Walter Veith", "Genesis Conflict"]
+      },
+      {
+        "title": "106 — Creation to Restoration",
+        "youtubeId": "KCxWhKe1AMg",
+        "desc": "The biblical framework from Creation through the Fall to final restoration — why the creation account matters for the gospel. Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Creation", "Restoration", "Walter Veith", "Genesis Conflict"]
+      },
+      {
+        "title": "107 — A Day to be Remembered",
+        "youtubeId": "AyQY5Z3GeG4",
+        "desc": "The Sabbath as a memorial of Creation — why the seventh day is inseparable from the creation account and the first angel's message. Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Creation", "Sabbath", "Walter Veith", "Genesis Conflict"]
+      },
+      {
+        "title": "108 — A Spade Unearths the Truth",
+        "youtubeId": "eOwA9L0IY3I",
+        "desc": "Archaeological evidence supporting the biblical record — digging into the truth that the spade reveals about Scripture's historical accuracy. Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Creation", "Archaeology", "Walter Veith", "Genesis Conflict"]
+      }
+    ]
   }
 ]
