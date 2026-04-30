@@ -603,6 +603,28 @@ function formatSourceDocTitle(filePath) {
   return withoutExt.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
+/**
+ * Natural sort comparator — handles embedded numbers correctly
+ * so "Quote 2" sorts before "Quote 11".
+ */
+function naturalSortCompare(a, b) {
+  const aParts = a.match(/(\d+|\D+)/g) || [];
+  const bParts = b.match(/(\d+|\D+)/g) || [];
+  const len = Math.min(aParts.length, bParts.length);
+  for (let i = 0; i < len; i++) {
+    const aIsNum = /^\d+$/.test(aParts[i]);
+    const bIsNum = /^\d+$/.test(bParts[i]);
+    if (aIsNum && bIsNum) {
+      const diff = Number(aParts[i]) - Number(bParts[i]);
+      if (diff !== 0) return diff;
+    } else {
+      const cmp = aParts[i].localeCompare(bParts[i]);
+      if (cmp !== 0) return cmp;
+    }
+  }
+  return aParts.length - bParts.length;
+}
+
 async function discoverSourceDocumentFiles(rootDir) {
   const visitedDirs = new Set();
   const foundFiles = new Set();
@@ -666,7 +688,7 @@ async function discoverSourceDocumentFiles(rootDir) {
 
   await crawl(rootDir);
   return [...foundFiles].sort((a, b) =>
-    formatSourceDocTitle(a).localeCompare(formatSourceDocTitle(b)),
+    naturalSortCompare(formatSourceDocTitle(a), formatSourceDocTitle(b)),
   );
 }
 
@@ -787,7 +809,7 @@ async function populateSourceDocumentsSection() {
   }
 
   const sourceFiles = [...new Set([...discovered, ...manifestFiles])].sort((a, b) =>
-    formatSourceDocTitle(a).localeCompare(formatSourceDocTitle(b)),
+    naturalSortCompare(formatSourceDocTitle(a), formatSourceDocTitle(b)),
   );
 
   sourceSection.items = sourceFiles.map((filePath) => {
@@ -1416,8 +1438,17 @@ async function loadDocument(filePath, fragment) {
     iframe.style.height = window.innerWidth <= 900 ? "68vh" : "calc(100vh - 210px)";
     const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
     // Use #search= fragment if provided (for jumping to quote text), otherwise default to #view=FitH
-    const pdfFragment = fragment && fragment.startsWith("#search=") ? fragment : "#view=FitH";
-    iframe.src = isPdfFile(filePath) ? `${encodedPath}${pdfFragment}` : encodedPath;
+    const hasSearch = fragment && fragment.startsWith("#search=");
+    // Load PDF without search first; apply search only after PDF is fully loaded
+    iframe.src = isPdfFile(filePath) ? `${encodedPath}#view=FitH` : encodedPath;
+    if (isPdfFile(filePath) && hasSearch) {
+      iframe.onload = () => {
+        // Give the PDF viewer time to fully render before triggering search
+        setTimeout(() => {
+          iframe.src = `${encodedPath}${fragment}`;
+        }, 1500);
+      };
+    }
 
     docPage.classList.remove("infographic-mode");
     docPage.classList.add("pdf-mode");
