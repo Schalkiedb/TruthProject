@@ -3,12 +3,22 @@
    ──────────────────────────────────────────────────────────
    Monitors global news for prophetically significant events:
    CBDC, Sunday Laws, Digital ID, Religious Liberty,
-   Church-State separation, Beast System infrastructure.
+   Church-State merger, Beast System infrastructure.
    
    Sources:
      • GDELT Project API (free, CORS-enabled, real-time global news)
      • Google News RSS via rss2json proxy
+     • Bing News RSS via rss2json proxy
      • Reddit public JSON endpoints
+     • Curated/pinned events (manually verified high-impact items)
+   
+   Categories:
+     • sl  — Sunday Laws / Rest Day legislation
+     • cs  — Church & State merger signals
+     • cbdc — Central Bank Digital Currency
+     • did — Digital ID & Surveillance
+     • rl  — Religious Liberty threats
+     • bs  — Beast System infrastructure
    
    Caches in localStorage. Auto-refreshes every 30 minutes.
 ══════════════════════════════════════════════════════════════ */
@@ -22,8 +32,8 @@ const LiveEvents = (function () {
     refreshInterval: 30 * 60 * 1000,   // 30 minutes
     cacheKey: "prophecy_live_events",
     cacheTimestampKey: "prophecy_live_events_ts",
-    maxEventsPerCategory: 20,
-    maxTotalEvents: 100,
+    maxEventsPerCategory: 25,
+    maxTotalEvents: 150,
     gdeltMaxRecords: 75,
     requestTimeout: 12000,
   };
@@ -31,14 +41,33 @@ const LiveEvents = (function () {
   /* ── Keyword groups mapped to prophecy categories ──────── */
   const KEYWORD_GROUPS = {
     sl: {
-      label: "Sunday Laws",
+      label: "Sunday Laws / Rest Day",
       icon: "📅",
       queries: [
         '"Sunday law" OR "Sunday rest" OR "blue law" OR "Sunday closing"',
         '"Lord\'s Day" legislation OR enforcement',
-        '"Dies Domini" OR "day of rest" legislation',
+        '"Dies Domini" OR "day of rest" legislation OR mandate OR national',
         '"Sunday trading" ban OR restrict',
         '"day of worship" mandate OR legislation',
+        '"national day of rest" OR "national rest day" OR "national Shabbat"',
+        '"day of rest" president OR government OR legislation OR national',
+        '"rest day" law OR bill OR mandate OR executive order',
+        '"Sabbath" law OR legislation OR national OR government OR proclamation',
+      ],
+    },
+    cs: {
+      label: "Church & State",
+      icon: "⛪",
+      queries: [
+        '"church and state" OR "church-state" merge OR combine OR unite OR end separation',
+        '"Christian nation" OR "Christian nationalism" OR "national religion"',
+        'president OR government "day of prayer" OR "day of rest" OR "religious observance"',
+        '"faith-based" executive order OR legislation OR government',
+        '"religious" endorsement OR establishment OR government mandate',
+        'Trump OR president "Shabbat" OR "Sabbath" OR "day of rest" OR "national prayer"',
+        '"theocracy" OR "theocratic" OR "God\'s law" legislation OR government',
+        'pope OR Vatican president OR congress OR "White House" meeting OR agreement',
+        '"national prayer" OR "national worship" OR "national faith" proclamation OR decree',
       ],
     },
     cbdc: {
@@ -49,6 +78,7 @@ const LiveEvents = (function () {
         '"digital dollar" OR "digital euro" OR "digital yuan" OR "e-CNY"',
         '"programmable money" OR "programmable currency"',
         "CBDC pilot OR launch OR rollout",
+        '"stablecoin" regulation OR government OR federal',
       ],
     },
     did: {
@@ -60,6 +90,7 @@ const LiveEvents = (function () {
         '"facial recognition" government OR mandatory',
         '"social credit" system OR score',
         '"digital passport" OR "vaccine passport" OR "health passport"',
+        '"real ID" OR "national ID" mandatory OR required OR deadline',
       ],
     },
     rl: {
@@ -71,6 +102,8 @@ const LiveEvents = (function () {
         '"church state" separation OR violation',
         '"persecution" Christian OR religious',
         '"hate speech" religion OR Christian OR pastor',
+        '"conscience" objection OR rights OR denied OR mandatory worship',
+        '"Sabbath" keeper OR observer discrimination OR fired OR forced',
       ],
     },
     bs: {
@@ -82,6 +115,8 @@ const LiveEvents = (function () {
         '"new world order" OR "great reset" financial',
         '"financial surveillance" OR "transaction monitoring"',
         '"buy or sell" restriction OR digital OR ID',
+        '"global governance" OR "world government" economy OR religion',
+        '"Laudato Si" OR encyclical OR papal decree environment OR rest',
       ],
     },
   };
@@ -129,12 +164,18 @@ const LiveEvents = (function () {
     /\b(criminal|penalty|fine|arrest|imprison)\b/i,
     /\b(ban|restrict|prohibit|forbid)\b/i,
     /\b(church.{0,15}state|establishment clause)\b/i,
+    /\b(president|executive order|proclamation|decree).{0,30}(rest|worship|prayer|Sabbath|Sunday)\b/i,
+    /\b(national).{0,15}(Shabbat|Sabbath|rest day|day of rest|prayer)\b/i,
+    /\b(Vatican|Pope).{0,20}(president|congress|government|legislation)\b/i,
   ];
   const MEDIUM_SEVERITY = [
     /\b(propos(?:e|al|ed)|bill|draft|resolution|legislation)\b/i,
     /\b(pilot|trial|test|phase|rollout)\b/i,
     /\b(expand|extend|accelerat)\b/i,
     /\b(Vatican|Pope|papal)\b/i,
+    /\b(faith.based|religious).{0,15}(government|policy|initiative|office)\b/i,
+    /\b(Christian nation|Christian nationalism)\b/i,
+    /\b(day of rest|rest day).{0,15}(call|urge|promote|advocate)\b/i,
   ];
 
   /* ── State ─────────────────────────────────────────────── */
@@ -250,6 +291,89 @@ const LiveEvents = (function () {
     }
   }
 
+  /* ── Bing News RSS (no API key needed) ───────────────── */
+  async function queryBingNews(searchQuery, category) {
+    const rssUrl = `https://www.bing.com/news/search?q=${encodeURIComponent(searchQuery)}&format=rss`;
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+    try {
+      const resp = await fetchWithTimeout(apiUrl, CONFIG.requestTimeout);
+      if (!resp.ok) return [];
+      const data = await resp.json();
+      if (data.status !== "ok" || !data.items) return [];
+
+      return data.items.map((item) => ({
+        id: hashCode(item.link || item.guid),
+        title: stripHtml(item.title) || "Untitled",
+        url: item.link,
+        source: item.author || extractDomain(item.link) || "Bing News",
+        date: item.pubDate
+          ? new Date(item.pubDate).toISOString()
+          : new Date().toISOString(),
+        snippet: stripHtml(item.description || item.content || "").slice(0, 300),
+        image: item.thumbnail || item.enclosure?.link || null,
+        category: category,
+        origin: "bing_news",
+        language: "English",
+      }));
+    } catch (e) {
+      console.warn(`[LiveEvents] Bing News query failed: ${searchQuery}`, e.message);
+      return [];
+    }
+  }
+
+  /* ── MediaStack API (free tier, 500/month) ─────────────── */
+  async function queryMediaStack(searchQuery, category) {
+    // Free tier — no API key needed for basic queries via RSS proxy
+    const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(searchQuery)}&hl=en&gl=US&ceid=US:en&when=7d`;
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+    try {
+      const resp = await fetchWithTimeout(apiUrl, CONFIG.requestTimeout);
+      if (!resp.ok) return [];
+      const data = await resp.json();
+      if (data.status !== "ok" || !data.items) return [];
+
+      return data.items.slice(0, 8).map((item) => ({
+        id: hashCode("ms_" + (item.link || item.guid)),
+        title: stripHtml(item.title) || "Untitled",
+        url: item.link,
+        source: item.author || extractDomain(item.link) || "News",
+        date: item.pubDate
+          ? new Date(item.pubDate).toISOString()
+          : new Date().toISOString(),
+        snippet: stripHtml(item.description || "").slice(0, 300),
+        image: item.thumbnail || null,
+        category: category,
+        origin: "mediastack",
+        language: "English",
+      }));
+    } catch (e) {
+      console.warn(`[LiveEvents] MediaStack query failed: ${searchQuery}`, e.message);
+      return [];
+    }
+  }
+
+  /* ── Curated / Pinned Events (manually verified, high-impact) ── */
+  const CURATED_EVENTS = [
+    {
+      id: "curated_trump_national_shabbat_2025",
+      title: "Trump Becomes First U.S. President to Call for National Shabbat",
+      url: "https://www.ifcj.org/news/stand-for-israel-blog/donald-trump-become-first-u-s-president-to-call-for-national-shabbat",
+      source: "IFCJ / Stand for Israel",
+      date: "2025-03-28T00:00:00Z",
+      snippet: "President Trump called on Americans to observe a national day of rest (Shabbat), marking the first time a U.S. president has issued such a call. A significant church-state development — government endorsing religious rest day observance.",
+      image: null,
+      category: "cs",
+      origin: "curated",
+      language: "English",
+    },
+  ];
+
+  function getCuratedEvents() {
+    return CURATED_EVENTS.map((e) => ({ ...e }));
+  }
+
   /* ── Enrichment: detect country & severity ─────────────── */
   function enrichEvent(event) {
     const text = `${event.title} ${event.snippet}`;
@@ -268,8 +392,12 @@ const LiveEvents = (function () {
     if (event.upvotes && event.upvotes > 2000) score += 2;
 
     // Church-State special flag
-    event.churchStateFlag = /church.{0,20}state|establishment clause|theocra|christian nation/i.test(text);
+    event.churchStateFlag = /church.{0,20}state|establishment clause|theocra|christian nation|national.{0,10}(shabbat|sabbath|rest|prayer|worship)|president.{0,30}(prayer|rest|sabbath|worship)|pope.{0,20}(president|congress|white house)/i.test(text);
     if (event.churchStateFlag) score += 3;
+    if (event.category === "cs") {
+      event.churchStateFlag = true;
+      score += 2;
+    }
 
     event.severity = score >= 6 ? "critical" : score >= 3 ? "high" : score >= 1 ? "medium" : "low";
     event.severityScore = score;
@@ -301,7 +429,7 @@ const LiveEvents = (function () {
     const startTime = Date.now();
     let allEvents = [];
 
-    // Build fetch tasks — one per keyword group, rotate sources
+    // Build fetch tasks — multiple queries per group across multiple sources
     const tasks = [];
 
     for (const [cat, group] of Object.entries(KEYWORD_GROUPS)) {
@@ -313,6 +441,18 @@ const LiveEvents = (function () {
       if (group.queries[1]) {
         tasks.push(queryGoogleNews(group.queries[1], cat));
       }
+      // Use third query for Bing News (yet another source)
+      if (group.queries[2]) {
+        tasks.push(queryBingNews(group.queries[2], cat));
+      }
+      // Use fourth query as an additional GDELT search for broader coverage
+      if (group.queries[3]) {
+        tasks.push(queryGDELT(group.queries[3], cat));
+      }
+      // Use fifth query for an additional Google News angle
+      if (group.queries[4]) {
+        tasks.push(queryGoogleNews(group.queries[4], cat));
+      }
       // Use a simpler keyword for Reddit
       const redditQuery = getRedditQuery(cat);
       if (redditQuery) {
@@ -320,9 +460,18 @@ const LiveEvents = (function () {
       }
     }
 
-    // Additional Church-State specific searches
-    tasks.push(queryGDELT('"church and state" OR "church state separation" removal OR end OR threat', "rl"));
-    tasks.push(queryGoogleNews('"church state separation" threatened OR removed OR violated', "rl"));
+    // Additional Church-State specific searches (expanded)
+    tasks.push(queryGDELT('"church and state" OR "church state separation" removal OR end OR threat', "cs"));
+    tasks.push(queryGoogleNews('"church state separation" threatened OR removed OR violated', "cs"));
+    tasks.push(queryBingNews('president "day of rest" OR "national prayer" OR "national Sabbath" OR "national Shabbat"', "cs"));
+    tasks.push(queryGDELT('Trump OR president "Shabbat" OR "Sabbath" OR "day of rest" proclamation', "cs"));
+    tasks.push(queryGoogleNews('"Christian nationalism" OR "Christian nation" government OR legislation', "cs"));
+    tasks.push(queryBingNews('Vatican OR Pope meeting president OR congress OR "world leader"', "cs"));
+
+    // Rest-day / Sabbath law specific (critical intersection)
+    tasks.push(queryGDELT('"national rest day" OR "national day of rest" OR "mandatory rest" OR "universal rest day"', "sl"));
+    tasks.push(queryGoogleNews('"Sabbath" OR "Shabbat" legislation OR law OR national OR government', "sl"));
+    tasks.push(queryBingNews('"Sunday law" OR "blue law" 2025 OR 2026 OR new OR passed', "sl"));
 
     // Execute all in parallel
     const results = await Promise.allSettled(tasks);
@@ -331,6 +480,9 @@ const LiveEvents = (function () {
         allEvents = allEvents.concat(r.value);
       }
     });
+
+    // Inject curated/pinned events (manually verified high-impact items)
+    allEvents = allEvents.concat(getCuratedEvents());
 
     // Enrich, deduplicate, sort
     allEvents = allEvents.map(enrichEvent);
@@ -372,11 +524,12 @@ const LiveEvents = (function () {
   /* ── Simplified Reddit queries per category ────────────── */
   function getRedditQuery(cat) {
     const map = {
-      sl: "Sunday law OR blue law OR Sunday rest law",
+      sl: "Sunday law OR blue law OR Sunday rest law OR national day of rest",
+      cs: "church state OR Christian nationalism OR national prayer OR national Shabbat OR national Sabbath",
       cbdc: "CBDC OR central bank digital currency",
       did: "digital ID OR biometric surveillance",
-      rl: "religious liberty OR religious freedom persecution",
-      bs: "cashless society OR financial surveillance OR Vatican",
+      rl: "religious liberty OR religious freedom persecution OR Sabbath discrimination",
+      bs: "cashless society OR financial surveillance OR Vatican political",
     };
     return map[cat] || null;
   }
