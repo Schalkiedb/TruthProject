@@ -353,6 +353,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   text-transform:uppercase;letter-spacing:.05em;
 }
 .le-cat-sl{background:rgba(201,162,39,.15);color:#e6c04c}
+.le-cat-cs{background:rgba(229,62,62,.15);color:#fc8181}
 .le-cat-cbdc{background:rgba(221,107,32,.15);color:#f6ad55}
 .le-cat-did{background:rgba(66,153,225,.15);color:#90cdf4}
 .le-cat-rl{background:rgba(56,161,105,.15);color:#68d391}
@@ -448,6 +449,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <div id="filter-bar">
     <div class="flt active" data-cat="all">🌐 All</div>
     <div class="flt" data-cat="sl">📅 Sunday Laws</div>
+    <div class="flt" data-cat="cs">⛪ Church & State</div>
     <div class="flt" data-cat="cbdc">💳 CBDC</div>
     <div class="flt" data-cat="did">👁 Digital ID</div>
     <div class="flt" data-cat="rl">✝ Religious Liberty</div>
@@ -581,17 +583,18 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     <div id="live-filters">
       <div class="lf-pill active" data-lf="all">All <span class="lf-n" id="lf-n-all">0</span></div>
       <div class="lf-pill" data-lf="sl">📅 Sunday Laws <span class="lf-n" id="lf-n-sl">0</span></div>
+      <div class="lf-pill" data-lf="cs">⛪ Church-State <span class="lf-n" id="lf-n-cs2">0</span></div>
       <div class="lf-pill" data-lf="cbdc">💳 CBDC <span class="lf-n" id="lf-n-cbdc">0</span></div>
       <div class="lf-pill" data-lf="did">👁 Digital ID <span class="lf-n" id="lf-n-did">0</span></div>
       <div class="lf-pill" data-lf="rl">✝ Liberty <span class="lf-n" id="lf-n-rl">0</span></div>
       <div class="lf-pill" data-lf="bs">🔗 Beast System <span class="lf-n" id="lf-n-bs">0</span></div>
-      <div class="lf-pill" data-lf="church-state">⚠️ Church-State <span class="lf-n" id="lf-n-cs">0</span></div>
+      <div class="lf-pill" data-lf="church-state">⚠️ All Church-State <span class="lf-n" id="lf-n-cs">0</span></div>
     </div>
   </div>
   <div id="live-loading">
     <div class="spinner"></div>
     <span>Scanning global news sources...</span>
-    <span style="font-size:10px">GDELT · Google News · Reddit</span>
+    <span style="font-size:10px">GDELT · Google News · Bing News · Reddit</span>
   </div>
   <div id="live-empty">
     <div class="le-icon">📡</div>
@@ -706,6 +709,17 @@ const COUNTRIES = {
       "US military enforces global financial compliance — Pax Americana enforces the dollar-based system",
       "<strong>IMF and World Bank</strong> headquartered in Washington D.C. — financial governance of the developing world runs through US-led institutions",
       "Revelation 13:12 — the second beast 'causes the earth and those who dwell on it to worship the first beast' — via global political and economic power"
+    ]},
+    cs:{ level:"red", items:[
+      "<strong>Trump calls for National Shabbat (2025)</strong> — First U.S. president to call for a national day of rest (Shabbat). Government endorsing religious rest day observance — direct church-state merger regardless of which day is named.",
+      "<strong>White House Faith Office (Feb 2025)</strong> — Permanent institutional pipeline from religious lobbies to the Oval Office. Paula White-Cain as director. Church-state wall structurally breached.",
+      "<strong>'Rededicate 250' — National Mall, Sunday May 17, 2026</strong> — Presidential Christian worship event on federal property with government endorsement. Announced at the 74th National Prayer Breakfast by the President.",
+      "<strong>Task Force to Eradicate Anti-Christian Bias (Feb 2025)</strong> — DOJ-funded federal task force explicitly for one religion. Government declaring preferred religious identity.",
+      "<strong>VP Vance: 'America is a Christian nation' (Dec 2025)</strong> — Vice President explicitly rejecting church-state separation and calling the Establishment Clause interpretation 'a terrible mistake.'",
+      "<strong>Presidential Commission on Religious Liberty (May 2025)</strong> — Chaired by Texas Lt. Gov. Dan Patrick. Government body to define religious freedom policy — historically these bodies produce legislation.",
+      "<strong>Trump: 2026 a 'Year of Rededication — One Nation Under God'</strong> — Presidential proclamation dedicating an entire year to religious identity. Government endorsing religious commitment.",
+      "<strong>Heritage Foundation SR323 (Jan 2026)</strong> — Uses explicitly theological language ('God ordained the Sabbath') in a policy paper that feeds directly into the White House Faith Office pipeline.",
+      "<strong>Majority-Catholic Supreme Court (6 of 9 justices)</strong> — The judicial branch now reflects Catholic institutional influence at its highest level in US history."
     ]}
   },
 
@@ -1278,6 +1292,14 @@ const COUNTRIES = {
       "The Pope's audience with US Presidents, UN General Assembly speeches, EU Parliament address — unprecedented political reach for a religious institution",
       "<strong>This is the first beast of Revelation 13</strong> — power identified through 11 biblical marks including: rose from Rome, changed the law (Sabbath→Sunday), 42 months of dominance (538-1798 AD), received a deadly wound (1798), deadly wound healed (1929 Lateran Treaty)",
       "<strong>Pope Leo XIV (Robert Prevost) — elected May 8, 2025</strong> — First American pope; Augustinian order; took name Leo XIV signaling continuity with Leo XIII (Rerum Novarum social teaching). Encyclical 'Magnifica Humanitas' (May 2026) furthers Vatican's social governance agenda"
+    ]},
+    cs:{ level:"red", items:[
+      "<strong>Vatican IS the merger of church and state</strong> — a sovereign state that is also the headquarters of a religious institution. The only theocracy in the Western world.",
+      "<strong>183 diplomatic relations</strong> — the Vatican conducts government-level diplomacy as both a religious and political entity simultaneously.",
+      "<strong>Pope meets with every US President</strong> — religious leader with direct political access to every major world government. No other religious institution has this bilateral state relationship.",
+      "<strong>Concordats</strong> — Vatican signs binding treaties (concordats) with nations that embed Catholic privileges into civil law, including Sunday observance, education, and marriage.",
+      "<strong>UN observer status</strong> — the Vatican holds Permanent Observer status at the United Nations, exercising political influence over global policy as a religious state.",
+      "<strong>Laudato Si' (2015)</strong> — Papal encyclical addressing 'every person on the planet' with political demands (Sunday rest, climate policy) — treated as a legislative document by EU and US politicians."
     ]}
   },
 
@@ -2768,20 +2790,21 @@ if (location.hash) {
     document.getElementById("live-loading").style.display = "none";
 
     // Update counts
-    var counts = { all: events.length, sl: 0, cbdc: 0, did: 0, rl: 0, bs: 0, cs: 0 };
+    var counts = { all: events.length, sl: 0, cs: 0, cbdc: 0, did: 0, rl: 0, bs: 0, csFlag: 0 };
     events.forEach(function (e) {
       if (counts[e.category] !== undefined) counts[e.category]++;
-      if (e.churchStateFlag) counts.cs++;
+      if (e.churchStateFlag) counts.csFlag++;
     });
 
     document.getElementById("live-count").textContent = counts.all;
     document.getElementById("lf-n-all").textContent = counts.all;
     document.getElementById("lf-n-sl").textContent = counts.sl;
+    document.getElementById("lf-n-cs2").textContent = counts.cs;
     document.getElementById("lf-n-cbdc").textContent = counts.cbdc;
     document.getElementById("lf-n-did").textContent = counts.did;
     document.getElementById("lf-n-rl").textContent = counts.rl;
     document.getElementById("lf-n-bs").textContent = counts.bs;
-    document.getElementById("lf-n-cs").textContent = counts.cs;
+    document.getElementById("lf-n-cs").textContent = counts.csFlag;
 
     // Update badge on header button
     var critical = events.filter(function (e) { return e.severity === "critical" || e.severity === "high"; });
