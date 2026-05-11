@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Every Decree Against the Sabbath — The 1,900-Year War on Saturday</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #080610;
+    --ink2: #0C0A16;
+    --gold: #C8A84A;
+    --gold-hi: #EDD98A;
+    --gold-lo: #7A6020;
+    --blood: #8B1A1A;
+    --fire: #C84010;
+    --church: #3A1860;
+    --state: #183858;
+    --both: #582818;
+    --modern: #1A3A1A;
+    --text: rgba(240,232,210,0.95);
+    --text-dim: rgba(220,210,185,0.65);
+    --text-faint: rgba(200,190,160,0.40);
+    --rule: rgba(200,168,74,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+  @page { size: A2 landscape; margin: 10mm; }
+
+  html, body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  body::before {
+    content:'';
+    position:fixed; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:1000;
+  }
+
+  .page {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 32px 36px 48px;
+    position: relative;
+  }
+
+  /* HEADER */
+  .hdr {
+    text-align: center;
+    padding: 32px 0 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-lo);
+    margin-bottom: 10px;
+  }
+  .main-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--gold-hi);
+    line-height: 1.15;
+    text-shadow: 0 0 60px rgba(200,168,74,0.35);
+    margin-bottom: 8px;
+  }
+  .sub-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+  .intro {
+    max-width: 950px;
+    margin: 0 auto;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  /* STAT ROW */
+  .stat-row {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin: 24px 0;
+    overflow: hidden;
+  }
+  .stat-cell {
+    flex: 1;
+    padding: 14px 10px;
+    text-align: center;
+    border-right: 1px solid var(--rule);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-lbl {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  /* ERA HEADER */
+  .era-section { margin-bottom: 28px; }
+  .era-hdr {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 14px;
+  }
+  .era-icon { font-size: 18px; }
+  .era-name {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    flex: 1;
+  }
+  .era-dates {
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-left: auto;
+  }
+
+  /* KEY */
+  .key {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 8px 0 18px;
+    flex-wrap: wrap;
+  }
+  .key-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .key-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .kd-church { background: rgba(100,40,128,0.7); border: 1px solid rgba(120,60,160,0.5); }
+  .kd-state  { background: rgba(30,70,110,0.7); border: 1px solid rgba(50,100,150,0.5); }
+  .kd-both   { background: rgba(120,50,30,0.7); border: 1px solid rgba(160,70,40,0.5); }
+  .kd-modern { background: rgba(40,80,40,0.7); border: 1px solid rgba(60,120,60,0.5); }
+
+  /* TIMELINE GRID */
+  .timeline {
+    display: grid;
+    gap: 0;
+    position: relative;
+  }
+
+  .t-row {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    min-height: 0;
+    border-bottom: 1px solid rgba(200,168,74,0.06);
+  }
+  .t-row:last-child { border-bottom: none; }
+
+  .t-year {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    padding: 8px 12px 8px 0;
+    text-align: right;
+    border-right: 2px solid rgba(200,168,74,0.12);
+    position: relative;
+  }
+  .t-year::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-lo);
+    background: var(--ink);
+  }
+
+  .t-content {
+    padding: 7px 0 7px 18px;
+  }
+
+  .decree {
+    background: rgba(255,255,255,0.018);
+    border: 1px solid rgba(200,168,74,0.1);
+    border-left: 3px solid var(--decree-color, rgba(200,168,74,0.3));
+    padding: 8px 11px;
+    margin-bottom: 6px;
+    transition: background 0.2s;
+  }
+  .decree:last-child { margin-bottom: 0; }
+  .decree:hover { background: rgba(255,255,255,0.035); }
+
+  .decree.church { --decree-color: rgba(120,50,170,0.65); }
+  .decree.state  { --decree-color: rgba(40,90,150,0.65); }
+  .decree.both   { --decree-color: rgba(160,60,30,0.65); }
+  .decree.modern { --decree-color: rgba(50,120,50,0.65); }
+
+  .d-type {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 1.5px 6px;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .dt-church   { background: rgba(100,40,128,0.35); color: #C080E0; border: 1px solid rgba(120,60,160,0.4); }
+  .dt-state    { background: rgba(30,70,110,0.35); color: #80B0E0; border: 1px solid rgba(50,100,150,0.4); }
+  .dt-both     { background: rgba(120,50,30,0.35); color: #E0A070; border: 1px solid rgba(160,70,40,0.4); }
+  .dt-modern   { background: rgba(40,80,40,0.3); color: #80D080; border: 1px solid rgba(60,120,60,0.4); }
+
+  .d-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gold-hi);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .d-what {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+  .d-quote {
+    font-size: 10.5px;
+    font-style: italic;
+    color: rgba(237,217,138,0.7);
+    padding: 4px 0 4px 10px;
+    border-left: 2px solid rgba(200,168,74,0.15);
+    margin: 4px 0;
+    line-height: 1.55;
+  }
+  .d-impact {
+    font-size: 10px;
+    color: var(--text-faint);
+    margin-top: 3px;
+  }
+  .d-impact strong { color: var(--gold); }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    text-align: center;
+    padding: 22px 40px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .pull-quote::before, .pull-quote::after {
+    content: '';
+    position: absolute;
+    left: 10%; width: 80%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(200,168,74,0.3), transparent);
+  }
+  .pull-quote::before { top: 0; }
+  .pull-quote::after  { bottom: 0; }
+  .pq-text {
+    font-size: 17px;
+    font-style: italic;
+    color: rgba(237,217,138,0.85);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .pq-source {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-lo);
+  }
+
+  /* MULTI COLUMN LAYOUT FOR COMPACT ERAS */
+  .compact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 9px;
+    color: var(--text-faint);
+    line-height: 1.6;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+  }
+
+  @media print {
+    *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    @page { size: A2 landscape; margin: 0.5cm; }
+    body { background: var(--ink) !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="eyebrow">Truth Project — Prophetic Research Series · Infographic XIV</div>
+    <div class="main-title">Every Decree Against the Sabbath</div>
+    <div class="sub-title">The 1,900-Year Institutional War on Saturday · 135 AD – 2026</div>
+    <p class="intro">If the Sabbath was changed by God, it would have required one act. Instead, it took 1,900 years of continuous legislation — councils, canons, imperial edicts, inquisitions, civil penalties, and modern labour laws — and the change is still not complete. Every entry below is a documented institutional action taken against Saturday observance. Together, they form the most complete historical record of fulfilled prophecy in existence: "He shall think to change times and laws" (Daniel 7:25).</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#C080E0">40+</span>
+      <span class="stat-lbl">Church Councils & Canons</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#80B0E0">25+</span>
+      <span class="stat-lbl">Imperial & State Decrees</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#E0A070">15+</span>
+      <span class="stat-lbl">Joint Church-State Actions</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#80D080">30+</span>
+      <span class="stat-lbl">Modern Laws (20th–21st C.)</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num" style="color:#FF8080">1,891</span>
+      <span class="stat-lbl">Years of Continuous Legislation</span>
+    </div>
+  </div>
+
+  <!-- KEY -->
+  <div class="key">
+    <div class="key-item"><span class="key-dot kd-church"></span> Church Council / Canon / Papal Decree</div>
+    <div class="key-item"><span class="key-dot kd-state"></span> State / Imperial / Civil Law</div>
+    <div class="key-item"><span class="key-dot kd-both"></span> Joint Church-State Action</div>
+    <div class="key-item"><span class="key-dot kd-modern"></span> Modern Legislation / Proposal</div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       ERA I: 135–325 AD
+  ═══════════════════════════════ -->
+  <div class="era-section">
+    <div class="era-hdr">
+      <span class="era-icon">⚔</span>
+      <span class="era-name">Era I — The First Attacks: Anti-Jewish Legislation Targets the Sabbath</span>
+      <span class="era-dates">135 – 325 AD</span>
+    </div>
+
+    <div class="timeline">
+      <div class="t-row">
+        <div class="t-year">135 AD</div>
+        <div class="t-content">
+          <div class="decree state">
+            <div class="d-type dt-state">Imperial Decree</div>
+            <div class="d-title">Emperor Hadrian — Ban on Sabbath Observance</div>
+            <div class="d-what">After crushing the Bar Kokhba revolt, Hadrian banned circumcision, Torah study, and Sabbath observance throughout the Roman Empire. While aimed at Jews, this also affected Jewish Christians (Nazarenes) who still kept the Sabbath. Roman Bishop Sixtus I (c. 115–125) had already introduced the practice of Sunday-only worship in Rome — Hadrian's decree gave it the force of imperial law.</div>
+            <div class="d-impact"><strong>Impact:</strong> First imperial prohibition of Saturday worship. Created the political pressure for Gentile Christians to distinguish themselves from Jews by abandoning the Sabbath.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">155 AD</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Theological Shift</div>
+            <div class="d-title">Justin Martyr — First Apology: Sunday Rationalised</div>
+            <div class="d-what">Justin Martyr writes the first known theological justification for Sunday worship. He argues that Christians worship on "the day of the Sun" because it is the day of Creation's beginning and the day of Christ's resurrection. Critically, Justin does not claim apostolic authority for Sunday — he explicitly links it to solar symbolism and Roman cultural convention. He never claims Saturday was abolished.</div>
+            <div class="d-quote">"We all hold this common gathering on the day of the Sun, since it is the first day, on which God transforming darkness and matter made the cosmos." — Justin Martyr, First Apology, Ch. 67</div>
+            <div class="d-impact"><strong>Impact:</strong> First documented Sunday rationale. Significantly, Justin argues from creation and culture — not from apostolic command. This admission that no apostolic authority exists for Sunday worship remains devastating to Sunday theology 1,900 years later.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">200 AD</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Church Father</div>
+            <div class="d-title">Tertullian — First Defence Against "Judaizing" Charge</div>
+            <div class="d-what">Tertullian writes that Christians must not appear to observe the Jewish Sabbath. He admits that many Christians still rest on Saturday but argues the practice must be abandoned. His apologetic confirms two facts: (1) Saturday worship was still widespread in 200 AD, and (2) it required active campaigning to suppress it.</div>
+            <div class="d-impact"><strong>Impact:</strong> Confirms Saturday worship was still the majority Christian practice 170 years after Christ — requiring active institutional opposition to change.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">250 AD</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Church Document</div>
+            <div class="d-title">Didascalia Apostolorum — Forced Saturday Fasting</div>
+            <div class="d-what">The Didascalia commands Christians to fast on Saturday — a deliberate inversion of the Jewish and apostolic practice of honouring Saturday with special meals. Making Saturday a fasting day stripped it of its celebratory character and associated it with mourning. This psychological warfare tactic was more effective than direct prohibition.</div>
+            <div class="d-quote">"Fast on the fourth day of the week, and on the Preparation, and on Saturday." — Didascalia Apostolorum, V.20</div>
+            <div class="d-impact"><strong>Impact:</strong> Weaponised fasting to psychologically degrade Saturday. If Saturday is a fast day, it can no longer feel like a day of rest and celebration — making Sunday the more attractive option by emotional manipulation.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">305 AD</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Church Council</div>
+            <div class="d-title">Council of Elvira (Spain) — Canon 26: Saturday Fasting Mandated</div>
+            <div class="d-what">The Council of Elvira in Spain decreed that Saturday fasting should be observed every week. This is among the earliest conciliar actions specifically designed to strip Saturday of its sacred character. Spain had a significant Jewish and Jewish-Christian population whose Saturday observance was considered a threat to church unity.</div>
+            <div class="d-impact"><strong>Impact:</strong> First formal council decree mandating Saturday fasting — the institutional mechanism for degrading Saturday across an entire region.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">321 AD</div>
+        <div class="t-content">
+          <div class="decree state">
+            <div class="d-type dt-state">Imperial Decree — Foundational</div>
+            <div class="d-title">Emperor Constantine — The Sunday Edict of March 7, 321 AD</div>
+            <div class="d-what">The most consequential single decree in the history of the Sabbath. Constantine decreed: "On the venerable Day of the Sun let the magistrates and people residing in cities rest, and let all workshops be closed." This is the first civil law in history mandating Sunday rest. It does not mention Christianity, Jesus, or the resurrection — it refers to the "venerable Day of the Sun" (venerabili die Solis), explicitly using pagan solar terminology.</div>
+            <div class="d-quote">"On the venerable Day of the Sun let the magistrates and people residing in cities rest, and let all workshops be closed." — Codex Justinianus 3.12.2</div>
+            <div class="d-impact"><strong>Impact:</strong> Created the legal framework for Sunday observance that every subsequent European law is built upon. Constantine did not change the Sabbath — he created a new institution (civil Sunday rest) using pagan language ("Day of the Sun"), which the church then retroactively claimed as Christian.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       ERA II: 325–600 AD
+  ═══════════════════════════════ -->
+  <div class="era-section">
+    <div class="era-hdr">
+      <span class="era-icon">🏛</span>
+      <span class="era-name">Era II — The Imperial Church: Councils Make It Official</span>
+      <span class="era-dates">325 – 600 AD</span>
+    </div>
+
+    <div class="timeline">
+      <div class="t-row">
+        <div class="t-year">325 AD</div>
+        <div class="t-content">
+          <div class="decree both">
+            <div class="d-type dt-both">Church-State Council</div>
+            <div class="d-title">Council of Nicaea — Easter Separated from Jewish Passover</div>
+            <div class="d-what">While primarily about the Arian controversy and the date of Easter, the Council of Nicaea established the principle that Christian observance must be distanced from Jewish practice. Constantine's letter to the churches after the council explicitly states: "It appeared an unworthy thing that in the celebration of this most holy feast we should follow the practice of the Jews." This principle — "not like the Jews" — became the theological foundation for all subsequent anti-Sabbath legislation.</div>
+            <div class="d-impact"><strong>Impact:</strong> Established the anti-Jewish principle that would be used to justify every subsequent Sabbath suppression: if Jews do it, Christians must not.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">343 AD</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Church Council</div>
+            <div class="d-title">Council of Sardica — Saturday Restrictions Expanded</div>
+            <div class="d-what">The Council of Sardica (modern Sofia, Bulgaria) further restricted Saturday observance in the Western churches. The fact that this council found it necessary to legislate against Saturday-keeping in 343 AD proves the practice was still widespread 22 years after Constantine's Sunday edict.</div>
+            <div class="d-impact"><strong>Impact:</strong> Demonstrates that Constantine's 321 AD edict had not succeeded in eliminating Saturday worship after 22 years — requiring additional institutional action.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">364 AD</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Church Council — Critical</div>
+            <div class="d-title">Council of Laodicea — Canon 29: Saturday Worship Explicitly Banned</div>
+            <div class="d-what">The single most important anti-Sabbath decree in church history. Canon 29 reads: "Christians must not Judaize by resting on the Sabbath, but must work on that day, rather honouring the Lord's Day; and, if they can, resting then as Christians. But if any shall be found to be Judaizers, let them be anathema from Christ." This is the first explicit, unambiguous prohibition of Saturday rest by a church council. The word "Judaize" is the weapon: it redefines biblical obedience as racial betrayal.</div>
+            <div class="d-quote">"Christians must not Judaize by resting on the Sabbath, but must work on that day, rather honouring the Lord's Day; and, if they can, resting then as Christians. But if any shall be found to be Judaizers, let them be anathema from Christ." — Council of Laodicea, Canon 29</div>
+            <div class="d-impact"><strong>Impact:</strong> The canonical proof text for 1,660 years of Sabbath suppression. Note the critical phrase "if they can" regarding Sunday rest — the council acknowledges that Sunday rest is aspirational, not obligatory. The only obligation is to NOT rest on Saturday. The goal is not Sunday observance — it is Saturday destruction.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">386 AD</div>
+        <div class="t-content">
+          <div class="decree state">
+            <div class="d-type dt-state">Imperial Law</div>
+            <div class="d-title">Emperor Theodosius I — Sunday Work Prohibition</div>
+            <div class="d-what">Theodosius extended Constantine's Sunday edict with the Theodosian Code (Codex Theodosianus 2.8.1), prohibiting all public business, legal proceedings, and debt collection on Sunday. This is the first imperial law that makes Sunday rest enforceable with civil penalties — not merely customary. Agricultural labour was exempted (farmers still worked Sunday), confirming the law was primarily an urban instrument of institutional control.</div>
+            <div class="d-impact"><strong>Impact:</strong> Transformed Sunday from a voluntary custom into a legally enforced obligation with civil penalties. The foundation of all European Sunday legislation for the next 1,600 years.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">425 AD</div>
+        <div class="t-content">
+          <div class="decree state">
+            <div class="d-type dt-state">Imperial Law</div>
+            <div class="d-title">Emperor Theodosius II — Circus, Theatre, and Entertainment Banned on Sunday</div>
+            <div class="d-what">Extended the Sunday prohibition to include all circus games, theatre performances, and public entertainments. This is the first legislation attempting to enforce a Sunday "atmosphere" — not just work cessation, but cultural transformation of the day. The precedent for modern "blue laws" that prohibit entertainment and commerce on Sunday.</div>
+            <div class="d-impact"><strong>Impact:</strong> Moved beyond work prohibition to cultural control. The template for every "blue law" from the 5th century to the 21st.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">538 AD</div>
+        <div class="t-content">
+          <div class="decree both">
+            <div class="d-type dt-both">Church-State — Prophecy Date</div>
+            <div class="d-title">Council of Orléans III — Canon 28: Saturday Work Mandated</div>
+            <div class="d-what">The Third Council of Orléans (538 AD — the prophetic starting year of the 1260-year period of Daniel 7:25) decreed that Saturday was to be a normal working day. Canon 28 specifically prohibited Saturday rest, mandating that rural labourers work on Saturday as on any other weekday. This council occurred in the same year that Justinian's forces conquered the Ostrogoths and established papal temporal authority — the two events together mark the beginning of the 1260-year period.</div>
+            <div class="d-quote">"It has been determined that on Saturday it is above all things necessary to do field work… so that there may be no occasion for the people to rest from their rural labours." — Council of Orléans III, Canon 28 (538 AD)</div>
+            <div class="d-impact"><strong>Impact:</strong> Explicitly commands Saturday work — not just Saturday non-rest. The most aggressive anti-Sabbath canon to date: Christians must labour on the Sabbath. Prophetically, this occurs in 538 AD — the year Daniel 7:25's time prophecy begins.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">589 AD</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Church Council</div>
+            <div class="d-title">Council of Narbonne — Canon 4: Saturday Fasting Under Penalty</div>
+            <div class="d-what">Imposed mandatory Saturday fasting with excommunication as the penalty for non-compliance. "The sixth day of the week shall be observed as a fast… and no one shall presume to take food on Saturday before the setting of the sun." This forced Christians to spend Saturday hungry — making it psychologically impossible to experience Saturday as a day of joyful rest.</div>
+            <div class="d-impact"><strong>Impact:</strong> Combined with mandatory Saturday work (Orléans III, 538) and mandatory Sunday rest (Theodosius, 386), this created a complete institutional system: work Saturday + fast Saturday + rest Sunday = Saturday is miserable, Sunday is pleasant.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pq-text">"And he shall speak great words against the most High, and shall wear out the saints of the most High, and think to change times and laws: and they shall be given into his hand until a time and times and the dividing of time."</div>
+    <div class="pq-source">— Daniel 7:25 · Written c. 550 BC · Describing the system documented on this page</div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       ERA III: 600–1500 AD
+  ═══════════════════════════════ -->
+  <div class="era-section">
+    <div class="era-hdr">
+      <span class="era-icon">⛪</span>
+      <span class="era-name">Era III — The Medieval Enforcement: Inquisitions, Crusades, and Canon Law</span>
+      <span class="era-dates">600 – 1500 AD</span>
+    </div>
+
+    <div class="compact-grid">
+      <div>
+        <div class="decree both">
+          <div class="d-type dt-both">Church-State</div>
+          <div class="d-title">789 AD — Charlemagne's Admonitio Generalis</div>
+          <div class="d-what">The Emperor of the Holy Roman Empire codified Sunday rest into civil law across all of Western Europe. Included the requirement that "servile work" be prohibited on Sunday — the first pan-European Sunday enforcement. Also prescribed penalties for Saturday observance among conquered Saxons.</div>
+          <div class="d-impact"><strong>Impact:</strong> First all-European Sunday enforcement mechanism. Made Sunday law the standard of Christendom.</div>
+        </div>
+        <div class="decree church" style="margin-top:6px;">
+          <div class="d-type dt-church">Church Decree</div>
+          <div class="d-title">882 AD — Pope John VIII: Saturday Fasting Universal</div>
+          <div class="d-what">Extended the mandatory Saturday fast to the entire Western church. The Eastern churches — not under Rome's authority — refused to adopt the practice, creating the Saturday fasting schism that contributed to the Great Schism of 1054.</div>
+          <div class="d-impact"><strong>Impact:</strong> Saturday fasting became a defining marker of Roman Catholic identity vs. Eastern Orthodox identity — the Sabbath question contributed to splitting Christianity permanently.</div>
+        </div>
+        <div class="decree both" style="margin-top:6px;">
+          <div class="d-type dt-both">Inquisition</div>
+          <div class="d-title">1184 AD — Council of Verona: Inquisition Established</div>
+          <div class="d-what">Pope Lucius III and Emperor Frederick Barbarossa jointly established the episcopal Inquisition. Among the explicit targets: any who observed "Jewish ceremonies" including the Sabbath. The Waldensians, Cathars, and other Saturday-adjacent groups were specifically named. This marks the transition from legal prohibition to active persecution — hunting Saturday-keepers rather than merely forbidding them.</div>
+          <div class="d-impact"><strong>Impact:</strong> Transitioned from legislation to active persecution. For the next 500 years, Saturday-keepers were hunted, tried, and killed by institutional machinery.</div>
+        </div>
+        <div class="decree both" style="margin-top:6px;">
+          <div class="d-type dt-both">Crusade / Genocide</div>
+          <div class="d-title">1209–1229 — Albigensian Crusade Against the Cathars</div>
+          <div class="d-what">Pope Innocent III launched a crusade against the Cathars of southern France — whom Catholic sources linked to the Bogomils and indirectly to the Paulicians, the documented Sabbath-keepers of Armenia. An estimated 200,000–1,000,000 killed. At the siege of Béziers (1209), the papal legate Arnaud Amalric famously ordered: "Kill them all. God will know His own." The Cathars' connection to Sabbatarian theology is debated, but their systematic extermination removed any independent witness from southern France.</div>
+          <div class="d-impact"><strong>Impact:</strong> Physical annihilation of any potential Sabbatarian witness in the region. The Crusade was so effective that no independent Christian movement survived in southern France until the Reformation.</div>
+        </div>
+      </div>
+      <div>
+        <div class="decree church">
+          <div class="d-type dt-church">Church Council — Critical</div>
+          <div class="d-title">1229 AD — Council of Toulouse: Bible Banned for Laity</div>
+          <div class="d-what">Canon 14 prohibited laypeople from possessing the Bible in the vernacular. While aimed at Cathar use of Scripture, this decree had a direct impact on Sabbath observance: if ordinary people cannot read the fourth commandment in their own language, they cannot independently discover the Sabbath. The Bible ban lasted, in various forms, until the Reformation — 300+ years of forced scriptural illiteracy.</div>
+          <div class="d-quote">"We prohibit also that the laity should be permitted to have the books of the Old or New Testaments; unless anyone from motives of devotion should wish to have the Psalter or the Breviary..." — Council of Toulouse, Canon 14</div>
+          <div class="d-impact"><strong>Impact:</strong> The most effective anti-Sabbath weapon in history. You cannot discover the Sabbath if you cannot read the Bible. 300 years of enforced scriptural illiteracy is the true mechanism of the Sabbath's suppression in medieval Europe.</div>
+        </div>
+        <div class="decree church" style="margin-top:6px;">
+          <div class="d-type dt-church">Church Council</div>
+          <div class="d-title">1431 AD — Council of Basel: Anti-Saturday Reinforced</div>
+          <div class="d-what">Reinforced the prohibition against "Judaizing" — which included Saturday observance — as part of its broader programme of church reform. The council's 19th session explicitly addressed the "danger" of Christian Saturday observance in regions where it persisted.</div>
+          <div class="d-impact"><strong>Impact:</strong> 1,100 years after Laodicea and the church still had to legislate against Saturday worship — proving the practice was never fully eliminated.</div>
+        </div>
+        <div class="decree both" style="margin-top:6px;">
+          <div class="d-type dt-both">State Law</div>
+          <div class="d-title">1435 AD — Bergen (Norway): National Sunday Enforcement</div>
+          <div class="d-what">The Bergen law code established one of the most comprehensive Sunday enforcement regimes in medieval Europe, prescribing fines, public penance, and imprisonment for Sunday work violations. Norway's Sunday laws were among the strictest in Scandinavia and became the template for Nordic blue laws that persisted into the 21st century.</div>
+          <div class="d-impact"><strong>Impact:</strong> Established the Nordic Sunday-law tradition that would persist for nearly 600 years — Norway did not fully deregulate Sunday trading until 2003.</div>
+        </div>
+        <div class="decree both" style="margin-top:6px;">
+          <div class="d-type dt-both">Inquisition</div>
+          <div class="d-title">1478 AD — Spanish Inquisition Established</div>
+          <div class="d-what">Ferdinand and Isabella established the Spanish Inquisition with papal approval. Primary targets: conversos (Jewish converts to Christianity) who continued Saturday observance in secret. Thousands were tried specifically for "Judaizing" — defined in Inquisitorial manuals as including "resting on Saturday," "wearing clean clothes on Saturday," "lighting candles on Friday evening," and "eating special foods on Saturday." These charges continued for 356 years until the Inquisition's abolition in 1834.</div>
+          <div class="d-impact"><strong>Impact:</strong> 356 years of specific anti-Sabbath prosecution. The most sustained institutional persecution of Saturday-keepers in Western history. Inquisitorial records provide the most detailed documentation of what Saturday-keeping actually looked like in medieval Europe — preserved by the persecutors themselves.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       ERA IV: 1500–1800 AD
+  ═══════════════════════════════ -->
+  <div class="era-section">
+    <div class="era-hdr">
+      <span class="era-icon">📜</span>
+      <span class="era-name">Era IV — Reformation & Counter-Reformation: The Truth Rediscovered — and Fought Again</span>
+      <span class="era-dates">1500 – 1800 AD</span>
+    </div>
+
+    <div class="timeline">
+      <div class="t-row">
+        <div class="t-year">1529</div>
+        <div class="t-content">
+          <div class="decree both">
+            <div class="d-type dt-both">Church-State Execution</div>
+            <div class="d-title">Andreas Fischer & Oswald Glait — Sabbath Reformers Martyred</div>
+            <div class="d-what">Fischer and Glait were Anabaptist Reformers who kept the seventh-day Sabbath. Glait published the first Sabbatarian tract of the Reformation (1527). He was executed in 1546. Fischer was hunted by both Catholic and Protestant authorities and killed c. 1540. They represent the theological rediscovery of the Sabbath during the Reformation — and the fact that both Catholic and Protestant institutions suppressed it.</div>
+            <div class="d-impact"><strong>Impact:</strong> Proves the Reformation did not restore the Sabbath because both Protestant and Catholic authorities killed those who tried.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">1545</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Church Council — Definitive</div>
+            <div class="d-title">Council of Trent — Sunday Declared Church Authority's Proof</div>
+            <div class="d-what">The Council of Trent (1545–1563) was Rome's definitive response to the Reformation. Archbishop Gaspar de Fosso of Reggio delivered the pivotal argument: the Protestant claim of "Sola Scriptura" (Bible alone) is disproved by their own Sunday observance. If Protestants truly followed Scripture alone, they would keep Saturday. Their Sunday worship proves they accept church Tradition over Scripture — whether they admit it or not.</div>
+            <div class="d-quote">"The Sabbath, the most glorious day in the law, has been changed into the Lord's Day… These and other similar matters have not ceased by virtue of Christ's teaching (for He said He came to fulfil the law, not to destroy it), but they have been changed by the authority of the Church." — Archbishop Gaspar de Fosso, Council of Trent</div>
+            <div class="d-impact"><strong>Impact:</strong> Rome officially claimed Sunday observance as proof of its authority over Scripture. This is the single most theologically devastating admission in church history — Rome declares that Sunday is its mark of authority, not a biblical command.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">1599</div>
+        <div class="t-content">
+          <div class="decree both">
+            <div class="d-type dt-both">Forced Conversion</div>
+            <div class="d-title">Synod of Diamper — Indian Sabbath-Keepers Forcibly Converted</div>
+            <div class="d-what">Portuguese Archbishop Menezes forced the 1,547-year-old St. Thomas Christian community in Kerala, India, to abandon Saturday worship and adopt the Latin rite. Their entire manuscript tradition — including Aramaic Bibles — was burned. The longest-running Sabbatarian tradition in Asia was destroyed by fire, not by argument.</div>
+            <div class="d-impact"><strong>Impact:</strong> The most complete act of Sabbatarian cultural destruction in Asian history. 1,547 years of Saturday observance ended in a single synod.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">1618</div>
+        <div class="t-content">
+          <div class="decree state">
+            <div class="d-type dt-state">State Decree</div>
+            <div class="d-title">King James I — Book of Sports: Sunday Entertainment Mandated</div>
+            <div class="d-what">King James I of England issued the Declaration of Sports, mandating that Sunday entertainment (archery, dancing, Morris dances) be permitted after church services. While seemingly pro-Sunday-relaxation, this was aimed specifically at Sabbatarian Puritans who wanted Sunday to be observed as strictly as the biblical Sabbath. The Book of Sports punished those who enforced strict Sunday rest — paradoxically undermining Sabbatarian theology while maintaining the Sunday institution.</div>
+            <div class="d-impact"><strong>Impact:</strong> Demonstrated that even within Sunday-keeping Christianity, the authorities were hostile to true Sabbatarian theology. The state wanted Sunday worship, not Saturday rest transferred to Sunday.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">1661</div>
+        <div class="t-content">
+          <div class="decree state">
+            <div class="d-type dt-state">State Law</div>
+            <div class="d-title">Virginia Colony — First American Sunday Law (1610, Revised 1661)</div>
+            <div class="d-what">Virginia's "Dale's Laws" (1610) included the first Sunday-keeping requirement in the American colonies — with the death penalty for the third offence. Revised in 1661 to impose fines and imprisonment for Sunday work. These colonial blue laws were directly imported from English law and became the foundation of American Sunday legislation. All 13 colonies eventually enacted similar laws.</div>
+            <div class="d-impact"><strong>Impact:</strong> Transplanted European Sunday enforcement to America. The foundation of all U.S. blue laws — which persist in modified form in most states today.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       ERA V: 1800–1960
+  ═══════════════════════════════ -->
+  <div class="era-section">
+    <div class="era-hdr">
+      <span class="era-icon">⚖</span>
+      <span class="era-name">Era V — The Modern Sunday-Law Movement: Courts, Legislatures, and Lobbies</span>
+      <span class="era-dates">1800 – 1960 AD</span>
+    </div>
+
+    <div class="compact-grid">
+      <div>
+        <div class="decree state">
+          <div class="d-type dt-state">U.S. Supreme Court</div>
+          <div class="d-title">1885 — California: In re Newman — Sabbath-Keeper Jailed</div>
+          <div class="d-what">A Jewish man was arrested for working on Sunday in violation of California's blue law. While the case was overturned on appeal, it demonstrated that American Sunday laws affected all Saturday-keepers — Jewish, Seventh Day Baptist, and Adventist alike.</div>
+          <div class="d-impact"><strong>Impact:</strong> Proved that Sunday laws function as anti-Sabbatarian instruments regardless of their stated purpose.</div>
+        </div>
+        <div class="decree state" style="margin-top:6px;">
+          <div class="d-type dt-state">State Persecution</div>
+          <div class="d-title">1879–1896 — Arkansas, Tennessee, Georgia: Mass Sunday-Law Prosecutions</div>
+          <div class="d-what">Over 100 Seventh-day Adventists were arrested, fined, and imprisoned in southern U.S. states for working on Sunday after resting on Saturday. R.M. King of Tennessee served 53 days on a chain gang (1889). W.H. Parker of Georgia was arrested while plowing his own field — on Monday morning. The charges: violating Sunday by working within sight of a church. The National Religious Liberty Association documented 76 cases in Arkansas alone between 1884–1889.</div>
+          <div class="d-impact"><strong>Impact:</strong> Proved that American Sunday laws were enforceable instruments of religious persecution even under the First Amendment. The most concentrated persecution of Saturday-keepers in American history.</div>
+        </div>
+        <div class="decree state" style="margin-top:6px;">
+          <div class="d-type dt-state">U.S. Senate</div>
+          <div class="d-title">1888 — Blair Sunday Rest Bill (U.S. Senate Bill 2983)</div>
+          <div class="d-what">Senator Henry W. Blair introduced a bill to establish Sunday as a national day of rest across all U.S. states and territories. The bill was supported by the National Reform Association, the Women's Christian Temperance Union, and most major Protestant denominations. It failed — largely due to opposition from Seventh-day Adventists, Jews, and civil libertarians. A.T. Jones testified before the Senate committee and is credited with helping defeat the bill.</div>
+          <div class="d-impact"><strong>Impact:</strong> The closest the United States has come to a national Sunday law. Its defeat is the most important legislative victory for Sabbath freedom in American history.</div>
+        </div>
+      </div>
+      <div>
+        <div class="decree both">
+          <div class="d-type dt-both">International</div>
+          <div class="d-title">1923 — League of Nations: International Sunday Rest Convention (Draft)</div>
+          <div class="d-what">The International Labour Organisation (ILO), under the League of Nations, proposed international conventions mandating a weekly day of rest — with Sunday as the default day. ILO Convention C014 (1921) established the principle that industrial workers should receive one rest day per seven — and while technically neutral, the implementation in virtually every signatory nation designated Sunday.</div>
+          <div class="d-impact"><strong>Impact:</strong> Internationalised Sunday rest for the first time. The precursor to modern European and UN "universal day of rest" campaigns.</div>
+        </div>
+        <div class="decree state" style="margin-top:6px;">
+          <div class="d-type dt-state">U.S. Supreme Court</div>
+          <div class="d-title">1961 — McGowan v. Maryland (U.S. Supreme Court)</div>
+          <div class="d-what">The U.S. Supreme Court upheld state Sunday-closing laws (blue laws) as constitutional, ruling 8-1 that they had evolved from religious origins into secular "uniform day of rest" laws. Chief Justice Earl Warren wrote: "The present purpose and effect of most of them is to provide a uniform day of rest for all citizens." This legal fiction — that a law created by the church to enforce Sunday worship is now "secular" — became the template for all subsequent Sunday-law defences worldwide.</div>
+          <div class="d-quote">"The present purpose and effect of most of them is to provide a uniform day of rest for all citizens; the fact that this day is Sunday, a day of particular significance for the dominant Christian sects, does not bar the State from achieving its secular goals." — Chief Justice Earl Warren, McGowan v. Maryland (1961)</div>
+          <div class="d-impact"><strong>Impact:</strong> Created the legal doctrine that Sunday laws are "secular" — the single most important legal shield for modern Sunday legislation. Every subsequent defence of Sunday laws globally cites this reasoning.</div>
+        </div>
+        <div class="decree state" style="margin-top:6px;">
+          <div class="d-type dt-state">U.S. Supreme Court</div>
+          <div class="d-title">1961 — Braunfeld v. Brown (U.S. Supreme Court)</div>
+          <div class="d-what">Jewish merchants challenged Pennsylvania's Sunday-closing law as a burden on their free exercise of religion (they lost two days of business: Saturday by conviction, Sunday by law). The Supreme Court ruled 6-3 against them: the economic burden on Saturday-keepers was "indirect" and therefore constitutional. Justice Brennan's dissent warned this was exactly the kind of majority-religion imposition the First Amendment was designed to prevent.</div>
+          <div class="d-impact"><strong>Impact:</strong> Established that Saturday-keepers could be economically penalised by Sunday laws without constitutional remedy. The most devastating Supreme Court ruling for Sabbath freedom in U.S. history.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <div class="pq-text">"Of course the Catholic Church claims that the change was her act. And the act is a mark of her ecclesiastical power and authority in religious matters."</div>
+    <div class="pq-source">— Letter from C.F. Thomas, Chancellor of Cardinal Gibbons, October 28, 1895</div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       ERA VI: 1960–2026
+  ═══════════════════════════════ -->
+  <div class="era-section">
+    <div class="era-hdr">
+      <span class="era-icon">🌐</span>
+      <span class="era-name">Era VI — The 21st-Century Push: "Secular" Sunday Laws Return</span>
+      <span class="era-dates">1998 – 2026</span>
+    </div>
+
+    <div class="timeline">
+      <div class="t-row">
+        <div class="t-year">1998</div>
+        <div class="t-content">
+          <div class="decree church">
+            <div class="d-type dt-church">Papal Encyclical</div>
+            <div class="d-title">Pope John Paul II — Dies Domini: "Sunday Must Be Enforced by Civil Law"</div>
+            <div class="d-what">Pope John Paul II issued the apostolic letter Dies Domini ("The Lord's Day"), calling on civil authorities to protect Sunday rest through legislation. The document explicitly states that Sunday observance should not depend on individual choice but should be supported by civil law: "In the particular circumstances of our own time, Christians will naturally strive to ensure that civil legislation respects their duty to keep Sunday holy."</div>
+            <div class="d-quote">"In the particular circumstances of our own time, Christians will naturally strive to ensure that civil legislation respects their duty to keep Sunday holy." — Dies Domini, §67</div>
+            <div class="d-impact"><strong>Impact:</strong> The most explicit papal call for civil Sunday enforcement since the medieval period. Served as the theological foundation for the European Sunday Alliance and subsequent EU campaigns.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">2006</div>
+        <div class="t-content">
+          <div class="decree modern">
+            <div class="d-type dt-modern">EU / Lobby</div>
+            <div class="d-title">European Sunday Alliance Founded</div>
+            <div class="d-what">The European Sunday Alliance (ESA) was established to lobby for EU-wide Sunday protection legislation. Members include the Catholic Church (COMECE), the Protestant Church in Germany (EKD), the European Federation of Food, Agriculture and Tourism Trade Unions (EFFAT), and others. The ESA campaigns for "work-free Sundays" across the EU under health, family, and labour rights language — never openly religious arguments.</div>
+            <div class="d-impact"><strong>Impact:</strong> The most organised pan-European Sunday lobby since the medieval councils. Their "secular" framing follows the McGowan v. Maryland template: religious goal, secular language.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">2015</div>
+        <div class="t-content">
+          <div class="decree modern">
+            <div class="d-type dt-modern">Papal Encyclical</div>
+            <div class="d-title">Pope Francis — Laudato Si': Sunday Rest Linked to Climate Action</div>
+            <div class="d-what">Pope Francis's climate encyclical Laudato Si' explicitly links Sunday rest to environmental stewardship. Paragraph 237 states: "Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world." The encyclical frames mandatory rest days as climate action — providing a new, non-religious justification for Sunday legislation that can bypass First Amendment / Article 9 religious freedom protections.</div>
+            <div class="d-quote">"Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world… Rest on Sunday should be protected by civil legislation." — Laudato Si', §237</div>
+            <div class="d-impact"><strong>Impact:</strong> Created the "climate + rest day" framework that the European Sunday Alliance and UN sustainability advocates now use. For the first time, Sunday enforcement is framed as environmentalism — making religious opposition to it appear anti-science.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">2018</div>
+        <div class="t-content">
+          <div class="decree modern">
+            <div class="d-type dt-modern">National Law</div>
+            <div class="d-title">Poland — Sunday Trading Ban Enacted</div>
+            <div class="d-what">Poland enacted a comprehensive Sunday trading ban (effective March 2018, fully enforced January 2020) prohibiting most retail trade on Sundays. Supported by both the ruling Law and Justice party (PiS) and the Catholic Church. The law includes exemptions for fuel stations, pharmacies, and online commerce but prohibits most shops from opening. Violations are punishable by fines of up to PLN 100,000. This is the most restrictive Sunday-closing law enacted in Europe in the 21st century.</div>
+            <div class="d-impact"><strong>Impact:</strong> First major EU-member Sunday-closing law of the 21st century. Watched by the European Sunday Alliance as a model for EU-wide legislation.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">2021</div>
+        <div class="t-content">
+          <div class="decree modern">
+            <div class="d-type dt-modern">EU Resolution</div>
+            <div class="d-title">European Parliament — Resolution on "Work-Free Sundays"</div>
+            <div class="d-what">The European Parliament passed a non-binding resolution calling for member states to protect work-free Sundays as part of the Working Time Directive review. While non-binding, it signals institutional intent. The resolution was supported by the European Sunday Alliance, COMECE (Catholic bishops' conference), and major trade unions.</div>
+            <div class="d-impact"><strong>Impact:</strong> Moves the "European Sunday" concept from lobby campaign to parliamentary agenda. The path from resolution to directive to law is well-established in EU legislative procedure.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">2023</div>
+        <div class="t-content">
+          <div class="decree state">
+            <div class="d-type dt-state">U.S. Supreme Court</div>
+            <div class="d-title">Groff v. DeJoy (U.S. Supreme Court) — Sabbath Victory</div>
+            <div class="d-what">Gerald Groff, a Seventh-day Adventist postal worker, won a unanimous 9-0 Supreme Court ruling strengthening religious accommodation for Sabbath-keepers. The Court overturned the 1977 Trans World Airlines v. Hardison precedent (which allowed employers to deny Sabbath accommodation if it imposed "more than de minimis cost") and ruled that employers must show "substantial increased costs" to deny religious accommodation. The most important Sabbath-freedom ruling in American history.</div>
+            <div class="d-impact"><strong>Impact:</strong> Reversed 46 years of legal precedent that had been used to fire Saturday-keepers. The strongest legal protection for Sabbath observance in U.S. history — won by a Seventh-day Adventist.</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-year">2024–26</div>
+        <div class="t-content">
+          <div class="decree modern">
+            <div class="d-type dt-modern">Pending Legislation</div>
+            <div class="d-title">Active Sunday-Law Campaigns: Europe, USA, Africa</div>
+            <div class="d-what">U.S. Senate Resolution 323 (2024) proposes a "National Day of Rest." The European Sunday Alliance continues lobbying for EU-wide Sunday protection. Germany maintains strict Sunday-closing laws (Ladenschlussgesetz). Austria's Sunday trading ban is constitutionally protected. Hungary, Croatia, and Greece have strengthened Sunday restrictions. In Africa, South Africa's National Trading Hours Bill would restrict Sunday trading. The global trend is toward more Sunday legislation, not less — using health, labour, family, and environmental framing rather than religious arguments.</div>
+            <div class="d-impact"><strong>Impact:</strong> The 1,900-year pattern continues: new justifications, same result. The change from "honour the Lord's Day" (364 AD) to "protect workers' wellbeing" (2024) is a change of language, not of substance. The day being enforced is still Sunday. The day being suppressed is still Saturday.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div style="background:rgba(200,168,74,0.04);border:1px solid rgba(200,168,74,0.15);padding:22px 28px;margin:28px 0;">
+    <div style="font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">The Pattern Speaks</div>
+    <p style="font-size:12.5px;line-height:1.75;color:var(--text-dim);margin-bottom:12px;">
+      This page documents <strong style="color:var(--gold-hi)">1,891 years</strong> of continuous legislation against the seventh-day Sabbath. From Hadrian's imperial decree (135 AD) to the European Sunday Alliance's 2026 campaigns, no other practice in human history has required this much institutional effort to suppress. If Saturday worship had died naturally — as its opponents claim — it would not require active legislation in the 21st century. The fact that it does proves its opponents' own case: the Sabbath is not dead. It is alive. And it still requires 1,900 years of institutional machinery to keep it down.
+    </p>
+    <p style="font-size:12.5px;line-height:1.75;color:var(--text-dim);">
+      No truth that was wrong ever required this much effort to kill. No truth that was dead ever required this many laws to keep buried. The seventh-day Sabbath is the most legislated-against, persecuted, suppressed, and yet indestructible truth in the history of human civilisation. It has survived Roman emperors, papal councils, inquisitions, crusades, book-burnings, and constitutional courts. It will survive whatever comes next. <strong style="color:var(--gold-hi);">"The seventh day is the Sabbath of the Lord thy God."</strong> — Exodus 20:10.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Infographic XIV · Every Decree Against the Sabbath · The 1,900-Year War on Saturday · Truth Project — Prophetic Research Series<br>
+    Sources: Codex Justinianus · Codex Theodosianus · Canons of the Council of Laodicea (Hefele) · Canons of the Council of Elvira · Canons of the Council of Orléans III · Council of Trent, Session XXV · Philip Schaff, History of the Christian Church · Schaff-Herzog Encyclopedia · Dies Domini (John Paul II, 1998) · Laudato Si' (Francis, 2015) · McGowan v. Maryland, 366 U.S. 420 (1961) · Braunfeld v. Brown, 366 U.S. 599 (1961) · Groff v. DeJoy, 600 U.S. ___ (2023) · European Sunday Alliance Official Communications · Polish Sunday Trading Act (2018) · J.N. Andrews, History of the Sabbath (1873)
+  </div>
+
+</div>
+</body>
+</html>

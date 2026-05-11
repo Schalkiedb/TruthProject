@@ -341,6 +341,62 @@ const LIBRARY = [
         tagClass: "red",
         desc: "American Adventists imprisoned on chain gangs for working on Sundays — the historical persecution cycle and its prophetic parallel to today.",
       },
+      {
+        title: "Infographic XI — The Reformers' Witness",
+        file: "infographics/infographic11_reformers.html",
+        icon: "🕯️",
+        tag: "History",
+        tagClass: "blue",
+        desc: "Key Reformation figures and their statements on the Sabbath — what the Reformers actually said about Saturday vs. Sunday, and why most stopped short of restoring it.",
+      },
+      {
+        title: "Infographic XI-B — Witnesses Through the Ages",
+        file: "infographics/infographic11_witnesses.html",
+        icon: "📜",
+        tag: "History",
+        tagClass: "blue",
+        desc: "Faithful Sabbath-keeping communities from the apostolic era through the Reformation — Nazarenes, Waldensians, Paulicians, Lollards, and others who preserved the truth.",
+      },
+      {
+        title: "Infographic XII — The Sabbath in Every Language",
+        file: "infographics/infographic12_language_evidence.html",
+        icon: "🗣️",
+        tag: "Linguistic",
+        tagClass: "green",
+        desc: "105+ languages where the word for Saturday derives from 'Sabbath' — grouped by language family. The linguistic fossil record proves global Sabbath awareness predating Christianity.",
+      },
+      {
+        title: "Infographic XIII — The Forgotten Sabbath-Keepers",
+        file: "infographics/infographic13_forgotten_keepers.html",
+        icon: "🌍",
+        tag: "History",
+        tagClass: "red",
+        desc: "30+ communities history overlooked — Nestorians, Jacobites, Armenians, Bogomils, Russian Subotniki, St. Thomas Christians of India, True Jesus Church of China, and more across 6 continents.",
+      },
+      {
+        title: "Infographic XIV — Every Decree Against the Sabbath",
+        file: "infographics/infographic14_councils_decrees.html",
+        icon: "⚖️",
+        tag: "History",
+        tagClass: "red",
+        desc: "The 1,900-year institutional war on Saturday: every known council, canon, imperial edict, inquisition, and modern law targeting Sabbath observance from 135 AD to 2026.",
+      },
+      {
+        title: "Sabbath World Infographic",
+        file: "infographics/sabbath_world_infographic.html",
+        icon: "🌐",
+        tag: "Visual",
+        tagClass: "green",
+        desc: "Interactive global view of Sabbath-keeping communities worldwide — historical and present-day Saturday observance mapped across every continent.",
+      },
+      {
+        title: "World Map — Global Saturday Keeping",
+        file: "infographics/worldmap.html",
+        icon: "🗺️",
+        tag: "Visual",
+        tagClass: "blue",
+        desc: "Full-page interactive world map showing the geographic spread of Saturday Sabbath observance throughout history and today.",
+      },
     ],
   },
   {
@@ -1811,6 +1867,9 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeMobileSidebar();
   }
+  // Don't intercept arrow keys when the user is typing in an input or textarea
+  const tag = document.activeElement?.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
   // Left/Right arrow keys for prev/next when doc is open
   if (document.getElementById("doc-page").style.display !== "none") {
     if (e.key === "ArrowLeft" && !e.ctrlKey) navigatePrev();
