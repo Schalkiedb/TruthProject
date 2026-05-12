@@ -18,6 +18,84 @@
     ]
   },
   {
+    "category": "Revelation Prophecy",
+    "icon": "📖",
+    "videos": [
+      {
+        "title": "The Book of Daniel — Sermon by Doug Batchelor",
+        "youtubeId": "FXn4lzJ3E_E",
+        "desc": "A comprehensive overview of the book of Daniel and its relevance to end-time prophecy. Presented by Pastor Doug Batchelor of Amazing Facts.",
+        "tags": ["Daniel", "Prophecy", "Doug Batchelor"]
+      },
+      {
+        "title": "The Beast Identified — Revelation 13",
+        "youtubeId": "RhX3y9A_wJc",
+        "desc": "Identifying the Beast of Revelation 13 through the prophetic markers given in Daniel and Revelation. Who is this power and how do we know?",
+        "tags": ["Revelation 13", "Beast", "Prophecy"]
+      },
+      {
+        "title": "The Three Angels' Messages — Revelation 14",
+        "youtubeId": "YEj3VqNx1rg",
+        "desc": "God's final warning message to the world before Christ's return — the Three Angels of Revelation 14 and what their messages mean for us today.",
+        "tags": ["Three Angels", "Revelation 14", "Final Warning"]
+      }
+    ]
+  },
+  {
+    "category": "Sabbath Truth",
+    "icon": "✨",
+    "videos": [
+      {
+        "title": "The Sabbath — Is It Still Relevant?",
+        "youtubeId": "y07d-cT1MUE",
+        "desc": "Examining whether the seventh-day Sabbath is still binding on Christians today. What does the Bible actually teach about the Sabbath in the New Testament?",
+        "tags": ["Sabbath", "New Testament", "Commandments"]
+      },
+      {
+        "title": "Who Changed the Sabbath? — Catholic Admissions",
+        "youtubeId": "4FHp9mTcXas",
+        "desc": "Catholic leaders and theologians openly admit the change from Saturday to Sunday was made by the authority of the Church, not by any biblical command.",
+        "tags": ["Sabbath", "Catholic", "Sunday", "History"]
+      }
+    ]
+  },
+  {
+    "category": "Reformation History",
+    "icon": "🕯️",
+    "videos": [
+      {
+        "title": "The Waldenses — Keepers of the Flame",
+        "youtubeId": "bRt9DTlsVo8",
+        "desc": "The Waldensian Christians of the Alpine valleys who preserved the true gospel and the Sabbath through centuries of fierce persecution by Rome.",
+        "tags": ["Waldenses", "Reformation", "Persecution", "History"]
+      },
+      {
+        "title": "Luther and the Reformation",
+        "youtubeId": "T0GkjbKcKk0",
+        "desc": "Martin Luther's 95 Theses, his stand at the Diet of Worms, and how the Protestant Reformation challenged papal supremacy with 'Sola Scriptura.'",
+        "tags": ["Luther", "Reformation", "Sola Scriptura"]
+      }
+    ]
+  },
+  {
+    "category": "Health Message",
+    "icon": "🌿",
+    "videos": [
+      {
+        "title": "Diet and Health — Prof. Walter Veith",
+        "youtubeId": "3dF1DxOKIDE",
+        "desc": "The scientific and biblical case for a plant-based diet and the health principles found in Scripture. Prof. Walter Veith, Amazing Discoveries.",
+        "tags": ["Health", "Diet", "Walter Veith"]
+      },
+      {
+        "title": "The Daniel Diet — God's Plan for Health",
+        "youtubeId": "jX7dZCWsXnY",
+        "desc": "How Daniel's refusal of the king's food illustrates God's health principles and the connection between physical health and spiritual clarity.",
+        "tags": ["Daniel Diet", "Health", "Bible"]
+      }
+    ]
+  },
+  {
     "category": "Creation vs. Evolution — Genesis Conflict",
     "icon": "🌍",
     "videos": [

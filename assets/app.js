@@ -129,7 +129,7 @@ const LIBRARY = [
         icon: "⚡",
         tag: "Interactive",
         tagClass: "red",
-        desc: "A comprehensive chronicle of war, pestilence, earthquakes, and the explosion of knowledge — from 1 AD to 2025. Interactive world conflict map, heatmaps, and prophecy correlation tables.",
+        desc: "A comprehensive chronicle of war, pestilence, earthquakes, and the explosion of knowledge — from 1 AD to 2026. Interactive world conflict map, heatmaps, and prophecy correlation tables.",
       },
     ],
   },
@@ -1384,7 +1384,7 @@ function buildHomeCards() {
       card.className = "topic-card";
       if (item.tagClass) card.dataset.accent = item.tagClass;
       card.innerHTML = `
-        <div class="card-icon">${item.icon}</div>
+        <div class="card-icon" role="img" aria-label="${escapeHtml(item.title)} icon">${item.icon}</div>
         <div class="card-title">${item.title}</div>
         <div class="card-desc">${item.desc}</div>
         <span class="card-tag ${item.tagClass || ""}">${item.tag}</span>
@@ -1424,6 +1424,13 @@ function showHome() {
   // Hide the Bible verse translation pill on home page
   const pill = document.getElementById("verse-translation-pill");
   if (pill) pill.style.display = "none";
+
+  // Hide floating TOC
+  hideTOC();
+
+  // Refresh study path (marks completed steps) and continue reading
+  buildStudyPath();
+  buildContinueReading();
 
   // Re-trigger scroll reveal for sections that may not have been seen yet
   requestAnimationFrame(() => initScrollReveal());
@@ -1595,9 +1602,11 @@ async function loadDocument(filePath, fragment) {
     // ── Progressive rendering ─────────────────────────────────────────
     // Split the markdown at top-level headings so we can render the first
     // section immediately and append the rest during idle time.
-    // On slow mobile connections / CPUs this prevents the page from
-    // appearing frozen — the user sees content within ~1 second.
-    const sections = md.split(/(?=\n#{1,2} )/);
+    // For very large documents (>5000 lines), split more aggressively
+    // at h3 headings too to prevent main-thread jank.
+    const isLargeDoc = md.length > 100000; // ~5000+ lines
+    const splitPattern = isLargeDoc ? /(?=\n#{1,3} )/ : /(?=\n#{1,2} )/;
+    const sections = md.split(splitPattern);
 
     // First section → paint it now
     contentEl.innerHTML = sanitize(marked.parse(sections[0]));
@@ -1634,6 +1643,12 @@ async function loadDocument(filePath, fragment) {
 
     // Wire up Bible verse references for translation comparison
     wireVerseReferences(contentEl);
+
+    // Build floating table of contents from headings
+    buildTOC();
+
+    // Track reading progress
+    trackReadingProgress(filePath);
   } catch (err) {
     console.error("Failed to load document:", err);
     if (
@@ -1825,23 +1840,7 @@ function toggleSidebar(event) {
   }
 }
 
-/* ── Nav Search ───────────────────────────────────────────── */
-document.getElementById("nav-search").addEventListener("input", function () {
-  const q = this.value.trim().toLowerCase();
-  document.querySelectorAll(".nav-item").forEach((el) => {
-    const title = el.querySelector(".nav-item-title").textContent.toLowerCase();
-    el.classList.toggle("hidden", q.length > 0 && !title.includes(q));
-  });
-  // Auto-expand sections that have matches
-  if (q.length > 0) {
-    document.querySelectorAll(".nav-section").forEach((section) => {
-      const hasVisible = [...section.querySelectorAll(".nav-item")].some(
-        (el) => !el.classList.contains("hidden"),
-      );
-      section.classList.toggle("collapsed", !hasVisible);
-    });
-  }
-});
+/* ── Nav Search — handled in initApp() ────────────────────── */
 
 /* ── Back to Top ──────────────────────────────────────────── */
 window.addEventListener("scroll", () => {
@@ -2677,7 +2676,328 @@ function showVideoCategory(catIdx) {
 }
 
 /* ── Init ─────────────────────────────────────────────────── */
+
+/* ══════════════════════════════════════════════════════════════
+   B1 — RECOMMENDED STUDY PATH
+══════════════════════════════════════════════════════════════ */
+const STUDY_PATH = [
+  { title: "Daniel 2: The Prophecy of the Kingdoms", file: "Study_guides/Daniel_2_Prophecy_Study_Guide.md" },
+  { title: "Daniel 7 & 8: The Kingdoms Revealed", file: "Study_guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md" },
+  { title: "Daniel 9 Part 1: The Messiah Foretold", file: "Study_guides/Daniel_9_Prophecy_Messiah_Part_1_Study_Guide.md" },
+  { title: "Daniel 9 Part 2: Crucifixion & Resurrection", file: "Study_guides/Daniel_9_Prophecy_Messiah_Part_2_Study_Guide.md" },
+  { title: "The Little Horn: Unmasking the Mystery", file: "Study_guides/The_Little_Horn_Complete_Study_Guide.md" },
+  { title: "The Other Beast: America in Prophecy", file: "Study_guides/The_Other_Beast_Complete_Study_Guide.md" },
+  { title: "The Mark of the Beast", file: "Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md" },
+  { title: "God's Special Sign: The Sabbath", file: "Study_guides/Gods_Special_Sign_Complete_Study_Guide.md" },
+  { title: "Battle at the End — Part 1", file: "Study_guides/Battle_at_the_End_Part_1_Complete_Study_Guide.md" },
+  { title: "Battle at the End — Part 2", file: "Study_guides/Battle_at_the_End_Part_2_Complete_Study_Guide.md" },
+];
+
+function buildStudyPath() {
+  const container = document.getElementById("study-path");
+  if (!container) return;
+  container.innerHTML = "";
+
+  const readDocs = JSON.parse(localStorage.getItem("readDocs") || "[]");
+
+  STUDY_PATH.forEach((step, i) => {
+    if (i > 0) {
+      const arrow = document.createElement("span");
+      arrow.className = "step-arrow";
+      arrow.textContent = "→";
+      container.appendChild(arrow);
+    }
+
+    const el = document.createElement("div");
+    el.className = "study-path-step";
+    if (readDocs.includes(step.file)) el.classList.add("completed");
+    el.innerHTML = `<span class="step-number">${i + 1}</span><span class="step-title">${escapeHtml(step.title)}</span>`;
+    el.addEventListener("click", () => loadDocument(step.file));
+    container.appendChild(el);
+  });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   B3 — READING PROGRESS TRACKING
+══════════════════════════════════════════════════════════════ */
+function trackReadingProgress(filePath) {
+  if (!filePath || filePath.endsWith(".html")) return;
+
+  const readDocs = JSON.parse(localStorage.getItem("readDocs") || "[]");
+  if (!readDocs.includes(filePath)) {
+    readDocs.push(filePath);
+    localStorage.setItem("readDocs", JSON.stringify(readDocs));
+  }
+
+  localStorage.setItem("lastReadDoc", filePath);
+  localStorage.setItem("lastReadTime", Date.now().toString());
+}
+
+function saveScrollPosition() {
+  const lastDoc = localStorage.getItem("lastReadDoc");
+  if (lastDoc && document.getElementById("doc-page").style.display !== "none") {
+    localStorage.setItem("scrollPos_" + lastDoc, window.scrollY.toString());
+  }
+}
+
+function restoreScrollPosition(filePath) {
+  const saved = localStorage.getItem("scrollPos_" + filePath);
+  if (saved) {
+    setTimeout(() => window.scrollTo({ top: parseInt(saved, 10) }), 100);
+  }
+}
+
+function buildContinueReading() {
+  const section = document.getElementById("continue-reading-section");
+  const grid = document.getElementById("continue-reading-cards");
+  if (!section || !grid) return;
+
+  const lastDoc = localStorage.getItem("lastReadDoc");
+  const lastTime = localStorage.getItem("lastReadTime");
+  if (!lastDoc || !lastTime) {
+    section.style.display = "none";
+    return;
+  }
+
+  const item = ALL_ITEMS.find((i) => i.file === lastDoc);
+  if (!item) {
+    section.style.display = "none";
+    return;
+  }
+
+  const elapsed = Date.now() - parseInt(lastTime, 10);
+  const minutes = Math.floor(elapsed / 60000);
+  let timeAgo = "just now";
+  if (minutes >= 60 * 24) timeAgo = `${Math.floor(minutes / (60 * 24))} day(s) ago`;
+  else if (minutes >= 60) timeAgo = `${Math.floor(minutes / 60)} hour(s) ago`;
+  else if (minutes > 0) timeAgo = `${minutes} min ago`;
+
+  grid.innerHTML = "";
+  const card = document.createElement("div");
+  card.className = "topic-card";
+  if (item.tagClass) card.dataset.accent = item.tagClass;
+  card.innerHTML = `
+    <div class="card-icon">${item.icon}</div>
+    <div class="card-title">${item.title}</div>
+    <div class="card-desc">Last read ${timeAgo}. Click to resume where you left off.</div>
+    <span class="card-tag ${item.tagClass || ""}">Continue Reading</span>
+  `;
+  card.addEventListener("click", () => {
+    loadDocument(item.file);
+    setTimeout(() => restoreScrollPosition(item.file), 500);
+  });
+  grid.appendChild(card);
+  section.style.display = "";
+}
+
+/* ══════════════════════════════════════════════════════════════
+   B4 — FLOATING TABLE OF CONTENTS
+══════════════════════════════════════════════════════════════ */
+let _tocVisible = false;
+let _tocScrollHandler = null;
+
+function buildTOC() {
+  const contentEl = document.getElementById("doc-content");
+  const tocList = document.getElementById("doc-toc-list");
+  const tocPanel = document.getElementById("doc-toc");
+  const tocToggle = document.getElementById("doc-toc-toggle");
+
+  if (!contentEl || !tocList || !tocPanel || !tocToggle) return;
+
+  const headings = contentEl.querySelectorAll("h2[id], h3[id]");
+  tocList.innerHTML = "";
+
+  if (headings.length < 3) {
+    tocPanel.classList.remove("visible");
+    tocToggle.style.display = "none";
+    _tocVisible = false;
+    return;
+  }
+
+  headings.forEach((h) => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#" + h.id;
+    a.textContent = h.textContent.replace(/^#+\s*/, "");
+    if (h.tagName === "H3") a.classList.add("toc-h3");
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const topbarH = document.getElementById("topbar").offsetHeight;
+      const targetY = h.getBoundingClientRect().top + window.scrollY - topbarH - 12;
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    });
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+
+  tocToggle.style.display = "block";
+
+  // Highlight active heading on scroll
+  if (_tocScrollHandler) window.removeEventListener("scroll", _tocScrollHandler);
+  _tocScrollHandler = () => {
+    const topbarH = document.getElementById("topbar").offsetHeight + 20;
+    let activeId = "";
+    headings.forEach((h) => {
+      if (h.getBoundingClientRect().top < topbarH + 60) activeId = h.id;
+    });
+    tocList.querySelectorAll("a").forEach((a) => {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + activeId);
+    });
+  };
+  window.addEventListener("scroll", _tocScrollHandler, { passive: true });
+}
+
+function toggleTOC() {
+  const tocPanel = document.getElementById("doc-toc");
+  if (!tocPanel) return;
+  _tocVisible = !_tocVisible;
+  tocPanel.classList.toggle("visible", _tocVisible);
+}
+
+function hideTOC() {
+  const tocPanel = document.getElementById("doc-toc");
+  const tocToggle = document.getElementById("doc-toc-toggle");
+  if (tocPanel) tocPanel.classList.remove("visible");
+  if (tocToggle) tocToggle.style.display = "none";
+  _tocVisible = false;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   B5 — DARK / LIGHT THEME TOGGLE
+══════════════════════════════════════════════════════════════ */
+function toggleTheme() {
+  const isLight = document.body.classList.toggle("light-theme");
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+  const btn = document.getElementById("btn-theme-toggle");
+  if (btn) btn.textContent = isLight ? "☾" : "☀";
+}
+
+function applyStoredTheme() {
+  const stored = localStorage.getItem("theme");
+  if (stored === "light") {
+    document.body.classList.add("light-theme");
+    const btn = document.getElementById("btn-theme-toggle");
+    if (btn) btn.textContent = "☾";
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   B2 — FULL-TEXT SEARCH
+══════════════════════════════════════════════════════════════ */
+const _searchIndex = new Map(); // file → { title, section, content }
+let _searchIndexBuilt = false;
+
+async function buildSearchIndex() {
+  if (_searchIndexBuilt) return;
+  _searchIndexBuilt = true;
+
+  for (const item of ALL_ITEMS) {
+    if (item.file.endsWith(".html") || item.file.endsWith(".pdf") ||
+        item.file.endsWith(".png") || item.file.endsWith(".jpg") || item.file.endsWith(".jpeg")) {
+      // Only index markdown files
+      continue;
+    }
+    try {
+      const res = await fetch(item.file);
+      if (!res.ok) continue;
+      const text = await res.text();
+      _searchIndex.set(item.file, {
+        title: item.title,
+        section: item.sectionLabel || "",
+        content: text.substring(0, 50000), // cap to prevent memory issues
+      });
+    } catch {
+      // Skip files that can't be fetched
+    }
+  }
+}
+
+function searchContent(query) {
+  if (!query || query.length < 2) return [];
+  const q = query.toLowerCase();
+  const results = [];
+
+  for (const [file, data] of _searchIndex) {
+    const titleMatch = data.title.toLowerCase().includes(q);
+    const contentLower = data.content.toLowerCase();
+    const contentIdx = contentLower.indexOf(q);
+
+    if (titleMatch || contentIdx >= 0) {
+      let snippet = "";
+      if (contentIdx >= 0) {
+        const start = Math.max(0, contentIdx - 60);
+        const end = Math.min(data.content.length, contentIdx + query.length + 80);
+        snippet = (start > 0 ? "…" : "") +
+          data.content.substring(start, end).replace(/\n/g, " ").trim() +
+          (end < data.content.length ? "…" : "");
+      }
+      results.push({
+        file,
+        title: data.title,
+        section: data.section,
+        snippet,
+        titleMatch,
+      });
+    }
+  }
+
+  // Title matches first, then content matches
+  results.sort((a, b) => (b.titleMatch ? 1 : 0) - (a.titleMatch ? 1 : 0));
+  return results.slice(0, 15);
+}
+
+function highlightSnippet(snippet, query) {
+  if (!snippet || !query) return snippet;
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return snippet.replace(new RegExp(`(${escaped})`, "gi"), "<mark>$1</mark>");
+}
+
+function showSearchResults(query) {
+  const panel = document.getElementById("search-results-panel");
+  if (!panel) return;
+
+  if (!query || query.length < 2) {
+    panel.classList.remove("visible");
+    panel.innerHTML = "";
+    return;
+  }
+
+  const results = searchContent(query);
+
+  if (results.length === 0) {
+    panel.innerHTML = '<div class="search-result-item"><div class="search-result-title">No results found</div></div>';
+    panel.classList.add("visible");
+    return;
+  }
+
+  panel.innerHTML = results.map((r) => `
+    <div class="search-result-item" data-file="${escapeHtml(r.file)}">
+      <div class="search-result-title">${escapeHtml(r.title)}</div>
+      <div class="search-result-section">${escapeHtml(r.section)}</div>
+      ${r.snippet ? `<div class="search-result-snippet">${highlightSnippet(escapeHtml(r.snippet), query)}</div>` : ""}
+    </div>
+  `).join("");
+
+  panel.querySelectorAll(".search-result-item").forEach((el) => {
+    el.addEventListener("click", () => {
+      const file = el.dataset.file;
+      if (file) {
+        panel.classList.remove("visible");
+        document.getElementById("nav-search").value = "";
+        if (window.innerWidth <= 900) closeMobileSidebar();
+        loadDocument(file);
+      }
+    });
+  });
+
+  panel.classList.add("visible");
+}
+
+/* ══════════════════════════════════════════════════════════════
+   INIT APP
+══════════════════════════════════════════════════════════════ */
 async function initApp() {
+  applyStoredTheme();
   rebuildAllItems();
   try {
     await populateSourceDocumentsSection();
@@ -2696,28 +3016,63 @@ async function initApp() {
   }
   buildSidebar();
   buildHomeCards();
+  buildStudyPath();
+  buildContinueReading();
   showHome();
 
+  // Build full-text search index in background
+  requestIdleCallback ? requestIdleCallback(() => buildSearchIndex()) : setTimeout(buildSearchIndex, 2000);
+
+  // Enhanced search — full-text when index is ready, title-only otherwise
+  let searchDebounce = null;
+  document.getElementById("nav-search").addEventListener("input", function () {
+    const q = this.value.trim();
+    // Always filter sidebar items by title
+    const qLower = q.toLowerCase();
+    document.querySelectorAll(".nav-item").forEach((el) => {
+      const title = el.querySelector(".nav-item-title").textContent.toLowerCase();
+      el.classList.toggle("hidden", q.length > 0 && !title.includes(qLower));
+    });
+    if (q.length > 0) {
+      document.querySelectorAll(".nav-section").forEach((section) => {
+        const hasVisible = [...section.querySelectorAll(".nav-item")].some(
+          (el) => !el.classList.contains("hidden"),
+        );
+        section.classList.toggle("collapsed", !hasVisible);
+      });
+    }
+    // Full-text search with debounce
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => showSearchResults(q), 200);
+  });
+
+  // Close search results when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".sidebar-search")) {
+      const panel = document.getElementById("search-results-panel");
+      if (panel) panel.classList.remove("visible");
+    }
+  });
+
+  // Save scroll position periodically
+  let scrollSaveTimer = null;
+  window.addEventListener("scroll", () => {
+    clearTimeout(scrollSaveTimer);
+    scrollSaveTimer = setTimeout(saveScrollPosition, 500);
+  }, { passive: true });
+
   // When the pill dropdown changes, keep everything in sync.
-  // Works whether the modal is open or closed.
   document.getElementById("verse-default-translation")?.addEventListener("change", (e) => {
     const newTranslation = e.target.value;
-
-    // Re-expand all inline verse texts in the new translation
     const contentEl = document.getElementById("doc-content");
     if (contentEl) expandAllInlineVerses(contentEl, newTranslation);
-
-    // If the modal is open, switch it too
     const overlay = document.getElementById("verse-modal-overlay");
     const isOpen = overlay && overlay.classList.contains("active");
-
     if (isOpen) {
-      // Update the active tab highlight
       const tabsEl = document.getElementById("verse-modal-tabs");
       tabsEl?.querySelectorAll(".vm-tab").forEach((tab) => {
         tab.classList.toggle("active", tab.dataset.translation === newTranslation);
       });
-      // Reload the verse in the new translation
       const ref = document.getElementById("verse-modal-ref")?.textContent;
       if (ref) loadVerseInModal(ref, newTranslation);
     }

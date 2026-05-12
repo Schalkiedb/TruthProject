@@ -470,6 +470,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <div class="stat-item"><div class="stat-dot sd-blue"></div><span class="lbl">Monitoring: </span><span class="stat-n" id="s-blue">0</span></div>
   <div class="stat-item"><div class="stat-dot sd-green"></div><span class="lbl">Safer: </span><span class="stat-n" id="s-green">0</span></div>
   <div class="stat-item"><div class="stat-dot sd-gray"></div><span class="lbl">Tracking: </span><span class="stat-n" id="s-gray">0</span></div>
+  <div class="stat-item" id="last-refreshed" style="margin-left:auto;opacity:0.7;font-size:10px"><span class="lbl">Updated: </span><span id="refresh-time">—</span></div>
 </div>
 
 <!-- Map -->
@@ -2822,6 +2823,9 @@ if (location.hash) {
     var ts = LiveEvents.getLastUpdateTime();
     if (ts) {
       document.getElementById("live-updated").textContent = formatTime(ts);
+      // Also update the stats bar timestamp
+      var refreshEl = document.getElementById("refresh-time");
+      if (refreshEl) refreshEl.textContent = formatTime(ts);
     }
 
     // Render list
