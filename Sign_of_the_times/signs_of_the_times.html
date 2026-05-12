@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Signs of the Times — Historical Escalation</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
   :root {
     --bg: #0a0a0c;
@@ -904,6 +905,60 @@
   }
   .nav-theme-btn { margin-left: 0; }
 
+  /* Back to library button */
+  .nav-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(200,150,62,0.12);
+    border: 1px solid rgba(200,150,62,0.3);
+    border-radius: 6px;
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(0.55rem, 1.6vw, 0.65rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s;
+    margin-right: 4px;
+    flex-shrink: 0;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-back-btn:hover { background: rgba(200,150,62,0.22); }
+
+  /* Leaflet conflict map */
+  #conflictLeafletMap {
+    width: 100%;
+    height: 420px;
+    border-radius: 3px;
+    background: #0a0d1a;
+    z-index: 1;
+  }
+  @media (max-width: 600px) { #conflictLeafletMap { height: 280px; } }
+  /* Leaflet popup → site theme */
+  .leaflet-popup-content-wrapper {
+    background: #16161c !important;
+    border: 1px solid rgba(200,150,62,0.35) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.55) !important;
+    color: #e8e4dc !important;
+  }
+  .leaflet-popup-tip { background: #16161c !important; }
+  .leaflet-popup-close-button { color: #888880 !important; top: 6px !important; right: 8px !important; }
+  .leaflet-popup-content { margin: 10px 14px; font-family: 'IBM Plex Mono', monospace; min-width: 200px; }
+  .conflict-popup-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; color: #e8e4dc; margin-bottom: 4px; line-height: 1.3; }
+  .conflict-popup-type { font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; font-weight: 600; }
+  .conflict-popup-deaths { font-size: 0.72rem; color: #9aa3c0; line-height: 1.55; }
+  .conflict-popup-year { font-size: 0.58rem; color: #5c6580; margin-top: 5px; }
+  .leaflet-container { font-family: 'IBM Plex Mono', monospace; }
+  .leaflet-tooltip { background: rgba(22,22,28,0.95); border: 1px solid rgba(200,150,62,0.3); color: #e8e4dc; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; padding: 4px 8px; }
+  .leaflet-tooltip::before { border-top-color: rgba(200,150,62,0.3); }
+
   .search-bar {
     border-top: 1px solid var(--border);
     background: var(--surface);
@@ -1725,6 +1780,7 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
+    <a class="nav-back-btn" href="../index.html">← Library</a>
     <button class="nav-btn active" onclick="showSection('overview',this)">Overview</button>
     <button class="nav-btn" onclick="showSection('wars',this)">⚔ Wars & Conflict</button>
     <button class="nav-btn" onclick="showSection('financial',this)">$ Financial Wars</button>
@@ -3961,16 +4017,8 @@
   <div id="conflictMapWrap" class="fade-in" style="min-height:320px;position:relative">
     <div id="mapStatsBar" class="map-stats-bar"></div>
     <div id="mapFilterBar" class="map-filter-bar"></div>
-    <div id="conflictMap" style="width:100%;position:relative;overflow:hidden">
-      <div style="color:var(--text-dim);font-family:'IBM Plex Mono',monospace;font-size:0.7rem;padding:1rem;text-align:center">Loading map...</div>
-    </div>
+    <div id="conflictLeafletMap"></div>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:0.75rem;align-items:center" id="mapLegend"></div>
-  </div>
-  <div class="map-tooltip" id="mapTooltip">
-    <div class="map-tooltip-name" id="tooltipName"></div>
-    <div class="map-tooltip-type" id="tooltipType"></div>
-    <div class="map-tooltip-deaths" id="tooltipDeaths"></div>
-    <div class="map-tooltip-year" id="tooltipYear"></div>
   </div>
 
   <div class="prophecy-box fade-in">
@@ -4718,6 +4766,7 @@
 </div>
 </section>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 // =====================================================================
 // SECTION NAVIGATION
@@ -5471,7 +5520,7 @@ function handleHashNavigation() {
 // INIT
 // =====================================================================
 // =====================================================================
-// WORLD CONFLICT MAP — ENHANCED
+// WORLD CONFLICT MAP — LEAFLET
 // =====================================================================
 const conflictData = [
   // [name, lat, lon, type, deaths, year, region]
@@ -5523,10 +5572,10 @@ const conflictData = [
 ];
 
 const conflictColors = {
-  conventional: '#c84040',
-  civil: '#c87030',
-  proxy: '#c8a040',
-  terror: '#8060c8'
+  conventional: '#e53e3e',
+  civil: '#dd6b20',
+  proxy: '#c9a227',
+  terror: '#805ad5'
 };
 
 const conflictLabels = {
@@ -5537,181 +5586,142 @@ const conflictLabels = {
 };
 
 let activeMapFilter = 'all';
+let conflictMap = null;
+let conflictMarkers = [];
 
 function buildConflictMap() {
-  const wrap = document.getElementById('conflictMap');
-  if (!wrap) return;
-
-  const W = wrap.clientWidth || 700;
-  const H = Math.max(340, Math.min(W * 0.48, 440));
-  const padX = 10, padY = 10;
-
-  function lonToX(lon) { return padX + ((lon + 180) / 360) * (W - 2*padX); }
-  function latToY(lat) { return padY + ((90 - lat) / 180) * (H - 2*padY); }
-
-  const landColor = 'rgba(200,180,140,0.12)';
-  const borderColor = 'rgba(200,180,140,0.2)';
-
-  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" class="conflict-map-svg" style="background:linear-gradient(180deg, rgba(10,10,20,0.5) 0%, rgba(8,14,22,0.6) 100%);border-radius:3px">
-  <defs>
-    <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    <radialGradient id="dotGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <!-- Latitude grid lines -->
-  <line x1="${lonToX(-180)}" y1="${latToY(60)}" x2="${lonToX(180)}" y2="${latToY(60)}" stroke="rgba(200,200,200,0.04)" stroke-width="0.5"/>
-  <line x1="${lonToX(-180)}" y1="${latToY(30)}" x2="${lonToX(180)}" y2="${latToY(30)}" stroke="rgba(200,200,200,0.04)" stroke-width="0.5"/>
-  <line x1="${lonToX(-180)}" y1="${latToY(0)}" x2="${lonToX(180)}" y2="${latToY(0)}" stroke="rgba(200,200,200,0.06)" stroke-width="0.5"/>
-  <line x1="${lonToX(-180)}" y1="${latToY(-30)}" x2="${lonToX(180)}" y2="${latToY(-30)}" stroke="rgba(200,200,200,0.04)" stroke-width="0.5"/>
-  <!-- Longitude grid lines -->
-  <line x1="${lonToX(-90)}" y1="${latToY(80)}" x2="${lonToX(-90)}" y2="${latToY(-60)}" stroke="rgba(200,200,200,0.04)" stroke-width="0.5"/>
-  <line x1="${lonToX(0)}" y1="${latToY(80)}" x2="${lonToX(0)}" y2="${latToY(-60)}" stroke="rgba(200,200,200,0.06)" stroke-width="0.5"/>
-  <line x1="${lonToX(90)}" y1="${latToY(80)}" x2="${lonToX(90)}" y2="${latToY(-60)}" stroke="rgba(200,200,200,0.04)" stroke-width="0.5"/>
-  <!-- Tropic lines -->
-  <line x1="${lonToX(-180)}" y1="${latToY(23.5)}" x2="${lonToX(180)}" y2="${latToY(23.5)}" stroke="rgba(200,150,62,0.08)" stroke-width="0.5" stroke-dasharray="4,4"/>
-  <line x1="${lonToX(-180)}" y1="${latToY(-23.5)}" x2="${lonToX(180)}" y2="${latToY(-23.5)}" stroke="rgba(200,150,62,0.08)" stroke-width="0.5" stroke-dasharray="4,4"/>
-  <!-- Continent silhouettes -->
-  <path d="M${lonToX(-17)} ${latToY(15)} L${lonToX(-5)} ${latToY(5)} L${lonToX(10)} ${latToY(5)} L${lonToX(35)} ${latToY(15)} L${lonToX(50)} ${latToY(12)} L${lonToX(51)} ${latToY(2)} L${lonToX(45)} ${latToY(-10)} L${lonToX(40)} ${latToY(-30)} L${lonToX(28)} ${latToY(-35)} L${lonToX(17)} ${latToY(-35)} L${lonToX(12)} ${latToY(-18)} L${lonToX(-15)} ${latToY(-5)} L${lonToX(-17)} ${latToY(10)} Z" fill="${landColor}" stroke="${borderColor}" stroke-width="0.5"/>
-  <path d="M${lonToX(-10)} ${latToY(36)} L${lonToX(-5)} ${latToY(44)} L${lonToX(0)} ${latToY(51)} L${lonToX(15)} ${latToY(54)} L${lonToX(28)} ${latToY(70)} L${lonToX(40)} ${latToY(60)} L${lonToX(55)} ${latToY(55)} L${lonToX(30)} ${latToY(38)} L${lonToX(28)} ${latToY(37)} L${lonToX(15)} ${latToY(38)} Z" fill="${landColor}" stroke="${borderColor}" stroke-width="0.5"/>
-  <path d="M${lonToX(30)} ${latToY(38)} L${lonToX(55)} ${latToY(55)} L${lonToX(80)} ${latToY(72)} L${lonToX(135)} ${latToY(72)} L${lonToX(168)} ${latToY(60)} L${lonToX(145)} ${latToY(40)} L${lonToX(135)} ${latToY(25)} L${lonToX(120)} ${latToY(20)} L${lonToX(100)} ${latToY(10)} L${lonToX(80)} ${latToY(8)} L${lonToX(60)} ${latToY(22)} L${lonToX(55)} ${latToY(30)} Z" fill="${landColor}" stroke="${borderColor}" stroke-width="0.5"/>
-  <path d="M${lonToX(-168)} ${latToY(55)} L${lonToX(-145)} ${latToY(72)} L${lonToX(-70)} ${latToY(80)} L${lonToX(-55)} ${latToY(70)} L${lonToX(-55)} ${latToY(47)} L${lonToX(-65)} ${latToY(44)} L${lonToX(-82)} ${latToY(42)} L${lonToX(-90)} ${latToY(30)} L${lonToX(-105)} ${latToY(20)} L${lonToX(-120)} ${latToY(18)} L${lonToX(-118)} ${latToY(32)} L${lonToX(-110)} ${latToY(40)} L${lonToX(-120)} ${latToY(49)} L${lonToX(-140)} ${latToY(58)} Z" fill="${landColor}" stroke="${borderColor}" stroke-width="0.5"/>
-  <path d="M${lonToX(-82)} ${latToY(10)} L${lonToX(-60)} ${latToY(12)} L${lonToX(-50)} ${latToY(5)} L${lonToX(-35)} ${latToY(-8)} L${lonToX(-40)} ${latToY(-22)} L${lonToX(-60)} ${latToY(-38)} L${lonToX(-72)} ${latToY(-50)} L${lonToX(-75)} ${latToY(-38)} L${lonToX(-78)} ${latToY(-20)} L${lonToX(-80)} ${latToY(0)} Z" fill="${landColor}" stroke="${borderColor}" stroke-width="0.5"/>
-  <path d="M${lonToX(114)} ${latToY(-22)} L${lonToX(122)} ${latToY(-18)} L${lonToX(137)} ${latToY(-12)} L${lonToX(150)} ${latToY(-22)} L${lonToX(154)} ${latToY(-28)} L${lonToX(145)} ${latToY(-38)} L${lonToX(130)} ${latToY(-35)} L${lonToX(115)} ${latToY(-32)} Z" fill="${landColor}" stroke="${borderColor}" stroke-width="0.5"/>
-  <!-- Region labels -->
-  <text x="${lonToX(-100)}" y="${latToY(52)}" font-family="IBM Plex Mono,monospace" font-size="7" fill="rgba(200,200,200,0.12)" text-anchor="middle">NORTH AMERICA</text>
-  <text x="${lonToX(-60)}" y="${latToY(-20)}" font-family="IBM Plex Mono,monospace" font-size="7" fill="rgba(200,200,200,0.12)" text-anchor="middle">SOUTH AMERICA</text>
-  <text x="${lonToX(15)}" y="${latToY(50)}" font-family="IBM Plex Mono,monospace" font-size="7" fill="rgba(200,200,200,0.12)" text-anchor="middle">EUROPE</text>
-  <text x="${lonToX(20)}" y="${latToY(-5)}" font-family="IBM Plex Mono,monospace" font-size="7" fill="rgba(200,200,200,0.12)" text-anchor="middle">AFRICA</text>
-  <text x="${lonToX(90)}" y="${latToY(45)}" font-family="IBM Plex Mono,monospace" font-size="7" fill="rgba(200,200,200,0.12)" text-anchor="middle">ASIA</text>
-  <text x="${lonToX(135)}" y="${latToY(-25)}" font-family="IBM Plex Mono,monospace" font-size="7" fill="rgba(200,200,200,0.12)" text-anchor="middle">OCEANIA</text>`;
-
-  // Plot conflict dots with pulsing rings
-  conflictData.forEach(([name, lat, lon, type, deaths, year, region], idx) => {
-    const x = lonToX(lon);
-    const y = latToY(lat);
-    const color = conflictColors[type] || '#c84040';
-    const isRecent = year >= 2020;
-    const dotSize = isRecent ? 6 : 5;
-    svg += `<g class="conflict-dot" data-type="${type}" data-idx="${idx}"
-      onmouseenter="showMapTooltip(event, ${idx})" onmouseleave="hideMapTooltip()"
-      ontouchstart="showMapTooltip(event, ${idx})">
-      <circle cx="${x}" cy="${y}" r="${dotSize + 12}" fill="${color}" opacity="0.06"/>
-      ${isRecent ? `<circle cx="${x}" cy="${y}" r="12" fill="${color}" opacity="0.12" class="pulse-ring"/>` : ''}
-      <circle cx="${x}" cy="${y}" r="${dotSize + 4}" fill="${color}" opacity="0.15"/>
-      <circle class="dot-core" cx="${x}" cy="${y}" r="${dotSize}" fill="${color}" opacity="0.9" filter="url(#glow)"/>
-    </g>`;
-  });
-
-  svg += `</svg>`;
-  wrap.innerHTML = svg;
-
-  // Build stats bar
-  const statsBar = document.getElementById('mapStatsBar');
-  if (statsBar) {
-    const typeCounts = {};
-    conflictData.forEach(d => { typeCounts[d[3]] = (typeCounts[d[3]] || 0) + 1; });
-    statsBar.innerHTML = `
-      <div class="map-stat"><span class="map-stat-num" style="color:var(--red)">${conflictData.length}</span> conflicts plotted</div>
-      <div class="map-stat"><span class="map-stat-num" style="color:var(--red)">${typeCounts['conventional'] || 0}</span> conventional</div>
-      <div class="map-stat"><span class="map-stat-num" style="color:var(--orange)">${typeCounts['civil'] || 0}</span> civil</div>
-      <div class="map-stat"><span class="map-stat-num" style="color:var(--gold)">${typeCounts['proxy'] || 0}</span> proxy</div>
-      <div class="map-stat"><span class="map-stat-num" style="color:var(--purple)">${typeCounts['terror'] || 0}</span> terror</div>
-      <div class="map-stat" style="margin-left:auto;color:var(--text-dim);font-size:0.55rem">hover dots for details</div>
-    `;
+  // If Leaflet is not loaded yet, try again shortly
+  if (typeof L === 'undefined') {
+    setTimeout(buildConflictMap, 300);
+    return;
   }
 
-  // Build filter bar
+  const container = document.getElementById('conflictLeafletMap');
+  if (!container) return;
+
+  // Destroy existing map instance if rebuilding
+  if (conflictMap) {
+    conflictMap.remove();
+    conflictMap = null;
+    conflictMarkers = [];
+  }
+
+  conflictMap = L.map('conflictLeafletMap', {
+    center: [20, 15],
+    zoom: 2,
+    minZoom: 2,
+    maxZoom: 7,
+    zoomControl: true,
+    attributionControl: false,
+    scrollWheelZoom: false
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© CartoDB © OSM',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(conflictMap);
+
+  L.control.attribution({ position: 'bottomright', prefix: '' })
+    .addAttribution('© OpenStreetMap | CartoDB')
+    .addTo(conflictMap);
+
+  // Plot markers
+  conflictData.forEach(([name, lat, lon, type, deaths, year, region]) => {
+    const color = conflictColors[type] || '#e53e3e';
+    const isRecent = year >= 2020;
+    const sz = isRecent ? 14 : 11;
+    const pulse = isRecent ? ' pulse' : '';
+
+    const icon = L.divIcon({
+      className: '',
+      html: `<div class="cmarker${pulse}" style="width:${sz}px;height:${sz}px;position:relative">
+               <div style="position:absolute;inset:0;border-radius:50%;background:${color}40"></div>
+               <div style="position:absolute;inset:0;border-radius:50%;background:${color};box-shadow:0 0 ${sz/1.5}px ${color}90;animation:${isRecent ? 'conflictRing 2s ease-out infinite' : 'none'}"></div>
+             </div>`,
+      iconSize: [sz, sz],
+      iconAnchor: [sz / 2, sz / 2]
+    });
+
+    const popupContent = `
+      <div class="conflict-popup-name">${name}</div>
+      <div class="conflict-popup-type" style="color:${color}">${conflictLabels[type] || type} · ${region}</div>
+      <div class="conflict-popup-deaths">${deaths}</div>
+      <div class="conflict-popup-year">Active since ${year}</div>
+    `;
+
+    const marker = L.marker([lat, lon], { icon })
+      .addTo(conflictMap)
+      .bindTooltip(name, { direction: 'top', className: '', offset: [0, -4] })
+      .bindPopup(popupContent, { maxWidth: 280, className: '' });
+
+    marker._conflictType = type;
+    conflictMarkers.push(marker);
+  });
+
+  // Stats bar
+  buildConflictStats('all');
+
+  // Filter bar
   const filterBar = document.getElementById('mapFilterBar');
   if (filterBar) {
     filterBar.innerHTML = `
-      <button class="map-filter-btn active" onclick="filterMap('all', this)">All</button>
-      ${Object.entries(conflictColors).map(([type, color]) =>
-        `<button class="map-filter-btn" onclick="filterMap('${type}', this)">
-          <span class="dot" style="background:${color}"></span>${conflictLabels[type]}
-        </button>`
-      ).join('')}
+      <button class="map-filter-btn active" onclick="filterMap('all',this)">All (${conflictData.length})</button>
+      ${Object.entries(conflictColors).map(([type, color]) => {
+        const count = conflictData.filter(d => d[3] === type).length;
+        return `<button class="map-filter-btn" onclick="filterMap('${type}',this)">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${color};margin-right:5px;vertical-align:middle;box-shadow:0 0 5px ${color}80"></span>${conflictLabels[type]} (${count})</button>`;
+      }).join('')}
     `;
   }
 
-  // Legend
+  // Legend (region counts)
   const legend = document.getElementById('mapLegend');
   if (legend) {
     const regionCounts = {};
     conflictData.forEach(d => { regionCounts[d[6]] = (regionCounts[d[6]] || 0) + 1; });
     legend.innerHTML = Object.entries(regionCounts)
-      .sort((a,b) => b[1] - a[1])
+      .sort((a, b) => b[1] - a[1])
       .map(([region, count]) =>
         `<div style="display:flex;align-items:center;gap:0.3rem;font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--text-dim)">
-          <span style="color:var(--text-muted);font-weight:bold">${count}</span> ${region}
-        </div>`
-      ).join('') +
-      `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.52rem;color:var(--text-dim);margin-left:auto;font-style:italic">Data: UCDP, ACLED, ICG — updated May 2025</div>`;
+          <span style="color:var(--accent);font-weight:bold">${count}</span> ${region}
+        </div>`)
+      .join('') +
+      `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.52rem;color:var(--text-dim);margin-left:auto;font-style:italic">Data: UCDP · ACLED · ICG — May 2025</div>`;
   }
+}
+
+function buildConflictStats(filter) {
+  const statsBar = document.getElementById('mapStatsBar');
+  if (!statsBar) return;
+  const visible = filter === 'all' ? conflictData : conflictData.filter(d => d[3] === filter);
+  const typeCounts = {};
+  visible.forEach(d => { typeCounts[d[3]] = (typeCounts[d[3]] || 0) + 1; });
+  statsBar.innerHTML = `
+    <div class="map-stat"><span class="map-stat-num" style="color:${conflictColors.conventional}">${typeCounts['conventional'] || 0}</span> conventional</div>
+    <div class="map-stat"><span class="map-stat-num" style="color:${conflictColors.civil}">${typeCounts['civil'] || 0}</span> civil</div>
+    <div class="map-stat"><span class="map-stat-num" style="color:${conflictColors.proxy}">${typeCounts['proxy'] || 0}</span> proxy</div>
+    <div class="map-stat"><span class="map-stat-num" style="color:${conflictColors.terror}">${typeCounts['terror'] || 0}</span> terror</div>
+    <div class="map-stat" style="margin-left:auto;color:var(--text-dim);font-size:0.55rem">scroll map to navigate</div>
+  `;
 }
 
 function filterMap(type, btn) {
   activeMapFilter = type;
   document.querySelectorAll('.map-filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
-  document.querySelectorAll('.conflict-dot').forEach(dot => {
-    if (type === 'all' || dot.dataset.type === type) {
-      dot.classList.remove('hidden');
+
+  conflictMarkers.forEach((marker, idx) => {
+    const mtype = marker._conflictType;
+    if (type === 'all' || mtype === type) {
+      if (conflictMap && !conflictMap.hasLayer(marker)) marker.addTo(conflictMap);
     } else {
-      dot.classList.add('hidden');
+      if (conflictMap && conflictMap.hasLayer(marker)) conflictMap.removeLayer(marker);
     }
   });
-  // Update stats display
-  const statsBar = document.getElementById('mapStatsBar');
-  if (statsBar) {
-    const visible = type === 'all' ? conflictData.length : conflictData.filter(d => d[3] === type).length;
-    const firstStat = statsBar.querySelector('.map-stat-num');
-    if (firstStat) firstStat.textContent = visible;
-  }
+
+  buildConflictStats(type);
 }
-
-function showMapTooltip(e, idx) {
-  const tooltip = document.getElementById('mapTooltip');
-  if (!tooltip || !conflictData[idx]) return;
-  const [name, lat, lon, type, deaths, year, region] = conflictData[idx];
-  const color = conflictColors[type] || '#c84040';
-
-  document.getElementById('tooltipName').textContent = name;
-  document.getElementById('tooltipType').innerHTML = `<span style="color:${color}">${conflictLabels[type] || type}</span> · ${region}`;
-  document.getElementById('tooltipDeaths').textContent = deaths;
-  document.getElementById('tooltipYear').textContent = `Since ${year}`;
-
-  tooltip.classList.add('visible');
-
-  // Position near cursor but keep on screen
-  const rect = tooltip.getBoundingClientRect();
-  let x = e.clientX + 14;
-  let y = e.clientY - 10;
-  if (x + 290 > window.innerWidth) x = e.clientX - 290;
-  if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - 10;
-  if (y < 0) y = 10;
-  tooltip.style.left = x + 'px';
-  tooltip.style.top = y + 'px';
-}
-
-function hideMapTooltip() {
-  const tooltip = document.getElementById('mapTooltip');
-  if (tooltip) tooltip.classList.remove('visible');
-}
-
-// Rebuild map on window resize
-let mapResizeTimer;
-window.addEventListener('resize', () => {
-  clearTimeout(mapResizeTimer);
-  mapResizeTimer = setTimeout(() => {
-    buildConflictMap();
-    if (activeMapFilter !== 'all') {
-      const activeBtn = document.querySelector('.map-filter-btn.active');
-      filterMap(activeMapFilter, activeBtn);
-    }
-  }, 250);
-});
 
 document.addEventListener('DOMContentLoaded', () => {
   observeElements();
@@ -5722,12 +5732,6 @@ document.addEventListener('DOMContentLoaded', () => {
   buildConflictMap();
   assignEntryIds();
   handleHashNavigation();
-  // Hide map tooltip on scroll or touch outside
-  document.addEventListener('scroll', hideMapTooltip, { passive: true });
-  document.addEventListener('touchstart', (e) => {
-    if (!e.target.closest('.conflict-dot')) hideMapTooltip();
-  }, { passive: true });
-  // Update theme button if light mode was restored
   if (document.body.classList.contains('light-mode')) {
     const btn = document.getElementById('themeBtn');
     if (btn) btn.textContent = '☽';
