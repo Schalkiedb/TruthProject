@@ -4,13 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A complete prophetic study library covering Daniel, Revelation, the mark of the beast, the Sabbath truth, and end-time events — built on Scripture alone. Includes interactive maps, infographics, video lectures, and primary source documents." />
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Babylon's Wine — The Constantine Legacy & God's Final Call" />
+  <meta property="og:description" content="A complete prophetic study library covering Daniel, Revelation, the mark of the beast, the Sabbath truth, and end-time events — built on Scripture alone." />
+  <meta property="og:url" content="https://schalkiedb.github.io/TruthProject/" />
+  <meta property="og:image" content="https://schalkiedb.github.io/TruthProject/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Babylon's Wine — The Constantine Legacy & God's Final Call" />
+  <meta name="twitter:description" content="A complete prophetic study library covering Daniel, Revelation, the mark of the beast, the Sabbath truth, and end-time events — built on Scripture alone." />
+  <meta name="twitter:image" content="https://schalkiedb.github.io/TruthProject/assets/og-image.png" />
   <title>Babylon's Wine — The Constantine Legacy &amp; God's Final Call</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0c0f1a" />
+  <link rel="apple-touch-icon" href="assets/icon-192.svg" />
   <link rel="stylesheet" href="assets/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 </head>
 <body>
+
+  <!-- Skip to main content (accessibility) -->
+  <a href="#content-area" class="skip-to-content">Skip to main content</a>
+
+  <!-- No-JS fallback -->
+  <noscript>
+    <div style="background:#1a0f2e;color:#e6c04c;text-align:center;padding:40px 20px;font-family:Georgia,serif;font-size:18px;line-height:1.7;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <h1 style="font-size:32px;margin-bottom:16px">✦ Babylon's Wine</h1>
+      <p>This study library requires JavaScript to load documents, navigate between topics, and display interactive content.</p>
+      <p style="margin-top:12px">Please enable JavaScript in your browser settings and reload the page.</p>
+    </div>
+  </noscript>
 
   <!-- ══════════════════════════════════════════════════════
        SIDEBAR
@@ -27,8 +54,9 @@
     </div>
 
     <div class="sidebar-search">
-      <input id="nav-search" type="text" placeholder="Search topics…" autocomplete="off" />
+      <input id="nav-search" type="text" placeholder="Search topics & content…" autocomplete="off" />
       <span class="search-icon">⌕</span>
+      <div id="search-results-panel"></div>
     </div>
 
     <nav id="sidebar-nav">
@@ -56,6 +84,7 @@
         <span id="breadcrumb-title"></span>
       </div>
       <div id="topbar-actions">
+        <button id="btn-theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀</button>
         <button id="btn-print" onclick="window.print()" title="Print / Save as PDF">⎙ Print</button>
       </div>
     </header>
@@ -75,6 +104,23 @@
           </p>
           <div class="hero-verse">"Come out of her, My people" — Revelation 18:4</div>
         </div>
+
+        <!-- Recommended Study Path -->
+        <section class="card-section study-path-section">
+          <h2 class="section-heading">
+            <span class="section-icon" role="img" aria-label="compass">🧭</span> Recommended Study Path
+          </h2>
+          <p class="study-path-intro">New here? Follow this guided path through the prophecies — each study builds on the last.</p>
+          <div class="study-path" id="study-path"></div>
+        </section>
+
+        <!-- Continue Reading (shown when user has reading history) -->
+        <section class="card-section" id="continue-reading-section" style="display:none">
+          <h2 class="section-heading">
+            <span class="section-icon" role="img" aria-label="bookmark">🔖</span> Continue Reading
+          </h2>
+          <div class="card-grid" id="continue-reading-cards"></div>
+        </section>
 
         <!-- Study Guides cards -->
         <section class="card-section">
@@ -187,6 +233,15 @@
 
       <!-- DOCUMENT VIEW (shown when a doc is selected) -->
       <div id="doc-page" style="display:none">
+        <!-- Floating Table of Contents -->
+        <nav id="doc-toc" class="doc-toc" aria-label="Table of Contents">
+          <div class="doc-toc-header">
+            <span>Contents</span>
+            <button id="doc-toc-close" onclick="toggleTOC()" title="Close table of contents">✕</button>
+          </div>
+          <ul id="doc-toc-list"></ul>
+        </nav>
+        <button id="doc-toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰ TOC</button>
         <div id="doc-content" class="markdown-body"></div>
         <!-- Infographic viewer: shown instead of doc-content for .html files -->
         <iframe id="doc-iframe"
@@ -267,6 +322,12 @@
 
   <!-- FUMS tracking for api.bible (required by terms of service) -->
   <script src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
-  <script src="assets/app.js?v=20260511"></script>
+  <script src="assets/app.js?v=20260512"></script>
+  <script>
+    // Register service worker for offline support
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
 </body>
 </html>
