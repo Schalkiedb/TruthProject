@@ -931,6 +931,44 @@
   }
   .nav-back-btn:hover { background: rgba(200,150,62,0.22); }
 
+  /* Fixed back button — always visible top-left */
+  .fixed-back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 13px;
+    background: rgba(10,10,12,0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(200,150,62,0.35);
+    border-radius: 6px;
+    color: var(--accent);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, border-color 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+  .fixed-back-btn:hover {
+    background: rgba(200,150,62,0.18);
+    border-color: rgba(200,150,62,0.6);
+  }
+  body.light-mode .fixed-back-btn {
+    background: rgba(245,240,232,0.92);
+    color: #8a5a10;
+    border-color: rgba(138,90,16,0.35);
+  }
+  @media print { .fixed-back-btn { display: none; } }
+
   /* Leaflet conflict map */
   #conflictLeafletMap {
     width: 100%;
@@ -1763,6 +1801,9 @@
 </style>
 </head>
 <body>
+
+<!-- FIXED BACK BUTTON -->
+<a class="fixed-back-btn" href="../index.html" title="Back to main library">&#8592; Library</a>
 
 <!-- HERO -->
 <section class="hero">
@@ -4779,7 +4820,14 @@ function showSection(id, btn) {
   if (btn) btn.classList.add('active');
   const navEl = document.querySelector('.nav');
   window.scrollTo({ top: navEl ? navEl.offsetTop : 0, behavior: 'smooth' });
-  setTimeout(() => { observeElements(); animateBars(); }, 80);
+  setTimeout(() => {
+    observeElements();
+    animateBars();
+    // Leaflet needs invalidateSize when its container transitions from display:none
+    if (id === 'convergence' && conflictMap) {
+      setTimeout(() => conflictMap.invalidateSize(), 100);
+    }
+  }, 80);
 }
 
 // =====================================================================
