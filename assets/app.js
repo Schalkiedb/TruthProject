@@ -1441,6 +1441,8 @@ function showLoading() {
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "flex";
   document.getElementById("error-state").style.display = "none";
+  const vcPage = document.getElementById("video-cat-page");
+  if (vcPage) vcPage.style.display = "none";
 }
 
 function showError(msg) {
@@ -1448,6 +1450,8 @@ function showError(msg) {
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "none";
   document.getElementById("error-state").style.display = "flex";
+  const vcPage = document.getElementById("video-cat-page");
+  if (vcPage) vcPage.style.display = "none";
   if (msg) document.getElementById("error-msg").textContent = msg;
 }
 
@@ -1526,6 +1530,8 @@ async function loadDocument(filePath, fragment) {
     document.getElementById("home-page").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("doc-page").style.display = "";
+    const _vcPage1 = document.getElementById("video-cat-page");
+    if (_vcPage1) _vcPage1.style.display = "none";
 
     const _prev = ALL_ITEMS[currentIndex - 1];
     const _next = ALL_ITEMS[currentIndex + 1];
@@ -1561,6 +1567,8 @@ async function loadDocument(filePath, fragment) {
     document.getElementById("home-page").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("doc-page").style.display = "";
+    const _vcPage2 = document.getElementById("video-cat-page");
+    if (_vcPage2) _vcPage2.style.display = "none";
     // Update prev/next buttons
     const _prev = ALL_ITEMS[currentIndex - 1];
     const _next = ALL_ITEMS[currentIndex + 1];
@@ -1613,6 +1621,8 @@ async function loadDocument(filePath, fragment) {
     document.getElementById("home-page").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("doc-page").style.display = "";
+    const _vcPage3 = document.getElementById("video-cat-page");
+    if (_vcPage3) _vcPage3.style.display = "none";
     window.scrollTo({ top: 0 });
 
     // Update prev/next immediately (don't wait for full render)
