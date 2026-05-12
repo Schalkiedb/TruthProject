@@ -2204,11 +2204,21 @@ const BIBLE_BOOKS_PATTERN = (function () {
  * Regex to detect Bible references inside <strong> tags.
  * Matches patterns like: Genesis 2:1-3, Psalm 119:105, 1 John 2:15-17
  * Also handles comma-separated verses like Matthew 25:31-33,46
+ * and letter-suffixed sub-verse references like Daniel 7:1b, Daniel 2:39a
  */
 const VERSE_REF_REGEX = new RegExp(
-  "\\b((?:" + BIBLE_BOOKS_PATTERN + ")\\.?\\s*\\d+\\s*:\\s*\\d+(?:\\s*[-–]\\s*\\d+)?(?:\\s*,\\s*\\d+(?:\\s*[-–]\\s*\\d+)?)*)\\b",
+  "\\b((?:" + BIBLE_BOOKS_PATTERN + ")\\.?\\s*\\d+\\s*:\\s*\\d+[a-f]?(?:\\s*[-–]\\s*\\d+[a-f]?)?(?:\\s*,\\s*\\d+[a-f]?(?:\\s*[-–]\\s*\\d+[a-f]?)?)*)(?=[^a-zA-Z]|$)",
   "gi"
 );
+
+/**
+ * Strip sub-verse letter suffixes (a–f) from a reference before
+ * sending to Bible APIs, which don't understand them.
+ * e.g. "Daniel 7:1b" → "Daniel 7:1", "Daniel 2:39a" → "Daniel 2:39"
+ */
+function stripVerseSuffix(ref) {
+  return ref.replace(/(\d+)[a-f]\b/g, "$1");
+}
 
 /**
  * After the markdown is rendered, scan the document for Bible references
@@ -2335,13 +2345,16 @@ async function fetchVerse(reference, translationId) {
 
   const t = BIBLE_TRANSLATIONS.find((x) => x.id === translationId);
 
+  // Strip sub-verse letter suffixes (a/b/c) before calling APIs
+  const cleanRef = stripVerseSuffix(reference);
+
   let data;
   if (t && t.source === "api.bible") {
     // Copyrighted translations via api.bible
-    data = await fetchVerseApiBible(reference, t.bibleId);
+    data = await fetchVerseApiBible(cleanRef, t.bibleId);
   } else {
     // Free translations via bible-api.com
-    const apiRef = encodeURIComponent(reference.trim());
+    const apiRef = encodeURIComponent(cleanRef.trim());
     const url = `https://bible-api.com/${apiRef}?translation=${translationId}`;
     const res = await fetch(url);
     if (!res.ok) {
