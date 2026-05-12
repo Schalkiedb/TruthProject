@@ -123,6 +123,14 @@ const LIBRARY = [
         tagClass: "red",
         desc: "Interactive world map tracking Sunday law activity, CBDC rollout, digital surveillance, and religious liberty — country by country. Click any nation for a full prophetic briefing.",
       },
+      {
+        title: "Signs of the Times: Historical Escalation",
+        file: "Sign_of_the_times/signs_of_the_times.html",
+        icon: "⚡",
+        tag: "Interactive",
+        tagClass: "red",
+        desc: "A comprehensive chronicle of war, pestilence, earthquakes, and the explosion of knowledge — from 1 AD to 2025. Interactive world conflict map, heatmaps, and prophecy correlation tables.",
+      },
     ],
   },
   {
@@ -1477,7 +1485,7 @@ async function loadDocument(filePath, fragment) {
   }
 
   // Full-page interactive tools — navigate directly (they need full viewport)
-  if (filePath === "prophecy_map.html") {
+  if (filePath === "prophecy_map.html" || filePath === "Sign_of_the_times/signs_of_the_times.html") {
     window.location.href = filePath;
     return;
   }
