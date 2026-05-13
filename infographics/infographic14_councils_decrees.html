@@ -334,6 +334,12 @@
     *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
     @page { size: A2 landscape; margin: 0.5cm; }
     body { background: var(--ink) !important; }
+    .page, .broadsheet {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: visible !important;
+      box-sizing: border-box !important;
+    }
   }
 </style>
 <!-- Infographic Enhancement: Mobile Responsive + Back Navigation + Branding -->

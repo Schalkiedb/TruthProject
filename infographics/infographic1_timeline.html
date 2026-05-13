@@ -376,6 +376,12 @@
     print-color-adjust: exact !important;
     color: #F4ECD8 !important;
   }
+  .page, .broadsheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
   .header::before {
     background: linear-gradient(90deg, transparent, #C9A84C, transparent) !important;
     -webkit-print-color-adjust: exact !important;
@@ -400,7 +406,7 @@
   }
   /* Central spine */
   .timeline::before {
-    background: linear-gradient(180deg, !important;
+    background: linear-gradient(180deg, #2D6A4F 0%, #2D6A4F 40%, #6B4226 50%, #8B1A1A 70%, #8B1A1A 100%) !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }

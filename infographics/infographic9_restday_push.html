@@ -39,6 +39,21 @@ ul.bl li strong{font-weight:700;}
 @media print {
   @page { size: A2 landscape; margin: 0.5cm; }
   body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .page, .broadsheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+  .content {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  [style*="margin:0 -42px"],
+  [style*="margin:0 -44px"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 </style>
 <!-- Infographic Enhancement: Mobile Responsive + Back Navigation + Branding -->
@@ -230,6 +245,12 @@ if (window.self !== window.top) {
 </div>
 
 <div class="content">
+
+<!-- COMPANION NOTICE -->
+<div style="-webkit-print-color-adjust:exact;print-color-adjust:exact;background-color:#1A1408;border-top:1px solid rgba(184,134,11,0.3);border-bottom:1px solid rgba(184,134,11,0.3);padding:9px 42px;display:flex;align-items:center;gap:14px;font-family:'EB Garamond',serif;font-size:13px;color:rgba(212,168,32,0.7);">
+  <span style="font-size:16px;">🌐</span>
+  <span><strong style="color:#D4A820;">Companion Infographic:</strong> This sheet maps all seven convergence streams in analytical depth (2011–2026). For a focused newspaper-style summary of the most recent legislative events, see <strong>Infographic VIII — The Global Rest Day Push (Current Initiatives)</strong>.</span>
+</div>
 
 <!-- ═══════════════════════════════ STATS ROW ═══════════════════════════════ -->
 <div style="margin-top:18px;" class="g6">

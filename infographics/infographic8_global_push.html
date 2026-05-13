@@ -549,7 +549,7 @@
   @media print {
     * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
     body { background: var(--paper) !important; }
-    .broadsheet { width: 100%; }
+    .broadsheet { width: 100% !important; max-width: 100% !important; }
     @page { size: A2 landscape; margin: 0.5cm; }
   }
 </style>
@@ -570,7 +570,11 @@
     color: #0E0C08 !important;
   }
   /* Newspaper broadsheet outer wrap */
-  .broadsheet {
+  .page, .broadsheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
     background: #F5EED8 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
@@ -1044,6 +1048,13 @@ if (window.self !== window.top) {
   </div>
 
   <!-- MAIN THREE-COLUMN GRID -->
+
+  <!-- COMPANION NOTICE -->
+  <div style="border-top:2px solid #B8860B;border-bottom:1px solid rgba(184,134,11,0.3);padding:9px 28px;display:flex;align-items:center;gap:14px;font-family:'Libre Baskerville',serif;font-size:11px;color:#7A5808;">
+    <span style="font-size:14px;">🔀</span>
+    <span><strong>Companion Infographic:</strong> This sheet covers current legislative events (2014–2026). For the full analytical breakdown across all seven convergence streams — political, religious, labour, environmental, media, business &amp; digital control — see <strong>Infographic IX — All Six Convergence Streams</strong>.</span>
+  </div>
+
   <div class="main-grid">
 
     <!-- COLUMN 1: USA Political -->
