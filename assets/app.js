@@ -2293,20 +2293,29 @@ async function expandAllInlineVerses(container, translationId) {
   const refs = container.querySelectorAll(".verse-ref[data-verse-ref]");
   if (refs.length === 0) return;
 
+  // Give each verse-ref a unique ID so duplicate references each get their own preview
+  refs.forEach((el, idx) => {
+    if (!el.dataset.verseIdx) el.dataset.verseIdx = String(idx);
+  });
+
   for (const el of refs) {
     const ref = el.dataset.verseRef;
     if (!ref) continue;
+    const uid = el.dataset.verseIdx;
 
-    // Find or create the single inline preview block for this reference.
+    // Find or create the inline preview block for THIS specific occurrence.
     // It lives as the next sibling of the <p> (or of the <strong> itself).
     const anchor = (el.parentElement && el.parentElement.tagName === "P") ? el.parentElement : el;
     let preview = anchor.nextElementSibling;
-    if (!preview || !preview.classList.contains("verse-inline-text") || preview.dataset.for !== ref) {
-      // Remove any stale previews for this ref anywhere in the container
-      container.querySelectorAll(`.verse-inline-text[data-for="${CSS.escape(ref)}"]`).forEach((old) => old.remove());
+    if (!preview || !preview.classList.contains("verse-inline-text") || preview.dataset.uid !== uid) {
+      // Remove any stale preview for THIS specific occurrence only
+      if (preview && preview.classList.contains("verse-inline-text") && preview.dataset.uid === uid) {
+        preview.remove();
+      }
       preview = document.createElement("div");
       preview.className = "verse-inline-text";
       preview.dataset.for = ref;
+      preview.dataset.uid = uid;
       anchor.after(preview);
     }
 

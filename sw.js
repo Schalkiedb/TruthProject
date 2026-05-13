@@ -3,7 +3,7 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v1";
+const CACHE_NAME = "babylons-wine-v2";
 
 const PRECACHE_URLS = [
   "./index.html",
