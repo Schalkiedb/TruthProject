@@ -359,7 +359,7 @@ const LIBRARY = [
       },
       {
         title: "Infographic XI-B — Witnesses Through the Ages",
-        file: "infographics/infographic11_witnesses.html",
+        file: "infographics/infographic11b_witnesses.html",
         icon: "📜",
         tag: "History",
         tagClass: "blue",

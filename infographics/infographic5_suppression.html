@@ -205,12 +205,18 @@
   color-adjust: exact !important;
 }
 @media print {
-  @page { margin: 0.5cm; }
+  @page { size: A3 landscape; margin: 0.5cm; }
   body {
     background: #080400 !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     color: #F2E8D0 !important;
+  }
+  .page, .broadsheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
   }
   .label-top {
     color: #7A6020 !important;
