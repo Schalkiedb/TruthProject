@@ -1641,6 +1641,11 @@ function buildHomeCards() {
       infographics: "infographics-cards",
       "interactive-tools": "interactive-tools-cards",
       "false-doctrines": "false-doctrines-cards",
+      "history-reformation": "history-reformation-cards",
+      "history-jesuits": "history-jesuits-cards",
+      "battle-frontal-lobe": "battle-frontal-lobe-cards",
+      "modern-diet-disease": "modern-diet-disease-cards",
+      "additional-reading": "additional-reading-cards",
     };
     const grid = document.getElementById(gridMap[section.id]);
     if (!grid) return;
