@@ -1,0 +1,75 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Archive site artifact
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory . \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=.git \
+            --exclude=.github \
+            .
+
+      - name: Upload pages artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          overwrite: true
+          compression-level: 0
+
+      - name: Remove duplicate github-pages artifacts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const run_id = context.runId;
+            const artifacts = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              { owner, repo, run_id, per_page: 100 }
+            );
+            const pagesArtifacts = artifacts
+              .filter((artifact) => artifact.name === "github-pages" && !artifact.expired)
+              .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+            core.info(`Found ${pagesArtifacts.length} github-pages artifact(s).`);
+            for (const artifact of pagesArtifacts.slice(1)) {
+              core.info(`Deleting duplicate artifact ID ${artifact.id}.`);
+              await github.rest.actions.deleteArtifact({
+                owner,
+                repo,
+                artifact_id: artifact.id
+              });
+            }
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages
