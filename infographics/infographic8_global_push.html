@@ -547,11 +547,72 @@
     color: var(--gold-d);
   }
 
+  /* ── RESPONSIVE — prevent text overlap ── */
+  @media (max-width: 1280px) {
+    .broadsheet { padding: 32px 24px 50px; }
+    .main-grid {
+      grid-template-columns: 1fr 1px 1fr;
+    }
+    .col-right {
+      grid-column: 1 / -1;
+      margin-top: 20px;
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .broadsheet { padding: 24px 16px 40px; }
+    .main-grid {
+      display: block;
+    }
+    .col-divider { display: none; }
+    .four-col { grid-template-columns: 1fr 1fr; }
+    .three-col { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .then-now { grid-template-columns: 1fr; }
+    .tn-arrow { display: none; }
+    .alarm-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 36px; }
+  }
+
+  @media (max-width: 768px) {
+    .broadsheet { padding: 16px 12px 30px; }
+    h1 { font-size: 28px; line-height: 1.15; }
+    h2 { font-size: 18px; }
+    h3 { font-size: 14px; }
+    p.body-text { font-size: 14px; }
+    p.body-text:first-of-type::first-letter { font-size: 36px; }
+    .four-col { grid-template-columns: 1fr; }
+    .stat-num { font-size: 32px; }
+    .breaking-banner { flex-direction: column; gap: 8px; }
+    .pull-quote p { font-size: 15px; }
+    .full-band { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 16px; }
+    .country-grid { gap: 4px; }
+  }
+
+  @media (max-width: 480px) {
+    .broadsheet { padding: 10px 8px 20px; }
+    h1 { font-size: 22px; }
+    .masthead { padding: 10px 0; }
+    .edition-line { font-size: 8px; letter-spacing: 3px; }
+    .deck { font-size: 11px; }
+    .init-box { padding: 10px; }
+    .stat-box { padding: 10px 8px; }
+  }
+
   @media print {
     * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
     body { background: var(--paper) !important; }
     .broadsheet { width: 100% !important; max-width: 100% !important; }
-    @page { size: A4 portrait; margin: 0.5cm; }
+    .main-grid { display: block; }
+    .col-divider { display: none; }
+    .col-right { display: block; }
+    .four-col { grid-template-columns: 1fr 1fr; }
+    .three-col { grid-template-columns: 1fr; }
+    .alarm-grid { grid-template-columns: 1fr; }
+    .then-now { grid-template-columns: 1fr; }
+    .tn-arrow { display: none; }
+    @page { size: A4 portrait; margin: 1.5cm; }
   }
 </style>
 
