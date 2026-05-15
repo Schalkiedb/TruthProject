@@ -1,0 +1,287 @@
+/* ══════════════════════════════════════════════════════════════
+   Shared Print & Responsive Styles
+   Applied to all infographics and study HTML pages
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── RESPONSIVE: Make fixed-width pages scale ── */
+@media screen and (max-width: 1300px) {
+  .page, .broadsheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  .content {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .page, .broadsheet {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .main-grid {
+    display: block !important;
+  }
+  .col-divider {
+    display: none !important;
+  }
+  .four-col, .g4 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .three-col, .g3, .ag {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .g6 {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+  h1 {
+    font-size: clamp(24px, 5vw, 54px) !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page, .broadsheet {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .content {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .four-col, .g4 {
+    grid-template-columns: 1fr !important;
+  }
+  .three-col, .g3, .ag {
+    grid-template-columns: 1fr !important;
+  }
+  .two-col, .g2 {
+    grid-template-columns: 1fr !important;
+  }
+  .g6 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .then-now, .tn {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .tna, .tn-arrow {
+    display: none !important;
+  }
+  .alarm-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .breaking-banner {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .stat-num {
+    font-size: 28px !important;
+  }
+  .sec-head {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  h1 {
+    font-size: clamp(20px, 6vw, 42px) !important;
+    letter-spacing: 0 !important;
+  }
+  h2 {
+    font-size: clamp(16px, 4vw, 22px) !important;
+  }
+  .parallel-grid, .church-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page, .broadsheet {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  .content {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  .g6 {
+    grid-template-columns: 1fr !important;
+  }
+  .country-grid {
+    gap: 4px !important;
+  }
+  .country-pill {
+    font-size: 8px !important;
+    padding: 2px 6px !important;
+  }
+  .study-table th, .study-table td {
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* ── PRINT STYLES ── */
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 1.5cm;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Make all containers flow for print */
+  .page, .broadsheet {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .content {
+    padding: 0 !important;
+  }
+
+  /* Multi-column grids → single column for print */
+  .main-grid {
+    display: block !important;
+  }
+  .col-divider {
+    display: none !important;
+  }
+  .four-col, .g4 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+  .three-col, .g3, .ag {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .two-col, .g2 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .g6 {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Then/Now panels stack */
+  .then-now, .tn {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .tna, .tn-arrow {
+    display: none !important;
+  }
+
+  /* Prevent page-break inside cards, tables, quotes */
+  .init-box, .card, .region-card, .parallel-card,
+  .church-card, .scripture, .callout, .stat-box,
+  .pull-quote, .quote-box, .alarm-box, .jezebel-section {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Tables should try not to break */
+  table, .study-table {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  /* But allow breaking if table is very long */
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Timelines flow naturally */
+  .timeline-item, .tl-item, .tli {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Hide navigation/UI elements */
+  .infographic-back-btn,
+  .infographic-branding,
+  .toc-nav,
+  .progress-bar,
+  #progressBar {
+    display: none !important;
+  }
+
+  /* Church cards: expand all for print */
+  .church-card-body {
+    display: block !important;
+  }
+  .toggle-hint {
+    display: none !important;
+  }
+
+  /* Section visibility — make sure all sections show */
+  .section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .timeline-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Breaking banner adjusts */
+  .breaking-banner {
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+
+  /* Alarm grid stacks */
+  .alarm-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Parallel grids for print */
+  .parallel-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Links: show URL */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 10px;
+    color: #666;
+    word-break: break-all;
+  }
+
+  /* Page breaks before major sections */
+  .section, .full-band {
+    break-before: auto;
+  }
+  .hero, .masthead {
+    break-after: avoid !important;
+  }
+
+  /* Footer simplified */
+  .footer, .colophon {
+    break-before: auto;
+    margin-top: 20px !important;
+    padding-top: 10px !important;
+  }
+}
+
+/* ── PRINT: Landscape variant for wide infographics ── */
+@media print and (min-width: 1200px) {
+  /* If the user's browser supports it and the doc is wide, suggest landscape */
+}

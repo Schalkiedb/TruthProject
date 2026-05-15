@@ -9,7 +9,7 @@
 /* STRUCTURAL ONLY — all colours are in inline style= attributes for print safety */
 *,*::before,*::after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'EB Garamond',Georgia,serif;background-color:#111;}
-.page{width:1240px;margin:0 auto;background-color:#FAF4E4;padding:0 0 60px;}
+.page{width: 100%; max-width: 1240px;margin:0 auto;background-color:#FAF4E4;padding:0 0 60px;}
 .content{padding:0 42px;}
 h1{font-family:'Cinzel Decorative',serif;}
 h2{font-family:'Cinzel Decorative',serif;}
@@ -31,13 +31,13 @@ ul.bl li::before{content:"›";position:absolute;left:0;color:#B8860B;}
 ul.bl li strong{font-weight:700;}
 .ag{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
 .pr{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
-@media print{@page{margin:0.4cm;size:A2 landscape;}body{background-color:#FAF4E4!important;}}
+@media print{@page{margin:0.4cm;size: A4 portrait;}body{background-color:#FAF4E4!important;}}
 </style>
 <style id="print-force">
 *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
 
 @media print {
-  @page { size: A2 landscape; margin: 0.5cm; }
+  @page { size: A4 portrait; margin: 0.5cm; }
   body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   .page, .broadsheet {
     width: 100% !important;
@@ -207,6 +207,7 @@ ul.bl li strong{font-weight:700;}
   .infographic-back-btn, .infographic-branding { display: none !important; }
 }
 </style>
+<link rel="stylesheet" href="../assets/print-responsive.css" />
 </head>
 <body>
 <!-- Back to Library (hidden when loaded in iframe) -->

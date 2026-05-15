@@ -41,7 +41,8 @@
 
   /* Newspaper broadsheet outer wrap */
   .broadsheet {
-    width: 1240px;
+    width: 100%;
+    max-width: 1240px;
     margin: 0 auto;
     background: var(--paper);
     background-image:
@@ -550,7 +551,7 @@
     * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
     body { background: var(--paper) !important; }
     .broadsheet { width: 100% !important; max-width: 100% !important; }
-    @page { size: A2 landscape; margin: 0.5cm; }
+    @page { size: A4 portrait; margin: 0.5cm; }
   }
 </style>
 
@@ -562,7 +563,7 @@
   color-adjust: exact !important;
 }
 @media print {
-  @page { size: A2 landscape; margin: 0.5cm; }
+  @page { size: A4 portrait; margin: 0.5cm; }
   body {
     background: #1A1510 !important;
     -webkit-print-color-adjust: exact !important;
@@ -1018,6 +1019,7 @@
   .infographic-back-btn, .infographic-branding { display: none !important; }
 }
 </style>
+<link rel="stylesheet" href="../assets/print-responsive.css" />
 </head>
 <body>
 <!-- Back to Library (hidden when loaded in iframe) -->

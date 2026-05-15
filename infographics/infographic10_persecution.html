@@ -8,7 +8,7 @@
 <style>
 *,*::before,*::after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'EB Garamond',Georgia,serif;background-color:#0A0806;}
-.page{width:1260px;margin:0 auto;background-color:#0D0B08;}
+.page{width: 100%; max-width: 1240px;margin:0 auto;background-color:#0D0B08;}
 .content{padding:0 44px;}
 h1{font-family:'UnifrakturMaguntia',serif;}
 h2{font-family:'Cinzel Decorative',serif;}
@@ -34,12 +34,12 @@ ul.bl li strong{color:#E8C860;font-weight:700;}
 .pill{display:inline-block;font-family:'Cinzel',serif;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:2px 9px;margin:2px 3px 2px 0;}
 .tn{display:grid;grid-template-columns:1fr 50px 1fr;gap:0;align-items:start;}
 .tna{display:flex;align-items:center;justify-content:center;padding-top:50px;font-size:24px;color:#C8860A;}
-@media print{@page{margin:0.4cm;size:A2 landscape;}body{background-color:#0D0B08!important;}}
+@media print{@page{margin:0.4cm;size: A4 portrait;}body{background-color:#0D0B08!important;}}
 </style>
 <style id="print-force">
 *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
 @media print {
-  @page { size: A2 landscape; margin: 0.5cm; }
+  @page { size: A4 portrait; margin: 0.5cm; }
   body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   .page, .broadsheet {
     width: 100% !important;
@@ -210,6 +210,7 @@ ul.bl li strong{color:#E8C860;font-weight:700;}
   .infographic-back-btn, .infographic-branding { display: none !important; }
 }
 </style>
+<link rel="stylesheet" href="../assets/print-responsive.css" />
 </head>
 <body>
 <!-- Back to Library (hidden when loaded in iframe) -->

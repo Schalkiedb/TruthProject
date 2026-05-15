@@ -38,7 +38,7 @@
       radial-gradient(ellipse at 50% 0%, rgba(232,150,10,0.06) 0%, transparent 70%);
   }
 
-  .page { width: 1200px; margin: 0 auto; padding: 60px 40px 80px; }
+  .page { width: 100%; max-width: 1240px; margin: 0 auto; padding: 60px 40px 80px; }
 
   /* Header */
   .header {
@@ -574,7 +574,7 @@
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
-    @page { size: A2 landscape; margin: 0.5cm; }
+    @page { size: A4 portrait; margin: 0.5cm; }
   }
 </style>
 
@@ -586,7 +586,7 @@
   color-adjust: exact !important;
 }
 @media print {
-  @page { size: A2 landscape; margin: 0.5cm; }
+  @page { size: A4 portrait; margin: 0.5cm; }
   body {
     background: #0A0500 !important;
     -webkit-print-color-adjust: exact !important;
@@ -1041,6 +1041,7 @@
   .infographic-back-btn, .infographic-branding { display: none !important; }
 }
 </style>
+<link rel="stylesheet" href="../assets/print-responsive.css" />
 </head>
 <body>
 <!-- Back to Library (hidden when loaded in iframe) -->
