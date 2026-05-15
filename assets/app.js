@@ -108,6 +108,14 @@ const LIBRARY = [
         tagClass: "green",
         desc: "The comprehensive Sabbath apologetics guide — 39 common objections answered; 2,000 years of documented Sabbath-keeping communities worldwide.",
       },
+      {
+        title: "Biblical Typology: Israel, Babylon & The Seven Churches",
+        file: "Typology/biblical-typology-study-guide.html",
+        icon: "🔁",
+        tag: "Typology",
+        tagClass: "blue",
+        desc: "History always repeats — the antitypical framework of prophecy. Israel's patterns in the Church, Babylon old and new, Daniel inside Babylon, the Seven Churches, and Jezebel's thread through all of history.",
+      },
     ],
   },
   {

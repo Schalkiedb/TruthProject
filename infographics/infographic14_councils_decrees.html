@@ -25,7 +25,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
-  @page { size: A2 landscape; margin: 10mm; }
+  @page { size: A4 portrait; margin: 10mm; }
 
   html, body {
     background: var(--ink);
@@ -332,7 +332,7 @@
 
   @media print {
     *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
-    @page { size: A2 landscape; margin: 0.5cm; }
+    @page { size: A4 portrait; margin: 0.5cm; }
     body { background: var(--ink) !important; }
     .page, .broadsheet {
       width: 100% !important;
@@ -493,6 +493,7 @@
   .infographic-back-btn, .infographic-branding { display: none !important; }
 }
 </style>
+<link rel="stylesheet" href="../assets/print-responsive.css" />
 </head>
 <body>
 <!-- Back to Library (hidden when loaded in iframe) -->
