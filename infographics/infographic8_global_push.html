@@ -2,1454 +2,775 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="dark">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Global Push for Rest Days — Current Initiatives 2024–2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Infographic VIII — The Global Rest Day Push (2024–2026)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+*,*::before,*::after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;box-sizing:border-box;margin:0;padding:0;}
 
-  :root {
-    --ink:    #0E0C08;
-    --paper:  #F5EED8;
-    --aged:   #E8DEC0;
-    --gold:   #B8860B;
-    --gold-l: #D4A017;
-    --gold-d: #7A5808;
-    --red:    #8B1A1A;
-    --red-l:  #C0392B;
-    --blue:   #1A2E5A;
-    --blue-l: #2E5090;
-    --blue-b: #4A7AB0;
-    --green:  #1A4A2A;
-    --green-l:#2E7040;
-    --teal:   #1A4A4A;
-    --teal-l: #2E7070;
-    --purple: #3A1A5A;
-    --purple-l:#6A3A9A;
-    --border: rgba(184,134,11,0.3);
-    --rule:   rgba(14,12,8,0.15);
-  }
-
-  * { margin:0; padding:0; box-sizing:border-box; }
-
-  body {
-    background: #1A1510;
-    font-family: 'Libre Baskerville', Georgia, serif;
-    color: var(--ink);
-  }
-
-  /* Newspaper broadsheet outer wrap */
-  .broadsheet {
-    width: 100%;
-    max-width: 1240px;
-    margin: 0 auto;
-    background: var(--paper);
-    background-image:
-      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(14,12,8,0.04) 27px, rgba(14,12,8,0.04) 28px),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    padding: 48px 50px 70px;
-    position: relative;
-  }
-
-  .broadsheet::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(184,134,11,0.04) 0%, transparent 8%, transparent 92%, rgba(184,134,11,0.04) 100%);
-    pointer-events: none;
-  }
-
-  /* Masthead */
-  .masthead {
-    border-top: 4px double var(--ink);
-    border-bottom: 4px double var(--ink);
-    padding: 14px 0;
-    text-align: center;
-    margin-bottom: 0;
-    position: relative;
-  }
-  .masthead::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0; right: 0;
-    height: 2px;
-    background: var(--ink);
-  }
-  .edition-line {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    letter-spacing: 5px;
-    color: var(--gold-d);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 54px;
-    font-weight: 900;
-    line-height: 1.0;
-    color: var(--ink);
-    letter-spacing: -1px;
-    margin-bottom: 8px;
-  }
-  h1 span { color: var(--red); }
-  .deck {
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: var(--ink);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    opacity: 0.7;
-  }
-  .dateline {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--gold-d);
-    text-transform: uppercase;
-  }
-
-  /* Section divider */
-  .section-rule {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 22px 0 18px;
-  }
-  .section-rule::before, .section-rule::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--ink);
-  }
-  .section-name {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--ink);
-    white-space: nowrap;
-    padding: 3px 12px;
-    border: 1px solid var(--ink);
-  }
-
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-  h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
-
-  /* BREAKING BANNER */
-  .breaking-banner {
-    background: var(--red);
-    color: var(--paper);
-    padding: 10px 20px;
-    margin: 16px 0;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .break-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    white-space: nowrap;
-    text-transform: uppercase;
-    background: var(--paper);
-    color: var(--red);
-    padding: 3px 8px;
-  }
-  .break-text {
-    font-family: 'Oswald', sans-serif;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    line-height: 1.4;
-  }
-  .break-text strong { font-weight: 600; }
-
-  /* Main layout grid */
-  .main-grid {
-    display: grid;
-    grid-template-columns: 2fr 1px 1.5fr 1px 1.2fr;
-    gap: 0;
-    margin-bottom: 0;
-  }
-  .col-divider {
-    background: var(--rule);
-    margin: 0 18px;
-  }
-
-  /* Lead story */
-  .lead-story { padding-right: 4px; }
-  .col-mid { }
-  .col-right { padding-left: 4px; }
-
-  p.body-text {
-    font-size: 13.5px;
-    line-height: 1.75;
-    color: var(--ink);
-    margin-bottom: 10px;
-    text-align: justify;
-    hyphens: auto;
-  }
-  p.body-text:first-of-type::first-letter {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    font-weight: 900;
-    float: left;
-    line-height: 0.85;
-    margin: 4px 6px 0 0;
-    color: var(--red);
-  }
-
-  .byline {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-d);
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 8px;
-  }
-
-  .pull-quote {
-    border-top: 3px solid var(--ink);
-    border-bottom: 3px solid var(--ink);
-    padding: 12px 0;
-    margin: 16px 0;
-    text-align: center;
-  }
-  .pull-quote p {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 17px;
-    line-height: 1.5;
-    color: var(--ink);
-  }
-  .pull-quote cite {
-    display: block;
-    font-family: 'Oswald', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-d);
-    margin-top: 8px;
-    font-style: normal;
-  }
-
-  /* Initiative boxes */
-  .init-box {
-    border: 1px solid var(--rule);
-    padding: 14px;
-    margin-bottom: 14px;
-    background: rgba(255,255,255,0.35);
-    position: relative;
-  }
-  .init-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    width: 3px;
-  }
-  .init-box.pol::before  { background: var(--red);   }
-  .init-box.rel::before  { background: var(--gold);  }
-  .init-box.lab::before  { background: var(--blue-b);}
-  .init-box.env::before  { background: var(--green-l);}
-  .init-box.cult::before { background: var(--purple-l);}
-
-  .init-tag {
-    font-family: 'Oswald', sans-serif;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    display: inline-block;
-    margin-bottom: 6px;
-  }
-  .init-box.pol  .init-tag  { background: var(--red);    color: var(--paper); }
-  .init-box.rel  .init-tag  { background: var(--gold);   color: var(--ink); }
-  .init-box.lab  .init-tag  { background: var(--blue-b); color: var(--paper); }
-  .init-box.env  .init-tag  { background: var(--green-l);color: var(--paper); }
-  .init-box.cult .init-tag  { background: var(--purple-l);color: var(--paper); }
-
-  .init-box h3 { font-size: 14px; margin-bottom: 5px; }
-  .init-box .org {
-    font-family: 'Oswald', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-d);
-    margin-bottom: 7px;
-  }
-  .init-box p {
-    font-size: 12.5px;
-    line-height: 1.65;
-    color: var(--ink);
-    text-align: justify;
-    margin-bottom: 0;
-  }
-  .init-box .status {
-    font-family: 'Oswald', sans-serif;
-    font-size: 8.5px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-top: 7px;
-    display: block;
-    color: var(--gold-d);
-    border-top: 1px solid var(--rule);
-    padding-top: 5px;
-  }
-
-  /* Full-width band section dividers */
-  .full-band {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 8px 20px;
-    margin: 24px 0 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .full-band h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    color: var(--paper);
-    margin: 0;
-  }
-  .full-band .band-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(245,238,216,0.5);
-  }
-
-  /* Four-col bottom grid */
-  .four-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 22px;
-  }
-  .three-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 22px;
-  }
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 22px;
-  }
-
-  /* Country pill list */
-  .country-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin: 10px 0;
-  }
-  .country-pill {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border: 1px solid;
-  }
-  .pill-law    { border-color: var(--red);    color: var(--red);    background: rgba(139,26,26,0.06); }
-  .pill-trial  { border-color: var(--blue-b); color: var(--blue-b); background: rgba(74,122,176,0.06); }
-  .pill-pilot  { border-color: var(--green-l);color: var(--green-l);background: rgba(46,112,64,0.06); }
-
-  /* Convergence timeline */
-  .timeline-strip {
-    position: relative;
-    padding-left: 22px;
-    border-left: 2px solid var(--ink);
-    margin-bottom: 10px;
-  }
-  .tl-item {
-    position: relative;
-    margin-bottom: 14px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .tl-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .tl-item::before {
-    content: '';
-    position: absolute;
-    left: -28px;
-    top: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid var(--ink);
-    background: var(--paper);
-  }
-  .tl-item.hot::before { background: var(--red); border-color: var(--red); }
-  .tl-date {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-d);
-    margin-bottom: 3px;
-  }
-  .tl-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--ink);
-    margin-bottom: 4px;
-  }
-  .tl-text {
-    font-size: 12px;
-    line-height: 1.6;
-    color: rgba(14,12,8,0.75);
-  }
-
-  /* Then/Now */
-  .then-now {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 16px;
-    margin-top: 14px;
-    align-items: start;
-  }
-  .tn-col {
-    border: 1px solid var(--rule);
-    padding: 14px;
-    background: rgba(255,255,255,0.3);
-  }
-  .tn-head {
-    font-family: 'Oswald', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    border-bottom: 2px solid;
-    padding-bottom: 7px;
-    margin-bottom: 10px;
-  }
-  .tn-col.then .tn-head { color: var(--red);   border-color: var(--red); }
-  .tn-col.now  .tn-head { color: var(--blue-b); border-color: var(--blue-b); }
-  .tn-arrow { display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold-d); padding-top: 40px; }
-  ul.tn-list { list-style: none; }
-  ul.tn-list li {
-    font-size: 12px;
-    line-height: 1.6;
-    color: var(--ink);
-    padding: 5px 0 5px 14px;
-    position: relative;
-    border-bottom: 1px solid rgba(14,12,8,0.08);
-  }
-  ul.tn-list li:last-child { border-bottom: none; }
-  ul.tn-list li::before { content: '–'; position: absolute; left: 0; color: var(--gold-d); }
-
-  /* Stat boxes */
-  .stat-box {
-    border: 2px solid var(--ink);
-    padding: 16px 14px;
-    text-align: center;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--red);
-    line-height: 1;
-    display: block;
-    margin-bottom: 5px;
-  }
-  .stat-label {
-    font-family: 'Oswald', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--ink);
-    line-height: 1.4;
-  }
-
-  /* Alarm box */
-  .alarm-box {
-    background: var(--red);
-    color: var(--paper);
-    padding: 18px 22px;
-    margin: 20px 0;
-  }
-  .alarm-head {
-    font-family: 'Oswald', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(245,238,216,0.3);
-    padding-bottom: 8px;
-    margin-bottom: 12px;
-  }
-  .alarm-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-  }
-  .alarm-item-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(245,238,216,0.7);
-    margin-bottom: 5px;
-  }
-  .alarm-item p {
-    font-size: 12px;
-    line-height: 1.65;
-    color: rgba(245,238,216,0.9);
-  }
-
-  /* Footer colophon */
-  .colophon {
-    border-top: 3px double var(--ink);
-    margin-top: 30px;
-    padding-top: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .colophon-text {
-    font-family: 'Oswald', sans-serif;
-    font-size: 9px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-d);
-  }
-
-  /* ── RESPONSIVE — prevent text overlap ── */
-  @media (max-width: 1280px) {
-    .broadsheet { padding: 32px 24px 50px; }
-    .main-grid {
-      grid-template-columns: 1fr 1px 1fr;
-    }
-    .col-right {
-      grid-column: 1 / -1;
-      margin-top: 20px;
-      padding-left: 0;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .broadsheet { padding: 24px 16px 40px; }
-    .main-grid {
-      display: block;
-    }
-    .col-divider { display: none; }
-    .four-col { grid-template-columns: 1fr 1fr; }
-    .three-col { grid-template-columns: 1fr; }
-    .two-col { grid-template-columns: 1fr; }
-    .then-now { grid-template-columns: 1fr; }
-    .tn-arrow { display: none; }
-    .alarm-grid { grid-template-columns: 1fr; }
-    h1 { font-size: 36px; }
-  }
-
-  @media (max-width: 768px) {
-    .broadsheet { padding: 16px 12px 30px; }
-    h1 { font-size: 28px; line-height: 1.15; }
-    h2 { font-size: 18px; }
-    h3 { font-size: 14px; }
-    p.body-text { font-size: 14px; }
-    p.body-text:first-of-type::first-letter { font-size: 36px; }
-    .four-col { grid-template-columns: 1fr; }
-    .stat-num { font-size: 32px; }
-    .breaking-banner { flex-direction: column; gap: 8px; }
-    .pull-quote p { font-size: 15px; }
-    .full-band { flex-direction: column; align-items: flex-start; gap: 4px; padding: 12px 16px; }
-    .country-grid { gap: 4px; }
-  }
-
-  @media (max-width: 480px) {
-    .broadsheet { padding: 10px 8px 20px; }
-    h1 { font-size: 22px; }
-    .masthead { padding: 10px 0; }
-    .edition-line { font-size: 8px; letter-spacing: 3px; }
-    .deck { font-size: 11px; }
-    .init-box { padding: 10px; }
-    .stat-box { padding: 10px 8px; }
-  }
-
-  @media print {
-    * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; color-adjust:exact !important; }
-    body { background: var(--paper) !important; }
-    .broadsheet { width: 100% !important; max-width: 100% !important; }
-    .main-grid { display: block; }
-    .col-divider { display: none; }
-    .col-right { display: block; }
-    .four-col { grid-template-columns: 1fr 1fr; }
-    .three-col { grid-template-columns: 1fr; }
-    .alarm-grid { grid-template-columns: 1fr; }
-    .then-now { grid-template-columns: 1fr; }
-    .tn-arrow { display: none; }
-    @page { size: A4 portrait; margin: 1.5cm; }
-  }
-</style>
-
-<style id="print-force">
-/* ═══ PRINT COLOUR FORCE — auto-generated ═══ */
-*, *::before, *::after {
-  -webkit-print-color-adjust: exact !important;
-  print-color-adjust: exact !important;
-  color-adjust: exact !important;
-}
-@media print {
-  @page { size: A4 portrait; margin: 0.5cm; }
-  body {
-    background: #1A1510 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #0E0C08 !important;
-  }
-  /* Newspaper broadsheet outer wrap */
-  .page, .broadsheet {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: visible !important;
-    box-sizing: border-box !important;
-    background: #F5EED8 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .broadsheet::before {
-    background: linear-gradient(180deg, rgba(184,134,11,0.04) 0%, transparent 8%, transparent 92%, rgba(184,134,11,0.04) 100%) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  /* Masthead */
-  .masthead {
-    border-top: 4px double #0E0C08 !important;
-    border-bottom: 4px double #0E0C08 !important;
-  }
-  .masthead::after {
-    background: #0E0C08 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .edition-line {
-    color: #7A5808 !important;
-  }
-  h1 {
-    color: #0E0C08 !important;
-  }
-  h1 span {
-    color: #8B1A1A !important;
-  }
-  .deck {
-    color: #0E0C08 !important;
-  }
-  .dateline {
-    color: #7A5808 !important;
-  }
-  .section-rule::before, .section-rule::after {
-    background: #0E0C08 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .section-name {
-    color: #0E0C08 !important;
-    border: 1px solid #0E0C08 !important;
-  }
-  h2 {
-    color: #0E0C08 !important;
-  }
-  h3 {
-    color: #0E0C08 !important;
-  }
-  /* BREAKING BANNER */
-  .breaking-banner {
-    background: #8B1A1A !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #F5EED8 !important;
-  }
-  .break-label {
-    background: #F5EED8 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #8B1A1A !important;
-  }
-  .col-divider {
-    background: rgba(14,12,8,0.15) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  p.body-text {
-    color: #0E0C08 !important;
-  }
-  p.body-text:first-of-type::first-letter {
-    color: #8B1A1A !important;
-  }
-  .byline {
-    color: #7A5808 !important;
-    border-bottom: 1px solid rgba(14,12,8,0.15) !important;
-  }
-  .pull-quote {
-    border-top: 3px solid #0E0C08 !important;
-    border-bottom: 3px solid #0E0C08 !important;
-  }
-  .pull-quote p {
-    color: #0E0C08 !important;
-  }
-  .pull-quote cite {
-    color: #7A5808 !important;
-  }
-  /* Initiative boxes */
-  .init-box {
-    border: 1px solid rgba(14,12,8,0.15) !important;
-    background: rgba(255,255,255,0.35) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .init-box.pol::before {
-    background: #8B1A1A !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .init-box.rel::before {
-    background: #B8860B !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .init-box.lab::before {
-    background: #4A7AB0 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .init-box.env::before {
-    background: #2E7040 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .init-box.cult::before {
-    background: #6A3A9A !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .init-box.pol  .init-tag {
-    background: #8B1A1A !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #F5EED8 !important;
-  }
-  .init-box.rel  .init-tag {
-    background: #B8860B !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #0E0C08 !important;
-  }
-  .init-box.lab  .init-tag {
-    background: #4A7AB0 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #F5EED8 !important;
-  }
-  .init-box.env  .init-tag {
-    background: #2E7040 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #F5EED8 !important;
-  }
-  .init-box.cult .init-tag {
-    background: #6A3A9A !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #F5EED8 !important;
-  }
-  .init-box .org {
-    color: #7A5808 !important;
-  }
-  .init-box p {
-    color: #0E0C08 !important;
-  }
-  .init-box .status {
-    color: #7A5808 !important;
-    border-top: 1px solid rgba(14,12,8,0.15) !important;
-  }
-  /* Full-width band section dividers */
-  .full-band {
-    background: #0E0C08 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #F5EED8 !important;
-  }
-  .full-band h2 {
-    color: #F5EED8 !important;
-  }
-  .full-band .band-label {
-    color: rgba(245,238,216,0.5) !important;
-  }
-  .country-pill {
-    border: 1px solid !important;
-  }
-  .pill-law {
-    border-color: #8B1A1A !important;
-    color: #8B1A1A !important;
-    background: rgba(139,26,26,0.06) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .pill-trial {
-    border-color: #4A7AB0 !important;
-    color: #4A7AB0 !important;
-    background: rgba(74,122,176,0.06) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .pill-pilot {
-    border-color: #2E7040 !important;
-    color: #2E7040 !important;
-    background: rgba(46,112,64,0.06) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  /* Convergence timeline */
-  .timeline-strip {
-    border-left: 2px solid #0E0C08 !important;
-  }
-  .tl-item {
-    border-bottom: 1px solid rgba(14,12,8,0.15) !important;
-  }
-  .tl-item:last-child {
-    border-bottom: none !important;
-  }
-  .tl-item::before {
-    border: 2px solid #0E0C08 !important;
-    background: #F5EED8 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .tl-item.hot::before {
-    background: #8B1A1A !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    border-color: #8B1A1A !important;
-  }
-  .tl-date {
-    color: #7A5808 !important;
-  }
-  .tl-title {
-    color: #0E0C08 !important;
-  }
-  .tl-text {
-    color: rgba(14,12,8,0.75) !important;
-  }
-  .tn-col {
-    border: 1px solid rgba(14,12,8,0.15) !important;
-    background: rgba(255,255,255,0.3) !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
-  .tn-head {
-    border-bottom: 2px solid !important;
-  }
-  .tn-col.then .tn-head {
-    color: #8B1A1A !important;
-    border-color: #8B1A1A !important;
-  }
-  .tn-col.now  .tn-head {
-    color: #4A7AB0 !important;
-    border-color: #4A7AB0 !important;
-  }
-  .tn-arrow {
-    color: #7A5808 !important;
-  }
-  ul.tn-list li {
-    color: #0E0C08 !important;
-    border-bottom: 1px solid rgba(14,12,8,0.08) !important;
-  }
-  ul.tn-list li:last-child {
-    border-bottom: none !important;
-  }
-  ul.tn-list li::before {
-    color: #7A5808 !important;
-  }
-  /* Stat boxes */
-  .stat-box {
-    border: 2px solid #0E0C08 !important;
-  }
-  .stat-num {
-    color: #8B1A1A !important;
-  }
-  .stat-label {
-    color: #0E0C08 !important;
-  }
-  /* Alarm box */
-  .alarm-box {
-    background: #8B1A1A !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-    color: #F5EED8 !important;
-  }
-  .alarm-head {
-    border-bottom: 1px solid rgba(245,238,216,0.3) !important;
-  }
-  .alarm-item-title {
-    color: rgba(245,238,216,0.7) !important;
-  }
-  .alarm-item p {
-    color: rgba(245,238,216,0.9) !important;
-  }
-  /* Footer colophon */
-  .colophon {
-    border-top: 3px double #0E0C08 !important;
-  }
-  .colophon-text {
-    color: #7A5808 !important;
-  }
-}
-</style>
-<!-- Infographic Enhancement: Mobile Responsive + Back Navigation + Branding -->
-<style>
-/* ── Back to Library Button (hidden when in iframe) ── */
-.infographic-back-btn {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 9000;
-  background: rgba(12,15,26,0.85);
-  color: #e6c04c;
-  border: 1px solid rgba(201,162,39,0.4);
-  border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
-}
-.infographic-back-btn:hover {
-  background: rgba(12,15,26,0.95);
-  border-color: #e6c04c;
-  transform: translateY(-1px);
+:root {
+  --bg:       #0D0B08;
+  --surface:  #1A1208;
+  --surface2: #231A0C;
+  --gold:     #C8860A;
+  --gold-l:   #E8A820;
+  --gold-d:   #8A5C06;
+  --parch:    #F0E4C8;
+  --parch-d:  #D8C8A0;
+  --crimson:  #8B1A1A;
+  --crimson-l:#C0392B;
+  --blue-l:   #4A7AB0;
+  --green-l:  #2E7040;
+  --purple-l: #7A3AA8;
+  --border:   rgba(200,134,10,0.25);
+  --rule:     rgba(200,134,10,0.15);
 }
 
-/* ── Branding Footer ── */
-.infographic-branding {
+body {
+  background-color: var(--bg);
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--parch);
+}
+
+.page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+.content { padding: 0 40px; }
+
+h1 { font-family: 'Cinzel Decorative', serif; font-weight: 900; }
+h2 { font-family: 'Cinzel Decorative', serif; font-weight: 700; }
+h3 { font-family: 'Cinzel', serif; font-weight: 700; }
+
+.pg-header {
+  background: linear-gradient(180deg, #1A1208 0%, #0D0B08 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 48px 40px 36px;
   text-align: center;
-  padding: 24px 20px;
-  margin-top: 40px;
-  border-top: 1px solid rgba(201,162,39,0.2);
-  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  position: relative;
 }
-.infographic-branding-text {
-  font-size: 11px;
-  color: rgba(201,162,39,0.6);
-  letter-spacing: 0.1em;
+.pg-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.pg-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--gold-d);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.pg-title {
+  font-size: clamp(28px, 5vw, 52px);
+  line-height: 1.1;
+  color: var(--gold);
+  text-shadow: 0 0 40px rgba(200,134,10,0.3);
+  margin-bottom: 14px;
+}
+.pg-title span { color: #C0392B; }
+.pg-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: clamp(15px, 2.5vw, 19px);
+  color: var(--parch-d);
+  max-width: 720px;
+  margin: 0 auto 12px;
+  line-height: 1.55;
+}
+.pg-dateline {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px;
+  letter-spacing: 3px;
+  color: var(--gold-d);
   text-transform: uppercase;
 }
-.infographic-branding-text a {
-  color: rgba(201,162,39,0.8);
-  text-decoration: none;
+
+.break-bar {
+  background: var(--crimson);
+  padding: 12px 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.break-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: var(--parch);
+  color: var(--crimson);
+  padding: 3px 8px;
+  white-space: nowrap;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.break-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--parch);
+}
+.break-text strong { font-weight: 700; color: #FFD080; }
+
+.companion {
+  background: rgba(200,134,10,0.07);
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 40px;
+  font-family: 'EB Garamond', serif;
+  font-size: 14px;
+  color: var(--gold-d);
+  line-height: 1.55;
+}
+.companion strong { color: var(--gold); }
+
+.sec-head {
+  background: var(--surface);
+  padding: 10px 40px;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 4px solid var(--gold);
+  gap: 12px;
+}
+.sec-head h2 { font-size: clamp(15px, 2.5vw, 20px); color: var(--gold); }
+.sec-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 8.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  background: rgba(200,134,10,0.12);
+  border: 1px solid var(--rule);
+  padding: 3px 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* ── Mobile Responsive ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-d), transparent);
+  margin: 28px 0;
+}
+
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.g4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+
+.body-p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--parch-d);
+  margin-bottom: 14px;
+}
+.body-p em { color: var(--parch); font-style: italic; }
+.body-p strong { color: var(--gold-l); font-weight: 600; }
+
+.pull-quote {
+  border-top: 2px solid var(--gold-d);
+  border-bottom: 2px solid var(--gold-d);
+  padding: 16px 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+.pull-quote p {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--parch);
+}
+.pull-quote cite {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-top: 10px;
+  font-style: normal;
+}
+
+.card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
+}
+.card.pol::before  { background: var(--crimson); }
+.card.rel::before  { background: var(--gold); }
+.card.lab::before  { background: var(--blue-l); }
+.card.env::before  { background: var(--green-l); }
+.card.cult::before { background: var(--purple-l); }
+
+.card-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 8px;
+  border-radius: 2px;
+}
+.card.pol  .card-tag { background: var(--crimson);   color: var(--parch); }
+.card.rel  .card-tag { background: var(--gold-d);    color: #0D0B08; }
+.card.lab  .card-tag { background: var(--blue-l);    color: var(--parch); }
+.card.env  .card-tag { background: var(--green-l);   color: var(--parch); }
+.card.cult .card-tag { background: var(--purple-l);  color: var(--parch); }
+
+.card h3 { font-size: 15px; color: var(--parch); margin-bottom: 6px; line-height: 1.35; }
+.card .org {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  margin-bottom: 8px;
+}
+.card p { font-size: 13.5px; line-height: 1.65; color: var(--parch-d); }
+.card p em { color: var(--parch); }
+.card p strong { color: var(--gold-l); }
+.card .status {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-d);
+  border-top: 1px solid var(--rule);
+  margin-top: 10px;
+  padding-top: 8px;
+  display: block;
+  line-height: 1.5;
+}
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 16px; }
+.pill {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border: 1px solid;
+  border-radius: 2px;
+}
+.pill.law   { border-color: #C0392B; color: #E88080; background: rgba(139,26,26,0.15); }
+.pill.trial { border-color: #4A7AB0; color: #80AAD8; background: rgba(74,122,176,0.12); }
+.pill.pilot { border-color: #2E7040; color: #80C090; background: rgba(46,112,64,0.12); }
+
+.pill-legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 10px; }
+.pill-legend span { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+.l-law   { color: #E88080; }
+.l-trial { color: #80AAD8; }
+.l-pilot { color: #80C090; }
+
+.tlw { padding-left: 24px; border-left: 2px solid var(--gold-d); margin-bottom: 20px; }
+.tli { position: relative; margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+.tli:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.tld {
+  position: absolute;
+  left: -30px; top: 5px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-d);
+  background: var(--bg);
+}
+.tld.hot { background: var(--crimson); border-color: #C0392B; }
+.tl-date { font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:2px; color:var(--gold-d); text-transform:uppercase; margin-bottom:3px; }
+.tl-title { font-family:'Cinzel',serif; font-size:13px; color:var(--parch); margin-bottom:4px; line-height:1.3; }
+.tl-text { font-size:13px; line-height:1.6; color:rgba(240,228,200,0.65); }
+
+.stat-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  padding: 18px 14px;
+  text-align: center;
+  border-radius: 4px;
+}
+.stat-num { font-family:'Cinzel Decorative',serif; font-size:40px; color:#C0392B; line-height:1; display:block; margin-bottom:8px; }
+.stat-lbl { font-family:'Cinzel',serif; font-size:9px; letter-spacing:1px; color:var(--parch-d); text-transform:uppercase; line-height:1.5; }
+
+.tn-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+.tn-col { background:var(--surface2); border:1px solid var(--border); border-radius:4px; padding:18px 20px; }
+.tn-head { font-family:'Cinzel',serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; border-bottom:2px solid; padding-bottom:8px; margin-bottom:14px; line-height:1.4; }
+.tn-col.then .tn-head { color:var(--gold-l); border-color:var(--gold-d); }
+.tn-col.now  .tn-head { color:#80AAD8; border-color:#4A7AB0; }
+ul.tn-list { list-style:none; }
+ul.tn-list li { font-size:13px; line-height:1.6; color:var(--parch-d); padding:5px 0 5px 16px; position:relative; border-bottom:1px solid var(--rule); }
+ul.tn-list li:last-child { border-bottom:none; }
+ul.tn-list li::before { content:'›'; position:absolute; left:0; color:var(--gold-d); }
+
+.alarm-box {
+  background: linear-gradient(135deg, rgba(139,26,26,0.2), rgba(26,18,8,0.8));
+  border: 1px solid rgba(139,26,26,0.5);
+  border-left: 4px solid #C0392B;
+  border-radius: 4px;
+  padding: 24px 26px;
+  margin-bottom: 24px;
+}
+.alarm-head {
+  font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px; text-transform:uppercase;
+  color:#E88080; border-bottom:1px solid rgba(139,26,26,0.35); padding-bottom:10px; margin-bottom:18px;
+}
+.alarm-item-title { font-family:'Cinzel',serif; font-size:11px; color:#E88080; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:8px; }
+.alarm-item p { font-size:13.5px; line-height:1.65; color:var(--parch-d); }
+.alarm-item p em { color:var(--parch); }
+
+.final-quote {
+  background: rgba(200,134,10,0.06);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.final-quote p { font-family:'EB Garamond',serif; font-style:italic; font-size:17px; line-height:1.75; color:var(--parch-d); max-width:860px; margin:0 auto; }
+.final-quote p strong { color:var(--gold); font-style:normal; }
+
+.mep-list { font-family:'EB Garamond',serif; font-style:italic; font-size:13px; line-height:1.9; color:rgba(240,228,200,0.6); border-left:2px solid var(--rule); padding-left:14px; margin:10px 0 20px; }
+
+.colophon { border-top:1px solid var(--rule); margin:30px 40px 0; padding-top:14px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; }
+.colophon span { font-family:'Cinzel',serif; font-size:8px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-d); line-height:1.6; }
+
+.infographic-back-btn {
+  position:fixed; top:16px; left:16px; z-index:9000;
+  background:rgba(13,11,8,0.88); color:var(--gold);
+  border:1px solid rgba(200,134,10,0.4); border-radius:8px;
+  padding:8px 16px; font-family:'Cinzel',serif; font-size:12px; font-weight:600;
+  cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition:all 0.2s ease;
+}
+.infographic-back-btn:hover { background:rgba(13,11,8,0.98); border-color:var(--gold); }
+
 @media (max-width: 900px) {
-  .page, .broadsheet {
-    width: 100% !important;
-    max-width: 100vw !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    box-sizing: border-box !important;
-    overflow-x: hidden !important;
-  }
-
-  .content, [style*="padding:0 42px"], [style*="padding: 0 42px"],
-  [style*="padding:0 44px"], [style*="padding: 0 44px"] {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-
-  .g2, .g3, .g4, .g6,
-  .two-col, .three-col,
-  .regions-grid, .denom-grid,
-  .status-legend, .methods-legend,
-  .days-grid, .ag,
-  .dispute-grid, .sup-row,
-  .tn {
-    grid-template-columns: 1fr !important;
-  }
-
-  [style*="grid-template-columns:repeat(6,1fr)"],
-  [style*="grid-template-columns:repeat(4,1fr)"],
-  [style*="grid-template-columns:1fr 1fr 1fr"],
-  [style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  .wide,
-  [style*="grid-column: span 3"],
-  [style*="grid-column:span 3"] {
-    grid-column: auto !important;
-  }
-
-  h1 {
-    font-size: clamp(22px, 7vw, 36px) !important;
-    line-height: 1.15 !important;
-    word-break: break-word !important;
-  }
-  h2 {
-    font-size: clamp(17px, 5.5vw, 26px) !important;
-    line-height: 1.25 !important;
-  }
-  h3 {
-    font-size: clamp(13px, 4vw, 18px) !important;
-    line-height: 1.35 !important;
-  }
-
-  p, li, .subtitle, .header-sub, .deck, .quote-text, .sup-text, .denom-text {
-    font-size: clamp(13px, 3.6vw, 16px) !important;
-    line-height: 1.6 !important;
-  }
-
-  img, svg, table, iframe, video {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  .timeline { padding-left: 0 !important; }
-  .timeline::before { display: none !important; }
-  .era-dot, .tld { left: 0 !important; position: static !important; display: inline-block !important; margin-bottom: 8px !important; }
-  .tlw { padding-left: 12px !important; border-left-width: 2px !important; }
-
-  .sec-head {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 8px !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-
-  .quote-box, .verse-card, .quote-block, .denom-card,
-  .method-badge, .sl-item, .sup-content, .sup-region,
-  .sup-date, .panel-body, .dispute-col, .day-card {
-    padding: 12px !important;
-  }
-
-  .region-card { padding: 0 !important; overflow: visible !important; }
-  .region-header, .region-body { padding: 12px !important; }
-
-  .status-badge {
-    position: static !important;
-    display: inline-block !important;
-    margin-top: 8px !important;
-  }
-
-  .tna { display: none !important; }
-
-  .infographic-back-btn { top: 10px; left: 10px; padding: 6px 12px; font-size: 12px; }
+  .content { padding: 0 20px; }
+  .pg-header { padding: 36px 20px 28px; }
+  .break-bar { padding: 12px 20px; }
+  .companion { padding: 10px 20px; }
+  .sec-head { padding: 10px 20px; }
+  .colophon { margin: 30px 20px 0; }
+  .g2, .g3, .g4 { grid-template-columns: 1fr !important; }
+  .tn-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+  .content { padding: 0 12px; }
+  .pg-header { padding: 28px 12px 20px; }
+  .break-bar { padding: 10px 12px; flex-direction: column; gap: 6px; }
+  .companion { padding: 8px 12px; }
+  .sec-head { padding: 10px 12px; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .colophon { margin: 20px 12px 0; flex-direction: column; }
+  .pg-title { font-size: clamp(22px, 7vw, 36px); }
 }
 
 @media print {
-  .infographic-back-btn, .infographic-branding { display: none !important; }
+  *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  @page { size: A4 portrait; margin: 1.5cm; }
+  body { background: #0D0B08 !important; }
+  .infographic-back-btn { display: none !important; }
+  .g2, .g3, .g4 { grid-template-columns: 1fr 1fr !important; }
+  .tn-grid { grid-template-columns: 1fr 1fr !important; }
+  .card, .stat-box, .alarm-box, .tn-col, .pull-quote, .final-quote { break-inside: avoid !important; page-break-inside: avoid !important; }
+  .tli { break-inside: avoid !important; }
 }
 </style>
 <link rel="stylesheet" href="../assets/print-responsive.css" />
 </head>
 <body>
-<!-- Back to Library (hidden when loaded in iframe) -->
-<a href="../index.html" class="infographic-back-btn" id="infographic-back-btn">← Library</a>
+
+<a href="../index.html" class="infographic-back-btn" id="infographic-back-btn">&#8592; Library</a>
 <script>
-// Hide back button when loaded inside an iframe (app.js handles navigation)
 if (window.self !== window.top) {
-  var btn = document.getElementById('infographic-back-btn');
-  if (btn) btn.style.display = 'none';
+  var b = document.getElementById('infographic-back-btn');
+  if (b) b.style.display = 'none';
 }
 </script>
-<div class="broadsheet">
 
-  <!-- MASTHEAD -->
-  <div class="masthead">
-    <div class="edition-line">Special Report · Political · Religious · Environmental · Labour</div>
-    <h1>THE GLOBAL <span>REST DAY</span> PUSH</h1>
-    <div class="deck">A convergence of political, religious, environmental &amp; labour forces simultaneously demand mandatory rest</div>
-    <div class="dateline">Infographic VIII · Current Initiatives 2014–2026 · From Washington to Brussels to the Vatican</div>
+<div class="page">
+
+  <div class="pg-header">
+    <div class="pg-eyebrow">Special Report &middot; Political &middot; Religious &middot; Environmental &middot; Labour</div>
+    <h1 class="pg-title">The Global <span>Rest Day</span> Push</h1>
+    <p class="pg-subtitle">A convergence of political, religious, environmental &amp; labour forces simultaneously demanding mandatory rest &mdash; from Washington to Brussels to the Vatican</p>
+    <div class="pg-dateline">Infographic VIII &middot; Current Initiatives 2011&ndash;2026</div>
   </div>
 
-  <!-- BREAKING BANNER -->
-  <div class="breaking-banner">
-    <span class="break-label">Breaking · Jan. 8, 2026</span>
+  <div class="break-bar">
+    <span class="break-label">Breaking &middot; Jan. 8, 2026</span>
     <div class="break-text">
-      <strong>Heritage Foundation releases "Saving America by Saving the Family" (SR323)</strong> — calls for restoration of Blue Laws establishing Sunday as a "uniform day of rest." The SDA Church responds within days, warning of religious liberty violations. The most significant Sunday law proposal in the United States in over a century.
+      <strong>Heritage Foundation releases &ldquo;Saving America by Saving the Family&rdquo; (SR323)</strong> &mdash; calls for restoration of Blue Laws establishing Sunday as a &ldquo;uniform day of rest.&rdquo; The SDA Church responds within days, warning of religious liberty violations. The most significant Sunday law proposal in the United States in over a century.
     </div>
   </div>
 
-  <!-- MAIN THREE-COLUMN GRID -->
-
-  <!-- COMPANION NOTICE -->
-  <div style="border-top:2px solid #B8860B;border-bottom:1px solid rgba(184,134,11,0.3);padding:9px 28px;display:flex;align-items:center;gap:14px;font-family:'Libre Baskerville',serif;font-size:11px;color:#7A5808;">
-    <span style="font-size:14px;">🔀</span>
-    <span><strong>Companion Infographic:</strong> This sheet covers current legislative events (2014–2026). For the full analytical breakdown across all seven convergence streams — political, religious, labour, environmental, media, business &amp; digital control — see <strong>Infographic IX — All Six Convergence Streams</strong>.</span>
+  <div class="companion">
+    &#128256; <strong>Companion Infographic:</strong> This sheet covers current legislative events (2011&ndash;2026). For the full analytical breakdown across all seven convergence streams, see <strong>Infographic IX &mdash; All Six Convergence Streams</strong>.
   </div>
 
-  <div class="main-grid">
+  <!-- SECTION 1: USA -->
+  <div class="sec-head">
+    <h2>&#127482;&#127480; United States &mdash; Political Push</h2>
+    <span class="sec-badge">Washington &middot; 2023&ndash;2026</span>
+  </div>
+  <div class="content">
 
-    <!-- COLUMN 1: USA Political -->
-    <div class="lead-story">
-      <div class="section-rule"><span class="section-name">🇺🇸 United States — Political Push</span></div>
+    <p class="body-p">On <strong>January 8, 2026</strong>, the Heritage Foundation &mdash; the organisation that authored <em>Project 2025</em>, over 50% of which has already been implemented by the Trump administration &mdash; released a companion policy document titled <strong>&ldquo;Saving America by Saving the Family.&rdquo;</strong> Framed as a &ldquo;culture-wide Manhattan Project&rdquo; to avert demographic collapse before America&rsquo;s 250th anniversary, the report&rsquo;s most controversial proposal calls for the restoration of <em>Blue Laws</em> to establish a <strong>&ldquo;uniform day of rest&rdquo; on Sundays.</strong></p>
 
-      <div class="byline">Washington Correspondent · Conservative Policy Beat · January–March 2026</div>
-      <h2>Heritage Foundation Calls for Blue Laws in "Culture-Wide Manhattan Project"</h2>
+    <p class="body-p">The legal strategy cites the 1961 Supreme Court case <em>McGowan v. Maryland</em>, which upheld Sunday closing laws as constitutional labour regulations. However, the report&rsquo;s own language links Sunday rest to combating <em>&ldquo;spiritual homelessness&rdquo;</em> and encouraging <em>&ldquo;religious observance&rdquo;</em> &mdash; potentially undermining the secular framing. The mechanism: amending the Fair Labor Standards Act (FLSA) to require time-and-a-half overtime pay for Sunday workers, creating economic pressure to close without a direct mandate.</p>
 
-      <p class="body-text">On January 8, 2026, the Heritage Foundation — the same organisation that authored <em>Project 2025</em>, over 50% of which has already been implemented by the Trump administration — released a companion policy document titled <strong>"Saving America by Saving the Family."</strong> Framed as a "culture-wide Manhattan Project" to avert demographic collapse before America's 250th anniversary, the report's most controversial proposal calls for the restoration of <em>Blue Laws</em> to establish a <strong>"uniform day of rest" on Sundays.</strong></p>
-
-      <p class="body-text">The legal strategy is precise: the Foundation cites the 1961 Supreme Court case <em>McGowan v. Maryland</em>, which upheld Sunday closing laws as constitutional labour regulations, not religious mandates. However, the report's own language may undermine this defence — it explicitly links Sunday rest to combating <em>"spiritual homelessness"</em> and encouraging <em>"religious observance."</em></p>
-
-      <div class="pull-quote">
-        <p>"A uniform day of rest… can provide temporal boundaries that help communities set aside time for religious observance, family gatherings, outdoor activities, and rest."</p>
-        <cite>— Heritage Foundation SR323, Page 38, January 8, 2026</cite>
-      </div>
-
-      <p class="body-text">The mechanism proposed: amending the Fair Labor Standards Act (FLSA) to require time-and-a-half overtime pay for Sunday workers — creating economic pressure for businesses to close on Sundays without requiring a direct legislative mandate. Saturday-keeping Christians, Jews, Muslims, and other minority faiths would face a double burden: closing on their sacred day <em>and</em> facing economic penalty for working on Sunday.</p>
-
-      <div class="init-box pol">
-        <span class="init-tag">Political</span>
-        <h3>Project 2025 — Page 589 Precursor</h3>
-        <div class="org">Heritage Foundation · Mandate for Leadership · 2023</div>
-        <p>Before the January 2026 report, the Sunday rest proposal appeared on page 589 of the main Project 2025 document. It used explicitly theological language: <em>"God ordained the Sabbath as a day of rest, and until recent years, the Judeo-Christian tradition sought to honor that mandate by moral and legal regulation."</em> The January 2026 special report dramatically elevated this from an obscure appendix item to a front-line policy priority.</p>
-        <span class="status">Status: In active advocacy — no legislation enacted as of March 2026</span>
-      </div>
-
-      <div class="init-box cult">
-        <span class="init-tag">Cultural</span>
-        <h3>"Stop, In the Name of God" — Charlie Kirk (Posthumous)</h3>
-        <div class="org">Winning Team Publishing (Trump Jr.) · Released Dec. 9, 2025</div>
-        <p>Kirk — founder of Turning Point USA, assassinated Sept. 10, 2025 at Utah Valley University — completed his Sabbath book one month before his death. Published by Donald Trump Jr.'s house, it became an instant #1 bestseller on Amazon's Christian and Religion charts, selling out at every Barnes &amp; Noble in Utah on release day. Kirk had personally observed a Saturday Sabbath for four years before his death. Remarkably, the book states: <em>"I don't think the specific day — Saturday or Sunday — is of primary importance,"</em> making it the most widely-read conservative text to acknowledge Saturday as the actual seventh day.</p>
-        <span class="status">Reach: Kirk's social media reached 100M+ monthly — influence is massive and ongoing</span>
-      </div>
-
-      <div class="init-box pol">
-        <span class="init-tag">Opposition</span>
-        <h3>North American SDA Church — Formal Warning</h3>
-        <div class="org">North American Division · January 2026</div>
-        <p>The Seventh-day Adventist Church — which fought Sunday laws in US courts in the 1880s when Adventists were imprisoned for working on Sunday — issued a formal statement calling the Heritage proposal <em>"a disturbing disregard for the religious freedom of all Americans."</em> Their institutional memory of 160 years of anti-Sunday-law advocacy is unmatched by any other American religious body.</p>
-        <span class="status">Status: Active opposition — legal resources and First Amendment attorneys on standby</span>
-      </div>
-
+    <div class="pull-quote">
+      <p>&ldquo;A uniform day of rest&hellip; can provide temporal boundaries that help communities set aside time for religious observance, family gatherings, outdoor activities, and rest.&rdquo;</p>
+      <cite>&mdash; Heritage Foundation SR323, Page 38, January 8, 2026</cite>
     </div>
 
-    <div class="col-divider"></div>
+    <div class="g2">
+      <div class="card pol">
+        <span class="card-tag">Political</span>
+        <h3>Project 2025 &mdash; Page 589 Precursor</h3>
+        <div class="org">Heritage Foundation &middot; Mandate for Leadership &middot; 2023</div>
+        <p>The Sunday rest proposal appeared on page 589 of Project 2025 using explicitly theological language: <em>&ldquo;God ordained the Sabbath as a day of rest, and until recent years, the Judeo-Christian tradition sought to honor that mandate by moral and legal regulation.&rdquo;</em> The January 2026 special report elevated this from an obscure appendix item to a front-line policy priority.</p>
+        <span class="status">Status: In active advocacy &mdash; no legislation enacted as of March 2026</span>
+      </div>
+      <div class="card pol">
+        <span class="card-tag">Opposition</span>
+        <h3>North American SDA Church &mdash; Formal Warning</h3>
+        <div class="org">North American Division &middot; January 2026</div>
+        <p>The Seventh-day Adventist Church &mdash; which fought Sunday laws in US courts in the 1880s when Adventists were imprisoned for working on Sunday &mdash; issued a formal statement calling the Heritage proposal <em>&ldquo;a disturbing disregard for the religious freedom of all Americans.&rdquo;</em> Their 160 years of anti-Sunday-law advocacy is unmatched by any other American religious body.</p>
+        <span class="status">Status: Active opposition &mdash; First Amendment attorneys on standby</span>
+      </div>
+    </div>
 
-    <!-- COLUMN 2: EU + Vatican -->
-    <div class="col-mid">
-      <div class="section-rule"><span class="section-name">🇪🇺 European Union</span></div>
+    <div class="card cult">
+      <span class="card-tag">Cultural</span>
+      <h3>&ldquo;Stop, In the Name of God&rdquo; &mdash; Charlie Kirk (Posthumous Bestseller)</h3>
+      <div class="org">Winning Team Publishing (Trump Jr.) &middot; Released Dec. 9, 2025 &middot; 200,000 First Printing</div>
+      <p>Kirk &mdash; founder of Turning Point USA, assassinated Sept. 10, 2025 at Utah Valley University &mdash; completed his Sabbath book one month before his death. Published by Donald Trump Jr.&rsquo;s house, it became an instant #1 bestseller on Amazon&rsquo;s Christian and Religion charts, selling out at every Barnes &amp; Noble in Utah on release day. Kirk had personally observed a Saturday Sabbath for four years. Remarkably, the book states: <em>&ldquo;I don&rsquo;t think the specific day &mdash; Saturday or Sunday &mdash; is of primary importance,&rdquo;</em> making it the most widely-read conservative text to acknowledge Saturday as the actual seventh day.</p>
+      <span class="status">Reach: Kirk&rsquo;s social media reached 100M+ monthly &mdash; Fox News prime-time coverage all week of release</span>
+    </div>
 
-      <h2>European Sunday Alliance: 100+ Organisations Lobby EU Parliament</h2>
-      <div class="byline">Brussels Bureau · EU Elections Watch · March 2024</div>
+    <div class="divider"></div>
+  </div>
 
-      <p class="body-text">Founded in 2011 at the European Parliament in Brussels, the <strong>European Sunday Alliance (ESA)</strong> is a network of over 100 organisations — trade unions, employers' groups, Catholic family associations, environmental groups, and churches — lobbying for Sunday to become a legally protected, work-free day across all 27 EU member states.</p>
+  <!-- SECTION 2: EU -->
+  <div class="sec-head">
+    <h2>&#127466;&#127482; European Union &mdash; Sunday Alliance &amp; Vatican</h2>
+    <span class="sec-badge">Brussels &middot; 2011&ndash;2026</span>
+  </div>
+  <div class="content">
 
-      <p class="body-text">On March 1, 2024, ahead of the June 2024 EU Elections, the ESA issued a new manifesto calling on all MEP candidates to commit to Sunday protection. Within days, MEPs from four political groups endorsed it: S&amp;D, EPP, Greens/EFA, and Renew Europe.</p>
+    <p class="body-p">Founded in 2011 at the European Parliament in Brussels, the <strong>European Sunday Alliance (ESA)</strong> is a network of over <strong>100 organisations</strong> &mdash; trade unions, employers&rsquo; groups, Catholic family associations, environmental groups, and churches &mdash; lobbying for Sunday to become a legally protected, work-free day across all 27 EU member states.</p>
 
-      <div class="init-box rel">
-        <span class="init-tag">Religious Lobby</span>
-        <h3>COMECE — Catholic Bishops' EU Commission</h3>
-        <div class="org">Founding ESA Member · Vatican's EU Political Arm</div>
-        <p>COMECE (Commission of the Bishops' Conferences of the European Union) is the institutional Catholic Church's lobbying body at the EU. As a founding member and key infrastructure provider for the ESA, it connects the EU Sunday push directly to Vatican policy. The direct institutional line runs from Constantine's Sunday law (321 AD) → Council of Laodicea (364 AD) → COMECE's 2024 EU Parliament lobbying.</p>
+    <p class="body-p">On March 1, 2024, ahead of the June 2024 EU Elections, the ESA issued a new manifesto calling on all MEP candidates to commit to Sunday protection. Within days, MEPs from four political groups endorsed it: S&amp;D, EPP, Greens/EFA, and Renew Europe.</p>
+
+    <div class="g2">
+      <div class="card rel">
+        <span class="card-tag">Religious Lobby</span>
+        <h3>COMECE &mdash; Catholic Bishops&rsquo; EU Commission</h3>
+        <div class="org">Founding ESA Member &middot; Vatican&rsquo;s EU Political Arm</div>
+        <p>COMECE (Commission of the Bishops&rsquo; Conferences of the European Union) is the institutional Catholic Church&rsquo;s lobbying body at the EU. As a founding member and key infrastructure provider for the ESA, it connects the EU Sunday push directly to Vatican policy. The institutional line runs: Constantine&rsquo;s Sunday law (321 AD) &rarr; Council of Laodicea (364 AD) &rarr; COMECE&rsquo;s 2024 EU Parliament lobbying.</p>
         <span class="status">Status: Active, well-funded, cross-party MEP endorsements secured June 2024</span>
       </div>
-
-      <div class="init-box rel">
-        <span class="init-tag">Papal Authority</span>
-        <h3>Pope Francis — Repeated Sunday Advocacy</h3>
-        <div class="org">Vatican · Laudato Si' #237 · Ongoing</div>
-        <p>Pope Francis has repeatedly and publicly advocated Sunday as a protected rest day, explicitly questioning whether working on Sundays is <em>"true freedom."</em> In his 2015 encyclical <em>Laudato Si'</em> (#237), he stated: <em>"Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world."</em> His 2025 Jubilee Year draws 30+ million pilgrims to Rome — amplifying his influence at a critical political moment. The ESA uses his statements in its lobbying materials.</p>
-        <span class="status">Laudato Si' #237 is now cited in Green Sabbath campaigns, EU lobbying, and US policy papers simultaneously</span>
+      <div class="card rel">
+        <span class="card-tag">Papal Authority</span>
+        <h3>Pope Francis &mdash; Repeated Sunday Advocacy</h3>
+        <div class="org">Vatican &middot; Laudato Si&rsquo; &sect;237 &middot; Ongoing</div>
+        <p>Pope Francis has repeatedly advocated Sunday as a protected rest day. In his 2015 encyclical <em>Laudato Si&rsquo;</em> (&sect;237): <em>&ldquo;Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world.&rdquo;</em> His 2025 Jubilee Year draws 30+ million pilgrims to Rome &mdash; amplifying his influence at a critical political moment.</p>
+        <span class="status">Laudato Si&rsquo; &sect;237 cited in Green Sabbath campaigns, EU lobbying, and US policy papers simultaneously</span>
       </div>
+    </div>
 
-      <div class="init-box lab">
-        <span class="init-tag">Labour Law</span>
+    <div class="g2">
+      <div class="card lab">
+        <span class="card-tag">Labour Law</span>
         <h3>EU Right to Disconnect Directive</h3>
-        <div class="org">France (2016) · Belgium (2023) · EU Commission Pending</div>
-        <p>Running parallel to the religious Sunday push is the secular <em>"Right to Disconnect"</em> movement — workers' legal right to ignore work communications outside official hours. France passed it in 2016, Belgium in 2023, Italy proposed it, and the EU Commission is under pressure to issue a binding EU-wide directive. An EU survey shows workers at home are <strong>6× more likely to work in free time.</strong> The European Trade Union Institute linked long working hours to five key depression risk factors.</p>
-        <span class="status">Status: France &amp; Belgium law; EU-wide directive under active pressure from trade unions</span>
+        <div class="org">France (2016) &middot; Belgium (2023) &middot; EU Commission Pending</div>
+        <p>Running parallel to the religious Sunday push is the secular &ldquo;Right to Disconnect&rdquo; movement &mdash; workers&rsquo; legal right to ignore work communications outside official hours. France passed it in 2016, Belgium in 2023, Italy proposed it, and the EU Commission faces growing pressure to issue a binding EU-wide directive. An EU survey shows workers at home are <strong>6&times; more likely to work in free time.</strong></p>
+        <span class="status">Status: France &amp; Belgium have law; EU-wide directive under active pressure from trade unions</span>
       </div>
-
-      <div class="init-box env">
-        <span class="init-tag">Environmental</span>
+      <div class="card env">
+        <span class="card-tag">Environmental</span>
         <h3>Green Sabbath / Car-Free Sunday Campaigns</h3>
-        <div class="org">Mexico City · Bogotá · Philadelphia · ESA Environmental Partners</div>
-        <p>Every Sunday since 2007, Mexico City has closed 55km of streets to cars — attracting tens of thousands. Bogotá, Colombia runs car-free Sundays. Philadelphia closed central shopping streets on Sundays in September 2024. ESA now includes environmentalist groups as partners, linking Sunday rest to carbon reduction goals and citing <em>Laudato Si'</em> as religious-environmental convergence. The <em>Green Sabbath Project</em> explicitly calls for Sunday rest as climate action.</p>
+        <div class="org">Mexico City &middot; Bogot&aacute; &middot; Philadelphia &middot; ESA Environmental Partners</div>
+        <p>Every Sunday since 2007, Mexico City has closed 55km of streets to cars &mdash; attracting tens of thousands. Bogot&aacute;, Colombia runs car-free Sundays. Philadelphia closed central shopping streets on Sundays in September 2024. ESA includes environmentalist groups, linking Sunday rest to carbon reduction goals and citing <em>Laudato Si&rsquo;</em> as religious-environmental convergence.</p>
         <span class="status">Growing: Climate angle adds secular, non-religious coalition members to the Sunday lobby</span>
       </div>
-
-      <div class="section-rule"><span class="section-name">EU MEP Endorsers · March 2024</span></div>
-      <p style="font-size:12px;line-height:1.65;color:var(--ink);margin-bottom:8px;">ESA secured cross-party endorsements from MEPs across four political groups for their work-free Sunday manifesto ahead of the June 2024 EU Elections:</p>
-      <div style="font-size:11.5px;line-height:1.9;color:rgba(14,12,8,0.75);font-family:'Oswald',sans-serif;letter-spacing:0.5px;">
-        Brando Benifei (S&amp;D, Italy) · Gabriele Bischoff (S&amp;D, Germany) · Katrin Langensiepen (Greens/EFA, Germany) · Dragos Pislaru (Renew, Romania) · Dennis Radtke (EPP, Germany) · Evelyn Regner (S&amp;D, Austria) · Michaela Sojdrova (EPP, Czech Republic) · Tomas Zdechovsky (EPP, Czech Republic) · Miriam Lexmann (EPP, Slovakia, principal sponsor)
-      </div>
-
     </div>
 
-    <div class="col-divider"></div>
+    <p class="body-p" style="font-size:13.5px; margin-bottom:6px;"><strong style="color:var(--gold);">ESA MEP Endorsers &middot; March 2024</strong> &mdash; Cross-party endorsements for work-free Sunday manifesto ahead of June 2024 EU Elections:</p>
+    <div class="mep-list">
+      Brando Benifei (S&amp;D, Italy) &middot; Gabriele Bischoff (S&amp;D, Germany) &middot; Katrin Langensiepen (Greens/EFA, Germany) &middot; Dragos Pislaru (Renew, Romania) &middot; Dennis Radtke (EPP, Germany) &middot; Evelyn Regner (S&amp;D, Austria) &middot; Michaela Sojdrova (EPP, Czech Republic) &middot; Tomas Zdechovsky (EPP, Czech Republic) &middot; Miriam Lexmann (EPP, Slovakia, principal sponsor)
+    </div>
 
-    <!-- COLUMN 3: Labour + global -->
-    <div class="col-right">
-      <div class="section-rule"><span class="section-name">⏱ Labour Movement</span></div>
+    <div class="divider"></div>
+  </div>
 
-      <h2>The Four-Day Week Wave</h2>
-      <div class="byline">Global Labour Correspondent · 2022–2026</div>
+  <!-- SECTION 3: LABOUR -->
+  <div class="sec-head">
+    <h2>&#9201; Labour Movement &mdash; The Four-Day Week Wave</h2>
+    <span class="sec-badge">Global &middot; 2019&ndash;2026</span>
+  </div>
+  <div class="content">
 
-      <p class="body-text">What began as isolated Icelandic trials (2015–2019) has become a global policy wave. By 2026, over 15 countries have either legislated, piloted, or actively trialled a four-day work week — creating a third day off each week that, in Christian-majority nations, falls on Friday or makes Saturday a default additional rest day.</p>
+    <p class="body-p">What began as isolated Icelandic trials (2015&ndash;2019) has become a global policy wave. By 2026, over 15 countries have either legislated, piloted, or actively trialled a four-day work week &mdash; creating a third day off each week that, in Christian-majority nations, falls on Friday or makes Saturday a default additional rest day.</p>
 
-      <div class="section-rule"><span class="section-name">By Legislation</span></div>
-      <div class="country-grid">
-        <span class="country-pill pill-law">Belgium 🇧🇪</span>
-        <span class="country-pill pill-law">Iceland 🇮🇸</span>
-        <span class="country-pill pill-law">UAE 🇦🇪</span>
+    <div class="pill-legend">
+      <span class="l-law">&bull; By Legislation</span>
+      <span class="l-trial">&bull; Active Government Trials</span>
+      <span class="l-pilot">&bull; Corporate / Sector Pilots</span>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill law">Belgium &#127463;&#127466;</span>
+      <span class="pill law">Iceland &#127470;&#127480;</span>
+      <span class="pill law">UAE &#127462;&#127466;</span>
+      <span class="pill trial">Japan &#127471;&#127477;</span>
+      <span class="pill trial">Poland &#127477;&#127473;</span>
+      <span class="pill trial">Germany &#127465;&#127466;</span>
+      <span class="pill trial">Scotland</span>
+      <span class="pill trial">South Korea &#127472;&#127479;</span>
+      <span class="pill pilot">UK &#127468;&#127463;</span>
+      <span class="pill pilot">Portugal &#127477;&#127481;</span>
+      <span class="pill pilot">Brazil &#127463;&#127479;</span>
+      <span class="pill pilot">France &#127467;&#127479;</span>
+      <span class="pill pilot">South Africa &#127487;&#127462;</span>
+      <span class="pill pilot">Sweden &#127480;&#127466;</span>
+      <span class="pill pilot">Spain &#127466;&#127480;</span>
+      <span class="pill pilot">Ireland &#127470;&#127466;</span>
+    </div>
+
+    <div class="pull-quote">
+      <p>&ldquo;Starting April 2025, Tokyo introduces a four-day workweek for government employees &mdash; to combat karoshi (death by overwork) and declining birth rates.&rdquo;</p>
+      <cite>&mdash; Japanese Government Announcement, December 2024</cite>
+    </div>
+
+    <div class="card lab">
+      <span class="card-tag">Labour Law</span>
+      <h3>Sunday Trading Restrictions &mdash; EU Existing Law</h3>
+      <div class="org">Germany &middot; Austria &middot; Poland &middot; Expanding 2024&ndash;25</div>
+      <p>Most of Western Europe already has significant Sunday trading restrictions. Germany&rsquo;s <em>Ladenschlussgesetz</em> closes most shops on Sundays. Poland extended Sunday restrictions in November 2024 legislation. The ESA&rsquo;s strategy: use existing national Sunday laws as the foundation for EU-wide harmonisation &mdash; making the exception the rule across all 27 member states.</p>
+      <span class="status">In force: Germany, Austria, Hungary, Poland &mdash; being extended 2024&ndash;25</span>
+    </div>
+
+    <div class="divider"></div>
+  </div>
+
+  <!-- SECTION 4: TIMELINE -->
+  <div class="sec-head">
+    <h2>&#8635; Convergence Timeline</h2>
+    <span class="sec-badge">2011&ndash;2026</span>
+  </div>
+  <div class="content">
+    <div class="tlw">
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tl-date">March 2011</div>
+        <div class="tl-title">European Sunday Alliance Founded at EU Parliament</div>
+        <div class="tl-text">67 founding organisations; 100,000 petition signatures within 3 months. COMECE, CESI, and Catholic Family Associations lead.</div>
       </div>
-      <div class="section-rule"><span class="section-name">Active Government Trials</span></div>
-      <div class="country-grid">
-        <span class="country-pill pill-trial">Japan 🇯🇵</span>
-        <span class="country-pill pill-trial">Poland 🇵🇱</span>
-        <span class="country-pill pill-trial">Germany 🇩🇪</span>
-        <span class="country-pill pill-trial">Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
-        <span class="country-pill pill-trial">S. Korea 🇰🇷</span>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tl-date">June 2015</div>
+        <div class="tl-title">Laudato Si&rsquo; &sect;237 &mdash; Pope Francis Names Sunday</div>
+        <div class="tl-text">&ldquo;Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God&hellip; It protects human action from becoming empty activism.&rdquo;</div>
       </div>
-      <div class="section-rule"><span class="section-name">Corporate / Sector Pilots</span></div>
-      <div class="country-grid">
-        <span class="country-pill pill-pilot">UK 🇬🇧</span>
-        <span class="country-pill pill-pilot">Portugal 🇵🇹</span>
-        <span class="country-pill pill-pilot">Brazil 🇧🇷</span>
-        <span class="country-pill pill-pilot">France 🇫🇷</span>
-        <span class="country-pill pill-pilot">South Africa 🇿🇦</span>
-        <span class="country-pill pill-pilot">Sweden 🇸🇪</span>
-        <span class="country-pill pill-pilot">Spain 🇪🇸</span>
-        <span class="country-pill pill-pilot">Ireland 🇮🇪</span>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tl-date">January 2023</div>
+        <div class="tl-title">Project 2025 Published &mdash; Sunday Rest p. 589</div>
+        <div class="tl-text">&ldquo;God ordained the Sabbath as a day of rest.&rdquo; Sunday rest proposal buried in America&rsquo;s most influential conservative policy document.</div>
       </div>
-
-      <div class="pull-quote" style="margin:14px 0;">
-        <p>"Starting April 2025, Tokyo introduces a four-day workweek for government employees — to combat karoshi (death by overwork) and declining birth rates."</p>
-        <cite>— Japanese Government Announcement, December 2024</cite>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tl-date">January 23, 2024</div>
+        <div class="tl-title">Washington Post Promotes &ldquo;Green Sabbath&rdquo;</div>
+        <div class="tl-text">Major feature linking Sabbath revival to climate change, citing Laudato Si&rsquo;. America&rsquo;s most politically influential newspaper enters the rest-day conversation.</div>
       </div>
-
-      <div class="init-box lab">
-        <span class="init-tag">Labour</span>
-        <h3>Sunday Trading Restrictions — EU Existing Law</h3>
-        <div class="org">Germany · Austria · Poland · Expanding 2024–25</div>
-        <p>Most of Western Europe already has significant Sunday trading restrictions. Germany's <em>Ladenschlussgesetz</em> closes most shops on Sundays. Poland extended Sunday restrictions in November 2024 legislation. The ESA's strategy: use existing national Sunday laws as the foundation for EU-wide harmonisation — making the exception the rule across all 27 member states.</p>
-        <span class="status">In force: Germany, Austria, Hungary, Poland — being extended 2024–25</span>
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tl-date">March 2024</div>
+        <div class="tl-title">ESA Issues EU Elections Manifesto</div>
+        <div class="tl-text">Cross-party MEP endorsements secured. EU Parliamentary Breakfast on &ldquo;Sunday Protection and Mental Health&rdquo; &mdash; April 10, 2024.</div>
       </div>
+      <div class="tli">
+        <div class="tld hot"></div>
+        <div class="tl-date">Dec. 9, 2025</div>
+        <div class="tl-title">Charlie Kirk&rsquo;s Posthumous Book &mdash; #1 Bestseller</div>
+        <div class="tl-text">200,000 first printing. Sold out on Amazon. Fox News prime-time coverage all week. 100M+ monthly social media reach amplifies the Sabbath message.</div>
+      </div>
+      <div class="tli">
+        <div class="tld hot"></div>
+        <div class="tl-date">Jan. 8, 2026</div>
+        <div class="tl-title">Heritage Foundation SR323 &mdash; The &ldquo;Manhattan Project&rdquo;</div>
+        <div class="tl-text">Blue Laws restoration proposed. SDA Church issues formal warning. Legal scholars flag Establishment Clause vulnerabilities. Most significant US Sunday law push in 100+ years.</div>
+      </div>
+      <div class="tli">
+        <div class="tld hot"></div>
+        <div class="tl-date">Feb. 16, 2026</div>
+        <div class="tl-title">Montenegro Parliament &mdash; Sunday Rest Reinstated by Law</div>
+        <div class="tl-text">Left and right parties agree. Framed as worker health. First new European Sunday rest law of 2026 &mdash; the template Constantine used in 321 AD, passed by a 21st-century secular parliament.</div>
+      </div>
+      <div class="tli">
+        <div class="tld hot"></div>
+        <div class="tl-date">Feb. 27, 2026</div>
+        <div class="tl-title">Stephen Wolfe &mdash; Government Should Enforce Sunday Observance</div>
+        <div class="tl-text">Princeton-educated Presbyterian scholar and author of &ldquo;The Case for Christian Nationalism&rdquo; co-publishes study calling for magistrates to enforce Sunday laws. Distributed directly to clergy.</div>
+      </div>
+      <div class="tli">
+        <div class="tld hot"></div>
+        <div class="tl-date">March 2&ndash;3, 2026</div>
+        <div class="tl-title">UMC Bishop + ESA European Day &mdash; Protestant Mainstream Joins</div>
+        <div class="tl-text">Bishop David Bard (UMC Chair, Faith &amp; Order) calls for reviving Sunday closing laws. ESA&rsquo;s annual European Day: COMECE, FAFCE, and labour unions issue joint statement. Catholic, Protestant, and secular labour speaking with one voice in 48 hours.</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
 
-      <!-- Convergence timeline -->
-      <div class="section-rule"><span class="section-name">Convergence Timeline</span></div>
-      <div class="timeline-strip">
-        <div class="tl-item">
-          <div class="tl-date">March 2011</div>
-          <div class="tl-title">European Sunday Alliance Founded at EU Parliament</div>
-          <div class="tl-text">67 founding organisations; 100,000 petition signatures within 3 months. COMECE, CESI, and Catholic Family Associations lead.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">June 2015</div>
-          <div class="tl-title">Laudato Si' §237 — Pope Francis Names Sunday</div>
-          <div class="tl-text">"Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God… It protects human action from becoming empty activism."</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">2023</div>
-          <div class="tl-title">Project 2025 Published — Sunday Rest p. 589</div>
-          <div class="tl-text">"God ordained the Sabbath as a day of rest." Sunday rest proposal buried in America's most influential conservative policy document.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">March 2024</div>
-          <div class="tl-title">ESA Issues EU Elections Manifesto</div>
-          <div class="tl-text">Cross-party MEP endorsements secured. EU Parliamentary Breakfast on "Sunday Protection and Mental Health" — April 10, 2024.</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-date">Jan. 23, 2024</div>
-          <div class="tl-title">Washington Post Promotes "Green Sabbath"</div>
-          <div class="tl-text">Major feature linking Sabbath revival to climate change, citing Laudato Si'. America's most politically influential newspaper enters the rest-day conversation.</div>
-        </div>
-        <div class="tl-item hot">
-          <div class="tl-date">Dec. 9, 2025</div>
-          <div class="tl-title">Kirk's Posthumous Book — #1 Bestseller</div>
-          <div class="tl-text">200,000 first printing. Sold out on Amazon. Fox News prime-time coverage all week. 100M+ monthly social media reach amplifies the message.</div>
-        </div>
-        <div class="tl-item hot">
-          <div class="tl-date">Jan. 8, 2026</div>
-          <div class="tl-title">Heritage Foundation SR323 — The "Manhattan Project"</div>
-          <div class="tl-text">Blue Laws restoration proposed. SDA Church issues formal warning. Legal scholars flag Establishment Clause vulnerabilities. Most significant US Sunday law push in 100+ years.</div>
-        </div>
-        <div class="tl-item hot">
-          <div class="tl-date">Feb. 16, 2026</div>
-          <div class="tl-title">Montenegro Parliament — Sunday Rest Reinstated by Law</div>
-          <div class="tl-text">Left and right parties agree. Framed as worker health. First new European Sunday rest law of 2026 — the template Constantine used in 321 AD, now passed by a 21st-century secular parliament.</div>
-        </div>
-        <div class="tl-item hot">
-          <div class="tl-date">Feb. 27, 2026</div>
-          <div class="tl-title">Stephen Wolfe — Government Should Enforce Sunday Observance</div>
-          <div class="tl-text">Princeton-educated Presbyterian scholar and author of "The Case for Christian Nationalism" co-publishes study calling for magistrates to enforce Sunday laws. Distributed directly to clergy.</div>
-        </div>
-        <div class="tl-item hot">
-          <div class="tl-date">March 2–3, 2026</div>
-          <div class="tl-title">UMC Bishop + ESA European Day — Protestant Mainstream Joins</div>
-          <div class="tl-text">Bishop David Bard (UMC Chair, Faith &amp; Order) calls for reviving Sunday closing laws. ESA's annual European Day: COMECE, FAFCE, and labour unions issue joint statement. Catholic, Protestant, and secular labour speaking with one voice in 48 hours.</div>
-        </div>
+  <!-- SECTION 5: STATS -->
+  <div class="sec-head">
+    <h2>&#128202; The Numbers Behind the Push</h2>
+    <span class="sec-badge">Global Scale &middot; 2024&ndash;2026</span>
+  </div>
+  <div class="content">
+    <div class="g4">
+      <div class="stat-box">
+        <span class="stat-num">100+</span>
+        <span class="stat-lbl">Organisations in the European Sunday Alliance lobbying EU Parliament for work-free Sundays</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">15+</span>
+        <span class="stat-lbl">Countries with active four-day week legislation, government trials, or large-scale pilots by 2026</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">200K</span>
+        <span class="stat-lbl">First printing of Charlie Kirk&rsquo;s posthumous Sabbath book &mdash; sold out within hours of release</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">50%+</span>
+        <span class="stat-lbl">Of Project 2025 already implemented by the Trump administration &mdash; Sunday rest proposal is next</span>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
 
+  <!-- SECTION 6: THEN & NOW -->
+  <div class="sec-head">
+    <h2>&#8660; Historical Echo &mdash; 321 AD vs. 2026 AD</h2>
+    <span class="sec-badge">Same Template &middot; Different Century</span>
+  </div>
+  <div class="content">
+    <div class="tn-grid">
+      <div class="tn-col then">
+        <div class="tn-head">321 AD &mdash; Constantine&rsquo;s Sunday Law</div>
+        <ul class="tn-list">
+          <li>State power (Roman Emperor) mandates Sunday rest by law</li>
+          <li>Justified on secular grounds: &ldquo;venerable Day of the Sun&rdquo;</li>
+          <li>Economic penalty: workshops must close on Sunday</li>
+          <li>Framed as unifying national social rhythm, not purely religious</li>
+          <li>Anti-Jewish motivation: separate from the &ldquo;detestable Jewish crowd&rdquo;</li>
+          <li>Church codifies it 43 years later: Council of Laodicea 364 AD</li>
+          <li>Saturday-keepers become economic and legal outliers</li>
+        </ul>
+      </div>
+      <div class="tn-col now">
+        <div class="tn-head">2026 AD &mdash; Heritage Foundation SR323</div>
+        <ul class="tn-list">
+          <li>State power (FLSA amendment) creates economic pressure for Sunday rest</li>
+          <li>Justified on secular grounds: mental health, family wellbeing, birth rates</li>
+          <li>Economic penalty: overtime pay required for Sunday workers</li>
+          <li>Framed as &ldquo;uniform day of rest&rdquo; &mdash; national social rhythm</li>
+          <li>Theological language included: &ldquo;God ordained the Sabbath as a day of rest&rdquo;</li>
+          <li>Religious lobby (COMECE, ESA, Vatican) coordinates with political push simultaneously</li>
+          <li>Saturday-keepers, Jews, Muslims would face a two-day economic burden</li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- SECTION 7: ALARM -->
+  <div class="sec-head">
+    <h2>&#9888; Religious Liberty Concerns</h2>
+    <span class="sec-badge">What Critics Are Warning</span>
+  </div>
+  <div class="content">
+    <div class="alarm-box">
+      <div class="alarm-head">&#9888; The Three Key Objections</div>
+      <div class="g3">
+        <div>
+          <div class="alarm-item-title">The Saturday-Keeper Problem</div>
+          <p class="alarm-item p">Any law mandating Sunday as a &ldquo;uniform rest day&rdquo; places an extra economic burden on the 70M+ Christians who observe Saturday, plus all Jewish (Friday sunset&ndash;Saturday sunset), Muslim (Friday), and other faiths. Businesses observing their own Sabbath must close twice &mdash; losing two days of revenue against Sunday-observing competitors who close only once. Heritage&rsquo;s document acknowledges this but dismisses it, stating Sunday is the only &ldquo;realistic&rdquo; choice for the majority.</p>
+        </div>
+        <div>
+          <div class="alarm-item-title">The First Amendment Question</div>
+          <p class="alarm-item p">The Heritage document&rsquo;s own language may be its legal Achilles heel. By explicitly linking Sunday rest to combating &ldquo;spiritual homelessness&rdquo; and encouraging &ldquo;religious observance,&rdquo; the authors potentially violate the Establishment Clause &mdash; the very standard used in <em>McGowan v. Maryland</em> (1961) to uphold Sunday laws only because they were framed as <em>secular</em> labour regulations. A 2026 Sunday law citing religious motivation faces an entirely different constitutional challenge.</p>
+        </div>
+        <div>
+          <div class="alarm-item-title">160 Years of Institutional Memory</div>
+          <p class="alarm-item p">The Seventh-day Adventist Church&rsquo;s memory runs back to the 1880s&ndash;1890s, when American Adventists were imprisoned and sentenced to chain-gang labour under state Blue Laws. They have maintained First Amendment lawyers, published <em>Liberty</em> magazine, and opposed Sunday legislation continuously for 160 years. Their formal statement calls SR323 &ldquo;a foot-in-the-door toward influencing states to legislatively enact restrictive worship laws.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </div>
+
+  <!-- SECTION 8: FOUR STREAMS -->
+  <div class="sec-head">
+    <h2>&#128256; Four Streams &mdash; One Convergence</h2>
+    <span class="sec-badge">Political &middot; Religious &middot; Labour &middot; Environmental</span>
+  </div>
+  <div class="content">
+    <div class="g2">
+      <div class="card pol">
+        <span class="card-tag">Political Stream</span>
+        <h3>Conservative Policy Push</h3>
+        <p>Heritage Foundation SR323 (Jan. 2026) &middot; Project 2025 p.589 (2023) &middot; Pat Robertson legacy (1991) &middot; David Barton Christian heritage arguments (1992) &middot; Religious Right infrastructure of 40+ years building toward Sunday law restoration as a &ldquo;family values&rdquo; measure.</p>
+      </div>
+      <div class="card rel">
+        <span class="card-tag">Religious Stream</span>
+        <h3>Vatican &amp; Church Lobby</h3>
+        <p>Four-pope chain: Leo XIII (1891) &rarr; John Paul II <em>Dies Domini</em> (1998) &rarr; Francis Laudato Si&rsquo; &sect;237 (2015) &rarr; Leo XIV (2025&ndash;26) &middot; COMECE EU lobbying &middot; ESA (100+ orgs) &middot; UMC Bishop David Bard endorses Sunday closing laws (March 2, 2026) &middot; Stephen Wolfe calls for government Sunday enforcement (Feb. 2026).</p>
+      </div>
+      <div class="card lab">
+        <span class="card-tag">Labour Stream</span>
+        <h3>Worker Rights Wave</h3>
+        <p>Four-day week in 15+ countries &middot; EU Right to Disconnect directive &middot; Belgium legislates 4-day week (2022) &middot; Iceland permanent 4-day transition &middot; Tokyo government workers April 2025 &middot; Poland national pilot Jan. 2026 &middot; UN and ILO worker rest hour standards all converging on more protected rest time.</p>
+      </div>
+      <div class="card env">
+        <span class="card-tag">Environmental Stream</span>
+        <h3>Green Sabbath &amp; Climate</h3>
+        <p>Washington Post promotes Green Sabbath for climate (Jan. 2024) &middot; Mexico City 55km car-free Sundays since 2007 &middot; Bogot&aacute; car-free Sundays &middot; Green Sabbath Project &middot; Climate CoLab one-emission-free-day-per-week campaign &middot; Laudato Si&rsquo; linked to environmental Sunday rest &middot; ESA environmental group partners.</p>
+      </div>
+    </div>
+
+    <div class="final-quote">
+      <p>&ldquo;For the first time since the 19th century, <strong>political conservatives, the Roman Catholic Church, European trade unions, and climate activists</strong> are simultaneously pushing for legally enforced or strongly incentivised rest days &mdash; each using different language for the same outcome. The secular framing is consistent across all four streams: mental health, family wellbeing, climate, worker protection. Yet in each case, the religious motivation is never far from the surface. History has seen this template before &mdash; in 321 AD and in 1880s America. The community most attuned to that pattern, with 160 years of institutional memory, is watching closely.&rdquo;</p>
     </div>
   </div>
 
-  <!-- FULL-WIDTH STATS BAR -->
-  <div class="full-band">
-    <h2>The Numbers Behind the Push</h2>
-    <span class="band-label">Global Scale · 2024–2026</span>
-  </div>
-
-  <div class="four-col" style="margin-bottom:20px;">
-    <div class="stat-box">
-      <span class="stat-num">100+</span>
-      <span class="stat-label">Organisations in the European Sunday Alliance lobbying EU Parliament for work-free Sundays</span>
-    </div>
-    <div class="stat-box">
-      <span class="stat-num">15+</span>
-      <span class="stat-label">Countries with active four-day week legislation, government trials, or large-scale pilots by 2026</span>
-    </div>
-    <div class="stat-box">
-      <span class="stat-num">200K</span>
-      <span class="stat-label">First printing of Charlie Kirk's posthumous Sabbath book — sold out within hours of release</span>
-    </div>
-    <div class="stat-box">
-      <span class="stat-num">50%+</span>
-      <span class="stat-label">Of Project 2025 already implemented by the Trump administration — Sunday rest proposal is next in line</span>
-    </div>
-  </div>
-
-  <!-- FULL-WIDTH SECTION: Historical Echo + Alarm -->
-  <div class="full-band">
-    <h2>The Historical Echo — 321 AD vs. 2026 AD</h2>
-    <span class="band-label">Then &amp; Now · Same Template, Different Century</span>
-  </div>
-
-  <div class="then-now" style="margin-bottom:20px;">
-    <div class="tn-col then">
-      <div class="tn-head">321 AD — Constantine's Sunday Law</div>
-      <ul class="tn-list">
-        <li>State power (Roman Emperor) mandates Sunday rest by law</li>
-        <li>Justified on cultural/secular grounds: "venerable Day of the Sun"</li>
-        <li>Economic penalty: workshops must close on Sunday</li>
-        <li>Framed as unifying national social rhythm, not purely religious</li>
-        <li>Anti-Jewish motivation: separate from the "detestable Jewish crowd"</li>
-        <li>Church codifies it 43 years later: Council of Laodicea 364 AD</li>
-        <li>Saturday-keepers become economic and legal outliers</li>
-      </ul>
-    </div>
-    <div class="tn-arrow">⟺</div>
-    <div class="tn-col now">
-      <div class="tn-head">2026 AD — Heritage Foundation SR323</div>
-      <ul class="tn-list">
-        <li>State power (FLSA amendment) creates economic pressure for Sunday rest</li>
-        <li>Justified on secular grounds: mental health, family wellbeing, birth rates</li>
-        <li>Economic penalty: overtime pay required for Sunday workers</li>
-        <li>Framed as "uniform day of rest" — national social rhythm</li>
-        <li>Theological language included: "God ordained the Sabbath as a day of rest"</li>
-        <li>Religious lobby (COMECE, ESA, Vatican) coordinates with political push simultaneously</li>
-        <li>Saturday-keepers, Jews, Muslims would face a two-day economic burden</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ALARM BOX -->
-  <div class="alarm-box">
-    <div class="alarm-head">⚠ The Religious Liberty Concern — What Critics Are Warning</div>
-    <div class="alarm-grid">
-      <div class="alarm-item">
-        <div class="alarm-item-title">The Saturday-Keeper Problem</div>
-        <p>Any law mandating Sunday as a "uniform rest day" places an extra economic burden on the 70M+ Christians who observe Saturday, plus all Jewish (Friday sunset–Saturday sunset), Muslim (Friday), and other faiths. Businesses observing their own Sabbath must close twice — losing two days of revenue against Sunday-observing competitors who close only once. Heritage's document acknowledges this but dismisses it, stating Sunday is the only "realistic" choice for the majority.</p>
-      </div>
-      <div class="alarm-item">
-        <div class="alarm-item-title">The First Amendment Question</div>
-        <p>The Heritage document's own language may be its legal Achilles heel. By explicitly linking Sunday rest to combating "spiritual homelessness" and encouraging "religious observance," the authors potentially violate the Establishment Clause — the very standard used in <em>McGowan v. Maryland</em> (1961) to uphold Sunday laws only because they were framed as <em>secular</em> labour regulations. A 2026 Sunday law citing religious motivation would face an entirely different constitutional challenge.</p>
-      </div>
-      <div class="alarm-item">
-        <div class="alarm-item-title">The Pattern Warning — 160 Years of Memory</div>
-        <p>The Seventh-day Adventist Church's institutional memory runs back to the 1880s–1890s, when American Adventists were imprisoned and sentenced to chain-gang labour for tending their farms on Sundays under state Blue Laws. The SDA Church has maintained First Amendment lawyers, published <em>Liberty</em> magazine, and opposed Sunday legislation continuously for 160 years. Their formal statement calls the Heritage proposal "a foot-in-the-door toward influencing states to legislatively enact restrictive worship laws."</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- BOTTOM SYNTHESIS ROW -->
-  <div class="full-band" style="margin-top:20px;">
-    <h2>Four Streams — One Convergence</h2>
-    <span class="band-label">Political · Religious · Labour · Environmental</span>
-  </div>
-
-  <div class="four-col">
-    <div class="init-box pol" style="margin-bottom:0;">
-      <span class="init-tag">Political Stream</span>
-      <h3>Conservative Policy Push</h3>
-      <p>Heritage Foundation SR323 (Jan. 2026) · Project 2025 p.589 (2023) · Pat Robertson legacy (1991) · David Barton Christian heritage arguments (1992) · Religious Right infrastructure of 40+ years building toward Sunday law restoration as a "family values" measure.</p>
-    </div>
-    <div class="init-box rel" style="margin-bottom:0;">
-      <span class="init-tag">Religious Stream</span>
-      <h3>Vatican &amp; Church Lobby</h3>
-      <p>Four-pope chain: Leo XIII (1891) → John Paul II <em>Dies Domini</em> (1998) → Francis Laudato Si' §237 (2015) → Leo XIV (2025–26) · COMECE EU lobbying · European Sunday Alliance (100+ orgs) · UMC Bishop David Bard endorses Sunday closing laws (March 2, 2026) · Charlie Kirk posthumous bestseller · Dennis Prager's Jewish Shabbat influence on conservatives · Stephen Wolfe calls for government Sunday enforcement (Feb. 2026).</p>
-    </div>
-    <div class="init-box lab" style="margin-bottom:0;">
-      <span class="init-tag">Labour Stream</span>
-      <h3>Worker Rights Wave</h3>
-      <p>Four-day week in 15+ countries · EU Right to Disconnect directive · Belgium legislates 4-day week (2022) · Iceland permanent 4-day transition · Tokyo government workers April 2025 · Poland national pilot Jan. 2026 · UN and ILO worker rest hour standards all converging on more protected rest time.</p>
-    </div>
-    <div class="init-box env" style="margin-bottom:0;">
-      <span class="init-tag">Environmental Stream</span>
-      <h3>Green Sabbath &amp; Climate</h3>
-      <p>Washington Post promotes Green Sabbath for climate (Jan. 2024) · Mexico City 55km car-free Sundays since 2007 · Bogotá car-free Sundays · Green Sabbath Project · Climate CoLab one-emission-free-day-per-week campaign · Laudato Si' linked to environmental Sunday rest · ESA environmental group partners.</p>
-    </div>
-  </div>
-
-  <div style="border:2px solid var(--ink); padding:20px 24px; margin-top:20px; background:rgba(255,255,255,0.3); text-align:center;">
-    <p style="font-family:'Playfair Display',serif; font-size:18px; font-style:italic; line-height:1.7; color:var(--ink); max-width:900px; margin:0 auto;">
-      "For the first time since the 19th century, political conservatives, the Roman Catholic Church, European trade unions, and climate activists are simultaneously pushing for legally enforced or strongly incentivised rest days — each using different language for the same outcome. The secular framing is consistent across all four streams: mental health, family wellbeing, climate, worker protection. Yet in each case, the religious motivation is never far from the surface. History has seen this template before — in 321 AD and in 1880s America. The community most attuned to that pattern, with 160 years of institutional memory, is watching closely."
-    </p>
-  </div>
-
-  <!-- COLOPHON -->
   <div class="colophon">
-    <span class="colophon-text">Infographic VIII · The Global Push for Rest Days · Current Initiatives 2011–2026</span>
-    <span class="colophon-text">Sources: Heritage Foundation SR323 · Project 2025 · ESA Manifesto · Dies Domini (1998) · Laudato Si' §237 · Utah HB441 · Vijesti News (Montenegro) · UMC Bishop David Bard · Stephen Wolfe · NAD SDA Statement · Vatican News · Adventist Today · Fox News · Deseret News · CEOWORLD · Green Sabbath Project · Salt Lake Tribune</span>
+    <span>Infographic VIII &middot; The Global Push for Rest Days &middot; Current Initiatives 2011&ndash;2026</span>
+    <span>Sources: Heritage Foundation SR323 &middot; Project 2025 &middot; ESA Manifesto &middot; Dies Domini (1998) &middot; Laudato Si&rsquo; &sect;237 &middot; Vijesti News (Montenegro) &middot; UMC Bishop David Bard &middot; Stephen Wolfe &middot; NAD SDA Statement &middot; Vatican News &middot; Adventist Today &middot; Fox News &middot; Deseret News &middot; Green Sabbath Project &middot; Salt Lake Tribune</span>
   </div>
 
 </div>
 
-<!-- Branding Footer -->
-<div class="infographic-branding">
-  <div class="infographic-branding-text">
-    ✦ <a href="../index.html">Babylon's Wine</a> — The Constantine Legacy & God's Final Call ✦
-  </div>
-</div>
 </body>
 </html>
