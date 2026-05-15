@@ -32,6 +32,24 @@ ul.bl li strong{font-weight:700;}
 .ag{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;}
 .pr{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
 @media print{@page{margin:0.4cm;size: A4 portrait;}body{background-color:#FAF4E4!important;}}
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1280px) {
+    .page, .broadsheet { padding-left: 24px; padding-right: 24px; }
+  }
+  @media (max-width: 768px) {
+    .page, .broadsheet { padding-left: 12px; padding-right: 12px; }
+    .g2, .g3, .g4, .two-col, .three-col, .four-col { grid-template-columns: 1fr !important; }
+    .g6 { grid-template-columns: 1fr 1fr !important; }
+    .tn, .then-now { grid-template-columns: 1fr !important; }
+    .tna { display: none !important; }
+    h1 { font-size: clamp(20px, 6vw, 42px) !important; }
+    h2 { font-size: clamp(16px, 4.5vw, 24px) !important; }
+  }
+  @media (max-width: 480px) {
+    .page, .broadsheet { padding-left: 8px; padding-right: 8px; }
+    .g6 { grid-template-columns: 1fr !important; }
+  }
 </style>
 <style id="print-force">
 *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }

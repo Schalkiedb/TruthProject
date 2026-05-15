@@ -362,11 +362,11 @@
 
   <!-- FUMS tracking for api.bible (required by terms of service) -->
   <script src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
-  <script src="assets/app.js?v=20260513"></script>
+  <script src="assets/app.js?v=20260515"></script>
   <script>
     // Register service worker for offline support
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
+      navigator.serviceWorker.register('sw.js?v=3').catch(() => {});
     }
   </script>
 </body>
