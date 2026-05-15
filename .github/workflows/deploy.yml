@@ -31,7 +31,7 @@ jobs:
           tar \
             --dereference --hard-dereference \
             --directory . \
-            -cvf "$RUNNER_TEMP/artifact.tar" \
+            -cf "$RUNNER_TEMP/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
             .
