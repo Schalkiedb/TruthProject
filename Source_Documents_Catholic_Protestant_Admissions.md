@@ -68,10 +68,10 @@ These are primarily historical books, catechisms, and printed materials that may
 - **Key Content**: Q&A proving Church has power to institute festivals, citing Sunday change as evidence
 - **Note**: Also published as *Manual of Christian Doctrine*, ed. by Daniel Ferris (1916 ed.), p. 67
 
-#### 7. **Adrien Nampon, Catholic Doctrine as Defined by the Council of Trent** (p. 157)
-- **Type**: Explanation of Council of Trent doctrines
-- **Availability**: Catholic theological libraries, historical archives
-- **Key Content**: Acknowledges no biblical authorization for Sunday, states tradition supersedes Scripture
+#### 7. **Adrien Nampon, Catholic Doctrine as Defined by the Council of Trent** (pp. 152, 695)
+- **Type**: Explanation of Council of Trent doctrines on tradition vs. Scripture
+- **Availability**: Catholic theological libraries, historical archives; full text at [archive.org/details/CatholicDoctrineAsDefined](https://archive.org/details/CatholicDoctrineAsDefined)
+- **Key Content**: Nampon argues that Protestants depend on tradition for core practices including Sunday observance. P. 695 explicitly states "tradition alone which authorizes you to substitute that day for the Sabbath of the Jews."
 
 #### 8. **Library of Christian Doctrine: Why Don't You Keep Holy the Sabbath-Day?** (London: Burns and Oates, Ltd., pp. 3-4)
 - **Type**: Catholic apologetic pamphlet

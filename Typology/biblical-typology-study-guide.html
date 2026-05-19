@@ -725,48 +725,9 @@
   strong { color: var(--gold-light); font-weight: 600; }
 
   em { color: var(--parchment); }
-
-  /* ── Back to Library Button ── */
-  .infographic-back-btn {
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 9000;
-    background: rgba(42,31,14,0.9);
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.4);
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: all 0.2s ease;
-    font-family: 'Cinzel', serif;
-  }
-  .infographic-back-btn:hover {
-    background: rgba(42,31,14,0.98);
-    border-color: var(--gold);
-    transform: translateY(-1px);
-  }
 </style>
-<link rel="stylesheet" href="../assets/print-responsive.css" />
 </head>
 <body>
-
-<!-- Back to Library (hidden when loaded in iframe) -->
-<a href="../index.html" class="infographic-back-btn" id="infographic-back-btn">← Library</a>
-<script>
-if (window.self !== window.top) {
-  var btn = document.getElementById('infographic-back-btn');
-  if (btn) btn.style.display = 'none';
-}
-</script>
 
 <div class="progress-bar" id="progressBar"></div>
 

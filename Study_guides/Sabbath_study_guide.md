@@ -232,7 +232,85 @@ This means the Sabbath was not instituted by an abstract divine decree. It was i
 
 The LORD who made, rested, blessed, and hallowed — is the same LORD who declared Himself its Master in Mark 2:28. He doesn't abolish what He owns. He governs it.
 
-### 7. Jesus Expected His Disciples to Still Be Keeping the Sabbath 40 Years After His Death
+### 7. Jesus Led Israel Out of Egypt and Spoke the Sabbath Commandment at Sinai
+
+The connection between Jesus and the Sabbath runs even deeper than Creation. Scripture reveals that the pre-incarnate Christ was not merely the One who made the Sabbath at the beginning — He was also the One who rescued Israel from Egypt and then spoke the Ten Commandments from Sinai with His own voice.
+
+**The Exodus Was the Work of Jesus**:
+
+> **Jude 1:5 (NLT)** — "So I want to remind you, though you already know these things, that **Jesus** first rescued the nation of Israel from Egypt, but later he destroyed those who did not remain faithful."
+
+Jude states unambiguously: it was **Jesus** — the pre-incarnate Word of God — who "first rescued the nation of Israel from Egypt." The God of the Exodus, the One who parted the Red Sea and led Israel through the wilderness by a pillar of cloud and fire, was none other than the One who later became flesh as Jesus of Nazareth.
+
+Paul confirms this with equal clarity:
+
+> **1 Corinthians 10:1-4** — "For I do not want you to be unaware, brethren, that our fathers were all under the cloud, all passed through the sea, all were baptized into Moses in the cloud and in the sea, all ate the same spiritual food, and all drank the same spiritual drink. For they drank from the spiritual Rock that accompanied them, **and that Rock was Christ**."
+
+The spiritual Rock — the source of sustaining life in the wilderness — was Christ. He was there. He travelled with Israel. The divine Presence accompanying them from Egypt to Canaan was the pre-incarnate Son of God.
+
+**If Jesus Brought Israel Out of Egypt — Jesus Gave the Commandments at Sinai**:
+
+The Ten Commandments do not open with an abstract theological statement — they open with a declaration of identity rooted in the Exodus:
+
+> **Exodus 20:1-2** — "And God spoke all these words, saying: 'I am the **LORD your God, who brought you out of the land of Egypt**, out of the house of bondage. You shall have no other gods before Me...'"
+
+God identifies Himself at Sinai as the One who performed the Exodus. Since Scripture explicitly tells us it was Jesus who performed the Exodus (Jude 1:5; 1 Corinthians 10:4), the Voice that thundered from Sinai — *"I am the LORD your God who brought you out of Egypt"* — was the voice of the pre-incarnate Christ. It was that same voice that then commanded:
+
+> **Exodus 20:8** — "**Remember** the Sabbath day, to keep it holy..."
+
+The One saying "Remember the Sabbath" is the One who made the Sabbath.
+
+**Jesus Enforced the Sabbath in the Wilderness — Before Sinai — And His Words Prove the Law Already Existed**:
+
+Between the Exodus and Sinai, Israel was in the wilderness. God provided manna — bread from heaven — with a specific weekly pattern:
+
+> **Exodus 16:4-5** — "Then the LORD said to Moses, 'Behold, I will rain bread from heaven for you... And it shall be on the sixth day that they shall prepare what they bring in, and it shall be twice as much as they gather daily.'"
+
+God built the Sabbath rhythm *into the miracle itself* — double portion on the sixth day, none on the seventh. Then some Israelites went out on the seventh day to gather anyway:
+
+> **Exodus 16:27-28** — "Now it happened that some of the people went out on the seventh day to gather, but they found none. And the LORD said to Moses, '**How long do you refuse to keep My commandments and My laws?**'"
+
+Two words in that rebuke destroy the theory that the Sabbath was first introduced at Sinai:
+
+**1. "How long"** — You cannot ask "how long have you been refusing?" about a rule being announced for the first time. This phrasing assumes an *existing, ongoing obligation* that was being repeatedly violated. God was not saying "here is a new rule." He was saying: *you have known this, and you keep ignoring it.*
+
+**2. "My commandments and My laws"** — Plural. An established body of law, already belonging to God, already in force. The Sabbath was not being introduced here — it was being *rebuked against*.
+
+This is **before Sinai**. The Ten Commandments are not formally written on stone until Exodus 20. The Sabbath rebuke happens in Exodus 16 — the law was already in force in the wilderness.
+
+Now connect this to who was speaking. Paul places Christ explicitly in this wilderness scene:
+
+> **1 Corinthians 10:4** — "they drank from the spiritual Rock that accompanied them, **and that Rock was Christ**."
+
+The Rock that was *with Israel* throughout the wilderness journey — the Rock who gave the water, who provided the manna, who issued the rebuke when they violated the Sabbath — **was Christ**. It was the pre-incarnate Jesus who asked: *"How long do you refuse to keep My commandments and My laws?"*
+
+This is an extraordinary convergence:
+- The Sabbath law existed **before Sinai** — proven by the "how long" of Exodus 16:28
+- The One enforcing that pre-Sinai Sabbath law in the wilderness **was Christ** — proven by 1 Corinthians 10:4
+- The One who extracted Israel from Egypt to get them to that wilderness in the first place **was Jesus** — proven by Jude 1:5
+
+When Christ later stands in Galilee and declares *"The Son of Man is Lord of the Sabbath"* (Mark 2:28), it is not a new claim. It is a summary of the whole story: He made it at Creation, He enforced it in the wilderness, He declared it from Sinai — He is its Lord from beginning to end.
+
+**The commandments are not "the Father's law" given in tension with Jesus.** They are the unified expression of the Godhead's character — and it was Christ Himself who stood on Sinai and declared them to Israel. To say "I follow Jesus but not the Ten Commandments" is to misunderstand who spoke them, for it was Jesus who spoke them.
+
+> **John 14:7-9** — "If you had known Me, you would have known My Father also... Philip said to Him, 'Lord, show us the Father...' Jesus said to him, '**He who has seen Me has seen the Father**...'"
+
+> **John 10:30** — "I and My Father are **one**."
+
+The Son fully reveals the Father. The commandments He gave are the Father's commandments. Knowing Jesus means knowing the character they both share — and that character is expressed in the law He declared from Sinai.
+
+**The Complete Chain Across All of Scripture**:
+
+| **Era** | **Event** | **Scripture** |
+|--------|----------|--------------|
+| Creation | Jesus (as the Word) made the Sabbath, rested in it, blessed it, sanctified it | John 1:1-3; Genesis 2:2-3 |
+| Wilderness | Jesus (as the Rock with Israel) enforced the Sabbath through the manna — God's rebuke *"How long do you refuse to keep My commandments?"* proves the law existed **before Sinai** | 1 Corinthians 10:4; Exodus 16:27-28 |
+| Sinai | Jesus (as the God of the Exodus) spoke the Ten Commandments — "Remember the Sabbath day" | Jude 1:5; Exodus 20:1-2, 8 |
+| Earthly ministry | Jesus declares "The Son of Man is Lord of the Sabbath" | Mark 2:28 |
+
+It is the same Person, across every era of Scripture, making, enforcing, declaring, and claiming ownership of the seventh-day Sabbath. When He says "I am Lord of the Sabbath," He is simply stating the history: He made it at Creation, gave it at Sinai, and governs it as its sovereign. He doesn't abolish His own institution — He is its Lord.
+
+### 8. Jesus Expected His Disciples to Still Be Keeping the Sabbath 40 Years After His Death
 
 > **Matthew 24:20** — "And pray that your flight may not be in winter or **on the Sabbath**."
 
@@ -246,7 +324,7 @@ So the prayer Jesus commands — *"pray your flight isn't on the Sabbath"* — i
 
 Jesus spoke these words **knowing the cross was days away**. He knew He would die. He knew He would rise. He knew Pentecost was coming. With all of that knowledge, He still told His disciples — the very people who would form the post-resurrection church — to pray that their future flight in 70 CE would not fall on the **Sabbath**. That is inescapable proof that He expected His covenant people to be keeping the Sabbath long after His resurrection.
 
-### 8. Jesus Himself Honored the Sabbath in Death — The Father Had Power to Raise Him Saturday
+### 9. Jesus Himself Honored the Sabbath in Death — The Father Had Power to Raise Him Saturday
 
 The timing of the crucifixion, the grave, and the resurrection is not incidental. It follows a deliberate, theologically significant pattern — one that **vindicates the Sabbath** rather than making it obsolete.
 
@@ -304,9 +382,9 @@ The New Creation follows identical logic:
 
 The Bible never calls Sunday "the Sabbath" after the resurrection — not once in any of the four Gospels, Acts, or the Epistles. It is called "the first day of the week" every single time. The distinction is deliberate. **Sunday is the day of new beginning; Saturday remains the day of holy rest.** The pattern is too precise to be coincidental — work finished, Sabbath rest, new creation begins — the same sequence God established at the foundation of the world. The Sabbath is woven into God's redemptive structure, not erased by it.
 
-### 9. The Disciples Kept the Sabbath After the Cross
+### 10. The Disciples Kept the Sabbath After the Cross
 
-The pattern established by Point 8 continued immediately. The women who followed Jesus did not rush to the tomb on Saturday morning to anoint His body — they rested, as they always had.
+The pattern established by Point 9 continued immediately. The women who followed Jesus did not rush to the tomb on Saturday morning to anoint His body — they rested, as they always had.
 
 > **Luke 23:55-56** — "They rested **on the Sabbath according to the commandment**."
 
@@ -314,7 +392,7 @@ This was written by Luke **30+ years after the crucifixion**, for a Gentile audi
 
 If the cross ended the Sabbath at 3 PM Friday, the closest followers of Jesus in the hours immediately after had no idea.
 
-### 10. Paul Kept the Sabbath Decades After the Resurrection
+### 11. Paul Kept the Sabbath Decades After the Resurrection
 
 > **Acts 17:2** — "Then Paul, **as his custom was**, went in to them, and for three Sabbaths reasoned with them from the Scriptures."
 
@@ -324,15 +402,15 @@ Luke uses the word **"custom"** (*ethō* — an established, habitual practice) 
 
 He preached to **Greeks** (Gentiles) on the Sabbath. If Saturday had been replaced by Sunday for Gentile believers, Paul — the apostle to the Gentiles — would have said so. Instead he used Saturday as his consistent weekly platform to reach both Jews and Gentiles simultaneously.
 
-### 11. Hebrews Confirms the Sabbath Remains
+### 12. Hebrews Confirms the Sabbath Remains
 
 > **Hebrews 4:9** — "There remains therefore a **Sabbath rest** [Greek: *sabbatismos*] for the people of God."
 
 Hebrews was written approximately **65–70 CE** — more than three decades after the crucifixion, after all of Paul's letters, after Pentecost, after the Jerusalem Council. At this late post-resurrection date, a New Testament letter declares the Sabbath-keeping **remains**. Not "remained." Not "was once the case." **Remains** — present tense, active, ongoing.
 
-The word chosen is *sabbatismos* — not the generic *sabbaton*, but the specific word meaning **"Sabbath observance."** This word choice is explored fully in Point 12 — but the core message is unmistakable: the Sabbath has not been removed.
+The word chosen is *sabbatismos* — not the generic *sabbaton*, but the specific word meaning **"Sabbath observance."** This word choice is explored fully in Point 13 — but the core message is unmistakable: the Sabbath has not been removed.
 
-### 12. The Greek Words Reveal Everything — The Replacement Passages Don't Use the Sabbath Word
+### 13. The Greek Words Reveal Everything — The Replacement Passages Don't Use the Sabbath Word
 
 This is one of the most powerful and overlooked linguistic arguments in the entire Sabbath debate. The New Testament was written in Greek, and Greek has **specific, distinct words** for different concepts. When you trace the actual Greek words used across the key passages, a remarkable picture emerges:
 
@@ -386,7 +464,7 @@ The inspired author had every opportunity to say "there remains a *katapausis* (
 
 If the New Testament wanted to abolish the weekly Sabbath, the authors — writing under the guidance of the Holy Spirit — would have said so using *sabbatismos*: "There **no longer** remains a *sabbatismos* for the people of God." They never wrote that. They wrote the opposite.
 
-### 13. The Prophets Confirm the Sabbath Into Eternity — And the Greek Confirms Which One
+### 14. The Prophets Confirm the Sabbath Into Eternity — And the Greek Confirms Which One
 
 > **Isaiah 66:22-23** — "For as the new heavens and the new earth which I will make shall remain before Me... from one **Sabbath** to another, all flesh shall come to worship before Me, says the LORD."
 
@@ -417,7 +495,7 @@ The three passages form an ironclad chain:
 
 The Sabbath is kept in the new earth. If it survives into eternity future, it was never abolished.
 
-### 14. The Ten Commandments Are in God's Heavenly Throne Room — Right Now
+### 15. The Ten Commandments Are in God's Heavenly Throne Room — Right Now
 
 > **Revelation 11:19** — "Then the temple of God was opened in heaven, and **the ark of His covenant was seen in His temple**, and there were lightnings, noises, thunderings, an earthquake, and great hail."
 

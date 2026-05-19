@@ -14904,10 +14904,11 @@ Many who discover these biblical truths ask: "Isn't it enough that I know? Do I 
    - **Quote**: "The Pope is of so great authority and power that he can modify, explain, or interpret even divine laws... The Pope can modify divine law, since his power is not of man but of God, and he acts as vicegerent of God upon earth."
    - **Significance**: Claims Pope has power to change divine law itself
 
-19. **Adrien Nampon, Catholic Doctrine as Defined by the Council of Trent**, p. 157:
-   - Explanation of official Catholic teaching from Council of Trent
-   - **Quote**: "The Scriptures alone do not contain all the truths which a Christian is bound to believe, nor do they explicitly enjoin all the duties which he is obliged to practice. Not to mention other examples, is not every Christian obliged to sanctify Sunday and to abstain on that day from unnecessary servile work? Is not the observance of this law among the most prominent of our sacred duties? But you may read the Bible from Genesis to Revelation, and you will not find a single line authorizing the sanctification of Sunday. The Scriptures enforce the religious observance of Saturday, a day which we never sanctify."
-   - **Significance**: Council of Trent doctrine acknowledging no biblical basis for Sunday, claiming tradition supersedes Scripture
+19. **Adrien Nampon, Catholic Doctrine as Defined by the Council of Trent**:
+   - Explanation of official Catholic teaching on tradition vs. Scripture
+   - **Quote (p. 152)**: "Who taught them that a multitude of texts of Scripture are to be understood in a sense quite opposed to their literal meaning? for instance, that Sunday is to be set apart for the worship of God, and not the Sabbath..."
+   - **Quote (p. 695, Conclusion)**: "You reject tradition as subversive of the Christian faith. And yet the little Christianity you have preserved, you hold from tradition, by which alone you have learned the relics of religious opinions and practices, which you still possess. For all these opinions you draw from the Bible; and that is conveyed to you by tradition; and all these practices you sum up in the observance of Sunday, and it is tradition alone which authorizes you to substitute that day for the Sabbath of the Jews."
+   - **Significance**: Nampon's actual argument is that Protestants, despite rejecting tradition, depend entirely on tradition for their core practices — including Sunday observance. He explicitly states that **"tradition alone"** authorizes Sunday as a substitute for the Jewish Sabbath, and that no direct Scripture text independently establishes it.
 
 20. **C. F. Thomas, Chancellor of Cardinal Gibbons**, letter dated November 11, 1895:
    - Official response to inquiry about Sabbath change

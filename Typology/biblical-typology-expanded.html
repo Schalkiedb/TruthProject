@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblical Typology — The Complete Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #0E0C0A;
+  --bg2:       #141210;
+  --bg3:       #1A1714;
+  --surface:   #211E1A;
+  --border:    rgba(210,180,100,0.18);
+  --border2:   rgba(210,180,100,0.08);
+  --gold:      #D4A843;
+  --gold2:     #E8C87A;
+  --gold3:     #8A6A20;
+  --cream:     #F0E8D5;
+  --cream2:    #D8CEBA;
+  --cream3:    #A89880;
+  --red:       #9B2335;
+  --red2:      #C4394F;
+  --blue:      #1E4A7C;
+  --blue2:     #3A7AB8;
+  --teal:      #0E4A40;
+  --teal2:     #2A8070;
+  --purple:    #3D2060;
+  --purple2:   #7A50B0;
+  --shadow:    rgba(0,0,0,0.6);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.78;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(212,168,67,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(155,35,53,0.06) 0%, transparent 60%);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold3); border-radius: 3px; }
+
+/* PROGRESS */
+#prog {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold3), var(--gold), var(--gold2));
+  z-index: 1000; width: 0; transition: width 0.1s;
+}
+
+/* HERO */
+.hero {
+  min-height: 52vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 24px 64px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(212,168,67,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(155,35,53,0.07) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Decorative hebrew-style border lines */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: min(600px, 90%); height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.hero-tag {
+  font-family: 'Cormorant SC', serif;
+  font-size: 11px;
+  letter-spacing: 7px;
+  color: var(--gold3);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: rise 1s ease forwards 0.2s;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 6vw, 72px);
+  font-weight: 900;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-shadow: 0 0 80px rgba(212,168,67,0.35);
+  opacity: 0;
+  animation: rise 1s ease forwards 0.45s;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 21px);
+  font-style: italic;
+  color: var(--cream2);
+  max-width: 640px;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: rise 1s ease forwards 0.7s;
+}
+
+.hero-verse {
+  font-size: 15px;
+  color: var(--gold3);
+  letter-spacing: 0.3px;
+  opacity: 0;
+  animation: rise 1s ease forwards 0.95s;
+}
+
+.gem { color: var(--gold); font-size: 20px; letter-spacing: 14px; display: block; margin: 18px 0; }
+
+@keyframes rise {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+
+/* NAV */
+nav.sticky {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,12,10,0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+nav.sticky .nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; overflow-x: auto; gap: 0;
+  scrollbar-width: none;
+}
+
+nav.sticky .nav-inner::-webkit-scrollbar { display: none; }
+
+nav.sticky a {
+  font-family: 'Cormorant SC', serif;
+  font-size: 11px; letter-spacing: 2px;
+  color: var(--cream3);
+  text-decoration: none;
+  padding: 13px 15px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  display: block;
+}
+
+nav.sticky a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* LAYOUT */
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+/* CATEGORY SECTIONS */
+.cat-section {
+  padding: 72px 0 48px;
+  border-bottom: 1px solid var(--border2);
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.cat-section.vis { opacity:1; transform: translateY(0); }
+
+.cat-eyebrow {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10.5px; letter-spacing: 5px;
+  color: var(--gold3); text-transform: uppercase;
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 10px;
+}
+.cat-eyebrow::after {
+  content:''; flex:1; height:1px;
+  background: linear-gradient(90deg, var(--gold3), transparent);
+  max-width: 180px;
+}
+
+.cat-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+
+.cat-lead {
+  font-size: 18px; font-style: italic;
+  color: var(--cream2);
+  max-width: 760px;
+  border-left: 3px solid var(--gold3);
+  padding-left: 18px;
+  margin-bottom: 40px;
+}
+
+/* TYPOLOGY CARD */
+.typo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 22px;
+  margin: 0 0 32px;
+}
+
+@media(max-width:600px) { .typo-grid { grid-template-columns: 1fr; } }
+
+.typo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+
+.typo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.55), 0 0 24px rgba(212,168,67,0.1);
+}
+
+.tc-accent { height: 3px; }
+
+.typo-card.messianic .tc-accent { background: linear-gradient(90deg, var(--gold3), var(--gold)); }
+.typo-card.exodus    .tc-accent { background: linear-gradient(90deg, #7A3010, #C05030); }
+.typo-card.sanctuary .tc-accent { background: linear-gradient(90deg, var(--teal), var(--teal2)); }
+.typo-card.covenant  .tc-accent { background: linear-gradient(90deg, var(--blue), var(--blue2)); }
+.typo-card.judgment  .tc-accent { background: linear-gradient(90deg, var(--red), var(--red2)); }
+.typo-card.creation  .tc-accent { background: linear-gradient(90deg, var(--purple), var(--purple2)); }
+.typo-card.remnant   .tc-accent { background: linear-gradient(90deg, #1A5A30, #3A9060); }
+
+.tc-head {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--border2);
+  cursor: pointer;
+  user-select: none;
+  display: flex; justify-content: space-between; align-items: flex-start;
+}
+
+.tc-head-left { flex:1; }
+
+.tc-cat-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9.5px; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 5px;
+}
+
+.typo-card.messianic .tc-cat-label { color: var(--gold2); }
+.typo-card.exodus    .tc-cat-label { color: #D08060; }
+.typo-card.sanctuary .tc-cat-label { color: var(--teal2); }
+.typo-card.covenant  .tc-cat-label { color: var(--blue2); }
+.typo-card.judgment  .tc-cat-label { color: var(--red2); }
+.typo-card.creation  .tc-cat-label { color: var(--purple2); }
+.typo-card.remnant   .tc-cat-label { color: #3A9060; }
+
+.tc-type { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--cream); margin-bottom: 3px; font-weight: 600; }
+.tc-arrow { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--gold3); margin: 4px 0; }
+.tc-antitype { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--cream2); font-style: italic; }
+
+.tc-toggle {
+  font-family: 'Cormorant SC', serif;
+  font-size: 18px; color: var(--gold3);
+  margin-left: 10px; margin-top: 4px;
+  transition: transform 0.25s;
+}
+.tc-toggle.open { transform: rotate(45deg); }
+
+.tc-refs {
+  padding: 6px 22px 14px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+
+.ref-chip {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10.5px; letter-spacing: 1.5px;
+  padding: 3px 9px; border-radius: 2px;
+  border: 1px solid var(--border);
+  color: var(--cream3);
+  background: rgba(255,255,255,0.03);
+}
+
+.tc-body {
+  padding: 0 22px 22px;
+  display: none;
+}
+.tc-body.open { display: block; animation: fadeIn 0.28s ease; }
+
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+.tc-body p { font-size: 16px; color: var(--cream2); margin-bottom: 12px; line-height: 1.72; }
+.tc-body strong { color: var(--gold2); font-weight: 600; }
+.tc-body em { color: var(--cream); }
+
+.parallel-split {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  margin: 14px 0;
+}
+@media(max-width:480px) { .parallel-split { grid-template-columns:1fr; } }
+
+.ps-box {
+  border-radius: 6px; padding: 14px 16px;
+  font-size: 14.5px; line-height: 1.65;
+  color: var(--cream2);
+}
+.ps-box.type-box { background: rgba(212,168,67,0.07); border: 1px solid rgba(212,168,67,0.2); }
+.ps-box.anti-box { background: rgba(58,122,184,0.08); border: 1px solid rgba(58,122,184,0.2); }
+
+.ps-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 9.5px; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 8px;
+  display: block;
+}
+.ps-box.type-box .ps-label { color: var(--gold); }
+.ps-box.anti-box .ps-label { color: var(--blue2); }
+
+/* SCRIPTURE QUOTE */
+.sq {
+  background: linear-gradient(135deg, rgba(212,168,67,0.07), rgba(212,168,67,0.03));
+  border-left: 3px solid var(--gold3);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 18px 14px 20px;
+  margin: 14px 0;
+  position: relative;
+}
+.sq::before {
+  content: '❝';
+  font-size: 36px; color: rgba(212,168,67,0.2);
+  position: absolute; top: -6px; left: 8px;
+  font-family: Georgia, serif; line-height:1;
+}
+.sq p { font-style: italic; font-size: 15.5px; color: var(--cream); padding-left: 16px; margin:0; }
+.sq cite { display:block; font-family:'Cormorant SC',serif; font-size:10px; letter-spacing:2px; color:var(--gold3); margin-top:8px; padding-left:16px; font-style:normal; }
+
+/* KEY INSIGHT */
+.ki {
+  border-radius: 6px; padding: 16px 20px; margin: 16px 0;
+  border-left: 3px solid;
+  font-size: 15px; color: var(--cream2); line-height: 1.7;
+}
+.ki.gold  { background: rgba(212,168,67,0.07); border-color: var(--gold); }
+.ki.red   { background: rgba(155,35,53,0.1);   border-color: var(--red2); }
+.ki.teal  { background: rgba(14,74,64,0.15);   border-color: var(--teal2); }
+.ki.blue  { background: rgba(30,74,124,0.15);  border-color: var(--blue2); }
+.ki strong { color: var(--gold2); }
+
+/* MASTER TABLE */
+.master-table-wrap { overflow-x: auto; margin: 36px 0; }
+.master-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 14.5px; min-width: 700px;
+}
+.master-table thead tr {
+  background: linear-gradient(90deg, rgba(212,168,67,0.15), rgba(212,168,67,0.06));
+  border-bottom: 2px solid var(--gold3);
+}
+.master-table th {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10.5px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold);
+  padding: 12px 14px; text-align: left;
+}
+.master-table td {
+  padding: 11px 14px; color: var(--cream2);
+  border-bottom: 1px solid var(--border2);
+  vertical-align: top;
+}
+.master-table tbody tr:hover { background: rgba(212,168,67,0.04); }
+.master-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.15); }
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 28px; align-items: center;
+}
+.filter-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10.5px; letter-spacing: 3px;
+  color: var(--cream3); text-transform: uppercase;
+  margin-right: 4px;
+}
+.filter-btn {
+  font-family: 'Cormorant SC', serif;
+  font-size: 10.5px; letter-spacing: 1.5px;
+  padding: 5px 13px; border-radius: 3px; cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--cream3);
+  transition: all 0.18s; text-transform: uppercase;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: rgba(212,168,67,0.12);
+  border-color: var(--gold3); color: var(--gold);
+}
+
+/* SECTION DIVIDER */
+.sdiv { text-align:center; color:var(--gold3); letter-spacing:14px; font-size:13px; margin: 20px 0; opacity:0.5; }
+
+/* CALLOUT BOX */
+.callout {
+  border-radius: 8px; padding: 22px 26px; margin: 28px 0;
+  border-left: 4px solid;
+}
+.callout.insight { background: rgba(212,168,67,0.07); border-color: var(--gold); }
+.callout.warning { background: rgba(155,35,53,0.1);   border-color: var(--red2); }
+.callout.note    { background: rgba(30,74,124,0.12);  border-color: var(--blue2); }
+
+.callout h4 {
+  font-family: 'Cormorant SC', serif;
+  font-size: 11.5px; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.callout.insight h4 { color: var(--gold); }
+.callout.warning h4 { color: var(--red2); }
+.callout.note    h4 { color: var(--blue2); }
+.callout p { font-size: 16px; color: var(--cream2); line-height: 1.72; }
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; color: var(--cream);
+  margin: 30px 0 12px; font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+  text-align: center; padding: 60px 24px 50px;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.3);
+}
+footer .fg { font-size: 28px; color: var(--gold3); letter-spacing: 16px; display:block; margin-bottom:18px; opacity:0.6; }
+footer p { font-style: italic; font-size: 16px; color: var(--cream3); max-width: 560px; margin: 0 auto 10px; }
+
+/* CATEGORY COLOR DOTS in table */
+.dot {
+  display: inline-block; width: 8px; height: 8px;
+  border-radius: 50%; margin-right: 6px; vertical-align: middle;
+}
+.dot.messianic { background: var(--gold); }
+.dot.exodus    { background: #C05030; }
+.dot.sanctuary { background: var(--teal2); }
+.dot.covenant  { background: var(--blue2); }
+.dot.judgment  { background: var(--red2); }
+.dot.creation  { background: var(--purple2); }
+.dot.remnant   { background: #3A9060; }
+
+/* LEGEND */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  margin-bottom: 24px;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 7px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 10.5px; letter-spacing: 2px;
+  color: var(--cream3); text-transform: uppercase;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .hero { padding: 52px 18px 44px; }
+  .cat-section { padding: 50px 0 36px; }
+  .wrap { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">Old Testament → New Testament</div>
+  <h1>The Shadow & The Substance</h1>
+  <p class="hero-sub">A Complete Reference of Biblical Typology — Every Major Type, Its Antitype, and the Theological Thread Connecting Them</p>
+  <p class="hero-verse">"These are a shadow of the things that were to come; the reality, however, is found in Christ." — Colossians 2:17</p>
+  <span class="gem">◆ ◆ ◆</span>
+</header>
+
+<!-- NAV -->
+<nav class="sticky">
+  <div class="nav-inner">
+    <a href="#messianic">Messianic Types</a>
+    <a href="#exodus">Exodus Types</a>
+    <a href="#sanctuary">Sanctuary Types</a>
+    <a href="#covenant">Covenant Types</a>
+    <a href="#judgment">Judgment Types</a>
+    <a href="#creation">Creation Types</a>
+    <a href="#remnant">Remnant Types</a>
+    <a href="#master">Master Table</a>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section class="cat-section" id="intro" style="padding-bottom:0; border-bottom:none;">
+  <div class="wrap">
+    <div class="callout insight">
+      <h4>What is Biblical Typology?</h4>
+      <p>A <strong>type</strong> is a divinely intended Old Testament person, event, institution, or object that foreshadows a greater New Testament reality — the <strong>antitype</strong>. Unlike allegory (which reads meaning into the text), typology reads meaning <em>out of</em> the text — because God structured history itself as a progressive revelation. Paul, John, the author of Hebrews, and Jesus Himself establish typological reading as the correct hermeneutic for understanding the whole Bible as one unified story.</p>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="dot messianic"></span> Messianic / Christ Types</div>
+      <div class="legend-item"><span class="dot exodus"></span> Exodus / Redemption Types</div>
+      <div class="legend-item"><span class="dot sanctuary"></span> Sanctuary / Priesthood Types</div>
+      <div class="legend-item"><span class="dot covenant"></span> Covenant / Law Types</div>
+      <div class="legend-item"><span class="dot judgment"></span> Judgment / Salvation Types</div>
+      <div class="legend-item"><span class="dot creation"></span> Creation / New Creation Types</div>
+      <div class="legend-item"><span class="dot remnant"></span> Remnant / Israel Types</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 1 — MESSIANIC TYPES
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="messianic">
+  <div class="wrap">
+    <div class="cat-eyebrow">Category One</div>
+    <h2 class="cat-title">Messianic & Christ Types</h2>
+    <p class="cat-lead">Persons in the Old Testament whose lives, offices, or experiences prefigure Christ — not by accident, but by divine design woven into the fabric of history.</p>
+
+    <div class="typo-grid">
+
+      <!-- Adam -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">Adam</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — The Last Adam</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 1–3</span>
+          <span class="ref-chip">Rom 5:12-21</span>
+          <span class="ref-chip">1 Cor 15:45-49</span>
+        </div>
+        <div class="tc-body">
+          <p>Paul explicitly calls Adam <strong>"a pattern of the one to come"</strong> (Romans 5:14). The parallels are structurally precise and deliberately contrasted:</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box">
+              <span class="ps-label">Type — Adam</span>
+              One man's disobedience brought sin and death to all humanity. He failed the test in a garden of abundance. He hid from God. He blamed another. Creation fell because of him.
+            </div>
+            <div class="ps-box anti-box">
+              <span class="ps-label">Antitype — Christ</span>
+              One man's obedience brings righteousness and life to all who receive it. He passed the test in a garden of agony (Gethsemane). He went to the Father. He took the blame. Creation will be restored because of Him.
+            </div>
+          </div>
+          <div class="sq"><p>"For as in Adam all die, so in Christ all will be made alive."</p><cite>1 Corinthians 15:22</cite></div>
+          <p class="ki gold"><strong>Key insight:</strong> Adam is the federal head of the old creation. Christ is the federal head of the new creation. The entire story of redemption moves from the first Adam to the Last Adam — from fallen headship to restored headship.</p>
+        </div>
+      </div>
+
+      <!-- Melchizedek -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">Melchizedek</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — Eternal Priest-King</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 14:18-20</span>
+          <span class="ref-chip">Ps 110:4</span>
+          <span class="ref-chip">Heb 5–7</span>
+        </div>
+        <div class="tc-body">
+          <p>Melchizedek appears in Genesis 14 with no genealogy, no recorded birth, no recorded death — <strong>deliberately so</strong>. Hebrews 7 explains this is God's way of typifying an eternal priesthood:</p>
+          <ul style="list-style:none; margin:12px 0;">
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>King of Salem</strong> (= king of peace) → Christ is the Prince of Peace</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Priest of God Most High</strong> → Christ is our eternal High Priest</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>No recorded genealogy</strong> → Christ's priesthood is not inherited by descent</li>
+            <li style="padding:7px 0 7px 20px; font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Brought out bread and wine</strong> → the Lord's Supper elements, foreshadowed 2,000 years early</li>
+          </ul>
+          <p>Abraham — father of the Levitical priesthood — paid tithes to Melchizedek, demonstrating that Melchizedek's order is <em>superior</em> to the Levitical order. Christ comes not as a Levitical priest but after the order of Melchizedek — an eternal, non-hereditary, royal priesthood.</p>
+        </div>
+      </div>
+
+      <!-- Joseph -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">Joseph</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — Rejected, Exalted, Saviour</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 37–50</span>
+          <span class="ref-chip">Acts 7:9-16</span>
+          <span class="ref-chip">John 1:11</span>
+        </div>
+        <div class="tc-body">
+          <p>Joseph's life is one of the most detailed Messianic types in Scripture — the parallels are so numerous that many rabbis spoke of a <em>Messiah ben Joseph</em> who would suffer before the conquering Messiah:</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box">
+              <span class="ps-label">Joseph</span>
+              Beloved son of his father. Sent to his brothers. Rejected and conspired against. Stripped of his robe. Sold for silver (20 pieces). Falsely accused. Cast into a pit (death). Exalted to the right hand of Pharaoh. Saviour of the world including his brothers who rejected him. Forgave them.
+            </div>
+            <div class="ps-box anti-box">
+              <span class="ps-label">Christ</span>
+              Beloved Son of the Father. Sent to His own people. Rejected and conspired against. Stripped of His garments. Sold for silver (30 pieces). Falsely accused. Died and was buried. Exalted to the right hand of God. Saviour of the world including Israel that rejected Him. Offers forgiveness.
+            </div>
+          </div>
+          <div class="ki gold"><strong>Remarkable detail:</strong> Joseph's brothers did not recognise him when he stood before them as ruler of Egypt — exactly as Paul writes that Israel did not recognise Christ standing before them. The second time they came, he revealed himself to them with weeping. This foreshadows Israel's ultimate recognition of their rejected Messiah (Zechariah 12:10).</div>
+        </div>
+      </div>
+
+      <!-- Moses -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">Moses</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — The Prophet Like Moses</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Deut 18:15-18</span>
+          <span class="ref-chip">Matt 2:13-15</span>
+          <span class="ref-chip">Acts 3:22</span>
+          <span class="ref-chip">Heb 3:1-6</span>
+        </div>
+        <div class="tc-body">
+          <p>God Himself in Deuteronomy 18 promises Israel a prophet <em>like Moses</em> — the ultimate antitype. The parallels are structurally exact:</p>
+          <ul style="list-style:none; margin:12px 0;">
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Both <strong>escaped infant massacre</strong> (Pharaoh's decree / Herod's decree)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Both <strong>called out of Egypt</strong> (Hos 11:1 / Matt 2:15 — Matthew applies this to Jesus)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Both <strong>fasted 40 days</strong> (Exodus 34:28 / Matthew 4:2)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Moses gave the <strong>law on a mountain</strong> → Christ gave the new law on the Sermon on the Mount</li>
+            <li style="padding:7px 0 7px 20px; font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Moses was <strong>mediator of the old covenant</strong> → Christ mediates the new covenant (Heb 9:15)</li>
+          </ul>
+          <p>Hebrews 3:5-6 makes the comparison direct: <em>"Moses was faithful as a servant in all God's house... but Christ is faithful as the Son over God's house."</em> Moses is the type; Christ is the substance.</p>
+        </div>
+      </div>
+
+      <!-- David -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">David</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — Son of David, Eternal King</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">2 Sam 7:12-16</span>
+          <span class="ref-chip">Ps 22</span>
+          <span class="ref-chip">Luke 1:32-33</span>
+          <span class="ref-chip">Rev 22:16</span>
+        </div>
+        <div class="tc-body">
+          <p>The Davidic covenant in 2 Samuel 7 promises David a son whose <strong>throne will be established forever</strong> — Solomon partially fulfils it, but the eternal dimension requires the ultimate Son of David.</p>
+          <div class="sq"><p>"I will be his father, and he will be my son... your house and your kingdom will endure forever before me; your throne will be established forever."</p><cite>2 Samuel 7:14, 16</cite></div>
+          <p>Psalm 22 — written by David from personal experience — is quoted by Jesus verbatim on the cross (<em>"My God, my God, why have you forsaken me?"</em>) and describes in detail: mocking crowds, divided garments, pierced hands and feet, bones out of joint — none of which happened literally to David, but all of which happened literally to Christ. David was a type who, under inspiration, wrote beyond his own experience into the antitype's.</p>
+          <div class="ki gold"><strong>Christ identifies Himself:</strong> "I am the Root and the Offspring of David" (Rev 22:16) — He is simultaneously David's ancestor (Root = divine pre-existence) and David's descendant (Offspring = human lineage).</div>
+        </div>
+      </div>
+
+      <!-- Solomon -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">Solomon</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — Greater Than Solomon</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">1 Kings 10</span>
+          <span class="ref-chip">Matt 12:42</span>
+          <span class="ref-chip">Col 2:3</span>
+        </div>
+        <div class="tc-body">
+          <p>Jesus explicitly says: <strong>"one greater than Solomon is here"</strong> (Matthew 12:42), inviting the typological comparison. Solomon was the king of wisdom, peace, and glory — and he prefigures the One in whom <em>"all the treasures of wisdom and knowledge are hidden"</em> (Colossians 2:3).</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box"><span class="ps-label">Solomon</span>All the earth sought his presence to hear his God-given wisdom. Built the Temple — the house of God. His name means <em>peace</em>. Reigned over a kingdom of unprecedented wealth and glory.</div>
+            <div class="ps-box anti-box"><span class="ps-label">Christ</span>All nations will ultimately seek Him. Is Himself the Temple (John 2:21). Is the Prince of Peace. Reigns over a kingdom that will have no end.</div>
+          </div>
+          <p>Solomon's tragedy — turning away through foreign wives — is also typologically instructive: it foreshadows the Pergamos/Thyatira church's spiritual adultery through the political-religious marriage to Rome.</p>
+        </div>
+      </div>
+
+      <!-- Jonah -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">Jonah</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — Death, Burial & Resurrection</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Jonah 1–2</span>
+          <span class="ref-chip">Matt 12:39-41</span>
+          <span class="ref-chip">1 Cor 15:4</span>
+        </div>
+        <div class="tc-body">
+          <p>Jesus Himself establishes this type explicitly — the only sign He gives to the generation demanding a sign: <strong>"the sign of Jonah."</strong></p>
+          <div class="sq"><p>"For as Jonah was three days and three nights in the belly of a huge fish, so the Son of Man will be three days and three nights in the heart of the earth."</p><cite>Matthew 12:40</cite></div>
+          <p>Jonah went down into the deep — his prayer from inside the fish (Jonah 2) reads like a psalm of death and resurrection: <em>"From deep in the realm of the dead I called for help... You brought my life up from the pit."</em> He was cast overboard to save the sailors (substitutionary). He emerged alive after three days. Went to the Gentile city. Preached. They repented.</p>
+          <div class="ki teal"><strong>The Gentile dimension:</strong> Jonah's mission to Nineveh foreshadows the gospel going to the Gentiles after Israel's rejection. "And a greater than Jonah is here" — Christ's resurrection mission reaches further than Nineveh.</div>
+        </div>
+      </div>
+
+      <!-- Isaac -->
+      <div class="typo-card messianic">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Messianic Type</div>
+            <div class="tc-type">Isaac — The Binding</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — The Father's Offering</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 22</span>
+          <span class="ref-chip">John 3:16</span>
+          <span class="ref-chip">Heb 11:17-19</span>
+          <span class="ref-chip">Rom 8:32</span>
+        </div>
+        <div class="tc-body">
+          <p>The Akedah — the binding of Isaac — is perhaps the most emotionally precise type in Scripture. The parallels are staggering:</p>
+          <ul style="list-style:none; margin:12px 0;">
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Only begotten beloved son</strong> offered by the father (Gen 22:2 / John 3:16)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Isaac carried the wood</strong> for his own sacrifice up Mount Moriah → Christ bore His own cross up Golgotha</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Mount Moriah</strong> = the same mountain range as Golgotha (Jerusalem)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>"God himself will provide the lamb"</strong> (Gen 22:8) → "Behold the Lamb of God" (John 1:29)</li>
+            <li style="padding:7px 0 7px 20px; font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Isaac was <strong>received back as from the dead</strong> (Heb 11:19) — a figurative resurrection prefiguring the literal one</li>
+          </ul>
+          <p>Paul echoes the Akedah language in Romans 8:32: <em>"He who did not spare his own Son, but gave him up for us all."</em> The word <em>spare</em> comes from the Septuagint of Genesis 22:16 — God directly connecting the type to the antitype.</p>
+        </div>
+      </div>
+
+    </div><!-- /messianic grid -->
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 2 — EXODUS TYPES
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="exodus">
+  <div class="wrap">
+    <div class="cat-eyebrow">Category Two</div>
+    <h2 class="cat-title">Exodus & Redemption Types</h2>
+    <p class="cat-lead">The Exodus from Egypt is the central redemptive event of the Old Testament — and Paul explicitly says it was written as a type for the Church (1 Cor 10). Every major element has an antitype in the New Covenant.</p>
+
+    <div class="typo-grid">
+
+      <!-- Passover Lamb -->
+      <div class="typo-card exodus">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Exodus Type</div>
+            <div class="tc-type">The Passover Lamb</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — The Lamb of God</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Exod 12</span>
+          <span class="ref-chip">John 1:29</span>
+          <span class="ref-chip">1 Cor 5:7</span>
+          <span class="ref-chip">1 Pet 1:18-19</span>
+        </div>
+        <div class="tc-body">
+          <p>Paul states it plainly: <strong>"Christ, our Passover lamb, has been sacrificed"</strong> (1 Cor 5:7). The specifications of the Passover lamb in Exodus 12 are a precise typological blueprint:</p>
+          <ul style="list-style:none; margin:12px 0;">
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Without blemish</strong> (Exod 12:5) → Christ was without sin (1 Pet 1:19)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Selected on the 10th of Nisan</strong>, slain on the 14th → Christ entered Jerusalem on 10th Nisan (Palm Sunday), crucified on 14th Nisan</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>"Not a bone of it shall be broken"</strong> (Exod 12:46) → John 19:36 applies this directly to Christ on the cross</li>
+            <li style="padding:7px 0 7px 20px; font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Blood applied to the doorpost</strong> = judgment passes over → Christ's blood applied by faith = judgment passes over the believer</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- The Bronze Serpent -->
+      <div class="typo-card exodus">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Exodus Type</div>
+            <div class="tc-type">The Bronze Serpent</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ Lifted Up on the Cross</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Num 21:4-9</span>
+          <span class="ref-chip">John 3:14-15</span>
+        </div>
+        <div class="tc-body">
+          <p>This type is established by Jesus Himself in His conversation with Nicodemus — the passage that immediately precedes John 3:16:</p>
+          <div class="sq"><p>"Just as Moses lifted up the snake in the wilderness, so the Son of Man must be lifted up, that everyone who believes may have eternal life in him."</p><cite>John 3:14-15</cite></div>
+          <div class="parallel-split">
+            <div class="ps-box type-box"><span class="ps-label">The Bronze Serpent</span>Israel was bitten by serpents — under God's judgment for rebellion. Moses lifted a bronze serpent on a pole. <em>Anyone who looked</em> at it was healed. No other condition. Just look.</div>
+            <div class="ps-box anti-box"><span class="ps-label">Christ on the Cross</span>Humanity is under judgment — bitten by the serpent of Eden. Christ was lifted up on the cross. <em>Anyone who believes</em> is saved. No other condition. Just look in faith.</div>
+          </div>
+          <div class="ki red"><strong>The paradox:</strong> The serpent on the pole had the <em>form</em> of what was killing them — but no poison. Christ took the <em>form</em> of sinful flesh (Romans 8:3) — but no sin. He bore the form of judgment to bring healing from judgment.</div>
+        </div>
+      </div>
+
+      <!-- Manna -->
+      <div class="typo-card exodus">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Exodus Type</div>
+            <div class="tc-type">Manna in the Wilderness</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — The Bread of Life</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Exod 16</span>
+          <span class="ref-chip">John 6:32-35</span>
+          <span class="ref-chip">John 6:48-51</span>
+        </div>
+        <div class="tc-body">
+          <p>In John 6, the crowd invokes the manna as a reason Jesus should perform a sign. Jesus responds by reframing — <strong>Moses did not give them the bread; God gave it.</strong> And God is now giving the true bread:</p>
+          <div class="sq"><p>"I am the bread of life. Your ancestors ate the manna in the wilderness, yet they died. But here is the bread that comes down from heaven, which anyone may eat and not die."</p><cite>John 6:48-50</cite></div>
+          <ul style="list-style:none; margin:12px 0;">
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Manna <strong>came down from heaven</strong> → Christ came down from heaven</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Manna was <strong>small, white, and sweet</strong> → Christ is pure, humble, and satisfying</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Manna sustained <strong>physical life</strong> temporarily → Christ sustains <strong>eternal life</strong> permanently</li>
+            <li style="padding:7px 0 7px 20px; font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> Manna given to <strong>all Israel freely</strong> → salvation offered to all freely</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- The Rock -->
+      <div class="typo-card exodus">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Exodus Type</div>
+            <div class="tc-type">The Rock at Horeb</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — The Spiritual Rock</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Exod 17:1-7</span>
+          <span class="ref-chip">Num 20:7-12</span>
+          <span class="ref-chip">1 Cor 10:4</span>
+          <span class="ref-chip">John 7:37-38</span>
+        </div>
+        <div class="tc-body">
+          <p>Paul makes this explicit: <strong>"they drank from the spiritual rock that accompanied them, and that rock was Christ"</strong> (1 Cor 10:4).</p>
+          <p>The account in Numbers 20 contains a profound typological warning: Moses was told to <em>speak</em> to the rock the second time — but instead <em>struck</em> it twice. He was disqualified from entering Canaan because of it. Why so severe? Because the type had to be exact:</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box"><span class="ps-label">First Striking — Exodus 17</span>The rock was struck once → Christ was crucified once. Water flowed — life from death. This could be struck only <em>once</em>.</div>
+            <div class="ps-box anti-box"><span class="ps-label">Second Time — Numbers 20</span>The rock was to be <em>spoken to</em>, not struck again → we approach the risen Christ through prayer and the Word, not by re-crucifying Him. To strike again was to typologically re-crucify Christ (cf. Hebrews 6:6).</div>
+          </div>
+          <div class="ki blue">Moses's error distorted the typological message God was encoding into history. This is why God's response was so severe — the types are sacred because they carry eternal theological content.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 3 — SANCTUARY TYPES
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="sanctuary">
+  <div class="wrap">
+    <div class="cat-eyebrow">Category Three</div>
+    <h2 class="cat-title">Sanctuary & Priesthood Types</h2>
+    <p class="cat-lead">The entire Levitical system — the tabernacle, the priesthood, the sacrifices, the festivals — is one vast interconnected typological system pointing to Christ and His ministry. Hebrews 8–10 is the interpretive key.</p>
+
+    <div class="callout insight">
+      <h4>The Principle of Hebrews 8:5</h4>
+      <p>The earthly sanctuary was built according to the <strong>pattern shown to Moses on the mountain</strong> — because it was a copy and shadow of the heavenly reality. The shadow serves the substance; when the substance arrives, the shadow is fulfilled — not abolished, but completed.</p>
+    </div>
+
+    <div class="typo-grid">
+
+      <!-- High Priest -->
+      <div class="typo-card sanctuary">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Sanctuary Type</div>
+            <div class="tc-type">The High Priest</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — Our Great High Priest</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Lev 16</span>
+          <span class="ref-chip">Heb 4:14-16</span>
+          <span class="ref-chip">Heb 9:11-14</span>
+        </div>
+        <div class="tc-body">
+          <p>The High Priest was the only person who could enter the Most Holy Place — and only once a year, on the Day of Atonement, with blood. Every detail of this office finds its fulfilment in Christ:</p>
+          <ul style="list-style:none; margin:12px 0;">
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Chosen from among men</strong> → Christ took on human flesh (Heb 5:1-4)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Mediator between God and people</strong> → "There is one mediator... the man Christ Jesus" (1 Tim 2:5)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Entered with blood</strong> → Christ entered heaven with His own blood (Heb 9:12)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Names of 12 tribes on his breastplate</strong> → Christ intercedes for all His people by name</li>
+            <li style="padding:7px 0 7px 20px; font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Must be without defect</strong> → Christ is sinless (Heb 7:26-27)</li>
+          </ul>
+          <div class="sq"><p>"Therefore, since we have a great high priest who has ascended into heaven, Jesus the Son of God, let us hold firmly to the faith we profess."</p><cite>Hebrews 4:14</cite></div>
+        </div>
+      </div>
+
+      <!-- Day of Atonement -->
+      <div class="typo-card sanctuary">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Sanctuary Type</div>
+            <div class="tc-type">The Day of Atonement (Yom Kippur)</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ's Atoning Work & Investigative Judgment</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Lev 16</span>
+          <span class="ref-chip">Dan 8:14</span>
+          <span class="ref-chip">Heb 9:23-28</span>
+          <span class="ref-chip">Rev 11:19</span>
+        </div>
+        <div class="tc-body">
+          <p>Yom Kippur had <strong>two goats</strong> — one slain as a sin offering, one (the scapegoat / Azazel) sent into the wilderness bearing the sins of Israel. Both point to Christ's atoning work but from different angles:</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box"><span class="ps-label">Lord's Goat — Slain</span>Its blood was brought into the Most Holy Place. Covered the sins of Israel that had accumulated through the year. The death that removes sin.</div>
+            <div class="ps-box anti-box"><span class="ps-label">Azazel Goat — Wilderness</span>All sins confessed and placed upon it by the High Priest. Sent away — never to return. The removal and banishment of sin to where it originated.</div>
+          </div>
+          <p>The Adventist reading — which the sanctuary message makes central — sees Daniel 8:14 (<em>"unto 2,300 days; then shall the sanctuary be cleansed"</em>) as pointing to a heavenly Day of Atonement beginning in 1844 — the investigative judgment, when the books are opened and every case reviewed before the Second Coming. The earthly Yom Kippur was the cosmic type for this.</p>
+          <div class="ki teal"><strong>The solemnity of the day:</strong> Israel was commanded to "afflict their souls" on Yom Kippur — a day of deep personal examination. The antitype demands the same: a generation of deep heart examination before Christ returns.</div>
+        </div>
+      </div>
+
+      <!-- The Veil -->
+      <div class="typo-card sanctuary">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Sanctuary Type</div>
+            <div class="tc-type">The Temple Veil</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ's Body — Access to the Father</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Exod 26:31-33</span>
+          <span class="ref-chip">Matt 27:51</span>
+          <span class="ref-chip">Heb 10:19-20</span>
+        </div>
+        <div class="tc-body">
+          <p>The veil separated the Holy Place from the Most Holy Place — representing the barrier between sinful humanity and the holy presence of God. At the moment of Christ's death on the cross, <strong>the veil was torn from top to bottom</strong> (Matthew 27:51) — not from bottom to top (which would be human action), but from top — God's action.</p>
+          <div class="sq"><p>"Therefore, brothers and sisters, since we have confidence to enter the Most Holy Place by the blood of Jesus, by a new and living way opened for us through the curtain, that is, his body..."</p><cite>Hebrews 10:19-20</cite></div>
+          <p>Hebrews makes the identification explicit: the veil is Christ's body. The tearing of the veil is the breaking of His body. His flesh is the way through. The barrier is removed not by human religious effort but by God's own initiative through the incarnation.</p>
+          <div class="ki gold"><strong>The direction of the tearing:</strong> Top to bottom. God reached down. The architecture of the temple was prophetically communicating that access to God would come from above, not be climbed to from below — the opposite of Babel.</div>
+        </div>
+      </div>
+
+      <!-- The Feasts -->
+      <div class="typo-card sanctuary">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Sanctuary Type</div>
+            <div class="tc-type">The Seven Feasts of Israel</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">The Entire Gospel Timeline</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Lev 23</span>
+          <span class="ref-chip">1 Cor 5:7</span>
+          <span class="ref-chip">Acts 2:1</span>
+          <span class="ref-chip">Col 2:16-17</span>
+        </div>
+        <div class="tc-body">
+          <p>The seven feasts of Leviticus 23 are prophetic in their sequence — the <strong>spring feasts were fulfilled in exact order at Christ's first coming</strong>, and the fall feasts await fulfilment at His second coming:</p>
+          <div class="master-table-wrap">
+          <table class="master-table" style="min-width:500px;">
+            <thead><tr><th>Feast</th><th>Season</th><th>Fulfilment</th></tr></thead>
+            <tbody>
+              <tr><td>Passover</td><td>Spring</td><td>Crucifixion — Christ our Passover lamb</td></tr>
+              <tr><td>Unleavened Bread</td><td>Spring</td><td>Burial — body of Christ in the tomb (no corruption)</td></tr>
+              <tr><td>Firstfruits</td><td>Spring</td><td>Resurrection — Christ the firstfruits of the dead (1 Cor 15:20)</td></tr>
+              <tr><td>Pentecost/Shavuot</td><td>Spring</td><td>The Holy Spirit poured out — Acts 2 fulfilled exactly on this day</td></tr>
+              <tr><td>Trumpets/Rosh Hashanah</td><td>Fall</td><td>The last trumpet — gathering of the elect at the Second Coming</td></tr>
+              <tr><td>Day of Atonement/Yom Kippur</td><td>Fall</td><td>Investigative Judgment / Final Atonement</td></tr>
+              <tr><td>Tabernacles/Sukkot</td><td>Fall</td><td>God tabernacling with His people in the new earth</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="ki teal"><strong>The precision is staggering:</strong> The first four feasts were fulfilled to the exact calendar day. This is not interpretation — it is historical fact. The certainty of the spring fulfilments guarantees the certainty of the fall fulfilments.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 4 — COVENANT TYPES
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="covenant">
+  <div class="wrap">
+    <div class="cat-eyebrow">Category Four</div>
+    <h2 class="cat-title">Covenant & Law Types</h2>
+    <p class="cat-lead">Every covenant God made in the Old Testament is a step in the progressive revelation of the New Covenant — each one adding depth to what God ultimately accomplishes in Christ.</p>
+
+    <div class="typo-grid">
+
+      <!-- Rainbow Covenant -->
+      <div class="typo-card covenant">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Covenant Type</div>
+            <div class="tc-type">Noah's Rainbow Covenant</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">God's Unconditional Covenant of Grace</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 9:8-17</span>
+          <span class="ref-chip">Isa 54:9-10</span>
+          <span class="ref-chip">Rom 5:8</span>
+        </div>
+        <div class="tc-body">
+          <p>The Noahic covenant is <strong>unilateral and unconditional</strong> — God makes it without any condition required of Noah or humanity. This is the foundational type for grace:</p>
+          <p>Isaiah 54:9 explicitly connects the Noahic covenant to the New Covenant promise: <em>"As I swore that the waters of Noah would never again cover the earth, so I have sworn that I will not be angry with you."</em> The rainbow is the sign of God's patient, unrequited grace toward a rebellious world — a picture of common grace that points toward saving grace.</p>
+          <div class="ki blue"><strong>The ark as a type:</strong> 1 Peter 3:20-21 explicitly types the ark as a picture of baptism and salvation — <em>"eight persons were saved through water, and this water symbolises baptism that now saves you."</em> The ark did not save by being improved — it saved by being entered.</div>
+        </div>
+      </div>
+
+      <!-- The Two Tablets -->
+      <div class="typo-card covenant">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Covenant Type</div>
+            <div class="tc-type">The Two Stone Tablets</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">The Law Written on the Heart</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Exod 31:18</span>
+          <span class="ref-chip">Jer 31:31-33</span>
+          <span class="ref-chip">2 Cor 3:3</span>
+          <span class="ref-chip">Heb 8:10</span>
+        </div>
+        <div class="tc-body">
+          <p>The tablets of stone are a type of the heart — Paul makes this explicit: <em>"written not with ink but with the Spirit of the living God, not on tablets of stone but on tablets of human hearts"</em> (2 Cor 3:3).</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box"><span class="ps-label">Stone Tablets</span>External. Heavy. Breakable — and Israel broke them repeatedly. Required continual ritual maintenance. Could not change the heart.</div>
+            <div class="ps-box anti-box"><span class="ps-label">Heart Tablets</span>Internal. Carried within. The Spirit makes the law a delight rather than a burden. The same law — but the writing material has changed from stone to spirit.</div>
+          </div>
+          <div class="ki blue"><strong>Critical point:</strong> The New Covenant does not abolish the law — it changes its location. Jeremiah 31:33 says "I will put my law in their minds and write it on their hearts." The <em>same law</em>, written <em>deeper</em>. This directly addresses those who claim the Sabbath has been abolished — it has instead been internalised.</div>
+        </div>
+      </div>
+
+      <!-- Circumcision -->
+      <div class="typo-card covenant">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Covenant Type</div>
+            <div class="tc-type">Physical Circumcision</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Circumcision of the Heart</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 17:10-11</span>
+          <span class="ref-chip">Deut 10:16</span>
+          <span class="ref-chip">Rom 2:28-29</span>
+          <span class="ref-chip">Col 2:11</span>
+        </div>
+        <div class="tc-body">
+          <p>Moses himself foreshadowed the antitype: <em>"Circumcise your hearts therefore, and do not be stiff-necked"</em> (Deut 10:16). The external rite was always pointing toward an internal reality.</p>
+          <p>Paul in Romans 2:28-29 draws the line explicitly: <em>"A person is not a Jew who is one only outwardly, nor is circumcision merely outward and physical. No, a person is a Jew who is one inwardly; and circumcision is circumcision of the heart, by the Spirit."</em></p>
+          <div class="ki blue">Colossians 2:11 identifies baptism as the New Covenant equivalent of circumcision — <em>"In him you were also circumcised with a circumcision not performed by human hands."</em> The sign changes form; the covenant reality deepens.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 5 — JUDGMENT TYPES
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="judgment">
+  <div class="wrap">
+    <div class="cat-eyebrow">Category Five</div>
+    <h2 class="cat-title">Judgment & Salvation Types</h2>
+    <p class="cat-lead">Events of divine judgment and deliverance in the Old Testament are structured to prefigure the ultimate judgments and salvations of the New Testament and the end of history.</p>
+
+    <div class="typo-grid">
+
+      <!-- The Flood -->
+      <div class="typo-card judgment">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Judgment Type</div>
+            <div class="tc-type">The Flood</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">The Second Coming & Final Judgment</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 6–8</span>
+          <span class="ref-chip">Matt 24:37-39</span>
+          <span class="ref-chip">2 Pet 3:6-7</span>
+          <span class="ref-chip">Luke 17:26-27</span>
+        </div>
+        <div class="tc-body">
+          <p>Jesus Himself uses the Flood as the primary type for conditions preceding His return:</p>
+          <div class="sq"><p>"As it was in the days of Noah, so it will be at the coming of the Son of Man. For in the days before the flood, people were eating and drinking, marrying and giving in marriage, up to the day Noah entered the ark; and they knew nothing about what would happen until the flood came and took them all away."</p><cite>Matthew 24:37-39</cite></div>
+          <p>Peter in 2 Peter 3 makes the structural parallel explicit — the world that was destroyed by water is being reserved for fire. <strong>Same structure, greater intensity.</strong> The flood destroyed all except the remnant in the ark; the final judgment destroys all except those in Christ.</p>
+          <div class="ki red"><strong>The most sobering parallel:</strong> The pre-flood world did not feel the judgment coming. They were eating and drinking — normal life — right up to the moment. Jesus says the end-time will be the same. Laodicean complacency is the Noahic pre-flood condition reproduced.</div>
+        </div>
+      </div>
+
+      <!-- Sodom -->
+      <div class="typo-card judgment">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Judgment Type</div>
+            <div class="tc-type">Sodom & Gomorrah</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">End-Time Judgment — Fire from Heaven</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 19</span>
+          <span class="ref-chip">Luke 17:28-30</span>
+          <span class="ref-chip">Jude 7</span>
+          <span class="ref-chip">2 Pet 2:6</span>
+        </div>
+        <div class="tc-body">
+          <p>Jesus pairs Sodom with Noah as the twin types of end-time judgment (Luke 17:26-30). Peter says Sodom was made <strong>"an example of what is going to happen to the ungodly"</strong> (2 Pet 2:6) — not just a historical event but a typological signpost.</p>
+          <p>Jude 7 says Sodom and Gomorrah <em>"serve as an example by undergoing a punishment of eternal fire"</em> — the fire that consumed them is a type of the fire of final judgment.</p>
+          <div class="ki red"><strong>Lot's wife:</strong> Luke 17:32 — <em>"Remember Lot's wife."</em> She was <em>in</em> the escaping group but looked back. She became a pillar of salt — judgment fell on someone inside the covenant community who turned back to what they were fleeing. The most urgent warning for Laodiceans who know the truth and are in the process of coming out of Babylon.</div>
+        </div>
+      </div>
+
+      <!-- Rahab -->
+      <div class="typo-card judgment">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Judgment / Salvation Type</div>
+            <div class="tc-type">Rahab's Scarlet Thread</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Salvation by Faith Through the Blood</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Josh 2</span>
+          <span class="ref-chip">Josh 6:22-25</span>
+          <span class="ref-chip">Heb 11:31</span>
+          <span class="ref-chip">James 2:25</span>
+        </div>
+        <div class="tc-body">
+          <p>A Gentile prostitute in Jericho hides the Israelite spies and hangs a <strong>scarlet thread</strong> in her window as the sign of salvation — her household alone survives when Jericho falls. The typological parallels:</p>
+          <ul style="list-style:none; margin:12px 0;">
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Scarlet thread in the window</strong> = the blood of Christ applied to the entrance of the life (cf. Passover blood on doorposts)</li>
+            <li style="padding:7px 0 7px 20px; border-bottom:1px solid var(--border2); font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Jericho destroyed, Rahab saved</strong> = judgment on the world, salvation for those marked by the blood</li>
+            <li style="padding:7px 0 7px 20px; font-size:16px; color:var(--cream2); position:relative;"><span style="position:absolute;left:4px;color:var(--gold3)">◆</span> <strong>Gentile outsider</strong> saved by faith → the gospel going to the Gentiles</li>
+          </ul>
+          <p>Rahab appears in <strong>Matthew 1:5 in the genealogy of Christ</strong> — a Gentile prostitute becomes an ancestor of the Messiah. The type lived inside the antitype's bloodline.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 6 — CREATION TYPES
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="creation">
+  <div class="wrap">
+    <div class="cat-eyebrow">Category Six</div>
+    <h2 class="cat-title">Creation & New Creation Types</h2>
+    <p class="cat-lead">The first creation is a type of the new creation. The Garden of Eden is a type of the New Jerusalem. The pattern of creation week is the pattern of redemptive history.</p>
+
+    <div class="typo-grid">
+
+      <!-- Eden -->
+      <div class="typo-card creation">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Creation Type</div>
+            <div class="tc-type">The Garden of Eden</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">The New Jerusalem — Paradise Restored</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 2–3</span>
+          <span class="ref-chip">Rev 21–22</span>
+          <span class="ref-chip">Rom 8:19-22</span>
+        </div>
+        <div class="tc-body">
+          <p>Revelation 21-22 is deliberately constructed as a mirror of Genesis 1-3 — the end answering the beginning. Every major loss of Eden is restored in the New Jerusalem:</p>
+          <div class="master-table-wrap">
+          <table class="master-table" style="min-width:400px;">
+            <thead><tr><th>Lost in Eden (Genesis)</th><th>Restored in New Jerusalem (Revelation)</th></tr></thead>
+            <tbody>
+              <tr><td>Access to the Tree of Life removed</td><td>Tree of Life in the middle of the street (Rev 22:2)</td></tr>
+              <tr><td>The river of Eden</td><td>River of the water of life (Rev 22:1)</td></tr>
+              <tr><td>God's face hidden — "you will die"</td><td>"They will see his face" (Rev 22:4)</td></tr>
+              <tr><td>Curse on the ground</td><td>"No longer will there be any curse" (Rev 22:3)</td></tr>
+              <tr><td>Darkness and death</td><td>"There will be no more night" (Rev 22:5)</td></tr>
+              <tr><td>Expelled from God's presence</td><td>"God himself will be with them" (Rev 21:3)</td></tr>
+              <tr><td>Serpent rules</td><td>Serpent cast into the lake of fire (Rev 20:10)</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="ki gold"><strong>The Sabbath bracket:</strong> Creation week ends with the Sabbath — God resting with His people. The new creation ends with eternal Sabbath worship (Isaiah 66:23). The Sabbath is the bracket on both ends of redemptive history — the sign of the completed creation at the beginning, and the sign of the completed redemption at the end.</div>
+        </div>
+      </div>
+
+      <!-- The First & Second Adam Woman -->
+      <div class="typo-card creation">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Creation Type</div>
+            <div class="tc-type">Eve — Taken from Adam's Side</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">The Church — Born from Christ's Side</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 2:21-23</span>
+          <span class="ref-chip">John 19:34</span>
+          <span class="ref-chip">Eph 5:25-32</span>
+          <span class="ref-chip">Rev 19:7-9</span>
+        </div>
+        <div class="tc-body">
+          <p>Paul in Ephesians 5:31-32 quotes Genesis 2:24 and says <strong>"this is a profound mystery — but I am talking about Christ and the church."</strong> The first marriage is a type of the ultimate marriage:</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box"><span class="ps-label">Adam & Eve</span>Adam fell into deep sleep. A rib was taken from his side. From his own body Eve was formed — bone of his bone, flesh of his flesh. She was his bride.</div>
+            <div class="ps-box anti-box"><span class="ps-label">Christ & The Church</span>Christ entered the sleep of death. His side was pierced — blood and water flowed (John 19:34). From this sacrifice the Church was born. She is His bride — bone of His bone (Eph 5:30).</div>
+          </div>
+          <div class="ki gold">The blood and water from Christ's side (John 19:34) is theologically rich: blood = justification/atonement; water = the Holy Spirit (John 7:38-39). From Christ's death, the two sacraments of the Church are born — the Lord's Supper (blood) and baptism (water).</div>
+        </div>
+      </div>
+
+      <!-- Light on Day 1 -->
+      <div class="typo-card creation">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Creation Type</div>
+            <div class="tc-type">"Let There Be Light" — Day 1</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">Christ — The Light of the World / New Creation</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Gen 1:3</span>
+          <span class="ref-chip">John 1:1-9</span>
+          <span class="ref-chip">2 Cor 4:6</span>
+          <span class="ref-chip">John 8:12</span>
+        </div>
+        <div class="tc-body">
+          <p>John's Gospel deliberately opens as Genesis opens — <em>"In the beginning..."</em> — signalling that he is writing the account of the <strong>new creation</strong>. The light of day one becomes the light of Christ:</p>
+          <div class="sq"><p>"For God, who said, 'Let light shine out of darkness,' made his light shine in our hearts to give us the light of the knowledge of God's glory displayed in the face of Christ."</p><cite>2 Corinthians 4:6</cite></div>
+          <p>Paul explicitly connects the creation command with the new creation experience — conversion is a new Genesis, a new Day One. The same God who spoke light into primordial darkness speaks His light into the darkness of the human heart.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 7 — REMNANT TYPES
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="remnant">
+  <div class="wrap">
+    <div class="cat-eyebrow">Category Seven</div>
+    <h2 class="cat-title">Remnant & Israel Types</h2>
+    <p class="cat-lead">The remnant theme runs like a scarlet thread through all of Scripture — God always preserves a faithful minority within the larger unfaithful body. The pattern is consistent and deliberate.</p>
+
+    <div class="typo-grid">
+
+      <!-- Elijah and the 7000 -->
+      <div class="typo-card remnant">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Remnant Type</div>
+            <div class="tc-type">Elijah's 7,000</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">The End-Time Commandment-Keeping Remnant</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">1 Kings 19:18</span>
+          <span class="ref-chip">Rom 11:2-5</span>
+          <span class="ref-chip">Rev 12:17</span>
+          <span class="ref-chip">Rev 14:12</span>
+        </div>
+        <div class="tc-body">
+          <p>When Elijah despairs that he alone is left, God reveals: <strong>"I reserve seven thousand in Israel — all whose knees have not bowed down to Baal."</strong> Paul in Romans 11 applies this type directly to the preserved Jewish remnant within Israel — and by extension, the preserved faithful remnant within the church.</p>
+          <div class="sq"><p>"So too, at the present time there is a remnant chosen by grace."</p><cite>Romans 11:5</cite></div>
+          <p>The Elijah remnant was defined by one criterion: <strong>they did not bow to Baal.</strong> The end-time remnant of Revelation 12:17 and 14:12 is defined by one criterion: <strong>they keep the commandments of God.</strong> The structural parallel is exact — including the Sabbath/Baal connection (Baal was a sun deity; Sunday is the legacy of his substitution for the Sabbath).</p>
+          <div class="ki gold"><strong>The Elijah ministry:</strong> Malachi 4:5 promises Elijah will come before "the great and dreadful day of the LORD." John the Baptist came in Elijah's spirit (Luke 1:17) — but the ultimate Elijah ministry is the three angels' messages, calling people back from Baal worship to the Creator.</div>
+        </div>
+      </div>
+
+      <!-- Hezekiah's Passover -->
+      <div class="typo-card remnant">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Remnant Type</div>
+            <div class="tc-type">Hezekiah's Reformation</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">End-Time Revival & The Loud Cry</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">2 Chr 29–31</span>
+          <span class="ref-chip">2 Chr 30:25-26</span>
+          <span class="ref-chip">Rev 18:1-4</span>
+        </div>
+        <div class="tc-body">
+          <p>Hezekiah came to the throne when Israel was at its most spiritually corrupt — the temple had been closed, the Levitical system dismantled. He cleansed the temple, reinstated the Passover, and invited both Israel and Judah — and even foreigners — to come and participate.</p>
+          <p><strong>2 Chronicles 30:25-26</strong> records that the rejoicing was greater than anything since the days of Solomon. The Passover was kept for a second week because there was not enough time. <em>"There was great joy in Jerusalem, for since the days of Solomon son of David king of Israel there had been nothing like this in Jerusalem."</em></p>
+          <div class="ki teal"><strong>The antitype:</strong> The Adventist understanding of the "loud cry" of Revelation 18 — a final great reformation and revival, a worldwide "Passover" call drawing God's people out of Babylon before the end. Hezekiah's invitation went to all of scattered Israel; the loud cry goes to all nations. The rejoicing at the end will be greater than anything since Pentecost.</div>
+        </div>
+      </div>
+
+      <!-- Ruth -->
+      <div class="typo-card remnant">
+        <div class="tc-accent"></div>
+        <div class="tc-head" onclick="toggle(this)">
+          <div class="tc-head-left">
+            <div class="tc-cat-label">Remnant Type</div>
+            <div class="tc-type">Ruth — The Gentile Bride</div>
+            <div class="tc-arrow">↓</div>
+            <div class="tc-antitype">The Gentile Church — Redeemed by the Kinsman</div>
+          </div>
+          <div class="tc-toggle">+</div>
+        </div>
+        <div class="tc-refs">
+          <span class="ref-chip">Ruth 1–4</span>
+          <span class="ref-chip">Eph 2:11-13</span>
+          <span class="ref-chip">Gal 3:28-29</span>
+        </div>
+        <div class="tc-body">
+          <p>Ruth is a Moabite — a Gentile, excluded from the assembly of Israel. Yet she cleaves to Naomi (Israel) and declares: <em>"Your people shall be my people, and your God my God."</em> She is redeemed by Boaz, the <em>kinsman-redeemer</em>, and enters fully into the covenant community.</p>
+          <div class="parallel-split">
+            <div class="ps-box type-box"><span class="ps-label">Ruth & Boaz</span>Ruth is a foreigner — excluded by birth. She gleans at the edges of the field. Boaz the kinsman-redeemer notices her, welcomes her, covers her with his garment (a marriage proposal act), redeems her legally, and makes her his bride.</div>
+            <div class="ps-box anti-box"><span class="ps-label">Gentile Church & Christ</span>Gentiles were foreigners to the covenants of promise (Eph 2:12). They glean at the edges of Israel's inheritance. Christ the kinsman-redeemer covers them (righteousness as a robe), redeems them legally (the cross), and makes them His bride.</div>
+          </div>
+          <p>Ruth appears in the genealogy of Christ (Matthew 1:5) — like Rahab, a Gentile woman whose faithfulness places her inside the Messianic line. God was writing the gospel story into genealogical record.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MASTER TABLE
+═══════════════════════════════════════════════ -->
+<section class="cat-section" id="master">
+  <div class="wrap">
+    <div class="cat-eyebrow">Complete Reference</div>
+    <h2 class="cat-title">Master Typology Table</h2>
+    <p class="cat-lead">Every major type covered in this guide, with its category, Old Testament reference, and New Testament antitype at a glance.</p>
+
+    <div class="filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn active" onclick="filterTable('all', this)">All</button>
+      <button class="filter-btn" onclick="filterTable('messianic', this)">Messianic</button>
+      <button class="filter-btn" onclick="filterTable('exodus', this)">Exodus</button>
+      <button class="filter-btn" onclick="filterTable('sanctuary', this)">Sanctuary</button>
+      <button class="filter-btn" onclick="filterTable('covenant', this)">Covenant</button>
+      <button class="filter-btn" onclick="filterTable('judgment', this)">Judgment</button>
+      <button class="filter-btn" onclick="filterTable('creation', this)">Creation</button>
+      <button class="filter-btn" onclick="filterTable('remnant', this)">Remnant</button>
+    </div>
+
+    <div class="master-table-wrap">
+    <table class="master-table" id="masterTable">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>OT Type</th>
+          <th>OT Reference</th>
+          <th>NT Antitype</th>
+          <th>NT Reference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>Adam</td><td>Gen 1–3</td><td>Christ — The Last Adam</td><td>Rom 5:14; 1 Cor 15:45</td></tr>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>Melchizedek</td><td>Gen 14; Ps 110</td><td>Christ — Eternal Priest-King</td><td>Heb 5–7</td></tr>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>Joseph</td><td>Gen 37–50</td><td>Christ — Rejected, Exalted, Saviour</td><td>Acts 7:9; John 1:11</td></tr>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>Moses</td><td>Deut 18:15</td><td>Christ — The Prophet Like Moses</td><td>Acts 3:22; Heb 3:1-6</td></tr>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>David</td><td>2 Sam 7; Ps 22</td><td>Christ — Son of David, Eternal King</td><td>Luke 1:32; Rev 22:16</td></tr>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>Solomon</td><td>1 Kings 10</td><td>Christ — Greater Than Solomon</td><td>Matt 12:42; Col 2:3</td></tr>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>Jonah</td><td>Jonah 1–2</td><td>Christ — Death, Burial & Resurrection</td><td>Matt 12:39-41</td></tr>
+        <tr data-cat="messianic"><td><span class="dot messianic"></span>Messianic</td><td>Isaac — The Binding</td><td>Gen 22</td><td>Christ — The Father's Offering</td><td>John 3:16; Heb 11:17-19</td></tr>
+        <tr data-cat="exodus"><td><span class="dot exodus"></span>Exodus</td><td>The Passover Lamb</td><td>Exod 12</td><td>Christ — The Lamb of God</td><td>1 Cor 5:7; John 1:29</td></tr>
+        <tr data-cat="exodus"><td><span class="dot exodus"></span>Exodus</td><td>The Bronze Serpent</td><td>Num 21:4-9</td><td>Christ Lifted Up on the Cross</td><td>John 3:14-15</td></tr>
+        <tr data-cat="exodus"><td><span class="dot exodus"></span>Exodus</td><td>Manna in the Wilderness</td><td>Exod 16</td><td>Christ — The Bread of Life</td><td>John 6:32-35</td></tr>
+        <tr data-cat="exodus"><td><span class="dot exodus"></span>Exodus</td><td>The Rock at Horeb</td><td>Exod 17; Num 20</td><td>Christ — The Spiritual Rock</td><td>1 Cor 10:4</td></tr>
+        <tr data-cat="sanctuary"><td><span class="dot sanctuary"></span>Sanctuary</td><td>The High Priest</td><td>Lev 16</td><td>Christ — Our Great High Priest</td><td>Heb 4:14-16</td></tr>
+        <tr data-cat="sanctuary"><td><span class="dot sanctuary"></span>Sanctuary</td><td>The Day of Atonement</td><td>Lev 16; Dan 8:14</td><td>Atoning Work & Investigative Judgment</td><td>Heb 9:23-28</td></tr>
+        <tr data-cat="sanctuary"><td><span class="dot sanctuary"></span>Sanctuary</td><td>The Temple Veil</td><td>Exod 26:31-33</td><td>Christ's Body — Access to the Father</td><td>Heb 10:19-20; Matt 27:51</td></tr>
+        <tr data-cat="sanctuary"><td><span class="dot sanctuary"></span>Sanctuary</td><td>The Seven Feasts</td><td>Lev 23</td><td>The Entire Gospel Timeline</td><td>1 Cor 5:7; Acts 2:1; Col 2:17</td></tr>
+        <tr data-cat="covenant"><td><span class="dot covenant"></span>Covenant</td><td>Noah's Rainbow Covenant</td><td>Gen 9:8-17</td><td>God's Unconditional Covenant of Grace</td><td>Isa 54:9-10; Rom 5:8</td></tr>
+        <tr data-cat="covenant"><td><span class="dot covenant"></span>Covenant</td><td>The Two Stone Tablets</td><td>Exod 31:18</td><td>The Law Written on the Heart</td><td>Jer 31:33; 2 Cor 3:3</td></tr>
+        <tr data-cat="covenant"><td><span class="dot covenant"></span>Covenant</td><td>Physical Circumcision</td><td>Gen 17:10-11</td><td>Circumcision of the Heart</td><td>Rom 2:28-29; Col 2:11</td></tr>
+        <tr data-cat="judgment"><td><span class="dot judgment"></span>Judgment</td><td>The Flood</td><td>Gen 6–8</td><td>The Second Coming & Final Judgment</td><td>Matt 24:37-39; 2 Pet 3:6-7</td></tr>
+        <tr data-cat="judgment"><td><span class="dot judgment"></span>Judgment</td><td>Sodom & Gomorrah</td><td>Gen 19</td><td>End-Time Judgment — Fire from Heaven</td><td>Luke 17:28-30; 2 Pet 2:6</td></tr>
+        <tr data-cat="judgment"><td><span class="dot judgment"></span>Judgment</td><td>Rahab's Scarlet Thread</td><td>Josh 2</td><td>Salvation by Faith Through the Blood</td><td>Heb 11:31; Matt 1:5</td></tr>
+        <tr data-cat="creation"><td><span class="dot creation"></span>Creation</td><td>The Garden of Eden</td><td>Gen 2–3</td><td>The New Jerusalem — Paradise Restored</td><td>Rev 21–22</td></tr>
+        <tr data-cat="creation"><td><span class="dot creation"></span>Creation</td><td>Eve — Taken from Adam's Side</td><td>Gen 2:21-23</td><td>The Church — Born from Christ's Side</td><td>Eph 5:25-32; John 19:34</td></tr>
+        <tr data-cat="creation"><td><span class="dot creation"></span>Creation</td><td>"Let There Be Light"</td><td>Gen 1:3</td><td>Christ — The Light of the World</td><td>John 1:1-9; 2 Cor 4:6</td></tr>
+        <tr data-cat="remnant"><td><span class="dot remnant"></span>Remnant</td><td>Elijah's 7,000</td><td>1 Kings 19:18</td><td>End-Time Commandment-Keeping Remnant</td><td>Rom 11:5; Rev 12:17</td></tr>
+        <tr data-cat="remnant"><td><span class="dot remnant"></span>Remnant</td><td>Hezekiah's Reformation</td><td>2 Chr 29–31</td><td>End-Time Revival & The Loud Cry</td><td>Rev 18:1-4</td></tr>
+        <tr data-cat="remnant"><td><span class="dot remnant"></span>Remnant</td><td>Ruth — The Gentile Bride</td><td>Ruth 1–4</td><td>Gentile Church Redeemed by the Kinsman</td><td>Eph 2:11-13; Gal 3:28-29</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="fg">◆ ◆ ◆</span>
+  <p>"The testimony of Jesus is the spirit of prophecy." — Revelation 19:10</p>
+  <p style="margin-top:14px; font-size:14px;">Every shadow in the Old Testament is cast by the light of Christ. Every type is a promise. Every antitype is its fulfilment.</p>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('prog').style.width = (s/h*100)+'%';
+});
+
+// Intersection observer
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.cat-section').forEach(el => obs.observe(el));
+
+// Card toggle
+function toggle(head) {
+  const body = head.parentElement.querySelector('.tc-body');
+  const icon = head.querySelector('.tc-toggle');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+}
+
+// Table filter
+function filterTable(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#masterTable tbody tr').forEach(row => {
+    row.style.display = (cat === 'all' || row.dataset.cat === cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

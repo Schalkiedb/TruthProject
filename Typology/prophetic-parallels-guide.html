@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Prophet, Four Voices — Isaiah · Ezekiel · Daniel · Revelation</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Cinzel:wght@400;500;600;700;900&family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void:       #06080F;
+  --deep:       #0A0D18;
+  --navy:       #0E1225;
+  --surface:    #131829;
+  --panel:      #181E32;
+  --panel2:     #1E2540;
+  --copper:     #B8732A;
+  --copper2:    #D4943A;
+  --amber:      #E8B84A;
+  --amber2:     #F5D070;
+  --cream:      #EDE5D0;
+  --cream2:     #D5CAAF;
+  --cream3:     #9A9080;
+  --silver:     #8EA8C8;
+  --silver2:    #B8D0E8;
+  --isa:        #C87040;   /* Isaiah  — warm copper */
+  --isa2:       #E89060;
+  --eze:        #40A888;   /* Ezekiel — teal */
+  --eze2:       #60C8A8;
+  --dan:        #6070C8;   /* Daniel  — indigo */
+  --dan2:       #8090E0;
+  --rev:        #B84060;   /* Revelation — crimson */
+  --rev2:       #D86080;
+  --border:     rgba(184,115,42,0.22);
+  --border2:    rgba(184,115,42,0.1);
+  --glow-isa:   rgba(200,112,64,0.25);
+  --glow-eze:   rgba(64,168,136,0.25);
+  --glow-dan:   rgba(96,112,200,0.25);
+  --glow-rev:   rgba(184,64,96,0.25);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Spectral', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.78;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 100% 50% at 50% -5%, rgba(184,115,42,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 0% 60%, rgba(64,168,136,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 80%, rgba(184,64,96,0.04) 0%, transparent 50%);
+}
+
+/* STARS BACKGROUND */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(1px 1px at 15% 12%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 32% 8%,  rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 68% 5%,  rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 45% 3%, rgba(232,184,74,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 28%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 35%, rgba(255,255,255,0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 42%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 58% 18%, rgba(184,208,232,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 55%, rgba(255,255,255,0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 72% 62%, rgba(255,255,255,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 38% 72%, rgba(255,255,255,0.2) 0%, transparent 100%);
+}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--void);}
+::-webkit-scrollbar-thumb{background:var(--copper);border-radius:3px;}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--copper),var(--amber),var(--amber2));z-index:1000;width:0;transition:width 0.1s;}
+
+/* ═══ HERO ═══ */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 60px 24px 80px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(184,115,42,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(64,168,136,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(184,64,96,0.06) 0%, transparent 50%);
+}
+
+/* Four book beams in hero */
+.hero-beams {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.beam {
+  position: absolute; bottom: 0; width: 2px;
+  opacity: 0; animation: beamRise 2s ease forwards;
+}
+.beam-isa { left: 20%; background: linear-gradient(0deg, transparent, var(--isa), transparent); height: 45%; animation-delay: 0.5s; }
+.beam-eze { left: 38%; background: linear-gradient(0deg, transparent, var(--eze), transparent); height: 55%; animation-delay: 0.8s; }
+.beam-dan { left: 62%; background: linear-gradient(0deg, transparent, var(--dan), transparent); height: 50%; animation-delay: 1.1s; }
+.beam-rev { left: 80%; background: linear-gradient(0deg, transparent, var(--rev), transparent); height: 60%; animation-delay: 1.4s; }
+
+@keyframes beamRise {
+  from { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+  to   { opacity: 0.5; transform: scaleY(1); transform-origin: bottom; }
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; letter-spacing: 7px; color: var(--copper);
+  text-transform: uppercase; margin-bottom: 28px;
+  opacity: 0; animation: fadeUp 1s ease forwards 0.3s;
+}
+
+.hero h1 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(28px, 5.5vw, 64px);
+  font-weight: 900;
+  color: var(--amber);
+  line-height: 1.1; margin-bottom: 18px;
+  text-shadow: 0 0 80px rgba(232,184,74,0.4), 0 0 20px rgba(232,184,74,0.2);
+  opacity: 0; animation: fadeUp 1s ease forwards 0.5s;
+}
+
+.hero-books {
+  display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+  margin: 20px 0 28px;
+  opacity: 0; animation: fadeUp 1s ease forwards 0.8s;
+}
+
+.book-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 12px; letter-spacing: 3px;
+  padding: 7px 18px; border-radius: 2px;
+  text-transform: uppercase; border: 1px solid;
+}
+.book-badge.isa { color: var(--isa2); border-color: var(--isa); background: rgba(200,112,64,0.1); }
+.book-badge.eze { color: var(--eze2); border-color: var(--eze); background: rgba(64,168,136,0.1); }
+.book-badge.dan { color: var(--dan2); border-color: var(--dan); background: rgba(96,112,200,0.1); }
+.book-badge.rev { color: var(--rev2); border-color: var(--rev); background: rgba(184,64,96,0.1); }
+
+.hero-sub {
+  font-size: clamp(15px, 2vw, 19px);
+  font-style: italic; color: var(--cream2);
+  max-width: 680px; margin: 0 auto 30px;
+  opacity: 0; animation: fadeUp 1s ease forwards 1s;
+}
+
+.hero-verse {
+  font-size: 14px; color: var(--copper);
+  letter-spacing: 0.4px;
+  opacity: 0; animation: fadeUp 1s ease forwards 1.2s;
+}
+
+.hero-ornament {
+  font-size: 22px; color: var(--copper); letter-spacing: 14px;
+  display: block; margin: 22px 0;
+  opacity: 0; animation: fadeUp 1s ease forwards 1.4s;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ═══ STICKY NAV ═══ */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(6,8,15,0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; overflow-x: auto; scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+nav a {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--cream3); text-decoration: none;
+  padding: 13px 14px; white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s; display: block;
+}
+nav a:hover { color: var(--amber); border-bottom-color: var(--amber); }
+
+/* ═══ LAYOUT ═══ */
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* ═══ SECTIONS ═══ */
+.section {
+  padding: 72px 0 52px;
+  border-bottom: 1px solid var(--border2);
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.section.vis { opacity:1; transform:translateY(0); }
+
+.eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; letter-spacing: 5px; color: var(--copper);
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+}
+.eyebrow::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--copper), transparent);
+  max-width: 200px;
+}
+
+.sec-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(22px, 3.5vw, 40px);
+  font-weight: 700; color: var(--amber);
+  margin-bottom: 8px; line-height: 1.15;
+}
+
+.sec-lead {
+  font-size: 18px; font-style: italic;
+  color: var(--cream2); max-width: 800px;
+  border-left: 3px solid var(--copper);
+  padding-left: 18px; margin-bottom: 40px;
+}
+
+h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 16px; color: var(--cream);
+  margin: 34px 0 14px; letter-spacing: 0.5px;
+}
+
+p { margin-bottom: 14px; color: var(--cream2); }
+strong { color: var(--amber2); font-weight: 600; }
+em { color: var(--cream); }
+
+/* ═══ FOUR-BOOK CONNECTOR ═══ */
+.four-connector {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin: 40px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+
+.book-col {
+  padding: 28px 22px;
+  border-right: 1px solid var(--border);
+  position: relative; transition: background 0.25s;
+}
+.book-col:last-child { border-right: none; }
+.book-col:hover { background: rgba(255,255,255,0.02); }
+
+.book-col.isa { border-top: 3px solid var(--isa); }
+.book-col.eze { border-top: 3px solid var(--eze); }
+.book-col.dan { border-top: 3px solid var(--dan); }
+.book-col.rev { border-top: 3px solid var(--rev); }
+
+.bc-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px; letter-spacing: 4px;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.isa .bc-label { color: var(--isa); }
+.eze .bc-label { color: var(--eze); }
+.dan .bc-label { color: var(--dan); }
+.rev .bc-label { color: var(--rev); }
+
+.bc-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 17px; margin-bottom: 12px;
+}
+.isa .bc-title { color: var(--isa2); }
+.eze .bc-title { color: var(--eze2); }
+.dan .bc-title { color: var(--dan2); }
+.rev .bc-title { color: var(--rev2); }
+
+.bc-body { font-size: 14px; color: var(--cream3); line-height: 1.65; }
+
+@media(max-width:680px) {
+  .four-connector { grid-template-columns: 1fr 1fr; }
+  .book-col:nth-child(2) { border-right: none; }
+  .book-col:nth-child(3) { border-top: 1px solid var(--border); }
+}
+@media(max-width:420px) {
+  .four-connector { grid-template-columns: 1fr; }
+  .book-col { border-right: none; border-top: 1px solid var(--border); }
+  .book-col.isa,.book-col.eze,.book-col.dan,.book-col.rev { border-top-width: 3px; }
+}
+
+/* ═══ PARALLEL BLOCK ═══ */
+.parallel-block {
+  margin: 36px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+}
+
+.pb-header {
+  background: linear-gradient(90deg, rgba(184,115,42,0.12), rgba(184,115,42,0.04));
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer; user-select: none;
+}
+
+.pb-title {
+  font-family: 'Cinzel', serif;
+  font-size: 14px; color: var(--amber);
+  flex: 1;
+}
+
+.pb-books {
+  display: flex; gap: 6px;
+}
+
+.pb-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 9px; letter-spacing: 2px;
+  padding: 3px 8px; border-radius: 2px;
+  text-transform: uppercase; border: 1px solid;
+}
+.pb-tag.isa { color: var(--isa2); border-color: var(--isa); background: rgba(200,112,64,0.12); }
+.pb-tag.eze { color: var(--eze2); border-color: var(--eze); background: rgba(64,168,136,0.12); }
+.pb-tag.dan { color: var(--dan2); border-color: var(--dan); background: rgba(96,112,200,0.12); }
+.pb-tag.rev { color: var(--rev2); border-color: var(--rev); background: rgba(184,64,96,0.12); }
+
+.pb-toggle {
+  font-family: 'Cinzel', serif;
+  font-size: 18px; color: var(--copper);
+  transition: transform 0.25s;
+}
+.pb-toggle.open { transform: rotate(45deg); }
+
+.pb-body {
+  display: none; padding: 0;
+}
+.pb-body.open { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* ═══ STEP CHAIN ═══ */
+.step-chain {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0; border-bottom: 1px solid var(--border2);
+}
+
+.step {
+  padding: 22px 22px;
+  border-right: 1px solid var(--border2);
+  position: relative;
+}
+.step:last-child { border-right: none; }
+
+.step-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 38px; position: absolute;
+  top: 12px; right: 14px;
+  opacity: 0.07; line-height: 1;
+}
+.isa .step-num { color: var(--isa); }
+.eze .step-num { color: var(--eze); }
+.dan .step-num { color: var(--dan); }
+.rev .step-num { color: var(--rev); }
+
+.step-book {
+  font-family: 'Cinzel', serif;
+  font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.step.isa .step-book { color: var(--isa); }
+.step.eze .step-book { color: var(--eze); }
+.step.dan .step-book { color: var(--dan); }
+.step.rev .step-book { color: var(--rev); }
+
+.step-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 12px; color: var(--cream3);
+  margin-bottom: 8px; letter-spacing: 0.5px;
+}
+
+.step-text {
+  font-size: 14.5px; color: var(--cream2);
+  line-height: 1.65;
+}
+
+.step-arrow {
+  position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--copper); font-size: 18px;
+  z-index: 2;
+}
+.step:last-child .step-arrow { display: none; }
+
+/* ═══ SCRIPTURE QUOTE ═══ */
+.sq {
+  background: linear-gradient(135deg, rgba(184,115,42,0.09), rgba(184,115,42,0.04));
+  border-left: 3px solid var(--copper);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px 16px 22px; margin: 18px 0;
+  position: relative;
+}
+.sq::before {
+  content: '❝'; font-size: 42px;
+  color: rgba(184,115,42,0.2);
+  position: absolute; top: -8px; left: 8px;
+  font-family: Georgia; line-height: 1;
+}
+.sq p { font-style: italic; font-size: 16px; color: var(--cream); padding-left: 18px; margin: 0; }
+.sq cite { display: block; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; color: var(--copper); margin-top: 8px; padding-left: 18px; font-style: normal; }
+
+/* ═══ CALLOUT ═══ */
+.callout {
+  border-radius: 8px; padding: 20px 24px; margin: 22px 0;
+  border-left: 4px solid;
+}
+.callout.gold  { background: rgba(232,184,74,0.07); border-color: var(--amber); }
+.callout.teal  { background: rgba(64,168,136,0.08); border-color: var(--eze); }
+.callout.indigo{ background: rgba(96,112,200,0.08); border-color: var(--dan); }
+.callout.red   { background: rgba(184,64,96,0.08);  border-color: var(--rev); }
+.callout.copper{ background: rgba(184,115,42,0.08); border-color: var(--copper); }
+
+.callout h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 9px;
+}
+.callout.gold   h4 { color: var(--amber); }
+.callout.teal   h4 { color: var(--eze2); }
+.callout.indigo h4 { color: var(--dan2); }
+.callout.red    h4 { color: var(--rev2); }
+.callout.copper h4 { color: var(--copper2); }
+.callout p { font-size: 15.5px; color: var(--cream2); line-height: 1.72; margin: 0; }
+
+/* ═══ TABLE ═══ */
+.tbl-wrap { overflow-x: auto; margin: 24px 0; }
+.tbl {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; min-width: 580px;
+}
+.tbl thead tr {
+  background: linear-gradient(90deg, rgba(184,115,42,0.15), rgba(184,115,42,0.06));
+  border-bottom: 2px solid var(--copper);
+}
+.tbl th {
+  font-family: 'Cinzel', serif; font-size: 10px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--amber); padding: 12px 14px; text-align: left;
+}
+.tbl td {
+  padding: 10px 14px; color: var(--cream2);
+  border-bottom: 1px solid var(--border2); vertical-align: top;
+}
+.tbl tbody tr:hover { background: rgba(255,255,255,0.02); }
+.tbl tbody tr:nth-child(even) { background: rgba(0,0,0,0.18); }
+
+.tbl .isa-cell { color: var(--isa2); }
+.tbl .eze-cell { color: var(--eze2); }
+.tbl .dan-cell { color: var(--dan2); }
+.tbl .rev-cell { color: var(--rev2); }
+
+/* ═══ MARK COMPARISON ═══ */
+.mark-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; margin: 24px 0;
+}
+@media(max-width:640px) { .mark-grid { grid-template-columns: 1fr; } }
+
+.mark-card {
+  border-radius: 8px; padding: 22px;
+  border: 1px solid;
+}
+.mark-card.old { border-color: var(--eze); background: rgba(64,168,136,0.07); }
+.mark-card.new { border-color: var(--rev); background: rgba(184,64,96,0.07); }
+
+.mark-card-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.mark-card.old .mark-card-label { color: var(--eze2); }
+.mark-card.new .mark-card-label { color: var(--rev2); }
+
+.mark-card h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 14.5px; color: var(--cream); margin-bottom: 10px;
+}
+.mark-card p { font-size: 14.5px; color: var(--cream2); line-height: 1.65; margin: 0; }
+
+/* ═══ SCROLL EATEN TIMELINE ═══ */
+.scroll-timeline {
+  position: relative; margin: 32px 0; padding-left: 28px;
+}
+.scroll-timeline::before {
+  content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--eze), var(--dan), var(--rev));
+}
+
+.st-item {
+  position: relative; margin-bottom: 28px;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.st-item.vis { opacity: 1; transform: translateX(0); }
+
+.st-dot {
+  position: absolute; left: -22px; top: 5px;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid var(--void);
+  box-shadow: 0 0 8px currentColor;
+}
+.st-item.eze .st-dot { background: var(--eze); color: var(--eze); }
+.st-item.dan .st-dot { background: var(--dan); color: var(--dan); }
+.st-item.rev .st-dot { background: var(--rev); color: var(--rev); }
+
+.st-book {
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.st-item.eze .st-book { color: var(--eze); }
+.st-item.dan .st-book { color: var(--dan); }
+.st-item.rev .st-book { color: var(--rev); }
+
+.st-ref { font-family: 'Cinzel', serif; font-size: 12px; color: var(--cream3); margin-bottom: 5px; }
+.st-text { font-size: 15px; color: var(--cream2); line-height: 1.65; }
+
+/* ═══ TIME TABLE ═══ */
+.time-table {
+  width: 100%; border-collapse: collapse; font-size: 14px;
+  margin: 20px 0; min-width: 520px;
+}
+.time-table thead tr {
+  background: rgba(96,112,200,0.15);
+  border-bottom: 2px solid var(--dan);
+}
+.time-table th {
+  font-family: 'Cinzel', serif; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--dan2); padding: 11px 13px; text-align: left;
+}
+.time-table td {
+  padding: 10px 13px; color: var(--cream2);
+  border-bottom: 1px solid rgba(96,112,200,0.12);
+}
+.time-table .hl { color: var(--amber); font-weight: 600; }
+
+/* ═══ MASTER TABLE ═══ */
+.master-tbl {
+  width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 700px;
+}
+.master-tbl thead tr {
+  background: linear-gradient(90deg, rgba(184,115,42,0.15), rgba(184,115,42,0.04));
+  border-bottom: 2px solid var(--copper);
+}
+.master-tbl th {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--amber); padding: 12px 12px;
+}
+.master-tbl td {
+  padding: 10px 12px; border-bottom: 1px solid var(--border2); vertical-align: top;
+}
+.master-tbl tbody tr:hover { background: rgba(255,255,255,0.02); }
+.master-tbl tbody tr:nth-child(even) { background: rgba(0,0,0,0.15); }
+.ct { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 600; }
+.ct.isa { color: var(--isa2); }
+.ct.eze { color: var(--eze2); }
+.ct.dan { color: var(--dan2); }
+.ct.rev { color: var(--rev2); }
+
+/* ═══ DIVIDER ═══ */
+.sdiv { text-align: center; color: var(--copper); letter-spacing: 14px; font-size: 13px; margin: 18px 0; opacity: 0.5; }
+
+/* ═══ KEY LIST ═══ */
+.klist { list-style: none; margin: 16px 0; }
+.klist li {
+  padding: 9px 0 9px 24px; position: relative;
+  font-size: 15.5px; color: var(--cream2);
+  border-bottom: 1px solid var(--border2);
+}
+.klist li::before {
+  content: '◆'; color: var(--copper); font-size: 8px;
+  position: absolute; left: 4px; top: 14px;
+}
+
+/* ═══ FOOTER ═══ */
+footer {
+  text-align: center; padding: 70px 24px 60px;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.4); position: relative; z-index: 1;
+}
+.fo { font-size: 28px; color: var(--copper); letter-spacing: 16px; display: block; margin-bottom: 20px; opacity: 0.6; }
+footer p { font-style: italic; font-size: 16px; color: var(--cream3); max-width: 580px; margin: 0 auto 10px; }
+footer .books-row {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .hero { min-height: auto; padding: 70px 18px 60px; }
+  .section { padding: 50px 0 38px; }
+  .wrap { padding: 0 16px; }
+  .step-chain { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px solid var(--border2); }
+  .step-arrow { display: none; }
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-beams">
+    <div class="beam beam-isa"></div>
+    <div class="beam beam-eze"></div>
+    <div class="beam beam-dan"></div>
+    <div class="beam beam-rev"></div>
+  </div>
+  <div class="hero-eyebrow">Prophetic Architecture Study</div>
+  <h1>One Prophet<br>Four Voices</h1>
+  <div class="hero-books">
+    <span class="book-badge isa">Isaiah</span>
+    <span class="book-badge eze">Ezekiel</span>
+    <span class="book-badge dan">Daniel</span>
+    <span class="book-badge rev">Revelation</span>
+  </div>
+  <p class="hero-sub">The structural parallels, escalating imagery, and deliberate canonical architecture connecting the four great prophetic books of Scripture</p>
+  <p class="hero-verse">"The testimony of Jesus is the spirit of prophecy." — Revelation 19:10</p>
+  <span class="hero-ornament">✦ ✦ ✦</span>
+</header>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#foundation">Foundation</a>
+    <a href="#mark">The Mark</a>
+    <a href="#throne">Throne Visions</a>
+    <a href="#babylon">Babylon's Fall</a>
+    <a href="#beasts">Beasts & Creatures</a>
+    <a href="#resurrection">Resurrection</a>
+    <a href="#scroll">The Eaten Scroll</a>
+    <a href="#times">Time Prophecies</a>
+    <a href="#herald">The Herald</a>
+    <a href="#master">Master Table</a>
+  </div>
+</nav>
+
+<!-- ═══════════ SECTION: FOUNDATION ═══════════ -->
+<section class="section" id="foundation">
+<div class="wrap">
+  <div class="eyebrow">The Architecture</div>
+  <h2 class="sec-title">One Symphony in Four Movements</h2>
+  <p class="sec-lead">Isaiah, Ezekiel, Daniel, and Revelation are not four separate books that happen to share themes. They are a single prophetic tradition — each movement building consciously and precisely on the last, the Holy Spirit escalating scope, intensity, and detail across 700 years of composition.</p>
+
+  <div class="callout gold">
+    <h4>The Foundational Principle</h4>
+    <p>The Holy Spirit does not merely repeat — He <strong>escalates</strong>. Each prophetic book takes the structure of the previous one, widens the scope (local → national → cosmic), deepens the intensity (warning → judgment → final judgment), and clarifies the detail (shadow → outline → full picture).</p>
+  </div>
+
+  <div class="four-connector">
+    <div class="book-col isa">
+      <div class="bc-label">First Movement</div>
+      <div class="bc-title">Isaiah</div>
+      <div class="bc-body">~700 BC. Sees the whole from the greatest distance — the shape of everything. The throne room, Babylon's fall, the suffering servant, the new creation — all in outline. Over 80 passages directly echoed in Revelation.</div>
+    </div>
+    <div class="book-col eze">
+      <div class="bc-label">Second Movement</div>
+      <div class="bc-title">Ezekiel</div>
+      <div class="bc-body">~590 BC. Sees it from inside the exile — the chariot throne, the mark of preservation, the glory departing the temple, the valley of dry bones. The heart of the apostasy in visceral detail.</div>
+    </div>
+    <div class="book-col dan">
+      <div class="bc-label">Third Movement</div>
+      <div class="bc-title">Daniel</div>
+      <div class="bc-body">~550 BC. Sees it from inside Babylon — the kingdoms, the time prophecies, the Son of Man, the investigative judgment, the resurrection. The timeline is revealed with surgical precision.</div>
+    </div>
+    <div class="book-col rev">
+      <div class="bc-label">Fourth Movement</div>
+      <div class="bc-title">Revelation</div>
+      <div class="bc-body">~95 AD. Sees it from the edge of eternity — the completion of everything all three had begun. John does not invent imagery; he completes sentences Isaiah, Ezekiel, and Daniel had already begun.</div>
+    </div>
+  </div>
+
+  <div class="callout copper">
+    <h4>Isaiah's Structure Mirrors Revelation's Structure</h4>
+    <p>Isaiah divides in two: <strong>Chapters 1–39</strong> — judgment on Israel, Judah, and the nations. <strong>Chapters 40–66</strong> — comfort, restoration, new creation. Revelation has the same two-part structure: <strong>Chapters 1–19</strong> — judgment on the apostate church and the world. <strong>Chapters 20–22</strong> — the new creation and the New Jerusalem. John structured Revelation as a cosmic Isaiah.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: THE MARK ═══════════ -->
+<section class="section" id="mark">
+<div class="wrap">
+  <div class="eyebrow">The Central Parallel</div>
+  <h2 class="sec-title">The Mark — Ezekiel 9 → Revelation 7, 13, 14</h2>
+  <p class="sec-lead">This is perhaps the most structurally precise single parallel across the prophetic books — a mark on the forehead separating the preserved from the judged, before destruction falls.</p>
+
+  <h3>Ezekiel 9 — The Mark in Jerusalem</h3>
+
+  <div class="sq">
+    <p>"Go throughout the city of Jerusalem and put a mark on the foreheads of those who grieve and lament over all the detestable things that are done in it... do not touch anyone who has the mark."</p>
+    <cite>Ezekiel 9:4, 6</cite>
+  </div>
+
+  <div class="mark-grid">
+    <div class="mark-card old">
+      <div class="mark-card-label">Type — Ezekiel 9</div>
+      <h4>The Tav on the Forehead</h4>
+      <p>A man clothed in linen with a writing kit marks the foreheads of those who <strong>mourn the abominations</strong> in Jerusalem. Six destroying angels follow. Those with the mark are spared. Those without face judgment — beginning at the sanctuary, beginning with the elders.</p>
+    </div>
+    <div class="mark-card new">
+      <div class="mark-card-label">Antitype — Revelation 7, 13, 14</div>
+      <h4>The Seal vs. The Mark</h4>
+      <p>An angel seals the servants of God on their foreheads before the plagues fall. The beast's system marks those who worship it — forehead or hand. Those with the seal of God are protected from the seven last plagues. Those with the beast's mark face the wrath of God.</p>
+    </div>
+  </div>
+
+  <h3>The Structural Parallel</h3>
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Feature</th><th class="eze-cell">Ezekiel 9</th><th class="rev-cell">Revelation</th></tr></thead>
+    <tbody>
+      <tr><td>Mark location</td><td class="eze-cell">Forehead</td><td class="rev-cell">Forehead (seal of God) · Forehead or hand (mark of beast)</td></tr>
+      <tr><td>Who marks</td><td class="eze-cell">Man clothed in linen — priestly figure</td><td class="rev-cell">Angel of God (seal) · The Beast's system (mark)</td></tr>
+      <tr><td>Basis of the mark</td><td class="eze-cell">Mourning the abominations — covenant loyalty</td><td class="rev-cell">Keeping God's commandments (seal) · Worshipping the beast (mark)</td></tr>
+      <tr><td>Purpose</td><td class="eze-cell">Protection from destroying angels</td><td class="rev-cell">Protection from the seven last plagues</td></tr>
+      <tr><td>What follows the marking</td><td class="eze-cell">Destroying angels execute judgment on Jerusalem</td><td class="rev-cell">Seven last plagues fall on those without the seal</td></tr>
+      <tr><td>Starting point of judgment</td><td class="eze-cell">"Begin at my sanctuary" — God's own temple</td><td class="rev-cell">The professed Church — Laodicean apostasy</td></tr>
+      <tr><td>The abomination being mourned</td><td class="eze-cell">Idol worship within the temple precincts</td><td class="rev-cell">False worship within the professed Church</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>The Hebrew Letter Tav — The Hidden Depth</h3>
+
+  <div class="callout gold">
+    <h4>The Cross Hidden in the Mark</h4>
+    <p>The Hebrew word for "mark" in Ezekiel 9 is <strong>tav (תָּו)</strong> — the final letter of the Hebrew alphabet. In ancient paleo-Hebrew script, the letter tav was written as a <strong>cross (✝)</strong>. The mark of preservation placed on foreheads before judgment was literally a cross-shaped mark — pointing 600 years before the cross to <strong>Christ as the means of sealing and protection</strong>.</p>
+  </div>
+
+  <div class="callout teal">
+    <h4>Revelation's Seal — The Completion</h4>
+    <p>Revelation 14:1 identifies the seal as the <strong>name of the Father and of the Son</strong> written on the forehead. The ancient cross-shaped tav, now fully revealed, is the mark of Christ's ownership. Ezekiel 9 encoded the gospel in a letter. John decoded it in the Lamb's name.</p>
+  </div>
+
+  <div class="callout red">
+    <h4>The Mourning Criterion — Then and Now</h4>
+    <p>Those marked in Ezekiel were not marked for doctrinal correctness alone — they were marked because they <strong>grieved over the abominations</strong>. They felt the weight of what was wrong. The end-time seal is similarly not merely intellectual — it marks those whose hearts are broken over the apostasy of Laodicean Christendom. Indifference, not ignorance, is the unsealed condition.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: THRONE VISIONS ═══════════ -->
+<section class="section" id="throne">
+<div class="wrap">
+  <div class="eyebrow">The Same Room, Three Visits</div>
+  <h2 class="sec-title">The Throne Room Visions</h2>
+  <p class="sec-lead">Isaiah, Ezekiel, and John each see the same heavenly throne room at different moments in redemptive history. Daniel sees its judicial function. Together they give us a four-dimensional portrait of the throne that governs all things.</p>
+
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">Isaiah 6 → Revelation 4–5 — The Commission</div>
+      <div class="pb-books">
+        <span class="pb-tag isa">Isaiah</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div class="step-chain">
+        <div class="step isa">
+          <div class="step-num">I</div>
+          <div class="step-book">Isaiah</div>
+          <div class="step-ref">Isaiah 6:1-8</div>
+          <div class="step-text">The LORD high and exalted on a throne. The train of His robe fills the temple. Seraphim with six wings calling <em>Holy, holy, holy.</em> The doorposts shake. The temple fills with smoke. Isaiah falls: "Woe to me, I am ruined." A coal from the altar touches his lips. "Whom shall I send?" — "Here am I. Send me."</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step rev">
+          <div class="step-num">IV</div>
+          <div class="step-book">Revelation</div>
+          <div class="step-ref">Revelation 4–5</div>
+          <div class="step-text">A throne in heaven. The same four living creatures with six wings crying <em>Holy, holy, holy.</em> Twenty-four elders fall down. A sealed scroll — no one worthy to open it. John weeps. The Lamb takes the scroll. All creation erupts in worship. The commission now encompasses all of history until its close.</div>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px;">
+        <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Feature</th><th class="isa-cell">Isaiah 6</th><th class="rev-cell">Revelation 4–5</th></tr></thead>
+          <tbody>
+            <tr><td>The throne</td><td class="isa-cell">God high and lifted up</td><td class="rev-cell">Throne in heaven, flashes of lightning</td></tr>
+            <tr><td>The attendants</td><td class="isa-cell">Seraphim — six wings each</td><td class="rev-cell">Four living creatures — six wings each</td></tr>
+            <tr><td>The proclamation</td><td class="isa-cell">Holy, holy, holy is the LORD Almighty</td><td class="rev-cell">Holy, holy, holy is the Lord God Almighty</td></tr>
+            <tr><td>The prophet's response</td><td class="isa-cell">"Woe to me — I am ruined"</td><td class="rev-cell">John weeps that none is worthy</td></tr>
+            <tr><td>The commissioning</td><td class="isa-cell">"Whom shall I send?" — go and tell</td><td class="rev-cell">The Lamb takes the scroll — history is set in motion</td></tr>
+            <tr><td>The smoke/atmosphere</td><td class="isa-cell">Temple filled with smoke</td><td class="rev-cell">Seven lamps of fire, crystal sea</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout gold" style="margin-top:18px;">
+          <h4>The Progression</h4>
+          <p>Isaiah's personal throne room commission becomes in Revelation the <strong>cosmic throne room</strong> from which the entire end-time drama unfolds. Isaiah was commissioned to warn Israel. John is commissioned to warn all nations until the end of time. Same room — infinitely wider mandate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">Ezekiel 1 → Daniel 7 → Revelation 4 — The Chariot Throne (Merkabah)</div>
+      <div class="pb-books">
+        <span class="pb-tag eze">Ezekiel</span>
+        <span class="pb-tag dan">Daniel</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div class="step-chain">
+        <div class="step eze">
+          <div class="step-num">II</div>
+          <div class="step-book">Ezekiel</div>
+          <div class="step-ref">Ezekiel 1</div>
+          <div class="step-text">Four living creatures: lion, ox, man, eagle. Wheels within wheels — eyes around the rims. A crystal expanse. Above the expanse, a throne of sapphire. On the throne — a figure like a man surrounded by a rainbow. The glory of the LORD. Ezekiel falls facedown.</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step dan">
+          <div class="step-num">III</div>
+          <div class="step-book">Daniel</div>
+          <div class="step-ref">Daniel 7:9-10</div>
+          <div class="step-text">Thrones are set in place. The Ancient of Days takes His seat — clothing white as snow, hair like wool. His throne flaming with fire, wheels ablaze. A river of fire flows from before Him. Ten thousand times ten thousand stand before Him. The court sits and the books are opened.</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step rev">
+          <div class="step-num">IV</div>
+          <div class="step-book">Revelation</div>
+          <div class="step-ref">Revelation 4–5</div>
+          <div class="step-text">The same throne. The same four living creatures with the same four faces. A crystal sea before the throne. Seven torches of fire. A rainbow encircling the throne. The Lamb — who was slain — standing at the centre. The sealed scroll. The books open in Daniel become the seven-sealed scroll opened by the Lamb.</div>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px;">
+        <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Feature</th><th class="eze-cell">Ezekiel 1</th><th class="dan-cell">Daniel 7</th><th class="rev-cell">Revelation 4–5</th></tr></thead>
+          <tbody>
+            <tr><td>The throne</td><td class="eze-cell">Chariot-throne, wheels, fire</td><td class="dan-cell">Flaming throne with blazing wheels</td><td class="rev-cell">Throne with seven lamps of fire</td></tr>
+            <tr><td>The creatures</td><td class="eze-cell">Four — lion, ox, man, eagle</td><td class="dan-cell">Four beasts (inverted image)</td><td class="rev-cell">Four — lion, ox, man, eagle</td></tr>
+            <tr><td>The rainbow</td><td class="eze-cell">Around the throne figure</td><td class="dan-cell">Not mentioned</td><td class="rev-cell">Encircling the throne</td></tr>
+            <tr><td>The fire</td><td class="eze-cell">Torches, lightning</td><td class="dan-cell">River of fire flows out</td><td class="rev-cell">Seven torches of the Spirit</td></tr>
+            <tr><td>The central figure</td><td class="eze-cell">Like a man — the glory of God</td><td class="dan-cell">Ancient of Days / Son of Man</td><td class="rev-cell">The Lamb standing as slain</td></tr>
+            <tr><td>The purpose of the vision</td><td class="eze-cell">Commission to warn Israel</td><td class="dan-cell">Judgment scene — books opened</td><td class="rev-cell">Opening of the seven seals</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout teal" style="margin-top:18px;">
+          <h4>The Same Throne Room — Three Moments</h4>
+          <p>Ezekiel sees it before the fall of Jerusalem — the commission to warn. Daniel sees it during the exile — assurance that God still reigns over Babylon. John sees it at the end of all things — the throne from which final judgment flows. <strong>All three visions are the same throne room seen at different moments in the drama of redemption.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: BABYLON ═══════════ -->
+<section class="section" id="babylon">
+<div class="wrap">
+  <div class="eyebrow">The Identical Verdict</div>
+  <h2 class="sec-title">Babylon's Fall — Isaiah 13–14 → Daniel 5 → Revelation 17–18</h2>
+  <p class="sec-lead">Isaiah pronounced judgment on Babylon 150 years before Babylon became a world power. Daniel watched the sentence executed. John applied the entire structure to cosmic, end-time Babylon — confirming that Isaiah's prophecy had a double fulfilment.</p>
+
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">Isaiah 13–14 + Jeremiah 50–51 → Revelation 17–18 — Verbatim Echoes</div>
+      <div class="pb-books">
+        <span class="pb-tag isa">Isaiah</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div style="padding:22px 24px 24px;">
+        <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Isaiah/Jeremiah</th><th>Reference</th><th class="rev-cell">Revelation Echo</th><th>Reference</th></tr></thead>
+          <tbody>
+            <tr><td>"Fallen, fallen is Babylon the Great"</td><td class="isa-cell">Isa 21:9; Jer 51:8</td><td class="rev-cell">"Fallen! Fallen is Babylon the Great!"</td><td class="rev-cell">Rev 18:2</td></tr>
+            <tr><td>"Flee out of Babylon / Run for your lives"</td><td class="isa-cell">Jer 51:6</td><td class="rev-cell">"Come out of her, my people"</td><td class="rev-cell">Rev 18:4</td></tr>
+            <tr><td>"Babylon, a gold cup in the LORD's hand making nations drunk"</td><td class="isa-cell">Jer 51:7</td><td class="rev-cell">Woman with golden cup filled with abominations</td><td class="rev-cell">Rev 17:4</td></tr>
+            <tr><td>"She will never be inhabited again"</td><td class="isa-cell">Isa 13:19-20</td><td class="rev-cell">"She will be consumed by fire... never found again"</td><td class="rev-cell">Rev 18:8, 21</td></tr>
+            <tr><td>"How you have fallen from heaven, morning star"</td><td class="isa-cell">Isa 14:12</td><td class="rev-cell">"The great dragon was hurled down — that ancient serpent"</td><td class="rev-cell">Rev 12:9</td></tr>
+            <tr><td>Sitting on many waters</td><td class="isa-cell">Jer 51:13</td><td class="rev-cell">"The waters are peoples, multitudes, nations"</td><td class="rev-cell">Rev 17:1, 15</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout gold" style="margin-top:18px;">
+          <h4>John Is Completing Isaiah's Sentences</h4>
+          <p>John does not footnote Isaiah. He assumes his readers are so saturated in the prophets that the echoes are immediately audible. Isaiah's prophecy against literal Babylon was not <strong>exhausted</strong> by the fall to Medo-Persia in 539 BC — it was <strong>double-layered</strong>, its ultimate fulfilment the cosmic fall of Revelation 18. Isaiah saw the type; John revealed the antitype.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">Daniel 5 — The Handwriting on the Wall → The Desecration of Holy Vessels</div>
+      <div class="pb-books">
+        <span class="pb-tag dan">Daniel</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div style="padding:22px 24px 24px;">
+        <div class="mark-grid">
+          <div class="mark-card old">
+            <div class="mark-card-label">Daniel 5 — Literal Babylon</div>
+            <h4>The Temple Vessels Defiled</h4>
+            <p>Belshazzar brings out the <strong>golden vessels taken from the Jerusalem Temple</strong> and uses them to drink wine while praising the gods of gold, silver, bronze, iron, wood, and stone. God's sacred instruments used in service of a pagan feast. That same night the verdict is written on the wall. That same night Babylon falls.</p>
+          </div>
+          <div class="mark-card new">
+            <div class="mark-card-label">Revelation — Spiritual Babylon</div>
+            <h4>The Sacred Institutions Repurposed</h4>
+            <p>The sacred institutions God gave the Church — the Sabbath, baptism by immersion, the Lord's Supper, the Scripture alone principle, the priesthood of all believers — were taken and used in service of Rome's religious system, consecrated with God's name while filled with pagan content. The handwriting is already on the wall: "Fallen! Fallen is Babylon the Great."</p>
+          </div>
+        </div>
+        <div class="sq">
+          <p>"You praised the gods of silver and gold, of bronze, iron, wood and stone, which cannot see or hear or understand. But you did not honour the God who holds in his hand your life and all your ways."</p>
+          <cite>Daniel 5:23</cite>
+        </div>
+        <ul class="klist">
+          <li><strong>MENE</strong> — God has numbered your kingdom and brought it to an end</li>
+          <li><strong>MENE</strong> — numbered twice — the certainty doubled</li>
+          <li><strong>TEKEL</strong> — you have been weighed on the scales and found wanting</li>
+          <li><strong>UPHARSIN</strong> — your kingdom is divided and given to the Medes and Persians</li>
+        </ul>
+        <div class="callout red">
+          <h4>The Verdict Already Written</h4>
+          <p>Revelation 18:2 announces Babylon's fall in the prophetic perfect — so certain it is spoken as already accomplished. The handwriting of Daniel 5 is the same handwriting of Revelation 18. Belshazzar did not know his night had come. The end-time equivalent of his feast is Laodicea's comfortable celebration — unaware the night has already arrived.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: BEASTS ═══════════ -->
+<section class="section" id="beasts">
+<div class="wrap">
+  <div class="eyebrow">Inverted Imagery</div>
+  <h2 class="sec-title">The Four Creatures & The Four Beasts</h2>
+  <p class="sec-lead">This is the most architecturally brilliant use of the same imagery across the prophetic chain. The Holy Spirit takes identical animals and inverts their meaning — from worshipping throne creatures to raging earthly kingdoms — then restores them in Revelation's final vision.</p>
+
+  <h3>The Three-Stage Arc</h3>
+
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">Ezekiel 1 → Daniel 7 → Revelation 13 — The Creature/Beast Progression</div>
+      <div class="pb-books">
+        <span class="pb-tag eze">Ezekiel</span>
+        <span class="pb-tag dan">Daniel</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div style="padding:22px 24px 24px;">
+        <div class="step-chain">
+          <div class="step eze">
+            <div class="step-num">II</div>
+            <div class="step-book">Ezekiel 1</div>
+            <div class="step-ref">Worshipping Creatures</div>
+            <div class="step-text"><strong>Lion · Ox · Man · Eagle.</strong> They surround God's throne. Eyes covering their bodies — all-seeing, all-devoted. Wings touching each other — unified. They go wherever the Spirit goes. They represent the whole of creation in worshipful submission before the throne of God.</div>
+            <div class="step-arrow">→</div>
+          </div>
+          <div class="step dan">
+            <div class="step-num">III</div>
+            <div class="step-book">Daniel 7</div>
+            <div class="step-ref">Raging Beasts</div>
+            <div class="step-text"><strong>Lion (Babylon) · Bear (Medo-Persia) · Leopard (Greece) · Terrible Beast (Rome).</strong> The same animal imagery — <em>inverted</em>. They rise from the churning sea of chaos. They devour, trample, and crush. The created order — meant to worship God — has become the vehicle of earthly power in rebellion.</div>
+            <div class="step-arrow">→</div>
+          </div>
+          <div class="step rev">
+            <div class="step-num">IV</div>
+            <div class="step-book">Revelation 13</div>
+            <div class="step-ref">The Composite Beast</div>
+            <div class="step-text"><strong>"The beast I saw resembled a leopard, had feet like a bear, and a mouth like a lion."</strong> (Rev 13:2) All four of Daniel's beasts combine into one end-time power — the synthesis and culmination of all previous empires. Meanwhile, Revelation 4 restores Ezekiel's original creatures around the throne — worshipping the Lamb who overcomes all the beasts.</div>
+          </div>
+        </div>
+
+        <div class="callout gold" style="margin-top:20px;">
+          <h4>The Complete Arc</h4>
+          <p>1. <strong>Ezekiel</strong> — creatures worship God, representing the whole creation in submission. 2. <strong>Daniel</strong> — the same creatures represent earthly powers that war against God's people. 3. <strong>Revelation</strong> — the beast combines all earthly powers; the <em>restored</em> creatures worship the Lamb who defeats them all. The arc runs: <em>worship → rebellion → restored worship.</em></p>
+        </div>
+
+        <div class="callout copper">
+          <h4>Why the Same Animals?</h4>
+          <p>The Holy Spirit uses the same four animals in both the worshipping creatures and the raging beasts to communicate a theological point: <strong>earthly kingdoms are the created order used wrongly</strong>. The lion that should worship becomes the lion that devours. The ox that should serve becomes the bear that crushes. When creation refuses its creaturely position before the throne, it becomes beastlike. The Lamb restores creation to its original vocation — the worshipping creature around the throne.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>The Serpent / Dragon / Leviathan Thread</h3>
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">Isaiah 27 → Ezekiel 29 → Daniel 7 → Revelation 12 — The Dragon Identified</div>
+      <div class="pb-books">
+        <span class="pb-tag isa">Isaiah</span>
+        <span class="pb-tag eze">Ezekiel</span>
+        <span class="pb-tag dan">Daniel</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div class="step-chain">
+        <div class="step isa">
+          <div class="step-num">I</div>
+          <div class="step-book">Isaiah 27:1</div>
+          <div class="step-ref">Leviathan Named</div>
+          <div class="step-text">"In that day the LORD will punish Leviathan the gliding serpent, Leviathan the coiling serpent; he will slay the monster of the sea." The cosmic enemy is named — the chaos serpent of the ancient Near Eastern tradition, the force of disorder behind all earthly oppression.</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step eze">
+          <div class="step-num">II</div>
+          <div class="step-book">Ezekiel 29:3</div>
+          <div class="step-ref">Embodied in Pharaoh</div>
+          <div class="step-text">"I am against you, Pharaoh king of Egypt, you great monster lying among your streams." Pharaoh becomes the earthly embodiment of Leviathan — the serpentine principle of oppression incarnated in a human ruler who claims divine ownership over the Nile.</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step dan">
+          <div class="step-num">III</div>
+          <div class="step-book">Daniel 7</div>
+          <div class="step-ref">Embodied in Rome</div>
+          <div class="step-text">The fourth beast rises from the sea with iron teeth and ten horns — borrowing the chaos-monster imagery directly. The serpentine principle of rebellion now manifests in Rome — dreadful and terrifying, crushing and devouring.</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step rev">
+          <div class="step-num">IV</div>
+          <div class="step-book">Revelation 12:9</div>
+          <div class="step-ref">Source Identified</div>
+          <div class="step-text">"The great dragon was hurled down — that ancient serpent called the devil, or Satan." All four books converge: Isaiah named the serpent. Ezekiel showed it in Pharaoh. Daniel showed it in Rome. John names the source — Satan himself, manifesting through successive earthly powers across all of history.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: RESURRECTION ═══════════ -->
+<section class="section" id="resurrection">
+<div class="wrap">
+  <div class="eyebrow">From Dry Bones to Two Resurrections</div>
+  <h2 class="sec-title">The Resurrection — Ezekiel 37 → Daniel 12 → Revelation 20</h2>
+  <p class="sec-lead">The resurrection is progressively revealed across these three books — Ezekiel sees it figuratively, Daniel makes it literal and individual, Revelation reveals its two-stage structure with the millennium between.</p>
+
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">The Progressive Revelation of Resurrection — Three Stages</div>
+      <div class="pb-books">
+        <span class="pb-tag eze">Ezekiel</span>
+        <span class="pb-tag dan">Daniel</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div style="padding:22px 24px 24px;">
+        <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Feature</th><th class="eze-cell">Ezekiel 37</th><th class="dan-cell">Daniel 12:2</th><th class="rev-cell">Revelation 20:4-6</th></tr></thead>
+          <tbody>
+            <tr><td>Nature of the resurrection</td><td class="eze-cell">Corporate/national — Israel as a nation restored</td><td class="dan-cell">Individual and eschatological — personal bodily resurrection</td><td class="rev-cell">Two-stage — righteous first, wicked after 1,000 years</td></tr>
+            <tr><td>The mechanism</td><td class="eze-cell">The Spirit breathes into the dry bones</td><td class="dan-cell">"Multitudes who sleep in the dust will awake"</td><td class="rev-cell">"They came to life and reigned with Christ"</td></tr>
+            <tr><td>The scope</td><td class="eze-cell">The house of Israel</td><td class="dan-cell">"Some to everlasting life, others to shame"</td><td class="rev-cell">The saints in the first resurrection; rest of dead after 1,000 years</td></tr>
+            <tr><td>Context</td><td class="eze-cell">Babylonian exile — national death</td><td class="dan-cell">After the time of trouble — "Michael will arise"</td><td class="rev-cell">After the plagues — second coming of Christ</td></tr>
+            <tr><td>The detail added</td><td class="eze-cell">The dry bones can live — death is reversible</td><td class="dan-cell">Two destinies — everlasting life or everlasting contempt</td><td class="rev-cell">The millennium separates the two resurrections</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="sq" style="margin-top:18px;">
+          <p>"Multitudes who sleep in the dust of the earth will awake: some to everlasting life, others to shame and everlasting contempt. Those who are wise will shine like the brightness of the heavens, and those who lead many to righteousness, like the stars for ever and ever."</p>
+          <cite>Daniel 12:2-3</cite>
+        </div>
+        <div class="callout teal">
+          <h4>Daniel 12:2 — The First Unambiguous Statement</h4>
+          <p>Daniel 12:2 is the <strong>first unambiguous statement of individual bodily resurrection</strong> in the Old Testament. Ezekiel's valley of bones was figurative — a picture of national restoration. Daniel makes it literal, individual, and eschatological. He takes Ezekiel's figurative resurrection and reveals what it was always pointing toward. Revelation then adds the final structural detail: the two resurrections are not simultaneous — 1,000 years separates the first from the second.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: EATEN SCROLL ═══════════ -->
+<section class="section" id="scroll">
+<div class="wrap">
+  <div class="eyebrow">One Scroll Through Time</div>
+  <h2 class="sec-title">The Eaten Scroll — A Case Study in Perfect Continuity</h2>
+  <p class="sec-lead">A single scroll moves through the prophetic tradition — eaten by Ezekiel, sealed by Daniel, opened by the Lamb, eaten again by John. This is not four different scrolls. It is one prophetic Word moving through history, opened in stages by the sovereign hand of God.</p>
+
+  <div class="scroll-timeline">
+
+    <div class="st-item eze">
+      <div class="st-dot"></div>
+      <div class="st-book">Ezekiel</div>
+      <div class="st-ref">Ezekiel 2:9 – 3:3</div>
+      <div class="st-text"><strong>The Scroll Given and Eaten.</strong> A scroll is handed to Ezekiel written on both sides — lamentations, mourning, and woe. God commands: <em>"eat this scroll and fill your stomach with it."</em> He eats it. <em>"It tasted as sweet as honey in my mouth."</em> Sweet to receive; bitter in its burden. The prophet must internalise the Word before he can proclaim it.</div>
+    </div>
+
+    <div class="st-item dan">
+      <div class="st-dot"></div>
+      <div class="st-book">Daniel</div>
+      <div class="st-ref">Daniel 12:4, 9</div>
+      <div class="st-text"><strong>The Scroll Sealed.</strong> <em>"Close up and seal the words of the scroll until the time of the end."</em> The same prophetic Word — now sealed. Not suppressed but held in reserve. The appointed time has not yet come. Daniel is told: <em>"Many will be purified, made spotless, and refined, but the wicked will continue to be wicked."</em> The scroll waits.</div>
+    </div>
+
+    <div class="st-item rev">
+      <div class="st-dot"></div>
+      <div class="st-book">Revelation 5</div>
+      <div class="st-ref">Revelation 5:1-5</div>
+      <div class="st-text"><strong>The Scroll Unsealed.</strong> A scroll with seven seals — no one worthy to open it. John weeps. The Lion of Judah — the Lamb that was slain — is alone worthy. He takes the scroll. Heaven erupts. Daniel's sealed scroll is now in the hands of the One who holds all history. The time of the end has come.</div>
+    </div>
+
+    <div class="st-item rev">
+      <div class="st-dot"></div>
+      <div class="st-book">Revelation 10</div>
+      <div class="st-ref">Revelation 10:8-10</div>
+      <div class="st-text"><strong>The Scroll Eaten Again.</strong> <em>"Take the scroll and eat it. It will turn your stomach sour, but in your mouth it will be as sweet as honey."</em> Ezekiel's experience is reproduced exactly — same sweetness, same bitterness. The prophetic Word must be internalised before the final proclamation. <em>"You must prophesy again about many peoples, nations, languages and kings."</em> The final commission.</div>
+    </div>
+
+  </div>
+
+  <div class="callout gold">
+    <h4>Sweet in the Mouth, Bitter in the Stomach</h4>
+    <p>Both Ezekiel and John eat a scroll that is sweet to taste but bitter in the belly. The <strong>sweetness</strong> is the privilege of receiving God's prophetic Word — the joy of knowing His purposes. The <strong>bitterness</strong> is the burden of its content: lamentations, judgment, woe. The end-time proclamation is not a triumphalist message — it is a message of urgency, love, and solemn warning. Those who bear it must feel both the sweetness and the weight.</p>
+  </div>
+
+  <div class="callout indigo">
+    <h4>The 1844 Connection</h4>
+    <p>The Adventist understanding of Revelation 10 connects the eating of the scroll to the <strong>Millerite experience</strong> — the sweetness of expecting Christ's return in 1844, followed by the "great disappointment" (the bitterness). This is the exact pattern of Ezekiel 2–3 and Revelation 10 — and it launched the deeper study of Daniel's sealed prophecies that recovered the sanctuary truth. Daniel's sealed scroll was opened, eaten, and digested — and the result was the three angels' messages.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: TIME PROPHECIES ═══════════ -->
+<section class="section" id="times">
+<div class="wrap">
+  <div class="eyebrow">The Same Period, Seven Expressions</div>
+  <h2 class="sec-title">The Time Prophecies — Daniel → Revelation</h2>
+  <p class="sec-lead">Daniel introduces a prophetic time period that Revelation repeats seven times in four different expressions. The Holy Spirit is hammering a nail that Daniel drove first and John completed. It is the single most repeated specific time prophecy in all of Scripture.</p>
+
+  <h3>The Four Expressions of One Period</h3>
+
+  <div class="tbl-wrap">
+  <table class="time-table">
+    <thead>
+      <tr><th>Reference</th><th>Expression</th><th>Equals</th><th>Year-Day Application</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="dan-cell">Daniel 7:25</td><td>Time, times, and half a time</td><td>3½ years = 1,260 days</td><td class="hl">538 AD → 1798 AD</td></tr>
+      <tr><td class="dan-cell">Daniel 12:7</td><td>Time, times, and half a time</td><td>3½ years = 1,260 days</td><td class="hl">538 AD → 1798 AD</td></tr>
+      <tr><td class="rev-cell">Revelation 11:2</td><td>42 months</td><td>3½ years = 1,260 days</td><td class="hl">538 AD → 1798 AD</td></tr>
+      <tr><td class="rev-cell">Revelation 11:3</td><td>1,260 days</td><td>3½ years = 1,260 days</td><td class="hl">538 AD → 1798 AD</td></tr>
+      <tr><td class="rev-cell">Revelation 12:6</td><td>1,260 days</td><td>3½ years = 1,260 days</td><td class="hl">538 AD → 1798 AD</td></tr>
+      <tr><td class="rev-cell">Revelation 12:14</td><td>Time, times, and half a time</td><td>3½ years = 1,260 days</td><td class="hl">538 AD → 1798 AD</td></tr>
+      <tr><td class="rev-cell">Revelation 13:5</td><td>42 months</td><td>3½ years = 1,260 days</td><td class="hl">538 AD → 1798 AD</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout indigo">
+    <h4>Seven Times in Two Books</h4>
+    <p>The same period appears <strong>seven times</strong> across Daniel and Revelation — the number of completeness. The Holy Spirit is not being repetitive; He is being insistent. Using the year-day principle (Numbers 14:34, Ezekiel 4:6 — both explicitly stated), 1,260 prophetic days = <strong>1,260 literal years</strong>. The period of papal supremacy from 538 AD (when the last Arian kingdom opposing Rome fell) to 1798 AD (when Napoleon's general Berthier took Pope Pius VI captive) is 1,260 years to the year.</p>
+  </div>
+
+  <h3>The Year-Day Principle — Its Own Prophetic Parallel</h3>
+
+  <div class="mark-grid">
+    <div class="mark-card old">
+      <div class="mark-card-label">Numbers 14:34</div>
+      <h4>Stated Explicitly — 40 Years for 40 Days</h4>
+      <p>After the spies' 40-day reconnaissance, God tells Israel: <em>"For forty years — one year for each of the forty days you explored the land — you will suffer for your sins."</em> God Himself defines the prophetic equation: one day = one year.</p>
+    </div>
+    <div class="mark-card new">
+      <div class="mark-card-label">Ezekiel 4:4-6</div>
+      <h4>Stated Explicitly — 390 Days for 390 Years</h4>
+      <p>God tells Ezekiel to lie on his left side 390 days for Israel's 390 years of sin, and on his right side 40 days for Judah's 40 years. <em>"I have assigned you the same number of days as the years of their sin."</em> The year-day principle is not interpretation — it is divine instruction.</p>
+    </div>
+  </div>
+
+  <div class="callout gold">
+    <h4>Daniel's 2,300 Days — The Longest Time Prophecy</h4>
+    <p>Daniel 8:14: <em>"Unto 2,300 evenings and mornings; then the sanctuary will be cleansed."</em> Using the year-day principle: 2,300 prophetic days = 2,300 literal years. Beginning from the decree to restore Jerusalem in 457 BC (Ezra 7), 2,300 years brings us to <strong>1844 AD</strong> — the beginning of the heavenly Day of Atonement, the investigative judgment, the opening of Daniel's sealed scroll. The most specific time prophecy in Scripture, anchored 2,300 years before its fulfilment, connecting Daniel directly to Revelation's sanctuary theme.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: HERALD ═══════════ -->
+<section class="section" id="herald">
+<div class="wrap">
+  <div class="eyebrow">The Escalating Proclamation</div>
+  <h2 class="sec-title">Isaiah's Herald → Revelation's Flying Angel</h2>
+  <p class="sec-lead">Isaiah's voice crying in the wilderness becomes Revelation's angel flying over the whole earth. The scope escalates from one man at the Jordan to a cosmic proclamation to all nations — but the message is the same: prepare the way, return to the Creator.</p>
+
+  <div class="parallel-block">
+    <div class="pb-header" onclick="togglePB(this)">
+      <div class="pb-title">Isaiah 40 → John the Baptist → Revelation 14 — The Herald in Three Stages</div>
+      <div class="pb-books">
+        <span class="pb-tag isa">Isaiah</span>
+        <span class="pb-tag rev">Revelation</span>
+      </div>
+      <div class="pb-toggle">+</div>
+    </div>
+    <div class="pb-body">
+      <div class="step-chain">
+        <div class="step isa">
+          <div class="step-num">I</div>
+          <div class="step-book">Isaiah 40:3-5</div>
+          <div class="step-ref">The Voice in the Wilderness</div>
+          <div class="step-text">"A voice of one calling: In the wilderness prepare the way for the LORD; make straight in the desert a highway for our God. Every valley shall be raised up, every mountain and hill made low... and all people will see it together."</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step isa" style="border-top: 3px solid var(--isa);">
+          <div class="step-num">II</div>
+          <div class="step-book">Matthew 3:3</div>
+          <div class="step-ref">Partial Fulfilment</div>
+          <div class="step-text">John the Baptist fulfils Isaiah 40:3 — a single man, in the wilderness, preparing the way for Christ's first coming. But Isaiah's language is cosmic: "all people will see it together." A single man in Judea does not exhaust that scope. The prophecy has a greater fulfilment.</div>
+          <div class="step-arrow">→</div>
+        </div>
+        <div class="step rev">
+          <div class="step-num">III</div>
+          <div class="step-book">Revelation 14:6-7</div>
+          <div class="step-ref">The Ultimate Fulfilment</div>
+          <div class="step-text">"I saw another angel flying in midair, and he had the eternal gospel to proclaim to those who live on the earth — to every nation, tribe, language and people." Isaiah's wilderness cry becomes a voice flying over the whole earth. The three angels' messages ARE Isaiah 40 at cosmic, end-time, global scale.</div>
+        </div>
+      </div>
+      <div style="padding:20px 24px 24px;">
+        <div class="sq">
+          <p>"Fear God and give him glory, because the hour of his judgment has come. Worship him who made the heavens, the earth, the sea and the springs of water."</p>
+          <cite>Revelation 14:7 — The First Angel</cite>
+        </div>
+        <div class="callout gold">
+          <h4>The Fourth Commandment Hidden in the First Angel</h4>
+          <p>The first angel's call to worship the Creator — <em>"him who made the heavens, the earth, the sea and the springs of water"</em> — is a direct quotation of the <strong>fourth commandment's rationale</strong> (Exodus 20:11). Revelation's final gospel proclamation is not neutral on the Sabbath question — it is a specific call back to Creator worship, using the exact language God used when He established the Sabbath sign. Isaiah's herald, escalated to cosmic scale, carries the Sabbath at its heart.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Isaiah 52–53 → Revelation 5 — The Lamb</h3>
+  <div class="mark-grid">
+    <div class="mark-card old">
+      <div class="mark-card-label">Isaiah 52–53 — The Suffering Servant</div>
+      <h4>Slain Before the Throne</h4>
+      <p>Despised, rejected, a man of sorrows. Led like a lamb to the slaughter — silent before his accusers. Pierced for our transgressions, crushed for our iniquities. He poured out his life unto death. He bore the sin of many. He was cut off from the land of the living.</p>
+    </div>
+    <div class="mark-card new">
+      <div class="mark-card-label">Revelation 5:6 — The Lamb at the Throne</div>
+      <h4>Risen and Reigning</h4>
+      <p>"I saw a Lamb, looking as if it had been slain, standing at the center of the throne." Slain — Isaiah 53. Standing — resurrection. At the throne — ascension and intercession. Revelation 5 is what Isaiah 53 looks like from the other side of the cross and from the perspective of heaven.</p>
+    </div>
+  </div>
+
+  <h3>Isaiah 60–62 → Revelation 21–22 — The New Jerusalem</h3>
+
+  <div class="callout teal">
+    <h4>John Completing Isaiah's Sentences</h4>
+    <p>Isaiah 60:19: <em>"The sun will no more be your light by day... the LORD will be your everlasting light."</em> Revelation 21:23: <em>"The city does not need the sun or the moon... for the glory of God gives it light."</em><br><br>Isaiah 60:11: <em>"Your gates will always stand open, never shut."</em> Revelation 21:25: <em>"On no day will its gates ever be shut."</em><br><br>John is not being creative. He is <strong>completing Isaiah's sentences.</strong> Isaiah saw the New Jerusalem in outline 700 years before John. John received the full architectural detail. Revelation 21–22 is Isaiah 60–62 unveiled.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ SECTION: MASTER TABLE ═══════════ -->
+<section class="section" id="master">
+<div class="wrap">
+  <div class="eyebrow">Complete Reference</div>
+  <h2 class="sec-title">The Master Parallel Table</h2>
+  <p class="sec-lead">Every major parallel mapped across all four prophetic books — the complete architectural survey of one prophetic symphony in four movements.</p>
+
+  <div class="tbl-wrap">
+  <table class="master-tbl">
+    <thead>
+      <tr>
+        <th>Theme</th>
+        <th>Isaiah</th>
+        <th>Ezekiel</th>
+        <th>Daniel</th>
+        <th>Revelation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Throne Vision</strong></td>
+        <td><span class="ct isa">6:1-8</span> Seraphim, holy holy holy, commission</td>
+        <td><span class="ct eze">1:1-28</span> Chariot throne, four creatures, rainbow</td>
+        <td><span class="ct dan">7:9-10</span> Ancient of Days, fiery throne, books opened</td>
+        <td><span class="ct rev">4–5</span> Same creatures, Lamb takes scroll</td>
+      </tr>
+      <tr>
+        <td><strong>The Mark / Seal</strong></td>
+        <td>Not explicit</td>
+        <td><span class="ct eze">9:4-6</span> Tav on foreheads before judgment</td>
+        <td><span class="ct dan">12:1</span> Those written in the book delivered</td>
+        <td><span class="ct rev">7:2-3; 13:16; 14:1</span> Seal vs. mark of beast</td>
+      </tr>
+      <tr>
+        <td><strong>Babylon's Fall</strong></td>
+        <td><span class="ct isa">13–14; 21:9</span> "Fallen, fallen" — Lucifer falls</td>
+        <td><span class="ct eze">26–28</span> Tyre as Babylon type — pride judged</td>
+        <td><span class="ct dan">5</span> Handwriting on the wall, vessels defiled</td>
+        <td><span class="ct rev">17–18</span> "Fallen, fallen is Babylon the Great"</td>
+      </tr>
+      <tr>
+        <td><strong>The Serpent / Dragon</strong></td>
+        <td><span class="ct isa">27:1</span> Leviathan the sea monster slain</td>
+        <td><span class="ct eze">29:3</span> Pharaoh as the dragon in the Nile</td>
+        <td><span class="ct dan">7</span> Fourth beast — serpentine imagery</td>
+        <td><span class="ct rev">12:3, 9</span> Dragon = that ancient serpent = Satan</td>
+      </tr>
+      <tr>
+        <td><strong>Creatures / Beasts</strong></td>
+        <td>Not explicit</td>
+        <td><span class="ct eze">1:10</span> Four worshipping creatures — lion, ox, man, eagle</td>
+        <td><span class="ct dan">7:3-7</span> Same four animals — raging earthly kingdoms</td>
+        <td><span class="ct rev">4:6-7; 13:2</span> Restored worshipping creatures + composite beast</td>
+      </tr>
+      <tr>
+        <td><strong>The Resurrection</strong></td>
+        <td><span class="ct isa">26:19</span> "Your dead will live; their bodies will rise"</td>
+        <td><span class="ct eze">37</span> Valley of dry bones — corporate restoration</td>
+        <td><span class="ct dan">12:2</span> Individual bodily resurrection — two destinies</td>
+        <td><span class="ct rev">20:4-6</span> Two resurrections separated by 1,000 years</td>
+      </tr>
+      <tr>
+        <td><strong>The Eaten Scroll</strong></td>
+        <td>Not explicit</td>
+        <td><span class="ct eze">2:9–3:3</span> Scroll eaten — sweet as honey</td>
+        <td><span class="ct dan">12:4</span> Seal the scroll until time of the end</td>
+        <td><span class="ct rev">5:1-5; 10:8-10</span> Lamb opens scroll; John eats it — sweet then bitter</td>
+      </tr>
+      <tr>
+        <td><strong>Time Prophecies</strong></td>
+        <td>Not specific</td>
+        <td><span class="ct eze">4:4-6</span> Year-day principle stated — 390/40 days</td>
+        <td><span class="ct dan">7:25; 9:24-27; 8:14</span> 1,260 days / 70 weeks / 2,300 days</td>
+        <td><span class="ct rev">11:2-3; 12:6,14; 13:5</span> 1,260 days repeated seven times</td>
+      </tr>
+      <tr>
+        <td><strong>The Herald's Cry</strong></td>
+        <td><span class="ct isa">40:3-5</span> Voice in the wilderness — prepare the way</td>
+        <td>Not explicit</td>
+        <td>Not explicit</td>
+        <td><span class="ct rev">14:6-7</span> Angel flying — eternal gospel to all nations</td>
+      </tr>
+      <tr>
+        <td><strong>The New Creation</strong></td>
+        <td><span class="ct isa">65–66</span> New heavens and earth; Sabbath worship</td>
+        <td><span class="ct eze">40–48</span> New temple, new land, river of life</td>
+        <td><span class="ct dan">12:3</span> "Those who shine like the brightness of the heavens"</td>
+        <td><span class="ct rev">21–22</span> New Jerusalem, no more curse, God with us</td>
+      </tr>
+      <tr>
+        <td><strong>The Watchman</strong></td>
+        <td><span class="ct isa">21:6</span> Watchman on the wall — report what you see</td>
+        <td><span class="ct eze">3:17; 33:1-9</span> Watchman office — blood on his hands if silent</td>
+        <td><span class="ct dan">12:1</span> Michael stands up — time of trouble begins</td>
+        <td><span class="ct rev">2–3</span> "I know your deeds" — Christ as ultimate watchman</td>
+      </tr>
+      <tr>
+        <td><strong>The Suffering Servant / Lamb</strong></td>
+        <td><span class="ct isa">52:13–53:12</span> Led like a lamb, pierced, poured out his life</td>
+        <td>Not explicit</td>
+        <td>Not explicit</td>
+        <td><span class="ct rev">5:6</span> "A Lamb, looking as if it had been slain, standing"</td>
+      </tr>
+      <tr>
+        <td><strong>Glory Departing / Returning</strong></td>
+        <td>Not explicit</td>
+        <td><span class="ct eze">10–11</span> The glory of the LORD leaves the temple</td>
+        <td><span class="ct dan">9:17</span> "Let your face shine on your desolate sanctuary"</td>
+        <td><span class="ct rev">15:8; 21:3</span> Temple filled with smoke; "God's dwelling is now among the people"</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="sdiv">✦ ✦ ✦</div>
+
+  <div class="callout gold">
+    <h4>The Final Conclusion</h4>
+    <p>At the centre of every vision, in every book, is the same figure: the One on the throne, the Lamb that was slain, the Ancient of Days, the Lord high and lifted up. <strong>The same God. The same story. Four movements. One conclusion.</strong></p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <span class="fo">✦ ✦ ✦</span>
+  <p>Isaiah saw the whole from the greatest distance — the shape of everything.<br>
+  Ezekiel saw it from inside the exile — the heart of the apostasy.<br>
+  Daniel saw it from inside Babylon — the kingdoms and the timeline.<br>
+  John saw it from the edge of eternity — the completion of all three.</p>
+  <div class="books-row">
+    <span class="book-badge isa">Isaiah</span>
+    <span class="book-badge eze">Ezekiel</span>
+    <span class="book-badge dan">Daniel</span>
+    <span class="book-badge rev">Revelation</span>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('prog').style.width = (s / h * 100) + '%';
+});
+
+// Section observer
+const secObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.section, .st-item').forEach(el => secObs.observe(el));
+
+// Parallel block toggle
+function togglePB(header) {
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.pb-toggle');
+  const isOpen = body.classList.toggle('open');
+  icon.classList.toggle('open', isOpen);
+  icon.textContent = isOpen ? '+' : '+';
+}
+</script>
+</body>
+</html>

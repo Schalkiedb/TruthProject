@@ -116,6 +116,22 @@ const LIBRARY = [
         tagClass: "blue",
         desc: "History always repeats — the antitypical framework of prophecy. Israel's patterns in the Church, Babylon old and new, Daniel inside Babylon, the Seven Churches, and Jezebel's thread through all of history.",
       },
+      {
+        title: "The Shadow & The Substance: Biblical Typology — Complete Reference",
+        file: "Typology/biblical-typology-expanded.html",
+        icon: "🕯️",
+        tag: "Typology",
+        tagClass: "blue",
+        desc: "The complete typological reference — persons, events, covenants, and the entire Levitical system mapped as types pointing to Christ. Adam, Isaac, Joseph, Moses, and the Exodus antitypes, with a full cross-reference table of every major type and New Testament fulfilment.",
+      },
+      {
+        title: "One Prophet, Four Voices: Isaiah · Ezekiel · Daniel · Revelation",
+        file: "Typology/prophetic-parallels-guide.html",
+        icon: "🎼",
+        tag: "Typology",
+        tagClass: "blue",
+        desc: "Isaiah, Ezekiel, Daniel, and Revelation are one prophetic symphony in four movements — each book building consciously on the last across 700 years. Seven major parallel themes mapped side-by-side: the throne room, Babylon's fall, the mark on the forehead, the beasts, the 1260-day prophecy, the scroll, and the resurrection.",
+      },
     ],
   },
   {
@@ -225,15 +241,7 @@ const LIBRARY = [
         tag: "Primary Sources",
         tagClass: "blue",
         desc: "The most powerful direct-admission quotes from Catholic and Protestant authorities — in their own words — about the Sabbath-to-Sunday transfer.",
-      },
-      {
-        title: "Source Documents: Catholic & Protestant Admissions",
-        file: "Source_Documents_Catholic_Protestant_Admissions.md",
-        icon: "🗄️",
-        tag: "Primary Sources",
-        tagClass: "blue",
-        desc: "The complete archive: 75+ primary quotes with full citations, publication details, and access instructions.",
-      },
+      }
     ],
   },
   {
@@ -642,14 +650,14 @@ const LIBRARY = [
         tagClass: "red",
         desc: "The Catholic teaching of transubstantiation — is Christ's sacrifice actually re-offered at every Mass? Examined against biblical evidence.",
       },
-      {
-        title: "The Trinity Doctrine — What Does Scripture Teach?",
-        file: "False_Doctrines/06_The_Holy_Spirit_and_Trinity.md",
-        icon: "🕊️",
-        tag: "Doctrine",
-        tagClass: "blue",
-        desc: "Does the specific Trinitarian formulation defined at Nicaea (325 CE) and Constantinople (381 CE) reflect what Scripture teaches about the Godhead?",
-      },
+      // { Revisit this for now
+      //   title: "The Trinity Doctrine — What Does Scripture Teach?",
+      //   file: "False_Doctrines/06_The_Holy_Spirit_and_Trinity.md",
+      //   icon: "🕊️",
+      //   tag: "Doctrine",
+      //   tagClass: "blue",
+      //   desc: "Does the specific Trinitarian formulation defined at Nicaea (325 CE) and Constantinople (381 CE) reflect what Scripture teaches about the Godhead?",
+      // },
       {
         title: "The Millennium and the Secret Rapture",
         file: "False_Doctrines/07_The_Millennium_and_Rapture.md",
