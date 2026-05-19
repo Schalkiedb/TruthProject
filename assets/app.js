@@ -841,7 +841,7 @@ let ALL_ITEMS = [];
 const SOURCE_DOCS_SECTION_ID = "source-documents-catholic";
 const SOURCE_DOCS_ROOT = "Supporting Documents/";
 const SOURCE_DOCS_MANIFEST = "assets/source-documents-catholic.json";
-const SOURCE_DOCS_IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg"];
+const SOURCE_DOCS_IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".gif"];
 const INFOGRAPHICS_SECTION_ID = "infographics";
 const INFOGRAPHICS_ROOT = "infographics/";
 const INFOGRAPHICS_MANIFEST = "assets/infographics-manifest.json";
@@ -946,7 +946,7 @@ function rebuildAllItems() {
 
 function formatSourceDocTitle(filePath) {
   const fileName = decodeURIComponent(filePath.split("/").pop() || filePath);
-  const withoutExt = fileName.replace(/\.(pdf|png|jpe?g)$/i, "");
+  const withoutExt = fileName.replace(/\.(pdf|png|jpe?g|gif)$/i, "");
   return withoutExt.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
