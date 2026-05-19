@@ -232,8 +232,8 @@ body {
 
 .nav-section-items {
   overflow: hidden;
-  max-height: 2000px;
-  transition: max-height 0.3s ease;
+  max-height: 9000px;
+  transition: max-height 0.4s ease;
 }
 
 .nav-section.collapsed .nav-section-items {
