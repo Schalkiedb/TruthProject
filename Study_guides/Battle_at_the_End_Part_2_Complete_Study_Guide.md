@@ -1048,8 +1048,6 @@ This guide covers the conspiracy against the Sabbath, ancient Babylon's fall, Re
 
 > **[Quotes Regarding Sabbath Change — Catholic and Protestant](../Quotes%20regarding%20sabbath%20change%20catholic%20and%20protestant.md)** — Direct evidence of the conspiracy of priests and prophets (Ezekiel 22:25-26) examined in Part 1 of this guide: Catholic and Protestant authorities openly admitting the Sabbath was hidden and replaced by Sunday through church tradition, not Scripture.
 
-> **[Source Documents — Catholic and Protestant Admissions](../Source_Documents_Catholic_Protestant_Admissions.md)** — The complete primary-source archive: 75+ quotes with full citations from Catholic and Protestant authorities — the "handwriting on the wall" for modern Babylon.
-
 > **[The Vatican Empire — Complete Exposure](../The_Vatican_Empire_Complete_Exposure.md)** — The institutional profile of end-time Babylon: the wealth, the political alliances, the doctrinal compromises, and the coming healing of the wound that sets the stage for the events of Revelation 17-18 this guide covers.
 
 > **[Commandments.md](../Commandments.md)** — Standalone distributable reference: the altered commandments, the MARK connection table, and the complete historical timeline of the Sabbath-to-Sunday transfer — the documentary core of what this guide's "breach" and "conspiracy" sections address.

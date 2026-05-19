@@ -269,7 +269,6 @@ Multiple official Catholic sources use the word **"mark"** or **"sign"** to desc
 ### Internal Study Documents (This Series)
 
 - [Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md](Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md) — Section: "The Ten Commandments: Biblical vs. Catholic"
-- [Source_Documents_Catholic_Protestant_Admissions.md](Source_Documents_Catholic_Protestant_Admissions.md) — Full catalogue of 39 Catholic and 18 Protestant admissions
 - [Quotes regarding sabbath change catholic and protestant.md](Quotes%20regarding%20sabbath%20change%20catholic%20and%20protestant.md) — Direct quotes from both traditions
 - [Study guides/The_Mark_of_the_Beast_Complete_Study_Guide.md](Study%20guides/The_Mark_of_the_Beast_Complete_Study_Guide.md) — Part 18: The Convert's Catechism
 - [Study guides/The_Little_Horn_Complete_Study_Guide.md](Study%20guides/The_Little_Horn_Complete_Study_Guide.md) — Daniel 7:25 and the change of law

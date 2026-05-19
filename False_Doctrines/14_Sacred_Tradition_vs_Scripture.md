@@ -187,4 +187,4 @@ The standard is established. The test is given. The Word stands forever.
 
 ---
 
-*All references are from Scripture as the sole authority. Council of Trent decrees, Vatican II documents, and Reformation historical context documented in Source_Documents_Catholic_Protestant_Admissions.md and Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md.*
+*All references are from Scripture as the sole authority. Council of Trent decrees, Vatican II documents, and Reformation historical context documented in Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md.*

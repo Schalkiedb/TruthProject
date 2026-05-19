@@ -3657,7 +3657,6 @@ The Sabbath — the seventh-day memorial of **Creation** — is the identifying 
 
 > **[The Sabbath Rest Complete Guide](../The_Sabbath_Rest_Complete_Guide.md)** — A full practical and devotional Sabbath guide covering how to keep the Sabbath, what the Sabbath looks like in daily life, the health and spiritual benefits, and how to transition into Sabbath observance. Where this guide defends the Sabbath against objections, that guide shows what the Sabbath looks like when lived.
 
-> **[Source Documents — Catholic and Protestant Admissions](../Source_Documents_Catholic_Protestant_Admissions.md)** — The full primary source archive: 75+ Catholic and Protestant admission statements with full quotes, sources, and access instructions. The documentary foundation behind this guide's historical evidence.
 
 ---
 

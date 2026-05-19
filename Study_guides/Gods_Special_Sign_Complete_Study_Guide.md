@@ -1037,8 +1037,6 @@ This guide establishes the Sabbath as God's special sign. The following library 
 
 > **[Commandments.md](../Commandments.md)** — The documentary proof that God's special sign (the Fourth Commandment) was systematically altered: the three-way Biblical/Catholic/Protestant commandment comparison; 10 Catholic and 8 Protestant admissions that Saturday is God's day and Sunday has no scriptural basis; the historical timeline from Constantine 321 CE to *Dies Domini* 1998.
 
-> **[Source Documents — Catholic and Protestant Admissions](../Source_Documents_Catholic_Protestant_Admissions.md)** — 75+ primary-source quotes from Catholic and Protestant authorities admitting the Sabbath was changed by church tradition, not Scripture. The evidentiary archive behind this guide's historical claims.
-
 > **[Babylon's Wine — The Hidden Legacy and God's Final Call](../Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md)** — How God's special sign was replaced with Babylon's counterfeit: the complete prophetic narrative from Constantine's 321 CE Sunday law to the final mark-of-the-beast crisis.
 
 ---

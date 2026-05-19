@@ -948,7 +948,8 @@ Based on Scripture, history, and the admissions of the Catholic Church itself:
 - Catechism of the Catholic Church (regarding church authority)
 - Papal documents claiming authority to change God's law
 
-> **All of these quotes are fully documented with complete text, source citations, and access instructions in the companion library documents below** — [Source_Documents_Catholic_Protestant_Admissions.md](../Source_Documents_Catholic_Protestant_Admissions.md) (75+ primary quotes) and [Commandments.md](../Commandments.md) (MARK connection table with 4 Catholic sources using the exact words "mark" and "distinguishing sign" for Sunday).
+> **All of these quotes are fully documented with complete text, source citations, and access instructions in the companion library documents below** — 
+[Commandments.md](../Commandments.md) (MARK connection table with 4 Catholic sources using the exact words "mark" and "distinguishing sign" for Sunday).
 
 **Cross-reference with previous study guides**:
 - **Daniel 2** - Foundation of prophecy interpretation
@@ -976,8 +977,6 @@ Based on Scripture, history, and the admissions of the Catholic Church itself:
 The following documents in this library provide the primary-source evidence, historical documentation, and extended analysis that give this guide its evidentiary backbone:
 
 > **[Commandments.md](../Commandments.md)** — The critical companion to this guide. Contains: the complete three-way comparison of Biblical, Catholic, and Protestant Ten Commandments showing exactly which commandment was altered; a MARK connection table documenting 4 Catholic sources that use the exact words *"mark"* and *"distinguishing sign"* for Sunday observance; and 10 Catholic + 8 Protestant direct-quote admissions that Saturday is the biblical Sabbath and Sunday has no scriptural basis. Distribute this document as a standalone reference.
-
-> **[Source Documents — Catholic and Protestant Admissions](../Source_Documents_Catholic_Protestant_Admissions.md)** — The full primary-source archive: 75+ Catholic and Protestant admission statements with complete original quotes, full source citations, publication details, and access instructions. This is the documentary foundation for all the Catholic sources listed above.
 
 > **[Quotes Regarding Sabbath Change — Catholic and Protestant](../Quotes%20regarding%20sabbath%20change%20catholic%20and%20protestant.md)** — A curated collection of the most powerful direct-admission quotes, formatted for sharing. The confessions of Rome's own authorities regarding the Sabbath-to-Sunday transfer — in their own words.
 

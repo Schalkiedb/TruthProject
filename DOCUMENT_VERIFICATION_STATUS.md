@@ -106,7 +106,6 @@ All documents in the Babylon Wine workspace have been systematically reviewed fo
 - ✅ 39 Catholic sources admitting no biblical authority for Sunday
 - ✅ 17 Protestant sources confirming same
 - ✅ All contemporary links verified active (January 2026)
-- ✅ Companion source document: Source_Documents_Catholic_Protestant_Admissions.md
 
 **Flow Check**:
 - ✅ Introduction and clarifications

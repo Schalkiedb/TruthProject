@@ -15454,7 +15454,6 @@ This is why Revelation 17:5 calls the Protestant churches "daughters" of Babylon
 ### Companion Documents in This Library
 
 - **Commandments.md** — Standalone three-way commandment comparison (Biblical | Catholic | Protestant); distributable reference document drawn from the admission sources documented here. Includes full direct quotes from 10 Catholic and 8 Protestant sources, a MARK connection table, a historical timeline, and hyperlinked sources. See [Commandments.md](Commandments.md).
-- **Source_Documents_Catholic_Protestant_Admissions.md** — Full archival catalog of all cited Catholic and Protestant admission sources with access instructions and download links.
 - **Quotes regarding sabbath change catholic and protestant.md** — Extended collection of 48+ Catholic and 75 Protestant direct-quote admissions.
 
 ---

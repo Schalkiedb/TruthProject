@@ -1983,6 +1983,5 @@ By every objective criterion—authoritarian control, scripture manipulation, is
 - Ellen White writings: https://whiteestate.org/
 - Bible study resources: https://www.amazingfacts.org/
 - *[Commandments.md](Commandments.md)* — Three-way comparison of Biblical, Catholic, and Protestant Ten Commandments with 10 Catholic and 8 Protestant direct-quote admissions confirming that Saturday is the biblical Sabbath and Sunday has no scriptural basis. Provides the strongest documentary rebuttal to “SDA is legalistic for keeping Saturday.”
-- *[Source_Documents_Catholic_Protestant_Admissions.md](Source_Documents_Catholic_Protestant_Admissions.md)* — Full archival catalog of 75+ Catholic and Protestant sources with access instructions and download links.
 
 **May God guide you into all truth.**

@@ -1093,8 +1093,6 @@ This guide shows how denying Creation undermines the basis for worship and prepa
 
 > **[Commandments.md](../Commandments.md)** — The Fourth Commandment — "Remember the Sabbath day" — is the Creation memorial. This document shows that commandment was systematically altered, and documents Catholic and Protestant authorities admitting it. Worship the Creator begins with honouring the day He blessed at Creation.
 
-> **[Source Documents — Catholic and Protestant Admissions](../Source_Documents_Catholic_Protestant_Admissions.md)** — Primary-source evidence for the historical claims in this guide's "Historical Studies" section: Constantine's Sunday law, the Council of Laodicea, and papal claims to change God's law — all documented with original quotes and full citations.
-
 ---
 
 *This study guide is based on Bible Study #7 from Sanctuary Door Ministry (sanctuarydoorministry.com). All Scripture quotations are taken directly from the source material. This guide expands on the biblical foundation using the principle of "Scripture interprets Scripture" (Sola Scriptura).*

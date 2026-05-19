@@ -1004,8 +1004,6 @@ This guide identifies the Little Horn power using biblical prophecy. The followi
 
 > **[Commandments.md](../Commandments.md)** — Direct evidence of the Little Horn "thinking to change times and laws" (Daniel 7:25): the three-way Biblical/Catholic/Protestant commandment comparison showing exactly which commandment was removed and renumbered; 10 Catholic direct-quote admissions that the church — not Scripture — changed the Sabbath to Sunday.
 
-> **[Source Documents — Catholic and Protestant Admissions](../Source_Documents_Catholic_Protestant_Admissions.md)** — 75+ primary-source quotes from Catholic authorities openly claiming the power to change God's law and admitting the Sabbath change has no biblical basis. The documentary proof that the Little Horn did exactly what Daniel predicted.
-
 > **[Babylon's Wine — The Hidden Legacy and God's Final Call](../Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md)** — How the Little Horn's influence — the wine of Babylon — spread throughout the Protestant world: the Constantine legacy, the Council of Laodicea, and the coming global Sunday law enforcement.
 
 ---

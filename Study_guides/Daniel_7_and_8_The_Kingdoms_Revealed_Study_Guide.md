@@ -1377,8 +1377,6 @@ Daniel 7 names and profiles the Little Horn power. The following library documen
 
 > **[The Vatican Empire — Complete Exposure](../The_Vatican_Empire_Complete_Exposure.md)** — The institutional profile of the Little Horn: Vatican finances, global diplomatic reach, the history of the Inquisition, papal claims of supremacy over kings, and the documented 1,260-year period of dominance (538–1798 CE) — all the Daniel 7 characteristics verified in recorded history.
 
-> **[Source Documents — Catholic and Protestant Admissions](../Source_Documents_Catholic_Protestant_Admissions.md)** — The Little Horn "thought to change times and laws" (Daniel 7:25). This document provides 75+ primary-source quotes from Catholic authorities openly claiming they changed the Sabbath, that this change has no biblical basis, and that Sunday observance is their mark of ecclesial authority over Scripture.
-
 > **[Commandments.md](../Commandments.md)** — The direct evidence of Daniel 7:25 fulfilled: the three-way Biblical/Catholic/Protestant commandment comparison showing which commandment was removed and renumbered, with the historical timeline of how this change was enacted from Constantine (321 CE) through the Council of Laodicea to the present.
 
 > **[Babylon's Wine — The Hidden Legacy and God's Final Call](../Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md)** — How the Little Horn's wine — its counterfeit worship system — intoxicated every nation and the final prophetic events that lead to the heavenly judgment scene Daniel 7:9-14 depicts.
