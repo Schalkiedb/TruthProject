@@ -9,7 +9,7 @@ SOURCE_DIR = REPO_ROOT / "Supporting Documents"
 SOURCE_OUTPUT_FILE = REPO_ROOT / "assets" / "source-documents-catholic.json"
 INFOGRAPHICS_DIR = REPO_ROOT / "infographics"
 INFOGRAPHICS_OUTPUT_FILE = REPO_ROOT / "assets" / "infographics-manifest.json"
-SOURCE_SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg"}
+SOURCE_SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".gif"}
 INFOGRAPHICS_SUPPORTED_EXTENSIONS = {".html"}
 
 
