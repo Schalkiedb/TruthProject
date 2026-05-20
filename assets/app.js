@@ -108,6 +108,13 @@ const LIBRARY = [
         tagClass: "green",
         desc: "The comprehensive Sabbath apologetics guide — 39 common objections answered; 2,000 years of documented Sabbath-keeping communities worldwide.",
       },
+    ],
+  },
+  {
+    section: "Biblical Typology",
+    icon: "🔁",
+    id: "typology",
+    items: [
       {
         title: "Biblical Typology: Israel, Babylon & The Seven Churches",
         file: "Typology/biblical-typology-study-guide.html",
@@ -791,6 +798,29 @@ const LIBRARY = [
         tag: "Health",
         tagClass: "green",
         desc: "Practical plant-based recipes based on the Daniel fast — delicious, nutritious meals aligned with the biblical health principles of Daniel chapter 1.",
+      },
+      {
+        title: "Why Science Confirms the Biblical Prohibition on Unclean Animals",
+        file: "Modern diet and disease/unclean_animals_scientific_supplement.html",
+        icon: "🐖",
+        tag: "Health",
+        tagClass: "green",
+        desc: "A deep scientific study confirming the dietary laws of Leviticus 11 and Deuteronomy 14 — parasitology, toxicology, and modern research showing why God's clean/unclean distinction maps precisely onto modern health science.",
+      },
+    ],
+  },
+  {
+    section: "Promises of God",
+    icon: "🌟",
+    id: "promises",
+    items: [
+      {
+        title: "Promises of God — A Biblical Guide",
+        file: "Promises/biblical-promises v2.html",
+        icon: "🌟",
+        tag: "Promises",
+        tagClass: "blue",
+        desc: "A comprehensive biblical guide to the promises of God — covering salvation, healing, provision, protection, and eternal life. Every major covenant promise catalogued with Scripture references.",
       },
     ],
   },
