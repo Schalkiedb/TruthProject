@@ -2168,6 +2168,129 @@ Jesus was not issuing new commands. He was quoting, almost word for word, from t
 
 Jesus reached into the Old Testament, quoted it directly, and said *these are the greatest commandments*. He was not replacing the Old Testament — He was affirming its heart.
 
+**This was not an isolated incident. Jesus quoted the Old Testament directly, repeatedly, and deliberately throughout His entire ministry.**
+
+The pattern is unmistakable: whenever Jesus was challenged, tested, or teaching, He consistently reached for the Hebrew Scriptures as His final authority. Consider the following direct quotations — not paraphrases, not allusions, but word-for-word citations from the Old Testament placed on the lips of Jesus Himself:
+
+---
+
+**Jesus Quoted the Old Testament in the Wilderness — Three Times in a Row**
+
+When Satan tempted Jesus, He did not invent new replies. He answered each temptation by reciting the Torah of Moses verbatim:
+
+| **Jesus' Words (Matthew 4)** | **Old Testament Source** |
+|------------------------------|--------------------------|
+| *"Man shall not live by bread alone, but by every word that proceeds from the mouth of God"* (v.4) | **Deuteronomy 8:3** — word for word |
+| *"You shall not tempt the LORD your God"* (v.7) | **Deuteronomy 6:16** — word for word |
+| *"You shall worship the LORD your God, and Him only you shall serve"* (v.10) | **Deuteronomy 6:13** — word for word |
+
+Three direct quotations from Deuteronomy in a single confrontation. Jesus did not say "under the New Covenant these rules no longer apply." He wielded the Old Testament as a sword (Ephesians 6:17) and declared it authoritative over the enemy himself.
+
+---
+
+**Jesus Quoted the Old Testament When Teaching Marriage**
+
+> **Matthew 19:4-5** — "Have you not read that He who made them at the beginning **made them male and female**, and said, **'For this reason a man shall leave his father and mother and be joined to his wife, and the two shall become one flesh'**?"
+
+- *"Made them male and female"* → **Genesis 1:27**
+- *"A man shall leave his father and mother"* → **Genesis 2:24**
+
+Jesus grounded the permanence of marriage not in a new apostolic decree but in the first two chapters of Genesis. The oldest words in all of Scripture were, in Jesus' view, still fully operative and binding.
+
+---
+
+**Jesus Quoted the Old Testament to Defend the Temple**
+
+> **Matthew 21:13** — "It is written, **'My house shall be called a house of prayer,'** but you have made it a **'den of thieves.'**"
+
+- *"My house shall be called a house of prayer"* → **Isaiah 56:7**
+- *"Den of thieves"* → **Jeremiah 7:11**
+
+Two Old Testament prophets. One composite quotation. Jesus treated both as living, binding Scripture with direct present-tense relevance.
+
+---
+
+**Jesus Quoted the Old Testament to Silence the Sadducees on the Resurrection**
+
+> **Matthew 22:32** — *"I am the God of Abraham, the God of Isaac, and the God of Jacob. God is not the God of the dead, but of the living."*
+
+Source: **Exodus 3:6** — God's words to Moses at the burning bush.
+
+Jesus built His entire argument for the resurrection of the dead on the present tense of a single verb in Exodus. He did not say Exodus was obsolete. He said it was so permanently and precisely true that a grammatical detail in it overturned an entire theological error.
+
+---
+
+**Jesus Quoted the Old Testament to Establish His Own Identity**
+
+> **Matthew 22:44** — *"The LORD said to my Lord, 'Sit at My right hand, till I make Your enemies Your footstool.'"*
+
+Source: **Psalm 110:1** — "The LORD said to my Lord..."
+
+Jesus used this Psalm to prove that the Messiah was more than David's human descendant. He staked His entire Messianic claim on the authority of an Old Testament Psalm — and challenged His listeners to reckon with it.
+
+---
+
+**Jesus Quoted the Old Testament to Define Worship Corruption**
+
+> **Matthew 15:8-9** — *"These people draw near to Me with their mouth, and honour Me with their lips, but their heart is far from Me. And in vain they worship Me, teaching as doctrines the commandments of men."*
+
+Source: **Isaiah 29:13** — quoted verbatim.
+
+Note the irony: Jesus used Isaiah to condemn the practice of replacing God's commands with human tradition — the very practice used today to justify Sunday in place of the Sabbath. His own standard, drawn from the Old Testament, condemns the change.
+
+---
+
+**Jesus Quoted the Old Testament to Honour the Commandments**
+
+> **Matthew 15:4** — *"For God commanded, saying, **'Honour your father and your mother'** and, **'He who curses father or mother, let him be put to death.'"***
+
+Sources: **Exodus 20:12** (Fifth Commandment) and **Exodus 21:17**.
+
+Jesus quoted the Fifth Commandment and an adjacent Mosaic statute not to demonstrate their abolition — but to rebuke those who were circumventing them through religious loophole. His complaint was that they were *not keeping* the Old Testament commands. He reaffirmed them as "the commandment of God" (Matthew 15:3).
+
+---
+
+**Jesus Quoted the Old Testament on the Cross**
+
+Even in His final moments of suffering, Jesus did not depart from the Scriptures:
+
+> **Matthew 27:46** — *"My God, My God, why have You forsaken Me?"*
+
+Source: **Psalm 22:1** — the opening verse of a Messianic psalm that proceeds to describe crucifixion in detail (Psalm 22:16-18).
+
+> **Luke 23:46** — *"Father, into Your hands I commit My spirit."*
+
+Source: **Psalm 31:5** — word for word.
+
+At the moment of greatest extremity, Jesus recited the Psalms. He did not improvise. He fulfilled what was written.
+
+---
+
+**Jesus Quoted the Old Testament to Affirm Bodily Resurrection Symbolism**
+
+> **Matthew 12:40** — *"For as Jonah was three days and three nights in the belly of the great fish, so will the Son of Man be three days and three nights in the heart of the earth."*
+
+Source: **Jonah 1:17** — treated as historical, literal, and prophetically significant.
+
+Jesus cited the book of Jonah as genuine history and as binding typological prophecy. He did not treat the Old Testament as myth, legend, or culturally conditioned allegory.
+
+---
+
+**The Pattern Is Conclusive**
+
+Across every category of His ministry — temptation, teaching, controversy, prophecy, worship, marriage, death itself — Jesus returned to the Old Testament as the living Word of God. He did not introduce a rival authority. He did not announce that the old words had expired.
+
+What was abolished at the cross was the **ceremonial law** — the system of sacrifices, purification rites, feast day observances, and priestly ordinances that were shadows pointing forward to Christ (Colossians 2:16-17; Hebrews 9:11-14; Ephesians 2:15). These were fulfilled in Him and therefore concluded.
+
+What was **not** abolished is the **moral law** — the Ten Commandments, which Jesus quoted, affirmed, magnified, and treated as permanently binding on all humanity. John Wesley, whose teachings gave rise to Methodism, stated this distinction plainly:
+
+> *"The moral law contained in the Ten Commandments... He did not take away. The moral law stands on an entirely different foundation from the ceremonial or ritual law, which was only temporary... Every part of this law must remain in force upon all mankind and in all ages."*
+> — John Wesley, *Sermons on Several Occasions*, Vol. 1, p. 221
+
+A teacher who quotes a law to correct error, defends a law against those who abandon it, cites a law at the moment of His own death, and declares that not one letter of that law will pass away — is not abolishing that law. He is exalting it.
+
+---
+
 **2. The two commandments map directly onto the structure of the Ten Commandments**
 
 The Ten Commandments are not ten randomly ordered rules. They have a clear two-part structure:
