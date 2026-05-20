@@ -293,6 +293,10 @@ When Christ later stands in Galilee and declares *"The Son of Man is Lord of the
 
 **The commandments are not "the Father's law" given in tension with Jesus.** They are the unified expression of the Godhead's character — and it was Christ Himself who stood on Sinai and declared them to Israel. To say "I follow Jesus but not the Ten Commandments" is to misunderstand who spoke them, for it was Jesus who spoke them.
 
+> **John 6:46** — "Not that anyone has seen the Father, except He who is from God; He has seen the Father."
+
+This verse is a decisive proof point. **No human being — including Moses, the elders of Israel, and all who witnessed the events at Sinai — has ever seen the Father.** Jesus Himself makes this absolute: only the Son has seen the Father. This means the divine Being who appeared in the pillar of cloud and fire, who descended on Sinai in glory, who spoke face to face with Moses, and who thundered the Ten Commandments to Israel — **could not have been the Father**. The Father has never been seen by any human being. By process of elimination, the One they encountered was the pre-incarnate Son — Christ.
+
 > **John 14:7-9** — "If you had known Me, you would have known My Father also... Philip said to Him, 'Lord, show us the Father...' Jesus said to him, '**He who has seen Me has seen the Father**...'"
 
 > **John 10:30** — "I and My Father are **one**."
@@ -2126,11 +2130,12 @@ If the Ten Commandments are "Old Testament/Old Covenant only," then **all ten mu
 
 ---
 
-**Nine of the Ten Commandments Are Explicitly Reaffirmed in the New Testament**:
+**All Ten Commandments Are Explicitly Reaffirmed in the New Testament**:
 
 > **Matthew 4:10** — "You shall worship the LORD your God, and Him only you shall serve." (1st)
 > **1 John 5:21** — "Little children, keep yourselves from idols." (2nd)
 > **Matthew 5:33-37** — Do not swear falsely by God's name. (3rd)
+> **Hebrews 4:9** — "There remains therefore a **Sabbath rest** [Greek: *sabbatismos*] for the people of God." (4th)
 > **Ephesians 6:2** — "Honor your father and your mother." (5th)
 > **Romans 13:9** — "You shall not murder." (6th)
 > **Romans 13:9** — "You shall not commit adultery." (7th)
@@ -2138,11 +2143,56 @@ If the Ten Commandments are "Old Testament/Old Covenant only," then **all ten mu
 > **Romans 13:9** — "You shall not bear false witness." (9th)
 > **Romans 13:9** — "You shall not covet." (10th)
 
-Nine commandments, **explicitly reaffirmed** in the New Testament.
+**A critical note on the 4th Commandment's New Testament reaffirmation**: The Greek word translated "Sabbath rest" in Hebrews 4:9 is **σαββατισμός** (*sabbatismos*). This word is unique — it appears **only once in the entire New Testament**, here and nowhere else. It does not mean "spiritual rest," "peace of mind," or "rest in Christ." Lexically and in every known usage in 1st-century Greek literature, *sabbatismos* means the **observance of the seventh-day Sabbath** — the literal, weekly, Saturday Sabbath. The inspired author of Hebrews, writing decades after the resurrection, reached for the most specific and unambiguous word available in the Greek language to describe what "remains for the people of God" — and chose the one word that could only mean the seventh-day Sabbath. This was no accident. If the fourth commandment had been abolished, Hebrews 4:9 would be inexplicable.
 
-The Fourth Commandment (Sabbath) is also affirmed by Jesus as "Lord of the Sabbath" (Mark 2:28), observed by Jesus as His "custom" (Luke 4:16), observed by Paul as his "custom" (Acts 17:2), and confirmed as still remaining by Hebrews 4:9 — written after the cross.
+All ten commandments, **explicitly reaffirmed** in the New Testament.
 
 The consistent biblical testimony is: All ten commandments continue. The argument that the Ten Commandments are "Old Testament only" is inconsistently applied and therefore not a valid interpretive principle.
+
+---
+
+**Jesus' Two Great Commandments Are Not a Replacement for the Ten — They Are a Summary of Them**:
+
+One of the most common misreadings of the New Testament is the claim that Jesus "replaced" the Ten Commandments with two new commands: love God and love your neighbour. A careful look at the passage reveals precisely the opposite.
+
+> **Matthew 22:35-40** — "Then one of them, a lawyer, asked Him a question, testing Him, and saying, 'Teacher, which is the great commandment in the law?' Jesus said to him, '**You shall love the LORD your God with all your heart, with all your soul, and with all your mind.** This is the first and great commandment. And the second is like it: **You shall love your neighbour as yourself.** On these two commandments **hang all the Law and the Prophets**.'"
+
+**Three observations that overturn the "replacement" claim**:
+
+**1. Both commandments are direct quotations from the Old Testament**
+
+Jesus was not issuing new commands. He was quoting, almost word for word, from the very Old Testament Scriptures His questioner wanted to dismiss:
+
+- **"Love the LORD your God with all your heart, soul, and mind"** → **Deuteronomy 6:5** — *"You shall love the LORD your God with all your heart, with all your soul, and with all your strength."*
+- **"Love your neighbour as yourself"** → **Leviticus 19:18** — *"You shall love your neighbour as yourself: I am the LORD."*
+
+Jesus reached into the Old Testament, quoted it directly, and said *these are the greatest commandments*. He was not replacing the Old Testament — He was affirming its heart.
+
+**2. The two commandments map directly onto the structure of the Ten Commandments**
+
+The Ten Commandments are not ten randomly ordered rules. They have a clear two-part structure:
+
+| **Commandments 1–4** | **Commandments 5–10** |
+|---------------------|----------------------|
+| Your duty toward **God** | Your duty toward your **neighbour** |
+| No other gods; No idols; God's name; Sabbath | Honour parents; No murder; No adultery; No stealing; No lying; No coveting |
+
+- **"Love the LORD your God"** — is a summary of commandments **1 through 4**: how we relate to God in worship, reverence, and consecrated time
+- **"Love your neighbour as yourself"** — is a summary of commandments **5 through 10**: how we treat every other person
+
+Paul makes this explicit:
+
+> **Romans 13:9** — "For the commandments, 'You shall not commit adultery,' 'You shall not murder,' 'You shall not steal,' 'You shall not bear false witness,' 'You shall not covet,' and if there is any other commandment, are all **summed up in this saying, namely, 'You shall love your neighbour as yourself.'"**
+
+The word "summed up" (*anakephalaioō* in Greek) means to bring under one heading — to gather many things under one overarching principle. Paul is saying the commandments **remain**; love is their summary and motive. Love does not cancel the commandments — it *is* what living the commandments looks like from the inside.
+
+**3. "On these two commandments HANG all the Law and the Prophets"**
+
+Jesus said all the Law "hangs" (*kremō*) on these two commandments. This is a structural image: the Ten Commandments are the framework; the two love commandments are what holds them together. You cannot remove the framework and claim you still have the structure.
+
+If Jesus had meant "these two replace all the others," the word would be *replace* or *abolish* — but He used *Matthew 5:17*'s exact opposite: the word for *hang*, meaning the Ten Commandments are what these two principles rest upon and express.
+
+**The inescapable conclusion**: Jesus did not come to Galilee and replace the Ten Commandments with something new. He went to the Old Testament, quoted it directly, showed that love is the unifying principle behind the Ten Commandments — and then declared that every single one of those commandments *hangs* on that love. Discarding the Sabbath in the name of "love" is therefore not fulfilling Jesus' teaching. It is sawing off one of the very commandments that His definition of love was designed to sustain.
 
 ---
 
