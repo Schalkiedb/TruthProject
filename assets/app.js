@@ -1954,17 +1954,44 @@ async function loadDocument(filePath, fragment) {
       : "";
     document.getElementById("btn-next").style.visibility = nextItem ? "" : "hidden";
 
-    // Remaining sections — append one at a time in idle time
-    for (let i = 1; i < sections.length; i++) {
-      await idle(() => {
+    // Remaining sections — append one at a time in idle time.
+    // Store a flush function so TOC link clicks can force-render
+    // all pending sections if the user clicks before rendering completes.
+    let _nextSectionIdx = 1;
+    let _renderingComplete = false;
+
+    function flushPendingSections() {
+      if (_renderingComplete) return;
+      for (let i = _nextSectionIdx; i < sections.length; i++) {
         const div = document.createElement("div");
         div.innerHTML = sanitize(marked.parse(sections[i]));
         contentEl.appendChild(div);
-      });
+      }
+      _nextSectionIdx = sections.length;
+      _renderingComplete = true;
     }
 
-    // Wire up all links now that every section is in the DOM
-    processLinks(contentEl, filePath);
+    // Process links on the first (TOC) section immediately so
+    // anchor clicks work before progressive rendering finishes.
+    // The click handler will force-render remaining sections if
+    // the target heading hasn't been rendered yet.
+    processLinks(contentEl, filePath, flushPendingSections);
+
+    // Progressively render remaining sections during idle time
+    for (let i = 1; i < sections.length; i++) {
+      if (_renderingComplete) break; // already flushed by a link click
+      await idle(() => {
+        if (_renderingComplete) return; // flushed while waiting
+        const div = document.createElement("div");
+        div.innerHTML = sanitize(marked.parse(sections[i]));
+        contentEl.appendChild(div);
+        _nextSectionIdx = i + 1;
+      });
+    }
+    _renderingComplete = true;
+
+    // Re-process links on all newly rendered sections
+    processLinks(contentEl, filePath, null);
 
     // Embed YouTube and Google Drive video links as inline players
     wireVideoEmbeds(contentEl);
@@ -2017,17 +2044,28 @@ function idle(fn) {
   });
 }
 
-/** Wire up in-page anchors, external links, and internal .md links */
-function processLinks(contentEl, filePath) {
+/** Wire up in-page anchors, external links, and internal .md links.
+ *  @param {Function|null} flushFn — if provided, called to force-render
+ *    all pending progressive sections when an anchor target is not yet in the DOM.
+ */
+function processLinks(contentEl, filePath, flushFn) {
   contentEl.querySelectorAll("a").forEach((anchor) => {
     const href = anchor.getAttribute("href");
     if (!href) return;
+    // Skip links that already have a click handler attached
+    if (anchor.dataset.linked) return;
+    anchor.dataset.linked = "1";
 
     // In-page anchor (e.g. TOC → #the-7-day-week-cycle)
     if (href.startsWith("#")) {
       anchor.addEventListener("click", (e) => {
         e.preventDefault();
-        const target = findAnchorTarget(href.slice(1));
+        let target = findAnchorTarget(href.slice(1));
+        // If the target isn't in the DOM yet, force-render all pending sections
+        if (!target && flushFn) {
+          flushFn();
+          target = findAnchorTarget(href.slice(1));
+        }
         if (target) {
           const topbarH = document.getElementById("topbar").offsetHeight;
           const targetY =
