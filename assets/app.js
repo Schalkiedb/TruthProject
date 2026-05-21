@@ -2421,20 +2421,38 @@ const BOOK_TO_API_CODE = {
 /**
  * Convert a human-readable reference like "Genesis 2:1-3" to
  * api.bible passage ID format like "GEN.2.1-GEN.2.3".
+ * Handles comma-separated verses like "Isaiah 56:2,6-7" by using the
+ * widest range (first verse to last verse mentioned).
  */
 function toApiBiblePassageId(reference) {
   const ref = reference.trim();
-  // Match: "Book Chapter:VerseStart[-VerseEnd]"
+  // Match: "Book Chapter:VerseStart[-VerseEnd][,VerseStart[-VerseEnd]]*"
   const m = ref.match(/^(.+?)\s+(\d+)\s*:\s*(\d+)(?:\s*[-–]\s*(\d+))?/);
   if (!m) return null;
 
   const bookRaw = m[1].trim().toLowerCase().replace(/\.$/, "");
   const chapter = m[2];
   const verseStart = m[3];
-  const verseEnd = m[4] || null;
+  let verseEnd = m[4] || null;
 
   const code = BOOK_TO_API_CODE[bookRaw];
   if (!code) return null;
+
+  // If there are comma-separated additional verse numbers, find the last one
+  // to create a single range spanning the entire reference.
+  // e.g. "Isaiah 56:2,6-7" → ISA.56.2-ISA.56.7
+  const commaMatches = ref.match(/,\s*(\d+)(?:\s*[-–]\s*(\d+))?/g);
+  if (commaMatches) {
+    for (const cm of commaMatches) {
+      const parts = cm.match(/(\d+)(?:\s*[-–]\s*(\d+))?/);
+      if (parts) {
+        const lastNum = parts[2] || parts[1];
+        if (!verseEnd || parseInt(lastNum) > parseInt(verseEnd)) {
+          verseEnd = lastNum;
+        }
+      }
+    }
+  }
 
   if (verseEnd) {
     return `${code}.${chapter}.${verseStart}-${code}.${chapter}.${verseEnd}`;
@@ -2464,6 +2482,7 @@ async function fetchVerseApiBible(reference, bibleId) {
     if (res.status === 401) throw new Error("Invalid API key. Check your api.bible key in settings.");
     if (res.status === 403) throw new Error("This Bible version is not available for your API key.");
     if (res.status === 404) throw new Error("Verse not found in this translation.");
+    if (res.status === 429) throw new Error("api.bible error (429)");
     throw new Error(`api.bible error (${res.status})`);
   }
 
@@ -2483,6 +2502,35 @@ async function fetchVerseApiBible(reference, bibleId) {
 
 /** Cache for fetched verses: key = "ref|translation" */
 const _verseCache = new Map();
+
+/**
+ * Throttled fetch queue — limits concurrent requests to bible-api.com
+ * to avoid rate limiting on pages with many verse references.
+ */
+const _fetchQueue = {
+  maxConcurrent: 4,
+  active: 0,
+  queue: [],
+  enqueue(fn) {
+    return new Promise((resolve, reject) => {
+      const run = () => {
+        this.active++;
+        fn().then(resolve, reject).finally(() => {
+          this.active--;
+          if (this.queue.length > 0) {
+            const next = this.queue.shift();
+            next();
+          }
+        });
+      };
+      if (this.active < this.maxConcurrent) {
+        run();
+      } else {
+        this.queue.push(run);
+      }
+    });
+  }
+};
 
 /**
  * Bible book names — used for detecting verse references.
@@ -2567,6 +2615,11 @@ const ABBREV_TO_FULL_NAME = {
 function normalizeReferenceForBibleApi(ref) {
   // Strip trailing period from book abbreviation (e.g. "Rev. 14:9" → "Rev 14:9")
   let cleaned = ref.replace(/^(\d?\s*[A-Za-z]+)\.\s*/, "$1 ");
+  // Normalize whitespace around commas and dashes in verse numbers
+  // "Psalm 119:142, 151" → "Psalm 119:142,151"
+  cleaned = cleaned.replace(/\s*,\s*/g, ",").replace(/\s*[-–]\s*/g, "-");
+  // Collapse multiple spaces to single space
+  cleaned = cleaned.replace(/\s+/g, " ").trim();
   // Extract book name portion (everything before the chapter:verse)
   const m = cleaned.match(/^(.+?)\s+(\d+\s*:\s*.+)$/);
   if (!m) return cleaned;
@@ -2726,21 +2779,49 @@ async function fetchVerse(reference, translationId) {
 
   let data;
   if (t && t.source === "api.bible") {
-    // Copyrighted translations via api.bible
-    data = await fetchVerseApiBible(cleanRef, t.bibleId);
+    // Copyrighted translations via api.bible — throttled with retry
+    const doFetch = () => fetchVerseApiBible(cleanRef, t.bibleId);
+    try {
+      data = await _fetchQueue.enqueue(doFetch);
+    } catch (err) {
+      if (err.message && (err.message.includes("api.bible error") || err.name === "TypeError")) {
+        // Wait and retry once on transient errors
+        await new Promise(r => setTimeout(r, 1500));
+        data = await _fetchQueue.enqueue(doFetch);
+      } else {
+        throw err;
+      }
+    }
   } else {
-    // Free translations via bible-api.com
-    // Normalize book name to full name for better API compatibility
+    // Free translations via bible-api.com — throttled with retry
     const normalizedRef = normalizeReferenceForBibleApi(cleanRef.trim());
     const apiRef = encodeURIComponent(normalizedRef);
     const url = `https://bible-api.com/${apiRef}?translation=${translationId}`;
-    const res = await fetch(url);
-    if (!res.ok) {
-      if (res.status === 404) throw new Error("Verse not found in this translation.");
-      throw new Error(`API error (${res.status})`);
+
+    const doFetch = async () => {
+      const res = await fetch(url);
+      if (!res.ok) {
+        if (res.status === 404) throw new Error("Verse not found in this translation.");
+        if (res.status === 429) throw new Error("RATE_LIMITED");
+        throw new Error(`API error (${res.status})`);
+      }
+      const json = await res.json();
+      if (json.error) throw new Error(json.error);
+      return json;
+    };
+
+    // Use throttled queue with one retry on rate-limit or network error
+    try {
+      data = await _fetchQueue.enqueue(doFetch);
+    } catch (err) {
+      if (err.message === "RATE_LIMITED" || err.name === "TypeError") {
+        // Wait and retry once
+        await new Promise(r => setTimeout(r, 1500));
+        data = await _fetchQueue.enqueue(doFetch);
+      } else {
+        throw err;
+      }
     }
-    data = await res.json();
-    if (data.error) throw new Error(data.error);
   }
 
   // Validate that we actually got verse text back
