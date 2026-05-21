@@ -657,14 +657,14 @@ const LIBRARY = [
         tagClass: "red",
         desc: "The Catholic teaching of transubstantiation — is Christ's sacrifice actually re-offered at every Mass? Examined against biblical evidence.",
       },
-      // { Revisit this for now
-      //   title: "The Trinity Doctrine — What Does Scripture Teach?",
-      //   file: "False_Doctrines/06_The_Holy_Spirit_and_Trinity.md",
-      //   icon: "🕊️",
-      //   tag: "Doctrine",
-      //   tagClass: "blue",
-      //   desc: "Does the specific Trinitarian formulation defined at Nicaea (325 CE) and Constantinople (381 CE) reflect what Scripture teaches about the Godhead?",
-      // },
+      { 
+        title: "The Trinity Doctrine — What Does Scripture Teach?",
+        file: "False_Doctrines/06_The_Holy_Spirit_and_Trinity.md",
+        icon: "🕊️",
+        tag: "Doctrine",
+        tagClass: "blue",
+        desc: "Does the specific Trinitarian formulation defined at Nicaea (325 CE) and Constantinople (381 CE) reflect what Scripture teaches about the Godhead?",
+      },
       {
         title: "The Millennium and the Secret Rapture",
         file: "False_Doctrines/07_The_Millennium_and_Rapture.md",
