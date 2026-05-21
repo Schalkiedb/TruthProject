@@ -2539,6 +2539,48 @@ function stripVerseSuffix(ref) {
 }
 
 /**
+ * Normalize a Bible reference for bible-api.com.
+ * Converts abbreviations to full book names that the API recognizes,
+ * and strips trailing periods from abbreviations.
+ */
+const ABBREV_TO_FULL_NAME = {
+  "gen":"Genesis","exo":"Exodus","exod":"Exodus","lev":"Leviticus","num":"Numbers",
+  "deut":"Deuteronomy","josh":"Joshua","judg":"Judges","sam":"1 Samuel",
+  "kgs":"1 Kings","chr":"1 Chronicles","neh":"Nehemiah","esth":"Esther",
+  "psa":"Psalms","ps":"Psalms","psalm":"Psalms","prov":"Proverbs","eccl":"Ecclesiastes",
+  "isa":"Isaiah","jer":"Jeremiah","lam":"Lamentations","ezek":"Ezekiel","dan":"Daniel",
+  "hos":"Hosea","mic":"Micah","zech":"Zechariah","mal":"Malachi",
+  "matt":"Matthew","mat":"Matthew","mk":"Mark","lk":"Luke","jn":"John",
+  "rom":"Romans","cor":"1 Corinthians","gal":"Galatians","eph":"Ephesians",
+  "phil":"Philippians","col":"Colossians","thess":"1 Thessalonians",
+  "tim":"1 Timothy","heb":"Hebrews","jas":"James","pet":"1 Peter","rev":"Revelation",
+  // With numbers prefixed
+  "1 sam":"1 Samuel","2 sam":"2 Samuel","1 kgs":"1 Kings","2 kgs":"2 Kings",
+  "1 chr":"1 Chronicles","2 chr":"2 Chronicles",
+  "1 cor":"1 Corinthians","2 cor":"2 Corinthians",
+  "1 thess":"1 Thessalonians","2 thess":"2 Thessalonians",
+  "1 tim":"1 Timothy","2 tim":"2 Timothy",
+  "1 pet":"1 Peter","2 pet":"2 Peter",
+  "1 jn":"1 John","2 jn":"2 John","3 jn":"3 John",
+};
+
+function normalizeReferenceForBibleApi(ref) {
+  // Strip trailing period from book abbreviation (e.g. "Rev. 14:9" → "Rev 14:9")
+  let cleaned = ref.replace(/^(\d?\s*[A-Za-z]+)\.\s*/, "$1 ");
+  // Extract book name portion (everything before the chapter:verse)
+  const m = cleaned.match(/^(.+?)\s+(\d+\s*:\s*.+)$/);
+  if (!m) return cleaned;
+  const bookRaw = m[1].trim().toLowerCase();
+  const rest = m[2];
+  // Look up the abbreviation in our mapping
+  const fullName = ABBREV_TO_FULL_NAME[bookRaw];
+  if (fullName) {
+    return fullName + " " + rest;
+  }
+  return cleaned;
+}
+
+/**
  * After the markdown is rendered, scan the document for Bible references
  * inside <strong> tags and make them clickable.
  */
@@ -2622,19 +2664,21 @@ async function expandAllInlineVerses(container, translationId) {
     const uid = el.dataset.verseIdx;
 
     // Find or create the inline preview block for THIS specific occurrence.
-    // It lives as the next sibling of the <p> (or of the <strong> itself).
-    const anchor = (el.parentElement && el.parentElement.tagName === "P") ? el.parentElement : el;
-    let preview = anchor.nextElementSibling;
-    if (!preview || !preview.classList.contains("verse-inline-text") || preview.dataset.uid !== uid) {
-      // Remove any stale preview for THIS specific occurrence only
-      if (preview && preview.classList.contains("verse-inline-text") && preview.dataset.uid === uid) {
-        preview.remove();
-      }
+    // Use a data-uid lookup to avoid DOM ordering issues when multiple refs share a parent.
+    let preview = container.querySelector(`.verse-inline-text[data-uid="${uid}"]`);
+    if (!preview) {
       preview = document.createElement("div");
       preview.className = "verse-inline-text";
       preview.dataset.for = ref;
       preview.dataset.uid = uid;
-      anchor.after(preview);
+      // Insert after the parent <p> or after the element itself
+      const anchor = (el.parentElement && el.parentElement.tagName === "P") ? el.parentElement : el;
+      // Find the correct insertion point: after any existing previews that follow the anchor
+      let insertAfter = anchor;
+      while (insertAfter.nextElementSibling && insertAfter.nextElementSibling.classList.contains("verse-inline-text")) {
+        insertAfter = insertAfter.nextElementSibling;
+      }
+      insertAfter.after(preview);
     }
 
     // Show loading state
@@ -2647,10 +2691,15 @@ async function expandAllInlineVerses(container, translationId) {
       if (data.verses && data.verses.length > 0) {
         text = data.verses.map((v) => {
           const num = v.verse ? `${v.verse} ` : "";
-          return num + v.text.trim();
-        }).join(" ");
-      } else if (data.text) {
+          return num + (v.text || "").trim();
+        }).join(" ").trim();
+      }
+      if (!text && data.text) {
         text = data.text.trim();
+      }
+      if (!text) {
+        preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span> <em class="verse-inline-err">Unavailable in this translation</em>`;
+        return;
       }
       preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span> ${escapeHtml(text)}`;
       if (data.copyright) {
@@ -2681,7 +2730,9 @@ async function fetchVerse(reference, translationId) {
     data = await fetchVerseApiBible(cleanRef, t.bibleId);
   } else {
     // Free translations via bible-api.com
-    const apiRef = encodeURIComponent(cleanRef.trim());
+    // Normalize book name to full name for better API compatibility
+    const normalizedRef = normalizeReferenceForBibleApi(cleanRef.trim());
+    const apiRef = encodeURIComponent(normalizedRef);
     const url = `https://bible-api.com/${apiRef}?translation=${translationId}`;
     const res = await fetch(url);
     if (!res.ok) {
@@ -2690,6 +2741,13 @@ async function fetchVerse(reference, translationId) {
     }
     data = await res.json();
     if (data.error) throw new Error(data.error);
+  }
+
+  // Validate that we actually got verse text back
+  const hasVerseText = (data.verses && data.verses.length > 0 && data.verses.some(v => v.text && v.text.trim()));
+  const hasText = data.text && data.text.trim();
+  if (!hasVerseText && !hasText) {
+    throw new Error("Verse not found in this translation.");
   }
 
   _verseCache.set(cacheKey, data);
