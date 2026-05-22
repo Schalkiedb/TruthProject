@@ -1847,6 +1847,33 @@ Luke uses the word "custom" (Greek: *ethō* — an established habit, a regular 
 
 ---
 
+**6. The Greek of the Verse Itself Defeats the Argument**
+
+The phrase translated "on the first day of the week" in Acts 20:7 is, in the original Greek:
+
+> **Ἐν δὲ τῇ μιᾷ τῶν σαββάτων** — *En de tē mia tōn sabbatōn*
+
+Two features of this phrase are decisive:
+
+**σαββάτων here means "weeks," not "Sabbath days"**
+
+The word σαββάτων is the genitive plural of σάββατον — the same generic Greek word the document's Section 13 shows is used across multiple contexts. Here it is used as a **week-counter**: "the one [day] of the Sabbath-cycles." This is a standard Jewish idiom in which the Sabbath gave the week its name and structure. The same construction appears in Matthew 28:1 ("*mia sabbatōn*" = the first day of the week) and in the Septuagint's rendering of the creation week. In Acts 20:7, σαββάτων does not mean "Sabbath observance" — it means *week*. The word is functioning as a calendar reference, not a worship reference.
+
+This is important for the document's broader Greek argument: the same σαββάτων word used in passages claimed to abolish the Sabbath turns out to be so semantically fluid it can also simply mean *week* — which is precisely why σαββατισμός (Hebrews 4:9), the precise Sabbath-keeping word, is needed to settle any question about Sabbath observance. σαββάτων alone cannot carry that weight.
+
+**μιᾷ (one) instead of πρώτῃ (first) — a Hebraism that reveals what anchors the week**
+
+Greek has a proper ordinal for "first": **πρώτη** (*prōtē*). The New Testament never uses it for the first day of the week. Instead it always uses **μία** (*mia* — "one"), because the writers are using a **Hebrew numbering system** borrowed from Genesis:
+
+> **Genesis 1:5 (Hebrew)** — יוֹם אֶחָד (*yom echad*) — "day one" (not "first day")
+> **Genesis 1:5 (LXX)** — ἡμέρα μία (*hēmera mia*) — "day one"
+
+The Jewish week was structured around the Sabbath as its anchor. The days were simply numbered from it: day one, day two... through day six (Preparation Day)... to **day seven — the Sabbath**. To say "the first of the Sabbath-cycles" (*mia tōn sabbatōn*) is to presuppose the Sabbath as the defining temporal center around which all other days find their position.
+
+**The argument is therefore self-defeating**: the very phrase used to argue the church met on Sunday is built on a week-counting system that treats the Sabbath as the organizing anchor of time. You cannot use language structured around Sabbath cycles to argue the Sabbath has been abolished — the vocabulary itself assumes the Sabbath remains the marker around which the week is measured.
+
+---
+
 **What Acts 20:7 Actually Shows**:
 
 Acts 20:7 shows that in Troas, a group of disciples met on Saturday evening (by biblical day reckoning, the beginning of the first day of the week) for a farewell meal with Paul. Paul spoke all night. It has nothing to do with establishing Sunday as a holy day or confirming a Sabbath transfer to Sunday.
