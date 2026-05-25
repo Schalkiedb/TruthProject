@@ -2128,6 +2128,144 @@ Jesus gives soul-rest AND claims lordship over the Sabbath day. These are not co
 
 ---
 
+### Deep Linguistic Study: Psalm 95 → Hebrews 3–4 — The Unbroken Chain
+
+*An in-depth linguistic, historical, and contextual analysis tracking the continuity of the seventh-day Sabbath from Creation through the New Testament.*
+
+---
+
+#### 1. The Call and The Warning: Psalm 95:7–8
+
+**The Invitation to Obedience (Psalm 95:7c)**
+
+> **σήμερον ἐὰν τῆς φωνῆς αὐτοῦ ἀκούσητε·**
+> *"If only you would listen to his voice today!"*
+
+- **σήμερον (*Sēmeron*):** "Today." Establishes an absolute, non-negotiable urgency in time.
+- **ἀκούσητε (*Akousēte*):** "You would listen/hear." In biblical Greek, hearing is inextricably linked to active, physical obedience. To "hear His voice" is the opposite of passive listening — it means to immediately execute His instructions.
+
+**The Historical Rebellion (Psalm 95:8 / LXX 94:8)**
+
+> **μὴ σκληρύνητε τὰς καρδίας ὑμῶν ὡς ἐν τῷ παραπικρασμῷ κατὰ τὴν ἡμέραν τοῦ πειρασμοῦ ἐν τῇ ἐρήμῳ·**
+> *"Don't harden your hearts as Israel did at Meribah, as they did at Massah in the wilderness."*
+
+The Jewish scholars who translated the Hebrew scriptures into the Greek Septuagint (LXX) did not treat Meribah and Massah as mere geographic names. They translated the *theological meaning* of the words to expose the state of Israel's heart:
+
+| Hebrew Place Name | Meaning | Greek (LXX) | Greek Meaning |
+| :--- | :--- | :--- | :--- |
+| **Meribah** | Quarreling / Rebellion | **παραπικρασμῷ** (*parapikrasmō*) | Bitter provocation, rebellion, deep irritation |
+| **Massah** | Testing / Trial | **πειρασμοῦ** (*peirasmou*) | Putting to the test, trying, proving |
+
+An ancient reader of the Greek text read this as: *"Do not harden your hearts as in the Bitter Rebellion, on the day of Testing in the wilderness."*
+
+---
+
+#### 2. The Root of the Testing: Exodus 16 and the Sabbath
+
+The "day of testing" (*Massah*) in the wilderness is rooted historically and textually in Israel's refusal to obey God's physical Sabbath laws. In **Exodus 16:4**, God states that the entire framework of sending Manna was a mechanism to test their lifestyle:
+
+> *"Behold, I will rain bread from heaven for you... that I may **test them (Greek: πειράσω / peirasō)**, whether they will walk in my law or not."*
+
+God structurally built the weekly calendar around the literal seventh day via an undeniable, physical miracle:
+
+- **The Sixth Day:** A double portion was gathered, which miraculously resisted spoiling or breeding worms overnight.
+- **The Seventh Day:** No manna fell on the ground. Moses commanded physical cessation: *"Tomorrow is a solemn rest, a holy Sabbath to the Lord."*
+
+Israel immediately hardened their hearts through explicit Sabbath-breaking:
+
+> *"On the seventh day some of the people went out to gather, but they found none. And the Lord said to Moses, **'How long do you refuse to keep my commandments and my laws?'**"* (Exodus 16:27–28)
+
+The hardening of the heart at Meribah and Massah was directly linked to breaking God's actual, physical commandments — specifically the seventh-day Sabbath. The prophet Ezekiel confirms: *"But the house of Israel rebelled against me in the wilderness... and **my Sabbaths they greatly profaned**."* (Ezekiel 20:13).
+
+---
+
+#### 3. The Divine Oath: Psalm 95:11 (LXX 94:11)
+
+> **ὡς ὤμοσα ἐν τῇ ὀργῇ μου· εἰ εἰσελεύσονται εἰς τὴν κατάπαυσίν μου.**
+> *(hōs ōmosa en tē orgē mou; ei eiseleusontai eis tēn katapausin mou.)*
+> *"So I swore in my wrath, 'They shall not enter into my rest.'"*
+
+| Greek Word | Transliteration | English Translation | Grammatical Meaning |
+| :--- | :--- | :--- | :--- |
+| **ὡς** | *hōs* | So / As / Wherefore | Conjunction introducing a result |
+| **ὤμοσα** | *ōmosa* | I swore / I declared on oath | Verb (Aorist active) — to take a solemn vow |
+| **τῇ ὀργῇ** | *tē orgē* | the wrath / the anger | Noun (Dative) — deep-seated indignation |
+| **εἰ** | *ei* | if / [surely] not | Conditional particle used here as an emphatic **negative** |
+| **εἰσελεύσονται** | *eiseleusontai* | they will enter | Verb (Future middle) — to pass into a place |
+| **τὴν κατάπαυσίν** | *tēn katapausin* | the rest / place of rest | Noun (Accusative) — cessation, a settled home |
+
+**The Hebraism Rule: Why "If" Means "Never"**
+
+The word **εἰ (*ei*)** literally means "if." A rigid word-for-word translation reads: *"So I swore in my wrath, **if** they shall enter..."* This is a **Hebraism** carried over from ancient Jewish oath-making. The speaker would say, *"May God strike me dead **if** I fail to do this."* Over time, the curse clause was dropped out of reverence, leaving the "if" clause as an absolute, ironclad negative formula. In this context, it idiomatically means **"they shall absolutely never enter."**
+
+---
+
+#### 4. New Testament Context: Hebrews 3:10–11
+
+When the Book of Hebrews quotes this wilderness verdict, the **New Living Translation** renders the Greek text to expose the practical, behavioral reality of Israel's hard heart:
+
+> *"So I was angry with them, and I said, 'Their hearts always turn away from me. **They refuse to do what I tell them.**' So in my anger I took an oath: 'They will never enter my place of rest.'"* (Hebrews 3:10–11, NLT)
+
+- **The Greek root:** The phrase translated *"They refuse to do what I tell them"* is **αὐτοὶ δὲ οὐκ ἔγνωσαν τὰς ὁδούς μου** — *"And they themselves have not known my ways."*
+- **The practical impact:** In Hebrew and biblical thought, to "know" God's ways requires *acting upon* them. Unbelief is not a passive mental state; it is an active, physical refusal to do what God instructs. Israel's failure to enter the rest was triggered by direct behavioral rebellion against God's explicit commandments — beginning with the Sabbath.
+
+---
+
+#### 5. The New Testament Affirmation: Hebrews 4:7–11 Verse by Verse
+
+**Verse 7 — He Designates a Certain Day**
+
+> **πάλιν τινὰ ὁρίζει ἡμέραν...** *(Palin tina horizei hēmeran...)*
+> *"Again He designates a certain day..."*
+
+The Greek verb **ὁρίζει (*horizei*)** — from which we get the modern English word *horizon* — means to mark out a clear boundary or fix a specific point. God explicitly sets a day bounded by instructions. This is not open-ended; a specific, bounded day is fixed.
+
+**Verse 8 — The Continuity of the Day**
+
+> **εἰ γὰρ αὐτοὺς Ἰησοῦς κατέπαυσεν, οὐκ ἂν περὶ ἄλλης ἐλάλει μετὰ ταῦτα ἡμέρας.**
+> *"For if Joshua had given them rest, God would not have spoken of another day later on."*
+
+A crucial double observation:
+
+1. **The Greek wordplay:** In ancient Greek manuscripts, **Joshua** and **Jesus** are written identically as **Ἰησοῦς (*Iēsous*)**. The author is saying: even if *Iēsous* (Joshua) had given Israel the final rest, God would not have later spoken of *another day* — implying the original promised rest and its Sabbath framework remained open and unfulfilled.
+2. **The grammar:** The text states God did not speak of **ἄλλης (*allēs*)** — another day of the same kind or a substitute weekday. The original seventh-day framework established at Creation was never replaced or switched to a different literal weekday.
+
+**Verse 9 — The Word *Sabbatismos***
+
+> **ἄρα ἀπολείπεται σαββατισμὸς τῷ λαῷ τοῦ θεοῦ.**
+> *"So then, there remains a Sabbath rest for the people of God."*
+
+- **ἀπολείπεται (*apoleipetai*):** "Remains," "is left behind," "stands open." A post-resurrection declaration that Sabbath observance has not been removed.
+- **σαββατισμὸς (*sabbatismos*):** The author deliberately drops the generic word for rest (*katapausis*) and uses this highly specific, rare term which literally translates to **"a Sabbath-keeping"** or **"a Sabbath-observance."** It anchors the remaining covenant promise directly to the physical, literal seventh-day Sabbath.
+
+**Verse 10 — Ceasing From Human Works**
+
+> **ὁ γὰρ εἰσελθὼν εἰς τὴν κατάπαυσιν αὐτοῦ καὶ αὐτὸς κατέπαυσεν ἀπὸ τῶν ἔργων αὐτοῦ ὥσπερ ἀπὸ τῶν ἰδίων ὁ θεός.**
+> *"For whoever has entered God's rest has also rested from his works as God did from his."*
+
+The text compares human Sabbath rest to God's rest at Creation (**ὥσπερ... ὁ θεός** — *just exactly as God did*). God didn't rest because He was tired; He ceased working because creation was complete and perfect. True Sabbath-keeping means stepping out of the exhausting cycle of human performance, legalistic striving, and self-righteous works, resting completely in what God has finished.
+
+**Verse 11 — The Paradox of Striving to Rest**
+
+> **σπουδάσωμεν οὖν εἰσελθεῖν εἰς ἐκείνην τὴν κατάπαυσιν...**
+> *"Let us do our best to enter that rest, so that no one will fall by following the example of those who disobeyed."*
+
+- **σπουδάσωμεν (*Spoudasōmen*):** "Let us labor," "strive," "act with intense diligence and focus."
+- **The paradox resolved:** We do not labor to *earn* salvation via legalistic performance. Rather, we must labor intensely against our stubborn human nature to ensure we maintain soft hearts and remain fully obedient to God's designated day and patterns — avoiding the pattern of physical disobedience (**ἀπειθείας / *apeitheias***) that ruined Israel at Meribah and Massah.
+
+---
+
+#### 6. How Jesus Restored the True Sabbath
+
+Jesus never abolished or changed the literal Sabbath; He stripped it of the legalistic additions of the Pharisees. The *Mishnah* (Tractate *Shabbat*) added **39 categories of forbidden work**, turning a day of physical relief into a source of deep anxiety. Jesus restored it to its original design through two principles:
+
+- **Mercy over minutiae:** *"The Sabbath was made for man, and not man for the Sabbath"* (Mark 2:27). The day exists to serve human wellbeing, not to crush it under bureaucratic rules.
+- **Lord of the Day:** *"Therefore the Son of Man is also Lord of the Sabbath"* (Mark 2:28). Jesus has authority over the Sabbath not to abolish it, but as its original Creator and rightful owner — the same One who blessed and sanctified it at Creation (Genesis 2:2–3).
+
+**The chain is unbroken:** Creation rest → Wilderness Manna test → Psalm 95 warning → Hebrews 3–4 affirmation → the Sabbath *remains* (σαββατισμός) for the people of God.
+
+---
+
 ## Objection 15
 
 **The Claim**: The Ten Commandments were part of the Old Covenant given to Israel at Sinai. Christians are under the New Covenant. The Ten Commandments — including the Sabbath — are Old Testament and don't apply to the New Testament church.
