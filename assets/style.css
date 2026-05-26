@@ -808,7 +808,18 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   width: 100%;
   border: none;
   background: #0c0f1a; /* match infographic dark background while loading */
+}
+
+/* Infographic mode: no scroll, content is fit to viewport */
+#doc-page.infographic-mode #doc-iframe {
   overflow: hidden;
+}
+
+/* Standalone document mode: scrollable, with subtle border */
+#doc-page:not(.infographic-mode):not(.pdf-mode) #doc-iframe {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
 
 .markdown-body {

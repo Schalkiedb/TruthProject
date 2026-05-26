@@ -1640,6 +1640,9 @@ function fitInfographicViewport(iframe) {
 function scheduleInfographicRefit() {
   const iframe = document.getElementById("doc-iframe");
   if (!iframe || iframe.style.display === "none" || !iframe.src) return;
+  // Only refit if we're actually in infographic mode (not standalone doc mode)
+  const docPage = document.getElementById("doc-page");
+  if (!docPage || !docPage.classList.contains("infographic-mode")) return;
 
   if (infographicRefitTimer) clearTimeout(infographicRefitTimer);
   infographicRefitTimer = setTimeout(() => {
@@ -1920,16 +1923,33 @@ async function loadDocument(filePath, fragment) {
     const docPage = document.getElementById("doc-page");
     contentEl.style.display = "none";
     iframe.style.display = "block";
-    iframe.setAttribute("scrolling", "no");
-    iframe.style.height = "80vh"; // initial height while loading
-    iframe.src = filePath;
-    iframe.onload = () => {
-      fitInfographicViewport(iframe);
-      setTimeout(() => fitInfographicViewport(iframe), 250);
-      setTimeout(() => fitInfographicViewport(iframe), 900);
-    };
-    docPage.classList.remove("pdf-mode");
-    docPage.classList.add("infographic-mode");
+
+    // Determine if this is a true single-page infographic (in infographics/ folder)
+    // or a full standalone document (Typology, Battle for frontal lobe, etc.)
+    const isInfographic = filePath.startsWith("infographics/");
+
+    if (isInfographic) {
+      // Infographic mode: no scrolling, fit viewport height dynamically
+      iframe.setAttribute("scrolling", "no");
+      iframe.style.height = "80vh"; // initial height while loading
+      iframe.src = filePath;
+      iframe.onload = () => {
+        fitInfographicViewport(iframe);
+        setTimeout(() => fitInfographicViewport(iframe), 250);
+        setTimeout(() => fitInfographicViewport(iframe), 900);
+      };
+      docPage.classList.remove("pdf-mode");
+      docPage.classList.add("infographic-mode");
+    } else {
+      // Full standalone document: scrollable iframe, fixed viewport height
+      iframe.setAttribute("scrolling", "auto");
+      iframe.style.height = "calc(100vh - 180px)";
+      iframe.src = filePath;
+      iframe.onload = null; // no viewport fitting needed
+      docPage.classList.remove("pdf-mode");
+      docPage.classList.remove("infographic-mode");
+    }
+
     document.getElementById("home-page").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("doc-page").style.display = "";
