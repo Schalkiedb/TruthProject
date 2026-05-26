@@ -1363,6 +1363,13 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   color: var(--text-muted);
   font-size: 12px;
 }
+.verse-inline-link {
+  color: var(--gold);
+  font-style: normal;
+  font-size: 12px;
+  text-decoration: none;
+}
+.verse-inline-link:hover { text-decoration: underline; }
 .verse-inline-copy {
   display: block;
   margin-top: 4px;

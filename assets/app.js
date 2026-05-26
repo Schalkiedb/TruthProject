@@ -2403,7 +2403,35 @@ const BIBLE_TRANSLATIONS = [
   { id: "niv",  label: "NIV",  desc: "New International Version",  source: "api.bible", bibleId: "78a9f6124f344018-01" },
   { id: "nlt",  label: "NLT",  desc: "New Living Translation",     source: "api.bible", bibleId: "d6e14a625393b4da-01" },
   { id: "nkjv", label: "NKJV", desc: "New King James Version",     source: "api.bible", bibleId: "63097d2a0a2f7db3-01" },
+  // NT-only link-out translations (open Bible Gateway in a new tab)
+  { id: "dlnt", label: "DLNT", desc: "Disciples\u2019 Literal New Testament (NT only) \u2014 opens Bible Gateway", source: "biblegateway", ntOnly: true },
 ];
+
+/* ── Bible Gateway link-out helpers ──────────────────────── */
+
+/**
+ * NT book names/abbreviations used to validate NT-only translations.
+ */
+const NT_BOOK_NAMES = new Set([
+  "matthew","mark","luke","john","acts","romans",
+  "1 corinthians","2 corinthians","galatians","ephesians","philippians","colossians",
+  "1 thessalonians","2 thessalonians","1 timothy","2 timothy","titus","philemon",
+  "hebrews","james","1 peter","2 peter","1 john","2 john","3 john","jude","revelation",
+  // common abbreviations
+  "matt","mat","mk","lk","jn","rom","cor","gal","eph","phil","col","thess","tim",
+  "heb","jas","pet","rev",
+]);
+
+function isNtReference(reference) {
+  const m = reference.match(/^((?:\d\s+)?[A-Za-z]+)/);
+  if (!m) return false;
+  return NT_BOOK_NAMES.has(m[1].trim().toLowerCase());
+}
+
+function buildBibleGatewayUrl(reference, version) {
+  return "https://www.biblegateway.com/passage/?search="
+    + encodeURIComponent(reference) + "&version=" + encodeURIComponent(version);
+}
 
 /* ── api.bible API key management ────────────────────────── */
 const API_BIBLE_KEY_STORAGE = "apiBibleApiKey";
@@ -2796,7 +2824,16 @@ async function expandAllInlineVerses(container, translationId) {
       if (data.copyright) {
         preview.innerHTML += ` <span class="verse-inline-copy">${escapeHtml(data.copyright.replace(/<[^>]+>/g, ""))}</span>`;
       }
-    }).catch(() => {
+    }).catch((err) => {
+      if (err && err.message === "BIBLEGATEWAY_LINK") {
+        preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span>` +
+          ` <a href="${err.bgUrl}" target="_blank" rel="noopener" class="verse-inline-link">View on Bible Gateway \u2197</a>`;
+        return;
+      }
+      if (err && err.message === "NT_ONLY") {
+        preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span> <em class="verse-inline-err">NT only \u2014 no OT coverage</em>`;
+        return;
+      }
       preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span> <em class="verse-inline-err">Unavailable in this translation</em>`;
     });
   }
@@ -2816,7 +2853,16 @@ async function fetchVerse(reference, translationId) {
   const cleanRef = stripVerseSuffix(reference);
 
   let data;
-  if (t && t.source === "api.bible") {
+  if (t && t.source === "biblegateway") {
+    // NT-only check
+    if (t.ntOnly && !isNtReference(cleanRef)) {
+      throw Object.assign(new Error("NT_ONLY"), { translation: t.label });
+    }
+    throw Object.assign(
+      new Error("BIBLEGATEWAY_LINK"),
+      { bgUrl: buildBibleGatewayUrl(cleanRef, t.id.toUpperCase()), translation: t.label }
+    );
+  } else if (t && t.source === "api.bible") {
     // Copyrighted translations via api.bible — throttled with retry
     const doFetch = () => fetchVerseApiBible(cleanRef, t.bibleId);
     try {
@@ -2975,6 +3021,18 @@ async function loadVerseInModal(reference, translationId) {
     }
   } catch (err) {
     loadEl.style.display = "none";
+    if (err.message === "BIBLEGATEWAY_LINK") {
+      errEl.innerHTML =
+        `<p style="margin:0 0 12px">The DLNT is not available via a direct text API.</p>` +
+        `<a href="${err.bgUrl}" target="_blank" rel="noopener" class="btn-gold" style="display:inline-block;text-decoration:none;padding:8px 16px;border-radius:6px">` +
+        `\uD83D\uDCD6\u2009View in DLNT on Bible Gateway \u2197</a>` +
+        `<p style="margin:10px 0 0;font-size:11px;color:var(--text-muted)">DLNT covers New Testament books only. Copyright \u00A9 2011 Michael J. Magill.</p>`;
+      return;
+    }
+    if (err.message === "NT_ONLY") {
+      errEl.textContent = "The Disciples\u2019 Literal New Testament (DLNT) covers New Testament books only. This reference appears to be from the Old Testament.";
+      return;
+    }
     if (err.message === "API_KEY_MISSING") {
       errEl.innerHTML = `Could not connect to api.bible. Please try again shortly.`;
       return;
