@@ -1925,32 +1925,58 @@ async function loadDocument(filePath, fragment) {
     iframe.src = filePath;
     iframe.onload = () => {
       // Force all scroll-reveal / IntersectionObserver animations to show
-      // immediately — they can't fire normally inside a no-scroll iframe
+      // immediately — they can't fire normally inside a no-scroll iframe.
+      // Also neutralize vh-based heights that cause circular iframe growth.
       try {
         const fd = iframe.contentWindow.document;
         const forceStyle = fd.createElement("style");
         forceStyle.id = "iframe-force-visible";
         forceStyle.textContent = `
-          .reveal, .reveal.visible,
-          .section, .section.visible,
-          .cat-section, .cat-section.vis,
-          [class*="fade"], [class*="slide"] {
+          /* 1. Complete ALL CSS animations instantly to their final state */
+          *, *::before, *::after {
+            animation-duration: 0s !important;
+            animation-delay: 0s !important;
+            transition-duration: 0s !important;
+          }
+
+          /* 2. Force reveal/section elements to visible state */
+          .reveal, .section, .cat-section {
             opacity: 1 !important;
             transform: none !important;
-            animation: none !important;
-            transition: none !important;
             visibility: visible !important;
+          }
+
+          /* 3. Neutralize vh-based heights on hero/cover sections
+                to prevent circular iframe growth */
+          .cover, .hero, .hero-wrap, .hero-section {
+            min-height: auto !important;
+            height: auto !important;
+          }
+          html, body {
+            min-height: 0 !important;
+            height: auto !important;
+          }
+
+          /* 4. Hide elements meant for standalone viewing (fixed nav, toggles) */
+          #theme-toggle, .nav-dots, #translation-selector, #prog {
+            display: none !important;
+          }
+          nav.sticky, nav[style*="sticky"] {
+            position: relative !important;
           }
         `;
         fd.head.appendChild(forceStyle);
-      } catch(e) { /* cross-origin fallback: content will still show at measured height */ }
+      } catch(e) { /* cross-origin fallback */ }
 
       fitInfographicViewport(iframe);
-      setTimeout(() => fitInfographicViewport(iframe), 250);
-      setTimeout(() => fitInfographicViewport(iframe), 900);
+      setTimeout(() => fitInfographicViewport(iframe), 300);
+      setTimeout(() => fitInfographicViewport(iframe), 1000);
     };
     docPage.classList.remove("pdf-mode");
     docPage.classList.add("infographic-mode");
+    // Hide the parent verse-translation-pill when showing HTML iframe content
+    const _vtPill = document.getElementById("verse-translation-pill");
+    if (_vtPill) _vtPill.style.display = "none";
     document.getElementById("home-page").style.display = "none";
     document.getElementById("loading").style.display = "none";
     document.getElementById("doc-page").style.display = "";
