@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Divine Seven — God's Sabbath Cycle Through Scripture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<!-- FUMS tracking for api.bible (required by terms of service) -->
+<script src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
+<style>
+/* ── Theme tokens ── */
+:root {
+  --transition: 0.4s ease;
+}
+[data-theme="dark"] {
+  --bg-page:      #0a0d14;
+  --bg-surface:   #111520;
+  --bg-elevated:  #181d2e;
+  --bg-card:      #1c2235;
+  --bg-card-alt:  #141929;
+  --border:       rgba(201,168,76,0.18);
+  --border-soft:  rgba(255,255,255,0.07);
+  --gold:         #c9a84c;
+  --gold-bright:  #f0d080;
+  --gold-dim:     #7a6230;
+  --gold-glow:    rgba(201,168,76,0.12);
+  --text-primary: #e8e2d4;
+  --text-secondary:#a89f8a;
+  --text-muted:   #5e5a52;
+  --text-heading: #f5ecd6;
+  --blue-accent:  #4a90d9;
+  --blue-dim:     #1e3a5f;
+  --blue-surface: #111e30;
+  --green-accent: #4caf7d;
+  --green-dim:    #1a3d2a;
+  --green-surface:#0f2419;
+  --red-accent:   #c0544a;
+  --red-surface:  #1f1010;
+  --purple-accent:#8b6cc9;
+  --purple-surface:#1a1530;
+  --amber-surface:#1e1700;
+  --amber-accent: #d4960a;
+  --rest-bg:      #0d1f14;
+  --rest-text:    #5de89a;
+  --work-bg:      #0d1624;
+  --work-text:    #7ab8f5;
+  --shadow:       0 4px 32px rgba(0,0,0,0.6);
+  --shadow-gold:  0 0 40px rgba(201,168,76,0.08);
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+[data-theme="light"] {
+  --bg-page:      #f5f0e8;
+  --bg-surface:   #faf7f2;
+  --bg-elevated:  #ffffff;
+  --bg-card:      #ffffff;
+  --bg-card-alt:  #f8f4ec;
+  --border:       rgba(150,110,40,0.2);
+  --border-soft:  rgba(0,0,0,0.08);
+  --gold:         #a07828;
+  --gold-bright:  #c49a20;
+  --gold-dim:     #d4b56a;
+  --gold-glow:    rgba(160,120,40,0.08);
+  --text-primary: #1a1510;
+  --text-secondary:#5a4e38;
+  --text-muted:   #9a8e7a;
+  --text-heading: #0d0a05;
+  --blue-accent:  #1a5fa0;
+  --blue-dim:     #cce0f5;
+  --blue-surface: #eaf3fc;
+  --green-accent: #1a6b3a;
+  --green-dim:    #c8ecd8;
+  --green-surface:#eaf7ee;
+  --red-accent:   #8b2020;
+  --red-surface:  #fdecea;
+  --purple-accent:#5c3a9a;
+  --purple-surface:#f0ebfb;
+  --amber-surface:#fffbec;
+  --amber-accent: #8a6000;
+  --rest-bg:      #eaf7ee;
+  --rest-text:    #1a6b3a;
+  --work-bg:      #eaf3fc;
+  --work-text:    #1a5fa0;
+  --shadow:       0 4px 24px rgba(0,0,0,0.10);
+  --shadow-gold:  0 0 30px rgba(160,120,40,0.06);
+  --noise: none;
+}
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.7;
+  transition: background var(--transition), color var(--transition);
+  min-height: 100vh;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: var(--noise);
+  opacity: 0.6;
+}
+
+/* ── Theme toggle ── */
+#theme-toggle {
+  position: fixed; top: 20px; right: 24px; z-index: 1000;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 6px 14px 6px 10px;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 11px; letter-spacing: 0.08em;
+  transition: all var(--transition);
+  box-shadow: var(--shadow);
+}
+#theme-toggle:hover { border-color: var(--gold); box-shadow: var(--shadow-gold); }
+#theme-toggle .icon { font-size: 14px; transition: transform 0.5s; }
+#theme-toggle:hover .icon { transform: rotate(20deg); }
+
+/* ── Layout wrapper ── */
+.page { position: relative; z-index: 1; }
+
+/* ── Cover / Hero ── */
+.cover {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 60px 24px;
+  position: relative; overflow: hidden;
+  text-align: center;
+}
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, var(--gold-glow), transparent 70%);
+  pointer-events: none;
+}
+.cover-ornament {
+  font-family: 'Cinzel', serif;
+  font-size: 11px; letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0.8;
+}
+.cover-ornament::before, .cover-ornament::after {
+  content: '—'; margin: 0 12px; opacity: 0.5;
+}
+.cover h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 900;
+  color: var(--text-heading);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.cover h1 span { color: var(--gold); }
+.cover-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 48px;
+  font-weight: 400;
+}
+.cover-verse {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin-bottom: 56px;
+  line-height: 1.8;
+}
+
+/* ── Seven bars visual ── */
+.seven-bars {
+  display: flex; gap: 6px; align-items: flex-end;
+  margin: 40px auto 16px;
+  max-width: 560px; width: 100%;
+  padding: 0 16px;
+}
+.bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.bar {
+  width: 100%;
+  border-radius: 6px 6px 3px 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 13px; font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  transition: all var(--transition);
+  position: relative; overflow: hidden;
+}
+.bar::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
+}
+.bar-num { position: relative; z-index: 1; }
+.bar-work {
+  background: var(--blue-accent);
+  opacity: 0.7;
+}
+.bar-wrap:nth-child(2) .bar-work { opacity: 0.76; }
+.bar-wrap:nth-child(3) .bar-work { opacity: 0.82; }
+.bar-wrap:nth-child(4) .bar-work { opacity: 0.88; }
+.bar-wrap:nth-child(5) .bar-work { opacity: 0.92; }
+.bar-wrap:nth-child(6) .bar-work { opacity: 0.97; }
+.bar-rest { background: var(--green-accent); opacity: 1; }
+.bar-label {
+  font-size: 9px; letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+}
+.bar-rest ~ .bar-label { color: var(--green-accent); font-weight: 600; }
+.bars-caption {
+  font-size: 0.8rem; color: var(--text-muted);
+  font-style: italic; text-align: center; margin-bottom: 8px;
+}
+
+/* ── Gold rule ── */
+.gold-rule {
+  width: 100%; max-width: 600px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 0;
+  opacity: 0.5;
+}
+
+/* ── Main content ── */
+.content { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* ── Section headers ── */
+.section-label {
+  display: flex; align-items: center; gap: 16px;
+  margin: 64px 0 32px;
+  position: relative;
+}
+.section-num {
+  font-family: 'Cinzel', serif;
+  font-size: 11px; letter-spacing: 0.2em;
+  color: var(--gold);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.section-line { flex: 1; height: 1px; background: var(--border); }
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+.section-sub {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+/* ── Intro block ── */
+.intro-block {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  font-size: 1.12rem;
+  line-height: 1.85;
+  box-shadow: var(--shadow-gold);
+}
+
+/* ── Tier table ── */
+.tier-table-wrap { overflow-x: auto; margin: 24px 0; }
+.tier-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.tier-table th {
+  background: var(--bg-card);
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem; letter-spacing: 0.1em;
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.tier-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+  color: var(--text-primary);
+}
+.tier-table tr:nth-child(even) td { background: var(--bg-card-alt); }
+.tier-table .td-rest { color: var(--rest-text); font-weight: 600; background: var(--rest-bg) !important; }
+.tier-table .td-num { font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.8rem; }
+.tier-table .td-ref { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--text-muted); }
+
+/* ── Scripture box ── */
+.scripture {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px 20px 28px;
+  margin: 20px 0;
+  position: relative;
+}
+.scripture::before {
+  content: '\201C';
+  position: absolute; top: 6px; left: 14px;
+  font-size: 3rem; line-height: 1;
+  color: var(--gold); opacity: 0.35;
+  font-family: Georgia, serif;
+}
+.scripture-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem; letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 8px;
+  display: block;
+}
+.scripture p {
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  padding-left: 8px;
+}
+
+/* ── Cycle cards grid ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+  margin: 8px 0 32px;
+}
+.cycle-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.cycle-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), var(--shadow-gold);
+  border-color: var(--border);
+}
+.card-top {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+}
+.card-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700;
+  flex-shrink: 0; margin-top: 2px;
+}
+.card-title-block { flex: 1; }
+.card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem; font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+.card-scale {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+/* Mini bars in card */
+.card-bars { display: flex; gap: 3px; padding: 10px 18px 6px; }
+.card-bar {
+  flex: 1; height: 10px; border-radius: 2px;
+  transition: opacity var(--transition);
+}
+.card-bar-labels {
+  display: flex; justify-content: space-between;
+  padding: 2px 18px 10px;
+  font-size: 0.68rem; font-family: 'JetBrains Mono', monospace;
+  color: var(--text-muted);
+}
+.card-bar-labels .lbl-rest { color: var(--green-accent); font-weight: 600; }
+.card-scripture {
+  padding: 0 18px 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem; letter-spacing: 0.08em;
+}
+.card-body {
+  padding: 10px 18px 18px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-soft);
+  flex: 1;
+}
+
+/* Card colour themes */
+.card-blue  { border-top: 3px solid var(--blue-accent); }
+.card-blue  .card-num { background: var(--blue-surface); color: var(--blue-accent); border: 1px solid var(--blue-accent); }
+.card-blue  .card-bar-work { background: var(--blue-accent); opacity: 0.6; }
+.card-blue  .card-bar-rest { background: var(--green-accent); }
+.card-blue  .card-scripture { color: var(--blue-accent); }
+
+.card-green { border-top: 3px solid var(--green-accent); }
+.card-green .card-num { background: var(--green-surface); color: var(--green-accent); border: 1px solid var(--green-accent); }
+.card-green .card-bar-work { background: var(--green-accent); opacity: 0.5; }
+.card-green .card-bar-rest { background: var(--green-accent); opacity: 1; }
+.card-green .card-scripture { color: var(--green-accent); }
+
+.card-gold  { border-top: 3px solid var(--gold); }
+.card-gold  .card-num { background: var(--amber-surface); color: var(--gold); border: 1px solid var(--gold-dim); }
+.card-gold  .card-bar-work { background: var(--gold-dim); }
+.card-gold  .card-bar-rest { background: var(--green-accent); }
+.card-gold  .card-scripture { color: var(--gold); }
+
+.card-red   { border-top: 3px solid var(--red-accent); }
+.card-red   .card-num { background: var(--red-surface); color: var(--red-accent); border: 1px solid var(--red-accent); }
+.card-red   .card-bar-work { background: var(--red-accent); opacity: 0.6; }
+.card-red   .card-bar-rest { background: var(--green-accent); }
+.card-red   .card-scripture { color: var(--red-accent); }
+
+.card-purple{ border-top: 3px solid var(--purple-accent); }
+.card-purple .card-num { background: var(--purple-surface); color: var(--purple-accent); border: 1px solid var(--purple-accent); }
+.card-purple .card-bar-work { background: var(--purple-accent); opacity: 0.6; }
+.card-purple .card-bar-rest { background: var(--green-accent); }
+.card-purple .card-scripture { color: var(--purple-accent); }
+
+/* ── Millennium table ── */
+.mill-table-wrap { overflow-x: auto; margin: 16px 0; }
+.mill-table {
+  width: 100%; border-collapse: collapse; font-size: 0.88rem;
+}
+.mill-table th {
+  background: var(--bg-card);
+  color: var(--gold);
+  font-family: 'Cinzel', serif; font-size: 0.76rem; letter-spacing: 0.09em;
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.mill-table td {
+  padding: 10px 14px; vertical-align: top;
+  border-bottom: 1px solid var(--border-soft);
+}
+.mill-table tr:nth-child(even) td { background: var(--bg-card-alt); }
+.mill-table tr:last-child td { background: var(--rest-bg); color: var(--rest-text); font-weight: 500; }
+.mill-table .td-event { font-family: 'Cinzel', serif; font-size: 0.82rem; color: var(--blue-accent); }
+.mill-table .td-ref2 { font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; color: var(--text-muted); }
+
+/* ── Chronology table ── */
+.chron-table-wrap { overflow-x: auto; margin: 16px 0; }
+.chron-table {
+  width: 100%; border-collapse: collapse; font-size: 0.88rem;
+}
+.chron-table th {
+  background: var(--bg-card);
+  color: var(--gold);
+  font-family: 'Cinzel', serif; font-size: 0.76rem; letter-spacing: 0.09em;
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.chron-table td {
+  padding: 10px 14px; vertical-align: top;
+  border-bottom: 1px solid var(--border-soft);
+  line-height: 1.55;
+}
+.chron-table tr:nth-child(even) td { background: var(--bg-card-alt); }
+.chron-table tr:last-child td { background: var(--rest-bg); color: var(--rest-text); }
+.chron-table .td-day {
+  font-family: 'Cinzel', serif; font-size: 0.82rem;
+  color: var(--gold); white-space: nowrap;
+}
+.chron-table .td-yrs { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; }
+.chron-table .td-type-work { color: var(--work-text); font-family: 'Cinzel', serif; font-size: 0.78rem; }
+.chron-table .td-type-rest { color: var(--rest-text); font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 700; }
+
+/* ── Bullet list ── */
+.bullet-list { list-style: none; margin: 16px 0 24px; display: flex; flex-direction: column; gap: 12px; }
+.bullet-list li {
+  padding: 14px 18px 14px 44px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  position: relative;
+}
+.bullet-list li::before {
+  content: '✦';
+  position: absolute; left: 16px; top: 15px;
+  color: var(--gold); font-size: 0.75rem;
+}
+
+/* ── Summary table ── */
+.sum-table-wrap { overflow-x: auto; margin: 16px 0; }
+.sum-table {
+  width: 100%; border-collapse: collapse; font-size: 0.88rem;
+}
+.sum-table th {
+  background: var(--bg-page);
+  color: var(--gold-bright);
+  font-family: 'Cinzel', serif; font-size: 0.76rem; letter-spacing: 0.09em;
+  padding: 10px 14px; text-align: left;
+  border-bottom: 2px solid var(--gold-dim);
+}
+.sum-table td {
+  padding: 9px 14px; vertical-align: middle;
+  border-bottom: 1px solid var(--border-soft);
+}
+.sum-table tr:nth-child(even) td { background: var(--bg-card-alt); }
+.sum-table tr:last-child td { background: var(--bg-elevated); font-style: italic; color: var(--text-muted); }
+.sum-table .td-rest-col { background: var(--rest-bg) !important; color: var(--rest-text); font-weight: 600; }
+.sum-table .td-instance { font-family: 'Cinzel', serif; font-size: 0.82rem; color: var(--text-heading); }
+.sum-table .td-scale { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── Closing callout ── */
+.closing-quote {
+  margin: 48px 0 16px;
+  text-align: center;
+  padding: 40px 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative; overflow: hidden;
+}
+.closing-quote::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, var(--gold-glow), transparent 70%);
+  pointer-events: none;
+}
+.closing-quote blockquote {
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--text-heading);
+  max-width: 680px;
+  margin: 0 auto 16px;
+  position: relative; z-index: 1;
+}
+.closing-quote cite {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem; letter-spacing: 0.15em;
+  color: var(--gold); display: block;
+  position: relative; z-index: 1;
+}
+
+/* ── Early church quotes ── */
+.church-quotes { display: flex; flex-direction: column; gap: 16px; margin: 16px 0 24px; }
+.church-quote {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--purple-accent);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+}
+.church-quote-source {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem; letter-spacing: 0.1em;
+  color: var(--purple-accent);
+  margin-bottom: 8px; display: block;
+}
+.church-quote p {
+  font-style: italic; font-size: 0.95rem;
+  line-height: 1.7; color: var(--text-secondary);
+}
+
+/* ── Sticky nav dots ── */
+.nav-dots {
+  position: fixed; right: 16px; top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 10px;
+  z-index: 900;
+}
+.nav-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--text-muted); border: none; cursor: pointer;
+  transition: all 0.25s; padding: 0;
+}
+.nav-dot:hover, .nav-dot.active { background: var(--gold); transform: scale(1.4); }
+.nav-dot-label {
+  position: absolute; right: 18px;
+  background: var(--bg-elevated);
+  color: var(--gold);
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.08em;
+  padding: 3px 8px; border-radius: 4px;
+  border: 1px solid var(--border);
+  white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+  transform: translateY(-50%); top: 50%;
+}
+.nav-dot:hover .nav-dot-label { opacity: 1; }
+
+/* ── Scroll-reveal ── */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .nav-dots { display: none; }
+  #theme-toggle { top: 12px; right: 12px; }
+}
+
+/* ── Print ── */
+@media print {
+  #theme-toggle, .nav-dots, .verse-tooltip { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+
+  /* Ensure the whole document uses light-friendly colours */
+  [data-theme="dark"] {
+    --bg-page: #fff; --bg-surface: #fff; --bg-elevated: #f8f8f8;
+    --bg-card: #fff; --bg-card-alt: #f5f5f5;
+    --text-primary: #111; --text-secondary: #333; --text-heading: #000;
+    --text-muted: #666; --gold: #7a5c10; --gold-bright: #7a5c10;
+    --border: rgba(0,0,0,0.15); --border-soft: rgba(0,0,0,0.10);
+    --rest-bg: #e8f5ee; --rest-text: #155a2e;
+    --work-bg: #eaf3fc; --work-text: #1a4a80;
+    --blue-accent: #1a5fa0; --green-accent: #1a6b3a;
+    --shadow: none; --shadow-gold: none;
+  }
+
+  /* Remove animated noise overlay */
+  body::before { display: none !important; }
+
+  /* Cover: don't force full viewport height on paper */
+  .cover { min-height: auto; page-break-after: always; }
+
+  /* Keep cards and major blocks on same page where possible */
+  .cycle-card, .scripture, .church-quote, .intro-block,
+  .mill-table-wrap, .chron-table-wrap, .sum-table-wrap {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .cards-grid { display: block; }
+  .cycle-card { margin-bottom: 16px; }
+
+  /* THE FIX: verse expand areas – remove max-height/overflow so verse
+     text that was expanded before printing is never clipped */
+  .card-verse-area,
+  .card-verse-area.open {
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 10px;
+  }
+  .verse-block,
+  .verse-block-inner {
+    overflow: visible !important;
+    max-height: none !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .verse-text {
+    overflow: visible !important;
+    white-space: normal !important;
+    word-break: break-word;
+  }
+
+  /* Hide loading spinners/error states in print */
+  .verse-loading, .verse-spinner, .verse-error { display: none !important; }
+
+  /* Tooltip not relevant in print */
+  .verse-tooltip { display: none !important; }
+
+  /* Preserve background tints so tables remain readable */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* Section breaks for readability */
+  .section-label { page-break-before: auto; margin-top: 24px; }
+  section { page-break-inside: avoid; }
+
+  /* Translation selector not needed on paper */
+  #translation-selector { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- Theme toggle -->
+<button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <span class="icon" id="toggle-icon">☽</span>
+  <span id="toggle-label">LIGHT</span>
+</button>
+
+<!-- Translation selector -->
+<div id="translation-selector" style="
+  position:fixed; top:20px; right:120px; z-index:1000;
+  background:var(--bg-elevated); border:1px solid var(--border);
+  border-radius:40px; padding:5px 12px 5px 10px;
+  display:flex; align-items:center; gap:8px;
+  font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.06em;
+  color:var(--gold); box-shadow:var(--shadow);
+  transition:all 0.4s ease;
+">
+  <span style="font-size:12px">📖</span>
+  <select id="verse-translation" style="
+    background:transparent; border:none; color:var(--gold);
+    font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.06em;
+    cursor:pointer; outline:none; padding:0;
+  " onchange="onTranslationChange(this.value)">
+    <option value="kjv">KJV</option>
+    <option value="web">WEB</option>
+    <option value="asv">ASV</option>
+    <option value="darby">Darby</option>
+    <option value="nkjv">NKJV ✦</option>
+    <option value="niv">NIV ✦</option>
+    <option value="nlt">NLT ✦</option>
+  </select>
+  <span style="font-size:9px;color:var(--text-muted)" title="✦ requires api.bible key (auto-included)">✦=api.bible</span>
+</div>
+
+<!-- Nav dots -->
+<nav class="nav-dots" aria-label="Page sections">
+  <button class="nav-dot active" onclick="scrollTo('#cover')" title="Cover">
+    <span class="nav-dot-label">Cover</span>
+  </button>
+  <button class="nav-dot" onclick="scrollTo('#intro')" title="Introduction">
+    <span class="nav-dot-label">Introduction</span>
+  </button>
+  <button class="nav-dot" onclick="scrollTo('#instances')" title="Instances">
+    <span class="nav-dot-label">All Instances</span>
+  </button>
+  <button class="nav-dot" onclick="scrollTo('#millennium')" title="Millennium">
+    <span class="nav-dot-label">The Millennium</span>
+  </button>
+  <button class="nav-dot" onclick="scrollTo('#chronology')" title="Chronology">
+    <span class="nav-dot-label">Cosmic Week</span>
+  </button>
+  <button class="nav-dot" onclick="scrollTo('#theology')" title="Theology">
+    <span class="nav-dot-label">Theology</span>
+  </button>
+  <button class="nav-dot" onclick="scrollTo('#summary')" title="Summary">
+    <span class="nav-dot-label">Summary</span>
+  </button>
+</nav>
+
+<!-- ═══════════════════════════ COVER ═══════════════════════════ -->
+<section class="cover" id="cover">
+  <p class="cover-ornament">Biblical Study</p>
+  <h1>THE <span>DIVINE</span><br>SEVEN</h1>
+  <p class="cover-subtitle">God's Sabbath Cycle Through Scripture</p>
+
+  <div class="seven-bars" id="hero-bars">
+    <div class="bar-wrap">
+      <div class="bar bar-work" style="height:56px"><span class="bar-num">1</span></div>
+      <span class="bar-label">Work</span>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar bar-work" style="height:66px"><span class="bar-num">2</span></div>
+      <span class="bar-label">Work</span>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar bar-work" style="height:76px"><span class="bar-num">3</span></div>
+      <span class="bar-label">Work</span>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar bar-work" style="height:86px"><span class="bar-num">4</span></div>
+      <span class="bar-label">Work</span>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar bar-work" style="height:96px"><span class="bar-num">5</span></div>
+      <span class="bar-label">Work</span>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar bar-work" style="height:106px"><span class="bar-num">6</span></div>
+      <span class="bar-label">Work</span>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar bar-rest" style="height:116px"><span class="bar-num">7</span></div>
+      <span class="bar-label" style="color:var(--green-accent);font-weight:600">Rest</span>
+    </div>
+  </div>
+  <p class="bars-caption">Six units of labour · One unit of holy rest · Across every timescale</p>
+
+  <div class="gold-rule" style="margin:32px auto"></div>
+  <p class="cover-verse">
+    "With the Lord one day is as a thousand years,<br>
+    and a thousand years as one day."<br>
+    <em style="font-size:0.9em;color:var(--gold)">— 2 Peter 3:8</em>
+  </p>
+  <div class="gold-rule"></div>
+</section>
+
+<!-- ═══════════════════════════ CONTENT ═══════════════════════════ -->
+<main class="content">
+
+  <!-- INTRODUCTION -->
+  <section id="intro">
+    <div class="section-label reveal">
+      <span class="section-num">I · Introduction</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title reveal">The Architecture of Sacred Time</h2>
+    <p class="section-sub reveal">A pattern woven into creation, law, and prophecy simultaneously</p>
+
+    <div class="intro-block reveal">
+      One of the most remarkable features of Scripture is that God does not merely <strong>command</strong> rest — He <strong>structures time itself</strong> around it. From the very first week of creation to the last chapter of Revelation, a single pattern repeats with astonishing consistency: <em>six units of work, followed by one unit of rest.</em>
+    </div>
+
+    <p class="reveal" style="font-size:1.05rem;line-height:1.8;color:var(--text-secondary);margin-bottom:20px">
+      This is not coincidence. It is deliberate divine architecture. The same 6+1 rhythm operates simultaneously at the scale of <strong style="color:var(--text-primary)">days</strong> (the weekly Sabbath), <strong style="color:var(--text-primary)">years</strong> (the Sabbatical year and Jubilee), and <strong style="color:var(--text-primary)">millennia</strong> (the prophetic cosmic week). God embedded the Sabbath principle into the very fabric of creation, into the agricultural law of Israel, and into the grand sweep of prophetic history.
+    </p>
+
+    <div class="scripture reveal">
+      <span class="scripture-ref">2 Peter 3:8</span>
+      <p>But do not overlook this one fact, beloved, that with the Lord one day is as a thousand years, and a thousand years as one day.</p>
+    </div>
+
+    <p class="reveal" style="font-size:0.97rem;line-height:1.8;color:var(--text-secondary);margin:16px 0 32px">
+      This single verse is the key that unlocks the cosmic dimension of the pattern. Peter, writing to explain why Christ's return had not yet come, deliberately reaches back to Psalm 90:4 to reframe human history in divine timescale. If one prophetic "day" equals a thousand years, then the seven-day creation week becomes a prophetic outline of all of human history — six thousand years of labour and sin, followed by a seventh-millennium Sabbath rest.
+    </p>
+
+    <h3 class="reveal" style="font-family:'Cinzel',serif;font-size:1.05rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:16px">The Three Tiers of the Sabbath Principle</h3>
+
+    <div class="tier-table-wrap reveal">
+      <table class="tier-table">
+        <thead>
+          <tr>
+            <th>Tier</th><th>Scale</th><th>Six units</th><th>Seventh unit</th><th>Primary text</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-num">1</td>
+            <td>Days</td>
+            <td>Six days of work</td>
+            <td class="td-rest">Weekly Sabbath</td>
+            <td class="td-ref">Gen 2:2; Ex 20:8</td>
+          </tr>
+          <tr>
+            <td class="td-num">2</td>
+            <td>Years</td>
+            <td>Six years of farming</td>
+            <td class="td-rest">Sabbatical year (Shemitah)</td>
+            <td class="td-ref">Lev 25:1–7</td>
+          </tr>
+          <tr>
+            <td class="td-num">2b</td>
+            <td>Years ×7</td>
+            <td>Seven Sabbatical cycles (49 yrs)</td>
+            <td class="td-rest">Year of Jubilee (50th)</td>
+            <td class="td-ref">Lev 25:8–13</td>
+          </tr>
+          <tr>
+            <td class="td-num">3</td>
+            <td>Millennia</td>
+            <td>~6,000 years of human history</td>
+            <td class="td-rest">Millennial reign (1,000 yrs)</td>
+            <td class="td-ref">Rev 20:1–6</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ALL INSTANCES -->
+  <section id="instances">
+    <div class="section-label reveal">
+      <span class="section-num">II · All Instances</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title reveal">Every Instance of God's 7-Cycle in Scripture</h2>
+    <p class="section-sub reveal">Six for labour — the seventh for holy rest</p>
+
+    <div class="cards-grid">
+
+      <!-- Card 1 -->
+      <article class="cycle-card card-blue reveal">
+        <div class="card-top">
+          <div class="card-num">1</div>
+          <div class="card-title-block">
+            <div class="card-title">The Creation Week</div>
+            <div class="card-scale">SCALE: Days</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>Days 1–6: God creates all things</span><span class="lbl-rest">Day 7: Rest</span></div>
+        <div class="card-scripture">Genesis 2:1–3 · Exodus 20:8–11</div>
+        <div class="card-body">
+          God creates the entire universe in six days and rests on the seventh — not because He was tired (Isaiah 40:28), but to establish the pattern and to bless and sanctify the day. The Sabbath was made at creation, before Israel existed, making it a universal institution for all humanity (Mark 2:27). God literally built rest into the DNA of time itself.
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="cycle-card card-blue reveal">
+        <div class="card-top">
+          <div class="card-num">2</div>
+          <div class="card-title-block">
+            <div class="card-title">The Weekly Sabbath Commandment</div>
+            <div class="card-scale">SCALE: Days (repeated weekly)</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>Days 1–6: Labour, commerce, daily work</span><span class="lbl-rest">Day 7: Rest &amp; worship</span></div>
+        <div class="card-scripture">Exodus 20:8–11 · Leviticus 23:3 · Isaiah 58:13–14</div>
+        <div class="card-body">
+          The Fourth Commandment is the longest of the Ten and the only one beginning with "Remember" — implying it was already known and had been forgotten. God grounds Sabbath-keeping not in Sinai law but in creation itself: "For in six days the LORD made heaven and earth... and rested on the seventh day." Isaiah calls it a delight and a day of honour.
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="cycle-card card-green reveal">
+        <div class="card-top">
+          <div class="card-num">3</div>
+          <div class="card-title-block">
+            <div class="card-title">The Sabbatical Year (Shemitah)</div>
+            <div class="card-scale">SCALE: Years</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>Years 1–6: Sow, reap, prune, harvest</span><span class="lbl-rest">Year 7: Land rests</span></div>
+        <div class="card-scripture">Leviticus 25:1–7 · Exodus 23:10–11 · Deuteronomy 15:1</div>
+        <div class="card-body">
+          Every seventh year, Israel was to let the land rest completely — no sowing, pruning, or private harvesting. Whatever grew belonged to the poor and to animals. Debts were also released. God promised a triple harvest in year six for those who trusted Him (Lev 25:20–22). This required active, tangible faith in God's provision.
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="cycle-card card-gold reveal">
+        <div class="card-top">
+          <div class="card-num">4</div>
+          <div class="card-title-block">
+            <div class="card-title">The Year of Jubilee</div>
+            <div class="card-scale">SCALE: 7 × 7 years + 1</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>7 cycles × 7 yrs = 49 years</span><span class="lbl-rest">Year 50: Jubilee</span></div>
+        <div class="card-scripture">Leviticus 25:8–17 · Isaiah 61:1–2 · Luke 4:18–19</div>
+        <div class="card-body">
+          After seven Sabbatical cycles (49 years), the 50th year — the Jubilee — was announced by the blowing of the shofar on the Day of Atonement. All land reverted to original owners, all Hebrew slaves were freed, all debts cancelled. Jesus opened His public ministry quoting Isaiah 61, declaring the ultimate Jubilee of freedom from sin's bondage.
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="cycle-card card-red reveal">
+        <div class="card-top">
+          <div class="card-num">5</div>
+          <div class="card-title-block">
+            <div class="card-title">The 70-Year Babylonian Captivity</div>
+            <div class="card-scale">SCALE: Enforced sabbatical</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>490 years: Israel broke 70 sabbatical years</span><span class="lbl-rest">70 yrs: enforced rest</span></div>
+        <div class="card-scripture">Leviticus 26:34–35 · 2 Chronicles 36:21 · Jeremiah 25:11</div>
+        <div class="card-body">
+          God warned in Leviticus 26 that if Israel refused voluntary sabbatical years, He would enforce them through exile. 2 Chronicles 36:21 explicitly states the 70 years of Babylonian captivity repaid the land's sabbaths. Over ~490 years, Israel had broken 70 sabbatical years — God collected every single one. The land "enjoyed" its sabbaths while the people were gone.
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="cycle-card card-purple reveal">
+        <div class="card-top">
+          <div class="card-num">6</div>
+          <div class="card-title-block">
+            <div class="card-title">Daniel's 70 Weeks</div>
+            <div class="card-scale">SCALE: Prophetic weeks of years</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>69 weeks (483 years) to Messiah</span><span class="lbl-rest">70th week</span></div>
+        <div class="card-scripture">Daniel 9:24–27 · Nehemiah 2:1–8</div>
+        <div class="card-body">
+          Gabriel gave Daniel a prophecy of 70 "weeks" (Hebrew: <em>shabua</em> — sevens) — 490 years — to accomplish six specific redemptive goals. The entire prophecy is structured on multiples of seven: 70 groups of seven years. The 69th week ended precisely at Jesus' baptism in AD 27. God uses the Sabbath number as the scaffolding of redemptive history itself.
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="cycle-card card-blue reveal" style="border-top-color:var(--gold)">
+        <div class="card-top">
+          <div class="card-num" style="background:var(--amber-surface);color:var(--gold);border-color:var(--gold-dim)">7</div>
+          <div class="card-title-block">
+            <div class="card-title">The Cosmic Week — Earth's History</div>
+            <div class="card-scale">SCALE: Millennia</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>~6,000 years of human history &amp; sin</span><span class="lbl-rest">1,000 yrs: Millennial Sabbath</span></div>
+        <div class="card-scripture" style="color:var(--gold)">2 Peter 3:8 · Revelation 20:1–6 · Psalm 90:4</div>
+        <div class="card-body">
+          The most majestic expression of the pattern. If each prophetic "day" equals 1,000 years, the creation week maps onto 7,000 years of earth's history. Six thousand years of human toil and sin are followed by the 1,000-year Millennial Sabbath — when Christ reigns, the earth lies desolate (Isaiah 24:1), Satan is bound (Rev 20:1–3), and the redeemed rest in heaven before the New Creation of Revelation 21.
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="cycle-card card-purple reveal">
+        <div class="card-top">
+          <div class="card-num">8</div>
+          <div class="card-title-block">
+            <div class="card-title">The Seven Churches of Revelation</div>
+            <div class="card-scale">SCALE: Historical church eras</div>
+          </div>
+        </div>
+        <div class="card-bars">
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-work"></div><div class="card-bar card-bar-work"></div>
+          <div class="card-bar card-bar-rest"></div>
+        </div>
+        <div class="card-bar-labels"><span>Ephesus, Smyrna, Pergamos, Thyatira, Sardis, Philadelphia</span><span class="lbl-rest">Laodicea</span></div>
+        <div class="card-scripture">Revelation 2–3 · Revelation 1:20</div>
+        <div class="card-body">
+          Many scholars see the seven churches as prophetic portraits of seven successive eras of church history from the apostolic age to Christ's return. The seventh church — Laodicea — characterises the lukewarm, self-sufficient final generation. It culminates in Christ standing at the door knocking — the invitation to enter the Sabbath rest of fellowship with Him (Hebrews 4:9–11).
+        </div>
+      </article>
+
+    </div><!-- /cards-grid -->
+  </section>
+
+  <!-- MILLENNIUM -->
+  <section id="millennium">
+    <div class="section-label reveal">
+      <span class="section-num">III · The Millennium</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title reveal">The Millennial Sabbath in Detail</h2>
+    <p class="section-sub reveal">What happens during earth's 7th thousand-year "day"</p>
+
+    <p class="reveal" style="font-size:1rem;line-height:1.8;color:var(--text-secondary);margin-bottom:20px">
+      The seventh millennium is the prophetic anti-typical Sabbath of the earth. Scripture paints a vivid picture of this period from multiple prophetic angles:
+    </p>
+
+    <div class="mill-table-wrap reveal">
+      <table class="mill-table">
+        <thead>
+          <tr><th>Event</th><th>Description</th><th>Scripture</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-event">Christ returns</td>
+            <td>Second coming in glory; righteous raised in the first resurrection</td>
+            <td class="td-ref2">1 Thess 4:16–17<br>Rev 19:11–16</td>
+          </tr>
+          <tr>
+            <td class="td-event">Earth desolate</td>
+            <td>No living humans remain on earth — "without form and void" again, echoing Genesis 1:2</td>
+            <td class="td-ref2">Jer 4:23–26<br>Isa 24:1–3</td>
+          </tr>
+          <tr>
+            <td class="td-event">Satan bound</td>
+            <td>Confined to the ruined, empty earth; no one to deceive for 1,000 years</td>
+            <td class="td-ref2">Rev 20:1–3</td>
+          </tr>
+          <tr>
+            <td class="td-event">Saints in heaven</td>
+            <td>The redeemed reign with Christ; sit in judgement, reviewing the records of the lost</td>
+            <td class="td-ref2">Rev 20:4–6<br>1 Cor 6:2–3</td>
+          </tr>
+          <tr>
+            <td class="td-event">Investigative review</td>
+            <td>Saints review the records of the lost — confirming God's perfect justice before eternity begins</td>
+            <td class="td-ref2">Rev 20:4, 12<br>Dan 7:22</td>
+          </tr>
+          <tr>
+            <td class="td-event">End of millennium</td>
+            <td>New Jerusalem descends; wicked resurrected in the second resurrection</td>
+            <td class="td-ref2">Rev 20:5, 7–9</td>
+          </tr>
+          <tr>
+            <td class="td-event">Final judgement</td>
+            <td>Wicked destroyed in the lake of fire; sin, death, and Satan gone forever</td>
+            <td class="td-ref2">Rev 20:10–15</td>
+          </tr>
+          <tr>
+            <td class="td-event" style="color:var(--rest-text)">New Creation</td>
+            <td>Earth re-created; New Jerusalem established; the eternal "eighth day" begins</td>
+            <td class="td-ref2">Rev 21:1–5<br>Isa 65:17</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="scripture reveal">
+      <span class="scripture-ref">Isaiah 24:1–3</span>
+      <p>Behold, the LORD will empty the earth and make it desolate, and he will twist its surface and scatter its inhabitants... The earth shall be utterly empty and utterly plundered; for the LORD has spoken this word.</p>
+    </div>
+
+    <div class="scripture reveal">
+      <span class="scripture-ref">Jeremiah 4:23–25</span>
+      <p>I looked on the earth, and behold, it was without form and void; and to the heavens, and they had no light. I looked on the mountains, and behold, they were quaking... I looked, and behold, there was no man.</p>
+    </div>
+
+    <div class="intro-block reveal" style="margin-top:24px">
+      <strong>The hinge verse — Leviticus 26:34–35:</strong> The most powerful confirmation that the 6+1 pattern operates at the historical scale is God's warning that missed sabbatical years would be enforced through exile. 2 Chronicles 36:21 records the exact fulfilment — 70 years of Babylonian captivity repaid 70 missed sabbatical years (490 years of violations). <em>God tracks sabbatical cycles across centuries and collects them.</em> If He enforced the agricultural Sabbath at the scale of years, the prophetic texts demand He will enforce the cosmic Sabbath at the scale of millennia.
+    </div>
+  </section>
+
+  <!-- CHRONOLOGY -->
+  <section id="chronology">
+    <div class="section-label reveal">
+      <span class="section-num">IV · Cosmic Week</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title reveal">Earth's ~7,000-Year History Mapped to the Creation Week</h2>
+    <p class="section-sub reveal">Using Ussher's Masoretic-based chronology (creation ~4004 BC)</p>
+
+    <div class="chron-table-wrap reveal">
+      <table class="chron-table">
+        <thead>
+          <tr><th>Day</th><th>Years (approx.)</th><th>Era &amp; events</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-day">Day 1<br><small>1,000 yrs</small></td>
+            <td class="td-yrs">4004–3004 BC</td>
+            <td>Adam to Lamech. The Fall, first murder (Cain/Abel), early civilisation, Enoch translated to heaven.</td>
+            <td class="td-type-work">Work</td>
+          </tr>
+          <tr>
+            <td class="td-day">Day 2<br><small>1,000 yrs</small></td>
+            <td class="td-yrs">3004–2004 BC</td>
+            <td>Noah, the great Flood (~2348 BC), the tower of Babel, and the dispersion of nations across the earth.</td>
+            <td class="td-type-work">Work</td>
+          </tr>
+          <tr>
+            <td class="td-day">Day 3<br><small>1,000 yrs</small></td>
+            <td class="td-yrs">2004–1004 BC</td>
+            <td>Abraham, Isaac, Jacob, Joseph and Egypt, Moses and the Exodus, conquest of Canaan, era of the Judges, rise of the monarchy.</td>
+            <td class="td-type-work">Work</td>
+          </tr>
+          <tr>
+            <td class="td-day">Day 4<br><small>1,000 yrs</small></td>
+            <td class="td-yrs">1004–4 BC</td>
+            <td>David &amp; Solomon, the divided kingdom, Babylonian exile, Persian &amp; Greek empires, Maccabees, Roman occupation of Judea.</td>
+            <td class="td-type-work">Work</td>
+          </tr>
+          <tr>
+            <td class="td-day">Day 5<br><small>1,000 yrs</small></td>
+            <td class="td-yrs">4 BC–AD 996</td>
+            <td>Birth and ministry of Christ, apostolic era, early church, Roman persecution, Constantine, rise of papal power, beginning of the Dark Ages.</td>
+            <td class="td-type-work">Work</td>
+          </tr>
+          <tr>
+            <td class="td-day">Day 6<br><small>1,000 yrs</small></td>
+            <td class="td-yrs">AD 996–~2000</td>
+            <td>The Reformation, Age of Exploration, Industrial Revolution, modern world missions, two world wars, the final generation.</td>
+            <td class="td-type-work">Work</td>
+          </tr>
+          <tr>
+            <td class="td-day">Day 7<br><small>1,000 yrs</small></td>
+            <td class="td-yrs">~AD 2000–3000<br><em>(approx.)</em></td>
+            <td>Christ returns. Earth lies desolate. Satan is bound. The redeemed saints reign in heaven. The New Creation follows — eternity begins.</td>
+            <td class="td-type-rest">✦ REST</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="reveal" style="font-size:0.85rem;color:var(--text-muted);font-style:italic;margin:10px 0 32px;line-height:1.6">
+      Note: Exact dates are approximate and depend on which textual tradition is used. The Septuagint (LXX) pushes creation back to ~5500 BC, yielding ~7,500 total years. The pattern holds regardless of the precise starting point — six millennia of human history followed by the seventh-millennium Sabbath.
+    </p>
+
+    <h3 class="reveal" style="font-family:'Cinzel',serif;font-size:1.05rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:16px">Early Church Witness to the Cosmic Week</h3>
+    <p class="reveal" style="font-size:0.97rem;color:var(--text-secondary);margin-bottom:16px">
+      The idea of a 7,000-year cosmic week is not an invention of modern Adventism. It was widely held among early Christian writers:
+    </p>
+
+    <div class="church-quotes reveal">
+      <div class="church-quote">
+        <span class="church-quote-source">Epistle of Barnabas (c. AD 70–135)</span>
+        <p>"He rested on the seventh day. This means: when His Son comes He will destroy the time of the lawless one, and will judge the ungodly, and will change the sun and the moon and the stars — then He shall truly rest on the seventh day."</p>
+      </div>
+      <div class="church-quote">
+        <span class="church-quote-source">Irenaeus of Lyon (c. AD 180)</span>
+        <p>"The day of the Lord is as a thousand years; and in six days created things were completed — it is evident, therefore, that they will come to an end at the six-thousandth year."</p>
+      </div>
+      <div class="church-quote">
+        <span class="church-quote-source">Lactantius (c. AD 303)</span>
+        <p>"Since all the works of God were completed in six days, the world must continue in its present state through six ages — that is, six thousand years... and at the end of the six thousandth year all wickedness must be abolished."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEOLOGY -->
+  <section id="theology">
+    <div class="section-label reveal">
+      <span class="section-num">V · Theology</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title reveal">Theological Significance</h2>
+    <p class="section-sub reveal">Rest is not an afterthought — it is the goal of creation</p>
+
+    <div class="scripture reveal">
+      <span class="scripture-ref">Hebrews 4:9–11</span>
+      <p>So then, there remains a Sabbath rest for the people of God, for whoever has entered God's rest has also rested from his works as God did from His. Let us therefore strive to enter that rest.</p>
+    </div>
+
+    <ul class="bullet-list reveal">
+      <li><strong>Rest is not idleness — it is completion.</strong> When God rested, He was not tired. He was declaring the work finished and very good. The millennial Sabbath will declare the work of redemption complete in the same way.</li>
+      <li><strong>The Sabbath is a sign of the covenant.</strong> Exodus 31:13, 17 — "You shall keep my Sabbaths, for this is a sign between me and you... that I, the LORD, sanctify you." The weekly Sabbath is a perpetual memorial of both creation and redemption (Deuteronomy 5:15).</li>
+      <li><strong>The pattern points to Christ.</strong> Jesus declared Himself "Lord of the Sabbath" (Matthew 12:8). He is both the Creator who rested on the first Sabbath and the Redeemer who brings His people into eternal rest. His cry "It is finished" echoes God's completion at the end of creation week.</li>
+      <li><strong>Sabbath violation brought judgement.</strong> Israel's exile in Babylon was literally the land collecting its missed sabbaths. God takes the sacred rest cycle with ultimate seriousness across every scale of time.</li>
+      <li><strong>The eighth day — eternity.</strong> After the millennial Sabbath, Revelation 21–22 describes the New Creation — the "eighth day," the dawn of eternity where there is no more sin, death, or curse. Early Christians saw baptism (on the first/eighth day) as a symbol of this eternal new beginning.</li>
+    </ul>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="summary">
+    <div class="section-label reveal">
+      <span class="section-num">VI · Summary</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title reveal">The Complete Pattern</h2>
+    <p class="section-sub reveal">Every instance of God's 6+1 Sabbath cycle across Scripture</p>
+
+    <div class="sum-table-wrap reveal">
+      <table class="sum-table">
+        <thead>
+          <tr><th>Instance</th><th>Scale</th><th>6 = Work</th><th>7 = Rest</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-instance">Creation week</td><td class="td-scale">Days</td><td>6 days God creates</td><td class="td-rest-col">Day 7 — God rests &amp; sanctifies</td></tr>
+          <tr><td class="td-instance">Weekly Sabbath</td><td class="td-scale">Days (weekly)</td><td>6 days of human labour</td><td class="td-rest-col">7th day — holy rest &amp; worship</td></tr>
+          <tr><td class="td-instance">Sabbatical year</td><td class="td-scale">Years</td><td>6 years farm &amp; harvest</td><td class="td-rest-col">7th year — land rests (Shemitah)</td></tr>
+          <tr><td class="td-instance">Jubilee cycle</td><td class="td-scale">7 × 7 years</td><td>49 years — normal tenure</td><td class="td-rest-col">50th year — universal release</td></tr>
+          <tr><td class="td-instance">Babylonian exile</td><td class="td-scale">Enforced</td><td>490 yrs broke 70 sabbaths</td><td class="td-rest-col">70-yr exile repays them all</td></tr>
+          <tr><td class="td-instance">Daniel's 70 weeks</td><td class="td-scale">Weeks of years</td><td>69 weeks to Messiah</td><td class="td-rest-col">70th week — final covenant</td></tr>
+          <tr><td class="td-instance">7 churches (Rev)</td><td class="td-scale">Church eras</td><td>6 church periods in history</td><td class="td-rest-col">7th era — Christ at the door</td></tr>
+          <tr><td class="td-instance">Cosmic week</td><td class="td-scale">Millennia</td><td>~6,000 yrs of human history</td><td class="td-rest-col">Millennium — earth's Sabbath</td></tr>
+          <tr><td class="td-instance">Eternity</td><td class="td-scale">Post-millennium</td><td>7,000 years of earth's story</td><td class="td-rest-col">Eternal 8th day — New Creation</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="closing-quote reveal">
+      <blockquote>
+        "The Sabbath is not merely a day. It is God's signature on time itself — repeated at every scale of history, from the first morning of creation to the last dawn of the age, declaring that the goal of all labour is rest, and the rest belongs to those who are His."
+      </blockquote>
+      <cite>Genesis 2:2 · Leviticus 25 · 2 Peter 3:8 · Revelation 20–21</cite>
+    </div>
+  </section>
+
+</main>
+</div><!-- /page -->
+
+<style>
+/* ── Verse fetch styles ── */
+.verse-block {
+  margin: 6px 0 10px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.verse-block-inner {
+  padding: 10px 14px 10px 14px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  position: relative;
+}
+.verse-loading {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--text-muted); font-style: italic; font-size: 0.8rem;
+  padding: 6px 0;
+}
+.verse-spinner {
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.verse-text {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.verse-text .vnum {
+  font-size: 0.68rem;
+  color: var(--gold);
+  font-style: normal;
+  font-family: 'JetBrains Mono', monospace;
+  vertical-align: super;
+  margin-right: 2px;
+}
+.verse-ref-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; letter-spacing: 0.05em;
+  color: var(--gold); opacity: 0.7;
+  margin-top: 4px;
+  font-style: normal;
+}
+.verse-error {
+  font-size: 0.78rem; color: var(--text-muted); font-style: italic;
+}
+/* Inline pill refs in card-body */
+.ref-pill {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--gold);
+  background: var(--gold-glow);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  position: relative;
+}
+.ref-pill:hover { border-color: var(--gold); background: var(--border); }
+/* Tooltip popup */
+.verse-tooltip {
+  position: fixed;
+  z-index: 2000;
+  max-width: 340px; min-width: 220px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  pointer-events: none;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.18s, transform 0.18s;
+  font-family: 'Crimson Pro', serif;
+}
+.verse-tooltip.show { opacity: 1; transform: translateY(0); }
+.verse-tooltip-ref {
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  color: var(--gold); letter-spacing: 0.08em;
+  margin-bottom: 6px; display: block;
+}
+.verse-tooltip-text {
+  font-style: italic; font-size: 0.9rem;
+  line-height: 1.65; color: var(--text-primary);
+}
+.verse-tooltip-loading {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--text-muted); font-size: 0.82rem; font-style: italic;
+}
+/* Card verse expand area */
+.card-verse-area {
+  padding: 0 18px 0;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+.card-verse-area.open {
+  max-height: 600px;
+  padding: 0 18px 12px;
+}
+.card-scripture { cursor: pointer; user-select: none; }
+.card-scripture:hover { opacity: 0.8; }
+.card-scripture::after { content: ' ▾'; font-size: 0.6em; opacity: 0.6; }
+.card-scripture.open::after { content: ' ▴'; }
+</style>
+
+<script>
+// ── Theme toggle ──
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('toggle-icon').textContent = isDark ? '☀' : '☽';
+  document.getElementById('toggle-label').textContent = isDark ? 'DARK' : 'LIGHT';
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+}
+const saved = localStorage.getItem('theme');
+if (saved) {
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('toggle-icon').textContent = saved === 'light' ? '☀' : '☽';
+  document.getElementById('toggle-label').textContent = saved === 'light' ? 'DARK' : 'LIGHT';
+}
+
+// ── Scroll-reveal ──
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── Nav dots ──
+const sections = ['cover','intro','instances','millennium','chronology','theology','summary'];
+const dots = document.querySelectorAll('.nav-dot');
+const secObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = sections.indexOf(e.target.id);
+      if (idx >= 0) { dots.forEach(d => d.classList.remove('active')); dots[idx].classList.add('active'); }
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+function scrollTo(id) { document.querySelector(id).scrollIntoView({ behavior: 'smooth' }); }
+
+// ══════════════════════════════════════════════════════
+// BIBLE VERSE ENGINE  — matches the TruthProject website API
+// Free translations: bible-api.com (KJV, WEB, ASV, Darby)
+// Premium translations: api.bible (NIV, NLT, NKJV) using
+//   the same built-in key as the main website.
+// ══════════════════════════════════════════════════════
+
+/* ── Translation list (mirrors assets/app.js) ── */
+const BIBLE_TRANSLATIONS = [
+  { id: "kjv",    label: "KJV",   source: "free" },
+  { id: "web",    label: "WEB",   source: "free" },
+  { id: "asv",    label: "ASV",   source: "free" },
+  { id: "darby",  label: "Darby", source: "free" },
+  { id: "nkjv",   label: "NKJV",  source: "api.bible", bibleId: "63097d2a0a2f7db3-01" },
+  { id: "niv",    label: "NIV",   source: "api.bible", bibleId: "78a9f6124f344018-01" },
+  { id: "nlt",    label: "NLT",   source: "api.bible", bibleId: "d6e14a625393b4da-01" },
+];
+
+/* ── api.bible key (same built-in key as the website) ── */
+const API_BIBLE_BUILTIN_KEY = "IYyhVb_8ypT1jinjBioh9";
+function getApiBibleKey() {
+  return localStorage.getItem("apiBibleApiKey") || API_BIBLE_BUILTIN_KEY;
+}
+
+/* ── Book → api.bible 3-letter code (mirrors assets/app.js) ── */
+const BOOK_TO_API_CODE = {
+  "genesis":"GEN","exodus":"EXO","leviticus":"LEV","numbers":"NUM","deuteronomy":"DEU",
+  "joshua":"JOS","judges":"JDG","ruth":"RUT",
+  "1 samuel":"1SA","2 samuel":"2SA","1 kings":"1KI","2 kings":"2KI",
+  "1 chronicles":"1CH","2 chronicles":"2CH",
+  "ezra":"EZR","nehemiah":"NEH","esther":"EST","job":"JOB",
+  "psalm":"PSA","psalms":"PSA","proverbs":"PRO","ecclesiastes":"ECC",
+  "song of solomon":"SNG","isaiah":"ISA","jeremiah":"JER","lamentations":"LAM",
+  "ezekiel":"EZK","daniel":"DAN","hosea":"HOS","joel":"JOL","amos":"AMO",
+  "obadiah":"OBA","jonah":"JON","micah":"MIC","nahum":"NAM","habakkuk":"HAB",
+  "zephaniah":"ZEP","haggai":"HAG","zechariah":"ZEC","malachi":"MAL",
+  "matthew":"MAT","mark":"MRK","luke":"LUK","john":"JHN","acts":"ACT",
+  "romans":"ROM","1 corinthians":"1CO","2 corinthians":"2CO","galatians":"GAL",
+  "ephesians":"EPH","philippians":"PHP","colossians":"COL",
+  "1 thessalonians":"1TH","2 thessalonians":"2TH",
+  "1 timothy":"1TI","2 timothy":"2TI","titus":"TIT","philemon":"PHM",
+  "hebrews":"HEB","james":"JAS","1 peter":"1PE","2 peter":"2PE",
+  "1 john":"1JN","2 john":"2JN","3 john":"3JN","jude":"JUD","revelation":"REV",
+  // abbreviations
+  "gen":"GEN","exo":"EXO","exod":"EXO","lev":"LEV","num":"NUM","deut":"DEU",
+  "josh":"JOS","judg":"JDG","neh":"NEH","ps":"PSA","psa":"PSA","prov":"PRO",
+  "isa":"ISA","jer":"JER","ezek":"EZK","dan":"DAN","zech":"ZEC","mal":"MAL",
+  "matt":"MAT","mat":"MAT","mk":"MRK","lk":"LUK","jn":"JHN","rom":"ROM",
+  "gal":"GAL","eph":"EPH","phil":"PHP","col":"COL","heb":"HEB","jas":"JAS",
+  "rev":"REV","1 sam":"1SA","2 sam":"2SA","1 kgs":"1KI","2 kgs":"2KI",
+  "1 chr":"1CH","2 chr":"2CH","1 cor":"1CO","2 cor":"2CO",
+  "1 thess":"1TH","2 thess":"2TH","1 tim":"1TI","2 tim":"2TI",
+  "1 pet":"1PE","2 pet":"2PE","1 jn":"1JN","2 jn":"2JN","3 jn":"3JN",
+};
+
+/* ── Abbreviation → full name for bible-api.com ── */
+const ABBREV_TO_FULL = {
+  "gen":"Genesis","exo":"Exodus","exod":"Exodus","lev":"Leviticus","num":"Numbers",
+  "deut":"Deuteronomy","josh":"Joshua","judg":"Judges","neh":"Nehemiah",
+  "psa":"Psalms","ps":"Psalms","psalm":"Psalms","prov":"Proverbs",
+  "isa":"Isaiah","jer":"Jeremiah","ezek":"Ezekiel","dan":"Daniel",
+  "zech":"Zechariah","mal":"Malachi","matt":"Matthew","mat":"Matthew",
+  "mk":"Mark","lk":"Luke","jn":"John","rom":"Romans","gal":"Galatians",
+  "eph":"Ephesians","phil":"Philippians","col":"Colossians","heb":"Hebrews",
+  "jas":"James","rev":"Revelation",
+  "1 sam":"1 Samuel","2 sam":"2 Samuel","1 kgs":"1 Kings","2 kgs":"2 Kings",
+  "1 chr":"1 Chronicles","2 chr":"2 Chronicles",
+  "1 cor":"1 Corinthians","2 cor":"2 Corinthians",
+  "1 thess":"1 Thessalonians","2 thess":"2 Thessalonians",
+  "1 tim":"1 Timothy","2 tim":"2 Timothy",
+  "1 pet":"1 Peter","2 pet":"2 Peter",
+  "1 jn":"1 John","2 jn":"2 John","3 jn":"3 John",
+};
+
+function stripVerseSuffix(ref) {
+  return ref.replace(/(\d+)[a-f]\b/g, "$1");
+}
+
+function normalizeForBibleApi(ref) {
+  let s = ref.replace(/^(\d?\s*[A-Za-z]+)\.\s*/, "$1 ")
+             .replace(/\s*,\s*/g, ",").replace(/\s*[-–]\s*/g, "-")
+             .replace(/\s+/g, " ").trim();
+  const m = s.match(/^(.+?)\s+(\d+\s*:\s*.+)$/);
+  if (!m) return s;
+  const book = m[1].trim().toLowerCase();
+  const full = ABBREV_TO_FULL[book];
+  return full ? full + " " + m[2] : s;
+}
+
+function toApiBiblePassageId(ref) {
+  const m = ref.trim().match(/^(.+?)\s+(\d+)\s*:\s*(\d+)(?:\s*[-–]\s*(\d+))?/);
+  if (!m) return null;
+  const code = BOOK_TO_API_CODE[m[1].trim().toLowerCase().replace(/\.$/, "")];
+  if (!code) return null;
+  const [, , ch, vs, ve] = m;
+  let end = ve || null;
+  const commas = ref.match(/,\s*(\d+)(?:\s*[-–]\s*(\d+))?/g);
+  if (commas) {
+    for (const cm of commas) {
+      const p = cm.match(/(\d+)(?:\s*[-–]\s*(\d+))?/);
+      if (p) { const n = p[2] || p[1]; if (!end || +n > +end) end = n; }
+    }
+  }
+  return end ? `${code}.${ch}.${vs}-${code}.${ch}.${end}` : `${code}.${ch}.${vs}`;
+}
+
+/* ── Fetch from api.bible ── */
+async function fetchVerseApiBible(ref, bibleId) {
+  const key = getApiBibleKey();
+  if (!key) throw new Error("API_KEY_MISSING");
+  const passageId = toApiBiblePassageId(ref);
+  if (!passageId) throw new Error("Could not parse reference.");
+  const url = `https://rest.api.bible/v1/bibles/${bibleId}/passages/${passageId}`
+            + `?content-type=text&include-verse-numbers=true&include-titles=false&include-chapter-numbers=false`;
+  const res = await fetch(url, { headers: { "api-key": key } });
+  if (!res.ok) {
+    if (res.status === 401) throw new Error("Invalid api.bible key.");
+    if (res.status === 404) throw new Error("Verse not found.");
+    throw new Error(`api.bible error (${res.status})`);
+  }
+  const json = await res.json();
+  const d = json.data || {};
+  // FUMS tracking — required by api.bible terms of service
+  if (json.meta && json.meta.fumsId && typeof _BAPI !== "undefined" && _BAPI.t) {
+    try { _BAPI.t(json.meta.fumsId); } catch(_) {}
+  }
+  const text = (d.content || "").trim();
+  return { text, reference: d.reference || ref, copyright: d.copyright || "" };
+}
+
+/* ── Cache and throttle queue (mirrors assets/app.js) ── */
+const _verseCache = new Map();
+const _fetchQueue = {
+  maxConcurrent: 4, active: 0, queue: [],
+  enqueue(fn) {
+    return new Promise((resolve, reject) => {
+      const run = () => {
+        this.active++;
+        fn().then(resolve, reject).finally(() => {
+          this.active--;
+          if (this.queue.length > 0) this.queue.shift()();
+        });
+      };
+      this.active < this.maxConcurrent ? run() : this.queue.push(run);
+    });
+  }
+};
+
+/* ── Main fetch function — identical signature to assets/app.js ── */
+async function fetchVerse(reference, translationId) {
+  translationId = translationId || 'kjv';
+  const cacheKey = reference + '|' + translationId;
+  if (_verseCache.has(cacheKey)) return _verseCache.get(cacheKey);
+
+  const cleanRef = stripVerseSuffix(reference.trim());
+  const t = BIBLE_TRANSLATIONS.find(x => x.id === translationId);
+  let data;
+
+  if (t && t.source === 'api.bible') {
+    const doFetch = () => fetchVerseApiBible(cleanRef, t.bibleId);
+    try {
+      data = await _fetchQueue.enqueue(doFetch);
+    } catch(err) {
+      if (err.message && err.message.startsWith('api.bible error')) {
+        await new Promise(r => setTimeout(r, 1500));
+        data = await _fetchQueue.enqueue(doFetch);
+      } else { throw err; }
+    }
+  } else {
+    const normRef  = normalizeForBibleApi(cleanRef);
+    const apiRef   = encodeURIComponent(normRef);
+    const url      = `https://bible-api.com/${apiRef}?translation=${translationId}`;
+    const doFetch  = async () => {
+      const r = await fetch(url);
+      if (!r.ok) {
+        if (r.status === 404) throw new Error("Verse not found.");
+        if (r.status === 429) throw new Error("RATE_LIMITED");
+        throw new Error(`API error (${r.status})`);
+      }
+      const json = await r.json();
+      if (json.error) throw new Error(json.error);
+      return json;
+    };
+    try {
+      data = await _fetchQueue.enqueue(doFetch);
+    } catch(err) {
+      if (err.message === "RATE_LIMITED" || err.name === "TypeError") {
+        await new Promise(r => setTimeout(r, 1500));
+        data = await _fetchQueue.enqueue(doFetch);
+      } else { throw err; }
+    }
+  }
+
+  _verseCache.set(cacheKey, data);
+  return data;
+}
+
+/* ── Translation selector helper ── */
+function getCurrentTranslation() {
+  return document.getElementById('verse-translation')?.value || 'kjv';
+}
+function onTranslationChange(tid) {
+  // Re-render all currently-open verse areas
+  document.querySelectorAll('.card-verse-area.open').forEach(area => {
+    area.querySelectorAll('.verse-block').forEach(vb => {
+      vb.dataset.loaded = 'false';
+      renderVerseBlock(vb, vb.dataset.ref, tid);
+    });
+  });
+  // Re-render main scripture boxes
+  document.querySelectorAll('.verse-block[data-main-ref]').forEach(vb => {
+    renderVerseBlock(vb, vb.dataset.mainRef, tid);
+  });
+}
+
+// Render into a verse block element
+async function renderVerseBlock(el, ref, translationId) {
+  translationId = translationId || getCurrentTranslation();
+  el.innerHTML = `<div class="verse-block-inner">
+    <div class="verse-loading"><span class="verse-spinner"></span>Loading ${ref}…</div>
+  </div>`;
+  try {
+    const data = await fetchVerse(ref, translationId);
+    let text = '';
+    if (data.verses && data.verses.length > 1) {
+      text = data.verses.map(v =>
+        `<sup class="vnum">${v.verse}</sup>${(v.text||'').trim()}`
+      ).join(' ');
+    } else if (data.verses && data.verses.length === 1) {
+      text = (data.verses[0].text || '').trim();
+    } else {
+      text = (data.text || '').trim();
+    }
+    if (text) {
+      const label = BIBLE_TRANSLATIONS.find(t => t.id === translationId)?.label || translationId.toUpperCase();
+      const copy  = data.copyright ? `<span style="font-size:0.7rem;color:var(--text-muted);display:block;margin-top:4px">${data.copyright.replace(/<[^>]+>/g,'')}</span>` : '';
+      el.innerHTML = `<div class="verse-block-inner">
+        <div class="verse-text">${text}</div>
+        <span class="verse-ref-tag">${data.reference || ref} · ${label}</span>
+        ${copy}
+      </div>`;
+    } else {
+      throw new Error('No text returned');
+    }
+  } catch(e) {
+    el.innerHTML = `<div class="verse-block-inner">
+      <span class="verse-error">Verse unavailable offline — ${ref}</span>
+    </div>`;
+  }
+}
+
+// Parse a scripture string like "Genesis 2:1–3 · Exodus 20:8–11"
+// into individual fetchable references
+function splitRefs(str) {
+  return str.split(/·|;|,\s*(?=[A-Z0-9])/)
+    .map(s => s.trim())
+    .filter(s => s.length > 2 && /\d/.test(s));
+}
+
+// ── Main scripture boxes (intro-level large boxes) ──
+// These have <span class="scripture-ref"> and <p> — replace the <p> text with live verse
+document.querySelectorAll('.scripture').forEach(box => {
+  const refEl = box.querySelector('.scripture-ref');
+  const pEl   = box.querySelector('p');
+  if (!refEl || !pEl) return;
+  const ref = refEl.textContent.trim();
+  const refs = splitRefs(ref);
+  if (!refs.length) return;
+
+  // Replace the paragraph with a verse block
+  const vb = document.createElement('div');
+  vb.className = 'verse-block';
+  vb.dataset.mainRef = refs[0];
+  pEl.replaceWith(vb);
+  renderVerseBlock(vb, refs[0], getCurrentTranslation());
+});
+
+// ── Card scripture lines — click to expand verse ──
+document.querySelectorAll('.card-scripture').forEach(refDiv => {
+  const rawRefs = splitRefs(refDiv.textContent);
+  if (!rawRefs.length) return;
+
+  // Insert a collapsible verse area after the scripture div
+  const area = document.createElement('div');
+  area.className = 'card-verse-area';
+
+  // Build one verse-block per ref
+  rawRefs.forEach(ref => {
+    const vb = document.createElement('div');
+    vb.className = 'verse-block';
+    vb.dataset.ref = ref;
+    vb.dataset.loaded = 'false';
+    area.appendChild(vb);
+  });
+
+  refDiv.after(area);
+
+  refDiv.addEventListener('click', () => {
+    const isOpen = area.classList.toggle('open');
+    refDiv.classList.toggle('open', isOpen);
+    if (isOpen) {
+      const tid = getCurrentTranslation();
+      area.querySelectorAll('.verse-block[data-loaded="false"]').forEach(vb => {
+        vb.dataset.loaded = 'true';
+        renderVerseBlock(vb, vb.dataset.ref, tid);
+      });
+    }
+  });
+});
+
+// ── Tooltip for inline refs in body text ──
+// Wrap patterns like (Gen 2:2) or (Rev 20:1–6) in the card-body text
+const tooltip = document.createElement('div');
+tooltip.className = 'verse-tooltip';
+tooltip.innerHTML = '<span class="verse-tooltip-ref"></span><div class="verse-tooltip-text"></div>';
+document.body.appendChild(tooltip);
+let ttTimer;
+
+function showTooltip(pill, ref) {
+  clearTimeout(ttTimer);
+  const rect = pill.getBoundingClientRect();
+  tooltip.querySelector('.verse-tooltip-ref').textContent = ref;
+  tooltip.querySelector('.verse-tooltip-text').innerHTML =
+    '<span class="verse-tooltip-loading"><span class="verse-spinner"></span>Loading…</span>';
+  tooltip.classList.add('show');
+
+  // Position above or below
+  const spaceAbove = rect.top;
+  const ttH = 120;
+  if (spaceAbove > ttH + 16) {
+    tooltip.style.top  = (rect.top + window.scrollY - ttH - 10) + 'px';
+  } else {
+    tooltip.style.top  = (rect.bottom + window.scrollY + 8) + 'px';
+  }
+  tooltip.style.left = Math.min(rect.left + window.scrollX, window.innerWidth - 360) + 'px';
+
+  fetchVerse(ref, getCurrentTranslation()).then(data => {
+    let vText = '';
+    if (data.verses && data.verses.length > 0) {
+      vText = data.verses.map(v => (v.text || '').trim()).join(' ');
+    } else {
+      vText = (data.text || '').trim();
+    }
+    if (vText) {
+      tooltip.querySelector('.verse-tooltip-text').innerHTML = `<em>${vText}</em>`;
+    } else {
+      tooltip.querySelector('.verse-tooltip-text').textContent = 'Verse unavailable.';
+    }
+  });
+}
+
+function hideTooltip() {
+  ttTimer = setTimeout(() => tooltip.classList.remove('show'), 180);
+}
+
+// Convert inline refs like (Mark 2:27) inside .card-body and .bullet-list and .intro-block
+const INLINE_REF_RE = /\(([1-3]?\s*[A-Z][a-z]+\.?\s+\d+:\d+(?:[–\-]\d+)?)\)/g;
+
+function processInlineRefs(container) {
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+  const replacements = [];
+  let node;
+  while (node = walker.nextNode()) {
+    if (INLINE_REF_RE.test(node.textContent)) {
+      replacements.push(node);
+    }
+  }
+  replacements.forEach(n => {
+    const span = document.createElement('span');
+    span.innerHTML = n.textContent.replace(INLINE_REF_RE, (match, ref) => {
+      return `<span class="ref-pill" data-ref="${ref}">(${ref})</span>`;
+    });
+    n.replaceWith(span);
+  });
+}
+
+document.querySelectorAll('.card-body, .bullet-list li, .intro-block, .church-quote p').forEach(processInlineRefs);
+
+// Attach tooltip events
+document.addEventListener('mouseover', e => {
+  const pill = e.target.closest('.ref-pill');
+  if (pill) showTooltip(pill, pill.dataset.ref);
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('.ref-pill')) hideTooltip();
+});
+document.addEventListener('scroll', () => tooltip.classList.remove('show'), { passive: true });
+</script>
+</body>
+</html>
