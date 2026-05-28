@@ -250,14 +250,6 @@ const LIBRARY = [
         tagClass: "",
         desc: "How media shapes belief, normalises false worship, and prepares the world to accept the mark — the spiritual battle on the airwaves.",
       },
-      {
-        title: "The Sunday Convergence: Leo XIV's Magnifica Humanitas (2026)",
-        file: "Sign_of_the_times/sunday_law_convergence_guide.html",
-        icon: "⚡",
-        tag: "End Times",
-        tagClass: "red",
-        desc: "How Pope Leo XIV's 2026 AI encyclical Magnifica Humanitas extends a 135-year doctrinal chain — from Rerum Novarum (1891) to civil Sunday enforcement. The Heritage Foundation's legislative arm, the language of rest and rhythm embedded in social welfare framing, and Ellen White's prophetic framework applied to the convergence.",
-      },
     ],
   },
   {
@@ -435,6 +427,14 @@ const LIBRARY = [
         tag: "History",
         tagClass: "red",
         desc: "The 1,900-year institutional war on Saturday: every known council, canon, imperial edict, inquisition, and modern law targeting Sabbath observance from 135 AD to 2026.",
+      },
+            {
+        title: "The Sunday Convergence: Leo XIV's Magnifica Humanitas (2026)",
+        file: "Sign_of_the_times/sunday_law_convergence_guide.html",
+        icon: "⚡",
+        tag: "End Times",
+        tagClass: "red",
+        desc: "How Pope Leo XIV's 2026 AI encyclical Magnifica Humanitas extends a 135-year doctrinal chain — from Rerum Novarum (1891) to civil Sunday enforcement. The Heritage Foundation's legislative arm, the language of rest and rhythm embedded in social welfare framing, and Ellen White's prophetic framework applied to the convergence.",
       },
       {
         title: "Sabbath World Infographic",
