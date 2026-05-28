@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sunday Convergence — A Prophetic Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #1a1814;
+    --ink-secondary: #4a4640;
+    --ink-muted: #7a746e;
+    --parchment: #f7f3ed;
+    --parchment-dark: #ede7dd;
+    --parchment-deeper: #e0d8cc;
+    --accent-gold: #b8860b;
+    --accent-gold-light: #d4a520;
+    --accent-crimson: #8b1a1a;
+    --accent-crimson-light: #c0392b;
+    --accent-teal: #1a5c5c;
+    --accent-teal-light: #2a8080;
+    --accent-purple: #4a1e6e;
+    --border-light: rgba(26,24,20,0.12);
+    --border-medium: rgba(26,24,20,0.22);
+    --shadow-sm: 0 2px 8px rgba(26,24,20,0.08);
+    --shadow-md: 0 4px 20px rgba(26,24,20,0.12);
+    --shadow-lg: 0 8px 40px rgba(26,24,20,0.18);
+  }
+
+  [data-theme="dark"] {
+    --ink: #e8e2d8;
+    --ink-secondary: #b8b0a4;
+    --ink-muted: #7a746e;
+    --parchment: #16140f;
+    --parchment-dark: #1f1c15;
+    --parchment-deeper: #252018;
+    --accent-gold: #d4a520;
+    --accent-gold-light: #e8c050;
+    --accent-crimson: #c05050;
+    --accent-crimson-light: #e06060;
+    --accent-teal: #3ab0a0;
+    --accent-teal-light: #55cabb;
+    --accent-purple: #9b70cc;
+    --border-light: rgba(232,226,216,0.1);
+    --border-medium: rgba(232,226,216,0.18);
+  }
+
+  [data-theme="dark"] .chain-dot {
+    background: var(--parchment);
+  }
+  [data-theme="dark"] .quote-block {
+    background: var(--parchment-dark);
+  }
+  [data-theme="dark"] .ref-card {
+    background: var(--parchment-dark);
+  }
+  [data-theme="dark"] .toc {
+    background: var(--parchment-dark);
+  }
+  [data-theme="dark"] .site-footer {
+    background: var(--parchment-deeper);
+  }
+  [data-theme="dark"] .convergence-visual {
+    background: #0d0b08;
+    border: 1px solid var(--border-medium);
+  }
+  [data-theme="dark"] .conv-stream {
+    background: rgba(232,226,216,0.04);
+    border-color: rgba(232,226,216,0.08);
+  }
+  [data-theme="dark"] .heritage {
+    color: #a09890;
+  }
+  [data-theme="dark"] .lang-table td,
+  [data-theme="dark"] .lang-table th {
+    border-color: var(--border-light);
+  }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 100;
+    background: var(--parchment-dark);
+    border: 1px solid var(--border-medium);
+    border-radius: 50px;
+    padding: 6px 14px 6px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-secondary);
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+  }
+  .theme-toggle svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: opacity 0.2s;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: #1a1814;
+    color: #f7f3ed;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent, transparent 40px,
+      rgba(184,134,11,0.04) 40px, rgba(184,134,11,0.04) 41px
+    );
+  }
+  .header-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    color: #f7f3ed;
+  }
+  .header-title em {
+    font-style: italic;
+    color: var(--accent-gold-light);
+  }
+  .header-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(247,243,237,0.65);
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+  }
+  .header-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(247,243,237,0.4);
+    text-transform: uppercase;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .section-body p {
+    margin-bottom: 1rem;
+    color: var(--ink-secondary);
+  }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* ── DOCTRINE CHAIN ── */
+  .chain-wrapper {
+    margin: 2rem 0;
+    position: relative;
+  }
+  .chain-node {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 1.25rem;
+    margin-bottom: 0;
+    position: relative;
+  }
+  .chain-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .chain-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    background: var(--parchment);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .chain-line {
+    width: 2px;
+    flex: 1;
+    min-height: 32px;
+    background: var(--border-medium);
+    margin: 4px 0;
+  }
+  .chain-content {
+    padding-bottom: 2rem;
+  }
+  .chain-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    margin-bottom: 0.2rem;
+  }
+  .chain-doc {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .chain-desc {
+    font-size: 0.9rem;
+    color: var(--ink-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+  }
+
+  .quote-block {
+    background: var(--parchment-dark);
+    border-left: 3px solid currentColor;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .quote-block p {
+    font-size: 0.875rem;
+    font-style: italic;
+    color: var(--ink-secondary);
+    margin: 0;
+    line-height: 1.65;
+  }
+  .quote-block cite {
+    display: block;
+    font-size: 0.78rem;
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin-top: 0.4rem;
+  }
+
+  .tag-pill {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+    margin-right: 6px;
+    margin-top: 4px;
+  }
+
+  /* ── COLOUR KEYS ── */
+  .rerum    { color: var(--accent-gold); }
+  .laudato  { color: var(--accent-teal); }
+  .fratelli { color: var(--accent-purple); }
+  .magnifica { color: var(--accent-crimson); }
+  .heritage { color: #555; }
+
+  /* ── REFERENCE MAP ── */
+  .ref-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .ref-card {
+    background: var(--parchment-dark);
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    border-top: 3px solid currentColor;
+  }
+  .ref-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+  }
+  .ref-card-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .ref-card-body {
+    font-size: 0.83rem;
+    color: var(--ink-secondary);
+    line-height: 1.55;
+  }
+
+  /* ── LANGUAGE ANALYSIS ── */
+  .lang-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+  .lang-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border-medium);
+    text-align: left;
+    font-weight: 500;
+  }
+  .lang-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+    color: var(--ink-secondary);
+    line-height: 1.55;
+  }
+  .lang-table tr:last-child td { border-bottom: none; }
+  .lang-table .term {
+    font-weight: 600;
+    color: var(--ink);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+
+  /* ── CONVERGENCE DIAGRAM ── */
+  .convergence-visual {
+    background: var(--ink);
+    color: var(--parchment);
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .convergence-visual::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 120%, rgba(184,134,11,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .conv-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--accent-gold-light);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+  }
+  .conv-streams {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .conv-stream {
+    background: rgba(247,243,237,0.06);
+    border: 1px solid rgba(247,243,237,0.12);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  .conv-stream-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .conv-stream-label.moral { color: var(--accent-gold-light); }
+  .conv-stream-label.legal { color: #88bbdd; }
+  .conv-step {
+    font-size: 0.8rem;
+    color: rgba(247,243,237,0.75);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(247,243,237,0.07);
+    line-height: 1.5;
+  }
+  .conv-step:last-child { border-bottom: none; }
+  .conv-step strong { color: rgba(247,243,237,0.95); font-weight: 600; }
+  .conv-arrow-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+  }
+  .conv-arrow {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    opacity: 0.7;
+  }
+  .conv-arrow-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(247,243,237,0.4);
+  }
+  .conv-outcome {
+    background: rgba(184,134,11,0.15);
+    border: 1px solid rgba(184,134,11,0.35);
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .conv-outcome-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold-light);
+    margin-bottom: 0.5rem;
+  }
+  .conv-outcome-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(247,243,237,0.9);
+    line-height: 1.5;
+  }
+
+  /* ── ALERT BOX ── */
+  .alert-box {
+    border: 1px solid currentColor;
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+  }
+  .alert-icon {
+    font-size: 1.1rem;
+    margin-top: 1px;
+  }
+  .alert-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--ink-secondary);
+  }
+  .alert-text strong { color: var(--ink); }
+  .alert-prophetic {
+    color: var(--accent-gold);
+    background: rgba(184,134,11,0.06);
+  }
+  .alert-warning {
+    color: var(--accent-crimson);
+    background: rgba(139,26,26,0.06);
+  }
+  .alert-info {
+    color: var(--accent-teal);
+    background: rgba(26,92,92,0.06);
+  }
+
+  /* ── NAV ── */
+  .toc {
+    background: var(--parchment-dark);
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  .toc-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.4rem 1.5rem;
+  }
+  .toc-list li a {
+    font-size: 0.875rem;
+    color: var(--ink-secondary);
+    text-decoration: none;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  .toc-list li a:hover { color: var(--accent-gold); }
+  .toc-list li a::before {
+    content: '§';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--parchment-deeper);
+    border-top: 1px solid var(--border-medium);
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .footer-text {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .footer-text a {
+    color: var(--accent-gold);
+    text-decoration: none;
+  }
+
+  /* ── UTILS ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 2rem 0;
+  }
+  .small-caps {
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+  }
+  .highlight {
+    background: rgba(184,134,11,0.12);
+    padding: 1px 4px;
+    border-radius: 3px;
+  }
+  .footnote-ref {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--accent-gold);
+    vertical-align: super;
+    margin-left: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .conv-streams { grid-template-columns: 1fr; }
+    .ref-map { grid-template-columns: 1fr; }
+    .section-title { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" id="theme-btn">
+  <svg id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg id="icon-sun" viewBox="0 0 24 24" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <span id="theme-label">Dark</span>
+</button>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-eyebrow">Prophetic Analysis — 2026</div>
+  <h1 class="header-title">The <em>Magnifica Humanitas</em> Thread<br>and the Sunday Convergence</h1>
+  <p class="header-subtitle">How a social encyclical on Artificial Intelligence extends a 135-year doctrinal tradition toward civil Sunday enforcement</p>
+  <div class="header-meta">Leo XIV · Vatican · 15 May 2026 &nbsp;|&nbsp; Heritage Foundation · January 2026 &nbsp;|&nbsp; Seventh-day Adventist Perspective</div>
+</header>
+
+<!-- MAIN -->
+<main>
+<div class="container">
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc" aria-label="Contents">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#doctrine-chain">The 135-year doctrinal chain</a></li>
+      <li><a href="#references">All sources cited in Magnifica Humanitas</a></li>
+      <li><a href="#language">The language of rhythm and rest</a></li>
+      <li><a href="#moral-authority">Claim to moral authority over AI</a></li>
+      <li><a href="#heritage">Heritage Foundation: the legal arm</a></li>
+      <li><a href="#convergence">The convergence mechanism</a></li>
+      <li><a href="#egw">Ellen White's framework applied</a></li>
+      <li><a href="#response">Seventh-day Adventist responses</a></li>
+    </ul>
+  </nav>
+
+  <!-- §1 OVERVIEW -->
+  <section class="section" id="overview">
+    <div class="section-label">§1 Overview</div>
+    <h2 class="section-title">What this document is — and what it carries</h2>
+    <div class="section-body">
+      <p><em>Magnifica Humanitas</em> ("The Grandeur of Humanity") is Pope Leo XIV's first encyclical, issued 15 May 2026 — exactly 135 years after Leo XIII's <em>Rerum Novarum</em>. On its surface it is a social doctrine document applying Catholic teaching to Artificial Intelligence, robotics, and digital transformation. It does not mention Sunday worship. It does not call for a day of rest. It makes no explicit liturgical prescriptions.</p>
+      <p>But it does three things that matter enormously in context: it consciously inherits and extends <em>Rerum Novarum</em> (1891), <em>Laudato Si'</em> (2015), and <em>Fratelli Tutti</em> (2020) as a single living tradition. It positions the Church as the only institution with the moral-anthropological foundation to govern AI at a global level. And it embeds the language of rhythm, balance, rest, and family stability in a framework of civil policy obligation.</p>
+      <p>Each of the parent documents it cites contains explicit Sunday rest teaching. The encyclical activates that tradition without restating it — using the secular surface language of "work-life balance" and "family wellbeing" that would be required for any universally applicable civil law.</p>
+
+      <div class="alert-box alert-prophetic">
+        <span class="alert-icon">✦</span>
+        <div class="alert-text"><strong>The prophetic pattern:</strong> Ellen White wrote in <em>Great Controversy</em> (1888) that Sunday legislation would come framed as a social welfare measure — protecting families, public health, and the common good — not as an explicitly religious act. <em>Magnifica Humanitas</em> §169 is a textbook example of exactly this framing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §2 DOCTRINE CHAIN -->
+  <section class="section" id="doctrine-chain">
+    <div class="section-label">§2 The doctrinal chain</div>
+    <h2 class="section-title">135 years of building the same foundation</h2>
+    <div class="section-body">
+      <p>Leo XIV does not invent new doctrine. He explicitly inherits a chain. Understanding what each link contains about rest and Sunday is essential to reading <em>Magnifica Humanitas</em> correctly.</p>
+    </div>
+
+    <div class="chain-wrapper">
+
+      <!-- Node 1: Rerum Novarum -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot rerum"></div>
+          <div class="chain-line"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year rerum">1891</div>
+          <div class="chain-doc rerum">Rerum Novarum — Leo XIII</div>
+          <div class="chain-desc">The founding document of Catholic Social Doctrine. Addresses the condition of workers in the industrial age. Establishes the Church's right to speak into economics, labour law, and the organisation of civil society. Explicitly cited in <em>Magnifica Humanitas</em> as the "Magna Carta" and "lasting paradigm" of social teaching.</div>
+          <div class="quote-block rerum" style="border-color: var(--accent-gold);">
+            <p>"From this follows the obligation of the cessation from work and labor on Sundays and certain holy days... it should be rest from labor, hallowed by religion... a rest sanctioned by God's great law of the Ancient Covenant — 'Remember thou keep holy the Sabbath day.'"</p>
+            <cite>— §41, invoking the fourth commandment as authority for Sunday rest</cite>
+          </div>
+          <span class="tag-pill rerum" style="border-color:var(--accent-gold); color:var(--accent-gold);">Sunday rest as civil obligation</span>
+          <span class="tag-pill rerum" style="border-color:var(--accent-gold); color:var(--accent-gold);">Fourth commandment invoked for Sunday</span>
+          <span class="tag-pill rerum" style="border-color:var(--accent-gold); color:var(--accent-gold);">State must protect workers' souls</span>
+        </div>
+      </div>
+
+      <!-- Node 2: Quadragesimo Anno -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot" style="color:var(--accent-gold); border-color: var(--border-medium);"></div>
+          <div class="chain-line"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year" style="color:var(--ink-muted);">1931</div>
+          <div class="chain-doc" style="color:var(--ink-secondary);">Quadragesimo Anno — Pius XI</div>
+          <div class="chain-desc">40th anniversary of Rerum Novarum. Reinforces the Church's social teaching framework. Adds principle of subsidiarity. Extends the obligation of Sunday rest and religious observance within its treatment of workers' rights. Called <em>Rerum Novarum</em> the "Magna Carta" of social action — language Leo XIV quotes directly.</div>
+        </div>
+      </div>
+
+      <!-- Node 3: Gaudium et Spes -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot" style="color:var(--accent-gold); border-color: var(--border-medium);"></div>
+          <div class="chain-line"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year" style="color:var(--ink-muted);">1965</div>
+          <div class="chain-doc" style="color:var(--ink-secondary);">Gaudium et Spes — Second Vatican Council</div>
+          <div class="chain-desc">The Pastoral Constitution on the Church in the Modern World. Defines the Church's relationship to civil society. Establishes that the Church may not be confined to private religion — it has a right and duty to speak into social institutions. Leo XIV celebrates its 60th anniversary in <em>Magnifica Humanitas</em> and quotes it extensively to justify the Church's intervention in AI governance.</div>
+        </div>
+      </div>
+
+      <!-- Node 4: Centesimus Annus -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot" style="color:var(--accent-gold); border-color: var(--border-medium);"></div>
+          <div class="chain-line"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year" style="color:var(--ink-muted);">1991</div>
+          <div class="chain-doc" style="color:var(--ink-secondary);">Centesimus Annus — John Paul II</div>
+          <div class="chain-desc">100th anniversary of Rerum Novarum. Applies social doctrine to post-communist societies. Calls Rerum Novarum's approach a "lasting paradigm" — language Leo XIV quotes. Explicitly cited in <em>Magnifica Humanitas</em> as foundational to understanding the Church's right to evaluate social-economic structures.</div>
+        </div>
+      </div>
+
+      <!-- Node 5: Dies Domini -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot" style="color:var(--accent-gold); border-color: var(--border-medium);"></div>
+          <div class="chain-line"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year" style="color:var(--ink-muted);">1998</div>
+          <div class="chain-doc" style="color:var(--ink-secondary);">Dies Domini — John Paul II</div>
+          <div class="chain-desc">Apostolic letter devoted entirely to Sunday as "The Lord's Day." The fullest modern Catholic treatment of Sunday observance. Calls Sunday the "fundamental feastday" and laments the erosion of civil Sunday rest laws. Not directly cited in <em>Magnifica Humanitas</em>, but constitutes the liturgical doctrine that underlies the social doctrine chain Leo XIV inherits.</div>
+        </div>
+      </div>
+
+      <!-- Node 6: Laudato Si -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot laudato"></div>
+          <div class="chain-line"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year laudato">2015</div>
+          <div class="chain-doc laudato">Laudato Si' — Francis</div>
+          <div class="chain-desc">On care for creation. Addresses "every person on the planet." Links Sunday rest directly to ecological healing and human flourishing. Introduces the "technocratic paradigm" critique that Leo XIV quotes extensively. Explicitly cited multiple times in <em>Magnifica Humanitas</em>.</div>
+          <div class="quote-block laudato" style="border-color: var(--accent-teal);">
+            <p>"On Sunday, our participation in the Eucharist has special importance. Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world... And so the day of rest, centred on the Eucharist, sheds its light on the whole week, and motivates us to greater concern for nature and the poor."</p>
+            <cite>— §237, addressed universally, linking Sunday to planetary care</cite>
+          </div>
+          <span class="tag-pill laudato" style="border-color:var(--accent-teal); color:var(--accent-teal);">Sunday rest as ecological practice</span>
+          <span class="tag-pill laudato" style="border-color:var(--accent-teal); color:var(--accent-teal);">Universal audience (all humanity)</span>
+          <span class="tag-pill laudato" style="border-color:var(--accent-teal); color:var(--accent-teal);">Eucharist at centre of rest</span>
+        </div>
+      </div>
+
+      <!-- Node 7: Fratelli Tutti -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot fratelli"></div>
+          <div class="chain-line"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year fratelli">2020</div>
+          <div class="chain-doc fratelli">Fratelli Tutti — Francis</div>
+          <div class="chain-desc">On fraternity and social friendship. Post-pandemic vision for global solidarity. No explicit Sunday section, but carries forward the same social-doctrine architecture of the common good, care for the poor, and the Church's role as moral authority for global governance. Explicitly cited in <em>Magnifica Humanitas</em>.</div>
+          <span class="tag-pill fratelli" style="border-color:var(--accent-purple); color:var(--accent-purple);">Church as global moral authority</span>
+          <span class="tag-pill fratelli" style="border-color:var(--accent-purple); color:var(--accent-purple);">Fraternity as policy principle</span>
+        </div>
+      </div>
+
+      <!-- Node 8: Magnifica Humanitas -->
+      <div class="chain-node">
+        <div class="chain-spine">
+          <div class="chain-dot magnifica"></div>
+        </div>
+        <div class="chain-content">
+          <div class="chain-year magnifica">2026</div>
+          <div class="chain-doc magnifica">Magnifica Humanitas — Leo XIV</div>
+          <div class="chain-desc">On Safeguarding the Human Person in the Time of AI. Extends the entire tradition into the digital age. Claims the Church's natural law framework as the only adequate foundation for AI governance. Uses secular language of "rhythm," "balance," and "rest" within a doctrinal corpus that has already filled in what those words mean liturgically.</div>
+          <div class="quote-block magnifica" style="border-color: var(--accent-crimson);">
+            <p>"[M]easures are needed to ensure a healthy way of living, for without a proper balance between work, leisure and rest, families are weakened and young people struggle to develop a sense of responsibility."</p>
+            <cite>— §169, framed as civil policy requirement; inherits the tradition's definition of rest</cite>
+          </div>
+          <span class="tag-pill magnifica" style="border-color:var(--accent-crimson); color:var(--accent-crimson);">Rest as social policy in AI age</span>
+          <span class="tag-pill magnifica" style="border-color:var(--accent-crimson); color:var(--accent-crimson);">Secular framing, doctrinal content</span>
+          <span class="tag-pill magnifica" style="border-color:var(--accent-crimson); color:var(--accent-crimson);">Church claims AI governance role</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- §3 REFERENCES IN MAGNIFICA HUMANITAS -->
+  <section class="section" id="references">
+    <div class="section-label">§3 Source map</div>
+    <h2 class="section-title">Every major source Leo XIV cites — and what each carries</h2>
+    <div class="section-body">
+      <p>Leo XIV does not just appeal to feeling or general Christian values. He cites a specific, traceable corpus. Below are the key sources referenced in <em>Magnifica Humanitas</em> and the significance of each reference in the context of Sunday rest and civil authority.</p>
+    </div>
+
+    <div class="ref-map">
+      <div class="ref-card rerum">
+        <div class="ref-card-title">Rerum Novarum (1891)</div>
+        <div class="ref-card-meta">Leo XIII &nbsp;·&nbsp; Cited 8+ times</div>
+        <div class="ref-card-body">The "Magna Carta" of social teaching. Contains explicit Sunday rest obligation (§41) backed by the fourth commandment. Leo XIV calls it a "lasting paradigm" for how the Church asserts authority over social structures.</div>
+      </div>
+      <div class="ref-card laudato">
+        <div class="ref-card-title">Laudato Si' (2015)</div>
+        <div class="ref-card-meta">Francis &nbsp;·&nbsp; Cited 6+ times</div>
+        <div class="ref-card-body">Contains the "technocratic paradigm" critique and the Sunday-Eucharist ecological healing passage (§237). Leo XIV quotes the paradigm critique extensively to justify Church intervention in AI governance. The Sunday passage travels with the document.</div>
+      </div>
+      <div class="ref-card fratelli">
+        <div class="ref-card-title">Fratelli Tutti (2020)</div>
+        <div class="ref-card-meta">Francis &nbsp;·&nbsp; Cited 4+ times</div>
+        <div class="ref-card-body">Provides the "fraternity" and "social friendship" framework that grounds the Church's claim to moral arbitership of global society — including AI infrastructure and governance.</div>
+      </div>
+      <div class="ref-card" style="color: #555; border-top-color: #888;">
+        <div class="ref-card-title">Gaudium et Spes (1965)</div>
+        <div class="ref-card-meta">Vatican II &nbsp;·&nbsp; Cited 5+ times</div>
+        <div class="ref-card-body">Establishes that "no one can demand religion be relegated to the inner sanctum." Leo XIV uses this to argue the Church must be consulted on AI governance. Its 60th anniversary is commemorated in the document.</div>
+      </div>
+      <div class="ref-card" style="color: #555; border-top-color: #888;">
+        <div class="ref-card-title">Centesimus Annus (1991)</div>
+        <div class="ref-card-meta">John Paul II &nbsp;·&nbsp; Cited 3+ times</div>
+        <div class="ref-card-body">Provides the "lasting paradigm" language Leo XIV applies to Rerum Novarum. Reinforces the Church's method of evaluating and pronouncing on social-economic structures — extended here to AI and digital governance.</div>
+      </div>
+      <div class="ref-card" style="color: #555; border-top-color: #888;">
+        <div class="ref-card-title">Evangelii Gaudium (2013)</div>
+        <div class="ref-card-meta">Francis &nbsp;·&nbsp; Cited 3+ times</div>
+        <div class="ref-card-body">Contains the "time is greater than space" principle Leo XIV quotes — arguing the Church need not control institutions directly, but can initiate and sustain long-term social processes. This is the mechanism by which Sunday rest moves from doctrine to law gradually.</div>
+      </div>
+      <div class="ref-card" style="color: #555; border-top-color: #888;">
+        <div class="ref-card-title">Compendium of Social Doctrine</div>
+        <div class="ref-card-meta">PCJP &nbsp;·&nbsp; Cited as primary reference</div>
+        <div class="ref-card-body">The official synthesis of all Catholic social teaching. Contains explicit teaching on Sunday as the required day of rest for workers and the obligation of civil authorities to protect it. Leo XIV calls it the definitive reference for the principles he is applying.</div>
+      </div>
+      <div class="ref-card" style="color: #555; border-top-color: #888;">
+        <div class="ref-card-title">Augustine, Pascal, C.S. Lewis</div>
+        <div class="ref-card-meta">Philosophical sources &nbsp;·&nbsp; Cited for anthropology</div>
+        <div class="ref-card-body">Used to establish the anthropological claims underlying AI critique — that the human person cannot be reduced to data, productivity, or performance. These are the philosophical pillars of the dignity argument that justifies the Church's governance role.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §4 LANGUAGE ANALYSIS -->
+  <section class="section" id="language">
+    <div class="section-label">§4 Language analysis</div>
+    <h2 class="section-title">The vocabulary of rest: secular surface, doctrinal depth</h2>
+    <div class="section-body">
+      <p><em>Magnifica Humanitas</em> deploys a consistent set of terms that carry a double meaning — accessible to secular policymakers while activating the doctrinal tradition for those who read within it. This is not accidental. It is exactly the rhetorical strategy required to build universal civil consensus for a practice the Church has theologically defined.</p>
+    </div>
+
+    <table class="lang-table">
+      <thead>
+        <tr>
+          <th>Term in document</th>
+          <th>Secular surface meaning</th>
+          <th>Doctrinal content it activates</th>
+          <th>Source in tradition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="term">Rhythm</td>
+          <td>Work-life balance, natural human tempo</td>
+          <td>The Sabbath cycle as God's design for time; Laudato Si' uses "rhythm" directly in the Sabbath rest passage</td>
+          <td>Laudato Si' §237; Rerum Novarum §41</td>
+        </tr>
+        <tr>
+          <td class="term">Balance between work, leisure and rest</td>
+          <td>Mental health policy; burnout prevention</td>
+          <td>The three-part framework maps exactly to the Sabbath institution: labour (six days), leisure (recreation), and sacred rest (Sunday)</td>
+          <td>Magnifica Humanitas §169; Rerum Novarum §41</td>
+        </tr>
+        <tr>
+          <td class="term">Measures are needed</td>
+          <td>Policy recommendation; regulatory language</td>
+          <td>State obligation to enforce rest — the same logic as Rerum Novarum's call for Sunday labour laws</td>
+          <td>Rerum Novarum §41; Magnifica Humanitas §169</td>
+        </tr>
+        <tr>
+          <td class="term">Families are weakened</td>
+          <td>Sociological concern about family breakdown</td>
+          <td>The family is the primary unit for Sabbath observance in Catholic social teaching; "family time" is Sunday time in the tradition</td>
+          <td>Rerum Novarum; Centesimus Annus</td>
+        </tr>
+        <tr>
+          <td class="term">Common good</td>
+          <td>The welfare of all citizens</td>
+          <td>In Catholic social doctrine, the common good includes worship; it cannot be fully achieved without the sacred dimension — which means Sunday observance</td>
+          <td>Gaudium et Spes; Compendium of Social Doctrine</td>
+        </tr>
+        <tr>
+          <td class="term">Technocratic paradigm</td>
+          <td>Critique of tech-driven society</td>
+          <td>In Laudato Si' the technocratic paradigm is specifically linked to the loss of Sabbath rest as healing; the critique implies the remedy</td>
+          <td>Laudato Si' §101–114, §237</td>
+        </tr>
+        <tr>
+          <td class="term">Human dignity cannot be reduced to data</td>
+          <td>Privacy rights; AI ethics</td>
+          <td>The anthropological argument that the human person has a sacred dimension — and that dimension requires sacred time (Sunday)</td>
+          <td>Throughout Chapter 3 of Magnifica Humanitas</td>
+        </tr>
+        <tr>
+          <td class="term">Integral human development</td>
+          <td>Holistic wellbeing (physical, mental, social)</td>
+          <td>In Catholic social teaching this always includes spiritual development — which is defined as Sunday Eucharist; you cannot have "integral" development without the sacred</td>
+          <td>Laudato Si'; Fratelli Tutti; Populorum Progressio</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box alert-info">
+      <span class="alert-icon">◈</span>
+      <div class="alert-text"><strong>Key observation:</strong> Every secular term listed above has been defined in the referenced documents in ways that include Sunday observance as their fulfilment. The secular framing is load-bearing — it must be this way for the argument to be universally applicable. But readers within the tradition understand the full content.</div>
+    </div>
+  </section>
+
+  <!-- §5 MORAL AUTHORITY OVER AI -->
+  <section class="section" id="moral-authority">
+    <div class="section-label">§5 The AI governance claim</div>
+    <h2 class="section-title">Why the Pope claims to be the moral authority over Artificial Intelligence</h2>
+    <div class="section-body">
+      <p>This is perhaps the most significant structural move in <em>Magnifica Humanitas</em>. Leo XIV does not merely comment on AI. He argues that the Church is the only institution equipped to govern it. The argument has four steps:</p>
+
+      <p><strong>1. AI raises anthropological questions, not technical ones.</strong> The central question of AI governance — what is the human person, and what may not be reduced to data and performance? — is a question that philosophy and social science cannot answer alone. It requires a metaphysical foundation. The Church claims to possess that foundation in its doctrine of the imago Dei.</p>
+
+      <p><strong>2. All other institutions are disqualified.</strong> States are too small and too captured by tech interests. Private corporations are structurally incapable of prioritising dignity over profit. International bodies lack the moral framework. Only the Church has the global reach, the historical continuity, and the anthropological tradition to provide governance principles.</p>
+
+      <p><strong>3. The Church's social doctrine is the template.</strong> Leo XIV argues that the principles of Catholic social teaching — human dignity, common good, subsidiarity, solidarity, social justice — are not merely religious opinions. They are universal moral truths discoverable by reason, and as such must form the basis of any adequate AI governance framework. Those who do not adopt this framework are operating on an inadequate foundation.</p>
+
+      <p><strong>4. The Church has the right to intervene in civil structures.</strong> Quoting Gaudium et Spes and Evangelii Gaudium, Leo XIV reasserts that no one may demand religion remain private. The Church not only may, but must speak into the governance of technologies that shape human life — including how time, labour, and rest are organised in the digital economy.</p>
+    </div>
+
+    <div class="alert-box alert-warning">
+      <span class="alert-icon">▲</span>
+      <div class="alert-text"><strong>The governance implication:</strong> If AI systems, workplace platforms, and digital economies are built on principles the Church helped define — and those principles include the "proper balance of work, leisure and rest" inherited from a tradition that defines Sunday as the sacred anchor of that rest — then the Church's influence over how rest is encoded into the AI age is structural, not ceremonial. It does not require a decree. It is embedded in the framework.</div>
+    </div>
+  </section>
+
+  <!-- §6 HERITAGE FOUNDATION -->
+  <section class="section" id="heritage">
+    <div class="section-label">§6 The legal arm</div>
+    <h2 class="section-title">Heritage Foundation: moral framework + legal mechanism</h2>
+    <div class="section-body">
+      <p>On 8 January 2026 — four months before <em>Magnifica Humanitas</em> — the Heritage Foundation released <em>"Saving America by Saving the Family: A Foundation for the Next 250 Years."</em> Authored by Roger Severino, Jay W. Richards, and others, the document frames itself as a "culture-wide Manhattan Project" to reverse demographic collapse.</p>
+
+      <p>Its most controversial proposal calls for the restoration of Sunday blue laws — a "uniform day of rest" enforced at the state and municipal level. The authors explicitly prioritise uniformity over worker flexibility, arguing that a synchronised community pause is necessary to address "spiritual homelessness."</p>
+    </div>
+
+    <div class="ref-card" style="color: var(--accent-crimson); border-top-color: var(--accent-crimson); margin: 1.5rem 0; max-width: 100%;">
+      <div class="ref-card-title" style="font-size: 1rem;">Heritage Foundation, January 2026</div>
+      <div class="ref-card-meta">Saving America by Saving the Family</div>
+      <div class="ref-card-body" style="font-size: 0.9rem;">
+        <p style="margin-bottom: 0.6rem;">"A uniform day of rest that limits commercial activity can provide temporal boundaries that help communities to set aside time for <strong>religious observance, family gatherings, outdoor activities, and rest.</strong>" — Page 38</p>
+        <p style="margin-bottom: 0.6rem;">The proposal explicitly cites the 1961 Supreme Court case <em>McGowan v. Maryland</em>, which upheld Sunday laws framed as secular rest measures. It proposes enforcement through state and municipal level blue laws, not federal legislation.</p>
+        <p>"Where new, planned communities or transitioning communities form, they should consider adding rest days as part of their master plans." — Page 39</p>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <p>The Seventh-day Adventist North American Division responded formally on 18 January 2026, calling the proposal "a disturbing disregard for the religious freedom of all Americans" and noting that it creates structural economic disadvantage for Saturday Sabbath observers — who would now lose two days of commercial activity instead of one.</p>
+
+      <p>What makes the Heritage Foundation document significant is not its power to legislate. It is significant because it provides <span class="highlight">the legal and policy framework</span> that translates the Church's moral arguments into enforceable civil law — exactly the mechanism described in prophetic literature.</p>
+    </div>
+
+    <table class="lang-table">
+      <thead>
+        <tr>
+          <th>Heritage Foundation argument</th>
+          <th>Vatican parallel</th>
+          <th>Prophetic significance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"Spiritual homelessness" damages society</td>
+          <td>Magnifica Humanitas: moral crisis requires Church-framed remedy</td>
+          <td>Both identify a spiritual deficit as justification for civil action</td>
+        </tr>
+        <tr>
+          <td>"Uniform day" — not "any day chosen by worker"</td>
+          <td>Laudato Si' §237: Sunday specifically, centred on the Eucharist</td>
+          <td>Uniformity is the essential mark of a Sunday law — individual choice would not serve the goal</td>
+        </tr>
+        <tr>
+          <td>Framed as secular (family, health, community)</td>
+          <td>Magnifica Humanitas §169: "balance between work, leisure and rest"</td>
+          <td>Both use secular language to make religious practice universally applicable — the Great Controversy pattern exactly</td>
+        </tr>
+        <tr>
+          <td>Cites McGowan v. Maryland (1961): secular framing upholds Sunday law</td>
+          <td>Rerum Novarum: State must enforce Sunday rest for workers' welfare</td>
+          <td>The legal precedent already exists to enforce Sunday as a civil rather than religious institution</td>
+        </tr>
+        <tr>
+          <td>Encoded into community master plans and zoning</td>
+          <td>Magnifica Humanitas: AI and digital infrastructure must reflect dignity principles</td>
+          <td>Sunday rest could be encoded structurally — into work platforms, scheduling systems, commerce infrastructure — without a single explicit law</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- §7 CONVERGENCE -->
+  <section class="section" id="convergence">
+    <div class="section-label">§7 The mechanism</div>
+    <h2 class="section-title">How the two streams converge</h2>
+    <div class="section-body">
+      <p>The prophetic concern is not about a single dramatic decree. It is about two independent streams — one moral, one legal — flowing toward the same conclusion through different channels. Neither stream requires the other to proceed. Their convergence is the event.</p>
+    </div>
+
+    <div class="convergence-visual">
+      <div class="conv-title">The Two-Stream Convergence Model</div>
+      <div class="conv-streams">
+        <div class="conv-stream">
+          <div class="conv-stream-label moral">Moral Stream — Vatican</div>
+          <div class="conv-step"><strong>1891</strong> Rerum Novarum establishes Sunday rest as a State-enforceable civil obligation</div>
+          <div class="conv-step"><strong>1965</strong> Gaudium et Spes: Church cannot be confined to private religion</div>
+          <div class="conv-step"><strong>1998</strong> Dies Domini: Sunday is "the Lord of days" — civil rest must be protected</div>
+          <div class="conv-step"><strong>2015</strong> Laudato Si': Sunday rest as universal ecological-spiritual healing, addressed to all humanity</div>
+          <div class="conv-step"><strong>2020</strong> Fratelli Tutti: Church as moral authority for global fraternal governance</div>
+          <div class="conv-step"><strong>2026</strong> Magnifica Humanitas: Church claims AI governance authority; §169 encodes rest obligation in secular policy language</div>
+        </div>
+        <div class="conv-stream">
+          <div class="conv-stream-label legal">Legal Stream — Political</div>
+          <div class="conv-step"><strong>321 AD</strong> Constantine: first civil Sunday law framed as civic rest, not religious observance</div>
+          <div class="conv-step"><strong>1961</strong> McGowan v. Maryland: US Supreme Court upholds Sunday laws as secular rest measures</div>
+          <div class="conv-step"><strong>2023–24</strong> EU Sunday trading debates; growing "right to disconnect" legislation across Europe</div>
+          <div class="conv-step"><strong>Jan 2026</strong> Heritage Foundation calls for "uniform day of rest" on Sunday — framed as family and community welfare</div>
+          <div class="conv-step"><strong>2026+</strong> State and municipal blue law restoration efforts anticipated</div>
+          <div class="conv-step"><strong>Near term</strong> AI workplace platforms, scheduling systems potentially encoding Sunday rest structurally</div>
+        </div>
+      </div>
+      <div class="conv-arrow-row">
+        <div class="conv-arrow-label">Both streams converge on</div>
+        <div class="conv-arrow">↓</div>
+        <div class="conv-arrow-label">a single institution</div>
+      </div>
+      <div class="conv-outcome">
+        <div class="conv-outcome-label">Point of convergence</div>
+        <div class="conv-outcome-text">Universal civil enforcement of Sunday as the designated day of rest — with the Vatican providing the moral-anthropological foundation and secular conservatism providing the legal-political mechanism. Neither needs to acknowledge the other for the outcome to occur.</div>
+      </div>
+    </div>
+
+    <div class="alert-box alert-prophetic">
+      <span class="alert-icon">✦</span>
+      <div class="alert-text"><strong>The AI dimension:</strong> Leo XIV's document is specifically about AI governance. The digital economy increasingly controls when people work, when commerce happens, and how time is structured. If the moral framework shaping AI governance includes the principle that "a proper balance between work, leisure and rest" must be protected by civil measures — and if that principle is inherited from a tradition that defines rest as Sunday Eucharist — then Sunday rest could be encoded structurally into the digital infrastructure of society without a single explicit Sunday law being passed.</div>
+    </div>
+  </section>
+
+  <!-- §8 EGW -->
+  <section class="section" id="egw">
+    <div class="section-label">§8 Prophetic framework</div>
+    <h2 class="section-title">Ellen White's framework applied to current events</h2>
+    <div class="section-body">
+      <p>Ellen White's analysis in <em>The Great Controversy</em> (1888, revised 1911) and <em>Testimonies</em> was not that Sunday enforcement would come through an overtly religious declaration. It was that it would come through the convergence of three forces, each operating through secular or socially acceptable language.</p>
+    </div>
+
+    <table class="lang-table">
+      <thead>
+        <tr>
+          <th>EGW prophetic element</th>
+          <th>Current fulfilment</th>
+          <th>Document / event</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"Protestantism shall stretch its hand across the gulf to grasp the hand of Rome"</td>
+          <td>Heritage Foundation (evangelical/conservative Protestant) adopts Vatican-style Sunday rest proposal using identical secular framing</td>
+          <td>Heritage Foundation, Jan 2026; Magnifica Humanitas, May 2026</td>
+        </tr>
+        <tr>
+          <td>Sunday laws framed as social welfare, not religion</td>
+          <td>"Uniform day of rest" for family, community, and health — not explicitly for worship</td>
+          <td>Heritage Foundation §38–39; Magnifica Humanitas §169</td>
+        </tr>
+        <tr>
+          <td>Natural disasters / social crises used as justification</td>
+          <td>Demographic collapse, AI disruption, digital alienation, family breakdown — all cited as crises requiring the rest remedy</td>
+          <td>Both documents; also Laudato Si' environmental crisis framing</td>
+        </tr>
+        <tr>
+          <td>The papacy claims moral authority over civil government</td>
+          <td>Leo XIV argues only the Church's framework can adequately govern AI; cites the Church's right to pronounce on social structures (Gaudium et Spes)</td>
+          <td>Magnifica Humanitas Chapters 1–3</td>
+        </tr>
+        <tr>
+          <td>The image of the beast — Protestant America enforcing Sunday</td>
+          <td>Heritage Foundation, a Protestant-aligned conservative institution with demonstrated legislative influence (Project 2025 &gt;50% implemented), calls for Sunday law enforcement through state and municipal structures</td>
+          <td>Heritage Foundation "Saving America by Saving the Family" (Jan 2026)</td>
+        </tr>
+        <tr>
+          <td>"Time is greater than space" — the process, not the position</td>
+          <td>Leo XIV explicitly cites Francis's "time is greater than space" principle to describe how truth advances through long processes, not institutional occupation — precisely the mechanism of gradual Sunday law normalisation</td>
+          <td>Magnifica Humanitas §25; Evangelii Gaudium §222</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box alert-prophetic">
+      <span class="alert-icon">✦</span>
+      <div class="alert-text"><strong>Note on calibration:</strong> These observations track the convergence of documented institutional trajectories, not claims of conspiracy. Neither the Vatican nor the Heritage Foundation needs to be aware of the prophetic framework for the outcome it describes to occur. The mechanism is structural, not conspiratorial. Seventh-day Adventists are not called to alarm or sensationalism, but to the clear-eyed watchfulness that a living understanding of prophecy requires.</div>
+    </div>
+  </section>
+
+  <!-- §9 SDA RESPONSES -->
+  <section class="section" id="response">
+    <div class="section-label">§9 The Adventist response</div>
+    <h2 class="section-title">What the church has said, and what it means</h2>
+    <div class="section-body">
+      <p>The Seventh-day Adventist North American Division responded to the Heritage Foundation proposal on 18 January 2026 — before <em>Magnifica Humanitas</em> was issued. Their statement is notable for what it identifies about the mechanism:</p>
+    </div>
+
+    <div class="quote-block" style="border-color: var(--accent-teal); color: var(--accent-teal); margin: 1.5rem 0;">
+      <p>"Adventists have always understood these laws — whether at a local, state, or federal level — as attempts to compel conscience, even when they are defended on pretextual secular grounds such as promoting the health of communities and families... This new proposal for a 'uniform day of rest' is irreconcilable with America's rich heritage of protecting the religious freedom of all its citizens."</p>
+      <cite>— NAD Statement, 18 January 2026</cite>
+    </div>
+
+    <div class="quote-block" style="border-color: var(--accent-teal); color: var(--accent-teal); margin: 1.5rem 0;">
+      <p>"God has blessed this church with a prophetic message that involves this very issue at the end of time (Revelation 13 and 14). We believe that even well-intentioned Sunday legislation crosses a line when the state begins to regulate what belongs to God alone — time set apart as a holy day of worship."</p>
+      <cite>— Bermuda Conference of Seventh-day Adventists, February 2026</cite>
+    </div>
+
+    <div class="section-body">
+      <p>The NAD statement correctly identifies the pattern that runs through both the Heritage Foundation document and, through its parent tradition, through <em>Magnifica Humanitas</em>: the secular framing is not the content. The content is the compulsion of conscience — the State deciding which day is sacred time.</p>
+
+      <p>The church's response should be grounded in three convictions: first, that the Seventh-day Sabbath is God's seal in time — not a tradition but a creation-ordinance written before sin. Second, that religious liberty is inseparable from the Sabbath question, because the moment the State begins to regulate sacred time, it has crossed into the territory that belongs to God alone. Third, that the prophetic framework does not call for fear but for clarity — these developments do not take the remnant by surprise, but confirm the trajectory the Spirit revealed and call for deeper Sabbath conviction, not less.</p>
+    </div>
+
+    <div class="alert-box alert-info">
+      <span class="alert-icon">◈</span>
+      <div class="alert-text"><strong>Practical implication:</strong> The significance of these documents for Seventh-day Adventists is not primarily political. It is personal and congregational. The question each member must answer is whether their Sabbath observance is deep enough, grounded enough, and joyful enough to stand when external pressure — social, economic, and potentially legal — is applied. Formalism will not hold. Only a living relationship with the Creator and his seal in time will.</div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p class="footer-text">
+    This analysis is produced from primary sources: the full text of <em>Magnifica Humanitas</em> (Vatican, 15 May 2026); <em>Rerum Novarum</em>, <em>Laudato Si'</em>, and <em>Fratelli Tutti</em>; the Heritage Foundation's <em>"Saving America by Saving the Family"</em> (January 2026); and statements from the North American Division and Bermuda Conference of Seventh-day Adventists. All quotations are drawn from official published texts. This document is for study and discernment purposes, produced within a Seventh-day Adventist theological framework informed by <em>The Great Controversy</em>.
+  </p>
+</footer>
+
+<script>
+  const html = document.documentElement;
+  const moon = document.getElementById('icon-moon');
+  const sun = document.getElementById('icon-sun');
+  const label = document.getElementById('theme-label');
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (saved === 'dark' || (!saved && prefersDark)) {
+    html.setAttribute('data-theme', 'dark');
+    moon.style.display = 'none';
+    sun.style.display = 'block';
+    label.textContent = 'Light';
+  }
+
+  function toggleTheme() {
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+      html.removeAttribute('data-theme');
+      moon.style.display = 'block';
+      sun.style.display = 'none';
+      label.textContent = 'Dark';
+      localStorage.setItem('theme', 'light');
+    } else {
+      html.setAttribute('data-theme', 'dark');
+      moon.style.display = 'none';
+      sun.style.display = 'block';
+      label.textContent = 'Light';
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+</script>
+</body>
+</html>

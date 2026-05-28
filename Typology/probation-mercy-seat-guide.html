@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Close of Probation — A Biblical Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:       #C8A84B;
+    --gold-light: #E8C96A;
+    --gold-dark:  #8B6A1F;
+    --crimson:    #8B1A1A;
+    --crimson-light: #B22222;
+    --ink:        #0D0A06;
+    --parchment:  #F4EDD8;
+    --parchment-dark: #E8D9B8;
+    --parchment-mid:  #EFE4C8;
+    --text-body:  #2A1F0E;
+    --text-muted: #6B5535;
+    --text-faint: #9E835A;
+    --border:     rgba(200, 168, 75, 0.3);
+    --border-strong: rgba(200, 168, 75, 0.6);
+    --seal-blue:  #1A3A5C;
+    --seal-blue-light: #2A5A8C;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--ink);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 0%, #1a1208 0%, transparent 70%),
+      url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    min-height: 100vh;
+    line-height: 1.8;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    text-align: center;
+    padding: 5rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,168,75,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-ornament {
+    font-size: 1.2rem;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+  .hero h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.2;
+    text-shadow: 0 0 60px rgba(200,168,75,0.3), 0 2px 4px rgba(0,0,0,0.6);
+    margin-bottom: 0.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-faint);
+    margin-top: 1rem;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .hero-rule {
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 2rem auto;
+    position: relative;
+  }
+  .hero-rule::before {
+    content: '✦';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--gold);
+    font-size: 0.85rem;
+    background: var(--ink);
+    padding: 0 0.5rem;
+  }
+
+  /* ─── NAVIGATION / FILTERS ─── */
+  .nav-bar {
+    background: rgba(13,10,6,0.9);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+  }
+  .filter-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-faint);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .filter-btn.active {
+    background: var(--gold-dark);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ─── INTRO / THEOLOGICAL OVERVIEW ─── */
+  .intro-section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem 1rem;
+  }
+  .intro-section p {
+    font-size: 1.1rem;
+    color: var(--parchment-dark);
+    margin-bottom: 1.2rem;
+    text-align: justify;
+  }
+  .intro-section p:first-child::first-letter {
+    float: left;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4rem;
+    line-height: 0.85;
+    margin-right: 0.1em;
+    margin-top: 0.05em;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(200,168,75,0.4);
+  }
+
+  /* ─── THEME SECTION ─── */
+  .theme-section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  .theme-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .theme-icon {
+    width: 48px; height: 48px;
+    border: 1px solid var(--gold-dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    background: rgba(200,168,75,0.05);
+    flex-shrink: 0;
+  }
+  .theme-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .theme-header p {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  /* ─── VERSE CARDS ─── */
+  .verse-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .verse-card {
+    background: rgba(20,15,8,0.8);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold-dark);
+    padding: 0;
+    position: relative;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+  .verse-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, var(--gold-dark), transparent);
+  }
+  .verse-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(200,168,75,0.08), inset 0 0 30px rgba(200,168,75,0.02);
+  }
+  .verse-card.nt { border-left-color: var(--seal-blue-light); }
+  .verse-card.nt::before { background: linear-gradient(to right, var(--seal-blue-light), transparent); }
+
+  .card-header {
+    padding: 1rem 1.25rem 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    user-select: none;
+  }
+  .card-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border: 1px solid;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .verse-card.ot .card-ref { color: var(--gold); border-color: var(--gold-dark); background: rgba(200,168,75,0.07); }
+  .verse-card.nt .card-ref { color: #7AAFD4; border-color: var(--seal-blue-light); background: rgba(42,90,140,0.12); }
+
+  .card-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--parchment);
+    line-height: 1.4;
+    flex: 1;
+  }
+  .card-toggle {
+    color: var(--text-faint);
+    font-size: 0.75rem;
+    margin-left: auto;
+    flex-shrink: 0;
+    padding-top: 4px;
+    transition: transform 0.25s;
+  }
+  .verse-card.open .card-toggle { transform: rotate(180deg); color: var(--gold); }
+
+  .card-body {
+    display: none;
+    padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid rgba(200,168,75,0.1);
+    margin-top: 0;
+    padding-top: 1rem;
+  }
+  .verse-card.open .card-body { display: block; }
+
+  .verse-text {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--parchment-dark);
+    line-height: 1.9;
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--gold-dark);
+    background: rgba(200,168,75,0.04);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .verse-card.nt .verse-text { border-left-color: var(--seal-blue-light); background: rgba(42,90,140,0.06); }
+  .verse-text::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.2rem; left: 0.5rem;
+    font-size: 3rem;
+    color: var(--gold-dark);
+    opacity: 0.4;
+    font-family: 'EB Garamond', serif;
+    line-height: 1;
+  }
+  .verse-card.nt .verse-text::before { color: var(--seal-blue-light); }
+
+  .commentary {
+    font-size: 0.97rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    padding-left: 0.5rem;
+  }
+  .commentary strong { color: var(--parchment-dark); font-weight: 500; }
+
+  /* ─── SECTION DIVIDER ─── */
+  .section-divider {
+    text-align: center;
+    padding: 1.5rem 0 0.5rem;
+    position: relative;
+  }
+  .section-divider::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-strong), transparent);
+    margin-bottom: 1.5rem;
+  }
+  .divider-label {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    padding: 0 1rem;
+    position: relative;
+  }
+
+  /* ─── THEOLOGICAL SUMMARY BOX ─── */
+  .summary-box {
+    max-width: 760px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  .summary-inner {
+    border: 1px solid var(--border-strong);
+    padding: 2rem 2.25rem;
+    background: rgba(200,168,75,0.03);
+    position: relative;
+  }
+  .summary-inner::before, .summary-inner::after {
+    content: '✦ ✦ ✦';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold-dark);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    background: var(--ink);
+    padding: 0 1rem;
+  }
+  .summary-inner::before { top: -0.6rem; }
+  .summary-inner::after { bottom: -0.6rem; }
+  .summary-inner h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .summary-inner p {
+    color: var(--parchment-dark);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+  .summary-inner p:last-child { margin-bottom: 0; }
+
+  /* ─── KEY VERSE HIGHLIGHT ─── */
+  .key-verse {
+    background: linear-gradient(135deg, rgba(139,26,26,0.1) 0%, rgba(200,168,75,0.05) 100%);
+    border: 1px solid rgba(139,26,26,0.3);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    position: relative;
+    text-align: center;
+  }
+  .key-verse .kv-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--crimson-light);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .key-verse blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--parchment);
+    line-height: 1.8;
+  }
+  .key-verse .kv-note {
+    font-size: 0.9rem;
+    color: var(--text-faint);
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+
+  /* ─── PATTERN CHART ─── */
+  .pattern-section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  .pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .pattern-card {
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    background: rgba(20,15,8,0.6);
+    position: relative;
+    overflow: hidden;
+  }
+  .pattern-card::after {
+    content: attr(data-num);
+    position: absolute;
+    bottom: -0.5rem; right: 0.5rem;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4rem;
+    color: rgba(200,168,75,0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .pattern-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .pattern-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; }
+  .pattern-card .examples {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    font-style: italic;
+  }
+
+  /* ─── TIMELINE ─── */
+  .timeline-section {
+    max-width: 760px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+    border-left: 1px solid var(--border-strong);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 0.45rem;
+    width: 10px; height: 10px;
+    border: 1px solid var(--gold);
+    background: var(--ink);
+    transform: rotate(45deg);
+  }
+  .timeline-item.nt::before { border-color: var(--seal-blue-light); }
+  .tl-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+  .timeline-item.nt .tl-ref { color: #7AAFD4; }
+  .tl-text {
+    font-size: 0.97rem;
+    font-style: italic;
+    color: var(--parchment-dark);
+    line-height: 1.7;
+  }
+  .tl-note {
+    font-size: 0.85rem;
+    color: var(--text-faint);
+    margin-top: 0.4rem;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    padding: 3rem 2rem 4rem;
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+  .footer p {
+    font-size: 0.85rem;
+    color: var(--text-faint);
+    font-style: italic;
+  }
+  .footer .footer-ornament {
+    font-size: 1rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.5em;
+    margin-bottom: 1rem;
+  }
+
+  /* ─── COUNT BADGE ─── */
+  .count-badge {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .count-badge span { color: var(--gold); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero { animation: fadeInUp 0.8s ease both; }
+  .intro-section { animation: fadeInUp 0.8s 0.1s ease both; }
+
+  /* ─── SEARCH ─── */
+  .search-wrap {
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+    padding: 0 2rem;
+  }
+  .search-input {
+    width: 100%;
+    background: rgba(20,15,8,0.9);
+    border: 1px solid var(--border);
+    color: var(--parchment);
+    font-family: 'EB Garamond', serif;
+    font-size: 1rem;
+    padding: 8px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-input::placeholder { color: var(--text-faint); font-style: italic; }
+  .search-input:focus { border-color: var(--gold); }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .section-rule {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+    margin: 0 auto 2rem;
+  }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.6rem; }
+    .theme-section, .pattern-section, .timeline-section, .summary-box, .intro-section { padding: 0 1rem; }
+    .nav-bar { padding: 0.75rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-ornament">A Biblical Study</div>
+  <h1>The Close of Probation</h1>
+  <p class="hero-subtitle">Every Scripture witness to the sealing of mercy — when the door shuts, the harvest is reaped, and God's Spirit ceases to strive</p>
+  <div class="hero-rule"></div>
+</header>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav-bar">
+  <span class="nav-label">Filter:</span>
+  <button class="filter-btn active" data-filter="all">All Passages</button>
+  <button class="filter-btn" data-filter="ot">Old Testament</button>
+  <button class="filter-btn" data-filter="nt">New Testament</button>
+  <button class="filter-btn" data-filter="door">Door / Excluded</button>
+  <button class="filter-btn" data-filter="spirit">Spirit Withdrawn</button>
+  <button class="filter-btn" data-filter="flood">Flood Type</button>
+  <button class="filter-btn" data-filter="harvest">Harvest / Reaping</button>
+  <button class="filter-btn" data-filter="sanctuary">Sanctuary Closing</button>
+</nav>
+
+<!-- ═══ INTRODUCTION ═══ -->
+<section class="intro-section">
+  <p>Scripture teaches, with remarkable consistency from Genesis to Revelation, that God's mercy — though vast and long-suffering — operates within a defined probationary window. A moment arrives when the door is shut, the intercession at the heavenly altar ends, the sealing is complete, and the harvest is reaped as it was planted. This is not a peripheral doctrine but a theme woven into the very architecture of redemption history.</p>
+  <p>This guide collects every major passage — from Noah's ark to the final decree of Revelation 22 — organizing them by the five biblical metaphors through which the Spirit reveals this truth: <em>the closing door, the withdrawn Spirit, the flood type, the harvest, and the sanctuary ceasing its intercession.</em></p>
+</section>
+
+<!-- ═══ KEY VERSE HIGHLIGHT ═══ -->
+<div class="summary-box" style="margin-top:1rem;">
+  <div class="key-verse">
+    <div class="kv-ref">Revelation 22:11 — The Final Decree</div>
+    <blockquote>"He who is unjust, let him be unjust still; he who is filthy, let him be filthy still; he who is righteous, let him be righteous still; he who is holy, let him be holy still."</blockquote>
+    <div class="kv-note">Characters are fixed. Probation has fully and finally closed. Verse 12 follows immediately: "Behold, I am coming quickly, and My reward is with Me."</div>
+  </div>
+</div>
+
+<!-- ═══ FIVE PATTERNS OVERVIEW ═══ -->
+<section class="pattern-section">
+  <div class="section-h2">Five Biblical Patterns</div>
+  <div class="section-rule"></div>
+  <div class="pattern-grid">
+    <div class="pattern-card" data-num="I">
+      <h4>🚪 The Closing Door</h4>
+      <p>The most direct image. A door stands open during probation; it is shut at its close. Those outside knock, but it does not open again.</p>
+      <div class="examples">Noah's ark · Ten virgins · Luke 13 · Proverbs 1</div>
+    </div>
+    <div class="pattern-card" data-num="II">
+      <h4>🕊 The Spirit Withdrawn</h4>
+      <p>God's Spirit strives with humanity but does not do so forever. When the Spirit is "given over," divine restraint ends and the person is abandoned to their choice.</p>
+      <div class="examples">Gen 6:3 · Hosea 4:17 · Romans 1 · Hebrews 6</div>
+    </div>
+    <div class="pattern-card" data-num="III">
+      <h4>🌊 The Flood Type</h4>
+      <p>Noah's flood is the primary OT type of final judgment. God's long-suffering waited throughout the preaching period; then He shut the door and sent the rain.</p>
+      <div class="examples">Gen 7:16 · 1 Peter 3:19–20 · Matt 24:37–39</div>
+    </div>
+    <div class="pattern-card" data-num="IV">
+      <h4>🌾 The Harvest Reaped</h4>
+      <p>Harvest imagery presupposes a fixed sowing season. Once the harvest comes, grain is what it is — there is no more growing time, no second chance to be planted differently.</p>
+      <div class="examples">Rev 14:14–16 · Galatians 6 · Daniel 12 · Amos 8</div>
+    </div>
+    <div class="pattern-card" data-num="V">
+      <h4>🏛 The Sanctuary Closes</h4>
+      <p>The heavenly sanctuary model shows intercession ending: the censer is cast down, the temple fills with smoke, no one can enter until the seven plagues are complete.</p>
+      <div class="examples">Rev 8:3–5 · Rev 15:5–8 · Daniel 12:1 · Ezekiel 9</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PASSAGE COLLECTION ═══ -->
+<section class="theme-section">
+  <div class="section-h2">All Passages</div>
+  <div class="section-rule"></div>
+
+  <div class="search-wrap">
+    <input class="search-input" type="text" id="searchInput" placeholder="Search reference or keyword…">
+  </div>
+  <div class="count-badge" id="countBadge"></div>
+
+  <div class="verse-grid" id="verseGrid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- ═══ THEOLOGICAL SUMMARY ═══ -->
+<section class="summary-box" style="margin-top:4rem;">
+  <div class="summary-inner">
+    <h3>Theological Summary</h3>
+    <p>The doctrine of a close of probation is not derived from a single proof-text but emerges from the convergence of five distinct biblical metaphors across both testaments. The ark door shut by God's own hand (Genesis 7:16), the declaration "I never knew you — depart" (Matthew 7:23), the foolish virgins finding the door shut (Matthew 25:12), and the heavenly temple inaccessible during the plagues (Revelation 15:8) all testify to the same reality: God's mercy, though abundant, has an end point.</p>
+    <p>This is not a doctrine of arbitrary divine cruelty but of the logic of genuine freedom. A choice that cannot be finally fixed is no choice at all. Probation closes because God respects the creature's persistent rejection — "God gave them over" (Romans 1) is a judicial act that honours the will's finality. The terrifying passages in Hebrews 6 and 10 apply this personally: the individual who fully and finally rejects the Spirit after complete illumination finds repentance itself impossible — not because God withholds it, but because the very capacity has been wilfully extinguished.</p>
+    <p>The urgent call of Scripture is therefore "seek the LORD while He may be found" (Isaiah 55:6), "today, if you hear His voice, do not harden your hearts" (Hebrews 3:7), and "walk while you have the light" (John 12:35) — before the night comes in which no man can work.</p>
+  </div>
+</section>
+
+<!-- ═══ SEQUENCE TIMELINE ═══ -->
+<section class="timeline-section">
+  <div class="section-h2">The Closing Sequence in Revelation</div>
+  <div class="section-rule"></div>
+  <div class="timeline">
+    <div class="timeline-item nt">
+      <div class="tl-ref">Revelation 3:20</div>
+      <div class="tl-text">"Behold, I stand at the door and knock…" — Christ's final appeal to Laodicea. The door is still open; He is still on the outside, pleading.</div>
+    </div>
+    <div class="timeline-item nt">
+      <div class="tl-ref">Revelation 7:1–3</div>
+      <div class="tl-text">The four winds held back while God's servants are sealed. <strong>Sealing work in progress.</strong></div>
+    </div>
+    <div class="timeline-item nt">
+      <div class="tl-ref">Revelation 8:3–5</div>
+      <div class="tl-text">The angel with the golden censer offers incense with the prayers of the saints before the altar — then casts the censer down to earth. <strong>Intercession transitions to judgment.</strong></div>
+    </div>
+    <div class="timeline-item nt">
+      <div class="tl-ref">Revelation 14:6–7</div>
+      <div class="tl-text">The First Angel proclaims the everlasting gospel to every nation: "the hour of His judgment has come." <strong>Final worldwide probationary call.</strong></div>
+    </div>
+    <div class="timeline-item nt">
+      <div class="tl-ref">Revelation 14:14–16</div>
+      <div class="tl-text">The Son of Man on the cloud thrusts in His sickle — "the harvest of the earth is fully ripe." <strong>Harvest complete; probation has ended.</strong></div>
+    </div>
+    <div class="timeline-item nt">
+      <div class="tl-ref">Revelation 15:5–8</div>
+      <div class="tl-text">"No one was able to enter the temple till the seven plagues of the seven angels were completed." <strong>The sanctuary is inaccessible — intercession formally closed.</strong></div>
+    </div>
+    <div class="timeline-item nt">
+      <div class="tl-ref">Revelation 22:11–12</div>
+      <div class="tl-text">"He who is unjust, let him be unjust still… Behold, I am coming quickly, and My reward is with Me." <strong>Characters fixed; judgment already rendered; advent imminent.</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-ornament">✦ ✦ ✦</div>
+  <p>"Seek the LORD while He may be found, call upon Him while He is near." — Isaiah 55:6</p>
+  <p style="margin-top:0.5rem;">All Scripture quotations from the New King James Version (NKJV).</p>
+</footer>
+
+<script>
+const VERSES = [
+  {
+    ref: "Genesis 6:3", testament: "ot", themes: ["spirit","flood"],
+    title: "The Spirit will not strive with man forever",
+    text: "Then the LORD said, 'My Spirit shall not strive with man forever, for he is indeed flesh; yet his days shall be one hundred and twenty years.'",
+    note: "God sets a defined limit on probation before the flood. The <strong>120 years</strong> were both Noah's preaching period and humanity's final window of repentance. The word 'strive' (Heb. <em>dîn</em>) carries legal and judicial overtones — the Spirit advocates, pleads, and contends. When He ceases, the case is closed."
+  },
+  {
+    ref: "Genesis 7:16", testament: "ot", themes: ["door","flood"],
+    title: "The LORD shut the door of the ark",
+    text: "So those that entered, male and female of all flesh, went in as God had commanded him; and the LORD shut him in.",
+    note: "God Himself closed the door — not Noah, not an angel. Those outside could not open it. This is the clearest typological picture of probation closing in all of Scripture. The ark was ready, the invitation had been preached for 120 years, and then <strong>God shut the door</strong>."
+  },
+  {
+    ref: "Proverbs 1:24–28", testament: "ot", themes: ["door","spirit"],
+    title: "When calamity comes, I will not answer",
+    text: "Because I have called and you refused, I have stretched out my hand and no one regarded, because you disdained all my counsel… I also will laugh at your calamity; I will mock when your terror comes… Then they will call on me, but I will not answer; they will seek me diligently, but they will not find me.",
+    note: "Wisdom — a figure of God — explicitly says there comes a point where the call is <strong>reversed</strong>: they now knock, but the door is closed. Strikingly parallel to the parable of the ten virgins. The very language — 'seek me diligently, but will not find me' — echoes Amos 8 and stands as an OT anchor for the NT 'depart from me, I never knew you.'"
+  },
+  {
+    ref: "Isaiah 55:6", testament: "ot", themes: ["spirit"],
+    title: "Seek the LORD while He may be found",
+    text: "Seek the LORD while He may be found, call upon Him while He is near.",
+    note: "The phrase <strong>'while He may be found'</strong> directly implies a time when He will not be findable — a limited window of access to mercy. This is one of the clearest OT statements that the invitation to mercy is temporally bounded."
+  },
+  {
+    ref: "Ezekiel 9:3–6", testament: "ot", themes: ["sanctuary","spirit"],
+    title: "The glory departs — mark those who sigh",
+    text: "Now the glory of the God of Israel had gone up from the cherub… And He called to the man clothed with linen… 'Go through the midst of the city and put a mark on the foreheads of those who sigh and cry over all the abominations'… 'Do not come near anyone on whom is the mark.'",
+    note: "Before judgment falls, God <strong>seals His people</strong> and then withdraws His protective glory. The sealing precedes destruction — a probation sequence mirrored exactly in Revelation 7 (sealing before the winds are released). The mark on the forehead is the original 'seal of God' in Hebrew prophecy."
+  },
+  {
+    ref: "Ezekiel 9:10–11", testament: "ot", themes: ["sanctuary"],
+    title: "The sealing work is reported complete",
+    text: "And as for me also, my eye will neither spare, nor will I have pity, but I will recompense their deeds on their own head. And as for the man clothed with linen, who had the inkhorn by his side, he reported back and said, 'I have done as you commanded me.'",
+    note: "The sealing work <strong>finishes and is reported complete</strong> — after which comes the execution of judgment without further mercy. This completion report is the precise OT counterpart to Revelation's sealing ending before the seven plagues."
+  },
+  {
+    ref: "Hosea 4:17", testament: "ot", themes: ["spirit"],
+    title: "Ephraim is joined to idols — let him alone",
+    text: "Ephraim is joined to idols, let him alone.",
+    note: "God's withdrawal is itself a form of judgment. When God <strong>lets go</strong> and says 'let him alone,' His restraining presence ceases. This is the Spirit's withdrawal in its most economical form — three Hebrew words that describe probation closing for a nation."
+  },
+  {
+    ref: "Amos 8:11–12", testament: "ot", themes: ["spirit","door"],
+    title: "A famine of hearing the words of the LORD",
+    text: "Behold, the days are coming, says the Lord GOD, that I will send a famine on the land, not a famine of bread, nor a thirst for water, but of hearing the words of the LORD. They shall wander from sea to sea, and from north to east; they shall run to and fro, seeking the word of the LORD, but shall not find it.",
+    note: "God can <strong>withdraw the availability of His word</strong> as a form of closing probation. People will seek but not find — the window of access is shut. This famine is deliberately contrasted with physical famine to show that spiritual inaccessibility is the greater catastrophe."
+  },
+  {
+    ref: "Daniel 12:1", testament: "ot", themes: ["sanctuary","harvest"],
+    title: "Michael stands up — a time of trouble such as never was",
+    text: "At that time Michael shall stand up, the great prince who stands watch over the sons of your people; and there shall be a time of trouble, such as never was since there was a nation… And at that time your people shall be delivered, every one who is found written in the book.",
+    note: "Michael <strong>'standing up'</strong> is understood in Adventist interpretation as the cessation of heavenly intercession — He who was standing to plead now rises for executive action. Deliverance comes to those <em>already</em> written in the book — the record is set before the trouble begins."
+  },
+  {
+    ref: "Matthew 7:21–23", testament: "nt", themes: ["door"],
+    title: "Depart from me — I never knew you",
+    text: "Not everyone who says to Me, 'Lord, Lord,' shall enter the kingdom of heaven… Many will say to Me in that day, 'Lord, Lord, have we not prophesied in Your name, cast out demons in Your name, and done many wonders in Your name?' And then I will declare to them, 'I never knew you; depart from Me, you who practice lawlessness!'",
+    note: "Religious activity without genuine relationship. The judgment is <strong>final and the call to depart is irrevocable</strong>. Note: these are not atheists — they prophesied, cast out demons, and worked wonders. The warning is to those who performed the outward forms of faith while the inner life was never surrendered."
+  },
+  {
+    ref: "Matthew 22:11–14", testament: "nt", themes: ["door","harvest"],
+    title: "The guest without a wedding garment is cast out",
+    text: "But when the king came in to see the guests, he saw a man there who did not have on a wedding garment. So he said to him, 'Friend, how did you come in here without a wedding garment?' And he was speechless. Then the king said to the servants, 'Bind him hand and foot, take him away, and cast him into outer darkness.'",
+    note: "The wedding banquet is a probation image. Entry was possible; the invitation was broad. But when the King arrives for inspection, the verdict is <strong>immediate and final</strong>. The garment represents Christ's righteousness — those who entered on their own terms, not His, are excluded."
+  },
+  {
+    ref: "Matthew 24:37–39", testament: "nt", themes: ["flood"],
+    title: "As in the days of Noah — they did not know until the flood came",
+    text: "But as the days of Noah were, so also will the coming of the Son of Man be. For as in the days before the flood, they were eating and drinking, marrying and giving in marriage, until the day that Noah entered the ark, and did not know until the flood came and took them all away.",
+    note: "Jesus uses Noah's flood as His <strong>primary analogy for the end of probation</strong>. The key phrase is 'until the day Noah entered the ark' — normal life continued right up to the moment of closure. Probation often closes without external warning while the world is busy."
+  },
+  {
+    ref: "Matthew 25:1–12", testament: "nt", themes: ["door"],
+    title: "The door was shut — I do not know you",
+    text: "And while they went to buy, the bridegroom came, and those who were ready went in with him to the wedding; and the door was shut. Afterward the other virgins also came, saying, 'Lord, Lord, open to us!' But he answered and said, 'Assuredly, I say to you, I do not know you.'",
+    note: "The parable of the ten virgins. The five foolish were not wicked — they were called virgins and they had lamps. They were <strong>unprepared</strong>. They went to get oil, returned, and knocked — but the door was permanently shut. 'I do not know you' echoes Matthew 7 and is the language of relational exclusion, not mere acquaintance."
+  },
+  {
+    ref: "Luke 13:24–28", testament: "nt", themes: ["door"],
+    title: "When the master of the house has risen and shut the door",
+    text: "Strive to enter through the narrow gate, for many, I say to you, will seek to enter and will not be able. When once the Master of the house has risen up and shut the door, and you begin to stand outside and knock at the door, saying, 'Lord, Lord, open for us,' and He will answer and say to you, 'I do not know you, where you are from.'",
+    note: "Jesus explicitly describes a moment when the door is shut, after which <strong>knocking is futile</strong>. Those outside had known Him — 'we ate and drank in your presence, and You taught in our streets.' Familiarity with Christ, proximity to the gospel, and outward religious observance do not secure entry."
+  },
+  {
+    ref: "Luke 13:34–35", testament: "nt", themes: ["spirit","door"],
+    title: "Your house is left to you desolate",
+    text: "O Jerusalem, Jerusalem, the one who kills the prophets and stones those who are sent to her! How often I wanted to gather your children together, as a hen gathers her brood under her wings, but you were not willing! See! Your house is left to you desolate.",
+    note: "Jesus weeps over the city but announces <strong>probation's close for that generation</strong>. 'Your house is left desolate' — God's Shekinah presence is withdrawn. The tender longing in 'how often I wanted' makes the close all the more solemn: the door shuts not from God's desire but from the creature's persistent refusal."
+  },
+  {
+    ref: "John 12:35–36", testament: "nt", themes: ["spirit"],
+    title: "Walk while you have the light",
+    text: "Then Jesus said to them, 'A little while longer the light is with you. Walk while you have the light, lest darkness overtake you; he who walks in darkness does not know where he is going. While you have the light, believe in the light, that you may become sons of light.'",
+    note: "'A little while longer' — the light's presence is <strong>explicitly temporary</strong>. Jesus gives this warning in His final public discourse before the crucifixion. The darkness coming is not merely physical night but the removal of gospel access from those who persistently refused the light."
+  },
+  {
+    ref: "Romans 1:24, 26, 28", testament: "nt", themes: ["spirit"],
+    title: "God gave them over — three times",
+    text: "Therefore God also gave them up to uncleanness… For this reason God gave them up to vile passions… And even as they did not like to retain God in their knowledge, God gave them over to a debased mind.",
+    note: "The <strong>threefold 'gave them over'</strong> is Paul's probation language. Each stage represents a deeper withdrawal of divine restraint. The Greek <em>paredōken</em> is a judicial term — God formally delivers the person to the consequences of their own persistent choice. This is the Spirit's withdrawal in its most developed NT theological form."
+  },
+  {
+    ref: "2 Corinthians 6:2", testament: "nt", themes: ["spirit"],
+    title: "Now is the acceptable time — now is the day of salvation",
+    text: "For He says: 'In an acceptable time I have heard you, and in the day of salvation I have helped you.' Behold, now is the accepted time; behold, now is the day of salvation.",
+    note: "Paul's emphasis on <strong>'now'</strong> implies that there is a time that is not the acceptable time. The window is real and present — not to be presumed upon. The double 'behold' signals urgency. Probation is not infinite."
+  },
+  {
+    ref: "Galatians 6:7–8", testament: "nt", themes: ["harvest"],
+    title: "Whatever a man sows, that he will also reap",
+    text: "Do not be deceived, God is not mocked; for whatever a man sows, that he will also reap. For he who sows to his flesh will of the flesh reap corruption, but he who sows to the Spirit will of the Spirit reap everlasting life.",
+    note: "Harvest imagery presupposes a <strong>definite sowing season</strong> — once the harvest comes, the record of what was sown is fixed. God is not mocked: the harvest reveals exactly what probation produced. This is the agricultural metaphor behind Revelation 14's great reaping."
+  },
+  {
+    ref: "Hebrews 3:7–8, 15", testament: "nt", themes: ["spirit"],
+    title: "Today — if you hear His voice, do not harden your hearts",
+    text: "Therefore, as the Holy Spirit says: 'Today, if you will hear His voice, do not harden your hearts as in the rebellion, in the day of trial in the wilderness…'",
+    note: "The writer quotes Psalm 95 and applies it urgently to his own 'today.' The Israelites who hardened their hearts in the wilderness were <strong>barred from the promised land</strong> — a nation-level close of probation. Hebrews applies this as a personal warning: every 'today' of gospel hearing is a probationary moment."
+  },
+  {
+    ref: "Hebrews 6:4–6", testament: "nt", themes: ["spirit","door"],
+    title: "Impossible to renew again to repentance",
+    text: "For it is impossible for those who were once enlightened, and have tasted the heavenly gift, and have become partakers of the Holy Spirit, and have tasted the good word of God and the powers of the age to come, if they fall away, to renew them again to repentance, since they crucify again for themselves the Son of God, and put Him to an open shame.",
+    note: "For the individual who has <strong>fully and finally rejected the Spirit</strong> after complete illumination, repentance becomes impossible. This is the most sobering statement of personal probation-close in the NT. Note what these people had: enlightenment, the heavenly gift, the Holy Spirit, the good word of God — the full inheritance — and deliberately rejected it."
+  },
+  {
+    ref: "Hebrews 10:26–27", testament: "nt", themes: ["spirit","sanctuary"],
+    title: "No more sacrifice — only fearful expectation of judgment",
+    text: "For if we sin willfully after we have received the knowledge of the truth, there no longer remains a sacrifice for sins, but a certain fearful expectation of judgment, and fiery indignation which will devour the adversaries.",
+    note: "When willful rejection follows full knowledge, <strong>the sacrifice no longer avails</strong> — the intercessory covering is removed. This is sanctuary language: no more access to the altar, no more blood of atonement available. The connection between personal apostasy and the sanctuary's close of intercession is explicit."
+  },
+  {
+    ref: "Hebrews 12:16–17", testament: "nt", themes: ["door"],
+    title: "Esau found no place for repentance though he sought it with tears",
+    text: "Lest there be any fornicator or profane person like Esau, who for one morsel of food sold his birthright. For you know that afterward, when he wanted to inherit the blessing, he was rejected, for he found no place for repentance, though he sought it carefully with tears.",
+    note: "Esau wept bitterly and sought earnestly to reverse his choice — <strong>but it was too late</strong>. This is one of the most concrete OT examples of a permanently closed personal probation. The NT writer uses it as a warning to 1st century believers. Tears of sorrow over consequences are not the same as genuine repentance — and even genuine sorrow cannot reverse a finalized choice."
+  },
+  {
+    ref: "James 5:9", testament: "nt", themes: ["harvest","door"],
+    title: "The Judge is standing at the door",
+    text: "Do not grumble against one another, brethren, lest you be condemned. Behold, the Judge is standing at the door!",
+    note: "The Judge <strong>at the door</strong> is an imminent-judgment image — He is about to enter and render verdicts. The time for repentance is before the door opens in judgment. James uses 'standing at the door' where Revelation 3:20 has Christ 'knocking at the door' — together these form a bookend: first the Saviour knocks, then the Judge arrives."
+  },
+  {
+    ref: "1 Peter 3:19–20", testament: "nt", themes: ["flood","spirit"],
+    title: "God's longsuffering waited in the days of Noah",
+    text: "By whom also He went and preached to the spirits in prison, who formerly were disobedient, when once the Divine longsuffering waited in the days of Noah, while the ark was being prepared.",
+    note: "God's longsuffering <strong>'waited'</strong> — implying a defined period that eventually ended. The word 'longsuffering' (<em>makrothumia</em>) is the characteristic word for God patiently extending the day of grace. Once the ark was complete and God shut the door, the waiting was over."
+  },
+  {
+    ref: "Revelation 3:20", testament: "nt", themes: ["door"],
+    title: "Behold, I stand at the door and knock",
+    text: "Behold, I stand at the door and knock. If anyone hears My voice and opens the door, I will come in to him and dine with him, and he with Me.",
+    note: "The invitation is still open here — Christ knocking, not the human. But the Laodicean context (lukewarm, self-deceived, in need of nothing) and the end-time setting make this <strong>probation's final appeal</strong>. The tragedy is that Christ is on the outside, seeking entry into the heart of those who think they have Him inside already."
+  },
+  {
+    ref: "Revelation 7:1–3", testament: "nt", themes: ["sanctuary","harvest"],
+    title: "Hold the winds — till we seal the servants of God",
+    text: "After these things I saw four angels standing at the four corners of the earth, holding the four winds of the earth… Then I saw another angel ascending from the east, having the seal of the living God. And he cried with a loud voice to the four angels… 'Do not harm the earth, the sea, or the trees till we have sealed the servants of our God on their foreheads.'",
+    note: "The sealing <strong>must be completed before the winds of destruction are released</strong>. Once sealing ends, probation ends — the sequence is explicit. The four winds are held in supernatural restraint during the sealing period. This is the cosmic version of God holding back judgment while mercy completes its work."
+  },
+  {
+    ref: "Revelation 8:3–5", testament: "nt", themes: ["sanctuary"],
+    title: "The censer is cast down to earth",
+    text: "Then another angel, having a golden censer, came and stood at the altar. He was given much incense, that he should offer it with the prayers of all the saints upon the golden altar which was before the throne… Then the angel took the censer, filled it with fire from the altar, and threw it to the earth.",
+    note: "The incense (intercession) rises with the prayers of the saints — then the <strong>censer is cast down</strong>. This transition from intercession to judgment is the heavenly sanctuary's close of probation sequence expressed in liturgical terms. The same instrument of mercy becomes an instrument of judgment."
+  },
+  {
+    ref: "Revelation 14:6–7", testament: "nt", themes: ["harvest","sanctuary"],
+    title: "The first angel — the hour of His judgment has come",
+    text: "Then I saw another angel flying in the midst of heaven, having the everlasting gospel to preach to those who dwell on the earth — to every nation, tribe, tongue, and people — saying with a loud voice, 'Fear God and give glory to Him, for the hour of His judgment has come.'",
+    note: "The everlasting gospel goes to <strong>every nation</strong> — this is a final, worldwide probationary call. The 'hour of His judgment has come' is not a threat but an urgent announcement: the judgment is in session, the books are being reviewed, and the invitation is still open — but the hour is late."
+  },
+  {
+    ref: "Revelation 14:14–16", testament: "nt", themes: ["harvest"],
+    title: "Thrust in Your sickle — the harvest is fully ripe",
+    text: "Then I looked, and behold, a white cloud, and on the cloud sat One like the Son of Man, having on His head a golden crown, and in His hand a sharp sickle. And another angel came out of the temple, crying with a loud voice to Him who sat on the cloud, 'Thrust in Your sickle and reap, for the time has come for You to reap, for the harvest of the earth is fully ripe.'",
+    note: "The <strong>harvest is the end of probation made visible</strong>. The grain is what it is — there is no more growing time. The word 'fully ripe' (<em>ēxēranthē</em>) means completely dried out — past its peak, at the outer limit. The Son of Man reaps what probation's planting season has produced."
+  },
+  {
+    ref: "Revelation 15:5–8", testament: "nt", themes: ["sanctuary"],
+    title: "No one could enter the temple — till the plagues were complete",
+    text: "After these things I looked, and behold, the temple of the tabernacle of the testimony in heaven was opened… Then one of the four living creatures gave to the seven angels seven golden bowls full of the wrath of God… The temple was filled with smoke from the glory of God and from His power, and no one was able to enter the temple till the seven plagues of the seven angels were completed.",
+    note: "This is the <strong>most explicit sanctuary-probation text in Revelation</strong>. When the plagues begin, the temple is inaccessible — intercession has ended. The phrase 'no one was able to enter' is the heavenly announcement of the close of probation. Smoke filling the sanctuary echoes the dedication of Solomon's temple — but here it signals the end of the intercessory age, not its beginning."
+  },
+  {
+    ref: "Revelation 22:11", testament: "nt", themes: ["harvest","door","sanctuary"],
+    title: "Let him be unjust still — the final decree",
+    text: "He who is unjust, let him be unjust still; he who is filthy, let him be filthy still; he who is righteous, let him be righteous still; he who is holy, let him be holy still.",
+    note: "<strong>The final probation declaration.</strong> Characters are fixed — the unjust remain unjust, the holy remain holy. The decree comes just before 'Behold, I am coming quickly' in verse 12. This verse does not describe God making people unjust — it describes God recognising and declaring the finality of the choices made during probation."
+  },
+  {
+    ref: "Revelation 22:12", testament: "nt", themes: ["harvest"],
+    title: "I am coming quickly — My reward is with Me",
+    text: "And behold, I am coming quickly, and My reward is with Me, to give to every one according to his work.",
+    note: "Christ arrives with <strong>rewards already determined</strong> — the judgment happened before the coming. The reward is 'with Me' — past tense, already prepared. This is the structure of the pre-advent investigative judgment: verdicts rendered before the advent, carried in the hand of the returning King."
+  }
+];
+
+let activeFilter = 'all';
+
+function themeMatch(v, filter) {
+  if (filter === 'all') return true;
+  if (filter === 'ot') return v.testament === 'ot';
+  if (filter === 'nt') return v.testament === 'nt';
+  return v.themes.includes(filter);
+}
+
+function searchMatch(v, q) {
+  if (!q) return true;
+  q = q.toLowerCase();
+  return v.ref.toLowerCase().includes(q) || v.title.toLowerCase().includes(q) || v.text.toLowerCase().includes(q) || v.note.toLowerCase().includes(q);
+}
+
+function renderVerses() {
+  const q = document.getElementById('searchInput').value.trim();
+  const grid = document.getElementById('verseGrid');
+  const badge = document.getElementById('countBadge');
+  const filtered = VERSES.filter(v => themeMatch(v, activeFilter) && searchMatch(v, q));
+
+  badge.innerHTML = 'Showing <span>' + filtered.length + '</span> of <span>' + VERSES.length + '</span> passages';
+  grid.innerHTML = '';
+
+  let lastT = '';
+  filtered.forEach(v => {
+    const tLabel = v.testament === 'ot' ? 'Old Testament' : 'New Testament';
+    if (tLabel !== lastT && (activeFilter === 'all' || activeFilter === 'door' || activeFilter === 'spirit' || activeFilter === 'flood' || activeFilter === 'harvest' || activeFilter === 'sanctuary')) {
+      const sep = document.createElement('div');
+      sep.className = 'section-divider';
+      sep.innerHTML = '<span class="divider-label">' + tLabel + '</span>';
+      grid.appendChild(sep);
+      lastT = tLabel;
+    }
+    const card = document.createElement('div');
+    card.className = 'verse-card ' + v.testament;
+    card.dataset.themes = v.themes.join(' ');
+
+    card.innerHTML = `
+      <div class="card-header">
+        <span class="card-ref">${v.ref}</span>
+        <span class="card-title">${v.title}</span>
+        <span class="card-toggle">▾</span>
+      </div>
+      <div class="card-body">
+        <div class="verse-text">${v.text}</div>
+        <div class="commentary">${v.note}</div>
+      </div>
+    `;
+    card.querySelector('.card-header').addEventListener('click', () => {
+      card.classList.toggle('open');
+      card.querySelector('.card-toggle').textContent = card.classList.contains('open') ? '▴' : '▾';
+    });
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderVerses();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', renderVerses);
+
+renderVerses();
+</script>
+</body>
+</html>
