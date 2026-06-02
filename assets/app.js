@@ -2536,6 +2536,10 @@ const BIBLE_TRANSLATIONS = [
   { id: "bbe",    label: "BBE",   desc: "Bible in Basic English",       source: "free" },
   { id: "oeb-us", label: "OEB",   desc: "Open English Bible (Modern)",  source: "free" },
   { id: "darby",  label: "Darby", desc: "Darby Translation",            source: "free" },
+  // Free translations via bible.helloao.org (no API key, no rate limits)
+  { id: "BSB",     label: "BSB",  desc: "Berean Standard Bible (2020) — berean.bible", source: "helloao", helloaoId: "BSB" },
+  { id: "eng_gnv", label: "GNV",  desc: "Geneva Bible (1599)",                         source: "helloao", helloaoId: "eng_gnv" },
+  { id: "eng_fbv", label: "FBV",  desc: "Free Bible Version (Modern English)",         source: "helloao", helloaoId: "eng_fbv" },
   // Copyrighted translations via api.bible (requires free API key)
   { id: "niv",  label: "NIV",  desc: "New International Version",  source: "api.bible", bibleId: "78a9f6124f344018-01" },
   { id: "nlt",  label: "NLT",  desc: "New Living Translation",     source: "api.bible", bibleId: "d6e14a625393b4da-01" },
@@ -2701,6 +2705,70 @@ async function fetchVerseApiBible(reference, bibleId) {
   const text = (data.content || "").trim();
   const copyright = data.copyright || "";
   return { text, reference: data.reference || reference, copyright, _raw: data };
+}
+
+/**
+ * Fetch a verse from bible.helloao.org (free, no API key, no rate limits).
+ * The API is chapter-based: fetch the whole chapter, extract the target verse(s).
+ */
+async function fetchVerseHelloAO(reference, helloaoId) {
+  // Parse reference: "John 3:16" or "Romans 8:28-30" or "Isaiah 56:2,6-7"
+  const m = reference.trim().match(/^(.+?)\s+(\d+)\s*:\s*(\d+)(?:\s*[-\u2013]\s*(\d+))?/);
+  if (!m) throw new Error("Could not parse reference for this Bible API.");
+
+  const bookRaw = m[1].trim().toLowerCase().replace(/\.$/, "");
+  const chapter  = m[2];
+  const verseStart = parseInt(m[3], 10);
+  let   verseEnd   = m[4] ? parseInt(m[4], 10) : verseStart;
+
+  // Widen range to cover comma-separated extra references: "Isaiah 56:2,6-7"
+  const commaMatches = reference.match(/,\s*(\d+)(?:\s*[-\u2013]\s*(\d+))?/g);
+  if (commaMatches) {
+    for (const cm of commaMatches) {
+      const parts = cm.match(/(\d+)(?:\s*[-\u2013]\s*(\d+))?/);
+      if (parts) {
+        const last = parseInt(parts[2] || parts[1], 10);
+        if (last > verseEnd) verseEnd = last;
+      }
+    }
+  }
+
+  const bookCode = BOOK_TO_API_CODE[bookRaw];
+  if (!bookCode) throw new Error("Book not recognised: " + m[1]);
+
+  const url = `https://bible.helloao.org/api/${helloaoId}/${bookCode}/${chapter}.json`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    if (res.status === 404) throw new Error("Verse not found in this translation.");
+    throw new Error(`Bible API error (${res.status})`);
+  }
+
+  const json = await res.json();
+  const content = (json.chapter && json.chapter.content) || [];
+
+  // Walk chapter content and collect verse objects in the requested range
+  const verses = [];
+  for (const item of content) {
+    if (item.type === "verse" && item.number >= verseStart && item.number <= verseEnd) {
+      // Content array can hold: plain string | {text, poem?} | {lineBreak:true} | {noteId}
+      const text = (item.content || []).map(c => {
+        if (typeof c === "string") return c;
+        if (c && typeof c.text === "string") return c.text;
+        if (c && c.lineBreak) return " ";
+        return ""; // skip footnote {noteId} objects
+      }).join("").trim();
+      verses.push({ verse: item.number, text });
+    }
+  }
+
+  if (verses.length === 0) throw new Error("Verse not found in this translation.");
+
+  const fullText  = verses.map(v => v.text).join(" ");
+  const tName     = (json.translation && json.translation.name) || helloaoId;
+  const licenseUrl = json.translation && json.translation.licenseUrl;
+  const copyright = licenseUrl ? `${tName} — ${licenseUrl}` : tName;
+
+  return { verses, text: fullText, reference, copyright };
 }
 
 /** Cache for fetched verses: key = "ref|translation" */
@@ -3008,11 +3076,28 @@ async function fetchVerse(reference, translationId) {
       if (err.message && (err.message.includes("api.bible error") || err.name === "TypeError")) {
         // Wait and retry once on transient errors
         await new Promise(r => setTimeout(r, 1500));
-        data = await _fetchQueue.enqueue(doFetch);
+        try {
+          data = await _fetchQueue.enqueue(doFetch);
+        } catch (err2) {
+          // On second failure, fall back to Bible Gateway link-out
+          throw Object.assign(
+            new Error("BIBLEGATEWAY_LINK"),
+            { bgUrl: buildBibleGatewayUrl(cleanRef, t.label), translation: t.label }
+          );
+        }
+      } else if (err.message && err.message.includes("429")) {
+        // Quota exceeded — fall back to Bible Gateway link-out immediately
+        throw Object.assign(
+          new Error("BIBLEGATEWAY_LINK"),
+          { bgUrl: buildBibleGatewayUrl(cleanRef, t.label), translation: t.label }
+        );
       } else {
         throw err;
       }
     }
+  } else if (t && t.source === "helloao") {
+    // Free translations via bible.helloao.org (no API key, no rate limits)
+    data = await fetchVerseHelloAO(cleanRef, t.helloaoId);
   } else {
     // Free translations via bible-api.com — throttled with retry
     const normalizedRef = normalizeReferenceForBibleApi(cleanRef.trim());
@@ -3159,11 +3244,17 @@ async function loadVerseInModal(reference, translationId) {
   } catch (err) {
     loadEl.style.display = "none";
     if (err.message === "BIBLEGATEWAY_LINK") {
+      const isDlnt = err.translation === "DLNT";
+      const msg = isDlnt
+        ? "The DLNT is not available via a direct text API."
+        : `The ${err.translation} API limit has been reached. You can still read the verse on Bible Gateway:`;
       errEl.innerHTML =
-        `<p style="margin:0 0 12px">The DLNT is not available via a direct text API.</p>` +
+        `<p style="margin:0 0 12px">${escapeHtml(msg)}</p>` +
         `<a href="${err.bgUrl}" target="_blank" rel="noopener" class="btn-gold" style="display:inline-block;text-decoration:none;padding:8px 16px;border-radius:6px">` +
-        `\uD83D\uDCD6\u2009View in DLNT on Bible Gateway \u2197</a>` +
-        `<p style="margin:10px 0 0;font-size:11px;color:var(--text-muted)">DLNT covers New Testament books only. Copyright \u00A9 2011 Michael J. Magill.</p>`;
+        `\uD83D\uDCD6\u2009View ${escapeHtml(err.translation || "")} on Bible Gateway \u2197</a>`;
+      if (isDlnt) {
+        errEl.innerHTML += `<p style="margin:10px 0 0;font-size:11px;color:var(--text-muted)">DLNT covers New Testament books only. Copyright \u00A9 2011 Michael J. Magill.</p>`;
+      }
       return;
     }
     if (err.message === "NT_ONLY") {
