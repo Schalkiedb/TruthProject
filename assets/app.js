@@ -1784,6 +1784,7 @@ function buildHomeCards() {
     const gridMap = {
       "main-library": "main-library-cards",
       "study-guides": "study-guide-cards",
+      "typology": "typology-cards",
       "primary-sources": "primary-sources-cards",
       "creation-vs-evolution": "creation-vs-evolution-cards",
       "library-index": "library-index-cards",
@@ -1794,6 +1795,7 @@ function buildHomeCards() {
       "history-jesuits": "history-jesuits-cards",
       "battle-frontal-lobe": "battle-frontal-lobe-cards",
       "modern-diet-disease": "modern-diet-disease-cards",
+      "promises": "promises-cards",
       "additional-reading": "additional-reading-cards",
       "end-time-church": "end-time-church-cards",
     };
