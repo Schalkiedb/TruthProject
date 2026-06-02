@@ -313,13 +313,6 @@ const LIBRARY = [
     ],
   },
   {
-    section: "Library Index",
-    icon: "📋",
-    id: "library-index",
-    items: [
-    ],
-  },
-  {
     section: "Infographics",
     icon: "🗺️",
     id: "infographics",
@@ -1779,7 +1772,6 @@ function buildHomeCards() {
       "typology": "typology-cards",
       "primary-sources": "primary-sources-cards",
       "creation-vs-evolution": "creation-vs-evolution-cards",
-      "library-index": "library-index-cards",
       infographics: "infographics-cards",
       "interactive-tools": "interactive-tools-cards",
       "false-doctrines": "false-doctrines-cards",
