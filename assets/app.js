@@ -317,14 +317,6 @@ const LIBRARY = [
     icon: "📋",
     id: "library-index",
     items: [
-      {
-        title: "Document Verification Status",
-        file: "DOCUMENT_VERIFICATION_STATUS.md",
-        icon: "✅",
-        tag: "Library Index",
-        tagClass: "",
-        desc: "Verification status, cross-references, and completeness tracker for the entire library.",
-      },
     ],
   },
   {
