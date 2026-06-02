@@ -108,6 +108,22 @@ const LIBRARY = [
         tagClass: "green",
         desc: "The comprehensive Sabbath apologetics guide — 39 common objections answered; 2,000 years of documented Sabbath-keeping communities worldwide.",
       },
+      {
+        title: "Prophet, Priest & King — Biblical Definitions of the Prophetic Office",
+        file: "Study_guides/prophet-priest-definitions.html",
+        icon: "📯",
+        tag: "Biblical Foundation",
+        tagClass: "blue",
+        desc: "The biblical definitions of prophet, priest, and king — the Old Testament office of the prophet, the tests Scripture gives, and the framework for evaluating any claim to prophetic ministry.",
+      },
+      {
+        title: "The Obedient Faith — Obedience, False Prophets & the Biblical Tests",
+        file: "Study_guides/obedience-and-false-prophets.html",
+        icon: "⚖️",
+        tag: "Apologetics",
+        tagClass: "blue",
+        desc: "Part I: Scripture's complete testimony that obedience is necessary but does not save. Part II: The six biblical tests for identifying a false prophet — Deuteronomy 13, Isaiah 8:20, Matthew 7, Jeremiah 23, and more.",
+      },
     ],
   },
   {
@@ -241,6 +257,14 @@ const LIBRARY = [
         tag: "Apologetics",
         tagClass: "blue",
         desc: "A thorough, evidence-based response to the cult accusation — doctrine, history, and biblical faithfulness examined.",
+      },
+      {
+        title: "Ellen G. White: Applying the Biblical Tests",
+        file: "egw-prophet-test.html",
+        icon: "🔍",
+        tag: "Apologetics",
+        tagClass: "blue",
+        desc: "A fair, evidence-based evaluation of Ellen G. White against the seven biblical tests for a prophet — Isaiah 8:20, Matthew 7:20, Deuteronomy 18, 1 John 4:2, and the conditional prophecy framework of Jeremiah 18.",
       },
       {
         title: "Media Influence: Complete Guide",
@@ -776,6 +800,21 @@ const LIBRARY = [
         tag: "History",
         tagClass: "red",
         desc: "The historical and pagan origins of Christmas and Easter — does God care how He is worshipped, not just that He is worshipped?",
+      },
+    ],
+  },
+  {
+    section: "End-Time Church & Apostasy",
+    icon: "⚠️",
+    id: "end-time-church",
+    items: [
+      {
+        title: "The Name Without the Nature — End-Time Apostasy in Scripture",
+        file: "End_Time_Church/name-without-character.html",
+        icon: "⚠️",
+        tag: "End Times",
+        tagClass: "red",
+        desc: "Seven biblical themes on end-time apostasy: nominal Christianity, the narrow way, Laodicea, the form without the power, the ten virgins, and the great falling away — with Greek word studies, EGW quotes, and a prophetic symbol decoder.",
       },
     ],
   },
@@ -1756,6 +1795,7 @@ function buildHomeCards() {
       "battle-frontal-lobe": "battle-frontal-lobe-cards",
       "modern-diet-disease": "modern-diet-disease-cards",
       "additional-reading": "additional-reading-cards",
+      "end-time-church": "end-time-church-cards",
     };
     const grid = document.getElementById(gridMap[section.id]);
     if (!grid) return;

@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Obedient Faith — Biblical Evidence That Obedience Is Necessary (But Does Not Save)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:        #0f1a12;
+    --bg-mid:         #162019;
+    --bg-warm:        #1c2a1e;
+    --bg-surface:     #243228;
+    --gold:           #d4a843;
+    --gold-mid:       #b08828;
+    --gold-dim:       #7a6018;
+    --gold-border:    #3a4428;
+    --emerald:        #2e8b57;
+    --emerald-light:  #44a86a;
+    --emerald-glow:   rgba(46,139,87,0.15);
+    --crimson:        #8b1a1a;
+    --crimson-light:  #b02020;
+    --crimson-glow:   rgba(139,26,26,0.15);
+    --blue-greek:     #7ab0e0;
+    --blue-greek-dim: rgba(100,160,220,0.18);
+    --text-body:      #d4e8d0;
+    --text-soft:      #9dc49a;
+    --text-dim:       #607058;
+    --white-soft:     #e8f0e4;
+    --ink:            #080f09;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.82;
+    background-image:
+      radial-gradient(ellipse 100% 50% at 50% 0%, rgba(46,139,87,0.06) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 96vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 55%, rgba(46,139,87,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 30% at 50% 100%, rgba(139,26,26,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 30% at 50% 0%, rgba(212,168,67,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 10.5px;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 26px;
+    opacity: 0; animation: fd 0.7s 0.2s ease forwards;
+  }
+  .hero-orn {
+    font-size: 22px; color: var(--emerald); letter-spacing: 14px;
+    margin-bottom: 24px;
+    opacity: 0; animation: fd 0.7s 0.4s ease forwards;
+  }
+  h1.hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(24px, 4.5vw, 52px);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.2;
+    max-width: 880px;
+    text-shadow: 0 2px 40px rgba(212,168,67,0.2), 0 0 100px rgba(212,168,67,0.06);
+    opacity: 0; animation: fd 0.9s 0.6s ease forwards;
+    margin-bottom: 14px;
+  }
+  .hero-sub {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(11px, 1.8vw, 15px);
+    color: var(--emerald-light);
+    letter-spacing: 2px;
+    opacity: 0; animation: fd 0.9s 0.8s ease forwards;
+    margin-bottom: 36px;
+  }
+  .hero-rule {
+    width: 260px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-border), var(--gold-mid), var(--gold-border), transparent);
+    margin: 0 auto 32px;
+    opacity: 0; animation: fd 0.8s 1s ease forwards;
+  }
+  .hero-intro {
+    max-width: 700px;
+    font-size: 17.5px;
+    color: var(--text-soft);
+    font-style: italic;
+    line-height: 1.92;
+    opacity: 0; animation: fd 1s 1.2s ease forwards;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 3px;
+    color: var(--text-dim); text-transform: uppercase;
+    opacity: 0; animation: fd 1s 2s ease forwards;
+  }
+
+  /* ── STICKY NAV ── */
+  .toc-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(8,15,9,0.95);
+    border-bottom: 1px solid var(--gold-border);
+    backdrop-filter: blur(14px);
+    padding: 0 20px;
+  }
+  .toc-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; gap: 6px;
+    overflow-x: auto; scrollbar-width: none; height: 50px;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-label {
+    font-family: 'Cinzel', serif; font-size: 9.5px;
+    letter-spacing: 3px; color: var(--gold-dim);
+    text-transform: uppercase; white-space: nowrap; margin-right: 6px; flex-shrink: 0;
+  }
+  .toc-sep { color: var(--gold-border); font-size: 12px; flex-shrink: 0; }
+  .toc-a {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    color: var(--text-dim); text-decoration: none;
+    padding: 5px 11px; white-space: nowrap;
+    border: 1px solid transparent; border-radius: 2px;
+    transition: all 0.2s; letter-spacing: 0.4px; flex-shrink: 0;
+  }
+  .toc-a:hover { color: var(--gold); border-color: var(--gold-border); background: rgba(212,168,67,0.04); }
+  .toc-a.fp { color: var(--text-dim); }
+  .toc-a.fp:hover { color: var(--crimson-light); border-color: var(--crimson); background: var(--crimson-glow); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── PART HEADER ── */
+  .part-header {
+    text-align: center;
+    padding: 70px 24px 50px;
+    position: relative;
+  }
+  .part-header::after {
+    content: '';
+    display: block;
+    width: 180px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+    margin: 28px auto 0;
+  }
+  .part-num {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 4px; color: var(--gold-dim);
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .part-header h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(20px, 3.5vw, 34px);
+    color: var(--gold); line-height: 1.25; margin-bottom: 12px;
+  }
+  .part-header.fp h2 { color: #d47070; }
+  .part-desc {
+    font-size: 16.5px; color: var(--text-soft);
+    font-style: italic; max-width: 660px; margin: 0 auto; line-height: 1.85;
+  }
+
+  /* ── THEME INTRO ── */
+  .theme-intro {
+    background: linear-gradient(135deg, rgba(22,32,25,0.9), rgba(14,22,16,0.95));
+    border: 1px solid var(--gold-border);
+    border-left: 3px solid var(--emerald);
+    padding: 28px 36px;
+    margin: 52px 0 32px;
+    position: relative;
+  }
+  .theme-intro[data-fp] { border-left-color: var(--crimson-light); }
+  .theme-intro::before {
+    content: attr(data-label);
+    position: absolute; top: -10px; left: 28px;
+    font-family: 'Cinzel', serif; font-size: 8.5px;
+    letter-spacing: 2.5px; color: var(--gold-dim);
+    background: var(--bg-deep); padding: 2px 12px;
+    border: 1px solid var(--gold-border);
+  }
+  .theme-intro h3 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(14px, 2.2vw, 20px);
+    color: var(--gold); margin-bottom: 8px; line-height: 1.4;
+  }
+  .theme-intro[data-fp] h3 { color: #d47070; }
+  .theme-intro p { color: var(--text-soft); font-style: italic; font-size: 15.5px; }
+
+  /* ── PASSAGE CARD ── */
+  .card {
+    background: linear-gradient(180deg, rgba(28,42,30,0.55), rgba(14,22,16,0.8));
+    border: 1px solid rgba(58,68,40,0.6);
+    margin: 22px 0;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .card.fp-card { background: linear-gradient(180deg, rgba(40,22,22,0.55), rgba(20,10,10,0.8)); }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--emerald), transparent);
+  }
+  .card.fp-card::before { background: linear-gradient(90deg, transparent, var(--crimson-light), transparent); }
+  .card:hover { border-color: var(--gold-dim); }
+  .card-hd {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 26px 14px;
+    cursor: pointer; user-select: none;
+  }
+  .ref-badge {
+    font-family: 'Cinzel', serif; font-size: 11.5px;
+    color: var(--gold);
+    background: rgba(212,168,67,0.07);
+    border: 1px solid var(--gold-border);
+    padding: 4px 13px; white-space: nowrap; flex-shrink: 0;
+    letter-spacing: 0.4px;
+  }
+  .card.fp-card .ref-badge { color: #d47070; background: rgba(176,32,32,0.07); border-color: var(--crimson); }
+  .card-title {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    color: var(--text-soft); letter-spacing: 0.4px; flex: 1;
+  }
+  .card-toggle {
+    width: 22px; height: 22px;
+    border: 1px solid var(--gold-border);
+    color: var(--gold-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0; transition: all 0.3s;
+  }
+  .card.open .card-toggle { transform: rotate(45deg); border-color: var(--gold); color: var(--gold); }
+  .card.fp-card.open .card-toggle { border-color: var(--crimson-light); color: var(--crimson-light); }
+
+  .card-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.55s ease, padding 0.3s;
+    padding: 0 26px;
+  }
+  .card.open .card-body { max-height: 2000px; padding: 0 26px 28px; }
+
+  /* ── SCRIPTURE BLOCK ── */
+  .sblock {
+    background: rgba(8,15,9,0.65);
+    border-left: 3px solid var(--emerald);
+    padding: 18px 22px 18px 26px;
+    margin: 14px 0 18px;
+    font-style: italic;
+    color: var(--white-soft);
+    font-size: 16.5px;
+    line-height: 1.88;
+    position: relative;
+  }
+  .card.fp-card .sblock { border-left-color: var(--crimson-light); }
+  .sblock::before {
+    content: '"';
+    position: absolute; top: 6px; left: 6px;
+    font-size: 44px; color: rgba(212,168,67,0.06);
+    font-family: Georgia, serif; line-height: 1;
+  }
+  .sref {
+    display: block; margin-top: 10px;
+    font-family: 'Cinzel', serif; font-size: 10.5px;
+    color: var(--gold-dim); letter-spacing: 1px;
+    font-style: normal; text-align: right;
+  }
+
+  /* ── ANALYSIS ── */
+  .analysis { color: var(--text-body); font-size: 16px; line-height: 1.87; margin-bottom: 12px; }
+
+  /* ── INSIGHT BOX ── */
+  .insight {
+    background: linear-gradient(135deg, rgba(46,139,87,0.10), rgba(14,22,16,0.9));
+    border: 1px solid rgba(46,139,87,0.35);
+    border-left: 3px solid var(--emerald-light);
+    padding: 15px 20px; margin: 16px 0;
+    font-size: 15px; color: var(--text-soft);
+    line-height: 1.75;
+  }
+  .insight.danger {
+    background: linear-gradient(135deg, var(--crimson-glow), rgba(14,8,8,0.9));
+    border: 1px solid rgba(139,26,26,0.4);
+    border-left: 3px solid var(--crimson-light);
+    color: #c4a0a0;
+  }
+  .insight strong {
+    display: block; margin-bottom: 6px;
+    font-family: 'Cinzel', serif; font-size: 9.5px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--emerald-light);
+  }
+  .insight.danger strong { color: var(--crimson-light); }
+
+  /* ── GREEK BLOCK ── */
+  .greek-block {
+    background: linear-gradient(135deg, rgba(14,22,38,0.85), rgba(10,18,32,0.95));
+    border: 1px solid rgba(100,140,200,0.22);
+    border-left: 3px solid rgba(122,176,224,0.55);
+    padding: 18px 22px; margin: 18px 0;
+    position: relative;
+  }
+  .greek-block::before {
+    content: 'GREEK ORIGINAL';
+    position: absolute; top: -10px; left: 16px;
+    font-family: 'Cinzel', serif; font-size: 8.5px;
+    letter-spacing: 2.5px; color: rgba(122,176,224,0.65);
+    background: var(--bg-deep); padding: 2px 10px;
+    border: 1px solid rgba(100,140,200,0.18);
+  }
+  .gk-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 10px; }
+  .gk-w { font-family: 'EB Garamond', serif; font-size: 22px; font-style: italic; color: var(--blue-greek); letter-spacing: 1px; line-height: 1.3; }
+  .gk-tr { font-family: 'Cinzel', serif; font-size: 11px; color: rgba(122,176,224,0.65); letter-spacing: 1px; }
+  .gk-s { font-family: 'Cinzel', serif; font-size: 9px; color: rgba(100,140,200,0.45); letter-spacing: 1px; border: 1px solid rgba(100,140,200,0.18); padding: 1px 5px; }
+  .gk-def { font-size: 14.5px; color: var(--text-soft); line-height: 1.72; margin-bottom: 6px; }
+  .gk-sig {
+    font-size: 14px; color: var(--text-body); line-height: 1.75;
+    font-style: italic;
+    border-top: 1px solid rgba(100,140,200,0.12);
+    padding-top: 9px; margin-top: 8px;
+  }
+  .gk-sig em { color: var(--blue-greek); font-style: normal; }
+  .gk-i { font-style: italic; color: var(--blue-greek); font-family: 'EB Garamond', serif; font-size: 1.04em; }
+  .gk-tag {
+    display: inline-block; font-family: 'Cinzel', serif; font-size: 8.5px;
+    letter-spacing: 1px; color: rgba(100,140,200,0.55);
+    border: 1px solid rgba(100,140,200,0.2); padding: 1px 5px;
+    margin-left: 3px; vertical-align: middle; position: relative; top: -1px;
+  }
+
+  /* ── SYMBOL NOTE ── */
+  .sym-note {
+    display: inline-block;
+    background: rgba(212,168,67,0.07); border: 1px solid var(--gold-border);
+    border-radius: 2px; font-family: 'Cinzel', serif; font-size: 8.5px;
+    letter-spacing: 1px; color: var(--gold-dim); padding: 1px 6px;
+    margin-left: 4px; vertical-align: middle; text-transform: uppercase;
+  }
+
+  /* ── EGW BOX ── */
+  .egw-box {
+    background: linear-gradient(180deg, rgba(34,48,28,0.65), rgba(14,22,16,0.92));
+    border: 1px solid var(--gold-border);
+    padding: 28px 32px; margin: 28px 0;
+    position: relative;
+  }
+  .egw-box::before {
+    content: 'SPIRIT OF PROPHECY';
+    position: absolute; top: -10px; left: 22px;
+    font-family: 'Cinzel', serif; font-size: 8.5px;
+    letter-spacing: 3px; color: var(--gold-dim);
+    background: var(--bg-deep); padding: 2px 12px;
+  }
+  .egw-box.fp-egw { background: linear-gradient(180deg, rgba(40,20,20,0.65), rgba(14,8,8,0.92)); }
+  .egw-q { font-style: italic; color: var(--text-soft); font-size: 15.5px; line-height: 1.92; margin-bottom: 10px; }
+  .egw-c { font-family: 'Cinzel', serif; font-size: 9.5px; color: var(--gold-dim); letter-spacing: 1.5px; text-align: right; }
+
+  /* ── SECTION DIVIDER ── */
+  .sdiv {
+    display: flex; align-items: center; gap: 18px; margin: 60px 0 18px;
+  }
+  .sdiv::before, .sdiv::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-border));
+  }
+  .sdiv::after { background: linear-gradient(90deg, var(--gold-border), transparent); }
+  .sdiv-icon { font-size: 16px; color: var(--gold-dim); letter-spacing: 8px; }
+
+  /* ── TAGS ── */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 2px; }
+  .tag {
+    font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 1.2px; color: var(--text-dim);
+    border: 1px solid var(--gold-border); padding: 2px 9px;
+    text-transform: uppercase;
+  }
+  .tag.gk { color: rgba(100,140,200,0.55); border-color: rgba(100,140,200,0.2); }
+
+  /* ── TEST GRID ── */
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px; margin: 28px 0;
+  }
+  .test-cell {
+    background: rgba(40,22,22,0.4);
+    border: 1px solid rgba(139,26,26,0.35);
+    padding: 18px 20px;
+  }
+  .test-cell-ref {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    color: #d47070; letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .test-cell-text { font-size: 13.5px; color: #c4a0a0; line-height: 1.65; }
+
+  /* ── CLOSING ── */
+  .closing {
+    text-align: center; padding: 80px 24px;
+    border-top: 1px solid var(--gold-border); margin-top: 60px;
+  }
+  .closing h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(20px, 3.5vw, 32px);
+    color: var(--gold); margin-bottom: 22px;
+  }
+  .closing p {
+    max-width: 620px; margin: 0 auto 18px;
+    color: var(--text-soft); font-size: 17px;
+    line-height: 1.9; font-style: italic;
+  }
+  .closing-verse {
+    font-family: 'Cinzel', serif; font-size: 12px;
+    color: var(--gold-dim); letter-spacing: 1px; margin-top: 30px;
+  }
+
+  footer {
+    text-align: center; padding: 26px;
+    border-top: 1px solid rgba(58,68,40,0.4);
+    font-family: 'Cinzel', serif; font-size: 9.5px;
+    letter-spacing: 2px; color: var(--text-dim);
+  }
+
+  /* ── FADE IN ── */
+  .fi { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fi.vis { opacity: 1; transform: none; }
+
+  @keyframes fd {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 600px) {
+    .card-hd { padding: 14px 16px 10px; flex-wrap: wrap; }
+    .card.open .card-body { padding: 0 16px 20px; }
+    .sblock { padding: 14px 14px 14px 18px; }
+    .egw-box { padding: 22px 18px; }
+    .theme-intro { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">A Biblical Reference Guide</div>
+  <div class="hero-orn">✦ ✦ ✦</div>
+  <h1 class="hero-title">The Obedient Faith</h1>
+  <div class="hero-sub">Obedience Does Not Save — But Claiming It Is Unnecessary Is a Lie</div>
+  <div class="hero-rule"></div>
+  <p class="hero-intro">
+    Scripture never pits grace against obedience. They are not rivals; they are partners.
+    We are saved <em>by</em> grace through faith — and that same faith, if living, inevitably
+    produces obedience as its fruit. The man who says "I am saved but need not obey" has
+    not understood grace. He has weaponised it. This guide traces every major biblical pillar
+    of obedience — and then exposes the false prophet who tells you otherwise.
+  </p>
+  <div class="hero-scroll">↓ Scroll to Study ↓</div>
+</section>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <span class="toc-label">Navigate</span>
+    <a class="toc-a" href="#part1">Part I — Obedience</a>
+    <span class="toc-sep">|</span>
+    <a class="toc-a" href="#s1-love">Love & Obedience</a>
+    <a class="toc-a" href="#s2-fruit">Faith's Fruit</a>
+    <a class="toc-a" href="#s3-author">Author of Salvation</a>
+    <a class="toc-a" href="#s4-hear">Hearers vs. Doers</a>
+    <a class="toc-a" href="#s5-commandments">Commandments</a>
+    <a class="toc-a" href="#s6-blessed">Blessed Who Obey</a>
+    <span class="toc-sep">|</span>
+    <a class="toc-a fp" href="#part2">Part II — False Prophets</a>
+    <a class="toc-a fp" href="#fp1">Deut 13</a>
+    <a class="toc-a fp" href="#fp2">Fruit Test</a>
+    <a class="toc-a fp" href="#fp3">Isaiah 8:20</a>
+    <a class="toc-a fp" href="#fp4">Jeremiah 23</a>
+    <a class="toc-a fp" href="#fp5">Matt 24</a>
+    <a class="toc-a fp" href="#fp6">Signs & Wonders</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  PART I — OBEDIENCE                                            -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="part1">
+<div class="part-header fi container">
+  <div class="part-num">Part One</div>
+  <h2>Obedience Is Necessary — Scripture's Complete Testimony</h2>
+  <p class="part-desc">
+    Obedience is not the root of salvation; it is the inevitable fruit of it. These passages prove
+    that genuine faith always produces obedience — and that the absence of obedience exposes the
+    absence of saving faith. The theological statement is precise: we are not saved <em>by</em>
+    obedience, but we are not saved <em>without</em> it either.
+  </p>
+</div>
+</div>
+
+<div class="container">
+
+<!-- ─── THEME 1: Love and Obedience ─── -->
+<div id="s1-love" class="theme-intro fi" data-label="Section I">
+  <h3>If You Love Me — Obedience as the Language of Love</h3>
+  <p>Christ does not present obedience as a legal requirement divorced from relationship. He embeds it entirely within love. Obedience is not the door to relationship; it is the vocabulary of relationship.</p>
+</div>
+
+<!-- John 14:15 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">John 14:15</div>
+    <div class="card-title">"If you love me, keep my commandments"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "If ye love me, keep my commandments."
+      <span class="sref">— John 14:15, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">ἐὰν ἀγαπᾶτέ με</span>
+        <span class="gk-tr">ean agapate me</span>
+        <span class="gk-s">G25</span>
+      </div>
+      <p class="gk-def"><strong>"If you love me"</strong> — the verb is <em>agapaō</em> (G25), the highest Greek word for love: selfless, sacrificial, covenant love — the love of deliberate will and commitment, not mere sentiment or emotion. It is the same word used in John 3:16 ("God so loved the world") and 1 Corinthians 13.</p>
+      <div class="gk-row" style="margin-top:12px">
+        <span class="gk-w">τηρήσατε</span>
+        <span class="gk-tr">tērēsate</span>
+        <span class="gk-s">G5083</span>
+      </div>
+      <p class="gk-def"><strong>"Keep"</strong> — <em>tēreō</em> (G5083) means to watch over, to guard with care, to maintain and preserve. This is not grudging legal compliance — it carries the image of a watchman who values what he guards. The same word is used in Revelation 12:17 for the remnant who "keep the commandments of God."</p>
+      <p class="gk-sig">The structure is a first-class conditional: <em>ean</em> + present subjunctive — "if you love me (and I assume you do), then the keeping of commandments will be the evidence." It is not a threat; it is a diagnostic. Genuine <em class="gk-i">agapē</em> love for Christ will naturally, inevitably express itself as <em class="gk-i">tēreō</em> — guarding and keeping His commands. The converse is equally clear: the absence of obedience exposes the absence of love, whatever one's lips may claim.</p>
+    </div>
+    <p class="analysis">
+      Jesus repeats this three times in this same discourse: "If ye love me, keep my commandments" (14:15), "He that hath my commandments, and keepeth them, he it is that loveth me" (14:21), and "If ye keep my commandments, ye shall abide in my love" (15:10). The repetition is not accidental. Christ is establishing an inseparable link: love without obedience is a counterfeit, and obedience without love is mere legalism. What He requires is both — love expressed through joyful obedience.
+    </p>
+    <div class="egw-box fi">
+      <p class="egw-q">"The so-called faith in Christ which professes to release men from the obligation of obedience to God is not faith, but presumption. 'By grace are ye saved through faith' (Ephesians 2:8). But 'faith, if it hath not works, is dead' (James 2:17). Jesus said of Himself before He came to earth, 'I delight to do Thy will, O My God: yea, Thy law is within My heart' (Psalm 40:8). And just before He ascended again to heaven He declared, 'I have kept My Father's commandments, and abide in His love' (John 15:10)."</p>
+      <div class="egw-c">— Steps to Christ, p. 61</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">John 14:15</span>
+      <span class="tag gk">ἀγαπάω · agapaō</span>
+      <span class="tag gk">τηρέω · tēreō</span>
+      <span class="tag">Love & Obedience</span>
+    </div>
+  </div>
+</div>
+
+<!-- 1 John 2:3-6 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">1 John 2:3–6</div>
+    <div class="card-title">"He that saith he abideth in Him ought also to walk as He walked"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "And hereby we do know that we know him, if we keep his commandments. He that saith, I know him, and keepeth not his commandments, is a liar, and the truth is not in him. But whoso keepeth his word, in him verily is the love of God perfected: hereby know we that we are in him. He that saith he abideth in him ought himself also so to walk, even as he walked."
+      <span class="sref">— 1 John 2:3–6, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">ψεύστης ἐστίν</span>
+        <span class="gk-tr">pseustēs estin</span>
+        <span class="gk-s">G5583</span>
+      </div>
+      <p class="gk-def"><strong>"Is a liar"</strong> — <em>pseustēs</em> (G5583) is emphatic and absolute. John does not say "is mistaken" or "has a weak faith." He says: <em>that person is a liar</em>. The word is the same used in John 8:44 for the devil himself — "a liar, and the father of lies." This is the strongest possible language for a false claim.</p>
+      <p class="gk-sig">The claim John is calling a lie is not "I am sinless" but "I know Him" — <em class="gk-i">γινώσκω</em> <span class="gk-tag">ginōskō</span>, the intimate relational knowing that Christ said the rejected multitude (Matt. 7:23) never had. To say "I know Christ" while deliberately continuing in disobedience is not spiritual weakness — it is a lie that originates in the same source as the devil's own character.</p>
+    </div>
+    <p class="analysis">
+      John establishes three progressive tests in these four verses. First: do you keep His commandments? (v.3) Second: does the love of God dwell in you, maturing and bearing fruit? (v.5) Third: does your walk resemble Christ's walk? (v.6) All three tests are behavioural, not merely confessional. John's entire first epistle is a sustained argument that claim and conduct cannot be permanently divorced.
+    </p>
+    <div class="tag-row">
+      <span class="tag">1 John 2:3-6</span>
+      <span class="tag gk">ψεύστης · pseustēs</span>
+      <span class="tag gk">γινώσκω · ginōskō</span>
+      <span class="tag">Test of True Knowledge</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── THEME 2: Faith's Fruit ─── -->
+<div id="s2-fruit" class="theme-intro fi" data-label="Section II">
+  <h3>Faith Without Works Is Dead — James and Paul on the Same Side</h3>
+  <p>Paul and James are not in conflict. Paul argues that works cannot produce faith; James argues that genuine faith inevitably produces works. Both are correct. Together they describe the full anatomy of saving faith.</p>
+</div>
+
+<!-- James 2:14-26 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">James 2:14–26</div>
+    <div class="card-title">"Faith without works is dead" — even demons believe</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "What doth it profit, my brethren, though a man say he hath faith, and have not works? can faith save him?... Even so faith, if it hath not works, is dead, being alone. Yea, a man may say, Thou hast faith, and I have works: shew me thy faith without thy works, and I will shew thee my faith by my works. Thou believest that there is one God; thou doest well: the devils also believe, and tremble. But wilt thou know, O vain man, that faith without works is dead?... Ye see then how that by works a man is justified, and not by faith only."
+      <span class="sref">— James 2:14, 17–20, 24, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">νεκρά</span>
+        <span class="gk-tr">nekra</span>
+        <span class="gk-s">G3498</span>
+      </div>
+      <p class="gk-def"><strong>"Dead"</strong> — <em>nekros</em> (G3498) is the standard Greek word for a corpse. James uses it three times in this passage (vv.17, 20, 26) for emphasis. He is not saying that such faith is weak or immature — he is saying it is a corpse. It bears the outward form of faith the way a dead body bears the outward form of a living person: identical in appearance, fundamentally absent in reality.</p>
+      <div class="gk-row" style="margin-top:12px">
+        <span class="gk-w">καὶ τὰ δαιμόνια πιστεύουσιν</span>
+        <span class="gk-tr">kai ta daimonia pisteuousin</span>
+        <span class="gk-s">G1142 + G4100</span>
+      </div>
+      <p class="gk-def"><strong>"The devils also believe"</strong> — the verb is <em>pisteuō</em> (G4100) — the standard New Testament word for saving faith. James's point is surgical: demons have <em>pistis</em> (doctrinal belief) at its most precise — they know God exists, they know Christ's identity (Mark 1:24), they know the judgment is coming (Matt. 8:29). And yet they are lost. Doctrinal correctness without obedient transformation is the faith of demons.</p>
+      <p class="gk-sig">Note the verb used of the demons' response: <em class="gk-i">φρίσσουσιν</em> <span class="gk-tag">phrissousin</span> — they <em>shudder</em>. It denotes a physical trembling of horror. The demon's faith is more intellectually correct than many a churchgoer's, and yet it produces only dread. Because belief, without surrender and obedience, never becomes saving union with Christ.</p>
+    </div>
+    <div class="egw-box fi">
+      <p class="egw-q">"We do not earn salvation by our obedience; for salvation is the free gift of God, to be received by faith. But obedience is the fruit of faith... If we abide in Christ, if the love of God dwells in us, our feelings, our thoughts, our purposes, our actions, will be in harmony with the will of God as expressed in the precepts of His holy law."</p>
+      <div class="egw-c">— Steps to Christ, p. 60–61 (egwwritings.org SC 60.2)</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">James 2:14-26</span>
+      <span class="tag gk">νεκρά · nekra</span>
+      <span class="tag gk">δαιμόνια πιστεύουσιν</span>
+      <span class="tag gk">φρίσσουσιν · phrissousin</span>
+      <span class="tag">Dead Faith</span>
+    </div>
+  </div>
+</div>
+
+<!-- Ephesians 2:8-10 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Ephesians 2:8–10</div>
+    <div class="card-title">Not saved by works — but saved FOR works</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "For by grace are ye saved through faith; and that not of yourselves: it is the gift of God: Not of works, lest any man should boast. For we are his workmanship, created in Christ Jesus unto good works, which God hath before ordained that we should walk in them."
+      <span class="sref">— Ephesians 2:8–10, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">ποίημα</span>
+        <span class="gk-tr">poiēma</span>
+        <span class="gk-s">G4161</span>
+      </div>
+      <p class="gk-def"><strong>"Workmanship"</strong> (v.10) — <em>poiēma</em> (G4161) means a masterwork, a crafted creation. It is the word from which we get "poem." Every saved person is a divine <em>poem</em> — a work of art crafted by God's hand. The English "workmanship" is too industrial; Paul is saying we are God's artistic masterpiece.</p>
+      <p class="gk-sig">The theological structure is precise and inseparable: verses 8–9 establish that works are not the <em>root</em> of salvation (lest anyone boast). Verse 10 immediately establishes that works are the <em>purpose</em> of salvation: we are created <em class="gk-i">epi ergois agathois</em> — <em>for good works</em>, which God prepared in advance for us to walk in. Anti-nomianism (the teaching that obedience is unnecessary) reads Paul backwards: it takes the negative of verses 8–9 and erases verse 10 entirely. We are not saved <em>by</em> works; we are saved <em>for</em> works. These are not the same thing.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Ephesians 2:8-10</span>
+      <span class="tag gk">ποίημα · poiēma</span>
+      <span class="tag">Saved For Works</span>
+      <span class="tag">Grace & Obedience</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── THEME 3: Author of Salvation ─── -->
+<div id="s3-author" class="theme-intro fi" data-label="Section III">
+  <h3>The Author of Eternal Salvation — Only to Those Who Obey</h3>
+  <p>The Book of Hebrews provides the most theologically compressed statement on obedience and salvation in the entire New Testament. It cannot be softened or explained away.</p>
+</div>
+
+<!-- Hebrews 5:8-9 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Hebrews 5:8–9</div>
+    <div class="card-title">"He became the author of eternal salvation — to all who obey Him"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "Though he were a Son, yet learned he obedience by the things which he suffered; And being made perfect, he became the author of eternal salvation unto all them that obey him."
+      <span class="sref">— Hebrews 5:8–9, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">αἴτιος σωτηρίας αἰωνίου</span>
+        <span class="gk-tr">aitios sōtērias aiōniou</span>
+        <span class="gk-s">G159 + G4991 + G166</span>
+      </div>
+      <p class="gk-def"><strong>"Author of eternal salvation"</strong> — <em>aitios</em> (G159) means source, cause, originator. Christ is the originating <em>cause</em> of eternal salvation — the only cause. The salvation on offer is <em>aiōnios</em> (G166) — eternal, age-spanning, without end.</p>
+      <div class="gk-row" style="margin-top:12px">
+        <span class="gk-w">πᾶσιν τοῖς ὑπακούουσιν</span>
+        <span class="gk-tr">pasin tois hypakouousin</span>
+        <span class="gk-s">G5219</span>
+      </div>
+      <p class="gk-def"><strong>"Unto all them that obey"</strong> — the Greek <em>hypakouō</em> (G5219) is built from <em>hypo</em> (under) + <em>akouō</em> (to hear). It literally means <em>to hear from below, to hearken with submission</em>. It is the posture of one who listens and then does what the authority says.</p>
+      <p class="gk-sig">The construction is a present active participle: <em class="gk-i">tois hypakouousin</em> — "to those who are [continuously, presently] obeying." This is not past-tense obedience ("I made a decision once") but an ongoing posture of submission. The writer of Hebrews places no comma between "eternal salvation" and "to those who obey." Christ does not offer salvation first, then obedience later as an optional extra. The offer is indivisible: salvation is extended to the one who obeys. No obedience, no access to the Author's gift.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Hebrews 5:8-9</span>
+      <span class="tag gk">αἴτιος · aitios</span>
+      <span class="tag gk">ὑπακούω · hypakouō</span>
+      <span class="tag">Author of Salvation</span>
+      <span class="tag">Obedience Required</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hebrews 10:26-27 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Hebrews 10:26–27</div>
+    <div class="card-title">Wilful sin after receiving truth — no more sacrifice remains</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "For if we sin wilfully after that we have received the knowledge of the truth, there remaineth no more sacrifice for sins, But a certain fearful looking for of judgment and fiery indignation, which shall devour the adversaries."
+      <span class="sref">— Hebrews 10:26–27, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">ἑκουσίως</span>
+        <span class="gk-tr">hekousiōs</span>
+        <span class="gk-s">G1596</span>
+      </div>
+      <p class="gk-def"><strong>"Wilfully"</strong> — <em>hekousiōs</em> (G1596) means voluntarily, deliberately, of one's own free will. The writer is not describing the stumbling of a struggling believer but the settled, intentional choice to persist in sin after full knowledge of the truth has been received. This is the anomia — lawlessness — of Matthew 7:23 in its advanced form.</p>
+      <p class="gk-sig">The warning is addressed to believers who have already "received the knowledge of the truth" — this is not a warning to pagans. It is a warning to the church. The one who claims grace while choosing persistent, deliberate disobedience has removed themselves from the one sacrifice that could save them. There is no Plan B for the one who rejects Plan A after fully understanding it.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Hebrews 10:26-27</span>
+      <span class="tag gk">ἑκουσίως · hekousiōs</span>
+      <span class="tag">Wilful Sin</span>
+      <span class="tag">Warning to Believers</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── THEME 4: Hearers vs Doers ─── -->
+<div id="s4-hear" class="theme-intro fi" data-label="Section IV">
+  <h3>Hearers and Doers — The Deception of Passive Reception</h3>
+  <p>Christ and James both identify a specific form of spiritual self-deception: the person who receives truth intellectually but never acts on it. This is not neutral ground — it is a house built on sand.</p>
+</div>
+
+<!-- James 1:22 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">James 1:22–25</div>
+    <div class="card-title">"Be doers of the word — deceiving your own selves"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "But be ye doers of the word, and not hearers only, deceiving your own selves. For if any be a hearer of the word, and not a doer, he is like unto a man beholding his natural face in a glass: For he beholdeth himself, and goeth his way, and straightway forgetteth what manner of man he was. But whoso looketh into the perfect law of liberty, and continueth therein, he being not a forgetful hearer, but a doer of the work, this man shall be blessed in his deed."
+      <span class="sref">— James 1:22–25, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">παραλογιζόμενοι ἑαυτούς</span>
+        <span class="gk-tr">paralogizomenoi heautous</span>
+        <span class="gk-s">G3884</span>
+      </div>
+      <p class="gk-def"><strong>"Deceiving your own selves"</strong> — <em>paralogizesthai</em> (G3884) means to reason falsely alongside, to miscalculate. The compound prefix <em>para</em> means "alongside but off-target." This is a person who is doing something that looks like reasoning but arrives at a false conclusion — specifically, the false conclusion that hearing = doing.</p>
+      <p class="gk-sig">The self-deception is structural: the person attending church, studying Scripture, affirming doctrine — and leaving unchanged — is not in neutral spiritual territory. James says they are actively deceiving themselves. The mirror metaphor is devastating: they look at the law (see their sin, their need, what they must do), then walk away and immediately forget. The law, seen but not acted upon, produces nothing. The "doer of the work" is the one who stays at the mirror long enough for it to change them.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">James 1:22-25</span>
+      <span class="tag gk">παραλογίζομαι · paralogizesthai</span>
+      <span class="tag">Self-Deception</span>
+      <span class="tag">Doers Not Hearers</span>
+    </div>
+  </div>
+</div>
+
+<!-- Matthew 7:24-27 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Matthew 7:24–27</div>
+    <div class="card-title">House on rock vs. sand — hearing vs. hearing AND doing</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "Therefore whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock... And every one that heareth these sayings of mine, and doeth them not, shall be likened unto a foolish man, which built his house upon the sand... and great was the fall of it."
+      <span class="sref">— Matthew 7:24, 26–27, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">ποιεῖ αὐτούς / μὴ ποιῶν αὐτούς</span>
+        <span class="gk-tr">poiei autous / mē poiōn autous</span>
+        <span class="gk-s">G4160</span>
+      </div>
+      <p class="gk-def"><strong>"Doeth them / doeth them not"</strong> — the verb is <em>poieō</em> (G4160), the ordinary Greek word for doing, making, performing. Both men hear the same sermon. Both receive the identical words. The sole difference is <em>poieō</em> — one acts on what he hears; one does not.</p>
+      <p class="gk-sig">Note that the foolish man is not described as someone who rejected Christ's teachings. He <em>heard</em> them. He may have memorised them. He may have been able to quote them. He simply did not <em>do</em> them. The storm that collapses his house is not unusual or unexpected — it is the same storm that tests every house. The difference in outcome is entirely traceable to a single variable: obedient action, or its absence. This is Christ's own conclusion to the Sermon on the Mount — the final verdict on everything He has taught from chapters 5–7.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Matthew 7:24-27</span>
+      <span class="tag gk">ποιέω · poieō</span>
+      <span class="tag">House on Rock</span>
+      <span class="tag">Hearing and Doing</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── THEME 5: Commandments ─── -->
+<div id="s5-commandments" class="theme-intro fi" data-label="Section V">
+  <h3>The Commandments of God — Kept by the Remnant, the Saved, the Redeemed</h3>
+  <p>Scripture describes God's end-time people not by their denominational badge but by two characteristics: they keep the commandments of God, and they hold the testimony of Jesus. These are not optional markers.</p>
+</div>
+
+<!-- Revelation 12:17 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Revelation 12:17</div>
+    <div class="card-title">The remnant defined — keepers of God's commandments</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "And the dragon was wroth with the woman, and went to make war with the remnant of her seed, which keep the commandments of God, and have the testimony of Jesus Christ."
+      <span class="sref">— Revelation 12:17, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">τῶν τηρούντων τὰς ἐντολὰς τοῦ θεοῦ</span>
+        <span class="gk-tr">tōn tērountōn tas entolas tou theou</span>
+        <span class="gk-s">G5083 + G1785</span>
+      </div>
+      <p class="gk-def"><strong>"Which keep the commandments of God"</strong> — again <em>tēreō</em> (G5083) — to guard, to keep watch over with diligence. The same word Christ used in John 14:15. Here the remnant is defined by this characteristic: they are the ones who actively, continuously guard God's commandments. <em>Entolas</em> (G1785) means commandments, precepts, directives — not vague moral impressions but specific, identifiable instructions from God.</p>
+      <p class="gk-sig">The word <em class="gk-i">loipon</em> (remnant) means what remains after most has been lost or destroyed. In the context of Revelation 12, this is the end-time community that survives the dragon's assault. The identifying characteristic is not their nationality, their denomination, or their emotional experience — it is their relationship to God's commandments. The dragon specifically targets the commandment-keepers because they represent the direct counterpoint to his agenda of lawlessness (<em>anomia</em>).</p>
+    </div>
+    <div class="insight">
+      <strong>Symbol Note</strong>
+      The <em>woman</em> <span class="sym-note">woman = true church (2 Cor 11:2; Jer 6:2)</span> in Revelation 12 is the faithful covenant community. The <em>remnant of her seed</em> are the end-time believers — her spiritual offspring. They are distinguished from all other professing Christians by two traits: commandment-keeping and the testimony of Jesus (the spirit of prophecy, Rev. 19:10).
+    </div>
+    <div class="tag-row">
+      <span class="tag">Revelation 12:17</span>
+      <span class="tag gk">τηρέω · tēreō</span>
+      <span class="tag gk">ἐντολαί · entolai</span>
+      <span class="tag">Remnant</span>
+      <span class="tag">Commandments</span>
+    </div>
+  </div>
+</div>
+
+<!-- Revelation 14:12 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Revelation 14:12</div>
+    <div class="card-title">"Here is the patience of the saints — keepers of commandments and faith of Jesus"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus."
+      <span class="sref">— Revelation 14:12, KJV</span>
+    </div>
+    <p class="analysis">
+      This verse stands as the summary portrait of God's people in the context of the three angels' messages — the final proclamation to the world. The saints are defined by two things in conjunction: keeping God's commandments <em>and</em> the faith of Jesus. One without the other is insufficient. Grace without obedience is antinomianism; obedience without faith is legalism. The end-time remnant holds both simultaneously.
+    </p>
+    <div class="egw-box fi">
+      <p class="egw-q">"The banner of the third angel has inscribed upon it, 'The commandments of God and the faith of Jesus.' These are the distinguishing characteristics of the remnant church... God has a people in these last days who hold the banner of truth triumphantly. The commandments of God and the faith of Jesus are their distinguishing characteristics."</p>
+      <div class="egw-c">— Wikiquote / Ellen G. White compiled writings</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Revelation 14:12</span>
+      <span class="tag">Three Angels</span>
+      <span class="tag">Commandments + Faith</span>
+      <span class="tag">End-Time Saints</span>
+    </div>
+  </div>
+</div>
+
+<!-- Matthew 19:16-17 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Matthew 19:16–17</div>
+    <div class="card-title">"If thou wilt enter into life, keep the commandments"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "And, behold, one came and said unto him, Good Master, what good thing shall I do, that I may have eternal life? And he said unto him... if thou wilt enter into life, keep the commandments."
+      <span class="sref">— Matthew 19:16–17, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">τήρει τὰς ἐντολάς</span>
+        <span class="gk-tr">tērei tas entolas</span>
+        <span class="gk-s">G5083 + G1785</span>
+      </div>
+      <p class="gk-def"><strong>"Keep the commandments"</strong> — <em>tērei</em> is the imperative form of <em>tēreō</em>: a direct command to guard and keep. Jesus did not say "believe a doctrine" or "pray a prayer." He listed specific commandments from the Decalogue (vv.18–19) and then concluded with the greatest commandment of love. The answer is concrete and behavioural.</p>
+      <p class="gk-sig">Some object that Jesus later told the rich young ruler to sell everything — but note: that was the second step. The first step was the commandments. Jesus identified where the man was failing at the first level before offering the deeper call. The commandments are the floor, not the ceiling. And even then, the floor was not kept — the man went away sorrowful. Christ's statement "if thou wilt enter into life, keep the commandments" stands as a direct, unambiguous answer to the question of eternal life from the lips of the Son of God.</p>
+    </div>
+    <div class="egw-box fi">
+      <p class="egw-q">"'The young man came to Christ and asked, What good thing shall I do, that I may have eternal life? The answer was, If thou wilt enter into life, keep the commandments (Matthew 19:16,17)... So you have the whole duty laid down, and that is to keep the commandments if you expect to have eternal life.'"</p>
+      <div class="egw-c">— Manuscript Releases, Vol. 5, p. 259</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Matthew 19:16-17</span>
+      <span class="tag gk">τήρει τὰς ἐντολάς</span>
+      <span class="tag">Enter Into Life</span>
+      <span class="tag">Rich Young Ruler</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── THEME 6: Blessed ─── -->
+<div id="s6-blessed" class="theme-intro fi" data-label="Section VI">
+  <h3>Blessed Are Those Who Keep His Commandments — The Tree of Life</h3>
+  <p>Revelation's final promise links the right to the tree of life directly to commandment-keeping. The blessing is inseparable from the condition.</p>
+</div>
+
+<!-- Revelation 22:14 -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Revelation 22:14</div>
+    <div class="card-title">"Blessed are they that do his commandments — right to the tree of life"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "Blessed are they that do his commandments, that they may have right to the tree of life, and may enter in through the gates into the city."
+      <span class="sref">— Revelation 22:14, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">οἱ ποιοῦντες τὰς ἐντολὰς αὐτοῦ</span>
+        <span class="gk-tr">hoi poiountes tas entolas autou</span>
+        <span class="gk-s">G4160 + G1785</span>
+      </div>
+      <p class="gk-def"><strong>"They that do his commandments"</strong> — <em>poiountes</em> (G4160, present active participle) means those who are actively, continuously doing His commandments. This is present-tense habitual action, not past-tense event. The blessing belongs not to those who once kept, or who intend to keep, but to those who are presently, actively keeping.</p>
+      <p class="gk-sig"><em class="gk-i">ἐξουσία</em> <span class="gk-tag">exousia</span> — "right" or "authority" — to the tree of life. This is legal standing, a legitimate claim. Entry through the gates into the city is conditionally linked to commandment-keeping. This is the last beatitude of the Bible — and it is behavioural. Some manuscripts read "wash their robes" (the clothing symbol — righteousness), but even that reading links to the fruit of genuine transformation. Either way, entry into the New Jerusalem is inseparable from obedience.</p>
+    </div>
+    <div class="egw-box fi">
+      <p class="egw-q">"Those who at the coming of Christ are standing under the black banner of rebellion cannot enter into immortal life. 'Blessed are they that do His commandments, that they may have right to the tree of life, and may enter in through the gates into the city.'"</p>
+      <div class="egw-c">— Manuscript Releases, Vol. 5, p. 259</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Revelation 22:14</span>
+      <span class="tag gk">ποιοῦντες · poiountes</span>
+      <span class="tag gk">ἐξουσία · exousia</span>
+      <span class="tag">Tree of Life</span>
+      <span class="tag">Last Beatitude</span>
+    </div>
+  </div>
+</div>
+
+<!-- Romans 1:5 / 16:26 — obedience of faith -->
+<div class="card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Romans 1:5 · 16:26</div>
+    <div class="card-title">"The obedience of faith" — Paul's framing of the entire gospel</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "By whom we have received grace and apostleship, for obedience to the faith among all nations, for his name."
+      <br>"But now is made manifest, and by the scriptures of the prophets, according to the commandment of the everlasting God, made known to all nations for the obedience of faith."
+      <span class="sref">— Romans 1:5 and 16:26, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">ὑπακοὴν πίστεως</span>
+        <span class="gk-tr">hypakoēn pisteōs</span>
+        <span class="gk-s">G5218 + G4102</span>
+      </div>
+      <p class="gk-def"><strong>"Obedience of faith"</strong> — <em>hypakoē</em> (G5218) is a noun form of <em>hypakouō</em> (to hear from below — to submit and obey). <em>Pisteōs</em> is the genitive of <em>pistis</em> (faith). The phrase is a genitive of source or quality: "the obedience which flows from faith" or "the obedience which <em>is</em> faith fully expressed."</p>
+      <p class="gk-sig">Paul uses <em class="gk-i">hypakoēn pisteōs</em> as a bookend — it opens the letter (1:5) and closes it (16:26). The entire epistle to the Romans — including its great chapters on justification by faith alone — is framed by this concept. Paul never understood faith as passive intellectual assent. For Paul, genuine faith is inherently obedient. <em>The obedience of faith</em> is not a second thing added onto faith; it is what faith looks like from the outside. Any definition of "faith" that excludes obedience is not Paul's definition.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Romans 1:5 · 16:26</span>
+      <span class="tag gk">ὑπακοὴ πίστεως</span>
+      <span class="tag">Obedience of Faith</span>
+      <span class="tag">Paul's Gospel Framework</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  PART II — FALSE PROPHETS                                      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="part2">
+<div class="part-header fp fi container">
+  <div class="part-num">Part Two</div>
+  <h2>The False Prophet — How Scripture Identifies and Condemns Them</h2>
+  <p class="part-desc">
+    The Bible's definition of a false prophet is precise, multi-layered, and deadly serious.
+    The primary test is not whether their predictions fail — even a true miracle-worker can be
+    a false prophet. The primary test is whether they turn people <em>away</em> from the law of God.
+    End-time false prophets will be most dangerous precisely because their signs and wonders are real.
+  </p>
+</div>
+</div>
+
+<div class="container">
+
+<!-- ─── FP THEME 1: Deuteronomy 13 ─── -->
+<div id="fp1" class="theme-intro fi" data-label="False Prophet Test I" data-fp>
+  <h3>The Primary Test — Leading Away from the Commandments</h3>
+  <p>Moses lays down the foundational test for false prophecy in Deuteronomy 13. Shockingly, the test is NOT "did his prophecy come true?" It is: <em>where does he lead you?</em></p>
+</div>
+
+<div class="card fp-card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Deuteronomy 13:1–5</div>
+    <div class="card-title">Signs come true — yet he is a false prophet</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "If there arise among you a prophet, or a dreamer of dreams, and giveth thee a sign or a wonder, And the sign or the wonder come to pass, whereof he spake unto thee, saying, Let us go after other gods, which thou hast not known, and let us serve them; Thou shalt not hearken unto the words of that prophet... for the LORD your God is testing you... Ye shall walk after the LORD your God, and fear him, and keep his commandments, and obey his voice... But that prophet, or that dreamer of dreams, shall be put to death; because he hath spoken to turn you away from the LORD your God."
+      <span class="sref">— Deuteronomy 13:1–5, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">הַנָּבִיא הַהוּא</span>
+        <span class="gk-tr">ha-navi ha-hu</span>
+        <span class="gk-s">Hebrew — nāvî H5030</span>
+      </div>
+      <p class="gk-def"><strong>Hebrew <em>nāvî</em></strong> (H5030) — prophet, spokesman, one who speaks on behalf of. The false prophet (<em>nāvî sheker</em>) shares the title of the genuine prophet. He is not obviously fraudulent. He delivers verifiable signs. His prophecies may actually come true.</p>
+      <p class="gk-sig">Moses establishes a counter-intuitive principle that overturns the most common test people apply: <strong>a successful sign does not validate a prophet.</strong> God explicitly states He is <em>testing you</em> through this person — allowing accurate prophecy to come from a false source in order to reveal whether your allegiance is to the Sign-Worker or to the Law-Giver. The definitive test is not prophetic accuracy but directional loyalty: does this person lead you toward the commandments of God, or away from them? Any prophet who teaches that God's law is obsolete, that the Sabbath has been changed, that commandments are no longer binding — satisfies the Deuteronomy 13 definition regardless of their miracles.</p>
+    </div>
+    <div class="insight danger">
+      <strong>⚠ The Deuteronomy 13 Standard Applied Today</strong>
+      Any teacher who: (1) performs signs and wonders AND (2) teaches that God's commandments — including the seventh-day Sabbath — are no longer binding, meets the precise biblical definition of a false prophet. Not because his signs are fake. Because of where he leads.
+    </div>
+    <div class="egw-box fi fp-egw">
+      <p class="egw-q">"Fearful sights of a supernatural character will soon be revealed in the heavens, in token of the power of miracle-working demons. The spirits of devils will go forth to the kings of the earth and to the whole world, to fasten them in deception... Persons will arise pretending to be Christ Himself, and claiming the title and worship which belong to the world's Redeemer. They will perform wonderful miracles of healing and will profess to have revelations from heaven contradicting the testimony of the Scriptures."</p>
+      <div class="egw-c">— EGW Estate Daily Devotional, citing The Great Controversy</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Deuteronomy 13:1-5</span>
+      <span class="tag">Signs & Wonders</span>
+      <span class="tag">Leading Away From Law</span>
+      <span class="tag">Primary FP Test</span>
+    </div>
+  </div>
+</div>
+
+<!-- Deuteronomy 18:20-22 -->
+<div class="card fp-card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Deuteronomy 18:20–22</div>
+    <div class="card-title">The secondary test — the prophecy that does not come to pass</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "But the prophet, which shall presume to speak a word in my name, which I have not commanded him to speak, or that shall speak in the name of other gods, even that prophet shall die. And if thou say in thine heart, How shall we know the word which the LORD hath not spoken? When a prophet speaketh in the name of the LORD, if the thing follow not, nor come to pass, that is the thing which the LORD hath not spoken, but the prophet hath spoken it presumptuously."
+      <span class="sref">— Deuteronomy 18:20–22, KJV</span>
+    </div>
+    <p class="analysis">
+      This is the second test — and it must be read after Deuteronomy 13, not instead of it. The sequence is critical: Deuteronomy 13 warns that a prophet whose predictions come true may still be false (if he leads away from God's law). Deuteronomy 18 adds: a prophet whose predictions fail is also definitively false. Together they form a double-gate test: (1) Does his message honour God's commandments? (2) Do his specific predictions come to pass? A true prophet must pass both. A false prophet fails at least one.
+    </p>
+    <div class="tag-row">
+      <span class="tag">Deuteronomy 18:20-22</span>
+      <span class="tag">Secondary FP Test</span>
+      <span class="tag">Unfulfilled Prophecy</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── FP THEME 2: The Fruit Test ─── -->
+<div id="fp2" class="theme-intro fi" data-label="False Prophet Test II" data-fp>
+  <h3>By Their Fruits — The Character Test</h3>
+  <p>Christ adds a third dimension to identifying false prophets: examine their lives. Spiritual gifts can be counterfeited; sustained character cannot.</p>
+</div>
+
+<div class="card fp-card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Matthew 7:15–20</div>
+    <div class="card-title">Wolves in sheep's clothing — known by their fruits</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "Beware of false prophets, which come to you in sheep's clothing, but inwardly they are ravening wolves. Ye shall know them by their fruits. Do men gather grapes of thorns, or figs of thistles? Even so every good tree bringeth forth good fruit; but a corrupt tree bringeth forth evil fruit... Wherefore by their fruits ye shall know them."
+      <span class="sref">— Matthew 7:15–20, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">ψευδοπροφῆται</span>
+        <span class="gk-tr">pseudoprophētai</span>
+        <span class="gk-s">G5578</span>
+      </div>
+      <p class="gk-def"><strong>"False prophets"</strong> — <em>pseudoprophētēs</em> (G5578): <em>pseudes</em> (false, lying) + <em>prophētēs</em> (prophet). This is a person who performs the outward function of a prophet while the content or character is fundamentally false. Note the definite article: "Beware of the false prophets" — Jesus implies a known category that His disciples should already be alert to.</p>
+      <div class="gk-row" style="margin-top:12px">
+        <span class="gk-w">ἐν ἐνδύμασιν προβάτων</span>
+        <span class="gk-tr">en endymasin probatōn</span>
+        <span class="gk-s">G1742 + G4263</span>
+      </div>
+      <p class="gk-def"><strong>"In sheep's clothing"</strong> — <em>endyma</em> (G1742) means outer garment, external dress — the symbolic clothing they wear publicly. They dress in the language, the appearance, the vocabulary, the rituals of the true flock. The false prophet does not announce himself as a wolf. He wears Christian symbols, quotes Scripture, and uses the name of Jesus.</p>
+      <p class="gk-sig"><em class="gk-i">Λύκοι ἅρπαγες</em> <span class="gk-tag">lykoi harpages</span> — "ravening wolves." <em>Harpax</em> (G727) means rapacious, grasping, plundering — the same word used in 1 Corinthians 5:10–11 for the "extortionate." The external appearance is gentle and Christian; the internal agenda is predatory and destructive. They feed on the flock rather than feeding it.</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Matthew 7:15-20</span>
+      <span class="tag gk">ψευδοπροφῆται</span>
+      <span class="tag gk">λύκοι ἅρπαγες</span>
+      <span class="tag">Fruit Test</span>
+      <span class="tag">Wolves in Sheep's Clothing</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── FP THEME 3: Isaiah 8:20 ─── -->
+<div id="fp3" class="theme-intro fi" data-label="False Prophet Test III" data-fp>
+  <h3>To the Law and the Testimony — The Litmus Test of Every Prophetic Claim</h3>
+  <p>Isaiah delivers what may be the most concise and decisive test for a false prophet in the entire Old Testament: does their teaching align with God's law and the established testimony?</p>
+</div>
+
+<div class="card fp-card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Isaiah 8:20</div>
+    <div class="card-title">"To the law and to the testimony — if they speak not according to this word"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "To the law and to the testimony: if they speak not according to this word, it is because there is no light in them."
+      <span class="sref">— Isaiah 8:20, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">לְתוֹרָה וְלִתְעוּדָה</span>
+        <span class="gk-tr">le-Torah ve-li-te'udah</span>
+        <span class="gk-s">Hebrew — tôrāh H8451 + te'udah H8584</span>
+      </div>
+      <p class="gk-def"><strong><em>Torah</em></strong> (H8451) — the law, instruction, direction; specifically the revealed will and commandments of God. <strong><em>Te'udah</em></strong> (H8584) — testimony, witness, established declaration; in context, the prophetic testimony already given by the true prophets of God.</p>
+      <p class="gk-sig">Isaiah's test is binary: does the speaker align with Torah (God's commandments) and Te'udah (the testimony of true prophecy)? If not — <em>ein lō shachar</em> — "there is no dawn in them." The Hebrew is stark: they are in total darkness. Not partial error. Not a good heart with some wrong doctrine. <em>No light at all.</em> Every 21st-century preacher, televangelist, and revival speaker must be run through this test: does their teaching honour the law of God, or does it minimise, replace, or abolish it?</p>
+    </div>
+    <div class="insight danger">
+      <strong>Applied Test</strong>
+      Any teacher whose message — however anointed it feels, however large the audience, however moving the worship — leads people away from the specific commandments of God (including the fourth commandment, the Sabbath) fails the Isaiah 8:20 test. There is no light in them, regardless of their reputation.
+    </div>
+    <div class="tag-row">
+      <span class="tag">Isaiah 8:20</span>
+      <span class="tag">Torah & Testimony</span>
+      <span class="tag">No Light</span>
+      <span class="tag">The Litmus Test</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── FP THEME 4: Jeremiah 23 ─── -->
+<div id="fp4" class="theme-intro fi" data-label="False Prophet Test IV" data-fp>
+  <h3>Jeremiah's Portrait — They Speak Visions of Their Own Heart</h3>
+  <p>Jeremiah's lengthy indictment of false prophets in chapter 23 provides one of the most detailed biblical portraits of the false prophet's methods and motives.</p>
+</div>
+
+<div class="card fp-card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Jeremiah 23:16–22, 25–32</div>
+    <div class="card-title">"They speak visions of their own heart — not from the mouth of the LORD"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "Hearken not unto the words of the prophets that prophesy unto you: they make you vain: they speak a vision of their own heart, and not out of the mouth of the LORD. They say still unto them that despise me, The LORD hath said, Ye shall have peace; and they say unto every one that walketh after the imagination of his own heart, No evil shall come upon you... They speak a vision of their own heart... I have not sent these prophets, yet they ran: I have not spoken to them, yet they prophesied... I am against the prophets, saith the LORD, that use their tongues, and say, He saith."
+      <span class="sref">— Jeremiah 23:16–17, 26, 21, 31, KJV</span>
+    </div>
+    <p class="analysis">
+      Jeremiah identifies four marks of the false prophet that remain devastatingly current:
+    </p>
+    <div class="test-grid fi">
+      <div class="test-cell">
+        <div class="test-cell-ref">Mark 1 — They Make You Vain (v.16)</div>
+        <div class="test-cell-text">The Hebrew <em>hebel</em> — emptiness, futility, vapour. False prophets fill people with self-confidence and spiritual emptiness simultaneously. They leave the congregation feeling good and spiritually hollow.</div>
+      </div>
+      <div class="test-cell">
+        <div class="test-cell-ref">Mark 2 — "No Evil Shall Come" (v.17)</div>
+        <div class="test-cell-text">They preach comfort to those who walk in sin. They never connect conduct to consequence. "God loves you just as you are" without "and loves you too much to leave you there." This is the prosperity gospel and cheap-grace antinomianism in Jeremiah's era.</div>
+      </div>
+      <div class="test-cell">
+        <div class="test-cell-ref">Mark 3 — Vision of Their Own Heart (v.16)</div>
+        <div class="test-cell-text">Their revelation is self-generated, not God-given. It originates in their own desires, their audience's preferences, or demonic inspiration — but it is packaged as divine. The "thus saith the Lord" is applied to their own imagination.</div>
+      </div>
+      <div class="test-cell">
+        <div class="test-cell-ref">Mark 4 — "I Have Not Sent Them" (v.21)</div>
+        <div class="test-cell-text">God's ultimate verdict: divine repudiation. They ran without being sent. They spoke without being commissioned. The crowds, the fame, the large buildings prove nothing. God's verdict overrides all external markers of success.</div>
+      </div>
+    </div>
+    <div class="egw-box fi fp-egw">
+      <p class="egw-q">"Notwithstanding the Bible is full of warnings against false teachers, many are ready to commit the keeping of their souls to the clergy. There are today thousands of professors of religion who can give no other reason for points of faith which they hold than that they were so instructed by their religious leaders."</p>
+      <div class="egw-c">— The Great Controversy, Chapter 37, "The Scriptures a Safeguard"</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Jeremiah 23</span>
+      <span class="tag">hebel — Vanity</span>
+      <span class="tag">Vision of Own Heart</span>
+      <span class="tag">False Comfort</span>
+    </div>
+  </div>
+</div>
+
+<div class="sdiv"><span class="sdiv-icon">✦ ✦</span></div>
+
+<!-- ─── FP THEME 5: Matthew 24 ─── -->
+<div id="fp5" class="theme-intro fi" data-label="False Prophet Test V" data-fp>
+  <h3>End-Time False Prophets — Signs So Convincing They Would Deceive the Elect</h3>
+  <p>Christ's own prophecy about the last days focuses more on false prophets than on any other single danger. The deception will not be crude — it will be nearly perfect.</p>
+</div>
+
+<div class="card fp-card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">Matthew 24:4–5, 11, 24</div>
+    <div class="card-title">"If possible, they shall deceive the very elect"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "And Jesus answered and said unto them, Take heed that no man deceive you. For many shall come in my name, saying, I am Christ; and shall deceive many... And many false prophets shall rise, and shall deceive many... For there shall arise false Christs, and false prophets, and shall shew great signs and wonders; insomuch that, if it were possible, they shall deceive the very elect."
+      <span class="sref">— Matthew 24:4–5, 11, 24, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">πλανήσουσιν πολλούς</span>
+        <span class="gk-tr">planēsousin pollous</span>
+        <span class="gk-s">G4105 + G4183</span>
+      </div>
+      <p class="gk-def"><strong>"Shall deceive many"</strong> — <em>planaō</em> (G4105) means to cause to wander, to lead astray — the root of our word "planet" (wandering star). The future tense is prophetic certainty. <em>Pollous</em> — the same "many" of Matthew 7:22. The deception is not niche or marginal; it sweeps in multitudes.</p>
+      <div class="gk-row" style="margin-top:12px">
+        <span class="gk-w">εἰ δυνατόν</span>
+        <span class="gk-tr">ei dunaton</span>
+        <span class="gk-s">G1415</span>
+      </div>
+      <p class="gk-def"><strong>"If it were possible"</strong> — <em>ei dunaton</em> is a contrary-to-fact conditional: "if it were possible (which it is not)." The elect will not be ultimately deceived. But the deception will be of such quality that even the elect are <em>nearly</em> taken in. The signs will be real. The wonders will be undeniable. The experience will be overwhelming. Only those anchored to the law and testimony (Isaiah 8:20) will stand.</p>
+      <p class="gk-sig">Jesus says "many will come in My name" — they will not deny Christ, they will invoke Him. They will preach Jesus, perform miracles in His name, and lead millions to destruction. The Deuteronomy 13 scenario is not ancient history; it is the prophesied condition of the end time. The protection is not anti-supernatural scepticism but the word of God: "To the law and to the testimony."</p>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Matthew 24:4-5, 11, 24</span>
+      <span class="tag gk">πλανάω · planaō</span>
+      <span class="tag gk">εἰ δυνατόν</span>
+      <span class="tag">Deceive the Elect</span>
+      <span class="tag">End-Time Warning</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FP THEME 6: Signs and Wonders ─── -->
+<div id="fp6" class="theme-intro fi" data-label="False Prophet Test VI" data-fp>
+  <h3>1 John 4:1 — Test Every Spirit</h3>
+  <p>John's command is a standing order for every believer in every age: do not accept spiritual experience at face value. Test it.</p>
+</div>
+
+<div class="card fp-card fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="ref-badge">1 John 4:1–3</div>
+    <div class="card-title">"Try the spirits — because many false prophets are gone out"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "Beloved, believe not every spirit, but try the spirits whether they are of God: because many false prophets are gone out into the world. Hereby know ye the Spirit of God: Every spirit that confesseth that Jesus Christ is come in the flesh is of God: And every spirit that confesseth not that Jesus Christ is come in the flesh is not of God: and this is that spirit of antichrist, whereof ye have heard that it should come."
+      <span class="sref">— 1 John 4:1–3, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">δοκιμάζετε τὰ πνεύματα</span>
+        <span class="gk-tr">dokimazete ta pneumata</span>
+        <span class="gk-s">G1381</span>
+      </div>
+      <p class="gk-def"><strong>"Try the spirits"</strong> — <em>dokimazō</em> (G1381) is the word for metallurgical testing — putting metal through fire to prove whether it is genuine. It is the same word used in 1 Corinthians 3:13 for the testing of works by fire at the judgment. John does not say "pray about the spirits" or "feel whether they are from God." He says: <em>test them by applying a standard</em>.</p>
+      <p class="gk-sig">The test John provides is Christological: does the spirit acknowledge that Jesus Christ came in the flesh? — affirming both the Incarnation and the historical, bodily Jesus. But in context with Deuteronomy 13 and Isaiah 8:20, the Christological test is accompanied by the commandment test: a spirit that affirms Jesus while teaching that His commandments are abrogated is still the spirit of antichrist, because it uses His name to lead away from His law — the precise definition of the false prophet in Deuteronomy 13.</p>
+    </div>
+    <div class="egw-box fi fp-egw">
+      <p class="egw-q">"The law of God, being a revelation of His will, a transcript of His character, must forever endure, 'as a faithful witness in heaven.' Not one command has been annulled; not a jot or tittle has been changed... Through the grace of Christ they may be enabled to render obedience to the Father's law."</p>
+      <div class="egw-c">— The Faith I Live By (citing The Great Controversy, 434; Patriarchs and Prophets, 338)</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">1 John 4:1-3</span>
+      <span class="tag gk">δοκιμάζω · dokimazō</span>
+      <span class="tag">Test Every Spirit</span>
+      <span class="tag">Spirit of Antichrist</span>
+    </div>
+  </div>
+</div>
+
+<!-- Summary Test Grid -->
+<div class="theme-intro fi" data-label="Summary" style="margin-top: 52px;">
+  <h3>The Complete Biblical Test for a False Prophet — At a Glance</h3>
+  <p>Any single failure on this grid identifies a false prophet, regardless of their gifts, title, or following.</p>
+</div>
+
+<div class="test-grid fi">
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 1 — Deut 13:1–5</div>
+    <div class="test-cell-text">Does he lead people toward or away from the commandments of God? A successful sign does not validate him if he leads away from God's law.</div>
+  </div>
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 2 — Deut 18:20–22</div>
+    <div class="test-cell-text">Do his specific predictions come to pass? A single false prediction is definitive disqualification, not a minor error.</div>
+  </div>
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 3 — Isaiah 8:20</div>
+    <div class="test-cell-text">Does his teaching agree with the Torah (law of God) and the Testimony (Scripture)? If not — no light in him.</div>
+  </div>
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 4 — Matthew 7:15–20</div>
+    <div class="test-cell-text">What is the long-term fruit of his ministry? Genuine transformation in his followers, or moral collapse beneath polished presentations?</div>
+  </div>
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 5 — Jeremiah 23</div>
+    <div class="test-cell-text">Does he preach peace to the disobedient? Does he comfort people in their sin rather than calling them to repentance and commandment-keeping?</div>
+  </div>
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 6 — 1 John 4:1–3</div>
+    <div class="test-cell-text">Does the spirit behind his ministry confess the incarnate, bodily, historically real Jesus — and affirm His commandments as still binding?</div>
+  </div>
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 7 — Matthew 24:24</div>
+    <div class="test-cell-text">Do his signs and wonders serve to anchor people in Scripture, or to substitute personal experience and emotion for "thus saith the Lord"?</div>
+  </div>
+  <div class="test-cell">
+    <div class="test-cell-ref">Test 8 — Lamentations 2:14</div>
+    <div class="test-cell-text">"Thy prophets have seen vain and foolish things for thee: and they have not discovered thine iniquity." Does he expose sin, or cover it?</div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- CLOSING -->
+<div class="closing fi container">
+  <div class="hero-orn" style="opacity:1; font-size:18px; letter-spacing:12px; margin-bottom:18px;">✦ ✦ ✦</div>
+  <h2>The Obedient Faith — A Final Word</h2>
+  <p>
+    Obedience does not earn salvation. But the saved person cannot remain indifferent to obedience.
+    The Holy Spirit who regenerates also sanctifies — and sanctification means progressive, genuine,
+    growing conformity to the character of Christ as expressed in His commandments.
+  </p>
+  <p>
+    The false prophet's most effective lie is not "Jesus is not Lord" — it is "Jesus is Lord and the
+    commandments are optional." This is the lie of Isaiah 4:1 in theological dress: we want the
+    Bridegroom's name without His covenant.
+  </p>
+  <p>
+    The test of every teacher, every movement, every revival, every miracle: <em>To the law and
+    to the testimony</em> (Isaiah 8:20). Anything less is darkness dressed as light.
+  </p>
+  <div class="hero-rule" style="opacity:1; margin: 30px auto;"></div>
+  <div class="closing-verse">
+    "Here is the patience of the saints: here are they that keep the commandments of God,
+    and the faith of Jesus."
+    <br>— Revelation 14:12, KJV
+  </div>
+</div>
+
+<footer>
+  Obedience · False Prophets · End-Time Discernment
+  &nbsp;✦&nbsp;
+  Deuteronomy · Isaiah · Jeremiah · Matthew · John · James · Hebrews · Revelation · EGW
+</footer>
+
+<script>
+  function toggle(hd) {
+    hd.closest('.card').classList.toggle('open');
+  }
+
+  const fiEls = document.querySelectorAll('.fi');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  fiEls.forEach(el => obs.observe(el));
+
+  // Auto-open first card of each section
+  const cards = document.querySelectorAll('.card');
+  let sectionSeen = new Set();
+  cards.forEach(c => {
+    const section = c.closest('.container');
+    if (!sectionSeen.has(section)) {
+      c.classList.add('open');
+      sectionSeen.add(section);
+    }
+  });
+</script>
+</body>
+</html>

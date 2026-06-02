@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applying the Biblical Tests — Ellen G. White and the Question of Conditional Prophecy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:        #120f1a;
+    --bg-mid:         #1a1624;
+    --bg-warm:        #221e2e;
+    --bg-surface:     #2c2838;
+    --gold:           #d4a843;
+    --gold-mid:       #b08828;
+    --gold-dim:       #7a6018;
+    --gold-border:    #3a3428;
+    --violet:         #6a4e9c;
+    --violet-light:   #9370d8;
+    --violet-glow:    rgba(106,78,156,0.15);
+    --emerald:        #2e8b57;
+    --emerald-light:  #44a86a;
+    --emerald-glow:   rgba(46,139,87,0.12);
+    --crimson:        #8b1a1a;
+    --crimson-light:  #b02020;
+    --crimson-glow:   rgba(139,26,26,0.14);
+    --amber:          #c87820;
+    --amber-light:    #e09030;
+    --amber-glow:     rgba(200,120,32,0.14);
+    --blue-greek:     #7ab0e0;
+    --text-body:      #ddd0f0;
+    --text-soft:      #a898c8;
+    --text-dim:       #5a5070;
+    --white-soft:     #ede8f8;
+    --ink:            #08060e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.82;
+    background-image:
+      radial-gradient(ellipse 100% 50% at 50% 0%, rgba(106,78,156,0.07) 0%, transparent 65%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 94vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px 24px 60px; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 50% 55%, rgba(106,78,156,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 25% at 50% 100%, rgba(200,120,32,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    font-family: 'Cinzel', serif; font-size: 10.5px;
+    letter-spacing: 4.5px; text-transform: uppercase;
+    color: var(--gold-dim); margin-bottom: 24px;
+    opacity: 0; animation: fd 0.7s 0.2s ease forwards;
+  }
+  .hero-orn {
+    font-size: 20px; color: var(--violet-light); letter-spacing: 14px;
+    margin-bottom: 22px;
+    opacity: 0; animation: fd 0.7s 0.4s ease forwards;
+  }
+  h1.hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(22px, 4vw, 48px); font-weight: 700;
+    color: var(--gold); line-height: 1.2; max-width: 900px;
+    text-shadow: 0 2px 40px rgba(212,168,67,0.18), 0 0 100px rgba(212,168,67,0.05);
+    opacity: 0; animation: fd 0.9s 0.6s ease forwards; margin-bottom: 14px;
+  }
+  .hero-sub {
+    font-family: 'Cinzel', serif; font-size: clamp(11px, 1.6vw, 14px);
+    color: var(--violet-light); letter-spacing: 2px;
+    opacity: 0; animation: fd 0.9s 0.8s ease forwards; margin-bottom: 34px;
+  }
+  .hero-rule {
+    width: 260px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-border), var(--gold-mid), var(--gold-border), transparent);
+    margin: 0 auto 30px;
+    opacity: 0; animation: fd 0.8s 1s ease forwards;
+  }
+  .hero-intro {
+    max-width: 700px; font-size: 17.5px; color: var(--text-soft);
+    font-style: italic; line-height: 1.92;
+    opacity: 0; animation: fd 1s 1.2s ease forwards;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+    font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px;
+    color: var(--text-dim); text-transform: uppercase;
+    opacity: 0; animation: fd 1s 2s ease forwards;
+  }
+
+  /* NAV */
+  .toc-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(8,6,14,0.95); border-bottom: 1px solid var(--gold-border);
+    backdrop-filter: blur(14px); padding: 0 20px;
+  }
+  .toc-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; gap: 5px;
+    overflow-x: auto; scrollbar-width: none; height: 50px;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px; color: var(--gold-dim); white-space: nowrap; margin-right: 6px; flex-shrink: 0; }
+  .toc-sep { color: var(--gold-border); flex-shrink: 0; }
+  .toc-a {
+    font-family: 'Cinzel', serif; font-size: 9.5px; color: var(--text-dim);
+    text-decoration: none; padding: 4px 10px; white-space: nowrap;
+    border: 1px solid transparent; border-radius: 2px; transition: all 0.2s; flex-shrink: 0;
+  }
+  .toc-a:hover { color: var(--gold); border-color: var(--gold-border); background: rgba(212,168,67,0.04); }
+
+  /* LAYOUT */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* FRAMING BOX */
+  .framing-box {
+    background: linear-gradient(135deg, rgba(34,30,46,0.9), rgba(18,15,26,0.95));
+    border: 1px solid var(--violet);
+    border-left: 4px solid var(--violet-light);
+    padding: 32px 36px; margin: 60px 0 40px;
+    position: relative;
+  }
+  .framing-box::before {
+    content: attr(data-label);
+    position: absolute; top: -11px; left: 24px;
+    font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2.5px;
+    color: var(--violet-light); background: var(--bg-deep); padding: 2px 12px;
+    border: 1px solid var(--violet);
+  }
+  .framing-box h2 {
+    font-family: 'Cinzel', serif; font-size: clamp(16px, 2.5vw, 22px);
+    color: var(--gold); margin-bottom: 12px; line-height: 1.35;
+  }
+  .framing-box p { color: var(--text-soft); font-size: 16px; line-height: 1.85; margin-bottom: 10px; }
+  .framing-box p:last-child { margin-bottom: 0; }
+
+  /* SECTION LABEL */
+  .section-lbl {
+    font-family: 'Cinzel', serif; font-size: 9.5px;
+    letter-spacing: 3.5px; color: var(--gold-dim);
+    text-transform: uppercase; margin: 56px 0 18px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-lbl::before, .section-lbl::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-border));
+  }
+  .section-lbl::after { background: linear-gradient(90deg, var(--gold-border), transparent); }
+
+  /* VERDICT CARD */
+  .verdict-card {
+    border: 1px solid var(--gold-border); margin: 24px 0; overflow: hidden; position: relative;
+    transition: border-color 0.3s;
+  }
+  .verdict-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  }
+  .verdict-card.pass::before { background: linear-gradient(90deg, transparent, var(--emerald), transparent); }
+  .verdict-card.conditional::before { background: linear-gradient(90deg, transparent, var(--amber), transparent); }
+  .verdict-card.disputed::before { background: linear-gradient(90deg, transparent, var(--crimson-light), transparent); }
+  .verdict-card.framework::before { background: linear-gradient(90deg, transparent, var(--violet-light), transparent); }
+  .verdict-card:hover { border-color: var(--gold-dim); }
+
+  .card-hd {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 26px 14px; cursor: pointer; user-select: none;
+  }
+  .verdict-badge {
+    font-family: 'Cinzel', serif; font-size: 9.5px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 4px 12px; white-space: nowrap; flex-shrink: 0; border: 1px solid;
+  }
+  .verdict-badge.pass { color: var(--emerald-light); border-color: var(--emerald); background: var(--emerald-glow); }
+  .verdict-badge.conditional { color: var(--amber-light); border-color: var(--amber); background: var(--amber-glow); }
+  .verdict-badge.disputed { color: var(--crimson-light); border-color: var(--crimson); background: var(--crimson-glow); }
+  .verdict-badge.framework { color: var(--violet-light); border-color: var(--violet); background: var(--violet-glow); }
+
+  .card-ref {
+    font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 0.5px;
+  }
+  .card-title { font-family: 'Cinzel', serif; font-size: 12px; color: var(--text-soft); flex: 1; }
+  .card-toggle {
+    width: 22px; height: 22px; border: 1px solid var(--gold-border); color: var(--gold-dim);
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+    flex-shrink: 0; transition: all 0.3s;
+  }
+  .verdict-card.open .card-toggle { transform: rotate(45deg); border-color: var(--gold); color: var(--gold); }
+
+  .card-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.55s ease, padding 0.3s;
+    padding: 0 26px;
+  }
+  .verdict-card.open .card-body { max-height: 2400px; padding: 0 26px 28px; }
+
+  /* SCRIPTURE */
+  .sblock {
+    background: rgba(8,6,14,0.7);
+    border-left: 3px solid var(--violet);
+    padding: 16px 20px 16px 24px; margin: 14px 0 18px;
+    font-style: italic; color: var(--white-soft);
+    font-size: 16px; line-height: 1.88; position: relative;
+  }
+  .sblock::before {
+    content: '"'; position: absolute; top: 6px; left: 6px;
+    font-size: 44px; color: rgba(212,168,67,0.06);
+    font-family: Georgia, serif; line-height: 1;
+  }
+  .sref {
+    display: block; margin-top: 10px; font-family: 'Cinzel', serif;
+    font-size: 10px; color: var(--gold-dim); letter-spacing: 1px;
+    font-style: normal; text-align: right;
+  }
+
+  /* ANALYSIS */
+  .analysis { color: var(--text-body); font-size: 16px; line-height: 1.87; margin-bottom: 12px; }
+
+  /* VERDICT BOXES */
+  .vbox {
+    padding: 16px 20px; margin: 16px 0; font-size: 15px; line-height: 1.75;
+  }
+  .vbox.pass { background: var(--emerald-glow); border: 1px solid rgba(46,139,87,0.35); border-left: 3px solid var(--emerald-light); color: #b0d8b8; }
+  .vbox.conditional { background: var(--amber-glow); border: 1px solid rgba(200,120,32,0.35); border-left: 3px solid var(--amber-light); color: #d4c090; }
+  .vbox.disputed { background: var(--crimson-glow); border: 1px solid rgba(139,26,26,0.35); border-left: 3px solid var(--crimson-light); color: #c4a0a0; }
+  .vbox strong {
+    font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    display: block; margin-bottom: 6px;
+  }
+  .vbox.pass strong { color: var(--emerald-light); }
+  .vbox.conditional strong { color: var(--amber-light); }
+  .vbox.disputed strong { color: var(--crimson-light); }
+
+  /* GREEK BLOCK */
+  .greek-block {
+    background: linear-gradient(135deg, rgba(14,22,38,0.85), rgba(10,18,32,0.95));
+    border: 1px solid rgba(100,140,200,0.22); border-left: 3px solid rgba(122,176,224,0.55);
+    padding: 16px 20px; margin: 16px 0; position: relative;
+  }
+  .greek-block::before {
+    content: 'HEBREW / GREEK ORIGINAL';
+    position: absolute; top: -10px; left: 16px;
+    font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; color: rgba(122,176,224,0.6);
+    background: var(--bg-deep); padding: 2px 10px; border: 1px solid rgba(100,140,200,0.18);
+  }
+  .gk-row { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 10px; }
+  .gk-w { font-family: 'EB Garamond', serif; font-size: 20px; font-style: italic; color: var(--blue-greek); }
+  .gk-tr { font-family: 'Cinzel', serif; font-size: 10.5px; color: rgba(122,176,224,0.65); }
+  .gk-s { font-family: 'Cinzel', serif; font-size: 9px; color: rgba(100,140,200,0.45); border: 1px solid rgba(100,140,200,0.18); padding: 1px 5px; }
+  .gk-def { font-size: 14px; color: var(--text-soft); line-height: 1.72; margin-bottom: 6px; }
+  .gk-sig { font-size: 13.5px; color: var(--text-body); line-height: 1.75; font-style: italic; border-top: 1px solid rgba(100,140,200,0.12); padding-top: 8px; margin-top: 8px; }
+  .gk-sig em { color: var(--blue-greek); font-style: normal; }
+
+  /* EGW BOX */
+  .egw-box {
+    background: linear-gradient(180deg, rgba(30,26,40,0.7), rgba(14,12,22,0.92));
+    border: 1px solid var(--gold-border); padding: 24px 30px; margin: 24px 0; position: relative;
+  }
+  .egw-box::before {
+    content: 'SPIRIT OF PROPHECY';
+    position: absolute; top: -10px; left: 22px;
+    font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 3px; color: var(--gold-dim);
+    background: var(--bg-deep); padding: 2px 12px;
+  }
+  .egw-q { font-style: italic; color: var(--text-soft); font-size: 15px; line-height: 1.9; margin-bottom: 10px; }
+  .egw-c { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold-dim); letter-spacing: 1.5px; text-align: right; }
+
+  /* CONDITIONAL FRAMEWORK */
+  .cond-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px; margin: 24px 0;
+  }
+  .cond-cell {
+    background: rgba(34,30,20,0.5); border: 1px solid var(--gold-border); padding: 16px 18px;
+  }
+  .cond-cell-ref { font-family: 'Cinzel', serif; font-size: 10.5px; color: var(--gold); margin-bottom: 7px; }
+  .cond-cell-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.65; }
+
+  /* BALANCE NOTICE */
+  .balance-notice {
+    background: linear-gradient(135deg, rgba(106,78,156,0.10), rgba(18,15,26,0.95));
+    border: 1px solid var(--violet); padding: 22px 28px; margin: 28px 0;
+    font-size: 15px; color: var(--text-soft); line-height: 1.8;
+    position: relative;
+  }
+  .balance-notice::before {
+    content: '⚖ FAIR WITNESS NOTICE'; position: absolute; top: -10px; left: 18px;
+    font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 2px; color: var(--violet-light);
+    background: var(--bg-deep); padding: 2px 10px; border: 1px solid var(--violet);
+  }
+
+  /* TAGS */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 2px; }
+  .tag { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.2px; color: var(--text-dim); border: 1px solid var(--gold-border); padding: 2px 9px; text-transform: uppercase; }
+  .tag.pass { color: rgba(68,168,106,0.7); border-color: rgba(46,139,87,0.4); }
+  .tag.cond { color: rgba(224,144,48,0.7); border-color: rgba(200,120,32,0.4); }
+  .tag.disp { color: rgba(176,32,32,0.7); border-color: rgba(139,26,26,0.4); }
+
+  /* CONCLUSION */
+  .conclusion {
+    background: linear-gradient(135deg, rgba(22,18,32,0.9), rgba(14,12,22,0.97));
+    border: 1px solid var(--gold-border); border-top: 3px solid var(--gold-mid);
+    padding: 40px 44px; margin: 52px 0;
+  }
+  .conclusion h3 { font-family: 'Cinzel Decorative', serif; font-size: clamp(18px, 3vw, 28px); color: var(--gold); margin-bottom: 20px; }
+  .conclusion p { color: var(--text-soft); font-size: 16.5px; line-height: 1.9; margin-bottom: 14px; }
+  .conclusion p:last-child { margin-bottom: 0; }
+
+  footer {
+    text-align: center; padding: 24px; border-top: 1px solid rgba(58,52,40,0.4);
+    font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 2px; color: var(--text-dim);
+  }
+
+  .fi { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fi.vis { opacity: 1; transform: none; }
+  @keyframes fd { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+
+  @media (max-width: 600px) {
+    .card-hd { padding: 14px 16px 10px; flex-wrap: wrap; }
+    .verdict-card.open .card-body { padding: 0 16px 20px; }
+    .framing-box { padding: 22px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="eyebrow">A Fair and Biblical Evaluation</div>
+  <div class="hero-orn">⚖ ✦ ⚖</div>
+  <h1 class="hero-title">Applying the Biblical Tests</h1>
+  <div class="hero-sub">Ellen G. White, Conditional Prophecy, and the Standard of Scripture</div>
+  <div class="hero-rule"></div>
+  <p class="hero-intro">
+    The previous guide established seven biblical tests for a false prophet. Intellectual honesty
+    requires we apply those same tests to Ellen G. White — not as a defence of her, and not as an
+    attack. A fair witness applies the same standard to every claimant. What follows is an
+    examination of the evidence, the strongest objections, and the crucial biblical category of
+    conditional prophecy that any honest inquiry must consider.
+  </p>
+  <div class="hero-scroll">↓ Scroll to Examine ↓</div>
+</section>
+
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <span class="toc-label">Navigate</span>
+    <a class="toc-a" href="#cond">Conditional Prophecy</a>
+    <span class="toc-sep">|</span>
+    <a class="toc-a" href="#test1">Test 1 — Law & Testimony</a>
+    <a class="toc-a" href="#test2">Test 2 — Fruit</a>
+    <a class="toc-a" href="#test3">Test 3 — Predictions</a>
+    <a class="toc-a" href="#test4">Test 4 — Christology</a>
+    <span class="toc-sep">|</span>
+    <a class="toc-a" href="#objections">Key Objections</a>
+    <a class="toc-a" href="#conclusion">Conclusion</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- FRAMING -->
+<div class="framing-box fi" data-label="Framing The Question">
+  <h2>How to Do This Honestly</h2>
+  <p>
+    There are two dishonest approaches to this question. The first is uncritical acceptance: dismissing
+    every difficulty with "Sister White is always right." The second is uncritical rejection: collecting
+    every alleged failure without examining context, genre, or the biblical category of conditional prophecy.
+  </p>
+  <p>
+    A genuinely biblical approach does three things: (1) it applies the scriptural tests rigorously and
+    consistently, (2) it understands the biblical framework of conditional prophecy before rendering
+    verdicts on "failed" predictions, and (3) it honestly acknowledges what the evidence does and does
+    not show. That is what this guide attempts.
+  </p>
+  <p>
+    You identified the key principle yourself: Jonah prophesied Nineveh's destruction in forty days —
+    it did not happen — and that did not make him a false prophet. The Bible itself establishes that
+    some prophecy is conditional on human response. Any evaluation of EGW that ignores this category
+    is applying a standard the Bible itself does not apply.
+  </p>
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- SECTION: CONDITIONAL PROPHECY -->
+<!-- ═══════════════════════════ -->
+<div id="cond" class="section-lbl fi">The Biblical Framework First</div>
+
+<div class="framing-box fi" data-label="Conditional Prophecy — The Biblical Basis">
+  <h2>Jeremiah 18:7–10 — God's Own Statement of the Principle</h2>
+  <p>
+    Before evaluating any specific prediction, we must understand how prophetic conditionality works — not
+    as an Adventist defence mechanism, but as a doctrine stated plainly by God to Jeremiah at the potter's house.
+  </p>
+</div>
+
+<div class="verdict-card framework fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge framework">Framework</div>
+    <div class="card-ref">Jeremiah 18:7–10</div>
+    <div class="card-title">The Potter's House — God defines conditional prophecy</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "At what instant I shall speak concerning a nation, and concerning a kingdom, to pluck up, and to pull down, and to destroy it; If that nation, against whom I have pronounced, turn from their evil, I will repent of the evil that I thought to do unto them. And at what instant I shall speak concerning a nation, and concerning a kingdom, to build and to plant it; If it do evil in my sight, that it obey not my voice, then I will repent of the good, wherewith I said I would benefit them."
+      <span class="sref">— Jeremiah 18:7–10, KJV</span>
+    </div>
+    <div class="greek-block">
+      <div class="gk-row">
+        <span class="gk-w">וְנִחַמְתִּי</span>
+        <span class="gk-tr">we-nichamti</span>
+        <span class="gk-s">Hebrew — nācham H5162</span>
+      </div>
+      <p class="gk-def"><strong>"I will repent"</strong> (KJV) — Hebrew <em>nācham</em> (H5162): to be sorry, to relent, to change course. Used 35 times of God in the Old Testament. It does not imply that God was mistaken; it describes God's response to a change in human behaviour. The same word appears in Jonah 3:10 when God "repented of the evil that He had said that He would do" to Nineveh.</p>
+      <p class="gk-sig">God is here defining how prophetic warnings work at the systemic level: they are <em>moral instruments</em> designed to provoke a response. If the response changes, the outcome changes. This does not make the prophet a liar — it means the prophecy achieved its purpose. Jonah's eight-word message brought the largest city of the ancient world to its knees in sackcloth. That was not a prophetic failure. That was an extraordinary success.</p>
+    </div>
+    <p class="analysis">
+      The scholar J. Barton Payne states it well: <em>"It is not that God's standards, His decrees, or His nature are changeable; it is, in fact, the very immutability of the character of deity which necessitates the application of differing aspects of His fixed principles, in accordance with such changes as may be exhibited by fickle men."</em> God's character does not change; His response to changed human conduct is consistent with that unchanging character.
+    </p>
+    <div class="tag-row">
+      <span class="tag">Jeremiah 18:7-10</span>
+      <span class="tag">Conditional Prophecy</span>
+      <span class="tag">nācham</span>
+    </div>
+  </div>
+</div>
+
+<div class="verdict-card framework fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge framework">Framework</div>
+    <div class="card-ref">Jonah 3 · Micah 3:12 · Ezekiel 33:13–16 · 2 Kings 20:1–6</div>
+    <div class="card-title">Four biblical case studies — unfulfilled prophecy that was not false prophecy</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="cond-grid">
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Jonah 3:4 — Nineveh</div>
+        <div class="cond-cell-text">
+          "Yet forty days, and Nineveh shall be overthrown." Nineveh was not destroyed in 40 days. The city repented, God relented. Jonah was not a false prophet. The prophecy was a conditional warning that achieved its purpose.
+          <br><br>
+          <em>Key Hebrew:</em> <span style="color:#7ab0e0; font-style:italic;">hāphak</span> — "overthrown" — can mean <em>turned upside down (in destruction)</em> or <em>turned around (in transformation)</em>. Nineveh was indeed overturned — in repentance. The word was ambiguous by design.
+        </div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Micah 3:12 — Jerusalem</div>
+        <div class="cond-cell-text">
+          Micah prophesied Jerusalem would become "heaps" and the temple mount "a high place of the forest." Hezekiah repented; God relented (Jer. 26:18–19). This prophecy was quoted 100 years later as an example of a conditional warning God chose not to execute. Micah's credibility was not challenged.
+        </div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Ezekiel 33:13–16 — Individuals</div>
+        <div class="cond-cell-text">
+          "Though I say to the wicked, 'You shall surely die,' yet if he turns from his sin... he shall surely live; he shall not die." God extends conditionality not only to nations but to individuals. A death sentence prophesied can be lifted by repentance.
+        </div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">2 Kings 20:1–6 — Hezekiah</div>
+        <div class="cond-cell-text">
+          Isaiah told Hezekiah: "You will die; you will not recover." Hezekiah prayed; God added 15 years to his life. Isaiah prophesied death on Tuesday and life on Wednesday. Isaiah was not a false prophet. God responded to a changed heart.
+        </div>
+      </div>
+    </div>
+    <div class="vbox conditional">
+      <strong>The Principle</strong>
+      An unfulfilled prediction does not automatically equal a false prophet. The critical questions are: (1) Did the prediction carry a moral/conditional element? (2) Did human response change the outcome God had forewarned? (3) Does the prophet's broader body of work align with God's law and truth? These three filters must be applied before any "failed prophecy" verdict is rendered.
+    </div>
+    <div class="tag-row">
+      <span class="tag">Jonah 3</span>
+      <span class="tag">Micah 3:12</span>
+      <span class="tag">Ezekiel 33</span>
+      <span class="tag">2 Kings 20</span>
+      <span class="tag">Biblical Case Studies</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- TEST 1: Isaiah 8:20 -->
+<!-- ═══════════════════════════ -->
+<div id="test1" class="section-lbl fi">Test 1 — Isaiah 8:20 · The Law and the Testimony</div>
+
+<div class="verdict-card pass fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge pass">✔ Passes</div>
+    <div class="card-ref">Isaiah 8:20</div>
+    <div class="card-title">Does her teaching agree with the law of God and Scripture?</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <p class="analysis">
+      This is the foundational test: does the prophet uphold God's commandments and align with the testimony of Scripture? On this test, EGW passes more decisively than most prophetic claimants in history.
+    </p>
+    <div class="vbox pass">
+      <strong>The Evidence — What She Taught</strong>
+      Ellen White was the most consistent defender of the perpetuity of God's Ten Commandments in 19th-century Protestantism. At a time when most Protestant America was abandoning the Sabbath for Sunday observance, she anchored the Adventist movement to the fourth commandment with extraordinary force. She wrote:
+    </div>
+    <div class="egw-box">
+      <p class="egw-q">"The law of God, being a revelation of His will, a transcript of His character, must forever endure, 'as a faithful witness in heaven.' Not one command has been annulled; not a jot or tittle has been changed."</p>
+      <div class="egw-c">— The Great Controversy, p. 434</div>
+    </div>
+    <div class="egw-box">
+      <p class="egw-q">"The so-called faith in Christ which professes to release men from the obligation of obedience to God is not faith, but presumption."</p>
+      <div class="egw-c">— Steps to Christ, p. 61</div>
+    </div>
+    <p class="analysis">
+      Her entire system of theology — the Great Controversy narrative, the Sabbath reform, the health message, the investigative judgment, the Three Angels' Messages — is a sustained argument that God's law is holy, eternal, and binding, and that the central conflict of history is Satan's attempt to undermine it. This is precisely what a true prophet does according to Deuteronomy 13:4 — she calls people back to "walk after the LORD your God, and fear Him, and keep His commandments."
+    </p>
+    <div class="vbox pass">
+      <strong>The Adventist SDA Position — Four Biblical Tests (Ted Wilson)</strong>
+      SDA General Conference President Ted Wilson formally affirmed that EGW passes all four biblical prophetic tests: (1) Isaiah 8:20 alignment — her writings consistently agree with Scripture; (2) Matthew 7:20 fruit — her life and ministry produced lasting spiritual fruit; (3) Jeremiah 28:9 fulfilment — specific prophecies came to pass; (4) 1 John 4:2 Christology — her writings exalt the incarnate, bodily Christ consistently and centrally.
+    </div>
+    <div class="tag-row">
+      <span class="tag pass">✔ Passes</span>
+      <span class="tag">Isaiah 8:20</span>
+      <span class="tag">Law of God</span>
+      <span class="tag">Sabbath</span>
+      <span class="tag">Commandments</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- TEST 2: Fruit -->
+<!-- ═══════════════════════════ -->
+<div id="test2" class="section-lbl fi">Test 2 — Matthew 7:20 · By Their Fruits</div>
+
+<div class="verdict-card pass fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge pass">✔ Passes</div>
+    <div class="card-ref">Matthew 7:15–20</div>
+    <div class="card-title">What were the long-term fruits of her ministry?</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <p class="analysis">
+      The fruit test asks: what did this ministry produce over time? What kind of people does it form? What institutions does it establish? Does it draw people toward Christ and His commandments, or away from them?
+    </p>
+    <div class="cond-grid">
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Health Reform — 1863 Onward</div>
+        <div class="cond-cell-text">EGW's health visions preceded germ theory and led to the establishment of hundreds of Adventist hospitals, medical schools, and sanitariums. The Loma Linda University Medical Centre and Battle Creek Sanitarium are direct fruits. Her dietary counsel has been vindicated by modern health research on Seventh-day Adventists (Blue Zone studies).</div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Education</div>
+        <div class="cond-cell-text">Her counsel on Christian education produced one of the largest Protestant educational networks in the world — 7,500+ schools and universities globally. She emphasised character development over mere intellectual training, decades before progressive education theory reached similar conclusions.</div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Mission</div>
+        <div class="cond-cell-text">Under her ministry, the Adventist Church grew from a small New England sect to a global movement present in virtually every nation. She consistently pushed for mission to Africa, Asia, and South America when the Western church largely ignored those regions.</div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Her Personal Life</div>
+        <div class="cond-cell-text">Those who knew her personally — including those who later became critics (such as D.M. Canright) — acknowledged her personal integrity, tireless work ethic, and genuine care for the suffering. Canright's criticisms were theological; even he did not charge her with personal moral failure.</div>
+      </div>
+    </div>
+    <p class="analysis">
+      By the fruit test of Matthew 7:20, the evidence is substantial. The Adventist movement's global health, educational, and humanitarian work is a measurable, demonstrable fruit. One may dispute her prophetic status; the fruit of her ministry is difficult to dismiss.
+    </p>
+    <div class="tag-row">
+      <span class="tag pass">✔ Passes</span>
+      <span class="tag">Matthew 7:20</span>
+      <span class="tag">Fruit Test</span>
+      <span class="tag">Health Reform</span>
+      <span class="tag">Mission</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- TEST 3: Predictions -->
+<!-- ═══════════════════════════ -->
+<div id="test3" class="section-lbl fi">Test 3 — Deuteronomy 18:22 · Fulfilled Predictions</div>
+
+<div class="verdict-card pass fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge pass">✔ Notable Fulfilments</div>
+    <div class="card-ref">Specific Predictions That Were Fulfilled</div>
+    <div class="card-title">The case for her prophetic accuracy</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="cond-grid">
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Health Vision — 1863</div>
+        <div class="cond-cell-text">In 1863, well before germ theory, antiseptic practice, or nutritional science, EGW received a comprehensive health vision covering diet, exercise, fresh air, water, rest, and the avoidance of tobacco, alcohol, and flesh foods. Her specific counsel on tobacco (pre-cancer link discovery) and pork has been vindicated by 20th-century research.</div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">San Francisco Earthquake — 1902–1906</div>
+        <div class="cond-cell-text">In 1902–1903 EGW warned that San Francisco would experience terrible destruction as a result of its wickedness, and urged Adventist institutions to relocate away from the city. The 1906 earthquake and fire destroyed much of the city. Adventist institutions had already moved. The warnings were documented and published before the event.</div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Rise of Spiritualism</div>
+        <div class="cond-cell-text">In the 1850s–1880s she predicted that spiritualism would become a global, mainstream religious force and would ultimately play a central role in end-time deception. The 20th and 21st centuries have seen the precise mainstreaming of occult spirituality she described.</div>
+      </div>
+      <div class="cond-cell">
+        <div class="cond-cell-ref">Sunday Laws</div>
+        <div class="cond-cell-text">She predicted that Sunday legislation would eventually be used as a tool of religious coercion in democratic nations — a concept that seemed implausible in 19th-century Protestant America. The current trajectory of European and global Sunday law legislation represents a movement in the direction she described.</div>
+      </div>
+    </div>
+    <div class="tag-row">
+      <span class="tag pass">✔ Notable Fulfilments</span>
+      <span class="tag">Health Vision 1863</span>
+      <span class="tag">San Francisco 1906</span>
+      <span class="tag">Spiritualism</span>
+    </div>
+  </div>
+</div>
+
+<!-- The 1856 Prediction — Conditional -->
+<div class="verdict-card conditional fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge conditional">⚡ Conditional / Disputed</div>
+    <div class="card-ref">Testimonies vol. 1, p. 131–132 — 1856 Vision</div>
+    <div class="card-title">"Some food for worms, some will be alive to see Jesus return" — the hardest case</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "I was shown the company present at the Conference. Said the angel: 'Some food for worms, some subjects of the seven last plagues, some will be alive and remain upon the earth to be translated at the coming of Jesus.'"
+      <span class="sref">— Ellen G. White, Testimonies for the Church, vol. 1, p. 131–132 (May 1856)</span>
+    </div>
+    <div class="vbox disputed">
+      <strong>The Objection — And It Must Be Taken Seriously</strong>
+      Everyone at the 1856 conference is now dead. J.H. Kellogg, the last attendee, died in 1943 — 87 years after the prediction. No one from that group was "translated at the coming of Jesus." Critics argue this is an unambiguous, unconditional false prophecy, not a conditional warning. Unlike Jonah's message, this one was not structured as a call to repentance — it was framed as a description of what would happen to specific people at a specific conference.
+    </div>
+    <div class="vbox conditional">
+      <strong>The Conditional Defence — And Why It Has Grounds</strong>
+      The SDA response, led by F.D. Nichol and the EGW Estate, argues the following: (1) Christ's return is explicitly tied to human preparation — "This gospel of the kingdom shall be preached in all the world for a witness unto all nations; and then shall the end come" (Matt. 24:14). The timing of Christ's return is itself conditional on the church's readiness and the fulfilment of mission. (2) EGW herself explained in 1883 that "the same sins have delayed the entrance of modern Israel into the heavenly Canaan" — using the exact language of Israel's wilderness delay as a parallel. (3) She wrote in 1888 of similar predictions: "The hour will come; it is not far distant, and some of us who now believe will be alive upon the earth." This was not a new phenomenon — she consistently linked the imminence of Christ's return to conditions her own church was not meeting.
+    </div>
+    <p class="analysis">
+      The honest assessment: the conditional defence is <em>biblically coherent</em> — the principle is established by Jeremiah 18, Jonah, Micah, and Hezekiah. However, it is <em>more difficult to apply convincingly</em> in this case than in Jonah's, because EGW did not present the 1856 statement as a conditional warning. The statement is descriptive, not hortatory. A genuinely fair reading requires acknowledging both: the conditional framework is scripturally valid AND the 1856 case is the strongest challenge critics raise, and it deserves more than a dismissive response.
+    </p>
+    <p class="analysis">
+      EGW herself attributed the delay to the church's failure, writing in Selected Messages: "Had the whole Adventist body united upon the commandments of God and the faith of Jesus, how widely different would have been our history" (SM Book 1, p. 299). Whether one finds this convincing depends partly on how broadly one is willing to apply the conditional principle — and that is a question reasonable people can disagree about.
+    </p>
+    <div class="tag-row">
+      <span class="tag cond">⚡ Conditional / Disputed</span>
+      <span class="tag">1856 Vision</span>
+      <span class="tag">Strongest Objection</span>
+      <span class="tag">Conditional Framework Applies</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- TEST 4: Christology -->
+<!-- ═══════════════════════════ -->
+<div id="test4" class="section-lbl fi">Test 4 — 1 John 4:2 · Christology</div>
+
+<div class="verdict-card pass fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge pass">✔ Passes</div>
+    <div class="card-ref">1 John 4:2</div>
+    <div class="card-title">Does she confess the incarnate Christ? Does she exalt Scripture?</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <p class="analysis">
+      The spirit of antichrist denies the incarnate, physical Christ (1 John 4:2–3). EGW's writings centre on the life, sacrifice, and mediation of the historical, bodily Jesus with extraordinary depth and consistency. <em>The Desire of Ages</em> (1898) — her life of Christ — is widely acknowledged, even by non-SDA scholars, as one of the most spiritually profound works on the life of Christ in 19th-century Christian literature.
+    </p>
+    <div class="egw-box">
+      <p class="egw-q">"The contemplation of this sacrifice will be the glory of those who, as the fruit of it, will live through the eternal ages... Christ Himself did not suppress one word of truth, but He spoke it always in love."</p>
+      <div class="egw-c">— The Desire of Ages, ch. 68, p. 623</div>
+    </div>
+    <p class="analysis">
+      Her writings also consistently subordinate themselves to Scripture: "The Bible, and the Bible alone, is to be our creed, the sole bond of union; all who bow to this Holy Word will be in harmony." (Review &amp; Herald, Dec. 15, 1891). On this test — does her teaching direct people toward or away from the incarnate Christ and the authority of Scripture — the evidence is clear.
+    </p>
+    <div class="tag-row">
+      <span class="tag pass">✔ Passes</span>
+      <span class="tag">1 John 4:2</span>
+      <span class="tag">Christology</span>
+      <span class="tag">The Desire of Ages</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- KEY OBJECTIONS -->
+<!-- ═══════════════════════════ -->
+<div id="objections" class="section-lbl fi">Addressing the Major Objections</div>
+
+<!-- Literary Borrowing -->
+<div class="verdict-card conditional fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge conditional">⚡ Requires Nuance</div>
+    <div class="card-ref">Objection — Literary Borrowing / Plagiarism</div>
+    <div class="card-title">She borrowed extensively from other authors without attribution</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="vbox disputed">
+      <strong>The Objection</strong>
+      Walter Rea's 1982 book <em>The White Lie</em> documented that large portions of EGW's historical and theological writings drew substantially from other 19th-century authors — including J.N. Andrews, Uriah Smith, and Protestant historians — without direct attribution. The percentage of borrowed material in some works is significant.
+    </div>
+    <div class="vbox conditional">
+      <strong>The Response — Contextual, Legal, and Biblical</strong>
+      Three factors contextualise the objection: (1) Attorney Vincent Ramik (non-Adventist), who examined EGW's use of sources against 19th-century copyright law, concluded it did not constitute literary piracy even if all sources had been legally copyrighted. (2) The Gospel writers themselves used common sources — more than 90% of Mark is paralleled in Matthew and Luke. This does not disqualify them as inspired authors. (3) EGW's use of other writers was consistent with 19th-century literary conventions where compilation and synthesis were not treated as equivalent to fraud. The question of whether she was <em>inspired</em> is separate from whether she was <em>original</em>. Biblical inspiration does not require originality — it requires divine guidance over the message.
+    </div>
+    <div class="vbox pass" style="background: rgba(46,139,87,0.10); border: 1px solid rgba(46,139,87,0.35); border-left: 3px solid var(--emerald-light); color: #b0d8b8;">
+      <strong style="color: var(--emerald-light);">The Strongest Biblical Precedent — The Practice Comes from the Prophets Themselves</strong>
+      Critics who press the borrowing charge must reckon with the fact that quoting, compiling, and applying existing material without formal citation is not a disqualifying practice — it is the demonstrable practice of every biblical writer:
+      <br><br>
+      <strong>Jesus</strong> quoted Isaiah, Deuteronomy, and the Psalms constantly — often without naming the source (e.g. Matthew 4:4, 4:7, 4:10; 21:42; 22:37). No one concludes He was therefore not speaking with divine authority. <strong>Paul</strong> quoted pagan Greek poets — Aratus in Acts 17:28, Epimenides in Titus 1:12 — and incorporated them into inspired Scripture without footnotes. <strong>Jude</strong> quotes directly from the pseudepigraphical Book of Enoch (Jude 14–15), a non-canonical Jewish text. <strong>The NT writers</strong> cite the Septuagint (Greek OT translation) in forms that sometimes differ from the Hebrew original — adapting the source to serve the message.
+      <br><br>
+      None of this undermines inspiration; it <em>demonstrates</em> how inspiration actually works — through real human beings operating within their cultural, literary, and intellectual context, guided by the Holy Spirit to select, arrange, and apply truth to a new situation. The Spirit's work is not to produce novelty for its own sake; it is to produce truth.
+      <br><br>
+      <strong>Scripture itself cannot be copyrighted.</strong> It belongs to God. Truth does not become less true because it was first stated by someone else.
+    </div>
+    <p class="analysis">
+      The precise question to ask is not "did she borrow?" but "is what she borrowed and taught true, and does it agree with the law and testimony of Scripture?" That is the Isaiah 8:20 test — and it is the only test that disqualifies a prophet. Literary borrowing tests <em>originality</em>; Isaiah 8:20 tests <em>truthfulness</em>. These are not the same thing, and conflating them is a category error. Borrowed words that are true are still true.
+    </p>
+    <p class="analysis">
+      The fair verdict: the lack of explicit source attribution in some of her works is a legitimate criticism of presentation — not of prophetic authenticity. It does not constitute the "lying, self-generated visions" that Jeremiah 23 attributes to false prophets. Those prophets fabricated divine commission; they did not merely compile and apply existing truth without a footnote.
+    </p>
+    <div class="tag-row">
+      <span class="tag cond">⚡ Nuance Required</span>
+      <span class="tag">Literary Borrowing</span>
+      <span class="tag">Walter Rea</span>
+      <span class="tag">19th Century Context</span>
+      <span class="tag">Jesus · Paul · Jude</span>
+      <span class="tag">Isaiah 8:20 — The Real Test</span>
+    </div>
+  </div>
+</div>
+
+<!-- Civil War / England -->
+<div class="verdict-card conditional fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge conditional">⚡ Requires Careful Reading</div>
+    <div class="card-ref">Objection — Civil War Predictions (England, Slavery, Christ's Return)</div>
+    <div class="card-title">Three Civil War-era predictions — one of which critics have badly misread</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="vbox disputed">
+      <strong>The Objection as Commonly Stated</strong>
+      Critics cite three claims: (1) Her prediction that England would enter the Civil War against the Union (Testimonies vol. 1, p. 259) — England did not intervene. (2) Her statement that slavery would not be abolished before Christ's return — critics say it was abolished in 1865. (3) Multiple statements in the 1850s that Christ would return "in a few months."
+    </div>
+
+    <div class="vbox conditional">
+      <strong>(1) England — Conditional and Contextual</strong>
+      EGW's statement was set within a warning about what <em>could</em> happen depending on how the Union prosecuted the war. The broader passage urged Adventists not to volunteer for military service, as the conflict was not a righteous war in God's eyes. The statement describes a trajectory, not an unconditional prediction. Critics routinely strip it of its conditional context.
+    </div>
+
+    <div class="vbox pass" style="background: rgba(46,139,87,0.10); border: 1px solid rgba(46,139,87,0.35); border-left: 3px solid var(--emerald-light); color: #b0d8b8;">
+      <strong style="color: var(--emerald-light);">⚠ CORRECTION — The Slavery Objection Is Actually Weak</strong>
+      This is the point that deserves the most careful scrutiny — because the critics' version of it rests on a fundamental factual error.
+      <br><br>
+      Critics claim EGW said slavery would not be abolished before Christ's return, and that the US abolition of slavery in 1865 falsified this. But this argument assumes that the legal abolition of chattel slavery in the United States equals the end of slavery as a global institution. It does not — and the facts are stark:
+      <br><br>
+      <strong>Slavery has never been abolished.</strong> It has merely been driven underground and rebranded. Today, according to the International Labour Organization and Walk Free Foundation, there are an estimated <strong>40–50 million people</strong> in conditions of modern slavery globally — forced labour, debt bondage, trafficking, forced marriage, and domestic servitude. This is <em>more people</em> in slavery than were held in the entire transatlantic slave trade at its peak.
+      <br><br>
+      In sub-Saharan Africa — including South Africa — forms of forced labour and bonded servitude persist despite legal prohibition. In parts of Asia (Thailand, Bangladesh, Myanmar, India), debt bondage and forced labour in agriculture, construction, and manufacturing affect millions. In parts of the Middle East, the <em>kafala</em> system for migrant workers creates conditions widely recognised as slavery by international law.
+      <br><br>
+      <strong>The 13th Amendment abolished legal chattel slavery in one country.</strong> EGW's statement, read in its full eschatological context — that oppression, exploitation, and the dehumanisation of human beings would persist as social conditions until Christ's return — is not falsified. It is, in fact, a strikingly accurate description of the world in 2025.
+    </div>
+
+    <div class="vbox conditional">
+      <strong>(3) "Few Months" / Imminent Return</strong>
+      The Early Writings statement (p. 58) is disputed in context — the EGW Estate argues it has been taken out of its immediate passage. More broadly, her repeated predictions of imminence fit the same conditional framework as Israel's wilderness delay: Christ's return is explicitly tied to mission readiness (Matthew 24:14), and she herself attributed the ongoing delay to the church's failure to be ready.
+    </div>
+
+    <div class="tag-row">
+      <span class="tag cond">⚡ Nuanced Reading Required</span>
+      <span class="tag">Civil War</span>
+      <span class="tag">England Prediction</span>
+      <span class="tag green" style="color: rgba(56,170,108,0.8); border-color: rgba(30,122,76,0.4);">Slavery — Objection Collapses</span>
+      <span class="tag">40M in Modern Slavery Today</span>
+    </div>
+  </div>
+</div>
+
+<!-- The "Jupiter/Saturn" Vision -->
+<div class="verdict-card disputed fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="verdict-badge disputed">✗ Genuine Problem</div>
+    <div class="card-ref">Objection — Enoch on Jupiter/Saturn (Early Writings, pp. 39–40)</div>
+    <div class="card-title">A vision describing inhabitants on other planets</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="vbox disputed">
+      <strong>The Objection</strong>
+      In an early vision EGW described being shown people living on other planets, specifically referencing what appeared to be Jupiter or Saturn. These planets are gas giants incapable of supporting life as described.
+    </div>
+    <p class="analysis">
+      This is one of the more difficult cases. Adventist scholars have offered various responses: (1) she may have been shown other worlds/planets beyond our solar system and misidentified them; (2) the vision was phenomenological and her description reflects the frame of reference available to a 19th-century person, not a divine astronomical almanac; (3) we cannot rule out the possibility that the vision related to redeemed beings from other worlds who currently inhabit transformed environments — a concept present elsewhere in EGW's writings (see Great Controversy on the unfallen worlds).
+    </p>
+    <p class="analysis">
+      The honest assessment: this is a genuine problem that does not have a fully satisfying resolution. It should not be minimised. It does not, by itself, constitute the Isaiah 8:20 test failure (leading away from God's law), but it represents a specific factual claim that is falsified by modern astronomy. A fair-minded person should note it and hold it alongside the broader body of evidence.
+    </p>
+    <div class="tag-row">
+      <span class="tag disp">✗ Genuine Problem</span>
+      <span class="tag">Early Writings p. 39-40</span>
+      <span class="tag">Requires Explanation</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- BALANCE NOTICE -->
+<!-- ═══════════════════════════ -->
+<div class="balance-notice fi">
+  <strong>A Note on the Double Standard — and on Sloppy Criticism</strong> — Critics of EGW sometimes apply a standard they do not apply to biblical prophets. Jonah's message was unconditionally stated and demonstrably unfulfilled; no one calls him a false prophet. Micah prophesied Jerusalem's total destruction; it did not happen; no one calls him a false prophet. Isaiah told a king he would die; he did not die; no one calls him a false prophet. The same biblical standard that exonerates these prophets is available for evaluating EGW.
+  <br><br>
+  Furthermore, some of the most-cited "failures" against EGW collapse under honest examination. The slavery objection is a case in point: critics claim the 13th Amendment in 1865 falsified her statement. But slavery has never been abolished as a global institution. Forty to fifty million people are in conditions of modern slavery today — more than at the peak of the transatlantic trade — in Asia, Africa, the Middle East, and beyond. The legal prohibition of one form of slavery in one country is not the same as the abolition of the condition. A fair critic would note this before declaring a prophetic failure.
+  <br><br>
+  Conversely, uncritical defenders who deflect every objection with "it's conditional" — without engaging seriously with the specific evidence — are not applying the tests honestly either. The 1856 vision, the Jupiter statement, and the England prediction each deserve direct engagement, not theological sleight of hand.
+</div>
+
+<!-- ═══════════════════════════ -->
+<!-- CONCLUSION -->
+<!-- ═══════════════════════════ -->
+<div id="conclusion">
+<div class="conclusion fi">
+  <h3>A Summary Verdict</h3>
+  <p>
+    Applying the seven biblical tests from Part II of our previous guide to Ellen G. White, the evidence
+    produces the following picture:
+  </p>
+  <p>
+    <strong style="color: var(--emerald-light);">Test 1 (Isaiah 8:20 — Law & Testimony): PASSES.</strong>
+    No prophetic figure in 19th-century Christianity more consistently, forcefully, and centrally upheld the perpetuity of God's commandments, including the seventh-day Sabbath, than EGW. On this — the most fundamental test — she stands.
+  </p>
+  <p>
+    <strong style="color: var(--emerald-light);">Test 2 (Matthew 7:20 — Fruit): PASSES.</strong>
+    The institutional fruit of her ministry — hospitals, schools, mission, health reform — is demonstrable and substantial.
+  </p>
+  <p>
+    <strong style="color: var(--emerald-light);">Test 3 (Deuteronomy 18 — Fulfilled Predictions): PARTIALLY PASSES.</strong>
+    Specific predictions regarding health, San Francisco, spiritualism, and Sunday laws were fulfilled or are in the process of fulfilment. The 1856 vision and the England prediction represent genuine challenges where the conditional framework applies but with less clarity than in Jonah's case. Notably, the slavery objection — one of the most frequently cited — collapses under honest global scrutiny: the legal abolition of chattel slavery in the United States in 1865 does not equal the end of slavery as a world institution. With an estimated 40–50 million people in conditions of modern slavery today across Asia, Africa, South Africa, and the Middle East, EGW's statement that slavery would persist until Christ's return remains, on any fair global reading, unfalsified.
+  </p>
+  <p>
+    <strong style="color: var(--emerald-light);">Test 4 (1 John 4:2 — Christology): PASSES.</strong>
+    Her writings exalt the incarnate, mediating Christ and consistently direct the reader to Scripture as the final authority.
+  </p>
+  <p>
+    <strong style="color: var(--amber-light);">Unresolved Difficulties:</strong>
+    The Jupiter/Saturn vision, the literary borrowing questions, and the strongest reading of the 1856 prediction represent real challenges that honest Adventists should acknowledge rather than explain away. They do not, in the overall balance of evidence, constitute the Isaiah 8:20 failure that would definitively identify a false prophet — but they require continued honest engagement.
+  </p>
+  <p>
+    <strong style="color: var(--gold);">The Bottom Line:</strong>
+    On the tests that matter most — the law of God, the character of Christ, the testimony of Scripture, the long-term fruit of a life — the evidence supports her prophetic ministry. The SDA position that she was a lesser-light prophet whose role was to direct people to the greater light of Scripture is defensible from the biblical evidence, and the conditional prophecy framework established by Jeremiah 18 and exemplified by Jonah, Micah, and Isaiah is entirely sufficient to account for the unfulfilled time-related predictions — provided one is willing to apply the same framework to the biblical prophets themselves.
+  </p>
+</div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  A Biblical Evaluation of Ellen G. White's Prophetic Ministry
+  &nbsp;✦&nbsp;
+  Isaiah 8:20 · Matthew 7:20 · Deuteronomy 18 · Jeremiah 18 · 1 John 4:2
+</footer>
+
+<script>
+  function toggle(hd) {
+    hd.closest('.verdict-card').classList.toggle('open');
+  }
+  const fi = document.querySelectorAll('.fi');
+  const obs = new IntersectionObserver(e => {
+    e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('vis'); obs.unobserve(el.target); } });
+  }, { threshold: 0.08 });
+  fi.forEach(el => obs.observe(el));
+
+  // Auto-open first card
+  const first = document.querySelector('.verdict-card');
+  if (first) first.classList.add('open');
+</script>
+</body>
+</html>

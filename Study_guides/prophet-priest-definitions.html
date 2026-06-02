@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What the Bible Actually Means — Prophet, Priest, and the Roles Most People Misunderstand</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:        #0e0d16;
+    --bg-mid:         #161525;
+    --bg-warm:        #1e1c30;
+    --gold:           #d4a843;
+    --gold-mid:       #b08828;
+    --gold-dim:       #7a6018;
+    --gold-border:    #38302a;
+    --sapphire:       #2860a8;
+    --sapphire-light: #4a90d8;
+    --sapphire-glow:  rgba(40,96,168,0.14);
+    --ruby:           #9c2020;
+    --ruby-light:     #c83030;
+    --ruby-glow:      rgba(156,32,32,0.13);
+    --emerald:        #1e7a4c;
+    --emerald-light:  #38aa6c;
+    --emerald-glow:   rgba(30,122,76,0.13);
+    --amber:          #b87020;
+    --amber-light:    #e09030;
+    --amber-glow:     rgba(184,112,32,0.13);
+    --violet:         #6040a8;
+    --violet-light:   #9070e0;
+    --blue-greek:     #7ab0e0;
+    --text-body:      #d8d4ec;
+    --text-soft:      #a098c8;
+    --text-dim:       #5a5070;
+    --white-soft:     #eceaf8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.84;
+    background-image:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(40,96,168,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 30% at 80% 60%, rgba(156,32,32,0.04) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 92vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px 24px 60px; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 45% at 50% 55%, rgba(40,96,168,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 20% at 50% 100%, rgba(184,112,32,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .eyebrow { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-dim); margin-bottom: 22px; opacity: 0; animation: fd 0.7s 0.2s ease forwards; }
+  .hero-orn { font-size: 18px; color: var(--sapphire-light); letter-spacing: 14px; margin-bottom: 22px; opacity: 0; animation: fd 0.7s 0.4s ease forwards; }
+  h1.hero-title { font-family: 'Cinzel Decorative', serif; font-size: clamp(22px, 4vw, 46px); font-weight: 700; color: var(--gold); line-height: 1.2; max-width: 900px; text-shadow: 0 2px 40px rgba(212,168,67,0.18); opacity: 0; animation: fd 0.9s 0.6s ease forwards; margin-bottom: 12px; }
+  .hero-sub { font-family: 'Cinzel', serif; font-size: clamp(10px, 1.6vw, 14px); color: var(--sapphire-light); letter-spacing: 2px; opacity: 0; animation: fd 0.9s 0.8s ease forwards; margin-bottom: 32px; }
+  .hero-rule { width: 260px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-border), var(--gold-mid), var(--gold-border), transparent); margin: 0 auto 28px; opacity: 0; animation: fd 0.8s 1s ease forwards; }
+  .hero-intro { max-width: 720px; font-size: 17.5px; color: var(--text-soft); font-style: italic; line-height: 1.92; opacity: 0; animation: fd 1s 1.2s ease forwards; }
+  .hero-scroll { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px; color: var(--text-dim); text-transform: uppercase; opacity: 0; animation: fd 1s 2s ease forwards; }
+
+  /* ── NAV ── */
+  .toc-bar { position: sticky; top: 0; z-index: 100; background: rgba(8,7,14,0.96); border-bottom: 1px solid var(--gold-border); backdrop-filter: blur(14px); padding: 0 20px; }
+  .toc-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 5px; overflow-x: auto; scrollbar-width: none; height: 50px; }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc-label { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px; color: var(--gold-dim); white-space: nowrap; margin-right: 6px; flex-shrink: 0; }
+  .toc-sep { color: var(--gold-border); flex-shrink: 0; padding: 0 2px; }
+  .toc-a { font-family: 'Cinzel', serif; font-size: 9.5px; color: var(--text-dim); text-decoration: none; padding: 4px 10px; white-space: nowrap; border: 1px solid transparent; border-radius: 2px; transition: all 0.2s; flex-shrink: 0; }
+  .toc-a:hover { color: var(--gold); border-color: var(--gold-border); background: rgba(212,168,67,0.04); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── SERIES BANNER ── */
+  .series-banner {
+    background: linear-gradient(135deg, rgba(22,20,36,0.9), rgba(14,13,22,0.97));
+    border: 1px solid var(--gold-border);
+    border-left: 4px solid var(--gold-mid);
+    padding: 18px 28px; margin: 48px 0 0;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .series-banner-icon { font-size: 22px; flex-shrink: 0; }
+  .series-banner-text { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1px; color: var(--text-soft); line-height: 1.6; }
+  .series-banner-text strong { color: var(--gold); display: block; margin-bottom: 3px; font-size: 12px; }
+
+  /* ── PART HEADER ── */
+  .part-header { text-align: center; padding: 64px 24px 44px; }
+  .part-header::after { content: ''; display: block; width: 160px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-border), transparent); margin: 24px auto 0; }
+  .part-num { font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 4px; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 14px; }
+  .part-header h2 { font-family: 'Cinzel Decorative', serif; font-size: clamp(18px, 3vw, 30px); color: var(--gold); line-height: 1.25; margin-bottom: 12px; }
+  .part-header.priest h2 { color: #c87878; }
+  .part-desc { font-size: 16px; color: var(--text-soft); font-style: italic; max-width: 640px; margin: 0 auto; line-height: 1.85; }
+
+  /* ── SECTION LABEL ── */
+  .slbl { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3.5px; color: var(--gold-dim); text-transform: uppercase; margin: 54px 0 20px; display: flex; align-items: center; gap: 14px; }
+  .slbl::before, .slbl::after { content: ''; flex: 1; height: 1px; }
+  .slbl::before { background: linear-gradient(90deg, transparent, var(--gold-border)); }
+  .slbl::after { background: linear-gradient(90deg, var(--gold-border), transparent); }
+
+  /* ── DEFINITION CARD (big) ── */
+  .def-card {
+    background: linear-gradient(180deg, rgba(26,24,40,0.8), rgba(14,13,22,0.95));
+    border: 1px solid var(--gold-border); margin: 24px 0; overflow: hidden; position: relative;
+    transition: border-color 0.3s;
+  }
+  .def-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+  .def-card.blue::before { background: linear-gradient(90deg, transparent, var(--sapphire-light), transparent); }
+  .def-card.red::before { background: linear-gradient(90deg, transparent, var(--ruby-light), transparent); }
+  .def-card.green::before { background: linear-gradient(90deg, transparent, var(--emerald-light), transparent); }
+  .def-card.amber::before { background: linear-gradient(90deg, transparent, var(--amber-light), transparent); }
+  .def-card:hover { border-color: var(--gold-dim); }
+  .card-hd { display: flex; align-items: center; gap: 14px; padding: 18px 26px 14px; cursor: pointer; user-select: none; }
+  .accent-badge { font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; white-space: nowrap; flex-shrink: 0; border: 1px solid; }
+  .accent-badge.blue { color: var(--sapphire-light); border-color: var(--sapphire); background: var(--sapphire-glow); }
+  .accent-badge.red { color: var(--ruby-light); border-color: var(--ruby); background: var(--ruby-glow); }
+  .accent-badge.green { color: var(--emerald-light); border-color: var(--emerald); background: var(--emerald-glow); }
+  .accent-badge.amber { color: var(--amber-light); border-color: var(--amber); background: var(--amber-glow); }
+  .card-ref { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 0.5px; flex-shrink: 0; }
+  .card-title { font-family: 'Cinzel', serif; font-size: 12px; color: var(--text-soft); flex: 1; }
+  .card-toggle { width: 22px; height: 22px; border: 1px solid var(--gold-border); color: var(--gold-dim); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; transition: all 0.3s; }
+  .def-card.open .card-toggle { transform: rotate(45deg); border-color: var(--gold); color: var(--gold); }
+  .card-body { max-height: 0; overflow: hidden; transition: max-height 0.55s ease, padding 0.3s; padding: 0 26px; }
+  .def-card.open .card-body { max-height: 3000px; padding: 0 26px 30px; }
+
+  /* ── WORD HERO ── */
+  .word-hero {
+    background: linear-gradient(135deg, rgba(14,22,38,0.9), rgba(10,14,26,0.97));
+    border: 1px solid rgba(100,140,200,0.25); border-left: 4px solid var(--sapphire-light);
+    padding: 28px 32px; margin: 18px 0 22px; position: relative;
+  }
+  .word-hero::before { content: 'WORD STUDY'; position: absolute; top: -10px; left: 18px; font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2.5px; color: rgba(122,176,224,0.7); background: var(--bg-deep); padding: 2px 10px; border: 1px solid rgba(100,140,200,0.2); }
+  .word-main { font-family: 'EB Garamond', serif; font-size: 38px; font-style: italic; color: var(--blue-greek); line-height: 1.1; margin-bottom: 4px; }
+  .word-translit { font-family: 'Cinzel', serif; font-size: 13px; color: rgba(122,176,224,0.7); letter-spacing: 2px; margin-bottom: 14px; }
+  .word-strongs { display: inline-block; font-family: 'Cinzel', serif; font-size: 9px; color: rgba(100,140,200,0.5); border: 1px solid rgba(100,140,200,0.2); padding: 2px 8px; margin-bottom: 16px; }
+  .word-def { font-size: 16.5px; color: var(--text-soft); line-height: 1.8; margin-bottom: 14px; }
+  .word-insight { font-size: 15px; color: var(--text-body); font-style: italic; border-top: 1px solid rgba(100,140,200,0.14); padding-top: 14px; line-height: 1.78; }
+  .word-insight em { color: var(--blue-greek); font-style: normal; }
+
+  /* ── SCRIPTURE BLOCK ── */
+  .sblock { background: rgba(8,7,14,0.7); border-left: 3px solid var(--sapphire); padding: 16px 20px 16px 24px; margin: 14px 0 18px; font-style: italic; color: var(--white-soft); font-size: 16px; line-height: 1.88; position: relative; }
+  .sblock.ruby { border-left-color: var(--ruby-light); }
+  .sblock::before { content: '"'; position: absolute; top: 6px; left: 6px; font-size: 44px; color: rgba(212,168,67,0.05); font-family: Georgia, serif; line-height: 1; }
+  .sref { display: block; margin-top: 10px; font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold-dim); letter-spacing: 1px; font-style: normal; text-align: right; }
+
+  /* ── ANALYSIS ── */
+  .analysis { color: var(--text-body); font-size: 16px; line-height: 1.87; margin-bottom: 12px; }
+
+  /* ── INSIGHT BOX ── */
+  .ibox { padding: 16px 20px; margin: 16px 0; font-size: 15px; line-height: 1.75; border-left: 3px solid; }
+  .ibox.blue { background: var(--sapphire-glow); border-color: var(--sapphire-light); border: 1px solid rgba(40,96,168,0.3); border-left: 3px solid var(--sapphire-light); color: #a8c4e8; }
+  .ibox.red { background: var(--ruby-glow); border: 1px solid rgba(156,32,32,0.35); border-left: 3px solid var(--ruby-light); color: #c4a0a0; }
+  .ibox.green { background: var(--emerald-glow); border: 1px solid rgba(30,122,76,0.35); border-left: 3px solid var(--emerald-light); color: #a0c8b0; }
+  .ibox.amber { background: var(--amber-glow); border: 1px solid rgba(184,112,32,0.35); border-left: 3px solid var(--amber-light); color: #d4c090; }
+  .ibox strong { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .ibox.blue strong { color: var(--sapphire-light); }
+  .ibox.red strong { color: var(--ruby-light); }
+  .ibox.green strong { color: var(--emerald-light); }
+  .ibox.amber strong { color: var(--amber-light); }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 22px 0; }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+  .cg-cell { padding: 20px 22px; border: 1px solid; }
+  .cg-cell.old { background: rgba(40,96,168,0.07); border-color: rgba(40,96,168,0.3); }
+  .cg-cell.new { background: rgba(30,122,76,0.07); border-color: rgba(30,122,76,0.3); }
+  .cg-cell.abolished { background: rgba(156,32,32,0.07); border-color: rgba(156,32,32,0.3); }
+  .cg-title { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+  .cg-cell.old .cg-title { color: var(--sapphire-light); }
+  .cg-cell.new .cg-title { color: var(--emerald-light); }
+  .cg-cell.abolished .cg-title { color: var(--ruby-light); }
+  .cg-list { list-style: none; }
+  .cg-list li { font-size: 14px; color: var(--text-soft); line-height: 1.7; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .cg-list li:last-child { border-bottom: none; }
+  .cg-list li::before { content: '→ '; color: var(--gold-dim); font-size: 12px; }
+
+  /* ── PROPHET SPECTRUM ── */
+  .spectrum { margin: 24px 0; }
+  .spectrum-title { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 3px; color: var(--gold-dim); text-transform: uppercase; text-align: center; margin-bottom: 20px; }
+  .spectrum-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .sp-cell { background: rgba(26,24,40,0.6); border: 1px solid var(--gold-border); padding: 16px 18px; }
+  .sp-cell-type { font-family: 'Cinzel', serif; font-size: 10.5px; color: var(--gold); margin-bottom: 6px; letter-spacing: 1px; }
+  .sp-cell-ref { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold-dim); margin-bottom: 8px; letter-spacing: 0.5px; }
+  .sp-cell-desc { font-size: 13.5px; color: var(--text-soft); line-height: 1.65; }
+
+  /* ── EGW BOX ── */
+  .egw-box { background: linear-gradient(180deg, rgba(26,24,40,0.7), rgba(14,13,22,0.92)); border: 1px solid var(--gold-border); padding: 24px 30px; margin: 24px 0; position: relative; }
+  .egw-box::before { content: 'SPIRIT OF PROPHECY'; position: absolute; top: -10px; left: 22px; font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 3px; color: var(--gold-dim); background: var(--bg-deep); padding: 2px 12px; }
+  .egw-q { font-style: italic; color: var(--text-soft); font-size: 15.5px; line-height: 1.9; margin-bottom: 10px; }
+  .egw-c { font-family: 'Cinzel', serif; font-size: 9px; color: var(--gold-dim); letter-spacing: 1.5px; text-align: right; }
+
+  /* ── TAGS ── */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0 2px; }
+  .tag { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.2px; color: var(--text-dim); border: 1px solid var(--gold-border); padding: 2px 9px; text-transform: uppercase; }
+  .tag.blue { color: rgba(74,144,216,0.7); border-color: rgba(40,96,168,0.4); }
+  .tag.red { color: rgba(200,48,48,0.7); border-color: rgba(156,32,32,0.4); }
+  .tag.green { color: rgba(56,170,108,0.7); border-color: rgba(30,122,76,0.4); }
+  .tag.gk { color: rgba(122,176,224,0.65); border-color: rgba(100,160,220,0.25); }
+
+  /* ── APPLICATION PANEL ── */
+  .application {
+    background: linear-gradient(135deg, rgba(18,16,28,0.95), rgba(12,10,20,0.98));
+    border: 1px solid var(--gold-border); border-top: 3px solid var(--gold-mid);
+    padding: 36px 40px; margin: 52px 0;
+  }
+  .application h3 { font-family: 'Cinzel Decorative', serif; font-size: clamp(16px, 2.5vw, 24px); color: var(--gold); margin-bottom: 20px; }
+  .application p { color: var(--text-soft); font-size: 16px; line-height: 1.9; margin-bottom: 14px; }
+  .application p:last-child { margin-bottom: 0; }
+  .application .highlight { color: var(--text-body); font-style: normal; }
+
+  /* ── IMPLICATIONS GRID ── */
+  .impl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin: 24px 0; }
+  .impl-cell { background: rgba(22,20,34,0.5); border: 1px solid var(--gold-border); padding: 18px 20px; }
+  .impl-cell-title { font-family: 'Cinzel', serif; font-size: 10.5px; color: var(--gold); margin-bottom: 8px; letter-spacing: 0.5px; }
+  .impl-cell-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.68; }
+
+  footer { text-align: center; padding: 24px; border-top: 1px solid rgba(56,48,42,0.4); font-family: 'Cinzel', serif; font-size: 9.5px; letter-spacing: 2px; color: var(--text-dim); }
+
+  .fi { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fi.vis { opacity: 1; transform: none; }
+  @keyframes fd { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+
+  @media (max-width: 600px) {
+    .card-hd { padding: 14px 16px 10px; flex-wrap: wrap; }
+    .def-card.open .card-body { padding: 0 16px 20px; }
+    .word-hero { padding: 20px 18px; }
+    .application { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">A Biblical Definitions Supplement</div>
+  <div class="hero-orn">✦ ✦ ✦</div>
+  <h1 class="hero-title">What the Bible Actually Means</h1>
+  <div class="hero-sub">Prophet · Priest · The Roles Most People Misunderstand</div>
+  <div class="hero-rule"></div>
+  <p class="hero-intro">
+    Most people think a prophet predicts the future. Most people think a priest performs religious
+    rituals. Both assumptions are dangerously incomplete — and both misunderstandings have enormous
+    consequences for how we identify false prophets, evaluate teachers, and understand the finished
+    work of Christ. This guide corrects both definitions from Scripture itself.
+  </p>
+  <div class="hero-scroll">↓ Scroll to Study ↓</div>
+</section>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <span class="toc-label">Navigate</span>
+    <a class="toc-a" href="#part1">Part I — The Prophet</a>
+    <span class="toc-sep">|</span>
+    <a class="toc-a" href="#nabi">nābî — The Hebrew Root</a>
+    <a class="toc-a" href="#prophetes">prophētēs — The Greek</a>
+    <a class="toc-a" href="#spectrum">The Prophetic Spectrum</a>
+    <a class="toc-a" href="#forth-fore">Forth-Telling vs. Fore-Telling</a>
+    <a class="toc-a" href="#fourfold">Ephesians 4:11</a>
+    <span class="toc-sep">|</span>
+    <a class="toc-a" href="#part2">Part II — The Priest</a>
+    <a class="toc-a" href="#levitical">Levitical Priesthood</a>
+    <a class="toc-a" href="#abolished">The Abolition</a>
+    <a class="toc-a" href="#melchizedek">Melchizedek Order</a>
+    <a class="toc-a" href="#implications">Implications</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<div class="series-banner fi">
+  <div class="series-banner-icon">📚</div>
+  <div class="series-banner-text">
+    <strong>Series Supplement</strong>
+    This guide supplements "The Obedient Faith" and "Applying the Biblical Tests." The definitions here sharpen the false prophet tests in Part II of that guide and clarify why no earthly figure can claim priestly mediatory authority since the cross.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- PART I — THE PROPHET                -->
+<!-- ═══════════════════════════════════ -->
+<div id="part1">
+<div class="part-header fi">
+  <div class="part-num">Part One</div>
+  <h2>The Prophet — Spokesman, Not Soothsayer</h2>
+  <p class="part-desc">
+    The modern reduction of "prophet" to "someone who predicts the future" is a post-classical mistake
+    that has almost no basis in the Hebrew or Greek originals. Recovering the true definition changes
+    everything — including who qualifies as a false prophet.
+  </p>
+</div>
+</div>
+
+<!-- ── SECTION 1: nābî ── -->
+<div id="nabi" class="slbl fi">The Primary Hebrew Word</div>
+
+<div class="def-card blue fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="accent-badge blue">Hebrew</div>
+    <div class="card-ref">נָבִיא — nābî</div>
+    <div class="card-title">The foundational Old Testament word for prophet — "spokesman"</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="word-hero">
+      <div class="word-main">נָבִיא</div>
+      <div class="word-translit">nābî / nabi</div>
+      <div class="word-strongs">H5030 · used 316 times in the OT</div>
+      <p class="word-def">
+        <strong>Root meaning:</strong> Most scholars derive <em>nābî</em> from the root <em>nāba</em>
+        — "to bubble forth like a fountain, to pour out speech, to utter." The emphasis is on the
+        <em>speaking forth</em> of a message, not on the prediction of future events. The word
+        fundamentally denotes <strong>a spokesman</strong> — one who speaks <em>for another</em>.
+      </p>
+      <p class="word-def">
+        <strong>The defining proof text:</strong> Exodus 7:1 — "And the LORD said unto Moses, See, I
+        have made thee a god to Pharaoh: and Aaron thy brother shall be thy <em>prophet</em>
+        [<em>nābî</em>]." Aaron had no predictive role here. He was Moses' mouthpiece. This is the
+        purest biblical definition: a prophet is one who <em>speaks for another</em>.
+      </p>
+      <p class="word-insight">
+        The Septuagint (LXX) — the Greek translation of the Hebrew Old Testament produced c. 300 BC —
+        consistently renders <em>nābî</em> as <em class="gk-i" style="color:var(--blue-greek)">προφήτης</em>
+        (<em>prophētēs</em>), a Greek word meaning <em>one who speaks in behalf of another, especially
+        one who speaks for a god and interprets his will</em>. Note: the English sense "one who
+        predicts" is a post-classical narrowing. The biblical word has always meant <em>interpreter
+        and spokesman</em> first.
+      </p>
+    </div>
+
+    <div class="sblock">
+      "And the LORD said unto Moses, See, I have made thee a god to Pharaoh: and Aaron thy brother shall be thy <strong>prophet</strong> [nābî]. Thou shalt speak all that I command thee: and Aaron thy brother shall speak unto Pharaoh."
+      <span class="sref">— Exodus 7:1–2, KJV (Aaron's role as prophet = Moses' spokesman)</span>
+    </div>
+    <div class="ibox blue">
+      <strong>The Definitive Proof</strong>
+      Aaron is explicitly called Moses' <em>nābî</em> — prophet. His only function in this role was to repeat what Moses told him. He predicted nothing. He performed no miracles in this capacity. He was a spokesman. This single verse permanently anchors the meaning: a prophet is a commissioned spokesperson for a higher authority.
+    </div>
+
+    <p class="analysis">
+      Secondary Hebrew words for prophet reinforce this. <em>Rō'eh</em> (H7203) — seer — emphasises
+      the reception of the message (seeing/receiving). <em>Ḥōzeh</em> (H2374) — also seer — emphasises
+      prophetic vision. All three words converge on the same function: receiving a message from God and
+      communicating it to people. Prediction is one possible content of that message, but it is never
+      the definition of the role itself. 1 Chronicles 29:29 uses all three in one verse: "Samuel the
+      seer (<em>rō'eh</em>), Nathan the prophet (<em>nābî</em>), Gad the seer (<em>ḥōzeh</em>)."
+    </p>
+    <div class="tag-row">
+      <span class="tag blue">nābî · H5030</span>
+      <span class="tag">Exodus 7:1</span>
+      <span class="tag">Spokesman For God</span>
+      <span class="tag">316 OT Occurrences</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── prophētēs ── -->
+<div id="prophetes" class="slbl fi">The New Testament Greek Word</div>
+
+<div class="def-card blue fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="accent-badge blue">Greek</div>
+    <div class="card-ref">προφήτης — prophētēs</div>
+    <div class="card-title">One who speaks forth for another — not primarily a prediction-maker</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="word-hero">
+      <div class="word-main">προφήτης</div>
+      <div class="word-translit">prophētēs</div>
+      <div class="word-strongs">G4396 · 144 NT occurrences</div>
+      <p class="word-def">
+        <strong>Compound:</strong> <em>pro</em> (before, on behalf of) + <em>phēmi</em> (to speak).
+        In classical Greek literature, the <em>prophētēs</em> at Delphi was the temple official who
+        <em>interpreted and proclaimed</em> the oracle's utterances to the public — not the one who
+        predicted them. The role was that of a <em>communicator and interpreter</em>, not a futurist.
+      </p>
+      <p class="word-def">
+        <strong>The "pro" prefix:</strong> Most people assume <em>pro</em> means "before" (in time)
+        as in "prophecy = speaking before the event." But in classical and biblical Greek, <em>pro</em>
+        more fundamentally means <em>in front of, on behalf of, forth</em>. The prophet speaks
+        <em>forth</em> — publicly, openly, on behalf of God — as much as he speaks <em>before</em>.
+      </p>
+      <p class="word-insight">
+        Scholar George Henry Phillips (1921) summarised the consensus of biblical scholarship:
+        <em>"Prediction may be an aspect of the prophet's message, but it is no part of the meaning
+        of the word either in Greek or Hebrew. The prophet is not characteristically one who foretells
+        the future: he <strong>forthtells</strong> the divine word. His task is to interpret the
+        present, under guidance of the Spirit of God which possesses him. He hears and speaks —
+        that is his function."</em>
+      </p>
+    </div>
+
+    <div class="ibox blue">
+      <strong>Forth-Telling and Fore-Telling — The Distinction That Changes Everything</strong>
+      A prophet does two things that are often confused as one: (1) <em>Forth-telling</em> — proclaiming
+      God's revealed will to people in their present situation: preaching, teaching, exhortation, rebuke,
+      instruction in righteousness. (2) <em>Fore-telling</em> — announcing what God will do in the
+      future. Both are prophetic functions. But <strong>forth-telling is the primary role; fore-telling
+      is the exceptional one</strong>. Most of what Isaiah, Jeremiah, and Ezekiel wrote was
+      forth-telling — moral, theological, and covenantal proclamation. Their predictive sections
+      are the minority, not the majority, of their total output.
+    </div>
+
+    <div class="tag-row">
+      <span class="tag gk">προφήτης · prophētēs · G4396</span>
+      <span class="tag blue">Forth-Telling Primary</span>
+      <span class="tag">Fore-Telling Secondary</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── SPECTRUM ── -->
+<div id="spectrum" class="slbl fi">The Full Prophetic Spectrum in Scripture</div>
+
+<div class="def-card blue fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="accent-badge blue">Biblical Range</div>
+    <div class="card-ref">Old & New Testament</div>
+    <div class="card-title">Every type of person called a prophet — from pastors to preachers to miracle-workers</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <p class="analysis">
+      The Bible applies the word "prophet" (<em>nābî</em> / <em>prophētēs</em>) to a remarkably
+      diverse range of people and functions. Reducing it to "predictor of the future" erases most
+      of this diversity.
+    </p>
+
+    <div class="spectrum">
+      <div class="spectrum-title">The Prophetic Spectrum — Biblical Examples</div>
+      <div class="spectrum-grid">
+        <div class="sp-cell">
+          <div class="sp-cell-type">Lawgiver-Prophet</div>
+          <div class="sp-cell-ref">Deuteronomy 18:15; Acts 3:22</div>
+          <div class="sp-cell-desc">Moses — the supreme <em>nābî</em>. His primary role was receiving the law from God and teaching it to Israel. The majority of the Pentateuch is law, instruction, and historical narrative — not prediction.</div>
+        </div>
+        <div class="sp-cell">
+          <div class="sp-cell-type">Preacher-Prophet</div>
+          <div class="sp-cell-ref">1 Samuel 7:2–17; 3:1–21</div>
+          <div class="sp-cell-desc">Samuel — his primary prophetic function was preaching true religion, rebuking apostasy, instructing Israel in covenantal faithfulness. He served as teacher, judge, and guardian of the law of God.</div>
+        </div>
+        <div class="sp-cell">
+          <div class="sp-cell-type">Pastoral-Prophet</div>
+          <div class="sp-cell-ref">Ezekiel 3:17; 33:7–9</div>
+          <div class="sp-cell-desc">Ezekiel was explicitly called a "watchman" (<em>ṣōpeh</em>) over Israel — a shepherd-guardian function. His role was to warn, teach, and guide the flock of God. This is the same role as a pastor.</div>
+        </div>
+        <div class="sp-cell">
+          <div class="sp-cell-type">Preaching-Prophet</div>
+          <div class="sp-cell-ref">Jonah 3:4; Jeremiah 1:9–10</div>
+          <div class="sp-cell-desc">Jonah's entire message was eight Hebrew words — essentially a sermon. Jeremiah was called to "root out, pull down, destroy, build, plant" — the language of pastoral ministry over a nation.</div>
+        </div>
+        <div class="sp-cell">
+          <div class="sp-cell-type">NT Teaching-Prophet</div>
+          <div class="sp-cell-ref">Acts 13:1; 15:32</div>
+          <div class="sp-cell-desc">In Antioch there were "prophets and teachers" — listed together. Judas and Silas are called prophets (15:32) and their entire ministry was exhortation and strengthening — what we would call pastoral preaching.</div>
+        </div>
+        <div class="sp-cell">
+          <div class="sp-cell-type">Congregational Prophet</div>
+          <div class="sp-cell-ref">1 Corinthians 14:3, 31</div>
+          <div class="sp-cell-desc">Paul says "everyone can prophesy" (14:31) for "edification, exhortation, and comfort" (14:3). This congregational prophecy is not prediction — it is Spirit-directed communication of God's word for the building up of the body.</div>
+        </div>
+        <div class="sp-cell">
+          <div class="sp-cell-type">Apostle-Prophet</div>
+          <div class="sp-cell-ref">Ephesians 2:20; 4:11</div>
+          <div class="sp-cell-desc">Paul lists five ministry offices: apostles, prophets, evangelists, pastors, teachers. These overlap — every apostle proclaimed God's word (prophetic function). The categories describe emphasis and calling, not watertight compartments.</div>
+        </div>
+        <div class="sp-cell">
+          <div class="sp-cell-type">Predictive-Prophet</div>
+          <div class="sp-cell-ref">Isaiah 53; Daniel 7–12; Revelation</div>
+          <div class="sp-cell-desc">The predictive dimension is real and essential — but it is one function within the broader prophetic calling, not its definition. Daniel, Isaiah, and John of Patmos were all primarily forth-tellers who also received fore-telling visions.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ibox blue">
+      <strong>The Implication for False Prophets</strong>
+      If a prophet is primarily a spokesperson for God — a teacher, preacher, or proclaimer of His will — then a <em>false prophet</em> is primarily a false spokesperson. That includes every pastor, teacher, or preacher who proclaims a message that is not from God. You do not have to predict the future to be a false prophet. You simply have to claim to speak for God and speak something different from what God says. This is exactly why Jeremiah 23 describes false prophets as men who "speak visions of their own heart" — they are forth-tellers of a false message, not failed fore-tellers.
+    </div>
+    <div class="tag-row">
+      <span class="tag blue">Full Prophetic Spectrum</span>
+      <span class="tag">Pastoral = Prophetic</span>
+      <span class="tag">Acts 13:1</span>
+      <span class="tag">1 Corinthians 14</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Ephesians 4:11 ── -->
+<div id="fourfold" class="slbl fi">Ephesians 4:11 — The Fourfold Ministry</div>
+
+<div class="def-card green fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="accent-badge green">Key Passage</div>
+    <div class="card-ref">Ephesians 4:11–12</div>
+    <div class="card-title">Apostles, prophets, evangelists, pastors and teachers — all are God's spokesmen</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock">
+      "And he gave some, apostles; and some, prophets; and some, evangelists; and some, pastors and teachers; For the perfecting of the saints, for the work of the ministry, for the edifying of the body of Christ."
+      <span class="sref">— Ephesians 4:11–12, KJV</span>
+    </div>
+    <div class="word-hero" style="border-left-color: rgba(56,170,108,0.6);">
+      <div class="word-main" style="font-size: 26px; color: #80c890;">τοὺς δὲ ποιμένας καὶ διδασκάλους</div>
+      <div class="word-translit" style="color: rgba(128,200,144,0.7);">tous de poimenas kai didaskalous</div>
+      <div class="word-strongs" style="color: rgba(128,200,144,0.5); border-color: rgba(128,200,144,0.2);">G4166 + G1320 · "the pastors and teachers"</div>
+      <p class="word-def">
+        <strong>Grammatical note:</strong> In Greek, <em>pastors</em> and <em>teachers</em> share a
+        single definite article (<em>tous</em>) — a construction called the <em>Granville Sharp Rule</em> —
+        strongly suggesting these two offices are aspects of one ministry. The pastor-teacher is a
+        single figure with two dimensions: shepherding the flock (pastoral) and instructing them in
+        truth (teaching). This is the same dual function as the Old Testament prophet-teacher.
+      </p>
+      <p class="word-insight">
+        Paul's list in 1 Corinthians 12:28 confirms the parallel: "God has appointed in the church
+        first apostles, second prophets, third teachers." In that list, <em>prophets</em> and
+        <em>teachers</em> are adjacent and functionally overlapping. A prophet teaches; a teacher
+        prophesies. Both speak forth the word of God to the congregation. The distinction is one of
+        emphasis and gift — both roles are prophetic in the original biblical sense.
+      </p>
+    </div>
+
+    <p class="analysis">
+      Every person in this list is a spokesperson for God — which means every person in this list
+      operates under prophetic accountability. The same tests that apply to a predictive prophet
+      (Isaiah 8:20, Deuteronomy 13, Matthew 7:20) apply with equal force to the pastor who teaches
+      his congregation every Sabbath. He is a <em>nābî</em> — a spokesman for God. If he speaks
+      false doctrine, leads people away from God's commandments, or preaches a message of his own
+      heart, he is a false prophet regardless of whether he has ever predicted anything.
+    </p>
+    <div class="egw-box">
+      <p class="egw-q">"Not many of you should become teachers, my brothers, for you know that we who teach will be judged with greater strictness." (James 3:1) The teacher who stands before a congregation wields prophetic authority and bears prophetic accountability. Ellen White repeatedly warned that the pastoral office must be exercised with trembling: 'The greatest want of the world is the want of men... men who will not be bought or sold; men who in their inmost souls are true and honest; men who do not fear to call sin by its right name.'"</p>
+      <div class="egw-c">— Education, p. 57</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag green">Ephesians 4:11</span>
+      <span class="tag gk">ποιμήν · poimēn · Pastor</span>
+      <span class="tag gk">διδάσκαλος · didaskalos · Teacher</span>
+      <span class="tag">Pastor = Prophet in Function</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- PART II — THE PRIEST               -->
+<!-- ═══════════════════════════════════ -->
+<div id="part2">
+<div class="part-header priest fi">
+  <div class="part-num">Part Two</div>
+  <h2>The Priest — A Role That Has Been Permanently Transferred</h2>
+  <p class="part-desc">
+    The Levitical priesthood was God-ordained. It was also deliberately temporary — a shadow of the
+    true. At the cross, the veil was torn, the sacrifices ended, and the entire priestly system was
+    superseded. Any earthly figure who claims priestly mediatory authority — the ability to forgive
+    sins, offer sacrifice, or stand between God and man — is claiming a role that belongs exclusively
+    and permanently to Jesus Christ.
+  </p>
+</div>
+</div>
+
+<!-- ── What the Levitical Priest Did ── -->
+<div id="levitical" class="slbl fi">The Levitical Priest — What the Role Was</div>
+
+<div class="def-card amber fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="accent-badge amber">Old Covenant</div>
+    <div class="card-ref">Hebrews 7:11 · 9:6–7 · Leviticus 16</div>
+    <div class="card-title">The Levitical priest — his three functions and their typological meaning</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="compare-grid">
+      <div class="cg-cell old">
+        <div class="cg-title">The Levitical Priest's Functions</div>
+        <ul class="cg-list">
+          <li>Offered animal sacrifices for sin (Lev. 4–5)</li>
+          <li>Performed daily rituals in the sanctuary (Heb. 9:6)</li>
+          <li>Entered the Holy of Holies once a year — Day of Atonement (Lev. 16; Heb. 9:7)</li>
+          <li>Interceded between the people and God (Num. 16:46–48)</li>
+          <li>Taught the law to Israel (Deut. 33:10; Mal. 2:7)</li>
+          <li>Diagnosed and declared clean/unclean (Lev. 13–14)</li>
+          <li>Blessed the people in God's name (Num. 6:22–27)</li>
+        </ul>
+      </div>
+      <div class="cg-cell new">
+        <div class="cg-title">What Each Function Pointed To</div>
+        <ul class="cg-list">
+          <li>Christ's once-for-all sacrifice at Calvary (Heb. 9:26)</li>
+          <li>Christ's continuous intercession in heaven (Heb. 7:25)</li>
+          <li>Christ entering the heavenly Holy of Holies with His own blood (Heb. 9:12)</li>
+          <li>Christ: the one Mediator between God and man (1 Tim. 2:5)</li>
+          <li>Christ the Word teaching directly through His Spirit (John 14:26)</li>
+          <li>Christ the one who declares righteous (Rom. 8:33–34)</li>
+          <li>Christ the one through whom all blessing comes (Eph. 1:3)</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="analysis">
+      Every single function of the Levitical priesthood was a shadow of what Christ would
+      accomplish perfectly. The writer of Hebrews makes this the centrepiece of his entire argument
+      (chapters 7–10): the earthly sanctuary was "a copy and shadow of the heavenly things" (8:5).
+      The priests who served it were temporal, replaceable, and unable to fully atone — they were
+      signposts, not the destination.
+    </p>
+    <div class="tag-row">
+      <span class="tag amber">Levitical Priesthood</span>
+      <span class="tag">Shadow of Reality</span>
+      <span class="tag">Hebrews 7-10</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── The Abolition ── -->
+<div id="abolished" class="slbl fi">The Abolition — What the Cross Accomplished</div>
+
+<div class="def-card red fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="accent-badge red">Abolished at the Cross</div>
+    <div class="card-ref">Hebrews 7:11–12, 18–19 · 8:4–6 · 9:26 · 10:1–4</div>
+    <div class="card-title">The Levitical priesthood — permanently ended, never to be restored</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock ruby">
+      "If therefore perfection were by the Levitical priesthood... what further need was there that another priest should rise after the order of Melchisedec, and not be called after the order of Aaron? For the priesthood being changed, there is made of necessity a change also of the law."
+      <span class="sref">— Hebrews 7:11–12, KJV</span>
+    </div>
+    <div class="sblock ruby">
+      "For if he were on earth, he should not be a priest, seeing that there are priests that offer gifts according to the law: Who serve unto the example and shadow of heavenly things... But now hath he obtained a more excellent ministry."
+      <span class="sref">— Hebrews 8:4–6, KJV</span>
+    </div>
+
+    <div class="word-hero" style="border-left-color: rgba(200,48,48,0.6);">
+      <div class="word-main" style="color: #d08080;">ἀθέτησις</div>
+      <div class="word-translit" style="color: rgba(208,128,128,0.7);">athetēsis</div>
+      <div class="word-strongs" style="color: rgba(200,128,128,0.5); border-color: rgba(200,128,128,0.2);">G115 — Hebrews 7:18</div>
+      <p class="word-def">
+        <strong>"Disannulling"</strong> (KJV) / "Setting aside" — <em>athetēsis</em> (G115) is a legal
+        term meaning <em>annulment, abrogation, the formal setting aside of a prior arrangement</em>.
+        It is used in legal documents of the first century for the cancellation of a contract. Hebrews
+        7:18 uses it for the <em>annulment of the former commandment</em> (the Levitical law governing
+        the priesthood): <em>"For there is verily a disannulling of the commandment going before for
+        the weakness and unprofitableness thereof."</em>
+      </p>
+      <p class="word-insight">
+        This is not a soft transition or a gradual phase-out. The legal force of <em class="gk-i" style="color:#d08080">athetēsis</em>
+        is a <em>permanent cancellation</em>. The Levitical priesthood — with its sacrifices,
+        its rituals, its incense, its intercessory function — was <em>legally annulled</em> when
+        Christ entered the heavenly sanctuary with His own blood. No human being inherits this role.
+        No succession is possible or valid.
+      </p>
+    </div>
+
+    <div class="ibox red">
+      <strong>⚠ The Torn Veil — God's Own Act of Abolition</strong>
+      Matthew 27:51: "And, behold, the veil of the temple was rent in twain from the top to the bottom." The direction of the tearing is significant — <em>from top to bottom</em> means God tore it, not man. The veil that separated the Holy of Holies — the space only the high priest could enter, once a year, under strict ceremony — was destroyed by God Himself at the moment of Christ's death. The message was unmistakable: the earthly sanctuary system was finished. Direct access to God was now open to every believer through Christ alone (Heb. 10:19–22).
+    </div>
+
+    <div class="sblock ruby">
+      "Having therefore, brethren, boldness to enter into the holiest by the blood of Jesus, By a new and living way, which he hath consecrated for us, through the veil, that is to say, his flesh... Let us draw near with a true heart in full assurance of faith."
+      <span class="sref">— Hebrews 10:19–20, 22, KJV</span>
+    </div>
+
+    <p class="analysis">
+      Hebrews 8:4 goes further: "For if he were on earth, he should not be a priest." Christ
+      Himself cannot exercise His priesthood on earth — it is an exclusively heavenly ministry. Any
+      earthly figure who claims priestly authority — the power to forgive sins through sacramental
+      action, to offer sacrifice, to act as mediator between a person and God — is not just mistaken.
+      They are claiming a vacancy that does not exist and a transfer of authority that has not occurred.
+    </p>
+    <div class="tag-row">
+      <span class="tag red">Abolished</span>
+      <span class="tag gk">ἀθέτησις · athetēsis · G115</span>
+      <span class="tag">Matthew 27:51 — Torn Veil</span>
+      <span class="tag">Hebrews 8:4</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Melchizedek ── -->
+<div id="melchizedek" class="slbl fi">The Melchizedek Priesthood — Permanent, Exclusive, Untransferable</div>
+
+<div class="def-card red fi">
+  <div class="card-hd" onclick="toggle(this)">
+    <div class="accent-badge red">Hebrews 7</div>
+    <div class="card-ref">Hebrews 7:24–27 · Psalm 110:4</div>
+    <div class="card-title">"He has an unchangeable priesthood" — it cannot be passed to another</div>
+    <div class="card-toggle">+</div>
+  </div>
+  <div class="card-body">
+    <div class="sblock ruby">
+      "But this man, because he continueth ever, hath an unchangeable priesthood. Wherefore he is able also to save them to the uttermost that come unto God by him, seeing he ever liveth to make intercession for them. For such an high priest became us, who is holy, harmless, undefiled, separate from sinners, and made higher than the heavens; Who needeth not daily, as those high priests, to offer up sacrifice, first for his own sins, and then for the people's: for this he did once, when he offered up himself."
+      <span class="sref">— Hebrews 7:24–27, KJV</span>
+    </div>
+
+    <div class="word-hero" style="border-left-color: rgba(200,48,48,0.6);">
+      <div class="word-main" style="color: #d08080;">ἀπαράβατον</div>
+      <div class="word-translit" style="color: rgba(208,128,128,0.7);">aparabaton</div>
+      <div class="word-strongs" style="color: rgba(200,128,128,0.5); border-color: rgba(200,128,128,0.2);">G531 — Hebrews 7:24</div>
+      <p class="word-def">
+        <strong>"Unchangeable"</strong> — <em>aparabatos</em> (G531) is a legal term used in ancient
+        documents meaning <em>not passing to a successor, inviolable, intransmissible</em>. It
+        describes a priesthood that <em>cannot be transferred</em> — the opposite of the Levitical
+        priesthood where the office passed from father to son, generation to generation.
+      </p>
+      <p class="word-insight">
+        <em class="gk-i" style="color:#d08080">Aparabatos</em> appears only once in the entire New
+        Testament — here. God chose the strongest possible legal language to declare: Christ's
+        priesthood <em>cannot pass to anyone else</em>. It is held by Him alone, permanently, without
+        the possibility of succession. There is no apostolic succession into the priestly office.
+        There is no human being, however ordained, who shares in Christ's mediatory priesthood.
+        The gap between God and man has one bridge — Jesus Christ. And that bridge is permanently
+        held by One who "always lives to make intercession" (v.25).
+      </p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="cg-cell old">
+        <div class="cg-title">Levitical Priesthood</div>
+        <ul class="cg-list">
+          <li>Many priests (Heb. 7:23)</li>
+          <li>Ended by death — successors required</li>
+          <li>Offered repeated sacrifices</li>
+          <li>Earthly sanctuary only</li>
+          <li>Animal blood — could not remove sin</li>
+          <li>Could not perfect the conscience</li>
+          <li>Passed from father to son</li>
+        </ul>
+      </div>
+      <div class="cg-cell abolished">
+        <div class="cg-title">Christ's Priesthood</div>
+        <ul class="cg-list">
+          <li>One Priest — eternally (Heb. 7:24)</li>
+          <li>Continues forever — no successor needed</li>
+          <li>One sacrifice — once for all (Heb. 9:26)</li>
+          <li>Heavenly sanctuary — the real one</li>
+          <li>His own blood — removes sin entirely</li>
+          <li>Perfects the conscience (Heb. 9:14)</li>
+          <li>Cannot be transferred (ἀπαράβατον)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ibox red">
+      <strong>1 Timothy 2:5 — The Final Statement</strong>
+      "For there is one God, and one mediator between God and men, the man Christ Jesus." The word <em>mesitēs</em> (G3316) — mediator — is a legal term for the one who stands between two parties to broker a covenant. Paul does not say "one primary mediator" or "one high mediator with human sub-mediators." He says <em>one</em>. The definitive article and the numeral together function as an absolute exclusion. Anyone who claims to stand between you and God in a mediatory-priestly capacity — priest, confessor, intercessor by title — is claiming the office of Christ. That office is not available.
+    </div>
+
+    <div class="egw-box">
+      <p class="egw-q">"Let no one interpose between the soul and Christ. Priests, pastors, no human being, is to come between the soul and its Saviour. Those who do this are doing the work of the enemy of Christ... Men are not to place their dependence upon priests or ministers. These are fallible human beings."</p>
+      <div class="egw-c">— Manuscript Releases, Vol. 9, p. 66</div>
+    </div>
+    <div class="tag-row">
+      <span class="tag red">Permanent · Exclusive · Untransferable</span>
+      <span class="tag gk">ἀπαράβατον · aparabaton · G531</span>
+      <span class="tag">1 Timothy 2:5</span>
+      <span class="tag">Hebrews 7:24-27</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!-- IMPLICATIONS                        -->
+<!-- ═══════════════════════════════════ -->
+<div id="implications" class="slbl fi">Pulling It Together — Implications for the False Prophet Tests</div>
+
+<div class="application fi">
+  <h3>What These Definitions Change</h3>
+  <p>
+    Once the true definitions of <em>prophet</em> and <em>priest</em> are in place, the
+    implications for identifying false prophets — and for the topic of obedience — become
+    significantly sharper.
+  </p>
+  <div class="impl-grid">
+    <div class="impl-cell">
+      <div class="impl-cell-title">Implication 1 — Every Pastor Is a Prophet</div>
+      <div class="impl-cell-text">Every person who stands before a congregation and claims to speak God's word is functioning as a <em>nābî</em> — a spokesman for God. The Deuteronomy 13 test, the Isaiah 8:20 test, and the Matthew 7:20 fruit test apply to him in full. He does not need to have made a prediction. He only needs to be claiming to represent God's message. If that message contradicts God's commandments, he is a false prophet by the biblical definition.</div>
+    </div>
+    <div class="impl-cell">
+      <div class="impl-cell-title">Implication 2 — "I'm Not a Prophet, I'm a Teacher" Is No Excuse</div>
+      <div class="impl-cell-text">In Scripture these functions overlap. Teaching is a prophetic act — it is forth-telling the will of God. A teacher who leads people away from God's law is operating as a false prophet whether or not he claims the prophetic title. Jeremiah 23's false prophets did not all call themselves prophets — some were priests and teachers (v.11, "both prophet and priest are profane"). The category is functional, not merely titular.</div>
+    </div>
+    <div class="impl-cell">
+      <div class="impl-cell-title">Implication 3 — No Human Is a Priest in the Mediatory Sense</div>
+      <div class="impl-cell-text">The Levitical priesthood — sacrifice, mediation, intercessory standing before God on behalf of sinners — was abolished at the cross and transferred exclusively to Christ. Any system that requires a human priest between a believer and God (for confession, absolution, sacramental grace) is claiming a vacancy that Christ has permanently filled. The torn veil made this architectural: no more human gatekeeper to the presence of God.</div>
+    </div>
+    <div class="impl-cell">
+      <div class="impl-cell-title">Implication 4 — "Priest" vs. "Prophet" Is a False Escape</div>
+      <div class="impl-cell-text">Arguing that someone is "just a priest, not a prophet" — as if this avoids the false prophet tests — misunderstands both roles. Jeremiah 23:11 explicitly says "both prophet and priest are profane" — God makes no distinction in his indictment. And Malachi 2:7–8 condemns priests who "caused many to stumble at the law" as having "corrupted the covenant of Levi." The accountability is identical.</div>
+    </div>
+    <div class="impl-cell">
+      <div class="impl-cell-title">Implication 5 — Obedience and the Teaching Office</div>
+      <div class="impl-cell-text">Since every teacher is a prophetic spokesman, the command of Revelation 14:12 — keeping the commandments of God — applies to what teachers proclaim. A teacher who preaches that God's commandments are optional is not just theologically mistaken. He is a false prophet by Deuteronomy 13: he is leading people away from the law of God, regardless of whether his signs come true. The two studies (obedience and false prophets) are not separate topics — they are two sides of the same coin.</div>
+    </div>
+    <div class="impl-cell">
+      <div class="impl-cell-title">Implication 6 — The Universal Priesthood of Believers</div>
+      <div class="impl-cell-text">1 Peter 2:9 calls all believers "a royal priesthood" — but the context defines this as declaring God's praise and representing His character to the world, not mediating between sinners and God. Revelation 1:6 similarly says Christ has made us "kings and priests." This is the prophetic-pastoral function: every believer is called to proclaim and live the gospel. It is the forth-telling dimension of priesthood — not the sin-mediating dimension, which belongs to Christ alone.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  Prophet · Priest · False Prophet Tests · Heavenly Sanctuary
+  &nbsp;✦&nbsp;
+  Exodus 7:1 · Hebrews 7–10 · Ephesians 4:11 · 1 Timothy 2:5 · Matthew 27:51
+</footer>
+
+<script>
+  function toggle(hd) {
+    hd.closest('.def-card').classList.toggle('open');
+  }
+  const fi = document.querySelectorAll('.fi');
+  const obs = new IntersectionObserver(e => {
+    e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('vis'); obs.unobserve(el.target); } });
+  }, { threshold: 0.07 });
+  fi.forEach(el => obs.observe(el));
+
+  // Open first card automatically
+  const firstCard = document.querySelector('.def-card');
+  if (firstCard) firstCard.classList.add('open');
+</script>
+</body>
+</html>
