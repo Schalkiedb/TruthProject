@@ -1487,15 +1487,14 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 /* Translation tabs */
 #verse-modal-tabs {
   display: flex;
-  overflow-x: auto;
-  scrollbar-width: none;
+  flex-wrap: wrap;
   border-bottom: 1px solid rgba(255,255,255,.06);
   flex-shrink: 0;
-  padding: 0 16px;
+  padding: 4px 12px 0;
+  gap: 2px;
 }
-#verse-modal-tabs::-webkit-scrollbar { display: none; }
 .vm-tab {
-  padding: 10px 16px;
+  padding: 8px 12px;
   font-size: 12px;
   font-weight: 700;
   color: var(--text-muted);
