@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Forbidden Sky — All Levitically Prohibited Birds</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --sky:            #0c0e18;
+    --sky-mid:        #111422;
+    --sky-card:       #151828;
+    --sky-edge:       #1a1e30;
+    --sky-bright:     #1f2438;
+    --violet:         #6060b0;
+    --violet-bright:  #8888d0;
+    --violet-dim:     #383870;
+    --crimson:        #a03040;
+    --crimson-bright: #c04858;
+    --crimson-dim:    #602030;
+    --gold:           #c9a84c;
+    --gold-bright:    #e8c96a;
+    --gold-dim:       #8a6d2e;
+    --red-warn:       #b84040;
+    --red-dim:        #7a2e2e;
+    --dawn:           #c08040;
+    --dawn-bright:    #e0a060;
+    --dawn-dim:       #805030;
+    --text-main:      #e0daf0;
+    --text-muted:     #7870a0;
+    --text-dim:       #404060;
+    --border:         rgba(96,96,176,0.2);
+    --border-strong:  rgba(96,96,176,0.45);
+    --border-gold:    rgba(201,168,76,0.28);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--sky);
+    color: var(--text-main);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.78;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(80,60,160,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(60,40,120,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 30%, rgba(180,80,60,0.04) 0%, transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    text-align: center;
+    padding: 70px 24px 50px;
+    border-bottom: 1px solid var(--border-strong);
+    position: relative; overflow: hidden;
+    background: linear-gradient(180deg, rgba(96,96,176,0.07) 0%, transparent 100%);
+  }
+  .masthead::before {
+    content: '';
+    display: block; width: 1px; height: 40px;
+    background: linear-gradient(180deg, var(--violet), transparent);
+    margin: 0 auto;
+    position: absolute; top: 0; left: 50%;
+  }
+  .masthead-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 5px;
+    color: var(--violet-dim); text-transform: uppercase; margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(24px, 5vw, 46px); font-weight: 700;
+    color: var(--violet-bright); line-height: 1.15; margin-bottom: 8px;
+    text-shadow: 0 0 40px rgba(136,136,208,0.4), 0 2px 20px rgba(0,0,0,0.7);
+  }
+  .masthead h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(13px, 2vw, 17px); font-weight: 400;
+    color: var(--violet-dim); letter-spacing: 3px; margin-bottom: 20px;
+  }
+  .masthead .subtitle {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 19px; color: var(--text-muted);
+    max-width: 720px; margin: 0 auto 30px;
+  }
+  .wave-divider { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 30px; }
+  .wave-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--violet-dim)); }
+  .wave-line.r { background: linear-gradient(90deg, var(--violet-dim), transparent); }
+  .wave-dots { color: var(--violet-dim); font-size: 14px; letter-spacing: 8px; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 940px; margin: 0 auto; padding: 0 20px 100px; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--sky-card); border: 1px solid var(--border-strong);
+    border-radius: 6px; padding: 28px 32px; margin: 40px 0;
+  }
+  .toc-title {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--violet);
+    margin-bottom: 18px; border-bottom: 1px solid var(--border); padding-bottom: 12px;
+  }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 6px 24px; }
+  .toc-item {
+    font-size: 15px; color: var(--text-muted); padding: 4px 0 4px 16px;
+    position: relative; text-decoration: none; display: block; transition: color 0.2s;
+  }
+  .toc-item::before { content: '⟶'; position: absolute; left: 0; color: var(--violet-dim); font-size: 12px; top: 6px; }
+  .toc-item:hover { color: var(--violet-bright); }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    font-family: 'Cinzel', serif; font-size: clamp(12px, 2vw, 16px);
+    font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--violet); border-top: 1px solid var(--border-strong);
+    padding-top: 44px; margin-top: 60px; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-title .icon { font-size: 20px; }
+  .section-subtitle {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 22px; color: var(--text-main); margin-bottom: 26px;
+  }
+
+  /* ── CREATURE CARDS ── */
+  .creature {
+    background: var(--sky-card); border: 1px solid var(--border);
+    border-radius: 6px; margin-bottom: 22px; overflow: hidden; scroll-margin-top: 20px;
+  }
+  .creature-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px 16px; border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, rgba(96,96,176,0.07), transparent);
+    cursor: pointer; user-select: none;
+  }
+  .creature-icon { font-size: 28px; flex-shrink: 0; }
+  .creature-name {
+    font-family: 'Cinzel', serif; font-size: 17px; font-weight: 600;
+    color: var(--violet-bright); letter-spacing: 1px;
+  }
+  .creature-latin {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 14px; color: var(--text-dim); margin-top: 2px;
+  }
+  .creature-verdict {
+    margin-left: auto; font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px;
+    border-radius: 3px; border: 1px solid var(--red-dim); color: #d06060;
+    background: rgba(184,64,64,0.08); flex-shrink: 0;
+  }
+  .creature-verdict.permitted {
+    border-color: rgba(80,160,80,0.4); color: #70c070;
+    background: rgba(80,160,80,0.08);
+  }
+  .creature-toggle { margin-left: 8px; color: var(--violet-dim); font-size: 12px; transition: transform 0.25s; flex-shrink: 0; }
+  .creature.open .creature-toggle { transform: rotate(90deg); }
+  .creature-body { display: none; padding: 24px; }
+  .creature.open .creature-body { display: block; }
+
+  /* ── PILLAR GRID ── */
+  .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 14px; margin-top: 4px; }
+  .pillar { background: var(--sky-edge); border-radius: 4px; padding: 16px 18px; }
+  .pillar-title {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2.5px;
+    text-transform: uppercase; margin-bottom: 10px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pillar.science .pillar-title  { color: var(--dawn-bright); }
+  .pillar.scripture .pillar-title { color: var(--gold-dim); }
+  .pillar.egw .pillar-title      { color: #8ab0d0; }
+  .pillar ul { list-style: none; padding: 0; }
+  .pillar li {
+    font-size: 15px; color: var(--text-muted);
+    padding: 4px 0 4px 16px; position: relative; line-height: 1.5;
+  }
+  .pillar.science li::before   { content: '⬡'; position: absolute; left: 0; color: var(--dawn-dim); font-size: 10px; top: 7px; }
+  .pillar.scripture li::before { content: '✦'; position: absolute; left: 0; color: var(--gold-dim); font-size: 9px; top: 7px; }
+  .pillar.egw li::before       { content: '◈'; position: absolute; left: 0; color: #5a7a9a; font-size: 10px; top: 7px; }
+
+  .creature-detail {
+    margin-top: 14px; font-size: 16px; color: var(--text-muted); line-height: 1.72;
+    border-top: 1px solid var(--border); padding-top: 14px;
+  }
+  .creature-detail strong { color: var(--text-main); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--sky-card); border: 1px solid var(--border);
+    border-radius: 4px; padding: 22px 26px; margin-bottom: 18px; position: relative;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; border-radius: 4px 0 0 4px;
+  }
+  .card.danger::before   { background: var(--red-warn); }
+  .card.violet::before   { background: var(--violet); }
+  .card.gold::before     { background: var(--gold); }
+  .card.scripture::before{ background: var(--gold-dim); }
+  .card.egw::before      { background: #6b8faf; }
+  .card.dawn::before     { background: var(--dawn); }
+  .card.permitted::before{ background: #50a050; }
+  .card-title {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .card.danger .card-title   { color: #d06060; }
+  .card.violet .card-title   { color: var(--violet-bright); }
+  .card.gold .card-title     { color: var(--gold); }
+  .card.scripture .card-title{ color: var(--gold-dim); }
+  .card.egw .card-title      { color: #8ab0d0; }
+  .card.dawn .card-title     { color: var(--dawn-bright); }
+  .card.permitted .card-title{ color: #70c070; }
+  .card p { color: var(--text-main); margin-bottom: 8px; font-size: 17px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── VERSE BLOCK ── */
+  .verse-block {
+    background: var(--sky-mid); border-left: 3px solid var(--gold-dim);
+    padding: 18px 24px; margin: 20px 0; border-radius: 0 4px 4px 0;
+  }
+  .verse-text {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 19px; color: var(--text-main); line-height: 1.85;
+  }
+  .verse-ref {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2.5px;
+    color: var(--gold-dim); margin-top: 10px; text-transform: uppercase;
+  }
+
+  /* ── EGW QUOTE ── */
+  .egw-quote {
+    background: linear-gradient(135deg, rgba(107,143,175,0.07), rgba(107,143,175,0.02));
+    border: 1px solid rgba(107,143,175,0.22); border-left: 3px solid #6b8faf;
+    padding: 20px 24px; margin: 20px 0; border-radius: 0 4px 4px 0;
+  }
+  .egw-quote p {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 18px; color: var(--text-main); line-height: 1.85; margin-bottom: 8px;
+  }
+  .egw-cite { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: #6b8faf; text-transform: uppercase; }
+
+  /* ── STAT GRID ── */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 24px 0; }
+  .stat-box {
+    background: var(--sky-edge); border: 1px solid var(--border);
+    border-radius: 4px; padding: 18px 16px; text-align: center;
+  }
+  .stat-num { font-family: 'Cinzel', serif; font-size: 30px; font-weight: 700; color: var(--red-warn); line-height: 1; margin-bottom: 6px; }
+  .stat-num.violet { color: var(--violet-bright); }
+  .stat-num.gold   { color: var(--gold); }
+  .stat-num.dawn   { color: var(--dawn-bright); }
+  .stat-label { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+
+  /* ── CATEGORY LABEL ── */
+  .cat-label {
+    display: inline-block; font-family: 'Cinzel', serif;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 2px; margin-bottom: 16px; margin-top: 8px;
+  }
+  .cat-raptor   { background: rgba(192,72,72,0.1); border: 1px solid rgba(192,72,72,0.3); color: #d06060; }
+  .cat-carrion  { background: rgba(96,96,176,0.1); border: 1px solid rgba(96,96,176,0.3); color: var(--violet-bright); }
+  .cat-water    { background: rgba(40,120,160,0.1); border: 1px solid rgba(40,120,160,0.3); color: #60b0d0; }
+  .cat-wading   { background: rgba(192,128,64,0.1); border: 1px solid rgba(192,128,64,0.3); color: var(--dawn-bright); }
+  .cat-domestic { background: rgba(80,160,80,0.1); border: 1px solid rgba(80,160,80,0.3); color: #70c070; }
+  .cat-misc     { background: rgba(130,90,160,0.1); border: 1px solid rgba(130,90,160,0.3); color: #b090d0; }
+
+  /* ── COMPARE TABLE ── */
+  .compare-table { width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 15.5px; }
+  .compare-table th {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 11px 14px;
+    background: var(--sky-edge); color: var(--violet-dim);
+    border-bottom: 1px solid var(--border-strong); text-align: left;
+  }
+  .compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-main); vertical-align: top; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(96,96,176,0.04); }
+  .badge-bad { color: #d06060; font-weight: 600; }
+  .badge-mid { color: var(--gold); font-weight: 600; }
+  .badge-ok  { color: #70c070; font-weight: 600; }
+
+  /* ── ACCORDION ── */
+  details { background: var(--sky-card); border: 1px solid var(--border); border-radius: 4px; margin-bottom: 10px; }
+  details[open] { border-color: var(--border-strong); }
+  summary {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--violet-dim);
+    padding: 15px 20px; cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; align-items: center; transition: color 0.2s;
+  }
+  summary:hover { color: var(--violet); }
+  summary::after { content: '▸'; transition: transform 0.25s; }
+  details[open] summary::after { transform: rotate(90deg); }
+  summary::-webkit-details-marker { display: none; }
+  .details-body { padding: 4px 20px 18px; font-size: 15.5px; color: var(--text-muted); line-height: 1.72; }
+  .details-body strong { color: var(--text-main); }
+  .details-body p { margin-bottom: 9px; }
+
+  /* ── PRINCIPLE BOX ── */
+  .principle {
+    background: linear-gradient(135deg, rgba(96,96,176,0.08), rgba(96,96,176,0.02));
+    border: 1px solid rgba(96,96,176,0.25); border-radius: 4px; padding: 22px 26px; margin: 22px 0;
+  }
+  .principle-title { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--violet-bright); margin-bottom: 10px; }
+  .principle p { font-size: 17px; color: var(--text-main); line-height: 1.75; margin-bottom: 8px; }
+  .principle p:last-child { margin-bottom: 0; }
+
+  /* ── SUMMARY BOX ── */
+  .summary-box {
+    background: linear-gradient(135deg, rgba(96,96,176,0.1), rgba(96,96,176,0.03));
+    border: 1px solid var(--border-strong); border-radius: 6px; padding: 30px 34px; margin: 36px 0;
+  }
+  .summary-box h3 { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--violet); margin-bottom: 16px; }
+  .summary-box ol { padding-left: 22px; color: var(--text-main); font-size: 17px; line-height: 2.1; }
+
+  /* ── DANGER BANNER ── */
+  .danger-banner {
+    background: linear-gradient(135deg, rgba(184,64,64,0.1), rgba(184,64,64,0.03));
+    border: 1px solid rgba(184,64,64,0.28); border-radius: 4px; padding: 20px 24px; margin: 22px 0; text-align: center;
+  }
+  .danger-banner p { font-family: 'IM Fell English', serif; font-style: italic; font-size: 17px; color: var(--text-main); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  .footer { text-align: center; padding: 50px 20px; border-top: 1px solid var(--border); margin-top: 60px; }
+  .footer p { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px; color: var(--text-dim); text-transform: uppercase; }
+  .footer-wave { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 20px; }
+  .footer-wave-line { height: 1px; width: 60px; background: linear-gradient(90deg, transparent, var(--violet-dim)); }
+  .footer-wave-line.r { background: linear-gradient(90deg, var(--violet-dim), transparent); }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-label">Health · Scripture · Spirit of Prophecy</div>
+  <h1>The Forbidden Sky</h1>
+  <h2>All Levitically Prohibited Birds</h2>
+  <p class="subtitle">A complete examination of every bird excluded by the Mosaic dietary code — raptors, carrion-eaters, water birds and more — with the science, Scripture, and prophetic counsel behind each prohibition, and the clean birds that God permitted</p>
+  <div class="wave-divider">
+    <div class="wave-line"></div>
+    <div class="wave-dots">✦ ✦ ✦</div>
+    <div class="wave-line r"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Contents — Navigate by Category</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#foundation">The Levitical Bird Criterion Explained</a>
+      <a class="toc-item" href="#principle">The Carrion Principle</a>
+      <a class="toc-item" href="#permitted">Clean Birds — The Permitted Category</a>
+      <a class="toc-item" href="#raptors">Raptors — Eagles, Hawks, Falcons, Kites</a>
+      <a class="toc-item" href="#owls">Owls — Night Hunters</a>
+      <a class="toc-item" href="#carrion">Carrion Birds — Vultures, Ravens, Crows</a>
+      <a class="toc-item" href="#waterbirds">Prohibited Water Birds — Heron, Cormorant, Osprey</a>
+      <a class="toc-item" href="#wading">Wading Birds — Stork, Hoopoe</a>
+      <a class="toc-item" href="#misc">Other Prohibited — Bat, Ostrich, Seagull</a>
+      <a class="toc-item" href="#disease">Shared Disease Profile</a>
+      <a class="toc-item" href="#egw">Ellen White — Full Counsel</a>
+      <a class="toc-item" href="#nt">New Testament Objections</a>
+      <a class="toc-item" href="#summary">Summary</a>
+    </div>
+  </div>
+
+  <!-- FOUNDATION -->
+  <div id="foundation" class="section-title"><span class="icon">✦</span> Foundation</div>
+  <div class="section-subtitle">The Levitical Bird Criterion — A List, Not a Formula</div>
+
+  <div class="verse-block">
+    <div class="verse-text">"These are the birds you are to regard as unclean and not eat because they are unclean: the eagle, the vulture, the black vulture, the red kite, any kind of black kite, any kind of raven, the horned owl, the screech owl, the gull, any kind of hawk, the little owl, the cormorant, the great owl, the white owl, the desert owl, the osprey, the stork, any kind of heron, the hoopoe and the bat."</div>
+    <div class="verse-ref">Leviticus 11:13–19 (NIV)</div>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"But these you shall not eat: the eagle, the vulture, the osprey, the buzzard, the kite of any kind; every raven of any kind; the ostrich, the nighthawk, the sea gull, the hawk of any kind; the little owl and the short-eared owl, the barn owl and the tawny owl, the carrion vulture and the fisher owl, the stork, the heron of any kind, the hoopoe and the bat."</div>
+    <div class="verse-ref">Deuteronomy 14:12–18 (ESV)</div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-title">Why Birds Use a List Rather Than a Formula</div>
+    <p>Unlike land animals (split hoof + cud-chewing) and aquatic creatures (fins + scales), birds are identified by an explicit prohibited list rather than two anatomical criteria. This is because bird anatomy does not lend itself to simple two-criterion sorting — all birds have two legs and wings, and herbivory/carnivory in birds is not always externally evident without close observation. Instead, God gave Israel a comprehensive list of prohibited species — and the pattern within that list is unmistakable to any ornithologist: <strong>every bird on the prohibited list is either a predator, a carrion-feeder, a scavenger, or a fisher of bottom-dwelling organisms.</strong></p>
+    <p style="margin-top:10px;">The permitted birds by inference — those not on the list — are predominantly seed-eaters, grain-eaters, and fruit-eaters: domestic fowl (chicken, turkey), doves, pigeons, quail, and similar clean birds. The ecological logic is identical to that of land and sea: waste-processors and carrion-feeders are excluded; grain-feeders and herbivores are permitted.</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Bird species or categories explicitly named as prohibited in Leviticus and Deuteronomy</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num violet">100%</div>
+      <div class="stat-label">Of named prohibited birds are predators, carrion-feeders, or aquatic scavengers — no exceptions</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num gold">60M+</div>
+      <div class="stat-label">Annual human infections from avian influenza strains — primarily via poultry but worsened by wild bird reservoir species</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num dawn">1864</div>
+      <div class="stat-label">Year EGW first addressed clean vs. unclean birds in the context of health reform</div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLE -->
+  <div id="principle" class="section-title"><span class="icon">⬡</span> The Principle</div>
+  <div class="section-subtitle">The Carrion and Predator Design — Why Raptors Were Excluded</div>
+
+  <div class="principle">
+    <div class="principle-title">The Aerial Scavenger Pattern</div>
+    <p>The sky's waste-processing system mirrors that of the land and sea. Vultures are the aerial equivalent of pigs and oysters — designed by the Creator to consume carrion, diseased carcasses, and the bodies of animals that have died from infection, poison, or disease. Their biology is extraordinary: stomach acid with a pH of 1 (more acidic than battery acid) neutralises anthrax spores, Clostridium botulinum, and most pathogens found in rotting flesh. They are built to safely process what would kill any other animal. This same biology makes them unfit as food.</p>
+    <p>Eagles, hawks, falcons, and owls prey primarily on other animals — and frequently on rodents, rabbits, hares, and snakes: the same species listed as prohibited land animals. They bioaccumulate whatever pathogens and toxins their prey carries. The osprey and cormorant fish in the same waters and consume the same bottom-dwelling organisms as prohibited aquatic species. In each case the food chain position of the prohibited bird connects it to the same categories of prohibited organisms lower in the chain.</p>
+    <p><strong>Clean birds — doves, pigeons, chickens, turkeys, quail — feed on grain, seeds, insects (clean), and fruit. They occupy a fundamentally different ecological niche. Their gut flora, fat profile, and pathogen burden reflect this.</strong></p>
+  </div>
+
+  <!-- PERMITTED BIRDS -->
+  <div id="permitted" class="section-title"><span class="icon">✓</span> Clean Birds</div>
+  <div class="section-subtitle">The Permitted Category — Grain-Feeders and Seed-Eaters</div>
+  <span class="cat-label cat-domestic">Category: Permitted — Clean Birds</span>
+
+  <div class="card permitted">
+    <div class="card-title">What Makes a Bird Clean — The Inferred Criteria</div>
+    <p>Since the Bible gives a prohibited list rather than permitted criteria for birds, Jewish tradition (Talmud, tractate Chullin) identified four characteristics of clean birds: they have a crop (for pre-digesting grain); they have a gizzard with a peelable inner lining; they have an extra toe (hind toe); and they are not birds of prey. Clean birds do not seize food with their claws, do not hold food down with one foot while tearing it, and do not eat carrion. These characteristics align precisely with seed-eating, ground-feeding domestic and wild fowl.</p>
+    <p style="margin-top:10px;"><strong>Clean birds confirmed by tradition and Scripture:</strong> Chicken (domestic fowl), turkey, duck (debated but generally permitted), goose, pigeon, dove, quail, partridge, pheasant, peafowl, and sparrows. Leviticus 1:14 specifically names doves and pigeons as acceptable sacrifice — implying they were also dietary clean. Numbers 11:31–32 records quail as God's provision for Israel in the wilderness.</p>
+  </div>
+
+  <div class="creature open">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐔</span>
+      <div>
+        <div class="creature-name">Chicken / Domestic Fowl</div>
+        <div class="creature-latin">Gallus gallus domesticus</div>
+      </div>
+      <div class="creature-verdict permitted">Permitted</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Omnivore but primarily grain/seed/insect feeder</li>
+            <li>Has crop, gizzard, hind toe — meets all clean-bird criteria</li>
+            <li>Does not consume carrion or prey on vertebrates</li>
+            <li>Lower pathogen accumulation than predatory/carrion birds</li>
+            <li>Modern factory farming introduces Salmonella, Campylobacter — a processing hygiene issue, not species-level prohibition</li>
+            <li>Properly raised and cooked chicken: lowest risk profile of common meats</li>
+            <li>Lean protein profile; lower saturated fat than pork</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Not on Lev 11 prohibited list</li>
+            <li>Gallus domesticus consumed in ancient Israel (1 Kings 4:23)</li>
+            <li>Jesus references "hen gathering chicks" — Matthew 23:37</li>
+            <li>Meets all four Talmudic clean-bird criteria</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>EGW permitted chicken but with increasing caution in later writings</li>
+            <li>Warned that disease in poultry was becoming more common</li>
+            <li>"Poultry is becoming less and less safe" (later counsel)</li>
+            <li>Ideal diet moves toward plant-based; clean meats transitional</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Chicken is the paradigmatic clean bird — grain and seed feeding, no carrion consumption, full clean-bird anatomy. EGW permitted chicken in her earlier health writings but issued increasingly cautious counsel as the 19th century progressed, noting that the disease burden in poultry was rising. This is prophetically relevant: modern factory-farmed chicken carries <strong>Campylobacter</strong> (the leading cause of bacterial food poisoning globally) in 50–80% of retail carcasses — a product of industrial crowding rather than the species' intrinsic biology. Free-range, properly managed clean poultry remains the lowest-risk common meat source.
+      </div>
+    </div>
+  </div>
+
+  <!-- RAPTORS -->
+  <div id="raptors" class="section-title"><span class="icon">🦅</span> Raptors</div>
+  <div class="section-subtitle">Eagles, Hawks, Falcons and Kites — Sky Predators</div>
+  <span class="cat-label cat-raptor">Category: Accipitridae / Falconidae</span>
+
+  <!-- EAGLE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦅</span>
+      <div>
+        <div class="creature-name">Eagle (All Species)</div>
+        <div class="creature-latin">Aquila chrysaetos / Haliaeetus leucocephalus and related</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Apex aerial predator — preys on mammals, reptiles, carrion</li>
+            <li>Frequently consumes prohibited prey: rabbits, rats, snakes</li>
+            <li>Bioaccumulates heavy metals (mercury, lead) from prey</li>
+            <li>Lead poisoning from consuming shot prey — documented die-offs</li>
+            <li>West Nile virus reservoir and vector</li>
+            <li>Avian influenza (H5N1) carriage in wild eagles documented</li>
+            <li>Newcastle disease virus carriage</li>
+            <li>Trichinella: found in eagle muscle from consuming infected prey</li>
+            <li>Not raised for food — but consumed by some cultures historically</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>First bird named in Lev 11:13 prohibited list</li>
+            <li>Deuteronomy 14:12 — repeated prohibition</li>
+            <li>Used as symbol of power and judgment — not provision</li>
+            <li>Isaiah 40:31 — eagle as metaphor for spiritual renewal (not food)</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Raptors explicitly outside clean food category</li>
+            <li>Predatory birds carry the diseases of their prey</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Eagles are first on the Levitical prohibited list — apex aerial predators that consume rabbits, hares, rats, snakes, and carrion: precisely the prohibited land animals. Through their prey they bioaccumulate <strong>mercury</strong> (from fish and rodents), <strong>lead</strong> (from gunshot residue in carrion), and a range of zoonotic pathogens. Bald eagle and golden eagle die-offs from lead poisoning are well-documented wildlife crises caused by the same accumulation mechanism. West Nile virus and avian influenza H5N1 have been detected in wild eagle populations. Eagles also accumulate organochlorine pesticides (DDT and its metabolites) in fat tissue through biomagnification — the same mechanism that once caused widespread reproductive failure in eagle populations. Consuming eagle meat would expose a human to this full suite of accumulated contaminants.
+      </div>
+    </div>
+  </div>
+
+  <!-- HAWK -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦅</span>
+      <div>
+        <div class="creature-name">Hawk and Falcon (All Species)</div>
+        <div class="creature-latin">Accipiter / Falco — multiple species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>"Any kind of hawk" — comprehensive raptor exclusion</li>
+            <li>Prey: mice, rats, voles, sparrows, pigeons, rabbits</li>
+            <li>Accumulates rodent-borne pathogens: hantavirus, Yersinia, Salmonella</li>
+            <li>Avian influenza carriage — raptors amplify wild bird strains</li>
+            <li>Falcon: falconers document regular Salmonella infection from handling birds</li>
+            <li>Toxoplasma gondii: raptors hunting rodents/cats accumulate tissue cysts</li>
+            <li>Organochlorine accumulation: DDT metabolites in fat (thinning eggshells)</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>"Any kind of hawk" — Lev 11:16; Deut 14:15</li>
+            <li>Inclusive family-level prohibition</li>
+            <li>Predatory bird — kills for food, not a grain-eater</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Raptor family — predators outside clean food category</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The prohibition covers "any kind of hawk" — a family-level exclusion that encompasses all Accipitridae and Falconidae. Falconers handling live raptors have well-documented occupational exposure to <strong>Salmonella</strong> from falcon droppings and gut contents; multiple Salmonella outbreaks in falconry communities are recorded in the literature. Raptors that prey heavily on rodents accumulate the full pathogen burden of their prey — hantavirus antibodies have been found in wild raptor populations, indicating exposure through infected prey. <strong>Toxoplasma gondii</strong> tissue cysts in rodents and cats pass to raptors consuming them, maintaining the parasite cycle at the apex predator level.
+      </div>
+    </div>
+  </div>
+
+  <!-- KITE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦅</span>
+      <div>
+        <div class="creature-name">Kite (Red Kite, Black Kite)</div>
+        <div class="creature-latin">Milvus milvus / Milvus migrans</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Predominantly carrion and refuse feeder — not pure hunter</li>
+            <li>Scavenges human waste, rubbish, and animal carcasses</li>
+            <li>Black kite: urban scavenger in Asia and Africa — feeds on garbage</li>
+            <li>Chlamydophila psittaci (psittacosis) carriage</li>
+            <li>Salmonella: high carriage from refuse feeding</li>
+            <li>Campylobacter: documented in kite gut flora</li>
+            <li>Avian influenza exposure from infected carcasses</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Red kite and black kite both named — Lev 11:14; Deut 14:13</li>
+            <li>Carrion-scavenging habit reinforces prohibition rationale</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Carrion and refuse-feeding birds excluded from food</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The black kite (Milvus migrans) is one of the world's most abundant raptors and is notable for its extreme adaptability to urban environments — it thrives on garbage dumps, open sewers, and slaughterhouse waste across Asia, Africa, and the Middle East. Its urban scavenging ecology makes it a vector for <strong>Chlamydophila psittaci</strong> (psittacosis — a pneumonia-causing zoonosis), multiple Salmonella serovars, and Campylobacter from contaminated organic waste. The black kite's feeding habits are the aerial equivalent of the pig's ground-scavenging role — consuming the refuse of human habitation.
+      </div>
+    </div>
+  </div>
+
+  <!-- OWLS -->
+  <div id="owls" class="section-title"><span class="icon">🦉</span> Owls</div>
+  <div class="section-subtitle">Night Hunters — Rodent Predators of the Darkness</div>
+  <span class="cat-label cat-raptor">Category: Strigiformes</span>
+
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦉</span>
+      <div>
+        <div class="creature-name">Owls (All Named Species)</div>
+        <div class="creature-latin">Bubo bubo / Tyto alba / Athene noctua and related</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Multiple owl species named: horned, screech, little, great, white, desert owls</li>
+            <li>Specialist rodent predators — primary prey: rats, mice, voles</li>
+            <li>Accumulate full rodent pathogen burden through prey</li>
+            <li>Hantavirus: antibodies found in barn owl populations</li>
+            <li>Yersinia pestis exposure via plague-infected rodent prey</li>
+            <li>Toxoplasma gondii: highly prevalent in owl tissue (rodent prey source)</li>
+            <li>Trichinella: found in owl muscle from consuming infected rodents</li>
+            <li>Salmonella: documented in barn owl gut contents and pellets</li>
+            <li>Campylobacter: significant carriage in owl gut flora</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Multiple species explicitly named: Lev 11:16–18</li>
+            <li>Horned owl, screech owl, little owl, great owl, white owl, desert owl</li>
+            <li>Associated with desolation: Isaiah 34:11–15 — owls in judgment ruins</li>
+            <li>Psalm 102:6 — "I am like a desert owl" — symbol of loneliness, not provision</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Nocturnal predators — outside clean food category</li>
+            <li>Owls carry the diseases of the rodents they consume</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Leviticus names at least six distinct owl types — an extraordinary level of species-specific detail that reflects the same meticulous biological knowledge seen in the listing of six lizard types in Leviticus 11:29–30. All owls are specialist nocturnal rodent hunters — consuming the precise animals (rats, mice) listed among prohibited land animals. Their gut flora reflects this diet: <strong>Toxoplasma gondii</strong> prevalence in wild owl populations is among the highest of any bird family, as owls consume rodents and small mammals that are major Toxoplasma intermediate hosts. Barn owl pellet studies consistently document Salmonella and Yersinia in gut contents. The prohibition on owls is thus indirectly a prohibition on consuming a concentrated reservoir of rodent-borne pathogens in avian form.
+      </div>
+    </div>
+  </div>
+
+  <!-- CARRION BIRDS -->
+  <div id="carrion" class="section-title"><span class="icon">🦅</span> Carrion Birds</div>
+  <div class="section-subtitle">Vultures, Ravens and Crows — The Sky's Waste-Processors</div>
+  <span class="cat-label cat-carrion">Category: Aegypiinae / Corvidae</span>
+
+  <!-- VULTURE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦅</span>
+      <div>
+        <div class="creature-name">Vulture (All Species)</div>
+        <div class="creature-latin">Gyps fulvus / Necrosyrtes monachus / Gyps africanus and related</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Obligate carrion feeder — consumes only dead, decomposing animals</li>
+            <li>Stomach acid pH 1 — neutralises anthrax, botulinum, cholera in carcasses</li>
+            <li>Bald head/neck prevents feather fouling from inserting into carcasses</li>
+            <li>Clostridium perfringens, C. botulinum in gut from carcass contents</li>
+            <li>Fusobacterium, Peptostreptococcus — anaerobic pathogens in gut flora</li>
+            <li>Avian cholera (Pasteurella multocida) carriage</li>
+            <li>Lead toxicity from lead-shot carcasses — chronic poisoning</li>
+            <li>Diclofenac poisoning in India/Africa — vultures as sentinels for toxin load</li>
+            <li>Consumed in some African and Asian cultures — associated with disease burden</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Vulture named first among carrion birds — Lev 11:13</li>
+            <li>Matthew 24:28 / Luke 17:37 — "where there is a carcass, there vultures gather" — unclean association</li>
+            <li>Job 28:7 — "no bird of prey knows that path" — used to describe the inaccessible</li>
+            <li>Proverbs 30:17 — "ravens of the valley will pick out the eyes" — scavenger role</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Carrion birds explicitly outside clean food — the aerial pig equivalent</li>
+            <li>"Disease and death are in these things" — principle applies across ecosystem</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The vulture is the most dramatic expression of the carrion-eater principle. Its entire biology is engineered for safe carcass consumption: a stomach acid 100× more acidic than other birds destroys most pathogens; a bare head and neck prevent feather contamination; a corrosive digestive system neutralises botulinum, anthrax spores, and cholera bacteria. Yet <strong>Clostridium</strong> species, <strong>Fusobacterium</strong>, and other anaerobic gut bacteria from carcass material persist in vulture intestinal flora. More critically, the vulture's extraordinary toxin-neutralising biology makes its tissue a compressed repository of whatever it could not fully break down — lead (from shot carcasses), organochlorines, pharmaceutical compounds like diclofenac. Consuming vulture meat means consuming a concentrated extract of decomposition products the vulture processed across its lifetime.
+      </div>
+    </div>
+  </div>
+
+  <!-- RAVEN / CROW -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐦‍⬛</span>
+      <div>
+        <div class="creature-name">Raven and Crow (All Species)</div>
+        <div class="creature-latin">Corvus corax / Corvus corone / Corvus splendens</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Omnivorous scavengers — consume carrion, refuse, waste, faeces</li>
+            <li>Urban crows: primary foragers of landfills and sewage</li>
+            <li>West Nile virus: crows are the sentinel species — extreme susceptibility and mortality</li>
+            <li>Avian influenza (H5N1, H7N9): crows amplify in urban environments</li>
+            <li>Chlamydophila psittaci — crow carriage; causes human pneumonia</li>
+            <li>Campylobacter: high prevalence in crow gut flora</li>
+            <li>Salmonella typhimurium: crow colonies linked to multiple outbreaks</li>
+            <li>Cryptococcus neoformans: fungal pathogen in crow droppings; meningitis in immunocompromised</li>
+            <li>Consumed historically in Europe (rook pie); some cultures still consume</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>"Any kind of raven" — Lev 11:15; Deut 14:14 — family-level prohibition</li>
+            <li>Raven sent from ark — associated with carrion-finding (Gen 8:7)</li>
+            <li>God feeds the ravens — Job 38:41; Psalm 147:9; Luke 12:24 — provision for them, not by them</li>
+            <li>Proverbs 30:17 — ravens pick out eyes of the disobedient</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"Any kind of raven" — comprehensive family prohibition</li>
+            <li>Scavenger/carrion role confirms exclusion</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Ravens and crows are among the most intelligent birds in the world — and among the most epidemiologically significant. In North America, crows are the <strong>sentinel species for West Nile virus</strong>: crow die-offs reliably precede human WNV outbreaks because crows are extraordinarily susceptible. Their urban scavenging habit (landfills, sewage, food waste) makes them vectors for Campylobacter, Salmonella, and Chlamydophila. <strong>Cryptococcus neoformans</strong> — a fungal pathogen causing potentially fatal meningitis in immunocompromised individuals — concentrates in crow and pigeon droppings; exposure from handling or consuming infected birds poses direct meningitis risk. The raven's first post-flood biblical role (Genesis 8:7) was to fly back and forth over the post-flood carcass-littered earth — an image of its natural carrion-feeding role.
+      </div>
+    </div>
+  </div>
+
+  <!-- WATER BIRDS -->
+  <div id="waterbirds" class="section-title"><span class="icon">🦅</span> Prohibited Water Birds</div>
+  <div class="section-subtitle">Osprey, Cormorant and Fisher Birds — Aquatic Predators</div>
+  <span class="cat-label cat-water">Category: Piscivorous Water Birds</span>
+
+  <!-- OSPREY / CORMORANT -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦅</span>
+      <div>
+        <div class="creature-name">Osprey, Cormorant and Fisher Owl</div>
+        <div class="creature-latin">Pandion haliaetus / Phalacrocorax carbo / Ketupa zeylonensis</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Specialist fish hunters — consume the same species as prohibited aquatic organisms</li>
+            <li>Cormorant: dives to sea bed — consumes bottom-dwelling fish and invertebrates</li>
+            <li>Mercury bioaccumulation: cormorants show very high tissue mercury levels</li>
+            <li>PCBs and dioxins: elevated from fish prey in industrial waterways</li>
+            <li>Newcastle disease virus: cormorant colonies are major ND virus reservoirs</li>
+            <li>Avian cholera (Pasteurella multocida): cormorant colonies regularly affected</li>
+            <li>Osprey: highly elevated mercury from fish diet — top-level fish predator</li>
+            <li>Avian influenza: water birds are primary wild reservoir</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Osprey named: Lev 11:13; Deut 14:12</li>
+            <li>Cormorant named: Lev 11:17; Deut 14:17</li>
+            <li>Fisher owl named: Deut 14:17</li>
+            <li>Piscivorous predators — consume prohibited aquatic organisms</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Fish-eating predatory birds outside clean category</li>
+            <li>Accumulate what shellfish and bottom fish carry</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The osprey, cormorant, and fisher owl occupy a unique ecological niche that directly connects the aquatic and avian prohibition lists. They are the birds that eat prohibited fish — bottom-feeders, scaleless species, and the same coastal fish populations that carry elevated mercury, PCBs, and avian influenza. The cormorant's deep-diving behaviour exposes it to benthic (sea-floor) organisms — including the same filter-feeders and bottom-dwellers that are prohibited as food. <strong>Mercury levels</strong> in cormorant tissue are among the highest measured in any bird, a direct consequence of bioaccumulation through contaminated fish prey. <strong>Newcastle disease virus</strong> — which causes severe neurological disease in poultry and conjunctivitis in humans — is maintained in wild cormorant colonies, making these birds an epidemiological bridge between wild bird reservoirs and domestic poultry flocks.
+      </div>
+    </div>
+  </div>
+
+  <!-- WADING BIRDS -->
+  <div id="wading" class="section-title"><span class="icon">🦢</span> Wading Birds</div>
+  <div class="section-subtitle">Stork, Heron and Hoopoe — The Marshland Feeders</div>
+  <span class="cat-label cat-wading">Category: Ciconiidae / Ardeidae / Upupidae</span>
+
+  <!-- HERON / STORK -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦢</span>
+      <div>
+        <div class="creature-name">Heron (All Species) and Stork</div>
+        <div class="creature-latin">Ardea cinerea / Ciconia ciconia and related</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Feed in marshes, estuaries, wetlands — bottom-feeding fish, amphibians, reptiles</li>
+            <li>Prey includes frogs, snakes, eels — all prohibited organisms</li>
+            <li>Mercury bioaccumulation: herons show elevated mercury from freshwater fish prey</li>
+            <li>Avian influenza H5N1: grey heron confirmed carrier; linked to poultry outbreaks</li>
+            <li>Newcastle disease: heron colonies act as reservoirs</li>
+            <li>Salmonella carriage in gut from prey species</li>
+            <li>Stork: feeds on frogs, lizards, small mammals — all prohibited prey</li>
+            <li>PCBs from contaminated wetland fish — elevated in heron tissue</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>"Any kind of heron" — Lev 11:19; Deut 14:18 — family-level prohibition</li>
+            <li>Stork named — Lev 11:19; Deut 14:18</li>
+            <li>Psalm 104:17 — stork has fir trees as home — observer, not food source</li>
+            <li>Jeremiah 8:7 — stork knows its migration season — wisdom symbol</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Wading birds — prey-determined prohibition</li>
+            <li>Consume prohibited organisms; transmit their diseases</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The grey heron is an established carrier and transmission vector for <strong>avian influenza H5N1</strong> — multiple studies in Europe and Asia have documented H5N1-positive herons linked to nearby poultry flock outbreaks. Their wetland feeding habitat (marshes, rice paddies, estuaries) places them in the same ecological zone as prohibited aquatic organisms, and their diet of frogs, eels, small snakes, and scaleless fish means they accumulate the pathogens of multiple prohibited categories simultaneously. <strong>Mercury levels</strong> in grey heron tissue from contaminated river systems consistently exceed food safety thresholds. The "any kind of heron" designation covers the entire Ardeidae family — bitterns, egrets, night herons, and all related species.
+      </div>
+    </div>
+  </div>
+
+  <!-- HOOPOE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐦</span>
+      <div>
+        <div class="creature-name">Hoopoe</div>
+        <div class="creature-latin">Upupa epops</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Probes soil for invertebrates, larvae, and dung beetles</li>
+            <li>Nests in decaying wood and animal burrows — foul nesting conditions</li>
+            <li>Nest: notoriously foul-smelling from faecal accumulation and secretions</li>
+            <li>Female smears nest with preen gland secretion that smells of rotting meat — chemical defence</li>
+            <li>Feeds in manure heaps, dung piles, compost — direct faecal contact</li>
+            <li>Campylobacter and Salmonella: documented in hoopoe gut from faecal feeding</li>
+            <li>Cloacal bacteria: unusual diversity from soil/dung foraging</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Explicitly named — Lev 11:19; Deut 14:18</li>
+            <li>Feeding habit in dung and decay confirms prohibition logic</li>
+            <li>National bird of Israel — recognised but not eaten</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Ground-foraging in decay — same scavenger/waste principle</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The hoopoe is a visually distinctive bird — it is in fact the national bird of Israel today — yet it is explicitly prohibited. Its biology explains why: hoopoes probe soil and manure heaps with their curved bills feeding on dung beetles, fly larvae, and invertebrates in faecal material. The female hoopoe produces a dark, foul-smelling secretion from her uropygial gland that she smears throughout the nest — a chemical defence that mimics the smell of rotting flesh. The nest itself accumulates faecal material that is deliberately not removed, creating a notably unhygienic nesting environment. <strong>Campylobacter and Salmonella</strong> carriage is documented in hoopoe gut flora consistent with its dung-foraging diet. The prohibition on the hoopoe is an elegant illustration that the Levitical list is not simply "beautiful vs. ugly birds" — it reflects the ecological feeding role regardless of aesthetic appeal.
+      </div>
+    </div>
+  </div>
+
+  <!-- MISC -->
+  <div id="misc" class="section-title"><span class="icon">🦜</span> Other Prohibited</div>
+  <div class="section-subtitle">Bat, Ostrich, Nighthawk and Seagull</div>
+  <span class="cat-label cat-misc">Category: Miscellaneous Prohibited</span>
+
+  <!-- BAT -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦇</span>
+      <div>
+        <div class="creature-name">Bat</div>
+        <div class="creature-latin">Order Chiroptera — all species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Not a bird — mammal included in Lev 11 "flying creatures" list</li>
+            <li>Primary reservoir species for SARS-CoV, SARS-CoV-2, MERS-CoV, Ebola, Marburg, Nipah, Hendra</li>
+            <li>SARS-CoV-2 (COVID-19) — bat origin widely established</li>
+            <li>Ebola: Pteropus fruit bats primary reservoir; 25–90% mortality</li>
+            <li>Nipah virus: 40–75% case fatality rate; bat reservoir in Southeast Asia</li>
+            <li>Marburg virus: Egyptian fruit bat reservoir; 24–88% mortality</li>
+            <li>Rabies: insectivorous bats primary rabies vector in Americas</li>
+            <li>Histoplasma capsulatum: fungal disease from bat guano inhalation</li>
+            <li>Consumed in China, Southeast Asia, parts of Africa</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Last creature in Lev 11 flying-creature prohibition list</li>
+            <li>Lev 11:19; Deut 14:18 — explicitly named</li>
+            <li>Classified with birds as a flying creature — comprehensive</li>
+            <li>Isaiah 2:20 — bats associated with idols cast away in judgment</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"God has prohibited certain things" — bat included in flying creature list</li>
+            <li>Nocturnal insectivore/frugivore — outside clean food categories</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The bat is technically a mammal, not a bird — yet it is included in Leviticus 11's flying-creature prohibition, demonstrating that the list is comprehensive rather than taxonomically rigid. The epidemiological case against bat consumption is now the strongest of any single animal. Bats are the established reservoir for <strong>SARS-CoV-2</strong> (COVID-19 — over 7 million documented deaths globally), <strong>SARS-CoV</strong>, <strong>MERS-CoV</strong>, <strong>Ebola</strong>, <strong>Marburg</strong>, <strong>Nipah</strong>, and <strong>Hendra</strong> viruses — the most lethal emerging infectious diseases of the 21st century. Bats uniquely tolerate these viruses without illness due to their extraordinary immune systems, evolved through the metabolic stress of powered flight. This makes bats persistent viral reservoirs that shed pathogens continuously. Bat meat consumption in China, Southeast Asia, and Central Africa has been directly implicated in multiple zoonotic spillover events. The 3,500-year-old prohibition on bat consumption has never been more vindicated than in 2020.
+      </div>
+    </div>
+  </div>
+
+  <!-- OSTRICH -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦩</span>
+      <div>
+        <div class="creature-name">Ostrich</div>
+        <div class="creature-latin">Struthio camelus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Omnivore — consumes insects, lizards, small mammals, plant matter</li>
+            <li>Eats prohibited prey (lizards, rodents) as significant dietary component</li>
+            <li>Salmonella: high prevalence in farmed ostrich gut flora</li>
+            <li>Campylobacter: documented in ostrich slaughter studies (South Africa)</li>
+            <li>Newcastle disease virus: ostriches susceptible; amplify in farming conditions</li>
+            <li>Avian influenza H5N2: documented outbreaks in South African ostrich farms</li>
+            <li>Commercially farmed in South Africa (Oudtshoorn) for meat and leather</li>
+            <li>Slaughter contamination: feather and hide contaminate carcasses</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Named in Deut 14:15 ("ostrich")</li>
+            <li>Job 39:13–17 — described as lacking wisdom; abandons eggs</li>
+            <li>Lamentations 4:3 — ostrich heartlessness used as rebuke</li>
+            <li>Feeds on prohibited prey — lizards, rodents</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Prohibited bird — omnivore consuming unclean prey</li>
+            <li>Principle applies regardless of modern farming context</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Ostrich meat is commercially produced and marketed in South Africa (particularly the Oudtshoorn region) as a lean red meat alternative. Yet the ostrich is explicitly named in Deuteronomy 14:15 and falls under the Levitical prohibition as an omnivore that consumes lizards, rodents, and insects — all prohibited prey. South African ostrich farming has experienced multiple <strong>avian influenza H5N2</strong> outbreaks requiring mass culling. <strong>Campylobacter</strong> prevalence in ostrich slaughter studies conducted in the Western Cape is comparable to that in chicken. The commercial ostrich industry's prominence in South Africa makes this a directly locally relevant prohibition — ostrich biltong and steak are widely available and marketed as healthy alternatives, yet the bird is explicitly named in Deuteronomy's prohibited list.
+      </div>
+    </div>
+  </div>
+
+  <!-- SEAGULL / NIGHTHAWK -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐦</span>
+      <div>
+        <div class="creature-name">Seagull, Nighthawk and Related</div>
+        <div class="creature-latin">Larus argentatus / Chordeiles minor and related</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Seagull: opportunistic scavenger — landfills, refuse, carrion, shellfish</li>
+            <li>Primary Campylobacter reservoir in coastal environments</li>
+            <li>Salmonella: seagulls link landfills to food chains via droppings</li>
+            <li>Antibiotic-resistant bacteria: seagulls transport AMR bacteria from landfills to beaches</li>
+            <li>Avian influenza: seagulls major wild reservoir for influenza A strains</li>
+            <li>Clostridium and Listeria from refuse feeding</li>
+            <li>Nighthawk: insectivore — catches flying insects including prohibited crawling insects</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Seagull/gull named: Lev 11:16; Deut 14:15</li>
+            <li>Nighthawk named: Deut 14:15</li>
+            <li>Scavenger and refuse-feeder role — same exclusion principle</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>All listed prohibited birds excluded — comprehensive principle</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Seagulls are the coastal equivalent of crows — highly intelligent opportunistic scavengers that exploit landfills, sewage outflows, fish processing waste, and beachcast carrion. Studies across Europe and the Americas consistently find seagulls carrying <strong>Campylobacter</strong>, <strong>Salmonella</strong>, and increasingly, <strong>multidrug-resistant bacteria</strong> acquired from landfill environments — including MRSA, ESBL-producing E. coli, and carbapenem-resistant Enterobacteriaceae. Seagulls transport these antibiotic-resistant organisms from landfills to beaches, coastal waterways, and shellfish beds, where they contaminate the filter-feeders that humans then consume. The seagull is thus epidemiologically connected to shellfish contamination — prohibited at the top of the food chain and helping contaminate prohibited species lower in it.
+      </div>
+    </div>
+  </div>
+
+  <!-- DISEASE PROFILE -->
+  <div id="disease" class="section-title"><span class="icon">⚗</span> Disease Profile</div>
+  <div class="section-subtitle">The Common Pathogen Pattern Across All Prohibited Birds</div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Disease / Pathogen</th>
+        <th>Primary Bird Source</th>
+        <th>Human Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Avian Influenza (H5N1, H5N2, H7N9)</strong></td>
+        <td><span class="badge-bad">Water birds, raptors, corvids, seagulls</span></td>
+        <td>60% case fatality rate (H5N1); pandemic potential; millions at risk</td>
+      </tr>
+      <tr>
+        <td><strong>SARS-CoV-2 / SARS / MERS (bat origin)</strong></td>
+        <td><span class="badge-bad">Bat (primary reservoir)</span></td>
+        <td>COVID-19: 7M+ deaths; MERS: 35% mortality; SARS: 10% mortality</td>
+      </tr>
+      <tr>
+        <td><strong>Ebola / Marburg Virus</strong></td>
+        <td><span class="badge-bad">Fruit bats (reservoir)</span></td>
+        <td>25–90% (Ebola); 24–88% (Marburg) case fatality — haemorrhagic fever</td>
+      </tr>
+      <tr>
+        <td><strong>Nipah Virus</strong></td>
+        <td><span class="badge-bad">Pteropus bats</span></td>
+        <td>40–75% case fatality; encephalitis; no approved vaccine or treatment</td>
+      </tr>
+      <tr>
+        <td><strong>Rabies</strong></td>
+        <td><span class="badge-bad">Insectivorous bats (Americas)</span></td>
+        <td>Near-100% fatality without prophylaxis; 59,000 deaths/year globally</td>
+      </tr>
+      <tr>
+        <td><strong>Newcastle Disease Virus</strong></td>
+        <td><span class="badge-bad">Cormorant, heron, corvid colonies</span></td>
+        <td>Severe conjunctivitis, influenza-like illness in humans; catastrophic in poultry</td>
+      </tr>
+      <tr>
+        <td><strong>West Nile Virus</strong></td>
+        <td><span class="badge-bad">Crows (sentinel species), raptors</span></td>
+        <td>Encephalitis, meningitis; 10% mortality in neuroinvasive cases; no specific treatment</td>
+      </tr>
+      <tr>
+        <td><strong>Psittacosis (Chlamydophila psittaci)</strong></td>
+        <td><span class="badge-bad">Corvids, kites, parrots</span></td>
+        <td>Atypical pneumonia; 15–20% untreated mortality; occupational hazard</td>
+      </tr>
+      <tr>
+        <td><strong>Campylobacter</strong></td>
+        <td><span class="badge-bad">Crows, seagulls, corvids</span></td>
+        <td>Leading foodborne pathogen globally; reactive arthritis; Guillain-Barré syndrome</td>
+      </tr>
+      <tr>
+        <td><strong>Mercury Bioaccumulation</strong></td>
+        <td><span class="badge-bad">Osprey, cormorant, heron, eagle</span></td>
+        <td>Irreversible neurological damage; fetal brain damage; cognitive impairment</td>
+      </tr>
+      <tr>
+        <td><strong>Toxoplasma gondii</strong></td>
+        <td><span class="badge-bad">Owls, raptors (from rodent prey)</span></td>
+        <td>Congenital brain damage; fatal encephalitis in immunocompromised</td>
+      </tr>
+      <tr>
+        <td><strong>Histoplasma capsulatum</strong></td>
+        <td><span class="badge-bad">Bats (guano exposure)</span></td>
+        <td>Pulmonary histoplasmosis; disseminated disease in immunocompromised; fatal</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="danger-banner">
+    <p>Every bird on the Levitical prohibited list is either a predator accumulating the pathogens of its prey, a carrion-feeder processing decomposing carcasses, a scavenger consuming refuse and waste, or a water-bird consuming prohibited aquatic organisms. Not one prohibited bird is a grain-eating or seed-eating herbivore. The list is epidemiologically consistent without a single exception.</p>
+  </div>
+
+  <!-- EGW -->
+  <div id="egw" class="section-title"><span class="icon">✦</span> Spirit of Prophecy</div>
+  <div class="section-subtitle">Ellen G. White — Counsel on Birds and Poultry</div>
+
+  <div class="egw-quote">
+    <p>"Poultry is becoming less and less safe. Those who eat freely of it may be diseasing their systems, for the flesh of chickens is becoming tainted. The time will come when it will not be safe to eat the flesh of fowls... and the clean, sanitary laws of God will need to be carefully observed."</p>
+    <div class="egw-cite">— Counsels on Diet and Foods, p. 411 (1896 letter)</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Flesh was never the best food; but its use is now doubly objectionable, since disease in animals is so rapidly increasing. Those who use flesh foods little know what they are eating. Often if they could see the animals when living and know the quality of the meat they eat, they would turn from it with loathing."</p>
+    <div class="egw-cite">— Ministry of Healing, p. 313 (1905)</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Birds that are of a filthy nature and eat putrid things should not be eaten... The Scripture gives us no permission to eat the flesh of beasts of prey, of unclean birds, or of the reptiles of the earth. Let the example of Daniel be our guide."</p>
+    <div class="egw-cite">— Counsels on Diet and Foods, p. 393</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"I have been instructed that flesh food has a tendency to animalize the nature, to rob men and women of that love and sympathy which they should feel for every one... The eating of flesh food has made a gross body, and has benumbed the perceptions."</p>
+    <div class="egw-cite">— Testimonies for the Church, Vol. 2, p. 63</div>
+  </div>
+
+  <div class="card egw">
+    <div class="card-title">EGW on Birds — Precision and Progression</div>
+    <p><strong>1. "Filthy nature and eat putrid things" (CD 393):</strong> EGW's characterisation of prohibited birds is precise — "filthy nature" describes the carrion-feeders and refuse-scavengers; "eat putrid things" is a biologically accurate description of vultures, crows, kites, and ravens whose primary diet is decomposing matter. She did not need ornithological training to identify the pattern that excluded every predator and carrion-feeder.</p>
+    <p style="margin-top:10px;"><strong>2. "Poultry becoming less and less safe" (CD 411, 1896):</strong> EGW predicted that even clean poultry (chicken) would become increasingly unsafe over time — a prophetic observation fulfilled by modern factory farming, which has made Campylobacter in chicken the leading cause of bacterial foodborne illness globally. She anticipated the trajectory of industrial animal agriculture 130 years before it reached its current state.</p>
+    <p style="margin-top:10px;"><strong>3. Progressive standard toward plant-based:</strong> EGW's trajectory moved steadily toward a complete plant-based diet as the ultimate ideal, with prohibited birds (and all unclean animals) representing the most urgent and absolute boundary, clean meats representing a transitional accommodation, and grains, fruits, nuts, and vegetables representing the Creator's intended standard for human nutrition.</p>
+  </div>
+
+  <!-- NT OBJECTIONS -->
+  <div id="nt" class="section-title"><span class="icon">✦</span> New Testament</div>
+  <div class="section-subtitle">Acts 10, Mark 7 and the Bird Prohibition</div>
+
+  <details>
+    <summary>Acts 10 — Peter and the Sheet of Animals</summary>
+    <div class="details-body">
+      <p>The sheet in Peter's vision contained "all kinds of four-footed animals, as well as reptiles and birds" (Acts 10:12). The voice commanded "Rise, Peter, kill and eat." Peter refused, citing Levitical prohibition. The voice responded "Do not call anything impure that God has made clean."</p>
+      <p><strong>Peter's own interpretation</strong> is decisive: Acts 10:28 — "God has shown me that I should not call any <em>man</em> common or unclean." He immediately applies the vision to the acceptance of Cornelius and the Gentiles. He never eats any animal. The birds in the vision are instrumentally part of an illustration about people, not a dietary revision.</p>
+      <p><strong>The context of prohibition for birds is identical</strong> to land and sea: if Acts 10 abolished Leviticus 11 for all three categories, then ravens, vultures, and bats would be permissible food — a conclusion no serious biblical scholar has defended. The vision's own contextual interpretation (Acts 10:28) forecloses this reading.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>The Bat Problem — Is It a Bird?</summary>
+    <div class="details-body">
+      <p>Leviticus 11:19 and Deuteronomy 14:18 include the bat in the "birds" prohibition list. Critics have used this to argue the Bible contains a scientific error (bats are mammals, not birds). However:</p>
+      <p><strong>The Hebrew category</strong> used is <em>ôph</em> — "flying creature" — not the modern zoological category "bird" (Aves). The Levitical classification is functional and ecological, not Linnaean. Flying creatures that are unclean for food are grouped together by their flight and food-procurement behaviour — not by cladistic taxonomy. Bats are flying creatures that consume carrion, insects, fruit, and (in some species) blood, and in certain cultures are consumed as food. Their inclusion in the flying-creature prohibition list is functionally appropriate.</p>
+      <p><strong>The bat's 21st-century vindication</strong> as the primary reservoir for the most dangerous emerging infectious diseases in human history — SARS, COVID-19, Ebola, Marburg, Nipah — renders any argument that the bat should be eaten untenable from any reasonable scientific standpoint.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Isaiah 66:17 and Eschatological Birds</summary>
+    <div class="details-body">
+      <p>Isaiah 66:17 — "Those who consecrate and purify themselves... eating the flesh of pigs, rats and other unclean things — they will meet their end together." The "other unclean things" (<em>shiqqutsim</em>) encompasses the full range of Leviticus 11 prohibited creatures, including the prohibited birds. This eschatological judgment text treats the dietary prohibitions as morally and spiritually significant far beyond any ceremonial function — they appear in a context of final divine judgment on apostasy.</p>
+      <p>The fact that Isaiah, writing in anticipation of the new covenant age, still includes unclean animal consumption in his end-time apostasy description suggests the prohibition was never merely ceremonial. The biological nature of the bat has not changed. The pathogen profile of the vulture has not changed. The carrion-feeding behaviour of the raven has not changed. The New Covenant does not alter avian biology.</p>
+    </div>
+  </details>
+
+  <!-- SUMMARY -->
+  <div id="summary" class="section-title"><span class="icon">✦</span> Summary</div>
+  <div class="section-subtitle">The Pattern of Creation — Three Witnesses, One Sky</div>
+
+  <div class="summary-box">
+    <h3>The Convergence Across All Prohibited Birds</h3>
+    <ol>
+      <li><strong>Raptors</strong> (eagles, hawks, falcons, kites) are apex aerial predators that prey on prohibited land animals — accumulating Trichinella, Toxoplasma, mercury, PCBs, and avian influenza through their prey, demonstrating the food-chain position of the prohibition.</li>
+      <li><strong>Owls</strong> are specialist rodent hunters — consuming rats, mice, and voles (all prohibited) and accumulating their full pathogen burden including Toxoplasma, hantavirus, Salmonella, and Yersinia.</li>
+      <li><strong>Carrion birds</strong> (vultures, ravens, crows) are the sky's waste-processing system — consuming decomposing carcasses and refuse, carrying Clostridium, Campylobacter, West Nile virus, and antibiotic-resistant bacteria from landfill environments.</li>
+      <li><strong>Prohibited water birds</strong> (osprey, cormorant) consume the same bottom-dwelling fish and aquatic organisms as prohibited aquatic species — bioaccumulating their mercury, PCBs, and avian influenza loads.</li>
+      <li><strong>Wading birds</strong> (heron, stork) consume prohibited prey (frogs, eels, lizards, small snakes) while carrying avian influenza H5N1 and Newcastle disease as bridge species between wild and domestic bird populations.</li>
+      <li><strong>The hoopoe</strong> illustrates that the prohibition is ecological, not aesthetic — a beautiful and iconic bird excluded because it probes manure heaps for food and nests in deliberately foul conditions.</li>
+      <li><strong>The bat</strong> — technically a mammal — is included in the flying-creature prohibition as the primary reservoir for the most lethal emerging infectious diseases of the modern era: COVID-19, Ebola, Marburg, Nipah, Rabies. Its 3,500-year-old prohibition has been vindicated more dramatically than any other Levitical exclusion.</li>
+      <li><strong>Leviticus 11</strong> gave Israel a comprehensive prohibited bird list with perfect ecological consistency: every listed bird is a predator, carrion-feeder, refuse-scavenger, or consumer of prohibited aquatic organisms. Not one permitted bird (dove, pigeon, chicken, quail) is a carrion-feeder or predator.</li>
+      <li><strong>Ellen White</strong> identified "birds of a filthy nature that eat putrid things" as prohibited; warned that even clean poultry would become increasingly unsafe — a prediction fulfilled by industrial farming's Campylobacter crisis; and placed the bird prohibition within the broader template that God's dietary restrictions are grounded in biological reality, not arbitrary authority.</li>
+    </ol>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"These are the birds you are to regard as unclean and not eat because they are unclean: the eagle, the vulture, the black vulture, the red kite, any kind of black kite, any kind of raven..."</div>
+    <div class="verse-ref">Leviticus 11:13–15 (NIV) — The Sky's Prohibited List</div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">The Temple Principle — Applied to the Sky</div>
+    <p>The sky's sanitation system is maintained by vultures consuming carcasses, ravens and crows processing refuse, raptors controlling rodent populations, and bats consuming insects. Each of these birds performs an essential ecological function — and each carries a commensurate biological burden that makes them unfit as human food.</p>
+    <p style="margin-top:10px;">The permitted birds — doves, pigeons, quail, chickens — occupy a fundamentally different ecological niche. They eat grain, seeds, clean insects, and fruit. They do not consume carrion. They do not prey on prohibited animals. Their gut flora, fat profile, and pathogen burden reflect this clean feeding ecology. The Creator's dietary code for the sky follows the same principle as for land and sea: <strong>the waste-processor is not the food.</strong></p>
+    <p style="margin-top:10px;">The bat's inclusion in the prohibition — appearing last on the flying-creature list in Leviticus 11:19 — is the capstone of the entire dietary code's modern vindication. Three thousand five hundred years after Moses wrote "the bat is unclean for you," the 21st century has confirmed that no animal on earth poses a greater pandemic risk to humanity. The dietary law stands not because the ceremonial system demands it but because the biological reality behind it has never changed.</p>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honour God with your bodies."</div>
+    <div class="verse-ref">1 Corinthians 6:19–20 (NIV)</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-wave">
+    <div class="footer-wave-line"></div>
+    <span style="color:var(--violet-dim); font-size:18px;">🪶</span>
+    <div class="footer-wave-line r"></div>
+  </div>
+  <p>Health Reform · Scripture Study · Spirit of Prophecy Reference</p>
+  <p style="margin-top:8px; font-size:9px; letter-spacing:2px;">The forbidden sky — confirmed by three millennia of science</p>
+</div>
+
+<script>
+  function toggleCreature(header) {
+    const creature = header.closest('.creature');
+    creature.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Shellfish Harm the Body — Science, Scripture & Spirit of Prophecy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --parchment:      #141a1a;
+    --parchment-mid:  #1b2222;
+    --parchment-card: #1f2828;
+    --parchment-edge: #263030;
+    --gold:           #c9a84c;
+    --gold-bright:    #e8c96a;
+    --gold-dim:       #8a6d2e;
+    --teal:           #3a8a8a;
+    --teal-bright:    #5ab0b0;
+    --teal-dim:       #2a6060;
+    --red-warn:       #b84040;
+    --text-main:      #d8e8e8;
+    --text-muted:     #7a9898;
+    --text-dim:       #4a6060;
+    --border:         rgba(58,138,138,0.2);
+    --border-strong:  rgba(58,138,138,0.45);
+    --border-gold:    rgba(201,168,76,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--parchment);
+    color: var(--text-main);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    background-image:
+      radial-gradient(ellipse at 15% 10%, rgba(20,80,80,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 85%, rgba(10,60,70,0.1) 0%, transparent 55%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ── HEADER ── */
+  .masthead {
+    text-align: center;
+    padding: 60px 24px 40px;
+    border-bottom: 1px solid var(--border-strong);
+    background: linear-gradient(180deg, rgba(58,138,138,0.07) 0%, transparent 100%);
+    position: relative;
+  }
+  .masthead::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    margin: 0 auto 28px;
+  }
+  .masthead-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--teal-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--teal-bright);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 20px rgba(58,138,138,0.35);
+  }
+  .masthead .subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 28px;
+  }
+  .masthead::after {
+    content: '✦  ✦  ✦';
+    display: block;
+    color: var(--teal-dim);
+    font-size: 13px;
+    letter-spacing: 10px;
+    margin-top: 28px;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(13px, 2.2vw, 17px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    border-top: 1px solid var(--border-strong);
+    padding-top: 40px;
+    margin-top: 54px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-title .icon { font-size: 22px; }
+  .section-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--text-main);
+    margin-bottom: 28px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--parchment-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+  .card.danger::before  { background: var(--red-warn); }
+  .card.teal::before    { background: var(--teal); }
+  .card.gold::before    { background: var(--gold); }
+  .card.scripture::before { background: var(--gold-dim); }
+  .card.egw::before     { background: #6b8faf; }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .card.danger .card-title  { color: #d06060; }
+  .card.teal .card-title    { color: var(--teal-bright); }
+  .card.gold .card-title    { color: var(--gold); }
+  .card.scripture .card-title { color: var(--gold-dim); }
+  .card.egw .card-title     { color: #8ab0d0; }
+  .card p { color: var(--text-main); margin-bottom: 8px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── VERSE BLOCK ── */
+  .verse-block {
+    background: var(--parchment-mid);
+    border-left: 3px solid var(--gold-dim);
+    padding: 18px 22px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .verse-text {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-main);
+    line-height: 1.8;
+  }
+  .verse-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .stat-box {
+    background: var(--parchment-edge);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--red-warn);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-num.teal { color: var(--teal-bright); }
+  .stat-num.gold { color: var(--gold); }
+  .stat-label { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+
+  /* ── SHELLFISH TYPES GRID ── */
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .type-card {
+    background: var(--parchment-edge);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 20px;
+  }
+  .type-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .type-card ul { list-style: none; padding: 0; }
+  .type-card li {
+    font-size: 15px;
+    color: var(--text-muted);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .type-card li::before { content: '▸'; position: absolute; left: 0; color: var(--teal-dim); }
+
+  /* ── PATHOGEN LIST ── */
+  .pathogen-list { list-style: none; padding: 0; }
+  .pathogen-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pathogen-list li:last-child { border-bottom: none; }
+  .p-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .p-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #d06060;
+    margin-bottom: 4px;
+  }
+  .p-desc { font-size: 16px; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── COMPARE TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 16px;
+  }
+  .compare-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    background: var(--parchment-edge);
+    color: var(--teal-dim);
+    border-bottom: 1px solid var(--border-strong);
+    text-align: left;
+  }
+  .compare-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+    vertical-align: top;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(58,138,138,0.03); }
+  .badge-bad  { color: #d06060; font-weight: 600; }
+  .badge-mid  { color: var(--gold); font-weight: 600; }
+
+  /* ── EGW QUOTE ── */
+  .egw-quote {
+    background: linear-gradient(135deg, rgba(107,143,175,0.08), rgba(107,143,175,0.03));
+    border: 1px solid rgba(107,143,175,0.25);
+    border-left: 3px solid #6b8faf;
+    padding: 22px 26px;
+    margin: 22px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .egw-quote p {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-main);
+    line-height: 1.85;
+    margin-bottom: 10px;
+  }
+  .egw-cite {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #6b8faf;
+    text-transform: uppercase;
+  }
+
+  /* ── ACCORDION ── */
+  details {
+    background: var(--parchment-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  details[open] { border-color: var(--border-strong); }
+  summary {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal-dim);
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  summary:hover { color: var(--teal); }
+  summary::after { content: '▸'; transition: transform 0.2s; }
+  details[open] summary::after { transform: rotate(90deg); }
+  summary::-webkit-details-marker { display: none; }
+  .details-body { padding: 0 20px 20px; font-size: 16px; color: var(--text-muted); line-height: 1.7; }
+  .details-body strong { color: var(--text-main); }
+  .details-body p { margin-bottom: 10px; }
+  .details-body p:last-child { margin-bottom: 0; }
+
+  /* ── TOXIN BANNER ── */
+  .toxin-banner {
+    background: linear-gradient(135deg, rgba(184,64,64,0.1), rgba(184,64,64,0.03));
+    border: 1px solid rgba(184,64,64,0.3);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 30px 0;
+    text-align: center;
+  }
+  .toxin-banner .verse-text { font-size: 18px; }
+
+  /* ── SUMMARY BOX ── */
+  .summary-box {
+    background: linear-gradient(135deg, rgba(58,138,138,0.1), rgba(58,138,138,0.03));
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .summary-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .summary-box ol {
+    padding-left: 22px;
+    color: var(--text-main);
+    font-size: 17px;
+    line-height: 2;
+  }
+
+  /* ── HEAVY METALS TABLE ── */
+  .metals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 22px 0;
+  }
+  .metal-box {
+    background: var(--parchment-edge);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  .metal-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--teal-bright);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .metal-level {
+    font-size: 22px;
+    font-family: 'Cinzel', serif;
+    color: var(--red-warn);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .metal-desc { font-size: 14px; color: var(--text-muted); line-height: 1.45; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-label">Health · Scripture · Spirit of Prophecy</div>
+  <h1>Why Shellfish Harm the Body</h1>
+  <p class="subtitle">The ocean's scavengers — filter-feeders, heavy metal concentrators, and toxin repositories — examined through modern science, Levitical law, and the Spirit of Prophecy</p>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════
+       OVERVIEW
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚑</span> Overview</div>
+  <div class="section-subtitle">The Sea Has Its Own Scavengers</div>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">
+    Just as the pig is the land's biological waste-processor, shellfish — oysters, clams, mussels, shrimp, crab, lobster — are the ocean's equivalent. They filter massive volumes of seawater, concentrating not only nutrients but pathogens, heavy metals, biotoxins, and industrial pollutants at levels orders of magnitude higher than the water surrounding them. The Mosaic criterion of fins and scales elegantly excludes every one of these organisms. Three independent lines of evidence converge on a single conclusion: shellfish were designed for the ocean's health, not human consumption.
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num">50L+</div>
+      <div class="stat-label">Water a single oyster filters per day — concentrating everything in it</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">80%</div>
+      <div class="stat-label">Of all shellfish-related food poisoning illnesses in the US traced to oysters and clams</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">100×</div>
+      <div class="stat-label">Cadmium concentration in oysters vs. surrounding seawater — a known kidney toxin and carcinogen</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num gold">1864</div>
+      <div class="stat-label">EGW warned against shellfish in health visions — decades before marine toxicology existed as a science</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       BIOLOGY OF SHELLFISH
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">🔬</span> Biology</div>
+  <div class="section-subtitle">Filter-Feeders — The Ocean's Kidney</div>
+
+  <p style="color:var(--text-muted); margin-bottom:20px;">
+    Shellfish fall into several biological categories, all sharing the same fundamental problem: they are passive or active filter-feeders designed by nature to process and retain the contents of their aquatic environment. Unlike fish with scales, which feed on living matter in the water column and have active metabolic detoxification systems, shellfish <em>are</em> the detoxification system of marine ecosystems.
+  </p>
+
+  <div class="type-grid">
+    <div class="type-card">
+      <h4>🦪 Bivalves</h4>
+      <ul>
+        <li>Oysters, clams, mussels, scallops</li>
+        <li>Pump 20–50L water/day through gill filters</li>
+        <li>Retain bacteria, viruses, algal toxins</li>
+        <li>Cannot excrete most heavy metals</li>
+        <li>Accumulate toxins in digestive gland</li>
+        <li>Live in estuaries — near sewage outflows</li>
+      </ul>
+    </div>
+    <div class="type-card">
+      <h4>🦐 Crustaceans</h4>
+      <ul>
+        <li>Shrimp, prawns, crab, lobster, crayfish</li>
+        <li>Bottom-dwellers and active scavengers</li>
+        <li>Feed on decaying organic matter</li>
+        <li>Concentrate ammonia-producing bacteria</li>
+        <li>Shrimp: highest pesticide residue of any seafood</li>
+        <li>Farmed shrimp: antibiotics, fungicides, disinfectants</li>
+      </ul>
+    </div>
+    <div class="type-card">
+      <h4>🐙 Cephalopods</h4>
+      <ul>
+        <li>Squid, octopus, cuttlefish</li>
+        <li>Active predators — not filter feeders</li>
+        <li>Still prohibited (no fins AND scales)</li>
+        <li>Accumulate heavy metals from prey</li>
+        <li>Octopus: very high cadmium levels</li>
+        <li>High in purines — uric acid / gout risk</li>
+      </ul>
+    </div>
+    <div class="type-card">
+      <h4>🐟 Why Scale-Fish Differ</h4>
+      <ul>
+        <li>Active filtration via liver and kidneys</li>
+        <li>Scales = protective barrier to environment</li>
+        <li>Feed predominantly on living matter</li>
+        <li>Swim in water column, not sediment</li>
+        <li>Excrete heavy metals through bile</li>
+        <li>Much lower pathogen carriage rate</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card teal">
+    <div class="card-title">The Filtration Paradox</div>
+    <p>Oysters are celebrated as "environmental heroes" — a single adult oyster filters up to 50 litres of water per day, removing bacteria, viruses, algae, and sediment. This is biologically remarkable and ecologically essential. But it means the oyster <em>is</em> the filter. Everything it removes from the water is retained in its tissue. When you eat an oyster, you are eating a compressed packet of concentrated ocean contaminants — microplastics, heavy metals, algal biotoxins, norovirus, Vibrio bacteria, and industrial pollutants — that the oyster has spent its life accumulating from its entire range of water.</p>
+    <p style="margin-top:10px;">This is precisely the design function of a scavenger organism. The pig processes land waste; the oyster processes marine waste. Both are ecologically necessary. Neither was designed to be food.</p>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       PATHOGENS
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚠</span> Pathogens</div>
+  <div class="section-subtitle">Unique Disease Vectors in Shellfish</div>
+
+  <ul class="pathogen-list">
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Vibrio vulnificus & Vibrio parahaemolyticus</div>
+        <div class="p-desc">Naturally occurring marine bacteria that concentrate in oysters and raw shellfish. <em>V. vulnificus</em> causes a fatality rate of 50% in immunocompromised individuals — one of the highest of any foodborne pathogen. It produces a necrotising fasciitis (flesh-eating) infection. The CDC estimates 80,000 Vibrio infections annually in the US, the vast majority from raw shellfish. Critically, Vibrio does <em>not</em> affect the appearance, smell, or taste of shellfish — there is no sensory warning.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Norovirus (Norwalk Virus)</div>
+        <div class="p-desc">Shellfish — particularly oysters — are the single leading food vehicle for norovirus, responsible for over 50% of all food-related norovirus outbreaks globally. A single contaminated oyster can carry over 1 million norovirus particles. The infective dose is fewer than 20 particles. Norovirus is extremely heat-resistant in shellfish tissue; standard steaming may not fully inactivate it. Symptoms include projectile vomiting, severe diarrhoea, and dehydration.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Hepatitis A Virus (HAV)</div>
+        <div class="p-desc">Shellfish grown in waters contaminated with human sewage concentrate Hepatitis A virus at levels up to 100× the surrounding water. HAV causes acute liver inflammation, jaundice, and in severe cases liver failure. Multiple mass outbreaks have been traced to oysters and raw clams — including the 1988 Shanghai outbreak affecting 300,000 people from contaminated clams. Unlike most viruses, HAV survives in shellfish tissue even after moderate cooking.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Paralytic Shellfish Poisoning (PSP) — Saxitoxin</div>
+        <div class="p-desc">Produced by dinoflagellate algae during "red tide" blooms. Filter-feeders concentrate saxitoxin to lethal levels in their tissue while remaining unharmed. In humans, saxitoxin blocks sodium channels in nerve cells causing progressive paralysis — starting with tingling lips and fingers and progressing to respiratory paralysis and death within 2–12 hours. There is <em>no antidote</em>. Saxitoxin is completely heat-stable — cooking does not neutralise it. Even regulatory monitoring cannot guarantee safety during bloom seasons.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Amnesic Shellfish Poisoning (ASP) — Domoic Acid</div>
+        <div class="p-desc">Produced by diatom algae concentrated in mussels, clams, and scallops. Domoic acid causes excitotoxicity in the hippocampus — leading to permanent short-term memory loss, seizures, and brain damage. First identified in the 1987 Prince Edward Island outbreak killing 3 people and causing permanent neurological damage in dozens. Heat-stable; cannot be destroyed by cooking. Long-term low-level exposure from regular shellfish consumption has been linked to neurodegenerative disease risk.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Diarrhetic Shellfish Poisoning (DSP) — Okadaic Acid</div>
+        <div class="p-desc">A potent tumour promoter (not initiator) found in mussels and scallops during algal blooms. Okadaic acid inhibits protein phosphatases and has been shown in studies to dramatically enhance tumour growth in cells already initiated by primary carcinogens. Chronic low-level exposure from regular shellfish consumption may contribute to gastrointestinal cancer promotion even without acute poisoning episodes.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Cryptosporidium & Giardia</div>
+        <div class="p-desc">Protozoan parasites that filter-feeding shellfish concentrate from human and animal faecal contamination of coastal waters. Both cause severe and prolonged gastrointestinal illness. Cryptosporidium is particularly dangerous for immunocompromised individuals (HIV/AIDS, chemotherapy) and is highly resistant to chlorine disinfection. Standard cooking may not eliminate these cysts from shellfish tissue.</div>
+      </div>
+    </li>
+  </ul>
+
+
+  <!-- ══════════════════════════════
+       HEAVY METALS & TOXINS
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚗</span> Toxicology</div>
+  <div class="section-subtitle">Heavy Metals & Industrial Contaminants</div>
+
+  <p style="color:var(--text-muted); margin-bottom:20px;">
+    Because shellfish cannot excrete heavy metals efficiently, they bioaccumulate these toxins across their lifetimes. Coastal and estuarine environments — where most commercial shellfish are harvested — are the final repository of industrial runoff from rivers, atmospheric deposition, and shipping traffic. The shellfish body concentrates what the watershed and ocean accumulate.
+  </p>
+
+  <div class="metals-grid">
+    <div class="metal-box">
+      <div class="metal-name">Cadmium</div>
+      <div class="metal-level">100×</div>
+      <div class="metal-desc">Oysters and scallops concentrate cadmium up to 100× surrounding water levels. Cadmium is an IARC Group 1 carcinogen (kidney cancer, lung cancer) and causes Itai-itai disease — severe osteoporosis and kidney failure. No safe lower limit established.</div>
+    </div>
+    <div class="metal-box">
+      <div class="metal-name">Mercury (MeHg)</div>
+      <div class="metal-level">High</div>
+      <div class="metal-desc">Methylmercury bioaccumulates across the marine food chain. Shellfish near industrial areas carry dangerous mercury loads. Mercury causes irreversible neurological damage, particularly devastating during pregnancy and fetal development.</div>
+    </div>
+    <div class="metal-box">
+      <div class="metal-name">Lead</div>
+      <div class="metal-level">High</div>
+      <div class="metal-desc">Mussels and oysters from urbanised coastlines accumulate lead from historical antifouling paints, petrol, and industrial discharge. Lead causes cognitive impairment, developmental deficits in children, hypertension, and kidney damage. No safe blood lead level exists.</div>
+    </div>
+    <div class="metal-box">
+      <div class="metal-name">Arsenic</div>
+      <div class="metal-level">Elevated</div>
+      <div class="metal-desc">Inorganic arsenic (the toxic form) is found in elevated levels in shrimp, mussels, and oysters. IARC Group 1 carcinogen. Causes skin, bladder, and lung cancers. Regular shellfish consumption represents a significant arsenic exposure pathway.</div>
+    </div>
+    <div class="metal-box">
+      <div class="metal-name">PCBs & Dioxins</div>
+      <div class="metal-level">Very High</div>
+      <div class="metal-desc">Persistent organic pollutants accumulate in sediment where bottom-dwelling shellfish feed. Fat-soluble POPs concentrate in shellfish tissue. Dioxins are IARC Group 1 carcinogens; PCBs are Group 2A. Both cause endocrine disruption, immune suppression, and developmental toxicity.</div>
+    </div>
+    <div class="metal-box">
+      <div class="metal-name">Microplastics</div>
+      <div class="metal-level">Ubiquitous</div>
+      <div class="metal-desc">Mussels and oysters have been found to contain an average of 2–4 microplastic particles per gram of tissue. Microplastics carry adsorbed chemical pollutants, disrupt endocrine function, and cause inflammatory responses in gut tissue. No safe exposure level established.</div>
+    </div>
+  </div>
+
+  <div class="card danger">
+    <div class="card-title">Shrimp — The Most Contaminated Farmed Seafood</div>
+    <p>Global farmed shrimp production (primarily from Southeast Asia and China) is among the most problematic seafood categories from a food safety standpoint. Investigations by the FDA, EU food safety authorities, and independent researchers have found:</p>
+    <p style="margin-top:10px;"><strong>Antibiotics:</strong> Chloramphenicol (banned in the EU/US), nitrofurans, enrofloxacin, and tetracyclines detected in imported shrimp — contributing to antibiotic resistance. FDA regularly detains shrimp shipments for antibiotic violations.</p>
+    <p style="margin-top:10px;"><strong>Fungicides:</strong> Trifluralin, banned globally, found in shrimp from multiple Asian producers. Malachite green (carcinogenic) detected in some batches.</p>
+    <p style="margin-top:10px;"><strong>Bacterial contamination:</strong> Studies find 60–90% of retail shrimp carry detectable bacteria including Salmonella, E. coli, Listeria, and Vibrio. Even "fresh" wild-caught shrimp decompose rapidly (high bacterial load + digestive enzymes) — the black "vein" (digestive tract) contains concentrated waste material.</p>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       NUTRITIONAL ISSUES
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚗</span> Nutrition</div>
+  <div class="section-subtitle">Nutritional Chemistry — Beyond the Omega-3 Narrative</div>
+
+  <p style="color:var(--text-muted); margin-bottom:20px;">Shellfish are often marketed as "healthy" due to zinc and omega-3 content. This narrative ignores the contaminant burden, the cholesterol/purine load, and the increasingly contaminated environment from which they are sourced.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Factor</th>
+        <th>Shellfish</th>
+        <th>Health Consideration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Cholesterol</strong></td>
+        <td><span class="badge-bad">Shrimp: 190mg/100g<br>Squid: 260mg/100g</span></td>
+        <td>Among the highest dietary cholesterol sources; relevant for those with familial hypercholesterolaemia</td>
+      </tr>
+      <tr>
+        <td><strong>Purines</strong></td>
+        <td><span class="badge-bad">Very High</span></td>
+        <td>Elevated uric acid → gout, kidney stones, joint inflammation. Shellfish are among the top gout-triggering foods</td>
+      </tr>
+      <tr>
+        <td><strong>Histamine / Biogenic Amines</strong></td>
+        <td><span class="badge-bad">High (especially crustaceans)</span></td>
+        <td>Histamine poisoning from decomposing shellfish; worsens allergic conditions; linked to migraine</td>
+      </tr>
+      <tr>
+        <td><strong>Allergenic Proteins (tropomyosin)</strong></td>
+        <td><span class="badge-bad">Major allergen — top 8</span></td>
+        <td>Shellfish allergy is the most common adult-onset food allergy; anaphylaxis risk; often lifelong once triggered</td>
+      </tr>
+      <tr>
+        <td><strong>Sodium</strong></td>
+        <td><span class="badge-mid">Moderate–High</span></td>
+        <td>Particularly high in processed shellfish products, shrimp paste, dried shellfish; contributes to hypertension</td>
+      </tr>
+      <tr>
+        <td><strong>Omega-3 (EPA/DHA)</strong></td>
+        <td><span class="badge-mid">Present but variable</span></td>
+        <td>Omega-3 benefit widely overstated; available from algae (the original source) without the contaminant burden</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card gold">
+    <div class="card-title">The "Omega-3" Counter-Argument Addressed</div>
+    <p>The primary nutritional defence of shellfish is omega-3 fatty acid content. However: (1) fish-derived omega-3s come with significantly lower contaminant burdens from non-filter-feeding species; (2) algae-derived DHA/EPA supplements provide the identical fatty acids without any marine toxin, heavy metal, or pathogen exposure — shellfish derive their omega-3s from algae in the first place; (3) the contaminant load in shellfish (especially cadmium, PCBs, microplastics) likely outweighs the anti-inflammatory benefit of the omega-3s they contain, particularly with regular consumption.</p>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       SCRIPTURE
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">✦</span> Scripture</div>
+  <div class="section-subtitle">The Fins and Scales Criterion — Leviticus & Deuteronomy</div>
+
+  <p style="color:var(--text-muted); margin-bottom:20px;">The Mosaic dietary criterion for aquatic animals is elegantly precise: fins AND scales. This dual requirement, like the ruminant criterion for land animals, happens to select for biologically safer food sources with remarkable accuracy.</p>
+
+  <div class="verse-block">
+    <div class="verse-text">"Of all the creatures living in the water of the seas and the streams you may eat any that have fins and scales. But all creatures in the seas or streams that do not have fins and scales — whether among all the swarming things or among all the other living creatures in the water — you are to regard as unclean... You must not eat their meat, and you must detest their carcasses."</div>
+    <div class="verse-ref">Leviticus 11:9–11 (NIV)</div>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"You may eat any animal that has a divided hoof and that chews the cud... Of all the creatures living in the water, you may eat any that has fins and scales."</div>
+    <div class="verse-ref">Deuteronomy 14:6–9 (NIV)</div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-title">What "Fins and Scales" Selects For — Biological Analysis</div>
+    <p><strong>Fins:</strong> Indicate a fish that swims in the water column — not a bottom-dweller scavenging sediment. Bottom-feeders (catfish, eels, carp species) accumulate sediment-concentrated pollutants and pathogens far exceeding those in water-column swimmers.</p>
+    <p style="margin-top:10px;"><strong>Scales:</strong> Indicate a fish with a physical barrier between its tissue and the aquatic environment. Scaleless fish (catfish, eels, shark, rays) have permeable skin that allows greater environmental contaminant absorption. Scaled fish also have more organised immune and detoxification systems. Shellfish have neither fins nor scales — they are sedentary filter-feeders with no barrier whatsoever between their tissue and their environment.</p>
+    <p style="margin-top:10px;">The criterion excludes with perfect accuracy: all shellfish (bivalves, crustaceans), all eels, all rays, all sharks, all catfish, all octopus and squid — precisely the aquatic organisms with the highest pathogen and contaminant burdens.</p>
+  </div>
+
+  <details>
+    <summary>Does Peter's Vision (Acts 10) Include Shellfish?</summary>
+    <div class="details-body">
+      <p><strong>The vision's own interpretation:</strong> Peter himself explains the vision in Acts 10:28 — "God has shown me that I should not call any <em>man</em> common or unclean." The vision concerns the acceptance of Gentiles into the covenant community, not dietary reform. Peter never eats any animal in the vision, and the text provides its own authoritative interpretation.</p>
+      <p><strong>Contextual impossibility:</strong> If Acts 10 abolished Leviticus 11, then Peter — who received the vision — should have immediately understood it as dietary permission. Instead, Acts 10:28 records him interpreting it as being about people. Furthermore, Acts 15 (the Jerusalem Council), held after Acts 10, still discusses food restrictions for Gentile believers, suggesting the dietary question was not considered resolved.</p>
+      <p><strong>Isaiah 66 again:</strong> The eschatological text in Isaiah 66:17 places eating "unclean things" (including abominable sea creatures) in the context of end-time judgment — post-dating any New Covenant transition and suggesting the biological wisdom of the prohibition was never merely ceremonial.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Abomination Language — What It Signifies</summary>
+    <div class="details-body">
+      <p>The Hebrew word <em>sheqets</em> (שֶׁקֶץ) used in Leviticus 11 for unclean aquatic creatures is translated "detestable" or "abomination." This is notably stronger language than that used for some other dietary restrictions. <em>Sheqets</em> indicates something intrinsically corrupt or repugnant — not merely ritually impure. The same root is used for idols and morally degraded practices.</p>
+      <p>This suggests the prohibition was not merely an arbitrary cultural marker but reflected something the Creator regarded as genuinely harmful about these organisms — consistent with their biological function as waste processors in the marine ecosystem.</p>
+    </div>
+  </details>
+
+  <div class="verse-block">
+    <div class="verse-text">"Those who consecrate and purify themselves... eating the flesh of pigs and rats and other unclean things — they will meet their end together, declares the LORD."</div>
+    <div class="verse-ref">Isaiah 66:17 — "other unclean things" includes the shellfish and bottom-feeders of Leviticus 11</div>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       ELLEN G. WHITE
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">✦</span> Spirit of Prophecy</div>
+  <div class="section-subtitle">Ellen G. White's Counsel on Shellfish</div>
+
+  <p style="color:var(--text-muted); margin-bottom:20px;">EGW addressed shellfish with particular concern in the context of her broader health reform message. Her warnings predate marine toxicology, our understanding of bioaccumulation, Vibrio identification (1854, but pathogenic role in shellfish not established until decades later), and red tide biotoxin science.</p>
+
+  <div class="egw-quote">
+    <p>"Oysters, lobsters, crabs, and the like things that God has prohibited... those who indulge their appetite for these foods are becoming more and more corrupt."</p>
+    <div class="egw-cite">— Ellen G. White, Manuscript 3, 1897</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Oysters should not be used... They become more objectionable the nearer we come to the cities... disease and death are in these things."</p>
+    <div class="egw-cite">— Ellen G. White, Manuscript 115, 1903</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"We are nearing the close of time. We should not now commence to eat flesh meats that God has pronounced unclean. Cancer, tumors, and all inflammatory diseases are largely caused by meat eating. From the light God has given me, the eating of meat is not to be recommended... Pork, though eaten by the world over, is an article of food that affects the body and the mind. It tends to sensualize the passions."</p>
+    <div class="egw-cite">— Counsels on Diet and Foods, p. 383–384</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Do not eat oysters or other shellfish, for they are scavengers of the water... The nearer a locality is to a city, the more dangerous the shellfish found in its waters. Disease is in them."</p>
+    <div class="egw-cite">— Ellen G. White, Letter 142, 1902 (to workers near a coastal city)</div>
+  </div>
+
+  <div class="card egw">
+    <div class="card-title">Prophetic Precision — Proximity to Cities</div>
+    <p>EGW's specific warning that shellfish near cities are "more dangerous" is a precise ecological observation that would be confirmed by 20th-century environmental science. Coastal cities are the primary sources of sewage outflow, industrial discharge, and stormwater runoff into estuaries — exactly where oysters and clams are farmed and harvested. Her 1902 letter specifically connecting urban proximity to shellfish danger describes, in non-technical language, the exact mechanism of bacterial and viral contamination from sewage-contaminated urban waterways.</p>
+    <p style="margin-top:10px;">This is not a vague general warning — it is a specific, accurate, mechanistically correct statement about the relationship between urban pollution, estuarine water quality, and shellfish safety. She had no scientific framework to derive this from. The 1988 Shanghai Hepatitis A outbreak (300,000 cases from sewage-contaminated clams near China's most populous city) is a precise modern fulfilment of her 1902 observation.</p>
+  </div>
+
+  <details>
+    <summary>EGW on the "Scavenger" Principle</summary>
+    <div class="details-body">
+      <p>EGW consistently applied the principle that God prohibited animals whose biological function is waste removal or scavenging. She wrote that "God did not create these things for food" and that their role in the ecosystem — processing what other organisms discard — disqualifies them as human food regardless of palatability or cultural acceptance.</p>
+      <p>This principle — scavenger function = dietary prohibition — maps exactly to the Levitical criteria: the pig (land scavenger), the vulture (air scavenger), the catfish (bottom-feeding scavenger), the oyster (filter-feeding marine scavenger). The pattern is consistent across ecosystem types.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>EGW on Shellfish and Moral/Mental Effects</summary>
+    <div class="details-body">
+      <p>EGW consistently connected diet to mental and spiritual function — arguing that physical impurity affects the frontal lobe's moral reasoning capacity. Her statements that unclean meats "tend to sensualize the passions" and affect the mind are consistent with modern understanding of the gut-brain axis, inflammatory neurological effects of high histamine/purine foods, and the documented effects of heavy metals (mercury, lead, cadmium) on cognitive and behavioural function.</p>
+      <p>Mercury from shellfish (and high-mercury fish) is a well-established neurotoxin affecting memory, mood, and impulse control — exactly the kinds of mental effects EGW attributed to dietary violations.</p>
+    </div>
+  </details>
+
+
+  <!-- ══════════════════════════════
+       MODERN FOOD SAFETY REALITY
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚠</span> Modern Reality</div>
+  <div class="section-subtitle">21st-Century Shellfish — The Problem Has Intensified</div>
+
+  <div class="card danger">
+    <div class="card-title">Climate Change, Algal Blooms & Increasing Risk</div>
+    <p>The risks EGW and Leviticus warned against have become significantly worse, not better, in the modern era:</p>
+    <p style="margin-top:10px;"><strong>Algal blooms expanding:</strong> Warming oceans and agricultural nitrogen runoff have dramatically increased the frequency, duration, and geographic range of harmful algal blooms (HABs) producing saxitoxin, domoic acid, and okadaic acid. Areas previously safe for shellfish harvesting are now regularly closed.</p>
+    <p style="margin-top:10px;"><strong>Antibiotic resistance in farmed shellfish:</strong> Aquaculture environments are hotbeds for antibiotic-resistant bacteria. Resistance genes from farmed shellfish operations contaminate surrounding marine environments and contribute to the global AMR crisis.</p>
+    <p style="margin-top:10px;"><strong>Microplastic ubiquity:</strong> Every shellfish sampled from any ocean on earth now contains microplastics. These carry adsorbed persistent organic pollutants and physically penetrate gut and vascular tissue.</p>
+    <p style="margin-top:10px;"><strong>Ocean acidification:</strong> Changing ocean chemistry affects shellfish physiology, potentially altering their toxin accumulation patterns in ways not yet fully characterised.</p>
+  </div>
+
+  <div class="toxin-banner">
+    <div class="verse-text">The shellfish industry's own motto acknowledges the risk: "Only eat oysters in months with an R" — September through April — because summer algal blooms and warm water Vibrio concentrations make warm-month consumption significantly more dangerous. No such seasonal qualifier applies to any clean meat.</div>
+  </div>
+
+
+  <!-- ══════════════════════════════
+       SUMMARY
+  ══════════════════════════════ -->
+  <div class="section-title"><span class="icon">✦</span> Summary</div>
+  <div class="section-subtitle">The Convergence of Three Witnesses</div>
+
+  <div class="summary-box">
+    <h3>Why the Evidence Converges</h3>
+    <ol>
+      <li><strong>Shellfish are biologically designed</strong> as marine filter-feeders and scavengers — concentrating pathogens, heavy metals, biotoxins, and industrial pollutants from the surrounding water into their tissue. This is their ecological purpose; it disqualifies them as human food.</li>
+      <li><strong>Unique pathogens</strong> in shellfish — Vibrio (50% mortality in high-risk individuals), Norovirus (50% of all shellfish outbreaks), Hepatitis A, Saxitoxin (no antidote, potentially fatal), Domoic acid (permanent brain damage) — represent disease risks absent from clean finned fish.</li>
+      <li><strong>Heavy metal bioaccumulation</strong> (cadmium at 100× water levels, mercury, lead, arsenic) makes regular shellfish consumption a significant source of IARC Group 1 carcinogens and neurotoxins.</li>
+      <li><strong>Leviticus 11 and Deuteronomy 14</strong> exclude all shellfish through the fins-and-scales criterion — a biologically precise filter separating water-column swimmers with active detoxification from sedentary filter-feeders with no environmental barrier.</li>
+      <li><strong>The Hebrew term <em>sheqets</em></strong> ("abomination/detestable") used for shellfish is stronger than ordinary ritual impurity language — suggesting intrinsic biological corruption, not merely cultural distinction.</li>
+      <li><strong>Ellen White (1897–1903)</strong> named oysters, lobsters, and crabs specifically; described them as "scavengers of the water"; and accurately predicted that urban proximity would make shellfish increasingly dangerous — decades before environmental science confirmed the mechanism.</li>
+      <li><strong>21st-century conditions</strong> (climate-driven algal bloom expansion, microplastic ubiquity, antibiotic-resistant aquaculture) have intensified every risk the Mosaic prohibition and EGW identified — the case against shellfish is stronger today than in any previous era.</li>
+    </ol>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Whether you eat or drink or whatever you do, do it all for the glory of God."</div>
+    <div class="verse-ref">1 Corinthians 10:31 (NIV)</div>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Dear friend, I pray that you may enjoy good health and that all may go well with you, even as your soul is getting along well."</div>
+    <div class="verse-ref">3 John 1:2 (NIV)</div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">A Temple Designed for Clarity</div>
+    <p>The consistent pattern across land, sea, and air in Leviticus 11 is not arbitrary cultural taboo — it is a Creator's dietary ecology: organisms designed to process and concentrate waste and decay are excluded from the diet of beings made in the image of God. The pig processes land waste. The shellfish processes marine waste. The vulture processes aerial carrion. In each case, the organism's very biological excellence at its ecological role is precisely what disqualifies it as food.</p>
+    <p style="margin-top:10px;">Three and a half millennia of medical science — from the first parasitology to the 2015 WHO carcinogen classifications to real-time Vibrio surveillance — has done nothing but confirm the wisdom encoded in eleven verses of Leviticus.</p>
+  </div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  <p>Health Reform · Scripture Study · Spirit of Prophecy Reference</p>
+  <p style="margin-top:8px; font-size:9px; letter-spacing:2px;">Three witnesses — one conclusion</p>
+</div>
+
+</body>
+</html>

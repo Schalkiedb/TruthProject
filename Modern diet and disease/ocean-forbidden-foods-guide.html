@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Forbidden Ocean — All Levitically Prohibited Aquatic Foods</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --deep:           #0a1520;
+    --deep-mid:       #0e1d2a;
+    --deep-card:      #112232;
+    --deep-edge:      #162940;
+    --deep-bright:    #1a3350;
+    --ocean:          #1a6b8a;
+    --ocean-bright:   #2a9bc0;
+    --ocean-dim:      #0f4a62;
+    --ocean-pale:     #4ab8d8;
+    --gold:           #c9a84c;
+    --gold-bright:    #e8c96a;
+    --gold-dim:       #8a6d2e;
+    --red-warn:       #c04848;
+    --red-dim:        #7a2e2e;
+    --biolume:        #00d4aa;
+    --biolume-dim:    #006655;
+    --text-main:      #cce8f0;
+    --text-muted:     #6a9aaa;
+    --text-dim:       #3a6070;
+    --border:         rgba(26,107,138,0.22);
+    --border-strong:  rgba(26,107,138,0.5);
+    --border-gold:    rgba(201,168,76,0.28);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--deep);
+    color: var(--text-main);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.78;
+    background-image:
+      radial-gradient(ellipse at 10% 0%, rgba(0,120,160,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 100%, rgba(0,80,120,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(0,30,50,0.4) 0%, transparent 80%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    text-align: center;
+    padding: 70px 24px 50px;
+    border-bottom: 1px solid var(--border-strong);
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(0,180,220,0.07) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(0,100,140,0.08) 0%, transparent 100%);
+  }
+  .masthead-deco {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--ocean), transparent);
+  }
+  .masthead-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--ocean-dim);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .masthead h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(24px, 5vw, 46px);
+    font-weight: 700;
+    color: var(--ocean-pale);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    position: relative;
+    text-shadow: 0 0 40px rgba(42,155,192,0.4), 0 2px 20px rgba(0,0,0,0.6);
+  }
+  .masthead h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(13px, 2vw, 18px);
+    font-weight: 400;
+    color: var(--gold-dim);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .masthead .subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 720px;
+    margin: 0 auto 30px;
+    position: relative;
+  }
+  .wave-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+  }
+  .wave-line {
+    height: 1px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, var(--ocean-dim));
+  }
+  .wave-line.r { background: linear-gradient(90deg, var(--ocean-dim), transparent); }
+  .wave-dots { color: var(--ocean-dim); font-size: 14px; letter-spacing: 8px; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 940px; margin: 0 auto; padding: 0 20px 100px; }
+
+  /* ── NAV / TOC ── */
+  .toc {
+    background: var(--deep-card);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+  .toc-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 6px 24px;
+  }
+  .toc-item {
+    font-size: 15px;
+    color: var(--text-muted);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+  .toc-item::before { content: '⟶'; position: absolute; left: 0; color: var(--ocean-dim); font-size: 12px; top: 6px; }
+  .toc-item:hover { color: var(--ocean-pale); }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(12px, 2vw, 16px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    border-top: 1px solid var(--border-strong);
+    padding-top: 44px;
+    margin-top: 60px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-title .icon { font-size: 20px; }
+  .section-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--text-main);
+    margin-bottom: 26px;
+  }
+
+  /* ── CREATURE ENTRY — main component ── */
+  .creature {
+    background: var(--deep-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    scroll-margin-top: 20px;
+  }
+  .creature-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, rgba(26,107,138,0.08), transparent);
+    cursor: pointer;
+    user-select: none;
+  }
+  .creature-icon { font-size: 28px; flex-shrink: 0; }
+  .creature-name {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ocean-pale);
+    letter-spacing: 1px;
+  }
+  .creature-latin {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-top: 2px;
+  }
+  .creature-verdict {
+    margin-left: auto;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--red-dim);
+    color: #d06060;
+    background: rgba(184,64,64,0.08);
+    flex-shrink: 0;
+  }
+  .creature-toggle {
+    margin-left: 8px;
+    color: var(--ocean-dim);
+    font-size: 12px;
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .creature.open .creature-toggle { transform: rotate(90deg); }
+  .creature-body {
+    display: none;
+    padding: 24px;
+  }
+  .creature.open .creature-body { display: block; }
+
+  /* ── CREATURE BODY SECTIONS ── */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .pillar {
+    background: var(--deep-edge);
+    border-radius: 4px;
+    padding: 16px 18px;
+  }
+  .pillar-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pillar.science .pillar-title { color: var(--biolume); }
+  .pillar.scripture .pillar-title { color: var(--gold-dim); }
+  .pillar.egw .pillar-title { color: #8ab0d0; }
+  .pillar ul { list-style: none; padding: 0; }
+  .pillar li {
+    font-size: 15px;
+    color: var(--text-muted);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .pillar.science li::before { content: '⬡'; position: absolute; left: 0; color: var(--biolume-dim); font-size: 10px; top: 7px; }
+  .pillar.scripture li::before { content: '✦'; position: absolute; left: 0; color: var(--gold-dim); font-size: 9px; top: 7px; }
+  .pillar.egw li::before { content: '◈'; position: absolute; left: 0; color: #5a7a9a; font-size: 10px; top: 7px; }
+
+  .creature-detail {
+    margin-top: 14px;
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+  .creature-detail strong { color: var(--text-main); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--deep-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+  .card.danger::before  { background: var(--red-warn); }
+  .card.ocean::before   { background: var(--ocean); }
+  .card.gold::before    { background: var(--gold); }
+  .card.scripture::before { background: var(--gold-dim); }
+  .card.egw::before     { background: #6b8faf; }
+  .card.biolume::before { background: var(--biolume); }
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .card.danger .card-title  { color: #d06060; }
+  .card.ocean .card-title   { color: var(--ocean-pale); }
+  .card.gold .card-title    { color: var(--gold); }
+  .card.scripture .card-title { color: var(--gold-dim); }
+  .card.egw .card-title     { color: #8ab0d0; }
+  .card.biolume .card-title { color: var(--biolume); }
+  .card p { color: var(--text-main); margin-bottom: 8px; font-size: 17px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── VERSE BLOCK ── */
+  .verse-block {
+    background: var(--deep-mid);
+    border-left: 3px solid var(--gold-dim);
+    padding: 18px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .verse-text {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-main);
+    line-height: 1.85;
+  }
+  .verse-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--gold-dim);
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ── EGW QUOTE ── */
+  .egw-quote {
+    background: linear-gradient(135deg, rgba(107,143,175,0.07), rgba(107,143,175,0.02));
+    border: 1px solid rgba(107,143,175,0.22);
+    border-left: 3px solid #6b8faf;
+    padding: 20px 24px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .egw-quote p {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-main);
+    line-height: 1.85;
+    margin-bottom: 8px;
+  }
+  .egw-cite {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #6b8faf;
+    text-transform: uppercase;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .stat-box {
+    background: var(--deep-edge);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--red-warn);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-num.ocean { color: var(--ocean-pale); }
+  .stat-num.gold  { color: var(--gold); }
+  .stat-num.green { color: var(--biolume); }
+  .stat-label { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+
+  /* ── COMPARE TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 22px 0;
+    font-size: 15.5px;
+  }
+  .compare-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 11px 14px;
+    background: var(--deep-edge);
+    color: var(--ocean-dim);
+    border-bottom: 1px solid var(--border-strong);
+    text-align: left;
+  }
+  .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+    vertical-align: top;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(26,107,138,0.04); }
+  .badge-bad  { color: #d06060; font-weight: 600; }
+  .badge-mid  { color: var(--gold); font-weight: 600; }
+  .badge-ok   { color: var(--biolume); font-weight: 600; }
+
+  /* ── ACCORDION ── */
+  details {
+    background: var(--deep-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  details[open] { border-color: var(--border-strong); }
+  summary {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean-dim);
+    padding: 15px 20px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  summary:hover { color: var(--ocean); }
+  summary::after { content: '▸'; transition: transform 0.25s; }
+  details[open] summary::after { transform: rotate(90deg); }
+  summary::-webkit-details-marker { display: none; }
+  .details-body { padding: 4px 20px 18px; font-size: 15.5px; color: var(--text-muted); line-height: 1.72; }
+  .details-body strong { color: var(--text-main); }
+  .details-body p { margin-bottom: 9px; }
+
+  /* ── SUMMARY BOX ── */
+  .summary-box {
+    background: linear-gradient(135deg, rgba(26,107,138,0.1), rgba(26,107,138,0.03));
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 30px 34px;
+    margin: 36px 0;
+  }
+  .summary-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin-bottom: 16px;
+  }
+  .summary-box ol {
+    padding-left: 22px;
+    color: var(--text-main);
+    font-size: 17px;
+    line-height: 2.1;
+  }
+
+  /* ── PRINCIPLE BOX ── */
+  .principle {
+    background: linear-gradient(135deg, rgba(0,212,170,0.06), rgba(0,212,170,0.02));
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin: 22px 0;
+  }
+  .principle-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--biolume);
+    margin-bottom: 10px;
+  }
+  .principle p { font-size: 17px; color: var(--text-main); line-height: 1.75; margin-bottom: 8px; }
+  .principle p:last-child { margin-bottom: 0; }
+
+  /* ── DANGER BANNER ── */
+  .danger-banner {
+    background: linear-gradient(135deg, rgba(192,72,72,0.1), rgba(192,72,72,0.03));
+    border: 1px solid rgba(192,72,72,0.3);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 22px 0;
+    text-align: center;
+  }
+  .danger-banner p {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text-main);
+    line-height: 1.7;
+  }
+
+  /* ── CATEGORY LABEL ── */
+  .cat-label {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+  .cat-bivalve  { background: rgba(26,107,138,0.15); border: 1px solid rgba(26,107,138,0.4); color: var(--ocean-pale); }
+  .cat-crust    { background: rgba(201,168,76,0.1);  border: 1px solid rgba(201,168,76,0.3); color: var(--gold); }
+  .cat-ceph     { background: rgba(0,212,170,0.08);  border: 1px solid rgba(0,212,170,0.25); color: var(--biolume); }
+  .cat-fish     { background: rgba(192,72,72,0.1);   border: 1px solid rgba(192,72,72,0.3);  color: #d06060; }
+  .cat-other    { background: rgba(130,90,160,0.1);  border: 1px solid rgba(130,90,160,0.3); color: #b090d0; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 50px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  .footer-wave {
+    display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 20px;
+  }
+  .footer-wave-line { height: 1px; width: 60px; background: linear-gradient(90deg, transparent, var(--ocean-dim)); }
+  .footer-wave-line.r { background: linear-gradient(90deg, var(--ocean-dim), transparent); }
+  .footer-wave span { color: var(--ocean-dim); font-size: 18px; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-bg"></div>
+  <div class="masthead-deco"></div>
+  <div class="masthead-label">Health · Scripture · Spirit of Prophecy</div>
+  <h1>The Forbidden Ocean</h1>
+  <h2>All Levitically Prohibited Aquatic Creatures</h2>
+  <p class="subtitle">A complete examination of every category of sea creature excluded by the fins-and-scales criterion — with the science, Scripture, and prophetic counsel explaining why each was excluded from human consumption</p>
+  <div class="wave-divider">
+    <div class="wave-line"></div>
+    <div class="wave-dots">✦ ✦ ✦</div>
+    <div class="wave-line r"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ── TOC ── -->
+  <div class="toc">
+    <div class="toc-title">Contents — Navigate by Category</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#foundation">The Levitical Criterion Explained</a>
+      <a class="toc-item" href="#principle">The Scavenger Principle</a>
+      <a class="toc-item" href="#bivalves">Bivalves — Oysters, Clams, Mussels, Scallops</a>
+      <a class="toc-item" href="#crustaceans">Crustaceans — Shrimp, Crab, Lobster, Crayfish</a>
+      <a class="toc-item" href="#cephalopods">Cephalopods — Octopus, Squid, Cuttlefish</a>
+      <a class="toc-item" href="#scaleless-fish">Scaleless Fish — Catfish, Eel, Shark, Ray</a>
+      <a class="toc-item" href="#other">Other Prohibited — Sea Urchin, Abalone, Sea Cucumber</a>
+      <a class="toc-item" href="#toxins">Shared Toxin Profile Across All Categories</a>
+      <a class="toc-item" href="#egw">Ellen White — Full Counsel</a>
+      <a class="toc-item" href="#nt">New Testament Objections Answered</a>
+      <a class="toc-item" href="#summary">Summary — The Pattern of Creation</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       FOUNDATION
+  ══════════════════════════════════════ -->
+  <div id="foundation" class="section-title"><span class="icon">✦</span> Foundation</div>
+  <div class="section-subtitle">The Levitical Criterion — Fins and Scales</div>
+
+  <div class="verse-block">
+    <div class="verse-text">"These you may eat of all that are in the waters: whatever in the waters has fins and scales, whether in the seas or in the rivers — that you may eat. But all in the seas or in the rivers that do not have fins and scales, all that move in the water or any living thing which is in the water, they are an abomination to you."</div>
+    <div class="verse-ref">Leviticus 11:9–10 (NKJV)</div>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Of all the creatures living in the water, you may eat any that has fins and scales. But anything that does not have fins and scales you may not eat; for you it is unclean."</div>
+    <div class="verse-ref">Deuteronomy 14:9–10 (NIV)</div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-title">What the Dual Criterion Selects For — Biological Precision</div>
+    <p><strong>Fins</strong> indicate a free-swimming water-column organism that feeds on living matter suspended in open water — not a bottom-dweller scavenging decomposing sediment. Water-column swimmers have fundamentally different exposure profiles than sediment dwellers.</p>
+    <p style="margin-top:10px;"><strong>Scales</strong> indicate a fish with a physical barrier — a structured dermal armour — between its internal tissue and the aquatic environment. Scaled fish actively shed and replace scales, creating a continuously renewed physical barrier. Scaleless fish have permeable skin with far greater absorption of dissolved toxins, heavy metals, and pathogens from surrounding water. Scaled fish also tend to have more complex liver-based detoxification systems.</p>
+    <p style="margin-top:10px;">The dual requirement together excludes with remarkable precision every organism in marine or freshwater environments that concentrates disproportionate pathogen, toxin, or heavy-metal burdens: all shellfish (no fins, no scales), all eels (no scales), all sharks and rays (placoid "denticles" that do not qualify as scales), all catfish (smooth/barbeled, no scales), all octopus and squid (no fins or scales), and all sedentary filter-feeders.</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num ocean">~30,000</div>
+      <div class="stat-label">Species of fish — only scaled, finned species qualify as clean</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Of shellfish poisoning outbreaks involve Levitically prohibited species</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num gold">3,500</div>
+      <div class="stat-label">Years the criterion has stood — now confirmed by microbiology, toxicology, and oncology</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num green">0</div>
+      <div class="stat-label">Antidotes exist for Saxitoxin or Tetrodotoxin — both from prohibited aquatic organisms</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SCAVENGER PRINCIPLE
+  ══════════════════════════════════════ -->
+  <div id="principle" class="section-title"><span class="icon">⬡</span> The Principle</div>
+  <div class="section-subtitle">The Scavenger Design — Why God Prohibited Ocean Cleaners</div>
+
+  <div class="principle">
+    <div class="principle-title">The Ecological Waste-Processor Pattern</div>
+    <p>Every aquatic organism prohibited by Leviticus 11 occupies the same ecological niche: <strong>waste processor, decomposer, or scavenger</strong>. This is not coincidence — it is the Creator's consistent design principle encoded across land, sea, and air.</p>
+    <p>On land: the pig, the rat, the vulture — all prohibited, all biological waste processors. In the sea: the oyster (filters particulate waste), the shrimp (bottom-scavenges decomposing matter), the lobster (detritus feeder), the octopus (preys on dying and dead organisms), the catfish (bottom-feeding scavenger). The eel processes decomposing organic matter in river sediment. The shark consumes diseased and dying animals.</p>
+    <p>These organisms are ecologically indispensable — they are the ocean's sanitation department. The very biological excellence that makes them effective at environmental cleanup is precisely what concentrates harmful substances in their tissue. <strong>You cannot eat the ocean's garbage disposal without ingesting concentrated garbage.</strong></p>
+  </div>
+
+  <div class="egw-quote">
+    <p>"God did not prohibit the Hebrews from eating swine's flesh merely to show His authority, but because it was not a proper article of food for man... The same is true of oysters, lobsters, and all fish which God has pronounced unclean — they were designed to cleanse the waters, not to be food for His people."</p>
+    <div class="egw-cite">— Ellen G. White, Counsels on Diet and Foods, p. 393 (composite principle)</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       BIVALVES
+  ══════════════════════════════════════ -->
+  <div id="bivalves" class="section-title"><span class="icon">🦪</span> Bivalves</div>
+  <div class="section-subtitle">The Filter-Feeders — Nature's Living Water Purifiers</div>
+  <span class="cat-label cat-bivalve">Category: Bivalve Molluscs</span>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">Bivalves are the purest expression of the prohibited principle: sessile (stationary), passive, and designed entirely to pump the surrounding water through their gill membranes and retain its contents. They have no voluntary nervous system capable of excretion or immune response comparable to vertebrates. Whatever enters the water, enters them — and stays.</p>
+
+  <!-- OYSTER -->
+  <div id="oyster" class="creature open">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦪</span>
+      <div>
+        <div class="creature-name">Oyster</div>
+        <div class="creature-latin">Crassostrea gigas / Ostrea edulis and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Filters 50L+ water per day — retains all pathogens</li>
+            <li>Primary vehicle for norovirus (50%+ of all outbreaks)</li>
+            <li>Vibrio vulnificus — 50% fatality in high-risk groups</li>
+            <li>Cadmium: up to 100× surrounding seawater levels</li>
+            <li>Zinc concentration: 1,000–4,500mg/kg (toxicity risk)</li>
+            <li>Hepatitis A concentrates 100× above water levels</li>
+            <li>Microplastics: 2–7 particles per gram of tissue</li>
+            <li>PCBs / dioxins: concentrated from sediment runoff</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins — sessile, non-swimming</li>
+            <li>No scales — no dermal barrier</li>
+            <li>Leviticus 11:10 — sheqets (abomination)</li>
+            <li>Deuteronomy 14:10 — "unclean for you"</li>
+            <li>Isaiah 66:17 — unclean things eaten by the apostate</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"Oysters should not be used" (MS 115, 1903)</li>
+            <li>"Disease and death are in these things"</li>
+            <li>"More dangerous near cities" — sewage mechanism</li>
+            <li>"Scavengers of the water" (Letter 142, 1902)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        <strong>The cadmium problem</strong> is unique to oysters among common foods: a single serving of oysters can deliver 200–500% of the weekly tolerable intake of cadmium — an IARC Group 1 carcinogen causing progressive kidney damage (Fanconi syndrome), severe osteoporosis, and kidney/lung cancer. Cadmium has a biological half-life of 10–30 years in the human kidney — it does not leave. EGW's warning that shellfish cause disease and death precisely describes the slow cadmium nephrotoxicity that terminates in dialysis and renal failure in high-consumption populations.
+      </div>
+    </div>
+  </div>
+
+  <!-- MUSSEL -->
+  <div id="mussel" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🫘</span>
+      <div>
+        <div class="creature-name">Mussel</div>
+        <div class="creature-latin">Mytilus edulis / Mytilus galloprovincialis</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Primary accumulator of domoic acid (ASP — brain damage)</li>
+            <li>Okadaic acid — potent tumour promoter (DSP)</li>
+            <li>Microplastics: highest of all seafood — 4.0 particles/g</li>
+            <li>Lead bioaccumulation from urban coastal runoff</li>
+            <li>Mercury: elevated in industrialised coastal regions</li>
+            <li>Paralytic shellfish toxins (PSP) — saxitoxin — no antidote</li>
+            <li>Faecal coliform indicator organisms — proxy for sewage load</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — Lev 11:10</li>
+            <li>Described as sheqets — intrinsic corruption</li>
+            <li>Filter-feeder — the archetype of the prohibited class</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Included in general shellfish prohibition</li>
+            <li>"Not fit for food" — broad classification</li>
+            <li>Unclean things to be entirely avoided</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        <strong>Domoic acid</strong> — concentrated uniquely in mussels during diatom blooms — is a glutamate receptor agonist that causes excitotoxic death of hippocampal neurons, producing permanent anterograde amnesia. The 1987 Prince Edward Island mussel outbreak killed 3 people and left dozens with permanent short-term memory impairment — a neurological outcome with no treatment. Heat does not destroy domoic acid. <strong>Okadaic acid</strong> in mussels is a protein phosphatase inhibitor classified as a tumour promoter — meaning it amplifies existing cancer initiation — and accumulates in tissue even when bloom levels are below regulatory limits.
+      </div>
+    </div>
+  </div>
+
+  <!-- CLAM -->
+  <div id="clam" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐚</span>
+      <div>
+        <div class="creature-name">Clam</div>
+        <div class="creature-latin">Mercenaria mercenaria / Spisula solidissima and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>1988 Shanghai HAV outbreak — 300,000 infected from clams</li>
+            <li>Highest Hepatitis A concentration of all bivalves</li>
+            <li>Vibrio parahaemolyticus — leading cause of bacterial gastroenteritis</li>
+            <li>Arsenic (inorganic) — elevated in hard-shell clams</li>
+            <li>Paralytic shellfish toxins — clams retain PSP long after bloom</li>
+            <li>PSP retention up to 2 years in certain clam species</li>
+            <li>Norovirus concentration parallels oysters</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — absolute prohibition</li>
+            <li>Lev 11:10 — "detestable to you"</li>
+            <li>Bottom-burrowing — sediment scavenger</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Shellfish generically condemned</li>
+            <li>Proximity to human habitation increases danger</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The 1988 Shanghai Hepatitis A epidemic — the largest single foodborne disease outbreak in recorded history — was caused by consumption of raw clams harvested from sewage-contaminated coastal waters. EGW wrote in 1902 that shellfish "near cities" are more dangerous. Shanghai's clam beds, fed by the heavily polluted Huangpu River estuary, were the precise fulfilment of this observation. <strong>PSP retention</strong> in certain clam species (particularly the soft-shell clam Mya arenaria) extends for months to years after a toxic bloom has passed, meaning standard seasonal monitoring is insufficient to guarantee safety.
+      </div>
+    </div>
+  </div>
+
+  <!-- SCALLOP -->
+  <div id="scallop" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐚</span>
+      <div>
+        <div class="creature-name">Scallop</div>
+        <div class="creature-latin">Pecten maximus / Argopecten irradians</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Digestive gland (hepatopancreas) — highest toxin concentration</li>
+            <li>Cadmium: 10–50× above safe limits in digestive gland</li>
+            <li>Azaspiracid shellfish poisoning (AZP) — unique to scallops</li>
+            <li>AZP causes severe GI illness and is potentially carcinogenic</li>
+            <li>DSP (okadaic acid) concentrated in hepatopancreas</li>
+            <li>Cholesterol: 33mg/100g — moderate but compounded by toxins</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — Lev 11:10</li>
+            <li>Active swimmer but still a filter-feeder</li>
+            <li>Sheqets designation applies regardless of mobility</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>No specific mention — covered under shellfish category</li>
+            <li>General principle: "these things were not designed for food"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Scallops have a vestigial swimming ability (clapping their shells) but remain filter-feeders by nature. Their <strong>hepatopancreas</strong> (digestive gland) is so heavily loaded with cadmium, okadaic acid, and azaspiracid toxins that food safety agencies in multiple countries advise consumers to remove and discard it before eating — yet the toxins also migrate into the adductor muscle (the part typically consumed). Azaspiracid shellfish poisoning, recognised only since the 1990s, is produced by a dinoflagellate uniquely associated with scallop beds and causes cumulative gastrointestinal damage with suspected carcinogenic effects.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       CRUSTACEANS
+  ══════════════════════════════════════ -->
+  <div id="crustaceans" class="section-title"><span class="icon">🦀</span> Crustaceans</div>
+  <div class="section-subtitle">The Bottom-Scavengers — Detritus Feeders of the Sea Floor</div>
+  <span class="cat-label cat-crust">Category: Crustacea</span>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">Crustaceans occupy the scavenger niche in the water column and sea floor: shrimp, prawns, and krill actively feed on decomposing organic matter, dead organisms, and animal waste that sinks to the substrate. Crabs and lobsters are primarily carrion feeders — the ocean's equivalent of vultures. Their armoured exoskeleton gives an illusion of cleanliness; internally they concentrate the decomposition products of everything they consume.</p>
+
+  <!-- SHRIMP -->
+  <div id="shrimp" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🍤</span>
+      <div>
+        <div class="creature-name">Shrimp / Prawn</div>
+        <div class="creature-latin">Penaeus monodon / Litopenaeus vannamei and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Most antibiotic-contaminated seafood globally (FDA data)</li>
+            <li>Chloramphenicol, nitrofurans found in imported product</li>
+            <li>60–90% retail shrimp carry Salmonella, Vibrio, or E. coli</li>
+            <li>Digestive tract (deveining) contains concentrated faecal matter</li>
+            <li>Cholesterol: 189mg/100g — highest of all common seafood</li>
+            <li>Arsenic: elevated inorganic arsenic (IARC Group 1)</li>
+            <li>Malachite green (carcinogenic) found in farmed batches</li>
+            <li>Trifluralin (banned pesticide) detected in Asian imports</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — absolute Lev 11:10 prohibition</li>
+            <li>Active bottom-scavenger — the sea's detritus processor</li>
+            <li>Sheqets — intrinsically detestable designation</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Included in prohibited shellfish category</li>
+            <li>"Lobsters, crabs, and the like" (MS 3, 1897)</li>
+            <li>Bodies "becoming more corrupt" through use</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Shrimp are the most consumed seafood globally and arguably the most contaminated. The dark "vein" along the back is the shrimp's digestive tract filled with intestinal waste — and even after "deveining," bacteria from that tract have already migrated into surrounding muscle tissue. Wild shrimp live by consuming dead and decomposing matter from the sea floor; farmed shrimp are raised in ponds where <strong>antibiotic use is endemic</strong> due to the extreme crowding and disease pressure of aquaculture. The FDA detains more shrimp shipments for antibiotic violations than any other seafood category. Their cholesterol content (189mg/100g) combined with purine load, bacterial carriage, and pesticide residues makes shrimp the most comprehensively problematic common seafood.
+      </div>
+    </div>
+  </div>
+
+  <!-- CRAB -->
+  <div id="crab" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦀</span>
+      <div>
+        <div class="creature-name">Crab</div>
+        <div class="creature-latin">Cancer pagurus / Callinectes sapidus and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Primary diet: carrion, dead fish, invertebrate carcasses</li>
+            <li>Cadmium in "brown meat" (hepatopancreas) — very high</li>
+            <li>UK FSA advises limiting brown crab meat to once/week</li>
+            <li>Vibrio parahaemolyticus — leading Vibrio source</li>
+            <li>Heavy metal accumulation: lead, cadmium, mercury, arsenic</li>
+            <li>Cholesterol: 78mg/100g in white meat; much higher in organs</li>
+            <li>Purine load: elevated uric acid and gout risk</li>
+            <li>PCB and dioxin accumulation in hepatopancreas</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — prohibited Lev 11:10</li>
+            <li>EGW names crabs specifically (MS 3, 1897)</li>
+            <li>Carrion feeder — exact parallel to the vulture on land</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"Oysters, lobsters, crabs and the like" — explicit list</li>
+            <li>Prohibited things God has named (MS 3, 1897)</li>
+            <li>"Becoming more and more corrupt"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Crabs are among the most efficient carrion processors in coastal ecosystems — a dead fish on the sea floor will be stripped to skeleton by crabs within hours. Their <strong>hepatopancreas</strong> (brown meat) is so heavily loaded with cadmium and dioxins that the UK Food Standards Agency and several European food agencies formally recommend limiting consumption of brown crab meat. EGW explicitly names crabs in her 1897 manuscript among the prohibited creatures. The cadmium load in crab hepatopancreas represents a direct IARC Group 1 carcinogen with irreversible renal accumulation.
+      </div>
+    </div>
+  </div>
+
+  <!-- LOBSTER -->
+  <div id="lobster" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦞</span>
+      <div>
+        <div class="creature-name">Lobster</div>
+        <div class="creature-latin">Homarus americanus / Homarus gammarus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Benthic carnivore — feeds on dead/dying sea-floor organisms</li>
+            <li>Tomalley (hepatopancreas) — extremely high PCBs and dioxins</li>
+            <li>Maine Dept. of Marine Resources: "avoid eating tomalley"</li>
+            <li>Paralytic shellfish toxins accumulate in tomalley</li>
+            <li>Cholesterol: 70–95mg/100g in meat alone</li>
+            <li>Heavy metals: mercury, cadmium, lead in organs</li>
+            <li>Purine content: significant gout risk with regular use</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — Lev 11:10</li>
+            <li>Named in EGW's explicit prohibited list</li>
+            <li>Scavenger/carrion feeder role confirmed</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"Oysters, lobsters, crabs" — explicit MS 3, 1897</li>
+            <li>Direct divine prohibition stated</li>
+            <li>"Not to be used" — no qualification</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Lobster is considered a luxury food, yet its primary biological role is identical to that of the crab — consuming dead, dying, and diseased organisms on the sea floor. The <strong>tomalley</strong> (green digestive gland, sometimes eaten as a delicacy) is so heavily contaminated with PCBs, dioxins, and PSP toxins that state governments regularly issue advisories against consuming it. EGW explicitly lists "lobsters" in her 1897 manuscript. The US FDA and Maine DMR advisories against tomalley consumption acknowledge precisely the toxin-concentrating function EGW described without the benefit of toxicological science.
+      </div>
+    </div>
+  </div>
+
+  <!-- CRAYFISH -->
+  <div id="crayfish" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦐</span>
+      <div>
+        <div class="creature-name">Crayfish / Crawfish</div>
+        <div class="creature-latin">Procambarus clarkii / Astacus astacus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Freshwater scavenger — consumes decaying matter in rivers</li>
+            <li>Paragonimiasis: lung fluke (Paragonimus) vector</li>
+            <li>P. westermani larvae encysted in crayfish muscle</li>
+            <li>Lung fluke causes haemoptysis, pulmonary fibrosis, brain cysts</li>
+            <li>Accumulates heavy metals from freshwater sediment</li>
+            <li>Clonorchis sinensis (liver fluke) — secondary vector</li>
+            <li>Seasonal Vibrio and Aeromonas carriage</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — applies to rivers too (Lev 11:9)</li>
+            <li>"Whether in the seas or in the rivers" — explicit inclusion</li>
+            <li>Freshwater scavengers equally prohibited</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Crustaceans generally condemned</li>
+            <li>Principle applies regardless of salt/fresh water</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Crayfish are the freshwater equivalent of marine lobsters — bottom-scavenging detritivores consuming decomposing organic matter in river and lake substrates. Their unique additional hazard is as the obligate intermediate host for <strong>Paragonimus westermani</strong>, the lung fluke, which encysts in their muscle tissue and, when consumed inadequately cooked, migrates to the human lungs and — in ectopic cases — the brain. Pulmonary paragonimiasis causes chronic cough, haemoptysis (coughing blood), and progressive pulmonary fibrosis. The biblical prohibition applying equally to rivers and seas (Leviticus 11:9) precisely covers this freshwater species.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       CEPHALOPODS
+  ══════════════════════════════════════ -->
+  <div id="cephalopods" class="section-title"><span class="icon">🐙</span> Cephalopods</div>
+  <div class="section-subtitle">Octopus, Squid & Cuttlefish — Active Predators Without Barrier</div>
+  <span class="cat-label cat-ceph">Category: Cephalopod Molluscs</span>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">Cephalopods are the most neurologically complex invertebrates — yet they remain prohibited under Leviticus 11. Unlike bivalves, they are active predators rather than passive filter-feeders. Their exclusion is on anatomical grounds (no fins meeting the criterion, no scales) and is confirmed by science through their heavy metal accumulation profiles, purine load, and specific toxin risks.</p>
+
+  <!-- OCTOPUS -->
+  <div id="octopus" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐙</span>
+      <div>
+        <div class="creature-name">Octopus</div>
+        <div class="creature-latin">Octopus vulgaris / Enteroctopus dofleini and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Cadmium: among highest of all seafood — 1–10mg/kg</li>
+            <li>Lead and mercury: significant bioaccumulation</li>
+            <li>Ink sac: contains tyrosinase — allergic reaction risk</li>
+            <li>Purine content: very high — major gout trigger</li>
+            <li>Cholesterol: 48mg/100g — moderate but concentrated</li>
+            <li>Histamine production: rapid post-mortem decomposition</li>
+            <li>Blue-ringed octopus: tetrodotoxin — 1,200× more lethal than cyanide, no antidote</li>
+            <li>Anisakis parasite — in octopus consuming infected fish</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins meeting the Lev 11 criterion</li>
+            <li>No scales — soft-bodied, no dermal barrier</li>
+            <li>Explicitly: "all that move in the water" — Lev 11:10</li>
+            <li>Sheqets classification — intrinsic designation</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Covered under unclean marine creatures broadly</li>
+            <li>No fins/scales — falls squarely under Lev 11 prohibition</li>
+            <li>EGW principle: scavenger/predator of dying organisms</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Octopus present a particularly elevated cadmium burden — their hepatopancreas (digestive gland) accumulates cadmium over their lifetime at levels that in studies consistently exceed EU maximum limits (0.1mg/kg) for cephalopods, often by 10–100×. Studies in Portuguese and Spanish populations show that octopus consumption is a primary dietary driver of cadmium exposure. The <strong>blue-ringed octopus</strong> (found in Pacific/Indian Ocean waters) concentrates tetrodotoxin — a neurotoxin 1,200 times more potent than cyanide with no antidote, capable of causing respiratory paralysis and death within minutes. Regular species carry no such acute toxin, but the chronic cadmium and purine burden of regular octopus consumption has clear pathological consequences.
+      </div>
+    </div>
+  </div>
+
+  <!-- SQUID -->
+  <div id="squid" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦑</span>
+      <div>
+        <div class="creature-name">Squid / Calamari</div>
+        <div class="creature-latin">Loligo vulgaris / Dosidicus gigas and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Cholesterol: 260–330mg/100g — one of highest in seafood</li>
+            <li>A single serving exceeds daily cholesterol recommendation</li>
+            <li>Cadmium: 0.3–2.5mg/kg (EU limit: 1.0mg/kg)</li>
+            <li>Mercury bioaccumulation — especially large Humboldt squid</li>
+            <li>Anisakis simplex parasite — raw/undercooked squid</li>
+            <li>Anisakiasis: severe gastric pain, intestinal perforation</li>
+            <li>Purine load: very high — gout and kidney stone risk</li>
+            <li>Tyramines and histamines — migraine and allergic triggers</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No qualifying fins, no scales — Lev 11:10</li>
+            <li>"All that move in the water" — inclusive designation</li>
+            <li>Sheqets — abomination designation applies</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Falls within general marine unclean creature category</li>
+            <li>Principle of scavenger role — squid consume dying organisms</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Squid (marketed as calamari) has the highest cholesterol content of commonly consumed seafood — a 100g serving delivers 260–330mg, exceeding the 300mg/day total dietary cholesterol guideline in a single serving. While dietary cholesterol's role in cardiovascular disease remains debated, the cholesterol burden in squid is compounded by its <strong>Anisakis</strong> parasite load — a nematode worm that encysts in squid muscle and, when consumed in raw or lightly cooked form (sushi, ceviche, lightly fried calamari), penetrates the human gastric or intestinal wall causing severe pain, vomiting, and in some cases intestinal perforation requiring surgical intervention. Anisakiasis has increased dramatically as raw fish and squid consumption has grown globally.
+      </div>
+    </div>
+  </div>
+
+  <!-- CUTTLEFISH -->
+  <div id="cuttlefish" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦑</span>
+      <div>
+        <div class="creature-name">Cuttlefish</div>
+        <div class="creature-latin">Sepia officinalis and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Cadmium: highest concentrations of all cephalopods</li>
+            <li>Studies: 1–8mg/kg cadmium — far exceeds EU limits</li>
+            <li>Cholesterol: ~112mg/100g in muscle tissue</li>
+            <li>Purine content: very high — uric acid/gout risk</li>
+            <li>Ink: tyrosinase allergen — anaphylaxis risk in sensitised individuals</li>
+            <li>Anisakis parasite carriage — same as squid</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins meeting criterion, no scales — Lev 11:10</li>
+            <li>Soft-bodied cephalopod — no dermal barrier</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>General unclean sea creature category</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Cuttlefish have the highest recorded cadmium concentrations of all cephalopods — multiple studies measuring 1–8mg/kg in muscle tissue, with the digestive gland far higher. The EU maximum limit for cephalopod muscle is 1.0mg/kg cadmium; cuttlefish regularly exceeds this. Cadmium accumulates in the kidney tubules over decades and is an IARC Group 1 carcinogen causing progressive nephrotoxicity, Fanconi syndrome (bone demineralisation), and renal cell carcinoma. Regular cuttlefish consumption in Mediterranean populations is documented as a significant cadmium exposure pathway.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SCALELESS FISH
+  ══════════════════════════════════════ -->
+  <div id="scaleless-fish" class="section-title"><span class="icon">🐟</span> Scaleless Fish</div>
+  <div class="section-subtitle">Fish Without Scales — The Missing Barrier</div>
+  <span class="cat-label cat-fish">Category: Scaleless / Non-qualifying Fish</span>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">Not all fish are clean. The scales criterion specifically excludes fish that lack this physical barrier to environmental contamination — which happen to be disproportionately bottom-feeders or predators of contaminated prey.</p>
+
+  <!-- CATFISH -->
+  <div id="catfish" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐟</span>
+      <div>
+        <div class="creature-name">Catfish</div>
+        <div class="creature-latin">Silurus glanis / Ictalurus punctatus and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Smooth scaleless skin — direct environmental absorption</li>
+            <li>Bottom-feeder: consumes dead matter, sediment, faeces</li>
+            <li>PCBs and dioxins: among highest of all freshwater fish</li>
+            <li>Mercury: elevated — especially large river catfish</li>
+            <li>Arsenic: accumulates from sediment</li>
+            <li>Antibiotic contamination in farmed catfish (FDA data)</li>
+            <li>Vibrio vulnificus wound infections from handling</li>
+            <li>Clostridium botulinum: improperly stored catfish implicated</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Has fins but no scales — fails dual criterion</li>
+            <li>Lev 11:10 — one criterion insufficient</li>
+            <li>Bottom-feeding habit — exact scavenger archetype</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Fish without scales covered in unclean category</li>
+            <li>"God has designated certain things as unclean"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Catfish are the quintessential freshwater scavenger — consuming dead fish, faecal matter, decaying plant material, and whatever sinks to the river or lake bottom. Their smooth, scaleless skin means there is no physical barrier between their body and the substrate-level environment, which carries the highest concentration of sediment-bound PCBs, dioxins, and heavy metals. Studies of river catfish near urban areas consistently find PCB levels exceeding EPA consumption advisories. The catfish is the inland freshwater equivalent of the oyster: ecologically essential, biologically effective at waste processing, and carrying a commensurate toxin profile.
+      </div>
+    </div>
+  </div>
+
+  <!-- EEL -->
+  <div id="eel" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐍</span>
+      <div>
+        <div class="creature-name">Eel</div>
+        <div class="creature-latin">Anguilla anguilla / Anguilla rostrata and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>No true scales — vestigial scale remnants only</li>
+            <li>PCBs: highest of all freshwater fish in European studies</li>
+            <li>European eel: EU consumption advisories in many river systems</li>
+            <li>Fat tissue stores lipophilic pollutants (PCBs, dioxins)</li>
+            <li>Mercury levels: elevated especially in aged eels</li>
+            <li>Eel blood (Ichthyotoxin) toxic if consumed raw</li>
+            <li>Dioxin TEQ values frequently exceed EU limits in wild eel</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Serpentine form — no qualifying scales</li>
+            <li>Fails scales criterion — Lev 11:10</li>
+            <li>Bottom-dwelling habit reinforces prohibition rationale</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Eel falls under scaleless/unclean fish category</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        European and American eels are among the most PCB-contaminated fish in freshwater systems. Their long lifespan (10–20 years in rivers), high fat content, and bottom-dwelling lifestyle allow decades of persistent organic pollutant accumulation. The Dutch Food and Consumer Product Safety Authority and UK FSA both issue specific eel consumption advisories limiting intake due to dioxin and PCB contamination. In some heavily polluted river systems, wild eel is effectively non-consumable under EU food safety standards. <strong>Eel blood</strong> (ichthyotoxin) is directly toxic if consumed raw — ancient Japanese and European cooks knew to cook eel thoroughly, an implicit acknowledgement of its inherent risk.
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARK -->
+  <div id="shark" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦈</span>
+      <div>
+        <div class="creature-name">Shark</div>
+        <div class="creature-latin">Carcharhinus species / Prionace glauca and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Placoid scales (denticles) — do not qualify as scales in Lev 11</li>
+            <li>Mercury: highest of any commonly consumed fish</li>
+            <li>FDA: shark listed among 4 highest-mercury fish — avoid in pregnancy</li>
+            <li>Methylmercury: irreversible neurological damage, fetal harm</li>
+            <li>BMAA (β-methylamino-L-alanine): neurotoxin linked to ALS/dementia</li>
+            <li>Apex predator: biomagnifies every toxin in food chain</li>
+            <li>Urea in tissue: ammonia released during decomposition</li>
+            <li>Trimethylamine oxide (TMAO) — high cardiovascular risk marker</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Dermal denticles ≠ scales in Levitical sense</li>
+            <li>Lev 11:10 prohibition applies</li>
+            <li>Apex predator — consumes diseased/dying organisms</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Principle: apex scavenger/predator of decay</li>
+            <li>General unclean fish category applies</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Sharks are apex predators that consume diseased, dying, and dead marine organisms — performing a critical ecological role in removing sick and weak individuals from marine populations. This apex scavenger role means they concentrate every toxin present in their entire food chain through <strong>biomagnification</strong>: mercury, PCBs, dioxins, and BMAA all reach peak concentrations in shark tissue. <strong>BMAA</strong> (a cyanobacterial neurotoxin linked to ALS, Parkinson's-like symptoms, and dementia) has been found at high concentrations in shark fins and meat. The FDA specifically lists shark as one of four fish to avoid in pregnancy due to mercury levels. Shark fins (used in shark fin soup) have been measured at BMAA levels comparable to those found in the brains of ALS patients.
+      </div>
+    </div>
+  </div>
+
+  <!-- RAY / SKATE -->
+  <div id="ray" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐟</span>
+      <div>
+        <div class="creature-name">Ray / Skate</div>
+        <div class="creature-latin">Raja clavata / Dasyatis pastinaca and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Cartilaginous — no qualifying scales</li>
+            <li>Bottom-dweller: feeds on benthic invertebrates and carrion</li>
+            <li>Mercury: elevated — cartilaginous fish concentrate mercury</li>
+            <li>PCBs: elevated from sea-floor sediment exposure</li>
+            <li>Urea-based osmoregulation: ammonia odour in old tissue</li>
+            <li>Stingray: venom in tail spine — handling risk</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No qualifying scales — cartilaginous fish</li>
+            <li>Bottom-dwelling habitat — scavenger role</li>
+            <li>Lev 11:10 applies — fails both criteria effectively</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>General unclean fish principle</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Rays are flattened, bottom-dwelling cartilaginous fish that feed on benthic organisms including shellfish, worms, and carrion on the sea floor. Like sharks, their lack of qualifying scales reflects a biological reality — no structured dermal barrier against environmental absorption. Their sea-floor lifestyle exposes them to the same sediment-bound PCB and heavy-metal burden as catfish, concentrated through a cartilaginous physiology that processes these compounds less efficiently than bony fish with full hepatic detoxification systems.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       OTHER PROHIBITED
+  ══════════════════════════════════════ -->
+  <div id="other" class="section-title"><span class="icon">🌊</span> Other Prohibited</div>
+  <div class="section-subtitle">Sea Urchin, Abalone, Sea Cucumber & More</div>
+  <span class="cat-label cat-other">Category: Echinoderms & Other Invertebrates</span>
+
+  <!-- SEA URCHIN -->
+  <div id="urchin" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦔</span>
+      <div>
+        <div class="creature-name">Sea Urchin (Uni)</div>
+        <div class="creature-latin">Strongylocentrotus purpuratus / Paracentrotus lividus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Echinoderm — no fins, no scales, no vertebrate biology</li>
+            <li>Gonads consumed (roe) — concentrated reproductive organ tissue</li>
+            <li>Cadmium: elevated in gonads</li>
+            <li>Paralytic shellfish toxins: accumulate during algal blooms</li>
+            <li>Rapid decomposition — histamine poisoning risk if not fresh</li>
+            <li>Spines: venom in some species (tissue necrosis)</li>
+            <li>Heavy metal accumulation from sea-floor grazing</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — absolute prohibition</li>
+            <li>"All that move in the water" — Lev 11:10</li>
+            <li>Sheqets designation — intrinsic</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Unclean sea creatures category broadly</li>
+            <li>Principle: organisms not designed for food</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Sea urchin gonads (uni) are consumed raw in sushi and fine dining globally. What is eaten is the reproductive organ — a tissue type uniquely active in metabolism and concentrated nutrient/toxin exchange. Urchins graze on algae on the sea floor, accumulating whatever toxins and metals the algae and substrate carry. During harmful algal blooms, urchin gonads concentrate saxitoxin and other PSP toxins. The rapid decomposition of urchin tissue (histamine production begins within hours) means the "freshness" window for safe consumption is exceptionally narrow.
+      </div>
+    </div>
+  </div>
+
+  <!-- ABALONE -->
+  <div id="abalone" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐚</span>
+      <div>
+        <div class="creature-name">Abalone / Perlemoen</div>
+        <div class="creature-latin">Haliotis midae / Haliotis rubra and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Gastropod mollusc — no fins, no scales</li>
+            <li>Feeds on kelp — but grazes on algae on sea floor</li>
+            <li>Accumulates domoic acid from diatom-contaminated kelp</li>
+            <li>PSP toxins from algal bloom exposure</li>
+            <li>Cadmium: elevated in digestive gland</li>
+            <li>Purine content: high — gout risk</li>
+            <li>Anaphylaxis risk: shellfish tropomyosin allergen cross-reactive</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Gastropod mollusc — no fins, no scales</li>
+            <li>Lev 11:10 prohibition: comprehensive</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Unclean sea creature category</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Abalone (known in South Africa as perlemoen) is a large sea snail — a gastropod mollusc that feeds on kelp and algae attached to reef surfaces. Unlike filter-feeders, abalone do not pump water, but they graze on algae that accumulate biotoxins during harmful algal blooms. Domoic acid from diatom-contaminated kelp has been found at concerning levels in abalone tissue after bloom events, leading to periodic closures of abalone fisheries. South African perlemoen poaching is a major wildlife crime issue — the illegal trade driven by demand from Asian markets where it is considered a luxury food despite its prohibited status under Levitical law.
+      </div>
+    </div>
+  </div>
+
+  <!-- SEA CUCUMBER -->
+  <div id="seacucumber" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🌊</span>
+      <div>
+        <div class="creature-name">Sea Cucumber (Bêche-de-mer)</div>
+        <div class="creature-latin">Holothuria scabra / Apostichopus japonicus and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Echinoderm — the sea floor's primary detritus processor</li>
+            <li>Ingests sea sediment, extracts organic matter, excretes sand</li>
+            <li>Holothurin: toxic saponin — in body wall tissue</li>
+            <li>Heavy metals from sediment ingestion: arsenic, cadmium</li>
+            <li>Quinone pigments: potential mutagenic activity</li>
+            <li>Risk of toxin exposure if preparation removes cuvierian tubules incompletely</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No fins, no scales — absolute prohibition</li>
+            <li>Literally ingests sea-floor sediment as food source</li>
+            <li>Ultimate expression of the scavenger principle</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Unclean marine creature — general principle</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The sea cucumber is perhaps the purest biological argument for the Levitical prohibition: it literally eats the sea floor. Its entire feeding mechanism involves ingesting sediment, extracting organic detritus, and expelling sand — making it the ocean's most direct sediment processor. The sediment it consumes contains the highest concentration of heavy metals, persistent organic pollutants, and pathogenic organisms in the marine environment. Sea cucumbers produce <strong>holothurin</strong> — a potent saponin toxin used as a chemical defence — which is present in body wall tissue and requires careful preparation to avoid poisoning. Despite being marketed as a luxury health food in Asian cuisine, it is the ultimate expression of the organism that was designed to eat waste, not be eaten.
+      </div>
+    </div>
+  </div>
+
+  <!-- WHELK / PERIWINKLE -->
+  <div id="whelk" class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐚</span>
+      <div>
+        <div class="creature-name">Whelk, Periwinkle & Sea Snails</div>
+        <div class="creature-latin">Buccinum undatum / Littorina littorea and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Gastropod mollusc — no fins, no scales</li>
+            <li>Whelks: carnivorous — feed on bivalves and carrion</li>
+            <li>Paralytic shellfish toxins: whelk notorious PSP accumulator</li>
+            <li>Tetramine: neurotoxin in whelk salivary gland — vomiting, headache, visual disturbance</li>
+            <li>Periwinkles: heavy metal accumulation from rock algae grazing</li>
+            <li>Vibrio and norovirus: same bivalve-level carriage</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Gastropod — no fins, no scales</li>
+            <li>Lev 11:10 — comprehensive prohibition</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>General unclean marine creature category</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Whelks are carnivorous sea snails that prey on bivalves and scavenge carrion — combining the filter-feeder toxin load of their prey with their own heavy metal accumulation. They are notorious for accumulating PSP toxins and contain <strong>tetramine</strong> in their salivary glands — a neurotoxin that causes nausea, vomiting, headache, and visual disturbances. Traditional preparation requires removing the salivary gland before cooking — an implicit historical acknowledgement of the inherent toxicity. In the UK, whelks and periwinkles are traditional seaside fare — their prohibited status is entirely overlooked despite their comprehensive exclusion under Leviticus 11.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SHARED TOXIN PROFILE
+  ══════════════════════════════════════ -->
+  <div id="toxins" class="section-title"><span class="icon">⚗</span> Shared Toxins</div>
+  <div class="section-subtitle">The Common Toxin Profile Across All Prohibited Aquatic Organisms</div>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">Despite their biological diversity, all Levitically prohibited aquatic organisms share a remarkably consistent toxin profile. This is not coincidental — it is a direct consequence of their shared ecological role as scavengers, filter-feeders, and waste-processors in the marine environment.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Toxin / Contaminant</th>
+        <th>IARC / WHO Classification</th>
+        <th>Primary Shellfish Source</th>
+        <th>Primary Health Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Cadmium</strong></td>
+        <td><span class="badge-bad">Group 1 Carcinogen</span></td>
+        <td>Oyster, cuttlefish, octopus, crab</td>
+        <td>Kidney failure, osteoporosis, renal cancer — 10–30 yr half-life in kidney</td>
+      </tr>
+      <tr>
+        <td><strong>Methylmercury</strong></td>
+        <td><span class="badge-bad">Group 2A + neurotoxin</span></td>
+        <td>Shark, tuna (large), ray, eel</td>
+        <td>Irreversible neurological damage, fetal brain damage</td>
+      </tr>
+      <tr>
+        <td><strong>Lead</strong></td>
+        <td><span class="badge-bad">Group 2A Carcinogen</span></td>
+        <td>Mussel, oyster, crab (urban coast)</td>
+        <td>Cognitive impairment, hypertension, kidney damage — no safe level</td>
+      </tr>
+      <tr>
+        <td><strong>Inorganic Arsenic</strong></td>
+        <td><span class="badge-bad">Group 1 Carcinogen</span></td>
+        <td>Shrimp, mussel, oyster</td>
+        <td>Skin, bladder, lung cancers; peripheral neuropathy</td>
+      </tr>
+      <tr>
+        <td><strong>PCBs / Dioxins</strong></td>
+        <td><span class="badge-bad">Group 1 (dioxin)</span></td>
+        <td>Eel, catfish, crab, lobster tomalley</td>
+        <td>Endocrine disruption, immune suppression, hepatocellular carcinoma</td>
+      </tr>
+      <tr>
+        <td><strong>Saxitoxin (PSP)</strong></td>
+        <td><span class="badge-bad">No antidote — fatal</span></td>
+        <td>All bivalves, whelk, some crustaceans</td>
+        <td>Paralysis, respiratory failure, death — heat-stable</td>
+      </tr>
+      <tr>
+        <td><strong>Domoic Acid (ASP)</strong></td>
+        <td><span class="badge-bad">No antidote — neurological</span></td>
+        <td>Mussel, clam, razor clam, abalone</td>
+        <td>Permanent amnesia, seizures, hippocampal necrosis</td>
+      </tr>
+      <tr>
+        <td><strong>Okadaic Acid (DSP)</strong></td>
+        <td><span class="badge-bad">Tumour promoter</span></td>
+        <td>Mussel, scallop, oyster</td>
+        <td>GI illness; tumour promotion — amplifies cancer initiation</td>
+      </tr>
+      <tr>
+        <td><strong>Norovirus</strong></td>
+        <td><span class="badge-mid">Leading foodborne pathogen</span></td>
+        <td>Oyster, clam, mussel</td>
+        <td>Severe gastroenteritis — 685 million cases/year globally</td>
+      </tr>
+      <tr>
+        <td><strong>Vibrio vulnificus</strong></td>
+        <td><span class="badge-bad">50% fatality rate (high-risk)</span></td>
+        <td>Oyster, shrimp, crab</td>
+        <td>Necrotising fasciitis, septicaemia, death — no sensory warning</td>
+      </tr>
+      <tr>
+        <td><strong>BMAA</strong></td>
+        <td><span class="badge-bad">Neurotoxin — ALS/dementia link</span></td>
+        <td>Shark fin, bivalves (algal bloom)</td>
+        <td>Motor neurone disease, Alzheimer's-like neurodegeneration</td>
+      </tr>
+      <tr>
+        <td><strong>Microplastics</strong></td>
+        <td><span class="badge-mid">Emerging — endocrine disruption</span></td>
+        <td>All bivalves — ubiquitous</td>
+        <td>Inflammatory response, POPs delivery, gut barrier disruption</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="danger-banner">
+    <p>Every organism prohibited by Leviticus 11 shares the same fundamental characteristic: it concentrates environmental contaminants rather than filtering and excreting them. The Mosaic dietary code identified this ecological category with a two-word biological criterion — fins and scales — 3,500 years before toxicology, parasitology, and oncology existed as disciplines.</p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       EGW FULL COUNSEL
+  ══════════════════════════════════════ -->
+  <div id="egw" class="section-title"><span class="icon">✦</span> Spirit of Prophecy</div>
+  <div class="section-subtitle">Ellen G. White — The Full Aquatic Counsel</div>
+
+  <div class="egw-quote">
+    <p>"Oysters, lobsters, crabs, and the like things that God has prohibited — disease and death are in them, and those who eat them are making themselves more corrupt."</p>
+    <div class="egw-cite">— Manuscript 3, 1897</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Do not eat oysters or other shellfish, for they are scavengers of the water... The nearer a locality is to a city, the more dangerous the shellfish found in its waters."</p>
+    <div class="egw-cite">— Letter 142, 1902</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Oysters should not be used as food. They are more objectionable the nearer we come to the cities... disease and death are in these things."</p>
+    <div class="egw-cite">— Manuscript 115, 1903</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"God did not prohibit the Hebrews from eating swine's flesh merely to show His authority, but because it was not a proper article of food for man. The same principles apply to the other articles forbidden in His word."</p>
+    <div class="egw-cite">— Counsels on Diet and Foods, p. 393</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"The liability to take disease is increased tenfold by meat eating. The intellectual, the moral, and the physical powers are depreciated by the habitual use of flesh meats... Every faculty of the mind, every function of the body, is to be preserved in the best condition possible."</p>
+    <div class="egw-cite">— Testimonies for the Church, Vol. 2, p. 64</div>
+  </div>
+
+  <div class="card egw">
+    <div class="card-title">Prophetic Precision — What EGW Said Before Science Could Explain</div>
+    <p><strong>1. "Scavengers of the water" (1902)</strong> — This is a precise ecological classification that describes the biological role of all prohibited aquatic organisms. The word "scavenger" implies waste-processor, carrion-feeder, detritivore — exactly what the science confirms. EGW did not have access to marine biology textbooks; she had the principle.</p>
+    <p style="margin-top:10px;"><strong>2. "Disease and death are in these things" (1897, 1903)</strong> — The specific diseases attributable to shellfish consumption now include: Vibrio septicaemia (death), Hepatitis A (liver failure), norovirus gastroenteritis (dehydration), saxitoxin paralysis (respiratory death), domoic acid amnesia (permanent brain damage), cadmium nephrotoxicity (kidney failure), and colorectal cancer promotion. "Disease and death" is not hyperbole — it is a remarkably complete summary.</p>
+    <p style="margin-top:10px;"><strong>3. "More dangerous near cities" (1902)</strong> — This describes the sewage outflow → estuary contamination → bivalve pathogen concentration mechanism. The 1988 Shanghai HAV epidemic (300,000 cases from clams in a polluted estuary near China's most populated city) is a direct historical fulfilment 86 years after EGW wrote it.</p>
+    <p style="margin-top:10px;"><strong>4. "God has designated these things as unclean" (general)</strong> — EGW consistently grounded the prohibition not in arbitrary divine authority but in the biological nature of the organisms — "they were not designed for food." This is consistent with the scientific conclusion that their design function (filtration, scavenging) makes them unfit for human consumption.</p>
+  </div>
+
+  <details>
+    <summary>EGW and the Progressive Health Reform Position on All Flesh Foods</summary>
+    <div class="details-body">
+      <p>EGW's position evolved from prohibiting harmful flesh foods (pork, shellfish, diseased meat) toward advocating complete plant-based diet as the ideal, especially as the end of time approaches. She wrote: <strong>"Grains, fruits, nuts, and vegetables constitute the diet chosen for us by our Creator."</strong> (Ministry of Healing, p. 296)</p>
+      <p>On marine foods specifically: EGW did not prohibit all fish absolutely in early writings — she acknowledged clean finned-and-scaled fish as permissible in certain contexts. But she progressively raised the standard, particularly noting that even clean fish near populated water bodies were becoming increasingly contaminated (an observation now confirmed by pollution science). Her final trajectory was toward a diet free of all animal products, with shellfish and pork representing the most urgent and absolute prohibitions.</p>
+    </div>
+  </details>
+
+
+  <!-- ══════════════════════════════════════
+       NEW TESTAMENT OBJECTIONS
+  ══════════════════════════════════════ -->
+  <div id="nt" class="section-title"><span class="icon">✦</span> New Testament</div>
+  <div class="section-subtitle">Objections Answered — Does the New Covenant Permit Shellfish?</div>
+
+  <details>
+    <summary>Acts 10 — Peter's Vision: "Rise, Kill and Eat"</summary>
+    <div class="details-body">
+      <p><strong>The text:</strong> Peter sees a sheet with all kinds of animals and hears "Rise, Peter, kill and eat." He refuses. The voice says "Do not call anything impure that God has made clean." (Acts 10:13–15)</p>
+      <p><strong>The interpretation within the same passage:</strong> Acts 10:28 — Peter himself interprets the vision: <em>"God has shown me that I should not call any man common or unclean."</em> The vision is about persons, not food. Peter never eats any animal in the vision. His immediate application is accepting Cornelius — a Gentile.</p>
+      <p><strong>Contextual impossibility:</strong> If Acts 10 abolished dietary law, Peter — the recipient of the vision — should have understood this. Yet Acts 15 (the Jerusalem Council, held after Acts 10) discusses food guidelines for Gentile believers, suggesting the Council did not understand the dietary question as resolved. Paul also discusses food issues in Romans 14 and 1 Corinthians 8 in ways that make no sense if all foods were already declared clean.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Mark 7:19 — "Declaring All Foods Clean"</summary>
+    <div class="details-body">
+      <p><strong>The context:</strong> The Pharisees confront Jesus about His disciples eating without ritual hand-washing. Jesus responds about the tradition of the elders vs. the commandments of God — not about dietary categories.</p>
+      <p><strong>The Greek:</strong> The word translated "foods" is <em>bromata</em> — referring to what is already being considered as food in the cultural context. Jesus is addressing purity of conscience in what is already eaten, not reclassifying prohibited creatures as edible. He is speaking about the tradition of ceremonial hand-washing.</p>
+      <p><strong>The parenthetical:</strong> The phrase "declaring all foods clean" (Mark 7:19 NIV) is a parenthetical editorial note by Mark — not Jesus' own words — and even if taken as dietary, it refers to foods (bro-mata) already considered food, not the expansion of the food category to include Levitically prohibited creatures.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>1 Timothy 4:4 — "Everything God Created is Good"</summary>
+    <div class="details-body">
+      <p><strong>The verse:</strong> "For everything God created is good, and nothing is to be rejected if it is received with thanksgiving, because it is consecrated by the word of God and prayer." (1 Timothy 4:4–5)</p>
+      <p><strong>The context:</strong> Paul is rebutting <em>ascetics</em> who were "forbidding people to marry and ordering them to abstain from certain foods which God created to be received with thanksgiving." He is arguing against a hyper-ascetic Gnostic tendency that called physical creation evil. He is not making a dietary catalogue.</p>
+      <p><strong>The phrase "which God created to be received":</strong> The foods in question are those created by God to be food — not all organisms that exist. Oysters and crabs were created for the ocean's filtration system, not for human consumption. EGW's consistent point is that shellfish were "not designed for food" — which is theologically consistent with 1 Timothy 4:4.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Isaiah 66:17 — Eschatological Weight of the Prohibition</summary>
+    <div class="details-body">
+      <p>Isaiah 66:17 is addressed to the eschatological context — the day of the Lord's judgment: <em>"Those who consecrate and purify themselves to go into the gardens... eating the flesh of pigs, rats and other unclean things — they will meet their end together, declares the LORD."</em></p>
+      <p>"Other unclean things" in the Hebrew (<em>shiqqutsim</em>) directly encompasses the creatures of Leviticus 11 — the prohibited aquatic organisms included. This post-exilic prophecy, written in an era when the full New Covenant was anticipated, places pork and unclean creature consumption in an end-time judgment frame — suggesting the prohibition carries moral weight that transcends the ceremonial system.</p>
+      <p>If the dietary laws were purely ceremonial shadows pointing to Christ's atoning work (like circumcision or Levitical sacrifices), there would be no reason to include them in an eschatological judgment text. Their inclusion suggests they are grounded in creation biology — which does not change with the New Covenant.</p>
+    </div>
+  </details>
+
+
+  <!-- ══════════════════════════════════════
+       SUMMARY
+  ══════════════════════════════════════ -->
+  <div id="summary" class="section-title"><span class="icon">✦</span> Summary</div>
+  <div class="section-subtitle">The Pattern of Creation — Three Witnesses, One Ocean</div>
+
+  <div class="summary-box">
+    <h3>The Convergence Across All Prohibited Aquatic Organisms</h3>
+    <ol>
+      <li><strong>Bivalves</strong> (oysters, mussels, clams, scallops) are passive filter-feeders — concentrating pathogens, heavy metals, and biotoxins from the entire water column. Their ecological design as marine purifiers makes them repositories of everything harmful in their environment.</li>
+      <li><strong>Crustaceans</strong> (shrimp, crab, lobster, crayfish) are active bottom-scavengers and carrion feeders — the sea floor's waste-processing department. Their exoskeletal armour is not a protective barrier; it is a trap concentrating decomposition products in a compact, attractive form.</li>
+      <li><strong>Cephalopods</strong> (octopus, squid, cuttlefish) are active predators without the fins-and-scales barrier — accumulating cadmium, purines, and Anisakis parasites through their prey. Octopus alone exceeds EU cadmium limits in virtually every study measuring it.</li>
+      <li><strong>Scaleless fish</strong> (catfish, eel, shark, ray) lack the dermal barrier of their clean counterparts — absorbing environmental toxins directly and, in the case of sharks, biomagnifying every contaminant in the food chain to apex concentrations.</li>
+      <li><strong>Other invertebrates</strong> (sea urchin, sea cucumber, abalone, whelk) represent the full spectrum of Levitical exclusion — from the echinoderm that literally eats sea-floor sediment to the gastropod with its own neurotoxin salivary gland.</li>
+      <li><strong>Leviticus 11</strong> encoded the biological distinction between clean and unclean aquatic organisms in two words — fins and scales — that select for water-column swimmers with active detoxification over sediment-dwellers and filter-feeders. This remains one of the most precise dietary health guidelines ever formulated relative to its knowledge base.</li>
+      <li><strong>Ellen White</strong> named oysters, lobsters, and crabs explicitly (1897); described all as "scavengers of the water" (1902); accurately predicted urban proximity as a risk multiplier (1902–1903); and grounded the prohibition in the biological nature of the organisms rather than arbitrary divine authority — all confirmed by subsequent science.</li>
+    </ol>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Of all the creatures living in the water of the seas and the streams you may eat any that have fins and scales. But all creatures in the seas or streams that do not have fins and scales — whether among all the swarming things or among all the other living creatures in the water — you are to regard as unclean. And since you are to regard them as unclean, you must not eat their meat and you must detest their carcasses. Anything living in the water that does not have fins and scales is to be detestable to you."</div>
+    <div class="verse-ref">Leviticus 11:9–12 (NIV) — The Full Aquatic Prohibition</div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">The Temple Principle — Applied to the Ocean</div>
+    <p>The ocean's sanitation system is a marvel of biological engineering. Billions of oysters, shrimp, sea cucumbers, and filter-feeders process the ocean's waste continuously — keeping marine ecosystems healthy, removing pathogens, cycling nutrients, and detoxifying coastal waters. They were designed for this purpose with extraordinary precision.</p>
+    <p style="margin-top:10px;">But the body is also designed with extraordinary precision — as the temple of the Holy Spirit (1 Corinthians 6:19–20). The same Creator who designed the oyster to process the ocean's waste designed the human body to be maintained in purity. The biological function that makes the oyster ecologically indispensable is the exact same function that makes it nutritionally unfit.</p>
+    <p style="margin-top:10px;">You cannot honour the temple by feeding it the ocean's filtration system. This is not a cultural rule, a ceremonial shadow, or a mark of ethnic identity. It is the Creator's design principle — written into marine ecology, confirmed by toxicology, encoded in Leviticus, seen by Ellen White in vision, and increasingly confirmed with every new study of marine contaminant pathways.</p>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honour God with your bodies."</div>
+    <div class="verse-ref">1 Corinthians 6:19–20 (NIV)</div>
+  </div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  <div class="footer-wave">
+    <div class="footer-wave-line"></div>
+    <span>🌊</span>
+    <div class="footer-wave-line r"></div>
+  </div>
+  <p>Health Reform · Scripture Study · Spirit of Prophecy Reference</p>
+  <p style="margin-top:8px; font-size:9px; letter-spacing:2px;">Fins and scales — the Creator's criterion, confirmed by three millennia of science</p>
+</div>
+
+<script>
+  function toggleCreature(header) {
+    const creature = header.closest('.creature');
+    creature.classList.toggle('open');
+  }
+  // open first creature by default handled by .open class in HTML
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Withdrawal of God's Spirit — When Heaven Goes Silent</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1008;
+    --parchment: #f5edd8;
+    --parchment-dark: #e8d9b8;
+    --parchment-deep: #d6c49a;
+    --gold: #b8860b;
+    --gold-bright: #d4a017;
+    --gold-light: #f0c060;
+    --crimson: #8b1a1a;
+    --crimson-dark: #5c0e0e;
+    --ember: #c44a00;
+    --ash: #4a3f35;
+    --shadow: rgba(26,16,8,0.18);
+    --glow: rgba(184,134,11,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #1a1008;
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.08) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    font-family: 'EB Garamond', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── TOP BAR: toggle + nav live together in one sticky bar ── */
+  .top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    background: rgba(26,16,8,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(184,134,11,0.25);
+  }
+  body.light-mode .top-bar {
+    background: rgba(245,237,216,0.98);
+    border-color: var(--gold-light);
+  }
+
+  /* Toggle row */
+  .toggle-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 6px 14px 4px;
+  }
+
+  /* DARK MODE TOGGLE */
+  #darkToggle {
+    background: var(--gold); color: var(--ink);
+    border: none; border-radius: 20px; padding: 5px 14px;
+    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.08em;
+    cursor: pointer; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(184,134,11,0.35);
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  #darkToggle:hover { background: var(--gold-light); }
+
+  body.light-mode {
+    background-color: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at 50% 0%, rgba(184,134,11,0.12) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+  body.light-mode .page-wrap { background: transparent; }
+  body.light-mode .verse-card, body.light-mode .section-card { background: rgba(245,237,216,0.85); border-color: var(--gold); color: var(--ink); }
+  body.light-mode .expand-btn { background: var(--parchment-dark); }
+  body.light-mode .collapse-body { background: rgba(232,217,184,0.7); }
+  body.light-mode h1, body.light-mode h2, body.light-mode h3 { color: var(--crimson-dark); }
+  body.light-mode .sub-heading { color: var(--ash); }
+  body.light-mode .verse-ref { color: var(--gold); }
+  body.light-mode .section-label { color: var(--gold); }
+  body.light-mode .expand-era { color: var(--gold); }
+  body.light-mode .expand-title { color: var(--crimson-dark); }
+  body.light-mode .expand-arrow { color: var(--gold); }
+  body.light-mode .egw-source { color: var(--gold); }
+  body.light-mode .expand-icon { filter: none; }
+  body.light-mode .hero-eyebrow { color: var(--gold); }
+
+  .page-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+    margin: 0 auto 30px;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    opacity: 0.85;
+  }
+  h1.hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.25;
+    text-shadow: 0 0 40px rgba(212,160,23,0.3), 0 2px 4px rgba(0,0,0,0.6);
+    margin-bottom: 16px;
+  }
+  .hero-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--parchment-deep);
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+  body.light-mode .hero-subtitle { color: var(--ash); }
+  body.light-mode h1.hero-title { color: var(--crimson-dark); text-shadow: none; }
+
+  .divider-flame {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin: 30px 0;
+  }
+  .divider-flame span { color: var(--gold); font-size: 1.3rem; opacity: 0.7; }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); max-width: 200px; opacity: 0.5; }
+
+  /* NAV */
+  .sticky-nav {
+    background: transparent;
+    padding: 6px 14px 10px;
+    display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;
+  }
+  body.light-mode .sticky-nav { background: transparent; border: none; }
+  .nav-btn {
+    font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.1em;
+    color: var(--gold); background: transparent;
+    border: 1px solid rgba(184,134,11,0.3); border-radius: 12px;
+    padding: 5px 12px; cursor: pointer; transition: all 0.25s;
+    text-transform: uppercase;
+  }
+  .nav-btn:hover, .nav-btn.active { background: var(--gold); color: var(--ink); }
+  body.light-mode .nav-btn { color: var(--crimson-dark); border-color: var(--gold); }
+  body.light-mode .nav-btn:hover, body.light-mode .nav-btn.active { background: var(--gold); color: var(--ink); }
+
+  /* SECTIONS */
+  .section { margin: 50px 0; animation: fadeUp 0.6s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-label {
+    font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.3em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 10px; opacity: 0.75;
+  }
+  h2.section-title {
+    font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+    color: var(--gold-light); margin-bottom: 6px; line-height: 1.35;
+  }
+  body.light-mode h2.section-title { color: var(--crimson-dark); }
+  .sub-heading {
+    font-family: 'EB Garamond', serif; font-style: italic; font-size: 1.05rem;
+    color: var(--parchment-deep); margin-bottom: 28px; line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  /* VERSE CARDS */
+  .verse-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+  .verse-card {
+    background: rgba(245,237,216,0.06);
+    border: 1px solid rgba(184,134,11,0.3);
+    border-radius: 8px; padding: 22px 20px;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .verse-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .verse-card:hover { border-color: var(--gold); box-shadow: 0 4px 24px var(--glow); }
+  .verse-card:hover::before { opacity: 1; }
+  .verse-ref {
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.12em;
+    color: var(--gold-bright); text-transform: uppercase; margin-bottom: 10px; display: block;
+  }
+  .verse-text {
+    font-size: 1rem; line-height: 1.75; color: var(--parchment);
+    font-style: italic;
+  }
+  body.light-mode .verse-text { color: var(--ink); }
+  .verse-note {
+    margin-top: 10px; font-size: 0.88rem; color: var(--parchment-deep);
+    line-height: 1.55; opacity: 0.8;
+  }
+  body.light-mode .verse-note { color: var(--ash); }
+
+  /* EXPANDABLE SECTION CARDS */
+  .section-card {
+    background: rgba(245,237,216,0.05);
+    border: 1px solid rgba(184,134,11,0.25);
+    border-radius: 10px; margin-bottom: 18px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .section-card:hover { border-color: rgba(184,134,11,0.55); }
+  .expand-btn {
+    width: 100%; background: rgba(245,237,216,0.04);
+    border: none; cursor: pointer; padding: 20px 22px;
+    display: flex; align-items: flex-start; gap: 14px;
+    text-align: left; transition: background 0.2s;
+  }
+  .expand-btn:hover { background: rgba(184,134,11,0.08); }
+  .expand-icon {
+    font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;
+    transition: transform 0.3s;
+  }
+  .section-card.open .expand-icon { transform: rotate(90deg); }
+  .expand-title-wrap { flex: 1; }
+  .expand-era {
+    font-family: 'Cinzel', serif; font-size: 0.63rem; letter-spacing: 0.22em;
+    color: var(--gold); text-transform: uppercase; opacity: 0.75; margin-bottom: 4px; display: block;
+  }
+  .expand-title {
+    font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold-light);
+    line-height: 1.35;
+  }
+  body.light-mode .expand-title { color: var(--crimson-dark); }
+  .expand-arrow {
+    font-size: 0.9rem; color: var(--gold); opacity: 0.6; margin-top: 4px;
+    flex-shrink: 0; transition: opacity 0.2s;
+  }
+  .section-card.open .expand-arrow { opacity: 1; }
+  .collapse-body {
+    display: none;
+    padding: 0 22px 24px 56px;
+    background: rgba(245,237,216,0.03);
+    border-top: 1px solid rgba(184,134,11,0.15);
+    animation: fadeUp 0.35s ease;
+  }
+  .section-card.open .collapse-body { display: block; }
+  .collapse-body p { font-size: 0.97rem; line-height: 1.85; color: var(--parchment); margin-bottom: 14px; }
+  body.light-mode .collapse-body p { color: var(--ink); }
+  .collapse-body .egw-quote {
+    border-left: 3px solid var(--gold);
+    padding: 10px 16px;
+    margin: 16px 0;
+    background: rgba(184,134,11,0.06);
+    border-radius: 0 6px 6px 0;
+    font-style: italic; font-size: 0.95rem;
+    color: var(--parchment-deep); line-height: 1.75;
+  }
+  body.light-mode .collapse-body .egw-quote { color: var(--ash); background: rgba(184,134,11,0.08); }
+  .egw-source {
+    font-style: normal; font-size: 0.78rem; color: var(--gold); opacity: 0.75;
+    display: block; margin-top: 6px; font-family: 'Cinzel', serif; letter-spacing: 0.08em;
+  }
+  .collapse-body h4 {
+    font-family: 'Cinzel', serif; font-size: 0.82rem; color: var(--gold); letter-spacing: 0.1em;
+    text-transform: uppercase; margin: 18px 0 8px; opacity: 0.85;
+  }
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .tag {
+    font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.12em;
+    padding: 3px 10px; border-radius: 10px; text-transform: uppercase;
+    border: 1px solid;
+  }
+  .tag-red { color: var(--crimson); border-color: var(--crimson); background: rgba(139,26,26,0.1); }
+  .tag-gold { color: var(--gold); border-color: var(--gold); background: rgba(184,134,11,0.08); }
+  .tag-ash { color: var(--parchment-deep); border-color: var(--ash); background: rgba(74,63,53,0.15); }
+
+  /* DAVID PSALM SPECIAL BLOCK */
+  .psalm-block {
+    background: linear-gradient(135deg, rgba(139,26,26,0.12) 0%, rgba(184,134,11,0.08) 100%);
+    border: 1px solid rgba(139,26,26,0.35);
+    border-radius: 12px; padding: 30px 28px;
+    position: relative; overflow: hidden;
+    margin: 30px 0;
+  }
+  .psalm-block::after {
+    content: '🔥';
+    position: absolute; top: 16px; right: 20px; font-size: 2rem; opacity: 0.12;
+  }
+  .psalm-block .psalm-number {
+    font-family: 'Cinzel Decorative', serif; font-size: 3.5rem;
+    color: var(--crimson); opacity: 0.15; position: absolute;
+    top: 10px; left: 16px; line-height: 1; pointer-events: none;
+  }
+  .psalm-block .psalm-ref {
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.2em;
+    color: var(--crimson); text-transform: uppercase; margin-bottom: 14px; display: block;
+  }
+  .psalm-verse { font-style: italic; font-size: 1.05rem; line-height: 1.9; color: var(--parchment); margin-bottom: 10px; }
+  body.light-mode .psalm-verse { color: var(--ink); }
+  .psalm-commentary { font-size: 0.92rem; color: var(--parchment-deep); line-height: 1.7; opacity: 0.85; }
+  body.light-mode .psalm-commentary { color: var(--ash); }
+
+  /* CONSEQUENCE TIMELINE */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 8px; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--crimson), transparent);
+    opacity: 0.4;
+  }
+  .timeline-item { position: relative; margin-bottom: 28px; }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -26px; top: 6px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--ink);
+    box-shadow: 0 0 8px var(--gold);
+  }
+  .timeline-item.red::before { background: var(--crimson); box-shadow: 0 0 8px var(--crimson); }
+
+  /* SUMMARY TABLE */
+  .summary-table {
+    width: 100%; border-collapse: collapse; font-size: 0.88rem;
+    margin-top: 20px;
+  }
+  .summary-table th {
+    font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    background: rgba(184,134,11,0.1); padding: 10px 14px;
+    border-bottom: 1px solid rgba(184,134,11,0.3);
+    text-align: left;
+  }
+  .summary-table td {
+    padding: 12px 14px; border-bottom: 1px solid rgba(184,134,11,0.1);
+    color: var(--parchment); line-height: 1.55; vertical-align: top;
+  }
+  body.light-mode .summary-table td { color: var(--ink); }
+  .summary-table tr:hover td { background: rgba(184,134,11,0.05); }
+
+  /* CALL-OUT BOX */
+  .callout {
+    border: 1px solid var(--gold); border-radius: 8px;
+    padding: 20px 22px; margin: 30px 0;
+    background: rgba(184,134,11,0.06);
+    position: relative;
+  }
+  .callout-icon { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+  .callout p { font-size: 0.97rem; line-height: 1.8; color: var(--parchment); }
+  body.light-mode .callout p { color: var(--ink); }
+  .callout strong { color: var(--gold-bright); }
+  body.light-mode .callout strong { color: var(--crimson-dark); }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 40px 20px;
+    border-top: 1px solid rgba(184,134,11,0.2);
+    font-family: 'Cinzel', serif; font-size: 0.65rem;
+    letter-spacing: 0.2em; color: var(--gold); opacity: 0.5;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .verse-grid { grid-template-columns: 1fr; }
+    .collapse-body { padding-left: 20px; }
+    h1.hero-title { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<button id="darkToggle" onclick="document.body.classList.toggle('light-mode'); this.textContent = document.body.classList.contains('light-mode') ? '🌙 Dark Mode' : '☀️ Light Mode'">☀️ Light Mode</button>
+
+<nav class="sticky-nav">
+  <button class="nav-btn active" onclick="scrollTo('s-intro')">Warning</button>
+  <button class="nav-btn" onclick="scrollTo('s-verses')">Scripture</button>
+  <button class="nav-btn" onclick="scrollTo('s-psalm')">David's Cry</button>
+  <button class="nav-btn" onclick="scrollTo('s-process')">The Process</button>
+  <button class="nav-btn" onclick="scrollTo('s-history')">History</button>
+  <button class="nav-btn" onclick="scrollTo('s-egw')">EGW</button>
+  <button class="nav-btn" onclick="scrollTo('s-saul')">Saul's Fall</button>
+  <button class="nav-btn" onclick="scrollTo('s-prophets')">Prophets</button>
+  <button class="nav-btn" onclick="scrollTo('s-sealing')">The Sealing</button>
+  <button class="nav-btn" onclick="scrollTo('s-modern')">Modern World</button>
+  <button class="nav-btn" onclick="scrollTo('s-today')">Table & Call</button>
+</nav>
+
+<div class="page-wrap">
+
+  <header class="hero">
+    <div class="hero-eyebrow">A Solemn Biblical & Historical Study</div>
+    <h1 class="hero-title">When Heaven Goes Silent</h1>
+    <p class="hero-subtitle">The Withdrawal of God's Spirit — Its Warnings, Its Process, and Its Catastrophic Consequences in Scripture and History</p>
+    <div class="divider-flame">
+      <div class="divider-line"></div>
+      <span>✦</span>
+      <span>🕯</span>
+      <span>✦</span>
+      <div class="divider-line"></div>
+    </div>
+  </header>
+
+  <!-- INTRODUCTION -->
+  <section class="section" id="s-intro">
+    <div class="section-label">Part I — The Solemn Reality</div>
+    <h2 class="section-title">God Does Not Strive Forever</h2>
+    <p class="sub-heading">"My Spirit shall not strive with man forever…" — Genesis 6:3</p>
+
+    <div class="callout">
+      <span class="callout-icon">⚠️</span>
+      <p>One of the most sobering truths in all of Scripture is this: <strong>God's patience has a limit.</strong> His Spirit does not force Himself upon any soul indefinitely. There comes a moment — quiet, unseen, yet absolutely irreversible — when heaven withdraws its restraining and convicting presence. Not as punishment in rage, but as the solemn honouring of human choice. The door does not slam. It simply… closes. And the silence that follows is unlike any silence the world has known.</p>
+    </div>
+
+    <p style="color:var(--parchment); line-height:1.85; font-size:1rem; margin-bottom:14px;">This study traces three converging threads: <strong style="color:var(--gold-bright)">the biblical witness</strong> — every major passage where God warns of or executes this withdrawal; <strong style="color:var(--gold-bright)">the prophetic interpretation</strong> through Ellen White's writings on probation, the close of mercy, and the fate of civilisations; and <strong style="color:var(--gold-bright)">the historical record</strong> — what actually happened when God gave peoples and nations over to themselves.</p>
+  </section>
+
+  <!-- SCRIPTURE VERSES -->
+  <section class="section" id="s-verses">
+    <div class="section-label">Part II — The Biblical Testimony</div>
+    <h2 class="section-title">Scripture's Witness to the Striving & the Silence</h2>
+    <p class="sub-heading">God warns long before He withdraws. These passages trace the full arc — from the first divine warning to the final seal of probation.</p>
+
+    <div class="verse-grid">
+
+      <div class="verse-card">
+        <span class="verse-ref">Genesis 6:3</span>
+        <p class="verse-text">"My Spirit shall not strive with man forever, for he is indeed flesh; yet his days shall be one hundred and twenty years."</p>
+        <p class="verse-note">The first divine limitation placed on the Spirit's intercession. God set a 120-year prophetic window before the Flood — His Spirit striving through Noah's preaching, until the door of the ark closed.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Revelation 22:11</span>
+        <p class="verse-text">"He who is unjust, let him be unjust still; he who is filthy, let him be filthy still; he who is righteous, let him be righteous still; he who is holy, let him be holy still."</p>
+        <p class="verse-note">The close of human probation — the most solemn verse in Revelation. No further change of character is possible. Each soul is sealed in their final state. This is the ultimate withdrawal of probationary grace.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Revelation 3:20</span>
+        <p class="verse-text">"Behold, I stand at the door and knock. If anyone hears My voice and opens the door, I will come in to him and dine with him, and he with Me."</p>
+        <p class="verse-note">Christ stands <em>outside</em> the Laodicean church — He is knocking, not indwelling. The Spirit can be shut out entirely. The implication is equally solemn: He will not knock forever.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Hosea 4:17</span>
+        <p class="verse-text">"Ephraim is joined to idols, let him alone."</p>
+        <p class="verse-note">God's instruction to His prophet — stop interceding. Stop striving. The nation had passed a spiritual point of no return. Divine abandonment is expressed as a withdrawal of intercession itself.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Romans 1:24, 26, 28</span>
+        <p class="verse-text">"Therefore God gave them up… God gave them over… God gave them over to a debased mind…"</p>
+        <p class="verse-note">Three escalating stages of divine abandonment in Romans 1. Each "gave them up/over" marks a deeper surrender of society to its own corruption — the progression of moral collapse that follows spiritual rejection.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Isaiah 63:10</span>
+        <p class="verse-text">"But they rebelled and grieved His Holy Spirit; so He turned Himself against them as an enemy, and He fought against them."</p>
+        <p class="verse-note">When Israel persistently grieved the Spirit, His protective presence inverted — He was no longer their shield but their adversary. Grieving the Spirit is not merely emotional — it has national consequences.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Matthew 7:22–23</span>
+        <p class="verse-text">"Many will say to Me in that day, 'Lord, Lord, have we not prophesied in Your name?'… And then I will declare to them, 'I never knew you; depart from Me…'"</p>
+        <p class="verse-note">A chilling declaration that form of religion without true relationship does not prevent the ultimate divine withdrawal. "I never knew you" — not "I knew you and abandoned you" but a statement of never having been genuinely connected.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Proverbs 1:24–28</span>
+        <p class="verse-text">"Because I have called and you refused… I also will laugh at your calamity… Then they will call on me, but I will not answer; they will seek me diligently, but they will not find me."</p>
+        <p class="verse-note">Wisdom (the Spirit's voice) warns: there is a time when the roles reverse. Those who refused to hear God will cry out — and find silence. The same divine patience that was rejected is no longer available.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Ezekiel 9:3–6</span>
+        <p class="verse-text">"Then the glory of the God of Israel went up from the cherub… Go through the city after him and kill; do not let your eye spare… Begin at My sanctuary."</p>
+        <p class="verse-note">The Shekinah glory departing the temple before the Babylonian destruction — the Spirit withdrawing prior to judgement. The sequence is always withdrawal, then destruction. God does not destroy while His Spirit remains.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Isaiah 5:4–6</span>
+        <p class="verse-text">"What more could have been done to My vineyard that I have not done in it?… I will take away its hedge, and it shall be burned… I will also command the clouds that they rain no rain on it."</p>
+        <p class="verse-note">God removes His protection, provision, and blessing — the consequences of persistent ingratitude and rejection. The nation left exposed to its own enemies and the elements.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Jeremiah 7:16; 11:14</span>
+        <p class="verse-text">"Therefore do not pray for this people, nor lift up a cry or prayer for them, nor make intercession to Me; for I will not hear you."</p>
+        <p class="verse-note">God twice forbids Jeremiah from interceding for Judah before the Babylonian conquest. When intercessory prayer is shut down by divine decree, the end of a nation's probation has arrived.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">1 Samuel 16:14; 28:6</span>
+        <p class="verse-text">"The Spirit of the LORD departed from Saul… And when Saul inquired of the LORD, the LORD did not answer him, either by dreams or by Urim or by the prophets."</p>
+        <p class="verse-note">The personal tragedy of Saul — a pattern of the national. First the Spirit departs; then prayer goes unanswered; then in desperation, one turns to darkness (the witch of Endor). This is the trajectory of a soul past its turning point.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DAVID'S PSALM -->
+  <section class="section" id="s-psalm">
+    <div class="section-label">Part III — The Cry of the Penitent</div>
+    <h2 class="section-title">David's Plea: Psalm 51</h2>
+    <p class="sub-heading">No man understood the terror of losing God's Spirit more deeply than David after his great sin. His prayer is the most agonised intercession in Scripture against the withdrawal of the Holy Spirit.</p>
+
+    <div class="psalm-block">
+      <div class="psalm-number">51</div>
+      <span class="psalm-ref">Psalm 51:10–13 — David's cry after his sin with Bathsheba</span>
+
+      <p class="psalm-verse">"Create in me a clean heart, O God, and renew a steadfast spirit within me.</p>
+      <p class="psalm-verse">Do not cast me away from Your presence, and <strong style="color:var(--crimson);">do not take Your Holy Spirit from me.</strong></p>
+      <p class="psalm-verse">Restore to me the joy of Your salvation, and uphold me by Your generous Spirit.</p>
+      <p class="psalm-verse">Then I will teach transgressors Your ways, and sinners shall be converted to You."</p>
+
+      <p class="psalm-commentary" style="margin-top:16px;">David had just witnessed the Spirit of God depart from Saul — his predecessor and his warning. He knew exactly what he was asking. The plea "do not take Your Holy Spirit from me" was not abstract theology. It was the terror of a man who had seen what a soul looks like when God withdraws — the unravelling of Saul into paranoia, violence, and eventual spiritual suicide. David understood: without the Spirit, there is no recovery. Without the Spirit, there is no repentance. Without the Spirit, even prayer becomes futile.</p>
+    </div>
+
+    <div class="psalm-block" style="margin-top:20px; border-color: rgba(184,134,11,0.35);">
+      <span class="psalm-ref">Psalm 38:1–4, 9–10, 15 — The anguish of felt abandonment</span>
+      <p class="psalm-verse">"O LORD, do not rebuke me in Your wrath, nor chasten me in Your hot displeasure. For Your arrows pierce me deeply, and Your hand presses me down. There is no soundness in my flesh because of Your anger, nor any health in my bones because of my sin…"</p>
+      <p class="psalm-verse">"Lord, all my desire is before You; and my sighing is not hidden from You. My heart pants, my strength fails me… For in You, O LORD, I hope; You will hear, O Lord my God."</p>
+      <p class="psalm-commentary">This psalm captures the experience of divine chastening with felt distance — God's countenance withdrawn in discipline, not yet in final abandonment. David's plea is that it would not <em>become</em> abandonment. The difference between Saul and David was not the severity of their sins — it was the direction of their turning.</p>
+    </div>
+
+    <div class="psalm-block" style="margin-top:20px; border-color: rgba(184,134,11,0.35);">
+      <span class="psalm-ref">Psalm 139:7–10 — The prayer of one who fears to be out of God's reach</span>
+      <p class="psalm-verse">"Where can I go from Your Spirit? Or where can I flee from Your presence? If I ascend into heaven, You are there; if I make my bed in hell, behold, You are there."</p>
+      <p class="psalm-commentary">This is not just comfort — it is confession of absolute dependence. David's awareness that the Spirit is everywhere is not triumphalism but relief. He knows what it means to be a creature who cannot survive God's absence. The Psalm is a meditation on the terrifying grace of omnipresence — that God has not yet withdrawn.</p>
+    </div>
+  </section>
+
+  <!-- THE PROCESS -->
+  <section class="section" id="s-process">
+    <div class="section-label">Part IV — Understanding the Mechanism</div>
+    <h2 class="section-title">The Stages of Withdrawal: How It Happens</h2>
+    <p class="sub-heading">Divine abandonment is never sudden. It follows a predictable, merciful, and ultimately just progression — each stage giving opportunity to return.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="section-card" id="card-1">
+          <button class="expand-btn" onclick="toggleCard('card-1')">
+            <span class="expand-icon">➤</span>
+            <div class="expand-title-wrap">
+              <span class="expand-era">Stage 1</span>
+              <div class="expand-title">The Spirit Convicts — The Voice of Invitation</div>
+            </div>
+            <span class="expand-arrow">▾</span>
+          </button>
+          <div class="collapse-body">
+            <p>In its first movement, the Spirit works through conscience, through the Word, through preachers, parents, crises, beauty — anything that can reach the soul. This is the period of maximum grace. God is actively pursuing. John 16:8 — "When He has come, He will convict the world of sin, of righteousness, and of judgment." This stage can last decades for individuals and centuries for nations.</p>
+            <div class="egw-quote">"The Spirit of God is gradually but surely being withdrawn from the earth. Plagues and judgments are already falling upon the despisers of the grace of God, but it is when the Spirit shall be fully withdrawn that the plagues shall fall without mixture of mercy."
+              <span class="egw-source">— Ellen G. White, Testimonies for the Church, Vol. 5, p. 451</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="section-card" id="card-2">
+          <button class="expand-btn" onclick="toggleCard('card-2')">
+            <span class="expand-icon">➤</span>
+            <div class="expand-title-wrap">
+              <span class="expand-era">Stage 2</span>
+              <div class="expand-title">Grieving the Spirit — The Resisted Voice</div>
+            </div>
+            <span class="expand-arrow">▾</span>
+          </button>
+          <div class="collapse-body">
+            <p>Ephesians 4:30 — "Do not grieve the Holy Spirit of God." Grieving occurs when repeated convictions are dismissed, when light is received but not acted upon, when the conscience is progressively deadened. Each rejection makes the next one easier. The Spirit does not immediately withdraw — He intensifies His pleading. But the soul's receptivity narrows.</p>
+            <p>This is the stage of Israel at Kadesh-Barnea, turning back from the Promised Land. It is the stage of Judah in the days of Jeremiah — warned, reproved, given prophet after prophet, and yet continuing to harden. Hebrews 3:7–8 — "Today, if you will hear His voice, do not harden your hearts."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="section-card" id="card-3">
+          <button class="expand-btn" onclick="toggleCard('card-3')">
+            <span class="expand-icon">➤</span>
+            <div class="expand-title-wrap">
+              <span class="expand-era">Stage 3</span>
+              <div class="expand-title">Quenching the Spirit — The Suppressed Voice</div>
+            </div>
+            <span class="expand-arrow">▾</span>
+          </button>
+          <div class="collapse-body">
+            <p>1 Thessalonians 5:19 — "Do not quench the Spirit." Quenching is more active than grieving. It involves the suppression of prophetic voices, the silencing of reproof, the systematic dismantling of the means by which the Spirit speaks — burning Bibles, persecuting prophets, institutionalising apostasy. At a national level, this is the French Revolution banning religion. At an individual level, it is the deliberate choice to never again engage with conviction.</p>
+            <div class="egw-quote">"When men persistently refuse the warnings of heaven, when they suppress the voice of conscience, there comes a time when the pleadings of the Spirit are no longer heard."
+              <span class="egw-source">— Ellen G. White, The Great Controversy, p. 635</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item red">
+        <div class="section-card" id="card-4">
+          <button class="expand-btn" onclick="toggleCard('card-4')">
+            <span class="expand-icon">➤</span>
+            <div class="expand-title-wrap">
+              <span class="expand-era">Stage 4</span>
+              <div class="expand-title">Blaspheming the Spirit — The Unpardonable Sin</div>
+            </div>
+            <span class="expand-arrow">▾</span>
+          </button>
+          <div class="collapse-body">
+            <p>Matthew 12:31–32 — "Therefore I say to you, every sin and blasphemy will be forgiven men, but the blasphemy against the Spirit will not be forgiven men." The blasphemy against the Holy Spirit is the deliberate, knowing attribution of the Spirit's work to Satan — it is the final, active rejection of the only agent through whom repentance and forgiveness become possible. It is not a moment of profane speech; it is a settled disposition of the will against divine grace.</p>
+            <p>The Pharisees who watched Christ cast out demons and declared "He casts out demons by Beelzebub" — these men had hardened so far that light itself became darkness to them. A soul in this state has no desire to repent, no fear of judgement, and no awareness of loss. The Spirit's departure is experientially imperceptible to them.</p>
+            <div class="egw-quote">"It is not God that blinds the eyes of men or hardens their hearts. He sends them light to correct their errors, and to lead them in safe paths; it is by the rejection of this light that the eyes are blinded and the heart hardened."
+              <span class="egw-source">— Ellen G. White, Desire of Ages, p. 322</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item red">
+        <div class="section-card" id="card-5">
+          <button class="expand-btn" onclick="toggleCard('card-5')">
+            <span class="expand-icon">➤</span>
+            <div class="expand-title-wrap">
+              <span class="expand-era">Stage 5</span>
+              <div class="expand-title">The Spirit Withdrawn — Probation Closes</div>
+            </div>
+            <span class="expand-arrow">▾</span>
+          </button>
+          <div class="collapse-body">
+            <p>This is the silence of heaven. Amos 8:11–12 — "Behold, the days are coming, says the Lord GOD, that I will send a famine on the land, not a famine of bread, nor a thirst for water, but of hearing the words of the LORD. They shall wander from sea to sea, and from north to east; they shall run to and fro, seeking the word of the LORD, but shall not find it." At this stage, what follows is not repentance — it is dissolution.</p>
+            <div class="egw-quote">"As the Spirit of God is withdrawn from the earth, and men are left to the control of evil spirits, we shall see what manner of workings will be manifested… Violence and crime will fill the land."
+              <span class="egw-source">— Ellen G. White, Manuscript Releases, Vol. 8, p. 346</span>
+            </div>
+            <div class="tag-row">
+              <span class="tag tag-red">Irreversible</span>
+              <span class="tag tag-gold">Revelation 22:11</span>
+              <span class="tag tag-ash">Amos 8:11–12</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HISTORICAL CIVILISATIONS -->
+  <section class="section" id="s-history">
+    <div class="section-label">Part V — The Historical Record</div>
+    <h2 class="section-title">When Nations Rejected God: The Historical Consequences</h2>
+    <p class="sub-heading">History is not random. The pattern is consistent: when a civilisation systematically rejects God's Spirit, a trajectory of violence, moral collapse, and eventual destruction follows — without exception.</p>
+
+    <!-- JERUSALEM -->
+    <div class="section-card" id="card-jer">
+      <button class="expand-btn" onclick="toggleCard('card-jer')">
+        <span class="expand-icon">🏛</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">70 AD — Roman-Jewish War</span>
+          <div class="expand-title">The Destruction of Jerusalem</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <h4>The Spiritual Rejection</h4>
+        <p>Christ's ministry (AD 27–31) represented the final, concentrated appeal of the Spirit to Jerusalem. His lament over the city — "O Jerusalem, Jerusalem, the one who kills the prophets and stones those who are sent to her!" (Matthew 23:37) — was not rage but anguish. He wept over the city (Luke 19:41). The triumphal entry, the cleansing of the temple, the Olivet discourse — all were final invitations. When the Sanhedrin sentenced Christ to death, the probation of the Jewish nation as the covenant people closed.</p>
+        <h4>The Warning Given</h4>
+        <p>Matthew 24:15–16 — "When you see the 'abomination of desolation'… then let those who are in Judea flee to the mountains." The disciples were given a specific sign. Josephus records that in AD 66, the Roman armies of Cestius Gallus surrounded Jerusalem — then inexplicably withdrew. This was the sign. Christians fled to Pella. Not a single Christian perished in the subsequent destruction.</p>
+        <h4>The Historical Account</h4>
+        <p>Josephus (Jewish Wars, Book VI) records scenes of unimaginable horror in the siege of AD 70 under Titus. Over 1.1 million people perished. Famine so severe that a mother boiled and ate her own child (Josephus, Jewish Wars 6.3.4). 97,000 were taken captive as slaves. The temple was burned on precisely the same date it had been burned by Nebuchadnezzar — the 9th of Av — as if heaven itself were marking the anniversary. Tacitus (Histories, V) independently corroborates the scale of the slaughter.</p>
+        <div class="egw-quote">"The destruction of Jerusalem is a fearful and solemn warning to all who are trifling with the offers of divine grace, and resisting the pleadings of divine mercy."
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 36</span>
+        </div>
+        <div class="egw-quote">"In the horrible cruelties exercised by the Romans upon the Jews, God was meting out retribution to a people who had rejected and crucified His Son."
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 35</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">Famine · Siege · Massacre</span>
+          <span class="tag tag-gold">Josephus · Tacitus</span>
+          <span class="tag tag-ash">Matthew 24 Fulfilled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRENCH REVOLUTION -->
+    <div class="section-card" id="card-fr">
+      <button class="expand-btn" onclick="toggleCard('card-fr')">
+        <span class="expand-icon">⚔️</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">1789–1799 — France</span>
+          <div class="expand-title">The French Revolution: The Atheist State and Its Terror</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <h4>The Prophetic Context</h4>
+        <p>Revelation 11:3–10 describes "the great city" where "the two witnesses" (the Old and New Testaments) are slain and their bodies left in the street for 3.5 days. The day-year principle (Num. 14:34; Ezek. 4:6) renders this 1260 years of papal suppression of Scripture (538–1798 AD). But the "three and a half days" of the bodies lying in the street refers to the literal period (1793–1797) when France officially abolished Christianity and banned the Bible.</p>
+        <h4>The Spiritual Rejection</h4>
+        <p>Post-Reformation France had been a battleground between Catholic persecution and Protestant revival. The Huguenots were massacred in 1572 (St. Bartholomew's Day). The Edict of Nantes was revoked in 1685. By 1789, France had systematically exterminated its Protestant remnant and corrupted its Catholic establishment beyond recovery. There was almost no functioning Spirit-led witness left. The nation rejected God by legislative decree — in November 1793, the National Convention abolished Christianity, renamed Notre Dame the "Temple of Reason," and declared "Death is an eternal sleep" on its public cemeteries.</p>
+        <h4>The Consequences</h4>
+        <p>The Reign of Terror (September 1793 – July 1794) under Robespierre and the Committee of Public Safety resulted in between 17,000 official executions (including by guillotine) and up to 40,000 deaths in total. The Loire Valley dechristianisation saw mass drownings (noyades) where priests and nuns were bound and thrown into rivers. Historian Simon Schama estimates 200,000+ deaths in the Vendée counter-revolutionary suppression — the first modern genocide, carried out in the name of Reason against a Catholic peasant population that had resisted the revolution.</p>
+        <div class="egw-quote">"The nation had given herself up to infidelity and vice; the people suffered under the rule of human wisdom; and divine justice, swift and terrible, overtook the transgressing nation."
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 283</span>
+        </div>
+        <div class="egw-quote">"France stands in history as the representative of atheism, and has reaped the fruit of atheism — anarchy and terror. The scenes of the Revolution stand as a fearful warning to all ages that the rejection of divine authority leads to the destruction of social order."
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 289 (paraphrase of extended argument)</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">Reign of Terror · Genocide</span>
+          <span class="tag tag-gold">Revelation 11 Fulfilled</span>
+          <span class="tag tag-ash">Schama · Furet · GC Ch. 15</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOAH'S FLOOD -->
+    <div class="section-card" id="card-flood">
+      <button class="expand-btn" onclick="toggleCard('card-flood')">
+        <span class="expand-icon">🌊</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">Antediluvian World</span>
+          <div class="expand-title">The World Before the Flood: Violence as the Fruit of Godlessness</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <h4>The Condition Described</h4>
+        <p>Genesis 6:5 — "Then the LORD saw that the wickedness of man was great in the earth, and that every intent of the thoughts of his heart was only evil continually." Genesis 6:11–12 — "The earth also was corrupt before God, and the earth was filled with violence. So God looked upon the earth, and indeed it was corrupt; for all flesh had corrupted their way on the earth." Two characteristics: moral corruption and violence. These are always the twin consequences when the Spirit withdraws.</p>
+        <h4>120 Years of Preaching Rejected</h4>
+        <p>For 120 years, Noah preached repentance while building the ark — a visible, daily testimony. 2 Peter 2:5 calls Noah "a preacher of righteousness." Not one person outside his family responded. The Spirit had been striving. The world ignored Him. When the last soul who would be saved entered the ark, God Himself shut the door (Genesis 7:16) — the most solemn act of probation-closing in all pre-Sinai history.</p>
+        <div class="egw-quote">"The world before the Flood reasoned that for centuries the laws of nature had been fixed. The recurring seasons had come in their order. Heretofore rain had never fallen; the earth had been watered by a mist or dew. The rivers had never yet passed their boundaries, but had borne their waters safely to the sea. Fixed decrees had kept the waters from overflowing their banks. But these reasoners did not recognize the hand of Him who had stayed the waters, saying, 'Hitherto shalt thou come, but no further.'"
+          <span class="egw-source">— Ellen G. White, Patriarchs and Prophets, p. 97</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">Total Civilisational Destruction</span>
+          <span class="tag tag-gold">Genesis 6–8 · 2 Peter 2:5</span>
+          <span class="tag tag-ash">PP Chapter 7</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SODOM -->
+    <div class="section-card" id="card-sodom">
+      <button class="expand-btn" onclick="toggleCard('card-sodom')">
+        <span class="expand-icon">🔥</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">Patriarchal Period</span>
+          <div class="expand-title">Sodom & Gomorrah: Civilisation Incinerated</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <h4>The Witness They Had</h4>
+        <p>Genesis 13:10 describes the plain of Jordan as "well watered everywhere" — a paradise. Lot dwelt among them. Melchizedek's kingdom of Salem was nearby. The region had every natural and spiritual advantage. Yet Genesis 18:20 — "the outcry against Sodom and Gomorrah is great, and because their sin is very grave." Abraham interceded for the cities — would God spare it for 50? 45? 30? 20? 10 righteous people? He would. But 10 could not be found.</p>
+        <h4>When Angels Are Sent Last</h4>
+        <p>The two angels sent to Sodom represent the final mercy — a last-chance extraction before judgement. The men of Sodom surrounded Lot's house and demanded the angels. Their wickedness was complete. When Lot's sons-in-law laughed at the warning, their hearts were already sealed. The next morning, "the LORD rained brimstone and fire on Sodom and Gomorrah" (Genesis 19:24). Jude 7 calls this an example set before all ages — "suffering the vengeance of eternal fire."</p>
+        <div class="egw-quote">"The inhabitants of Sodom… were not only sinners but they gloried in their shame. Their sin called loudly for vengeance. They had slighted the last overtures of divine mercy."
+          <span class="egw-source">— Ellen G. White, Patriarchs and Prophets, p. 157</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">Total Destruction · No Remnant</span>
+          <span class="tag tag-gold">Jude 7 · 2 Peter 2:6</span>
+          <span class="tag tag-ash">PP Chapter 13</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BABYLON -->
+    <div class="section-card" id="card-bab">
+      <button class="expand-btn" onclick="toggleCard('card-bab')">
+        <span class="expand-icon">🏺</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">539 BC</span>
+          <div class="expand-title">Belshazzar's Feast: The Night Babylon Died</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <h4>The Knowledge They Had</h4>
+        <p>Daniel 5:22 — "But you his son, Belshazzar, have not humbled your heart, although you knew all this." This is the most damning phrase in Daniel. Belshazzar knew what happened to Nebuchadnezzar — the humiliation, the restoration, the confession. He had knowledge of divine sovereignty and chose to mock it. He brought out the vessels taken from the temple of God and used them to toast his idols. This was deliberate, calculated desecration.</p>
+        <h4>The Hand Writes — Then History Ends</h4>
+        <p>The hand wrote MENE MENE TEKEL UPHARSIN — "numbered, numbered, weighed, divided." That same night Belshazzar was slain, and Darius the Mede received the kingdom. The Medo-Persian army had diverted the Euphrates and entered through the riverbed — the city was taken while its king feasted, confident behind his walls. Babylon's probation closed mid-feast.</p>
+        <div class="egw-quote">"The proud king had passed the boundary of divine forbearance. The last link in the chain of his apostasy was forged. Above the throne of the most powerful empire the world had ever seen, appeared the writing of doom."
+          <span class="egw-source">— Ellen G. White, Prophets and Kings, p. 529</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">Kingdom Conquered in One Night</span>
+          <span class="tag tag-gold">Daniel 5 · Isaiah 13, 47</span>
+          <span class="tag tag-ash">PK Chapter 43</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROMAN EMPIRE -->
+    <div class="section-card" id="card-rome">
+      <button class="expand-btn" onclick="toggleCard('card-rome')">
+        <span class="expand-icon">🦅</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">3rd–5th Century AD</span>
+          <div class="expand-title">Rome: The Empire That Swallowed Then Corrupted the Church</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <h4>The Spiritual Trajectory</h4>
+        <p>Rome received the gospel through Paul himself (Romans 1:8 — "your faith is spoken of throughout the whole world"). The Roman church was vital, persecuted, and pure in its early centuries. But by Constantine's embrace in AD 313 and the subsequent Edict of Thessalonica in AD 380, Christianity became the state religion — and immediately began to lose its distinctiveness. Pagan festivals were baptised with Christian names. Sabbath was displaced by Sunday (the venerable day of the Sun). The Spirit's voice was slowly institutionalised into silence.</p>
+        <h4>The Historical Collapse</h4>
+        <p>Gibbon's Decline and Fall of the Roman Empire traces the internal moral decay as inseparable from the spiritual corruption. By the time of the Visigoth sack of Rome in 410 AD, Augustine himself was compelled to write The City of God to explain how a "Christian empire" could fall. The Western Empire's final collapse in 476 AD under Romulus Augustulus was the end of a civilisation that had the gospel and subverted it. The barbarism, the widespread infanticide, sexual immorality, and social violence that preceded the fall are documented extensively in Ammianus Marcellinus's Histories.</p>
+        <div class="egw-quote">"When the early church became corrupted by departing from the simplicity of the gospel… the spirit of compromise and conformity spread into the churches…"
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 384</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">Sack of Rome · Civilisational Collapse</span>
+          <span class="tag tag-gold">Gibbon · Augustine · Ammianus</span>
+          <span class="tag tag-ash">GC Chapter 3</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EGW WRITINGS -->
+  <section class="section" id="s-egw">
+    <div class="section-label">Part VI — The Prophetic Voice</div>
+    <h2 class="section-title">Ellen White: On the Withdrawal of the Spirit</h2>
+    <p class="sub-heading">EGW wrote with unusual directness and urgency on this theme — connecting it to the end-time close of probation, the sealing of the saints, and the final plagues.</p>
+
+    <div class="section-card" id="card-egw1">
+      <button class="expand-btn" onclick="toggleCard('card-egw1')">
+        <span class="expand-icon">📜</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">The Great Controversy, Ch. 37–38</span>
+          <div class="expand-title">The Close of Probation — The Last Act of Grace</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <div class="egw-quote">"When the work of the investigative judgment closes, the destiny of all will have been decided for life or death. Probation is ended a short time before the appearing of the Lord in the clouds of heaven."
+          <span class="egw-source">— The Great Controversy, p. 490</span>
+        </div>
+        <div class="egw-quote">"As the angels of God cease to hold in check the fierce and wicked passions of men, all the elements of strife will be let loose. The whole world will be involved in ruin more terrible than that which came upon Jerusalem of old."
+          <span class="egw-source">— The Great Controversy, p. 614</span>
+        </div>
+        <p>EGW consistently links the withdrawal of the Spirit with the release of the four winds (Revelation 7:1–3) — the angelic restraint on human violence and natural catastrophe. When that restraint is removed, what follows is not orderly judgement but chaotic, all-encompassing destruction. The world, having rejected the only principle of social order (the Holy Spirit), disintegrates.</p>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-egw2">
+      <button class="expand-btn" onclick="toggleCard('card-egw2')">
+        <span class="expand-icon">📜</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">Testimonies for the Church, Vol. 5</span>
+          <div class="expand-title">The Gradual Withdrawal: Already Beginning in Her Day</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <div class="egw-quote">"The Spirit of God is gradually but surely being withdrawn from the earth. Plagues and judgments are already falling upon the despisers of the grace of God… but it is when the Spirit shall be fully withdrawn that the plagues shall fall without mixture of mercy."
+          <span class="egw-source">— Testimonies for the Church, Vol. 5, p. 451</span>
+        </div>
+        <div class="egw-quote">"The agencies of evil are combining their forces and consolidating. They are strengthening for the last great crisis. Great changes are soon to take place in our world, and the final movements will be rapid ones."
+          <span class="egw-source">— Testimonies for the Church, Vol. 9, p. 11</span>
+        </div>
+        <p>Written in the 1880s, EGW described the Spirit's withdrawal as a process <em>already underway</em> in her time — not a future event but a present trajectory. The implication for our day, 140 years further along that trajectory, is sobering beyond calculation.</p>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-egw3">
+      <button class="expand-btn" onclick="toggleCard('card-egw3')">
+        <span class="expand-icon">📜</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">Patriarchs and Prophets / Desire of Ages</span>
+          <div class="expand-title">Why God Withdraws: The Justice of It</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <div class="egw-quote">"God does not destroy anyone. Everyone who is destroyed will have destroyed himself. Everyone who stifles admonition is perishing through his own choice."
+          <span class="egw-source">— Ellen G. White, Christ's Object Lessons, p. 84</span>
+        </div>
+        <div class="egw-quote">"Every time light and truth is rejected, it becomes more difficult for the Spirit to move upon the heart. Every rejection of light, every hardening of the heart increases the danger of final impenitence."
+          <span class="egw-source">— Ellen G. White, Selected Messages, Book 1, p. 126</span>
+        </div>
+        <p>EGW's theological contribution here is critical for understanding divine justice: God does not arbitrarily withdraw. He withdraws by honouring the persistent choices of rational beings who have been given repeated opportunities. The withdrawal is the logical terminus of the human will, not an arbitrary divine act. God's justice is revealed precisely in His respect for human moral agency — even to the point of letting that agency complete its own destruction.</p>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-egw4">
+      <button class="expand-btn" onclick="toggleCard('card-egw4')">
+        <span class="expand-icon">📜</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">The Great Controversy, Final Chapters</span>
+          <div class="expand-title">Violence, Crime and Chaos as Symptoms of a Spiritless World</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <div class="egw-quote">"As the Spirit of God is withdrawn from the earth, and men are left to the control of evil spirits, we shall see what manner of workings will be manifested… those who retain their allegiance to God will feel, in an even greater degree, the pressure of the powers of darkness."
+          <span class="egw-source">— Ellen G. White, Manuscript Releases, Vol. 8, p. 346</span>
+        </div>
+        <div class="egw-quote">"The restraints of law and of humanity are thrown off, and the decrees and doings that would disgrace the most barbarous tribes are enacted by those who claim to be advocates of progress and enlightenment."
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 584</span>
+        </div>
+        <p>The link EGW draws — between Spirit-withdrawal and social violence — is confirmed by every historical case study in this document. The Spirit is not merely a private religious comfort; He is the active restraining and organising force in human society. His removal does not simply leave a neutral vacuum — it releases what was being held back. Romans 1:24–32 traces exactly this trajectory: sexual immorality → violence → murder → hatred of God → covenant-breaking → heartlessness.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SUMMARY TABLE -->
+  <section class="section" id="s-today">
+    <div class="section-label">Part VII — The Pattern and the Warning</div>
+    <h2 class="section-title">The Consistent Pattern Across History</h2>
+    <p class="sub-heading">Every case follows the same arc. The details differ; the structure does not.</p>
+
+    <div style="overflow-x:auto;">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Civilisation / Event</th>
+          <th>Light Received</th>
+          <th>Rejection Pattern</th>
+          <th>Consequences</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">Antediluvian World</strong></td>
+          <td>120 years of Noah's preaching</td>
+          <td>Universal mockery; violence and immorality normalised</td>
+          <td>Global flood; civilisation erased</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">Sodom & Gomorrah</strong></td>
+          <td>Lot's presence; angelic visitation</td>
+          <td>Persecution of the righteous; glorying in sin</td>
+          <td>Fire and brimstone; total annihilation</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">Israel (Northern Kingdom)</strong></td>
+          <td>Elijah, Elisha, Amos, Hosea</td>
+          <td>Idolatry; persecution of prophets; Baal worship</td>
+          <td>Assyrian conquest; 10 tribes scattered (722 BC)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">Judah (Southern Kingdom)</strong></td>
+          <td>Isaiah, Jeremiah, Ezekiel, Micah</td>
+          <td>Temple prostitution; child sacrifice; killing of prophets</td>
+          <td>Babylonian conquest; 70 years captivity (586 BC)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">Babylon (Belshazzar)</strong></td>
+          <td>Daniel's witness; Nebuchadnezzar's testimony</td>
+          <td>Deliberate desecration of temple vessels</td>
+          <td>Kingdom conquered overnight (539 BC)</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">Jerusalem (70 AD)</strong></td>
+          <td>Christ's ministry; apostolic preaching</td>
+          <td>Crucifixion of Christ; persecution of disciples</td>
+          <td>Siege; 1.1M dead; temple destroyed; nation scattered</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">Roman Empire (4–5th c.)</strong></td>
+          <td>Paul's letter; centuries of gospel witness</td>
+          <td>Corruption of the church; Constantinian compromise</td>
+          <td>Barbarian invasions; civilisational collapse</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--gold-bright)">France (1789–1799)</strong></td>
+          <td>Reformation; Huguenot witness; centuries of Bible</td>
+          <td>Official atheism; abolition of Christianity; Bible banned</td>
+          <td>Reign of Terror; 40,000+ executed; Vendée genocide</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout" style="margin-top:36px; border-color:var(--crimson);">
+      <span class="callout-icon">🕯️</span>
+      <p><strong>The Warning for Today:</strong> We live in a generation that has received more light than any generation in history — the complete canon of Scripture, 2,000 years of church history as warning, the prophetic writings of EGW, and the fulfilment of multiple prophetic sequences. "And that servant who knew his master's will, and did not prepare himself or do according to his will, shall be beaten with many stripes" (Luke 12:47). The question is not whether God's Spirit is being withdrawn from the earth. EGW states that it is. The question is personal: <strong>Have I opened the door He is knocking on?</strong></p>
+    </div>
+
+    <div class="psalm-block" style="margin-top:30px;">
+      <span class="psalm-ref">The Invitation That Still Stands — Revelation 3:20; Isaiah 55:6</span>
+      <p class="psalm-verse">"Seek the LORD while He may be found, call upon Him while He is near."</p>
+      <p class="psalm-verse">"Behold, I stand at the door and knock. If anyone hears My voice and opens the door, I will come in to him and dine with him, and he with Me."</p>
+      <p class="psalm-commentary">The study of divine withdrawal is not an exercise in despair — it is one of the most urgent invitations in Scripture. While the Spirit still strives, while the door still stands open, while conviction still touches the heart — <em>now</em> is the accepted time. 2 Corinthians 6:2 — "Behold, now is the day of salvation." The very fact that you feel the weight of this study is itself the evidence that the Spirit has not yet finished with you.</p>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- PART VIII — SAUL: THE ANATOMY OF A SOUL ABANDONED  -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="section" id="s-saul">
+    <div class="section-label">Part VIII — The Personal Anatomy</div>
+    <h2 class="section-title">Saul: The Most Detailed Case Study of Withdrawal</h2>
+    <p class="sub-heading">No individual biography in Scripture documents the progressive withdrawal of God's Spirit with more clinical precision than the life of King Saul. His story is a mirror held up to every soul that receives great light and then turns from it.</p>
+
+    <div class="callout">
+      <span class="callout-icon">👑</span>
+      <p>Saul began with every advantage: <strong>physical stature</strong> (1 Sam. 9:2), <strong>humility</strong> ("Am I not a Benjaminite, of the smallest of the tribes of Israel?" — 1 Sam. 9:21), <strong>a transformed heart</strong> (1 Sam. 10:9), and <strong>the Spirit of God upon him</strong> (1 Sam. 10:10). He received more direct divine communication in his early reign than almost any king in Israel. And yet he became the most tragic figure in the Old Testament. The question is not what he lacked — it is what he did with what he was given.</p>
+    </div>
+
+    <div class="verse-grid" style="margin-bottom:24px;">
+      <div class="verse-card">
+        <span class="verse-ref">1 Samuel 10:9–10 — The Gift Given</span>
+        <p class="verse-text">"God gave him another heart… the Spirit of God came upon him, and he prophesied among them."</p>
+        <p class="verse-note">Saul began with a divinely renewed heart and the Spirit's anointing — greater initial endowment than most. No soul is abandoned who has not first been richly endowed.</p>
+      </div>
+      <div class="verse-card">
+        <span class="verse-ref">1 Samuel 13:8–14 — The First Crack</span>
+        <p class="verse-text">"You have not kept the commandment of the LORD your God… now your kingdom shall not continue."</p>
+        <p class="verse-note">Saul's first disobedience: impatient presumption — offering the sacrifice himself rather than waiting for Samuel. It looks small. It reveals the heart. Self-will replacing surrender is always the first fracture.</p>
+      </div>
+      <div class="verse-card">
+        <span class="verse-ref">1 Samuel 15:22–23 — The Verdict</span>
+        <p class="verse-text">"To obey is better than sacrifice… rebellion is as the sin of witchcraft, and stubbornness is as iniquity and idolatry. Because you have rejected the word of the LORD, He also has rejected you."</p>
+        <p class="verse-note">The second disobedience — sparing Agag and the best of the spoil. Samuel's diagnosis is exact: stubborn self-will is spiritually equivalent to idolatry. The rejection mirrors the rejection: he rejected God's word; God rejected his kingship.</p>
+      </div>
+      <div class="verse-card">
+        <span class="verse-ref">1 Samuel 16:14 — The Departure</span>
+        <p class="verse-text">"But the Spirit of the LORD departed from Saul, and a distressing spirit from the LORD troubled him."</p>
+        <p class="verse-note">The most chilling verse in Saul's story. Two movements in one sentence: the Spirit departs; a distressing spirit enters. Nature abhors a vacuum. The soul that empties itself of God does not remain neutral.</p>
+      </div>
+      <div class="verse-card">
+        <span class="verse-ref">1 Samuel 18:10–12 — Paranoia & Violence</span>
+        <p class="verse-text">"And it happened on the next day that the distressing spirit from God came upon Saul, and he prophesied inside the house. So Saul eyed David from that day forward."</p>
+        <p class="verse-note">The fruit of a spirit-vacated soul: paranoia, jealousy, murderous rage. Saul attempted to kill David — God's anointed — twice with a spear. The man who received a new heart now has a heart consumed with hatred. This is Romans 1 in biography.</p>
+      </div>
+      <div class="verse-card">
+        <span class="verse-ref">1 Samuel 28:6, 15 — The Silence</span>
+        <p class="verse-text">"When Saul inquired of the LORD, the LORD did not answer him, either by dreams or by Urim or by the prophets… 'God has departed from me and does not answer me anymore.'"</p>
+        <p class="verse-note">Saul himself confesses it: "God has departed from me." He knows. Yet instead of genuine repentance, he turns to the witch of Endor — the final desperate act of a soul that has lost its way back. Darkness is sought when the Light has been persistently refused.</p>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-saul-egw">
+      <button class="expand-btn" onclick="toggleCard('card-saul-egw')">
+        <span class="expand-icon">📜</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">Patriarchs and Prophets, Chapters 60–64</span>
+          <div class="expand-title">EGW on Saul: The Lesson for Every Age</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <div class="egw-quote">"Saul had had the most ample opportunities to become acquainted with the requirements of God. He had been given the Spirit of prophecy, the counsel of the prophet Samuel, and the opportunity of seeing that faithfulness to God brings its own reward. Yet he had chosen self-will and self-sufficiency, and the result was ruin — moral, spiritual, and at last physical."
+          <span class="egw-source">— Ellen G. White, Patriarchs and Prophets, p. 682 (paraphrase of extended argument)</span>
+        </div>
+        <div class="egw-quote">"The sin of Saul in seeking the witch of Endor was great; it was a virtual confession that he had so long rejected God that now, in the crisis of his fate, he had no hope in Him."
+          <span class="egw-source">— Ellen G. White, Patriarchs and Prophets, p. 679</span>
+        </div>
+        <div class="egw-quote">"There are few who realize that they are cherishing pride and self-sufficiency, which is in the sight of God as the sin of witchcraft… The sin of Saul is repeated in the lives of thousands today."
+          <span class="egw-source">— Ellen G. White, Testimonies for the Church, Vol. 4, p. 30</span>
+        </div>
+        <p>EGW's identification of Saul's sin as a pattern repeated in thousands is the bridge from ancient biography to personal application. The specific sins — impatience, presumption, partial obedience, face-saving, jealousy of God's instruments, and final recourse to counterfeit spirituality — are not exotic historical curiosities. They are the habitual sins of comfortable 21st-century Christianity.</p>
+        <div class="tag-row">
+          <span class="tag tag-red">Personal Probation Closed</span>
+          <span class="tag tag-gold">1 Samuel 10–31</span>
+          <span class="tag tag-ash">PP Chapters 60–64</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- PART IX — THE PROPHETS: GOD'S FINAL MESSENGERS BEFORE NIGHT-->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section class="section" id="s-prophets">
+    <div class="section-label">Part IX — The Last Warning Voices</div>
+    <h2 class="section-title">The Prophets: What God Does Before He Withdraws</h2>
+    <p class="sub-heading">Before every great withdrawal of the Spirit, God sends prophets. This is not arbitrary — it is the pattern of covenant faithfulness. He warns before He acts. The rejection of the prophets is always the proximate cause of the final withdrawal.</p>
+
+    <div class="verse-card" style="margin-bottom:20px; max-width:100%;">
+      <span class="verse-ref">2 Chronicles 36:15–16 — The Pattern Stated Explicitly</span>
+      <p class="verse-text">"And the LORD God of their fathers sent warnings to them by His messengers, rising up early and sending them, because He had compassion on His people and on His dwelling place. But they mocked the messengers of God, despised His words, and scoffed at His prophets, until the wrath of the LORD arose against His people, till there was no remedy."</p>
+      <p class="verse-note" style="margin-top:10px; font-size:0.95rem;">"Until there was no remedy" — the Hebrew אֵין מַרְפֵּא (ein marpe') literally means "no healing, no cure." This is the medical language of a terminal condition. The divine diagnosis: incurable — not because God lacks power to heal, but because the patient has consistently rejected every treatment offered.</p>
+    </div>
+
+    <div class="section-card" id="card-elijah">
+      <button class="expand-btn" onclick="toggleCard('card-elijah')">
+        <span class="expand-icon">🔥</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">9th Century BC — Northern Israel</span>
+          <div class="expand-title">Elijah on Carmel: The Last Confrontation Before Assyrian Exile</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>1 Kings 18 presents the most dramatic single-day confrontation between the Spirit and apostasy in the Old Testament. 450 prophets of Baal against one man. The nation — Israel under Ahab and Jezebel — had pursued Baal worship for decades, slaughtered the prophets of God, and driven the true worship underground. The fire from heaven on Carmel was the Spirit's last mighty appeal to a nation less than a century from its exile.</p>
+        <p>The immediate aftermath is instructive: revival appeared to come (1 Kings 18:39 — "The LORD, He is God!"), yet within 24 hours Elijah fled for his life (1 Kings 19:3). The people's confession was emotional, not volitional. Revival not followed by reformation is not genuine. Within two generations, Assyria swept Israel away entirely (722 BC, 2 Kings 17).</p>
+        <div class="egw-quote">"The principles that had been instilled in the hearts of the people as the result of Elijah's ministry were not rooted out; but they were left without nourishment… The truth, long rejected, lost its power to convict."
+          <span class="egw-source">— Ellen G. White, Prophets and Kings, p. 190 (contextual paraphrase)</span>
+        </div>
+        <h4>The Lesson</h4>
+        <p>A great revival without deep heart change and permanent reformation is itself a form of grieving the Spirit — it receives the light and does not walk in it. Israel had Carmel. They had the fire. They chose Jezebel anyway. This is why Elijah's spirit must come again at the end of time (Malachi 4:5–6) — because the pattern repeats.</p>
+        <div class="tag-row">
+          <span class="tag tag-red">Revival Without Reform</span>
+          <span class="tag tag-gold">1 Kings 18–19 · Malachi 4:5</span>
+          <span class="tag tag-ash">PK Ch. 11–13</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-jeremiah">
+      <button class="expand-btn" onclick="toggleCard('card-jeremiah')">
+        <span class="expand-icon">😭</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">7th–6th Century BC — Southern Judah</span>
+          <div class="expand-title">Jeremiah: The Prophet Who Preached to a Nation Past Its Point</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>Jeremiah ministered for 40 years — from King Josiah's reform through the destruction of Jerusalem in 586 BC — preaching to a people who almost entirely refused to hear. He was beaten (Jer. 20:2), imprisoned (Jer. 37:15), thrown into a cistern to die (Jer. 38:6), and forbidden by God to pray for his own people (Jer. 7:16; 11:14). He wept so constantly he is called the Weeping Prophet. He stands as the most vivid human representation of what it feels like to be the Spirit of God — striving, pleading, and refused.</p>
+        <div class="egw-quote">"For forty years did Jeremiah warn Judah of the coming judgments. He bore the rejection of his message, the hatred of the people, the mockery of princes, and imprisonment — and he persevered. He is a type of Christ in His rejection."
+          <span class="egw-source">— Ellen G. White, Prophets and Kings, p. 415 (contextual paraphrase)</span>
+        </div>
+        <h4>The Climax: Jeremiah 19 & The Topheth Oracle</h4>
+        <p>God commanded Jeremiah to take the elders and priests to the Valley of Hinnom (Topheth), smash a clay pot, and declare: "Thus says the LORD of hosts: Even so I will break this people and this city, as one breaks a potter's vessel, which cannot be made whole again" (Jer. 19:11). The "cannot be made whole again" is the divine declaration of irreversibility. The shattered vessel is the image of a civilisation whose probation has closed.</p>
+        <h4>The Historical Outcome</h4>
+        <p>Nebuchadnezzar besieged Jerusalem three times (605, 597, 586 BC). In the final siege, the Lachish Letters — actual administrative documents found in the ruins of Lachish — record a Jewish commander's desperate dispatch: "We are watching for the signal-fires of Lachish, for we cannot see Azekah." Azekah's fires had gone out. City after city was falling. The archaeological record confirms Jeremiah's words with ruthless precision.</p>
+        <div class="tag-row">
+          <span class="tag tag-red">Jerusalem Destroyed 586 BC</span>
+          <span class="tag tag-gold">Lachish Letters · Jer. 19:11</span>
+          <span class="tag tag-ash">PK Chapters 34–39</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-ezekiel">
+      <button class="expand-btn" onclick="toggleCard('card-ezekiel')">
+        <span class="expand-icon">👁</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">6th Century BC — Exile in Babylon</span>
+          <div class="expand-title">Ezekiel: The Departure of the Glory — God Leaving His Own Temple</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>Ezekiel 8–11 is the most detailed description in Scripture of the Spirit's withdrawal — not from an individual or a vague abstraction, but from a physical, holy place. God shows Ezekiel a vision of what is happening in Jerusalem's temple: idol worship in the inner courts, women weeping for Tammuz at the north gate, men worshipping the sun with their backs to the temple. Then the terrible sequence begins.</p>
+        <h4>The Departure in Four Stages (Ezekiel 9–11)</h4>
+        <p><strong style="color:var(--gold-bright);">Stage 1 (Ezek. 9:3):</strong> "The glory of the God of Israel had gone up from the cherub, where it had been, to the threshold of the temple" — the Shekinah moves from the Holy of Holies to the door. A pause — a final warning. <strong style="color:var(--gold-bright);">Stage 2 (Ezek. 10:4):</strong> The glory moves to the threshold of the east gate. <strong style="color:var(--gold-bright);">Stage 3 (Ezek. 10:18–19):</strong> The glory departs the threshold and rests over the cherubim above the east gate — hovering, as if reluctant to leave. <strong style="color:var(--gold-bright);">Stage 4 (Ezek. 11:22–23):</strong> "The glory of the LORD went up from the midst of the city and stood on the mountain, which is on the east side of the city" — the Mount of Olives. God has left His own house.</p>
+        <div class="egw-quote">"The angels of God left the city when the rulers of Israel rejected the counsel of the Lord and decided to put Christ to death. The departure was repeated, in type, in the withdrawal of the Shekinah from the first temple. The pattern is the same: persistent rejection, patient hovering, then silence."
+          <span class="egw-source">— Ellen G. White, The Desire of Ages, p. 576 (contextual)</span>
+        </div>
+        <p>This four-stage departure is the most graphic visual in all Scripture of what the process of withdrawal looks like from heaven's perspective. The glory does not storm out in anger. It moves slowly, by stages, pausing at each threshold — as if hoping someone will notice and cry out. No one does. It leaves. And 18 months later, Nebuchadnezzar's army reduces the temple to rubble.</p>
+        <div class="tag-row">
+          <span class="tag tag-red">Shekinah Withdraws · Temple Destroyed</span>
+          <span class="tag tag-gold">Ezekiel 8–11 · 586 BC</span>
+          <span class="tag tag-ash">Four-Stage Departure</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-stephen">
+      <button class="expand-btn" onclick="toggleCard('card-stephen')">
+        <span class="expand-icon">✨</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">~34 AD — Jerusalem</span>
+          <div class="expand-title">Stephen's Sermon: The Final Charge Before the Nation's Probation Closes</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>Acts 7 is the longest recorded sermon in the book of Acts and the last prophetic appeal to the Jewish Sanhedrin before the gospel definitively turned to the Gentiles. Stephen, "full of the Holy Spirit" (Acts 7:55), traces the entire history of Israel's pattern of rejecting its deliverers — Joseph sold, Moses rejected, the prophets killed — culminating in the ultimate rejection: "Which of the prophets did your fathers not persecute?" (Acts 7:52).</p>
+        <p>The Sanhedrin's response is clinically described: "They were cut to the heart, and they gnashed at him with their teeth" (Acts 7:54). The same Spirit that once cut men to the heart in repentance (Acts 2:37) now only enrages. The capacity for saving conviction had been lost. The same light that saves the surrendered soul hardens the confirmed rebel.</p>
+        <div class="egw-quote">"The guilt of Israel had now reached its height. The number of their crimes was full. The divine Intercessor had been rejected; His messengers had been slain. The mercy of God, so long slighted, was now completely withdrawn."
+          <span class="egw-source">— Ellen G. White, The Acts of the Apostles, p. 102</span>
+        </div>
+        <p>Stephen's martyrdom marks — in EGW's prophetic reading — the moment the Jewish nation's corporate probation finally and fully closed. From this point, the apostolic mission turns outward: "It was necessary that the word of God should be spoken to you first; but since you reject it… we turn to the Gentiles" (Acts 13:46).</p>
+        <div class="tag-row">
+          <span class="tag tag-red">Corporate Probation Closed</span>
+          <span class="tag tag-gold">Acts 7 · Acts 13:46</span>
+          <span class="tag tag-ash">AA Chapter 9</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART X — THE SEALING & THE FOUR WINDS       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section" id="s-sealing">
+    <div class="section-label">Part X — The Prophetic End-Time Structure</div>
+    <h2 class="section-title">The Sealing, the Four Winds, and the Final Plagues</h2>
+    <p class="sub-heading">Revelation 7–9 presents the end-time architecture of divine withdrawal with precise sequential logic. Understanding this structure is essential for reading the signs of our own time.</p>
+
+    <div class="verse-card" style="max-width:100%; margin-bottom:24px;">
+      <span class="verse-ref">Revelation 7:1–3 — The Restraining Angels</span>
+      <p class="verse-text">"After these things I saw four angels standing at the four corners of the earth, holding the four winds of the earth, that the wind should not blow on the earth, on the sea, or on any tree. Then I saw another angel ascending from the east, having the seal of the living God. And he cried with a loud voice to the four angels to whom it was granted to harm the earth and the sea, saying, 'Do not harm the earth, the sea, or the trees till we have sealed the servants of our God on their foreheads.'"</p>
+      <p class="verse-note" style="font-size:0.95rem; margin-top:10px;">Four holding angels. One sealing angel. The winds are <em>already restrained</em> — meaning the destructive forces are already straining to be released. The only thing standing between humanity and its own self-destruction is the active, ongoing work of the Spirit completing the sealing of the saints. When the last soul is sealed — when that work is finished — the hands release. The winds blow. And the silence of heaven becomes the roar of the final judgments.</p>
+    </div>
+
+    <div class="section-card" id="card-seal1">
+      <button class="expand-btn" onclick="toggleCard('card-seal1')">
+        <span class="expand-icon">🌬</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">The Four Winds — What They Represent</span>
+          <div class="expand-title">The Connection Between Spirit-Withdrawal and Civilisational Violence</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>The "four winds" in biblical imagery consistently represent destructive forces — war, famine, pestilence, and death (cf. Jeremiah 49:36; Daniel 7:2; Zechariah 6:5). In Revelation 7, these winds are being actively held back by angelic restraint. This is not metaphor disconnected from history — it describes the actual mechanism by which God's Spirit restrains human violence and social chaos.</p>
+        <div class="egw-quote">"Angels are holding the four winds, represented as an angry horse seeking to break loose and rush over the land. Should the angels let go, there would be strife, destruction and death on a scale never before witnessed."
+          <span class="egw-source">— Ellen G. White, Testimonies for the Church, Vol. 6, p. 408</span>
+        </div>
+        <div class="egw-quote">"The restraining Spirit of God is even now being withdrawn from the world. Hurricanes, storms, tempests, fire and flood, disasters by sea and land, follow each other in quick succession. Science seeks to explain all these. The signs thickening around us, telling of the near approach of the Son of God, are attributed to any other cause. Men cannot discern the sentinel angels restraining the four winds that they shall not blow until the servants of God are sealed."
+          <span class="egw-source">— Ellen G. White, Testimonies for the Church, Vol. 6, p. 408</span>
+        </div>
+        <p>This is EGW's direct connection between Revelation 7's imagery and observable world events. The increasing frequency and intensity of natural and social catastrophes is not coincidental — it is the incremental loosing of the winds as the sealing work progresses toward completion.</p>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-seal2">
+      <button class="expand-btn" onclick="toggleCard('card-seal2')">
+        <span class="expand-icon">🔒</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">The Seal of God vs The Mark of the Beast</span>
+          <div class="expand-title">What the Sealing Is — and What It Is Not</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>The "seal of God" (Revelation 7:2–3) is the Spirit's confirming work in the character of the saints — the fixation of holy principles in the mind and heart. Revelation 14:1 identifies the sealed as having the Father's name written on their foreheads. The forehead in Scripture is the seat of the will and the intellect — the frontal lobe, the centre of moral decision-making. The seal is a character seal, not a physical mark.</p>
+        <div class="egw-quote">"The seal of God is to be placed in the foreheads of those only who sorrow for sin, who mourn because of the iniquity in Jerusalem, who with weeping and anguish of soul lament the abominations practiced in the church."
+          <span class="egw-source">— Ellen G. White, Testimonies for the Church, Vol. 5, p. 211</span>
+        </div>
+        <div class="egw-quote">"Those who receive the seal of the living God and are protected in the time of trouble must reflect the image of Jesus fully."
+          <span class="egw-source">— Ellen G. White, Early Writings, p. 71</span>
+        </div>
+        <p>The sealing is not instantaneous — it is a <em>process</em> corresponding to the Spirit's ongoing work in sanctification. This is why Revelation 22:11 ("He who is righteous, let him be righteous still; he who is holy, let him be holy still") represents the completion, not the beginning, of a long transformational work. The close of probation is not arbitrary — it is the moment when every soul's character formation has reached its final, self-chosen state.</p>
+        <div class="tag-row">
+          <span class="tag tag-gold">Revelation 7:2–3 · 14:1</span>
+          <span class="tag tag-red">5T p. 211 · EW p. 71</span>
+          <span class="tag tag-ash">Character Seal — Not Physical</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-seal3">
+      <button class="expand-btn" onclick="toggleCard('card-seal3')">
+        <span class="expand-icon">⚗️</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">Revelation 15–16 — The Seven Last Plagues</span>
+          <div class="expand-title">The Wrath Without Mercy: What Follows Complete Withdrawal</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>Revelation 15:8 — "The temple was filled with smoke from the glory of God and from His power, and no one was able to enter the temple till the seven plagues of the seven angels were completed." The closed temple means no intercessory access — no Mediator at work, because His mediatorial work is complete. The seven plagues fall "without mixture" — Revelation 14:10 describes the final wrath as "poured out full strength" (ἀκράτου — unmixed, undiluted).</p>
+        <p>The plagues mirror the Egyptian plagues — the same divine structure applied at global scale. In Egypt, the plagues fell on those who had rejected God's messenger and enslaved His people. In Revelation 16, they fall on those who "had the mark of the beast and those who worshiped his image" (Rev. 16:2) — those who chose the counterfeit seal.</p>
+        <div class="egw-quote">"It is impossible to give any idea of the experience of the people of God who shall be alive upon the earth when celestial glory and a repetition of the persecutions of the past are blended. They will walk in the light proceeding from the throne of God. By means of the angels there will be constant communication between heaven and earth."
+          <span class="egw-source">— Ellen G. White, Testimonies for the Church, Vol. 9, p. 17</span>
+        </div>
+        <div class="egw-quote">"The plagues were not universal, or the inhabitants of the earth would be wholly cut off. Yet they will be the most awful scourges that have ever been known to mortals."
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 628</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">No Mixture of Mercy · Rev. 15:8</span>
+          <span class="tag tag-gold">Seven Plagues · Egyptian Parallel</span>
+          <span class="tag tag-ash">GC Chapter 39</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- PART XI — THE MODERN WORLD                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section" id="s-modern">
+    <div class="section-label">Part XI — Our Day</div>
+    <h2 class="section-title">The Modern World: Accelerating the Pattern</h2>
+    <p class="sub-heading">The 20th and 21st centuries have condensed into decades what previously took centuries — an acceleration of both light received and light rejected, on a planetary scale never before witnessed.</p>
+
+    <div class="section-card" id="card-mod1">
+      <button class="expand-btn" onclick="toggleCard('card-mod1')">
+        <span class="expand-icon">💀</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">20th Century</span>
+          <div class="expand-title">The Most Godless Century in History — and Its Body Count</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>The 20th century was simultaneously the century of the greatest gospel outreach in history (Adventist, Protestant, Pentecostal global missions) and the century of the greatest organised atheism and resultant mass murder. The pattern of Romans 1 was enacted at industrial scale.</p>
+        <p>Marxist-Leninist atheism in the Soviet Union — which explicitly sought to exterminate religion — produced the Gulag system, the Ukrainian Holodomor famine (3–7 million deliberate deaths, 1932–33), and an estimated 60–70 million deaths across the 74-year Soviet period (R. J. Rummel's democide estimates). China under Mao's explicitly atheist Cultural Revolution (1966–76) saw an additional 40–70 million deaths. Nazi Germany — built on a Nietzschean rejection of Christian morality and a neo-pagan racial theology — produced the Holocaust: 6 million Jews, 5–6 million others.</p>
+        <div class="egw-quote">"The dignitaries of church and state will unite to bribe, persuade, or compel all classes to honor the Sunday. The lack of divine authority will be supplied by oppressive enactments. Political corruption is destroying love of justice and regard for truth; and even in free America, rulers and legislators, in order to secure public favor, will yield to the popular demand for a law enforcing Sunday observance."
+          <span class="egw-source">— Ellen G. White, The Great Controversy, p. 592 (written 1888)</span>
+        </div>
+        <p>EGW's prediction — written when Sunday legislation was a fringe proposal — now reads as current headlines as Heritage Foundation proposals for federal Sunday rest laws and Vatican encyclicals on Sunday as "rest for society" converge in real time.</p>
+        <div class="tag-row">
+          <span class="tag tag-red">150M+ Deaths · State Atheism</span>
+          <span class="tag tag-gold">Rummel · Black Book of Communism</span>
+          <span class="tag tag-ash">Romans 1 at Scale</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-mod2">
+      <button class="expand-btn" onclick="toggleCard('card-mod2')">
+        <span class="expand-icon">🌐</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">21st Century</span>
+          <div class="expand-title">Post-Christian West: The New Rejection Pattern</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>The Western rejection of Christianity in the 21st century differs from the Soviet model — it is not violent state atheism but cultural evaporation. Church attendance in the United Kingdom, Germany, France, and Australia has collapsed to single-digit percentages in some demographics. Biblical morality on sexuality, marriage, and life is not merely ignored but legally prosecuted in some jurisdictions as hate speech. The very categories of creation — male and female — are now legally contestable.</p>
+        <p>This is precisely Romans 1:26–27 enacted legislatively. The trajectory described by Paul — "God gave them up to vile passions" — is not an ancient social description but a prophetic one, whose fulfilment in the post-Christian West follows the exact sequence: rejection of God's existence → suppression of natural law → sexualisation of culture → criminalisation of conscience.</p>
+        <div class="egw-quote">"Everything in the world is in agitation. The signs of the times are ominous. Coming events cast their shadows before. The Spirit of God is withdrawing from the earth, and calamity follows calamity by sea and by land."
+          <span class="egw-source">— Ellen G. White, Testimonies for the Church, Vol. 9, p. 11</span>
+        </div>
+        <p>The African and Global South church growing rapidly while the Western church collapses is itself a prophetic movement — echoing the pattern of Acts 13:46: "Since you reject it… we turn to the Gentiles." The Spirit does not abandon the earth; He moves where He is welcomed.</p>
+        <div class="tag-row">
+          <span class="tag tag-gold">Romans 1:26–27 Fulfilled</span>
+          <span class="tag tag-red">Post-Christian Legislation</span>
+          <span class="tag tag-ash">9T p. 11 · Cultural Evaporation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="card-mod3">
+      <button class="expand-btn" onclick="toggleCard('card-mod3')">
+        <span class="expand-icon">📡</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">The Convergence — Now</span>
+          <div class="expand-title">Signs of Terminal Withdrawal: What to Watch For</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>Drawing together the scriptural and historical pattern, we can identify the specific markers that have always preceded a final withdrawal of the Spirit at civilisational scale:</p>
+
+        <h4>1. The Prophetic Voices Are Silenced or Ignored</h4>
+        <p>When the last generation of faithful preachers is dismissed, cancelled, or simply unheard — when truth has no platform — this mirrors Jeremiah's situation. We are entering an era where biblical preaching on sin, judgement, and the Law of God is legally and culturally marginalised in formerly Christian nations.</p>
+
+        <h4>2. Violence Fills the Earth (Genesis 6:11 Pattern)</h4>
+        <p>Global conflict, mass shootings, terrorism, genocide — the world has never been more simultaneously armed and ungovernable. The breakdown of family, community, and civic trust that always accompanies Spirit-withdrawal is statistically documentable: social trust indices in Western nations have been in continuous decline since the 1960s.</p>
+
+        <h4>3. Counterfeit Spirituality Replaces the Real</h4>
+        <p>As authentic prophetic witness retreats, counterfeit spirituality proliferates: astrology, manifestation theology, AI-generated "spirituality," neo-paganism, prosperity gospel, and ecumenical movements that paper over doctrinal distinctions while abandoning the distinctive truths that the Spirit uses to seal the saints. This mirrors Saul's turn to the witch of Endor — seeking spiritual experience from any source once the true Source has been forfeited.</p>
+
+        <h4>4. The Church Is Laodicean — Unconscious of Its Own Condition</h4>
+        <p>The most sobering sign of all is Revelation 3:17: "You say, 'I am rich, have become wealthy, and have need of nothing' — and do not know that you are wretched, miserable, poor, blind, and naked." The Laodicean condition is not aware of itself. This is the condition where the Spirit has been shut outside the door — and the congregation inside does not notice the difference. The form of godliness continues while the power is denied (2 Tim. 3:5).</p>
+
+        <div class="egw-quote">"The Lord calls for a revival and a reformation. The two are not the same. Revival signifies a renewal of spiritual life, a quickening of the powers of mind and heart, a resurrection from spiritual death. Reformation signifies a reorganization, a change in ideas and theories, habits and practices. Revival and reformation are to do their appointed work, and in doing this work they must blend."
+          <span class="egw-source">— Ellen G. White, Review and Herald, February 25, 1902</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-red">Four Convergence Markers</span>
+          <span class="tag tag-gold">Laodicean Condition · Rev. 3:17</span>
+          <span class="tag tag-ash">Revival ≠ Reformation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDITIONAL EGW: THE LATTER RAIN -->
+    <div class="section-card" id="card-latter">
+      <button class="expand-btn" onclick="toggleCard('card-latter')">
+        <span class="expand-icon">🌧</span>
+        <div class="expand-title-wrap">
+          <span class="expand-era">The Counter-Movement</span>
+          <div class="expand-title">The Latter Rain: The Spirit's Final Outpouring Before Complete Withdrawal</div>
+        </div>
+        <span class="expand-arrow">▾</span>
+      </button>
+      <div class="collapse-body">
+        <p>The narrative of Spirit-withdrawal is not the complete picture. Scripture and EGW describe a final, mighty outpouring of the Spirit — the Latter Rain of Joel 2:23 and Acts 2:17–18 — that will occur simultaneously with the final withdrawal from the world. The same Spirit that is being withdrawn from those who reject Him will be poured out in extraordinary power upon those who have been sealed.</p>
+        <div class="egw-quote">"Near the close of earth's harvest, a special bestowal of spiritual grace is promised to prepare the church for the coming of the Son of man. This outpouring of the Spirit is likened to the falling of the latter rain; and it is for this added power that Christians are to send their petitions to the Lord of the harvest."
+          <span class="egw-source">— Ellen G. White, Acts of the Apostles, p. 55</span>
+        </div>
+        <div class="egw-quote">"Servants of God, endowed with power from on high with their faces lighted up, and shining with holy consecration, went forth to proclaim the message from heaven. Souls that were scattered all through the religious bodies answered to the call, and the precious were hurried out of the doomed churches, as Lot was hurried out of Sodom before her destruction."
+          <span class="egw-source">— Ellen G. White, Early Writings, p. 278</span>
+        </div>
+        <p>This is the ultimate answer to the terror of Spirit-withdrawal: for those who have kept their hearts open, there is coming not less but more. The world's growing darkness is the backdrop against which the Latter Rain outpouring will be most visible. As the Spirit leaves a rejecting world, He is simultaneously being prepared to fall in fullness upon a prepared, sanctified, sealed remnant.</p>
+        <p>The practical implication: the preparation for the Latter Rain begins now, in the daily surrender of self, in the formation of character, in the daily reception of the Early Rain through Word and prayer. Those who have not sought the Early Rain will not receive the Latter Rain (Zech. 10:1).</p>
+        <div class="tag-row">
+          <span class="tag tag-gold">Joel 2:23 · Acts 2:17–18</span>
+          <span class="tag tag-red">AA p. 55 · EW p. 278</span>
+          <span class="tag tag-ash">Early Rain → Latter Rain</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ADDITIONAL PSALMS & PRAYERS -->
+  <section class="section" id="s-more-psalms">
+    <div class="section-label">Appendix — The Psalms of Desolation</div>
+    <h2 class="section-title">Further Psalms: The Full Range of the Penitent's Cry</h2>
+    <p class="sub-heading">Beyond Psalm 51, the Psalter contains a rich treasury of prayers from men who felt the withdrawal of God's felt presence and cried out in that darkness.</p>
+
+    <div class="verse-grid">
+
+      <div class="verse-card">
+        <span class="verse-ref">Psalm 13:1–3 — How Long, O Lord?</span>
+        <p class="verse-text">"How long, O LORD? Will You forget me forever? How long will You hide Your face from me? How long shall I take counsel in my soul, having sorrow in my heart daily?… Consider and hear me, O LORD my God; enlighten my eyes."</p>
+        <p class="verse-note">David's cry in a period of prolonged felt abandonment. The fourfold "How long?" is not doubt — it is the persistence of faith that refuses to accept silence as final. The very act of crying out to God is evidence the Spirit has not entirely withdrawn.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Psalm 22:1–2 — The Forsaken Cry</span>
+        <p class="verse-text">"My God, My God, why have You forsaken me? Why are You so far from helping Me, and from the words of My groaning? O My God, I cry in the daytime, but You do not hear."</p>
+        <p class="verse-note">Christ's own cry from the cross — quoting this Psalm. The ultimate expression of felt divine withdrawal, experienced by One who never sinned. The cry demonstrates that even the darkest experience of God's hiddenness does not equal actual abandonment. The cry itself is prayer — directed to God.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Psalm 88 — The Darkest Psalm</span>
+        <p class="verse-text">"LORD, God of my salvation, I have cried out day and night before You… I am counted with those who go down to the pit… You have put away my acquaintances far from me; You have made me an abomination to them… Darkness is my closest friend."</p>
+        <p class="verse-note">Uniquely, Psalm 88 ends without resolution — in darkness. It is the only psalm with no turn to praise. Yet it is <em>in the canon</em>, inspired, because God validates the prayer of those walking through the darkest night of the soul. The act of praying in the darkness is itself the evidence of the Spirit's presence.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Psalm 77:7–9 — Will the Lord Cast Off Forever?</span>
+        <p class="verse-text">"Will the Lord cast off forever? And will He be favorable no more? Has His mercy ceased forever? Has His promise failed forevermore? Has God forgotten to be gracious? Has He in anger shut up His tender mercies?"</p>
+        <p class="verse-note">Asaph's prayer in national crisis — six devastating questions of desolation. Then in verse 10, the turn: "And I said, 'This is my anguish; but I will remember the years of the right hand of the Most High.'" Memory of past mercies is the lifeline when present experience feels abandoned.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Lamentations 3:31–33 — Jeremiah's Hope in Ruins</span>
+        <p class="verse-text">"For the Lord will not cast off forever. Though He causes grief, yet He will show compassion according to the multitude of His mercies. For He does not afflict willingly, nor grieve the children of men."</p>
+        <p class="verse-note">Written in the smoking ruins of Jerusalem, Jeremiah — the man forbidden to pray for his own nation — still finds the bedrock. "He does not afflict willingly" — the withdrawal is never God's preference. It is the last, painful honouring of human choice. Even in the ruins, the mercy has not ended for the individual penitent.</p>
+      </div>
+
+      <div class="verse-card">
+        <span class="verse-ref">Isaiah 54:7–8 — The Everlasting Kindness</span>
+        <p class="verse-text">"For a mere moment I have forsaken you, but with great mercies I will gather you. With a little wrath I hid My face from you for a moment; but with everlasting kindness I will have mercy on you, says the LORD, your Redeemer."</p>
+        <p class="verse-note">God's own perspective on the periods of withdrawal from His people: "a mere moment." What feels like eternal abandonment to the sufferer is, in divine perspective, a breath — followed by "everlasting kindness." This is the ground of hope that keeps the penitent soul praying when heaven seems silent.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Compiled for personal biblical study · All Scripture from NKJV unless noted</p>
+  <p style="margin-top:6px;">Ellen White references: GC = The Great Controversy · PP = Patriarchs & Prophets · PK = Prophets & Kings · DA = Desire of Ages</p>
+</footer>
+
+<script>
+  function toggleCard(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+
+  function scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // Intersection observer for nav highlighting
+  const sections = ['s-intro','s-verses','s-psalm','s-process','s-history','s-egw','s-saul','s-prophets','s-sealing','s-modern','s-today'];
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = sections.indexOf(entry.target.id);
+        if (idx >= 0) {
+          navBtns.forEach(b => b.classList.remove('active'));
+          navBtns[idx].classList.add('active');
+        }
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  // Stagger animation on load
+  document.querySelectorAll('.section').forEach((s, i) => {
+    s.style.animationDelay = (i * 0.08) + 's';
+  });
+</script>
+</body>
+</html>

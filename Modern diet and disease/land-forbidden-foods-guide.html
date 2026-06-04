@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Forbidden Land — All Levitically Prohibited Land Animals</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --earth:          #110e08;
+    --earth-mid:      #181208;
+    --earth-card:     #1e1710;
+    --earth-edge:     #261f14;
+    --earth-bright:   #2e2518;
+    --gold:           #c9a84c;
+    --gold-bright:    #e8c96a;
+    --gold-dim:       #8a6d2e;
+    --amber:          #b87020;
+    --amber-bright:   #d8902a;
+    --amber-dim:      #7a4a10;
+    --red-warn:       #b84040;
+    --red-dim:        #7a2e2e;
+    --sage:           #5a7a3a;
+    --sage-bright:    #7aa050;
+    --text-main:      #eedcb8;
+    --text-muted:     #9a8060;
+    --text-dim:       #5a4830;
+    --border:         rgba(184,112,32,0.22);
+    --border-strong:  rgba(184,112,32,0.48);
+    --border-gold:    rgba(201,168,76,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--earth);
+    color: var(--text-main);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.78;
+    background-image:
+      radial-gradient(ellipse at 15% 5%, rgba(140,80,10,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 95%, rgba(100,60,5,0.08) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    text-align: center;
+    padding: 70px 24px 50px;
+    border-bottom: 1px solid var(--border-strong);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(184,112,32,0.07) 0%, transparent 100%);
+  }
+  .masthead::before {
+    content: '';
+    display: block;
+    width: 1px; height: 40px;
+    background: linear-gradient(180deg, var(--amber), transparent);
+    margin: 0 auto 0;
+    position: absolute; top: 0; left: 50%;
+  }
+  .masthead-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--amber-dim);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(24px, 5vw, 46px);
+    font-weight: 700;
+    color: var(--gold-bright);
+    line-height: 1.15;
+    margin-bottom: 8px;
+    text-shadow: 0 0 40px rgba(201,168,76,0.35), 0 2px 20px rgba(0,0,0,0.7);
+  }
+  .masthead h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(13px, 2vw, 17px);
+    font-weight: 400;
+    color: var(--amber-dim);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+  .masthead .subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 720px;
+    margin: 0 auto 30px;
+  }
+  .wave-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-top: 30px;
+  }
+  .wave-line { height: 1px; width: 80px; background: linear-gradient(90deg, transparent, var(--amber-dim)); }
+  .wave-line.r { background: linear-gradient(90deg, var(--amber-dim), transparent); }
+  .wave-dots { color: var(--amber-dim); font-size: 14px; letter-spacing: 8px; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 940px; margin: 0 auto; padding: 0 20px 100px; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--earth-card);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 40px 0;
+  }
+  .toc-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 6px 24px;
+  }
+  .toc-item {
+    font-size: 15px; color: var(--text-muted);
+    padding: 4px 0 4px 16px; position: relative;
+    text-decoration: none; display: block; transition: color 0.2s;
+  }
+  .toc-item::before { content: '⟶'; position: absolute; left: 0; color: var(--amber-dim); font-size: 12px; top: 6px; }
+  .toc-item:hover { color: var(--gold-bright); }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(12px, 2vw, 16px);
+    font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--amber);
+    border-top: 1px solid var(--border-strong);
+    padding-top: 44px; margin-top: 60px; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-title .icon { font-size: 20px; }
+  .section-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic; font-size: 22px;
+    color: var(--text-main); margin-bottom: 26px;
+  }
+
+  /* ── CREATURE CARDS ── */
+  .creature {
+    background: var(--earth-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 22px;
+    overflow: hidden;
+    scroll-margin-top: 20px;
+  }
+  .creature-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, rgba(184,112,32,0.07), transparent);
+    cursor: pointer; user-select: none;
+  }
+  .creature-icon { font-size: 28px; flex-shrink: 0; }
+  .creature-name {
+    font-family: 'Cinzel', serif; font-size: 17px; font-weight: 600;
+    color: var(--gold-bright); letter-spacing: 1px;
+  }
+  .creature-latin {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 14px; color: var(--text-dim); margin-top: 2px;
+  }
+  .creature-verdict {
+    margin-left: auto;
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 5px 12px; border-radius: 3px;
+    border: 1px solid var(--red-dim); color: #d06060;
+    background: rgba(184,64,64,0.08); flex-shrink: 0;
+  }
+  .creature-toggle { margin-left: 8px; color: var(--amber-dim); font-size: 12px; transition: transform 0.25s; flex-shrink: 0; }
+  .creature.open .creature-toggle { transform: rotate(90deg); }
+  .creature-body { display: none; padding: 24px; }
+  .creature.open .creature-body { display: block; }
+
+  /* ── PILLAR GRID ── */
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 14px; margin-top: 4px;
+  }
+  .pillar { background: var(--earth-edge); border-radius: 4px; padding: 16px 18px; }
+  .pillar-title {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2.5px;
+    text-transform: uppercase; margin-bottom: 10px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pillar.science .pillar-title  { color: var(--sage-bright); }
+  .pillar.scripture .pillar-title { color: var(--gold-dim); }
+  .pillar.egw .pillar-title      { color: #8ab0d0; }
+  .pillar ul { list-style: none; padding: 0; }
+  .pillar li {
+    font-size: 15px; color: var(--text-muted);
+    padding: 4px 0 4px 16px; position: relative; line-height: 1.5;
+  }
+  .pillar.science li::before   { content: '⬡'; position: absolute; left: 0; color: var(--sage); font-size: 10px; top: 7px; }
+  .pillar.scripture li::before { content: '✦'; position: absolute; left: 0; color: var(--gold-dim); font-size: 9px; top: 7px; }
+  .pillar.egw li::before       { content: '◈'; position: absolute; left: 0; color: #5a7a9a; font-size: 10px; top: 7px; }
+
+  .creature-detail {
+    margin-top: 14px; font-size: 16px; color: var(--text-muted); line-height: 1.72;
+    border-top: 1px solid var(--border); padding-top: 14px;
+  }
+  .creature-detail strong { color: var(--text-main); }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--earth-card); border: 1px solid var(--border);
+    border-radius: 4px; padding: 22px 26px; margin-bottom: 18px; position: relative;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%; border-radius: 4px 0 0 4px;
+  }
+  .card.danger::before   { background: var(--red-warn); }
+  .card.amber::before    { background: var(--amber); }
+  .card.gold::before     { background: var(--gold); }
+  .card.scripture::before{ background: var(--gold-dim); }
+  .card.egw::before      { background: #6b8faf; }
+  .card.sage::before     { background: var(--sage); }
+  .card-title {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .card.danger .card-title   { color: #d06060; }
+  .card.amber .card-title    { color: var(--amber-bright); }
+  .card.gold .card-title     { color: var(--gold); }
+  .card.scripture .card-title{ color: var(--gold-dim); }
+  .card.egw .card-title      { color: #8ab0d0; }
+  .card.sage .card-title     { color: var(--sage-bright); }
+  .card p { color: var(--text-main); margin-bottom: 8px; font-size: 17px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── VERSE BLOCK ── */
+  .verse-block {
+    background: var(--earth-mid);
+    border-left: 3px solid var(--gold-dim);
+    padding: 18px 24px; margin: 20px 0; border-radius: 0 4px 4px 0;
+  }
+  .verse-text {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 19px; color: var(--text-main); line-height: 1.85;
+  }
+  .verse-ref {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2.5px;
+    color: var(--gold-dim); margin-top: 10px; text-transform: uppercase;
+  }
+
+  /* ── EGW QUOTE ── */
+  .egw-quote {
+    background: linear-gradient(135deg, rgba(107,143,175,0.07), rgba(107,143,175,0.02));
+    border: 1px solid rgba(107,143,175,0.22);
+    border-left: 3px solid #6b8faf;
+    padding: 20px 24px; margin: 20px 0; border-radius: 0 4px 4px 0;
+  }
+  .egw-quote p {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 18px; color: var(--text-main); line-height: 1.85; margin-bottom: 8px;
+  }
+  .egw-cite {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    color: #6b8faf; text-transform: uppercase;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 14px; margin: 24px 0;
+  }
+  .stat-box {
+    background: var(--earth-edge); border: 1px solid var(--border);
+    border-radius: 4px; padding: 18px 16px; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cinzel', serif; font-size: 30px; font-weight: 700;
+    color: var(--red-warn); line-height: 1; margin-bottom: 6px;
+  }
+  .stat-num.amber { color: var(--amber-bright); }
+  .stat-num.gold  { color: var(--gold); }
+  .stat-num.sage  { color: var(--sage-bright); }
+  .stat-label { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+
+  /* ── CATEGORY LABEL ── */
+  .cat-label {
+    display: inline-block; font-family: 'Cinzel', serif;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 2px; margin-bottom: 16px; margin-top: 8px;
+  }
+  .cat-ungulate { background: rgba(184,112,32,0.12); border: 1px solid rgba(184,112,32,0.35); color: var(--amber-bright); }
+  .cat-swine    { background: rgba(184,64,64,0.1);   border: 1px solid rgba(184,64,64,0.3);   color: #d06060; }
+  .cat-rodent   { background: rgba(130,90,160,0.1);  border: 1px solid rgba(130,90,160,0.3);  color: #b090d0; }
+  .cat-reptile  { background: rgba(60,130,80,0.1);   border: 1px solid rgba(60,130,80,0.3);   color: #60c080; }
+  .cat-insect   { background: rgba(201,168,76,0.1);  border: 1px solid rgba(201,168,76,0.3);  color: var(--gold); }
+
+  /* ── COMPARE TABLE ── */
+  .compare-table {
+    width: 100%; border-collapse: collapse; margin: 22px 0; font-size: 15.5px;
+  }
+  .compare-table th {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; padding: 11px 14px;
+    background: var(--earth-edge); color: var(--amber-dim);
+    border-bottom: 1px solid var(--border-strong); text-align: left;
+  }
+  .compare-table td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    color: var(--text-main); vertical-align: top;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(184,112,32,0.04); }
+  .badge-bad { color: #d06060; font-weight: 600; }
+  .badge-mid { color: var(--gold); font-weight: 600; }
+
+  /* ── ACCORDION ── */
+  details {
+    background: var(--earth-card); border: 1px solid var(--border);
+    border-radius: 4px; margin-bottom: 10px;
+  }
+  details[open] { border-color: var(--border-strong); }
+  summary {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--amber-dim);
+    padding: 15px 20px; cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: color 0.2s;
+  }
+  summary:hover { color: var(--amber); }
+  summary::after { content: '▸'; transition: transform 0.25s; }
+  details[open] summary::after { transform: rotate(90deg); }
+  summary::-webkit-details-marker { display: none; }
+  .details-body { padding: 4px 20px 18px; font-size: 15.5px; color: var(--text-muted); line-height: 1.72; }
+  .details-body strong { color: var(--text-main); }
+  .details-body p { margin-bottom: 9px; }
+
+  /* ── PRINCIPLE BOX ── */
+  .principle {
+    background: linear-gradient(135deg, rgba(90,122,58,0.08), rgba(90,122,58,0.02));
+    border: 1px solid rgba(90,122,58,0.25); border-radius: 4px;
+    padding: 22px 26px; margin: 22px 0;
+  }
+  .principle-title {
+    font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--sage-bright); margin-bottom: 10px;
+  }
+  .principle p { font-size: 17px; color: var(--text-main); line-height: 1.75; margin-bottom: 8px; }
+  .principle p:last-child { margin-bottom: 0; }
+
+  /* ── SUMMARY BOX ── */
+  .summary-box {
+    background: linear-gradient(135deg, rgba(184,112,32,0.1), rgba(184,112,32,0.03));
+    border: 1px solid var(--border-strong); border-radius: 6px;
+    padding: 30px 34px; margin: 36px 0;
+  }
+  .summary-box h3 {
+    font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+  }
+  .summary-box ol {
+    padding-left: 22px; color: var(--text-main); font-size: 17px; line-height: 2.1;
+  }
+
+  /* ── DANGER BANNER ── */
+  .danger-banner {
+    background: linear-gradient(135deg, rgba(184,64,64,0.1), rgba(184,64,64,0.03));
+    border: 1px solid rgba(184,64,64,0.28); border-radius: 4px;
+    padding: 20px 24px; margin: 22px 0; text-align: center;
+  }
+  .danger-banner p {
+    font-family: 'IM Fell English', serif; font-style: italic;
+    font-size: 17px; color: var(--text-main); line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center; padding: 50px 20px;
+    border-top: 1px solid var(--border); margin-top: 60px;
+  }
+  .footer p {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    color: var(--text-dim); text-transform: uppercase;
+  }
+  .footer-wave { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 20px; }
+  .footer-wave-line { height: 1px; width: 60px; background: linear-gradient(90deg, transparent, var(--amber-dim)); }
+  .footer-wave-line.r { background: linear-gradient(90deg, var(--amber-dim), transparent); }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-label">Health · Scripture · Spirit of Prophecy</div>
+  <h1>The Forbidden Land</h1>
+  <h2>All Levitically Prohibited Land Animals</h2>
+  <p class="subtitle">A complete examination of every land animal excluded by the split-hoof and cud-chewing criterion — with the science, Scripture, and prophetic counsel behind each prohibition. Birds are addressed in a separate guide.</p>
+  <div class="wave-divider">
+    <div class="wave-line"></div>
+    <div class="wave-dots">✦ ✦ ✦</div>
+    <div class="wave-line r"></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Contents — Navigate by Category</div>
+    <div class="toc-grid">
+      <a class="toc-item" href="#foundation">The Levitical Criterion Explained</a>
+      <a class="toc-item" href="#principle">The Ruminant Principle</a>
+      <a class="toc-item" href="#swine">Swine — Pig, Wild Boar</a>
+      <a class="toc-item" href="#equine">Equines — Horse, Donkey, Mule, Zebra</a>
+      <a class="toc-item" href="#camelids">Camelids — Camel, Llama, Alpaca</a>
+      <a class="toc-item" href="#lagomorphs">Lagomorphs — Rabbit, Hare, Rock Hyrax</a>
+      <a class="toc-item" href="#rodents">Rodents — Rat, Mouse, Guinea Pig, Squirrel</a>
+      <a class="toc-item" href="#carnivores">Carnivores — Dog, Cat, Lion, Bear, Wolf</a>
+      <a class="toc-item" href="#reptiles">Reptiles — Lizard, Snake, Crocodile, Gecko</a>
+      <a class="toc-item" href="#insects">Insects — Excepting the Clean Locusts</a>
+      <a class="toc-item" href="#toxins">Shared Disease Profile</a>
+      <a class="toc-item" href="#egw">Ellen White — Full Land Counsel</a>
+      <a class="toc-item" href="#nt">New Testament Objections</a>
+      <a class="toc-item" href="#summary">Summary</a>
+    </div>
+  </div>
+
+  <!-- FOUNDATION -->
+  <div id="foundation" class="section-title"><span class="icon">✦</span> Foundation</div>
+  <div class="section-subtitle">The Levitical Criterion — Split Hoof and Cud-Chewing</div>
+
+  <div class="verse-block">
+    <div class="verse-text">"You may eat any animal that has a divided hoof and that chews the cud. There are some that only chew the cud or only have a divided hoof, but you must not eat them. The camel, though it chews the cud, does not have a divided hoof; it is ceremonially unclean for you. The hyrax, though it chews the cud, does not have a divided hoof; it is unclean for you. The rabbit, though it chews the cud, does not have a divided hoof; it is unclean for you. And the pig, though it has a divided hoof, does not chew the cud; it is unclean for you. You must not eat their meat or touch their carcasses; they are unclean for you."</div>
+    <div class="verse-ref">Leviticus 11:3–8 (NIV)</div>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Do not eat any detestable thing... You may eat any animal that has a split hoof divided in two and that chews the cud."</div>
+    <div class="verse-ref">Deuteronomy 14:3–6 (NIV)</div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-title">What the Dual Criterion Selects For — Biological Precision</div>
+    <p><strong>Chewing the cud (rumination)</strong> indicates a multi-chambered stomach system — the rumen, reticulum, omasum, and abomasum — that ferments, neutralises, and detoxifies plant material over 24–72 hours. Ruminants re-swallow partially digested food (cud) for a second round of microbial processing. This prolonged fermentation neutralises many plant toxins, breaks down complex carbohydrates into fatty acids, and produces a fundamentally different fat and amino acid profile compared to monogastric animals. Ruminant meat is higher in conjugated linoleic acid (CLA), lower in arachidonic acid, and carries a dramatically lower pathogen burden than omnivores and scavengers.</p>
+    <p style="margin-top:10px;"><strong>Split (cloven) hooves</strong> indicate animals specifically adapted for grazing on open ground — herbivores that feed on grasses and low-growing plants rather than carrion, waste, or omnivorous matter. No predatory or omnivorous land animal has a split hoof. The hoof structure is a behavioural and ecological marker as much as an anatomical one.</p>
+    <p style="margin-top:10px;">Together the two criteria select exclusively for herbivorous ruminants — cattle, sheep, goats, deer, gazelle, bison, giraffe — the safest land-animal food group in terms of pathogen profile, fat biochemistry, and parasitological risk.</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num amber">4</div>
+      <div class="stat-label">Stomach chambers in ruminants — a 24–72 hr detoxification system</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">18×</div>
+      <div class="stat-label">Higher colorectal cancer risk from processed pork vs. no consumption (WHO IARC)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num gold">3,500</div>
+      <div class="stat-label">Years the criterion has stood — confirmed by modern parasitology and oncology</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num sage">0</div>
+      <div class="stat-label">Clean ruminant animals associated with IARC Group 1 foodborne carcinogen loads</div>
+    </div>
+  </div>
+
+  <!-- RUMINANT PRINCIPLE -->
+  <div id="principle" class="section-title"><span class="icon">⬡</span> The Principle</div>
+  <div class="section-subtitle">Why Ruminants Are Clean — The Multi-Chamber Advantage</div>
+
+  <div class="principle">
+    <div class="principle-title">The Ruminant Detoxification System</div>
+    <p>The ruminant digestive system is one of biology's most elegant detoxification architectures. Where a pig processes its food in 4 hours — absorbing whatever it consumed — a cow processes food over 24–72 hours through four stomach chambers and two rounds of chewing. The rumen alone contains trillions of microorganisms that ferment, neutralise, and transform plant material. This extended processing:</p>
+    <p><strong>1.</strong> Neutralises most plant toxins and mycotoxins before they reach the bloodstream<br>
+    <strong>2.</strong> Produces short-chain fatty acids (butyrate, propionate) with anti-inflammatory and anti-carcinogenic properties<br>
+    <strong>3.</strong> Generates conjugated linoleic acid (CLA) — a naturally occurring anti-carcinogen found almost exclusively in ruminant fat<br>
+    <strong>4.</strong> Results in a fundamentally different amino acid and fat profile — lower in arachidonic acid (pro-inflammatory), higher in omega-3 precursors<br>
+    <strong>5.</strong> Dramatically reduces the pathogen and parasite carriage rates compared to omnivorous monogastrics</p>
+    <p>The prohibited animals — pigs, horses, rabbits, camels, rodents — are all monogastric (single-stomach) omnivores or non-ruminant herbivores with digestive transit times that prevent this level of detoxification.</p>
+  </div>
+
+  <!-- ══════ SWINE ══════ -->
+  <div id="swine" class="section-title"><span class="icon">🐷</span> Swine</div>
+  <div class="section-subtitle">The Pig and Wild Boar — The Most Documented Prohibition</div>
+  <span class="cat-label cat-swine">Category: Suidae</span>
+
+  <!-- PIG -->
+  <div class="creature open">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐷</span>
+      <div>
+        <div class="creature-name">Domestic Pig / Swine</div>
+        <div class="creature-latin">Sus scrofa domesticus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Monogastric — 4-hr digestion; no detox filtering</li>
+            <li>Trichinella spiralis — larvae encyst in human muscle/heart/brain</li>
+            <li>Taenia solium — pork tapeworm; neurocysticercosis causes epilepsy</li>
+            <li>Hepatitis E virus (HEV) — primary zoonotic reservoir</li>
+            <li>Yersinia enterocolitica — thrives at refrigerator temps; autoimmune thyroid</li>
+            <li>WHO IARC 2015: processed pork = Group 1 carcinogen</li>
+            <li>N-nitrosamines, HCAs, PAHs from curing and cooking</li>
+            <li>Influenza reassortment — primary mixing vessel for pandemic strains</li>
+            <li>Arachidonic acid: high omega-6 imbalance — pro-inflammatory</li>
+            <li>No sweat glands — toxins stored in fat</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Split hoof — passes ONE criterion only</li>
+            <li>Does NOT chew cud — fails Lev 11:7</li>
+            <li>Explicit named prohibition in Lev 11:7–8</li>
+            <li>Deuteronomy 14:8 — repeated prohibition</li>
+            <li>Isaiah 66:17 — eating pork in eschatological judgment</li>
+            <li>Isaiah 65:4 — "eat the flesh of pigs" among apostates</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"Most injurious" article of common diet (SG Vol. 4, 1864)</li>
+            <li>"Laden with worms" — Trichinella/Taenia (Letter 72, 1896)</li>
+            <li>"Eating pork has greatest effect in producing cancer"</li>
+            <li>"Produces a bad state of the blood" (Test. Vol. 2)</li>
+            <li>Not prohibited merely to show authority — biological reason</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The pig is the most extensively documented prohibited animal. Its 4-hour digestive transit — compared to 24–72 hours in ruminants — means pathogens and toxins consumed by the pig reach its muscle tissue without adequate neutralisation. It shares human-compatible receptor sites for influenza viruses, making it the primary "mixing vessel" for pandemic strains. <strong>Taenia solium</strong> larvae (cysticerci) migrate to the human brain causing neurocysticercosis — the leading cause of adult-onset epilepsy in endemic regions, affecting 2.5–8 million people globally. EGW's 1864 description of "worms" filling the system predated the formal scientific understanding of this mechanism by decades.
+      </div>
+    </div>
+  </div>
+
+  <!-- WILD BOAR -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐗</span>
+      <div>
+        <div class="creature-name">Wild Boar</div>
+        <div class="creature-latin">Sus scrofa (wild)</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Trichinella — highest prevalence in wild boar vs. farmed pigs</li>
+            <li>Wild boar: primary European Trichinella reservoir</li>
+            <li>Hepatitis E genotype 3 — major wild boar HEV burden</li>
+            <li>African Swine Fever virus — wild boar reservoir globally</li>
+            <li>Brucella suis — causes brucellosis; fever, arthritis, neurological damage</li>
+            <li>Pseudorabies (Aujeszky's disease) — lethal in dogs; humans at risk</li>
+            <li>Leptospira interrogans — wild boar urine contamination</li>
+            <li>Wider omnivorous diet than farmed pigs — greater pathogen load</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Same species as domestic pig — same prohibition</li>
+            <li>Psalm 80:13 — "the boar from the forest ravages it"</li>
+            <li>Wild status does not alter biological category</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Swine prohibition applies regardless of farming context</li>
+            <li>The biological nature of the animal determines its status</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Wild boar carry a significantly higher parasite and pathogen burden than farmed pigs. In Europe, wild boar are the primary wildlife reservoir for <strong>Trichinella britovi</strong> — a cold-tolerant Trichinella species that survives freezing (unlike T. spiralis). Multiple European outbreak clusters have been traced to wild boar hunted and consumed by hunters and their families. <strong>Brucella suis</strong> in wild boar causes brucellosis — a debilitating chronic disease causing undulant fever, joint destruction, and neurological complications in humans who handle infected carcasses or consume undercooked meat.
+      </div>
+    </div>
+  </div>
+
+  <!-- EQUINES -->
+  <div id="equine" class="section-title"><span class="icon">🐴</span> Equines</div>
+  <div class="section-subtitle">Horse, Donkey, Mule and Zebra — Single-Hoofed Non-Ruminants</div>
+  <span class="cat-label cat-ungulate">Category: Equidae</span>
+
+  <!-- HORSE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐴</span>
+      <div>
+        <div class="creature-name">Horse</div>
+        <div class="creature-latin">Equus caballus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Single (solid) hoof — fails split-hoof criterion</li>
+            <li>Monogastric hindgut fermenter — not a ruminant</li>
+            <li>Trichinella nativa — cold-adapted; high prevalence in horse meat</li>
+            <li>European horse meat Trichinella outbreaks: France 1985 (600+ cases), Italy 1975 (124 cases)</li>
+            <li>Equine infectious anaemia virus — latent in carrier horses</li>
+            <li>Salmonella typhimurium: horse intestinal carriage rate 15–30%</li>
+            <li>Clostridium perfringens: common in horse gut; produces toxins in meat</li>
+            <li>Phenylbutazone (bute) — common horse drug; not cleared for human food; banned in EU food chain</li>
+            <li>High glycogen content — rapid post-mortem acidosis issues</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Single hoof — fails Lev 11:3 split-hoof criterion</li>
+            <li>Does not chew cud — fails second criterion</li>
+            <li>Fails both criteria — double prohibition</li>
+            <li>Deuteronomy 17:16 — horses associated with worldly military power, not provision</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Included in unclean animal category</li>
+            <li>The biological criteria apply regardless of cultural practice</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Horse meat consumption is culturally accepted in France, Belgium, Central Asia, and Japan — yet horses are documented Trichinella vectors. The 1985 French outbreak (600+ cases) and 1975 Italian outbreak were both traced to horse meat — the Trichinella nativa strain involved is cold-adapted and survives standard freezing protocols that destroy T. spiralis. <strong>Phenylbutazone</strong> ("bute") — a non-steroidal anti-inflammatory commonly administered to horses — is not permitted in food-chain animals anywhere in the world due to serious aplastic anaemia risk in humans. The 2013 European horsemeat scandal revealed widespread undisclosed horse meat in processed beef products, contaminating the food supply with a substance that had never been tested for human safety at dietary exposure levels.
+      </div>
+    </div>
+  </div>
+
+  <!-- DONKEY -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🫏</span>
+      <div>
+        <div class="creature-name">Donkey / Ass</div>
+        <div class="creature-latin">Equus asinus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Single hoof, monogastric — same class as horse</li>
+            <li>Trypanosoma equiperdum — dourine; sexually transmitted protozoan</li>
+            <li>Glanders (Burkholderia mallei) — donkeys are primary reservoir; WHO Category B bioterrorism agent</li>
+            <li>Equine influenza — shares receptor sites with human strains</li>
+            <li>Salmonella and Campylobacter carriage in gut</li>
+            <li>Consumed in some Mediterranean/African regions — associated with donkey-borne disease outbreaks</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Single hoof, no cud — fails both Lev 11 criteria</li>
+            <li>2 Kings 6:25 — donkey's head sold as famine food (extreme desperation context)</li>
+            <li>Described as an animal of burden and service, not food</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Equine family covered under unclean land animals</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The 2 Kings 6:25 reference to donkey's head being sold for 80 shekels of silver during the siege of Samaria is not dietary endorsement — it is a graphic illustration of extreme famine desperation, presented as a horror. <strong>Glanders</strong>, caused by Burkholderia mallei — a bacterium for which donkeys are the primary reservoir — is one of the most dangerous zoonotic diseases known; it is classified by the WHO as a potential bioterrorism agent due to its high lethality, ease of transmission, and resistance to antibiotics. Donkey ejiao (donkey-hide gelatin) consumed as a traditional medicine in China has driven donkey population collapse across Africa, raising additional food safety concerns as diseased animals enter unregulated slaughter chains.
+      </div>
+    </div>
+  </div>
+
+  <!-- ZEBRA -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦓</span>
+      <div>
+        <div class="creature-name">Zebra</div>
+        <div class="creature-latin">Equus quagga / Equus zebra</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Single hoof, monogastric — equid family</li>
+            <li>African horse sickness virus reservoir</li>
+            <li>Trypanosomiasis (sleeping sickness) — zebra reservoir</li>
+            <li>Anthrax spore exposure: zebra graze in anthrax-endemic soils</li>
+            <li>Consumed in Southern Africa as game meat — regulatory gaps</li>
+            <li>Parasite burden from open-range savannah grazing</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Equid — same biological family as horse and donkey</li>
+            <li>Single hoof, no cud — fails both Lev 11 criteria</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Unclean animal principle applies to all equids</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Zebra is consumed as game meat in Southern Africa (including South Africa, Zimbabwe, Namibia) where it is considered a delicacy and sold in game restaurants. As an equid with a single hoof and monogastric digestion, it falls squarely under the Levitical prohibition. Its savannah range exposes it to anthrax-endemic soils (Bacillus anthracis spores persist for decades); multiple zebra anthrax die-offs have been documented in Etosha National Park, Namibia and Kruger National Park. Trypanosomiasis parasites circulate through zebra populations — while not directly causing disease in zebra, they are maintained as reservoir hosts.
+      </div>
+    </div>
+  </div>
+
+  <!-- CAMELIDS -->
+  <div id="camelids" class="section-title"><span class="icon">🐪</span> Camelids</div>
+  <div class="section-subtitle">Camel, Llama and Alpaca — Pseudo-Ruminants</div>
+  <span class="cat-label cat-ungulate">Category: Camelidae</span>
+
+  <!-- CAMEL -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐪</span>
+      <div>
+        <div class="creature-name">Camel (Dromedary & Bactrian)</div>
+        <div class="creature-latin">Camelus dromedarius / Camelus bactrianus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>MERS-CoV (Middle East Respiratory Syndrome) — camels are the primary reservoir</li>
+            <li>MERS mortality rate: 35% — highest of any known coronavirus</li>
+            <li>Direct camel contact and raw camel meat/milk linked to MERS transmission</li>
+            <li>Pad foot (not split hoof) — fails anatomical criterion</li>
+            <li>Pseudo-ruminant — 3-chamber stomach, NOT true 4-chamber ruminant</li>
+            <li>Brucella melitensis and Brucella abortus carriage</li>
+            <li>Camel pox virus — zoonotic potential</li>
+            <li>Mange mites (Sarcoptes scabiei) in camel herds</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Explicitly named — Leviticus 11:4</li>
+            <li>"Though it chews the cud, does not have a divided hoof"</li>
+            <li>First animal listed in the prohibited exceptions</li>
+            <li>Deuteronomy 14:7 — repeated specific exclusion</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Explicitly excluded in Levitical framework EGW upholds</li>
+            <li>"God had a reason for every restriction He gave to Israel"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The camel is the first specifically named prohibited animal in Leviticus 11 — and modern epidemiology has vindicated this with striking force. Camels are the established animal reservoir for <strong>MERS-CoV</strong> (Middle East Respiratory Syndrome Coronavirus), which carries a case fatality rate of approximately 35% — far exceeding COVID-19 or SARS. The WHO has documented camel meat and raw camel milk as transmission vehicles. Saudi Arabia, home to the world's highest MERS burden, also has the highest per-capita camel meat and milk consumption. The camel's pad foot does not meet the split-hoof criterion, and while it has a 3-chambered stomach with some cud-like chewing (making it a "pseudo-ruminant"), it does not possess the full 4-chamber ruminant detoxification system.
+      </div>
+    </div>
+  </div>
+
+  <!-- LLAMA / ALPACA -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦙</span>
+      <div>
+        <div class="creature-name">Llama / Alpaca</div>
+        <div class="creature-latin">Lama glama / Vicugna pacos</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Camelid — same 3-chamber pseudo-ruminant anatomy</li>
+            <li>Pad foot — does not meet split-hoof criterion</li>
+            <li>Brucella melitensis — common in Andean llama herds</li>
+            <li>Salmonella and Campylobacter carriage documented</li>
+            <li>Consumed as chuño and charqui in South America</li>
+            <li>Mycobacterium bovis — tuberculosis carriage in llama herds</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Same camelid family — pseudo-ruminant, pad foot</li>
+            <li>Fails both Lev 11 criteria as does the camel</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Camelid family covered under unclean principle</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Llama and alpaca meat (consumed as charqui or fresh in Andean regions) come from animals with the same 3-chamber pseudo-ruminant anatomy as camels and the same pad-foot structure. Brucellosis from llama herds is an occupational disease of Andean farmers; Mycobacterium bovis (bovine tuberculosis) has been documented circulating through llama populations with potential for human transmission. The biblical prohibition rooted in the camelid anatomy applies equally across the family.
+      </div>
+    </div>
+  </div>
+
+  <!-- LAGOMORPHS -->
+  <div id="lagomorphs" class="section-title"><span class="icon">🐇</span> Lagomorphs & Hyrax</div>
+  <div class="section-subtitle">Rabbit, Hare and Rock Hyrax — Apparent Cud-Chewers That Aren't</div>
+  <span class="cat-label cat-rodent">Category: Lagomorpha / Hyracoidea</span>
+
+  <div class="card amber">
+    <div class="card-title">The "Apparent Cud-Chewing" Problem — Cecotrophy</div>
+    <p>Leviticus 11:5–6 describes rabbits, hares, and hyraxes as "chewing the cud" — a statement that has puzzled commentators since these animals are not true ruminants. Modern biology explains this as a reference to <strong>cecotrophy</strong> — the practice of re-ingesting specialised fecal pellets (cecotropes) from the cecum. This re-ingestion looks like cud-chewing to an observer and has the same nutritional intent (extracting more nutrients from food), but it is not rumination. The Mosaic law accurately describes the observable behaviour while its practical effect — excluding these animals from the diet — is confirmed by the science of what they carry.</p>
+  </div>
+
+  <!-- RABBIT -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐇</span>
+      <div>
+        <div class="creature-name">Rabbit (Domestic & Wild)</div>
+        <div class="creature-latin">Oryctolagus cuniculus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>No split hoof — paw with nails; fails criterion</li>
+            <li>Not a true ruminant — cecotrophy, not rumination</li>
+            <li>Rabbit haemorrhagic disease virus (RHDV) — not zoonotic but indicates viral load in populations</li>
+            <li>Tularaemia (Francisella tularensis) — "rabbit fever"; primary vector</li>
+            <li>Tularaemia: severe pneumonia, septicaemia, ulceroglandular disease; 30–60% untreated mortality</li>
+            <li>Encephalitozoon cuniculi — microsporidian parasite; neurological in immunocompromised</li>
+            <li>Pasteurella multocida — wound infection from handling</li>
+            <li>Hepatic coccidiosis — Eimeria stiedai in liver; food safety concern</li>
+            <li>Rabbit meat protein efficiency: good, but pathogen burden negates benefit</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Explicitly named — Leviticus 11:6</li>
+            <li>"Though it chews the cud, does not have a divided hoof"</li>
+            <li>Deuteronomy 14:7 — repeated exclusion</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Levitical food laws upheld comprehensively</li>
+            <li>"God had reasons for every restriction"</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        <strong>Tularaemia</strong> (rabbit fever) — caused by Francisella tularensis — is one of the most infectious bacteria known; fewer than 10 organisms can cause disease. Wild rabbits and hares are the primary reservoir in North America and Europe. Transmission occurs through handling infected carcasses, consuming undercooked meat, or skin contact. Tularaemia causes ulceroglandular disease, pneumonia, and septicaemia with 30–60% untreated mortality. The CDC classifies F. tularensis as a Tier 1 Select Agent (potential bioterrorism threat) because of its extreme infectivity. <strong>Encephalitozoon cuniculi</strong> — a microsporidian parasite — infects rabbits subclinically but causes severe neurological disease in immunocompromised humans (HIV/AIDS, transplant patients), including encephalitis and renal failure.
+      </div>
+    </div>
+  </div>
+
+  <!-- HARE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐇</span>
+      <div>
+        <div class="creature-name">Hare</div>
+        <div class="creature-latin">Lepus europaeus / Lepus capensis (Cape Hare)</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Primary tularaemia reservoir — higher prevalence than rabbit</li>
+            <li>European brown hare syndrome virus (EBHSV)</li>
+            <li>Toxoplasma gondii — high seroprevalence in wild hares</li>
+            <li>Toxoplasmosis: fetal brain damage, reactivation in immunocompromised</li>
+            <li>Brucella suis biotype 2 — wild hare reservoir in Europe</li>
+            <li>Yersinia pseudotuberculosis carriage</li>
+            <li>No split hoof — same anatomical prohibition as rabbit</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Explicitly named alongside rabbit — Lev 11:6 / Deut 14:7</li>
+            <li>Same cecotrophy "apparent cud-chewing" designation</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Unclean animal — Levitical framework applies</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Wild hares carry a higher tularaemia prevalence than domestic rabbits in European ecosystems. <strong>Brucella suis biotype 2</strong> — found in European wild hares — differs from the pig strain and causes human brucellosis with fever, arthritis, hepatitis, and orchitis. <strong>Toxoplasma gondii</strong> in hares poses a significant risk to pregnant women (fetal brain damage, hydrocephalus, blindness) and to immunocompromised individuals. Toxoplasma oocysts in hare muscle survive mild cooking; thorough cooking to 65°C is required to destroy them — a standard not always achieved in traditional preparations like hasenpfeffer (marinated hare stew).
+      </div>
+    </div>
+  </div>
+
+  <!-- ROCK HYRAX -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦔</span>
+      <div>
+        <div class="creature-name">Rock Hyrax / Dassie</div>
+        <div class="creature-latin">Procavia capensis</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>No split hoof — hoof-like nails; fails criterion</li>
+            <li>Not a true ruminant — cecal fermentation</li>
+            <li>Primary reservoir: Leishmania aethiopica — cutaneous leishmaniasis</li>
+            <li>Leishmaniasis causes chronic, disfiguring skin ulcers; mucocutaneous destruction</li>
+            <li>Tuberculosis (Mycobacterium bovis) documented in hyrax colonies</li>
+            <li>Mange (Sarcoptes scabiei) — hyrax colonies commonly affected</li>
+            <li>Consumed in East Africa and parts of Southern Africa</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Explicitly named — Leviticus 11:5 ("hyrax" / "coney")</li>
+            <li>"Though it chews the cud, does not have a divided hoof"</li>
+            <li>Proverbs 30:26 — rock hyrax described as "feeble" creatures</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Levitical framework applies to all named prohibited animals</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The rock hyrax (called "dassie" in South Africa) is explicitly named in Leviticus 11:5 — a remarkable detail given that hyraxes are endemic to the Middle East and Africa. Modern science vindicates this prohibition: hyraxes are the primary reservoir for <strong>Leishmania aethiopica</strong>, causing cutaneous and mucocutaneous leishmaniasis — a disfiguring chronic disease destroying skin and mucous membranes of the nose, mouth, and throat. The parasite is transmitted by sandflies that feed on hyrax colonies. Direct consumption of hyrax meat carries additional risks from Mycobacterium bovis (bovine TB) and mange mites. The rock hyrax's unexpected inclusion in Leviticus 11 by name — an animal only an inhabitant of the Levant or Africa would encounter — is itself a testament to the detailed biological knowledge embedded in the prohibition.
+      </div>
+    </div>
+  </div>
+
+  <!-- RODENTS -->
+  <div id="rodents" class="section-title"><span class="icon">🐀</span> Rodents</div>
+  <div class="section-subtitle">Rats, Mice, Guinea Pigs and Squirrels — The Swarming Ground Animals</div>
+  <span class="cat-label cat-rodent">Category: Rodentia</span>
+
+  <div class="verse-block">
+    <div class="verse-text">"Of the animals that move along the ground, these are unclean for you: the weasel, the rat, any kind of great lizard, the gecko, the monitor lizard, the wall lizard, the skink and the chameleon."</div>
+    <div class="verse-ref">Leviticus 11:29–30 (NIV) — The "swarming creatures" category</div>
+  </div>
+
+  <!-- RAT -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐀</span>
+      <div>
+        <div class="creature-name">Rat (Black & Brown)</div>
+        <div class="creature-latin">Rattus rattus / Rattus norvegicus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Omnivorous scavenger — feeds on refuse, carrion, waste</li>
+            <li>Leptospira interrogans — Weil's disease; liver/kidney failure, death</li>
+            <li>Yersinia pestis — bubonic/pneumonic plague; 50 million deaths historically</li>
+            <li>Seoul virus (hantavirus) — rat reservoir; haemorrhagic fever</li>
+            <li>Salmonella: rats contaminate food stores; 80%+ carriage rate</li>
+            <li>Rat bite fever (Streptobacillus moniliformis / Spirillum minus)</li>
+            <li>Toxoplasma gondii — rats intermediate host; high tissue burden</li>
+            <li>Trichinella spiralis — rats maintain Trichinella in urban cycles</li>
+            <li>Consumed in parts of West Africa, Southeast Asia, Cambodia</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Explicitly named — Leviticus 11:29 ("the rat")</li>
+            <li>Isaiah 66:17 — eating rat meat in eschatological judgment</li>
+            <li>Ground-swarming unclean creature category</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"All these things God has pronounced unclean"</li>
+            <li>Swarming ground creatures explicitly covered</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The rat is explicitly named in both Leviticus 11:29 and Isaiah 66:17 — a rare double scriptural mention. Its disease vector status is unparalleled in the animal kingdom. Rats were the primary reservoir for <strong>Yersinia pestis</strong> — the Black Death — which killed 50 million people (one-third of Europe's population) in the 14th century. <strong>Leptospirosis</strong> from rat urine contaminates water and food globally, causing potentially fatal Weil's disease. <strong>Seoul hantavirus</strong> and related hantaviruses carried by rats cause haemorrhagic fever with renal syndrome (HFRS) with mortality rates up to 15%. Rat meat is consumed in West Africa (cane rat) and Southeast Asia (paddy field rat) — regions with corresponding high burdens of rat-borne zoonotic disease.
+      </div>
+    </div>
+  </div>
+
+  <!-- MOUSE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐁</span>
+      <div>
+        <div class="creature-name">Mouse</div>
+        <div class="creature-latin">Mus musculus and related species</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Lymphocytic choriomeningitis virus (LCMV) — common mouse virus</li>
+            <li>LCMV causes meningitis; teratogenic in pregnancy (fetal brain damage)</li>
+            <li>Sin Nombre hantavirus — deer mouse reservoir; hantavirus pulmonary syndrome (HPS)</li>
+            <li>HPS mortality rate: 38%</li>
+            <li>Salmonella carriage in intestinal tract</li>
+            <li>Rickettsial diseases — mouse flea vector</li>
+            <li>Mouse-associated Rickettsia typhi (murine typhus)</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Covered under ground-swarming unclean creatures — Lev 11:29</li>
+            <li>Isaiah 66:17 — rat/mouse class in eschatological judgment</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Unclean swarming creatures — general principle applies</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The deer mouse (Peromyscus maniculatus) is the primary reservoir for <strong>Sin Nombre hantavirus</strong>, which causes hantavirus pulmonary syndrome — an acute respiratory illness with 38% case fatality rate. Transmission occurs through inhalation of aerosolised mouse urine, droppings, or saliva — including from dried material in stored food. <strong>LCMV</strong> from house mice is particularly dangerous in pregnancy, causing fetal hydrocephalus, chorioretinitis, and brain damage even without symptomatic maternal illness. Mice consume and contaminate stored grain — the biblical context's primary food source — making the "do not touch their carcasses" injunction in Leviticus 11:31 a practical food-safety rule as much as a dietary one.
+      </div>
+    </div>
+  </div>
+
+  <!-- GUINEA PIG -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐹</span>
+      <div>
+        <div class="creature-name">Guinea Pig / Cuy</div>
+        <div class="creature-latin">Cavia porcellus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Rodent — no split hoof, not a ruminant</li>
+            <li>Primary food animal in Peru, Ecuador, Colombia (cuy)</li>
+            <li>Salmonella Typhimurium and S. Enteritidis — high carriage in cuy farms</li>
+            <li>Trypanosoma cruzi — Chagas disease; vector from contaminated cuy droppings</li>
+            <li>Chagas: chronic cardiomyopathy; 6–7 million affected globally</li>
+            <li>Cysticercosis (Taenia solium) reported in guinea pig farming communities</li>
+            <li>Lymphocytic choriomeningitis virus (LCMV) carriage</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Rodent family — ground-swarming unclean animal category</li>
+            <li>No split hoof, not a ruminant — fails both Lev 11 criteria</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Unclean animal principle applies to rodent family</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Guinea pig (cuy) is a staple food in Andean South America, consumed since pre-Columbian times. Cuy farming is associated with <strong>Salmonella</strong> outbreaks at both household and community level — Salmonella prevalence in cuy farms in Peru has been measured at 40–80%. More significantly, guinea pigs kept in close proximity to human habitations in Chagas-endemic regions facilitate <strong>Trypanosoma cruzi</strong> transmission via triatomine bugs (kissing bugs) that feed on both guinea pigs and humans. Chagas disease causes chronic cardiomyopathy — progressive heart failure — in 20–30% of infected individuals, often manifesting decades after initial infection.
+      </div>
+    </div>
+  </div>
+
+  <!-- CARNIVORES -->
+  <div id="carnivores" class="section-title"><span class="icon">🦁</span> Carnivores</div>
+  <div class="section-subtitle">Dogs, Cats and Wild Predators — Meat-Eaters Without Clean Criteria</div>
+  <span class="cat-label cat-rodent">Category: Carnivora</span>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">No carnivorous animal meets the Levitical clean-animal criteria — none have split hooves or chew cud. Beyond anatomical exclusion, their carnivorous diet means they accumulate the pathogens of their prey while adding their own species-specific disease vectors.</p>
+
+  <!-- DOG -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐕</span>
+      <div>
+        <div class="creature-name">Dog</div>
+        <div class="creature-latin">Canis lupus familiaris</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>No split hoof, no cud — paw-footed carnivore</li>
+            <li>Echinococcus granulosus — hydatid disease; liver/lung cysts</li>
+            <li>Hydatid cysts can grow to 15cm; rupture causes anaphylaxis</li>
+            <li>Echinococcus multilocularis — alveolar echinococcosis; 90% untreated mortality</li>
+            <li>Capnocytophaga canimorsus — dog bite septicaemia; 30% fatality</li>
+            <li>Rabies — dogs are primary vector globally (99% of human cases)</li>
+            <li>Toxocara canis — roundworm; larva migrans; blindness</li>
+            <li>Consumed in parts of East Asia, West Africa, Southeast Asia</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Dogs described in Scripture as unclean scavengers</li>
+            <li>Deuteronomy 23:18 — "dog" used as term of moral degradation</li>
+            <li>Proverbs 26:11 — "dog returns to its vomit" — scavenger role</li>
+            <li>Revelation 22:15 — "outside are the dogs" — moral/ritual uncleanness</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Carnivores explicitly outside clean food category</li>
+            <li>Dog consumption not contemplated as food in EGW's framework</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Dog meat is consumed in South Korea, Vietnam, China, Nigeria, and parts of Central Africa. Dogs are the primary global reservoir for <strong>rabies</strong> — responsible for 99% of the 59,000 annual human rabies deaths. The Echinococcus tapeworms carried by dogs cause hydatid disease — cysts growing silently in the liver and lungs for years before causing life-threatening rupture. <strong>Alveolar echinococcosis</strong> (E. multilocularis) — considered one of the most dangerous helminthic diseases in the world — is uniformly fatal if untreated with a 90% 10-year mortality rate. Cooking does not destroy all risks from dog meat, as slaughter handling exposes to blood-borne and neurological pathogens. The cultural use of dogs as scavengers — consuming refuse, carrion, and human waste — throughout history has always made them biologically inappropriate as food.
+      </div>
+    </div>
+  </div>
+
+  <!-- CAT -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐈</span>
+      <div>
+        <div class="creature-name">Cat</div>
+        <div class="creature-latin">Felis catus</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Obligate carnivore — paw-footed, no cud</li>
+            <li>Toxoplasma gondii — definitive host; shed oocysts in faeces</li>
+            <li>Toxoplasmosis affects 1/3 of global population; reactivates in immunocompromised</li>
+            <li>Cat scratch disease (Bartonella henselae) — fever, lymphadenopathy</li>
+            <li>Pasteurella multocida — wound infection risk</li>
+            <li>Rabies vector in some regions</li>
+            <li>Consumed in parts of China and Switzerland (historically)</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Obligate carnivore — no qualifying anatomy</li>
+            <li>Falls under unclean ground animal category</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Carnivore — outside clean food categories</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Cats are the <strong>definitive host</strong> for Toxoplasma gondii — only in the feline intestine can Toxoplasma complete its sexual reproduction cycle and shed environmentally hardy oocysts. Approximately one-third of the global human population has latent Toxoplasma infection, largely from environmental contamination. In immunocompromised individuals (HIV, organ transplants, cancer patients), latent Toxoplasma reactivates causing fatal encephalitis. In pregnancy, primary Toxoplasma infection causes congenital toxoplasmosis — fetal brain damage, hydrocephalus, and chorioretinitis leading to blindness. Cat meat consumption creates a direct high-dose exposure pathway to Toxoplasma tissue cysts.
+      </div>
+    </div>
+  </div>
+
+  <!-- REPTILES -->
+  <div id="reptiles" class="section-title"><span class="icon">🦎</span> Reptiles</div>
+  <div class="section-subtitle">Lizards, Snakes, Crocodiles and Geckos — The Swarming Creepers</div>
+  <span class="cat-label cat-reptile">Category: Reptilia — Leviticus 11:29–30</span>
+
+  <!-- LIZARD / MONITOR -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🦎</span>
+      <div>
+        <div class="creature-name">Lizard, Monitor Lizard & Gecko</div>
+        <div class="creature-latin">Varanus niloticus / Varanus salvator / Gekko gecko</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Explicitly named in Leviticus 11:29–30</li>
+            <li>Salmonella: 90%+ of wild and captive lizards carry Salmonella</li>
+            <li>Salmonella arizonae and multiple serovars — carriage in gut</li>
+            <li>Monitor lizard bites: septic; 50+ bacterial species in oral flora</li>
+            <li>Spirometra mansoni (sparganosis) — larval tapeworm in monitor tissue</li>
+            <li>Sparganosis: larvae migrate to human brain, eyes, spinal cord</li>
+            <li>Pentastomida — tongue worms; larvae found in monitor liver</li>
+            <li>Consumed in Southeast Asia (monitor), West Africa, Madagascar</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Explicitly named: "great lizard," "gecko," "monitor lizard," "wall lizard," "skink," "chameleon" — Lev 11:29–30</li>
+            <li>Contact with carcasses renders unclean — Lev 11:31–32</li>
+            <li>Six specific lizard species named — remarkable specificity</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"All the animals which God has pronounced unclean are not to be eaten"</li>
+            <li>Swarming ground creatures explicitly covered</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Leviticus 11:29–30 names six specific lizard types — a level of biological specificity that goes beyond a general prohibition. <strong>Salmonella</strong> carriage in lizards exceeds 90% — making them the highest-risk reptile-associated pathogen source. Multiple Salmonella serovars unique to reptiles (S. arizonae, S. marina) have been documented causing human outbreaks. <strong>Sparganosis</strong> from monitor lizards — where Spirometra tapeworm larvae migrate from consumed muscle into the human brain, eyes, or spinal cord — is documented in Southeast Asian populations consuming monitor meat as a traditional remedy. The larvae are heat-resistant to standard cooking temperatures used in bush preparation. The prohibition against touching their carcasses (Leviticus 11:31) is relevant to Salmonella contact transmission even without consumption.
+      </div>
+    </div>
+  </div>
+
+  <!-- SNAKE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐍</span>
+      <div>
+        <div class="creature-name">Snake (All Species)</div>
+        <div class="creature-latin">Serpentes — multiple families</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Covered under "all that move on their belly" — Lev 11:42</li>
+            <li>Salmonella: 100% of wild-caught snakes carry Salmonella</li>
+            <li>Pentastomida (tongue worms) — visceral pentastomiasis from snake consumption</li>
+            <li>Armillifer armillatus larvae: migrate to human organs; liver nodules</li>
+            <li>Trichinella papuae — found in crocodile and some reptile species</li>
+            <li>Snake venom proteins: some survive inadequate cooking</li>
+            <li>Spirometra — larval tapeworm; sparganosis risk</li>
+            <li>Consumed in China, Southeast Asia, West Africa</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>"Whatever moves on its belly" — Lev 11:42</li>
+            <li>Serpent associated with sin from Genesis 3 onward</li>
+            <li>"All creatures that swarm on the ground are detestable" — Lev 11:41</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>"These things God has designated as unclean"</li>
+            <li>Creeping/swarming creatures comprehensively excluded</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Wild-caught snakes have near-100% Salmonella carriage rates — every snake consumed raw or undercooked is a direct Salmonella exposure event. More significantly, <strong>Armillifer armillatus</strong> — a tongue worm (pentastomid parasite) — completes its life cycle in snakes and infects humans who consume undercooked snake meat. The larvae migrate through the intestinal wall and encyst in visceral organs (liver, spleen, lungs) causing visceral pentastomiasis — characterised by abdominal pain, hepatomegaly, and in heavy infections, intestinal obstruction. Post-mortem studies in West Africa and Southeast Asia find pentastomid cysts in 45% of subjects from snake-consuming populations. The prohibition on "belly-crawling" creatures extends the Levitical framework beyond the split-hoof/cud-chewing criteria to include all ground-crawling reptiles and invertebrates.
+      </div>
+    </div>
+  </div>
+
+  <!-- CROCODILE -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🐊</span>
+      <div>
+        <div class="creature-name">Crocodile / Alligator</div>
+        <div class="creature-latin">Crocodylus niloticus / Alligator mississippiensis</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Apex aquatic-land scavenger/predator — no qualifying anatomy</li>
+            <li>Salmonella: dominant gut flora — carriage rate near 100%</li>
+            <li>Trichinella crocodili — crocodile-specific Trichinella species</li>
+            <li>Rare but documented human Trichinella infection from crocodile in Africa</li>
+            <li>Clostridium perfringens and C. botulinum in gut</li>
+            <li>Heavily armoured — processing exposes handlers to pathogens</li>
+            <li>Consumed in South Africa, Australia, Southeast Asia, USA (Louisiana)</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>No split hoof, no cud — absolute prohibition</li>
+            <li>"Leviathan" (Job 41) — describes creature of awe, not food</li>
+            <li>Ground/water crossover creature — covered by both categories</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Reptile family — outside clean food categories</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        Crocodile meat is commercially farmed and sold in South Africa, Australia, and the southern United States. Crocodiles are apex scavengers-predators that consume carrion, diseased animals, and anything accessible — concentrating pathogens from everything they eat. <strong>Trichinella crocodili</strong> — a crocodile-specific Trichinella species — has caused documented human trichinellosis outbreaks in Africa from crocodile meat consumption. The near-100% Salmonella carriage in crocodile intestines contaminates carcass meat during processing. Crocodile farming in South Africa (for skin and meat) is an expanding industry — yet crocodile falls squarely outside every Levitical clean-food criterion on both anatomical and ecological grounds.
+      </div>
+    </div>
+  </div>
+
+  <!-- INSECTS -->
+  <div id="insects" class="section-title"><span class="icon">🦗</span> Insects</div>
+  <div class="section-subtitle">The Permitted Exception and the Prohibited Many</div>
+  <span class="cat-label cat-insect">Category: Insecta — Leviticus 11:20–23</span>
+
+  <div class="verse-block">
+    <div class="verse-text">"All flying insects that walk on all fours are to be regarded as unclean by you. There are, however, some flying insects that walk on all fours that you may eat: those that have jointed legs for hopping on the ground. Of these you may eat any kind of locust, katydid, cricket or grasshopper. But all other flying insects that have four legs you are to regard as unclean."</div>
+    <div class="verse-ref">Leviticus 11:20–23 (NIV)</div>
+  </div>
+
+  <div class="card amber">
+    <div class="card-title">The Clean Exception — Locusts, Crickets and Grasshoppers</div>
+    <p>The Levitical insect framework is precise: all flying insects that walk (crawl) are prohibited — except those with jointed jumping legs (locusts, katydids, crickets, grasshoppers). This exception selects for insects that are primarily herbivores feeding on living vegetation, with lower pathogen and decomposer exposure than crawling insects. John the Baptist ate locusts and wild honey (Matthew 3:4) — within the permitted category. In many cultures, clean insects are a legitimate high-protein food source, consistent with Levitical law.</p>
+  </div>
+
+  <!-- GENERAL INSECTS -->
+  <div class="creature">
+    <div class="creature-header" onclick="toggleCreature(this)">
+      <span class="creature-icon">🪲</span>
+      <div>
+        <div class="creature-name">Prohibited Insects — Beetles, Flies, Ants, Worms</div>
+        <div class="creature-latin">Coleoptera / Diptera / Hymenoptera / Larvae</div>
+      </div>
+      <div class="creature-verdict">Prohibited</div>
+      <div class="creature-toggle">▸</div>
+    </div>
+    <div class="creature-body">
+      <div class="pillar-grid">
+        <div class="pillar science">
+          <div class="pillar-title">⬡ Science</div>
+          <ul>
+            <li>Crawling insects: primary decomposer role — feed on decay</li>
+            <li>Beetles/fly larvae in food: Salmonella, E. coli, Listeria vectors</li>
+            <li>Mealworms (Tenebrio): Salmonella and Campylobacter carriage documented</li>
+            <li>House fly maggots: raised on manure/decomposing matter</li>
+            <li>Insect-based food products: allergen risk (chitin cross-reactivity with shellfish)</li>
+            <li>Anisakis cross-reactive allergens in some insect proteins</li>
+            <li>Black soldier fly larvae: fed on organic waste — same scavenger principle</li>
+            <li>WHO: insect protein safety depends entirely on substrate (what they eat)</li>
+          </ul>
+        </div>
+        <div class="pillar scripture">
+          <div class="pillar-title">✦ Scripture</div>
+          <ul>
+            <li>Lev 11:20 — "all flying insects that walk on all fours — unclean"</li>
+            <li>Lev 11:41–42 — "all creatures that swarm on the ground are detestable"</li>
+            <li>Includes worms, maggots, crawling invertebrates</li>
+          </ul>
+        </div>
+        <div class="pillar egw">
+          <div class="pillar-title">◈ EGW</div>
+          <ul>
+            <li>Ground-swarming creatures excluded from food</li>
+            <li>Principle of purity applies to all animal food choices</li>
+          </ul>
+        </div>
+      </div>
+      <div class="creature-detail">
+        The modern entomophagy (insect-eating) movement promotes mealworms, black soldier fly larvae, and beetles as sustainable protein sources. The Levitical framework is not opposed to insect consumption categorically — it specifically permits jumping insects (locusts, grasshoppers, crickets). However, the crawling insects promoted in modern entomophagy are precisely those excluded: beetles and fly larvae that feed on decomposing organic matter and fecal material. <strong>Black soldier fly larvae</strong> — currently promoted for protein production — are specifically raised on organic waste including manure and food scraps. The WHO itself notes that insect food safety depends entirely on the substrate (what the insects eat) — the same ecological principle encoded in Leviticus 11. Insects cross-reactive with shellfish tropomyosin also pose anaphylaxis risks for shellfish-allergic individuals.
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARED DISEASE PROFILE -->
+  <div id="toxins" class="section-title"><span class="icon">⚗</span> Disease Profile</div>
+  <div class="section-subtitle">The Common Pathogen Pattern Across All Prohibited Land Animals</div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Disease / Pathogen</th>
+        <th>Primary Animal Source</th>
+        <th>Human Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Trichinella spiralis</strong></td>
+        <td><span class="badge-bad">Pig, wild boar, horse, bear</span></td>
+        <td>Muscle encystation, cardiac damage, neurological involvement; no antidote for encysted larvae</td>
+      </tr>
+      <tr>
+        <td><strong>Taenia solium (neurocysticercosis)</strong></td>
+        <td><span class="badge-bad">Pig (primary)</span></td>
+        <td>Brain cysts; leading cause of adult epilepsy globally; 2.5–8M affected</td>
+      </tr>
+      <tr>
+        <td><strong>MERS-CoV</strong></td>
+        <td><span class="badge-bad">Camel (reservoir)</span></td>
+        <td>35% case fatality rate — highest of known coronaviruses</td>
+      </tr>
+      <tr>
+        <td><strong>Yersinia pestis (Plague)</strong></td>
+        <td><span class="badge-bad">Rat (reservoir)</span></td>
+        <td>Bubonic/pneumonic plague; 50M deaths historically; still endemic</td>
+      </tr>
+      <tr>
+        <td><strong>Tularaemia</strong></td>
+        <td><span class="badge-bad">Rabbit, hare (primary)</span></td>
+        <td>30–60% untreated mortality; CDC Tier 1 Select Agent; fewer than 10 organisms infective</td>
+      </tr>
+      <tr>
+        <td><strong>Echinococcosis (hydatid)</strong></td>
+        <td><span class="badge-bad">Dog (definitive host)</span></td>
+        <td>Liver/lung cysts; alveolar form 90% untreated 10-yr mortality</td>
+      </tr>
+      <tr>
+        <td><strong>Rabies</strong></td>
+        <td><span class="badge-bad">Dog (99% of human cases)</span></td>
+        <td>Near-100% fatality without pre/post-exposure prophylaxis</td>
+      </tr>
+      <tr>
+        <td><strong>Toxoplasma gondii</strong></td>
+        <td><span class="badge-bad">Cat (definitive host), hare, pig</span></td>
+        <td>Congenital brain damage; fatal encephalitis in immunocompromised; 1/3 of humanity infected</td>
+      </tr>
+      <tr>
+        <td><strong>Hantavirus (HPS/HFRS)</strong></td>
+        <td><span class="badge-bad">Rat, mouse (reservoir)</span></td>
+        <td>HPS: 38% mortality; HFRS: up to 15% mortality</td>
+      </tr>
+      <tr>
+        <td><strong>Hepatitis E Virus</strong></td>
+        <td><span class="badge-bad">Pig (primary zoonotic reservoir)</span></td>
+        <td>Acute liver failure; 25% maternal mortality in pregnancy</td>
+      </tr>
+      <tr>
+        <td><strong>Sparganosis / Pentastomiasis</strong></td>
+        <td><span class="badge-bad">Snake, monitor lizard, frog</span></td>
+        <td>Larval migration to brain, eyes, spinal cord; visceral organ cysts</td>
+      </tr>
+      <tr>
+        <td><strong>Brucellosis</strong></td>
+        <td><span class="badge-bad">Camel, hare, pig, dog</span></td>
+        <td>Undulant fever, arthritis, hepatitis, orchitis, neurological damage; chronic in 10–30%</td>
+      </tr>
+      <tr>
+        <td><strong>Leishmaniasis</strong></td>
+        <td><span class="badge-bad">Rock hyrax (reservoir)</span></td>
+        <td>Disfiguring cutaneous ulcers; mucocutaneous destruction of nose and throat</td>
+      </tr>
+      <tr>
+        <td><strong>Salmonella (reptile strains)</strong></td>
+        <td><span class="badge-bad">All reptiles — 90–100% carriage</span></td>
+        <td>Gastroenteritis, septicaemia; reptile Salmonella strains often antibiotic resistant</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="danger-banner">
+    <p>Every prohibited land animal — from the pig to the rat to the monitor lizard — shares the same underlying biological characteristic: it either processes waste as a scavenger, preys on other prohibited organisms, or lacks the ruminant multi-chamber detoxification system that separates clean from unclean land animals. The Levitical criterion selects for biological safety with precision unmatched by any contemporaneous dietary system.</p>
+  </div>
+
+  <!-- EGW FULL COUNSEL -->
+  <div id="egw" class="section-title"><span class="icon">✦</span> Spirit of Prophecy</div>
+  <div class="section-subtitle">Ellen G. White — Full Land Animal Counsel</div>
+
+  <div class="egw-quote">
+    <p>"Pork, although one of the most common articles of diet, is one of the most injurious. God did not prohibit the Hebrews from eating swine's flesh merely to show His authority, but because it was not a proper article of food for man."</p>
+    <div class="egw-cite">— Spiritual Gifts, Vol. 4, p. 146 (1864)</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Swine's flesh above all other flesh meats, produces a bad state of the blood. Those who eat freely of pork can but have impure blood. Scrofulous disease of various kinds have been and are continually caused by swine eating."</p>
+    <div class="egw-cite">— Testimonies for the Church, Vol. 2, p. 61 (1868)</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Pork is not to be eaten by us — it is laden with worms... Some think that the leprosy of these last days is cancer. The eating of pork has a greater effect in producing cancer than anything else."</p>
+    <div class="egw-cite">— Letter 72, 1896 (to a physician)</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Animals are diseased, and by partaking of their flesh, we plant the seeds of disease in our own tissue and blood. Then, when exposed to the changes in a malarious atmosphere, these are more sensibly felt; also, when we are exposed to epidemic and contagious diseases, the system is not in a condition to resist the disease."</p>
+    <div class="egw-cite">— Testimonies for the Church, Vol. 2, p. 64</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"The intellectual, the moral, and the physical powers are depreciated by the habitual use of flesh meats. Meat eating deranges the system, beclouds the intellect, and blunts the moral sensibilities... Those who use flesh meats freely do not always have an objection to tea and coffee, and stimulating food and drinks."</p>
+    <div class="egw-cite">— Testimonies for the Church, Vol. 2, p. 63–64</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Grains, fruits, nuts, and vegetables constitute the diet chosen for us by our Creator. These foods, prepared in as simple and natural a manner as possible, are the most healthful and nourishing. They impart a strength, a power of endurance, and a vigour of intellect, that are not afforded by a more complex and stimulating diet."</p>
+    <div class="egw-cite">— Ministry of Healing, p. 296</div>
+  </div>
+
+  <div class="card egw">
+    <div class="card-title">EGW on the Broader Land Animal Principle</div>
+    <p>While EGW's most specific statements target pork, her broader principle is clear: <strong>God did not arbitrarily restrict these animals — He restricted them because of what they are biologically.</strong> She consistently connected the biological role of the animal (scavenger, waste-processor, disease-carrier) to its unsuitability as food. This principle applies equally across the entire Levitical prohibited list:</p>
+    <p style="margin-top:10px;">The <strong>pig</strong> is the land scavenger with no sweat glands and a 4-hour digestion. The <strong>rat</strong> processes refuse and carries plague. The <strong>dog</strong> consumes carrion and carries Echinococcus. The <strong>camel</strong> is a pseudo-ruminant carrying MERS. The <strong>rabbit</strong> carries tularaemia. The pattern EGW identified in pork — scavenger role + disease burden + biological unfitness for food — runs consistently through every prohibited category. Her framework anticipated what microbiology, parasitology, and epidemiology would each confirm separately.</p>
+  </div>
+
+  <!-- NEW TESTAMENT OBJECTIONS -->
+  <div id="nt" class="section-title"><span class="icon">✦</span> New Testament</div>
+  <div class="section-subtitle">Objections Answered — The New Covenant and Land Animal Dietary Law</div>
+
+  <details>
+    <summary>Colossians 2:16 — "Let no one judge you in food or drink"</summary>
+    <div class="details-body">
+      <p><strong>The verse:</strong> "Therefore do not let anyone judge you by what you eat or drink, or with regard to a religious festival, a New Moon celebration or a Sabbath day." (Col 2:16 NIV)</p>
+      <p><strong>The context:</strong> Paul is addressing Colossian Christians being pressured by a specific local ascetic/proto-Gnostic philosophy that imposed additional restrictions — abstaining from foods God had permitted, possibly including certain clean meats. The verse is about not letting outside judges determine your standing before God on dietary matters — not about abolishing the Levitical dietary categories. Paul himself kept the dietary laws throughout his ministry (Acts 28 shows him never described as eating prohibited foods); the issue in Colossae was human traditions adding to divine law, not God's law being abolished.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Romans 14 — "One person's faith allows them to eat everything"</summary>
+    <div class="details-body">
+      <p><strong>The context:</strong> The "weak" in Romans 14 are believers who abstained from meat sold in Roman markets because it might have been sacrificed to idols — not because of Levitical dietary categories. The "strong" who eat "everything" are eating market meat without worrying about idol contamination. The passage says nothing about Levitically prohibited animals — it addresses the idol-meat controversy specific to Gentile-majority congregations in Rome's polytheistic environment.</p>
+      <p><strong>The hermeneutical error:</strong> Applying Romans 14 to justify eating pork, rat, or shellfish requires reading a passage about idol meat and apply it to a different dietary category entirely. Paul never addresses Leviticus 11 in Romans 14 — the audience in that passage is already assumed to be eating market clean meats.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Isaiah 65:4 and 66:17 — Eschatological Weight</summary>
+    <div class="details-body">
+      <p>Isaiah 65:4 describes apostate Israelites: "who eat the flesh of pigs, and whose pots hold broth of impure meat." Isaiah 66:17 places pork and "other unclean things" (rats, sheqets creatures) in the context of eschatological judgment. Both texts are written with future prophetic orientation — Isaiah anticipates the new covenant era and still includes pork and unclean animal consumption as marks of apostasy and rebellion. This is incompatible with the interpretation that the new covenant abolishes the dietary distinction. If anything, these texts suggest the distinction carries moral-eschatological weight that extends beyond the ceremonial system.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Why the Dietary Laws Are Not Ceremonial in the Same Way as Circumcision</summary>
+    <div class="details-body">
+      <p>Ceremonial laws (circumcision, Levitical sacrifice, temple rituals) are typological — they point forward to Christ's redemptive work and are fulfilled in Him. They are culturally specific to Israel's covenant identity. The dietary laws differ fundamentally: they are not typological (they do not point to anything about Christ's atoning work); they are grounded in the biological nature of the animals themselves (the pig's digestive biology has not changed); and they apply to all humanity not just Israel (Genesis 1:29–30 sets the pre-Sinai standard for human diet).</p>
+      <p>The pig carries Trichinella whether a Jew or Gentile eats it. Neurocysticercosis from T. solium occurs in any human nervous system. The WHO's IARC classification of processed pork as a Group 1 carcinogen is not a ceremonial judgment — it is a biological one. These facts do not change with the new covenant because they were never ceremonial to begin with.</p>
+    </div>
+  </details>
+
+  <!-- SUMMARY -->
+  <div id="summary" class="section-title"><span class="icon">✦</span> Summary</div>
+  <div class="section-subtitle">The Pattern of Creation — Three Witnesses, One Land</div>
+
+  <div class="summary-box">
+    <h3>The Convergence Across All Prohibited Land Animals</h3>
+    <ol>
+      <li><strong>Swine</strong> are monogastric scavengers carrying Trichinella, Taenia solium, HEV, Yersinia, and IARC Group 1 carcinogen precursors — the most documented prohibited animal with the most thoroughly vindicated prohibition.</li>
+      <li><strong>Equines</strong> (horse, donkey, zebra) fail the split-hoof criterion and the cud-chewing criterion — monogastric non-ruminants carrying their own disease burdens including phenylbutazone contamination, Trichinella nativa, and glanders.</li>
+      <li><strong>Camelids</strong> (camel, llama, alpaca) are pseudo-ruminants with pad feet — and camels are the primary reservoir for MERS-CoV, which carries the highest case fatality rate of any known coronavirus.</li>
+      <li><strong>Lagomorphs</strong> (rabbit, hare) and the rock hyrax carry tularaemia, Toxoplasma, Brucella, and E. cuniculi — animals correctly identified by Moses as unsuitable despite their surface resemblance to cud-chewing behaviour.</li>
+      <li><strong>Rodents</strong> (rat, mouse, guinea pig) are the primary reservoirs for plague, hantavirus, leptospirosis, and LCMV — the explicit naming of the rat in both Leviticus 11 and Isaiah 66:17 is one of Scripture's most precise epidemiological statements.</li>
+      <li><strong>Carnivores</strong> (dog, cat) carry Echinococcus, rabies, Toxoplasma, and a range of pathogens accumulated from their prey — their absence from any clean food category is anatomically and epidemiologically sound.</li>
+      <li><strong>Reptiles</strong> (lizard, snake, crocodile) carry near-100% Salmonella loads, pentastomid parasites, and sparganosis risk — the specific naming of six lizard types in Leviticus 11:29–30 reflects the detailed biological knowledge encoded in the prohibition.</li>
+      <li><strong>Most insects</strong> are prohibited as ground-swarmers/decomposers — with a specific exception for jumping herbivorous insects (locusts, grasshoppers, crickets) that reflects the same ecological principle: scavenger/decomposer function disqualifies; herbivorous function permits.</li>
+      <li><strong>Ellen White</strong> confirmed the biological basis of the entire prohibition framework, grounded it in the nature of the animals rather than arbitrary authority, and specifically named pork as the most injurious — confirmed 150 years later by WHO classification.</li>
+    </ol>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"You may eat any animal that has a divided hoof and that chews the cud... You must not eat their meat or touch their carcasses; they are unclean for you."</div>
+    <div class="verse-ref">Leviticus 11:3, 8 (NIV) — The Complete Land Animal Criterion</div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">The Temple Principle — Applied to the Land</div>
+    <p>The land's ecosystem has its own waste-processing architecture, just as the ocean does. Pigs process refuse on land. Rats process urban organic waste. Dogs consume carrion. Vultures (addressed in the birds guide) process aerial carrion. Reptiles process decaying ground matter. In each case the organism's biological fitness for its ecological role — which is real and essential — is exactly what disqualifies it as human food. The Creator designed both the ecosystem and the human body with equal precision. The animals that maintain the land's biological health are not the same animals designed to maintain the health of the temple of the Holy Spirit.</p>
+    <p style="margin-top:10px;">Three thousand five hundred years of accumulated science — from the first identification of Trichinella larvae to the 2015 WHO IARC ruling on processed meat — has done nothing but confirm, category by category and animal by animal, the biological wisdom encoded in eleven verses of Leviticus.</p>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honour God with your bodies."</div>
+    <div class="verse-ref">1 Corinthians 6:19–20 (NIV)</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-wave">
+    <div class="footer-wave-line"></div>
+    <span style="color:var(--amber-dim); font-size:18px;">🌿</span>
+    <div class="footer-wave-line r"></div>
+  </div>
+  <p>Health Reform · Scripture Study · Spirit of Prophecy Reference</p>
+  <p style="margin-top:8px; font-size:9px; letter-spacing:2px;">Split hoof and cud — the Creator's criterion, confirmed across three millennia</p>
+</div>
+
+<script>
+  function toggleCreature(header) {
+    const creature = header.closest('.creature');
+    creature.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

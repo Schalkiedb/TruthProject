@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Pork Harms the Body — Science, Scripture & Spirit of Prophecy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+  :root {
+    --parchment:      #1a1510;
+    --parchment-mid:  #231d16;
+    --parchment-card: #2b2318;
+    --parchment-edge: #342b1e;
+    --gold:           #c9a84c;
+    --gold-bright:    #e8c96a;
+    --gold-dim:       #8a6d2e;
+    --red-warn:       #b84040;
+    --red-dim:        #7a2e2e;
+    --green-safe:     #4a7c4e;
+    --text-main:      #e8d9bc;
+    --text-muted:     #a89070;
+    --text-dim:       #6a5840;
+    --border:         rgba(201,168,76,0.25);
+    --border-strong:  rgba(201,168,76,0.55);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--parchment);
+    color: var(--text-main);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(120,80,20,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(100,60,10,0.06) 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  /* ── HEADER ── */
+  .masthead {
+    text-align: center;
+    padding: 60px 24px 40px;
+    border-bottom: 1px solid var(--border-strong);
+    background: linear-gradient(180deg, rgba(201,168,76,0.06) 0%, transparent 100%);
+    position: relative;
+  }
+  .masthead::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 28px;
+  }
+  .masthead-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .masthead h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--gold-bright);
+    line-height: 1.2;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 20px rgba(201,168,76,0.3);
+  }
+  .masthead .subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 680px;
+    margin: 0 auto 28px;
+  }
+  .masthead::after {
+    content: '✦  ✦  ✦';
+    display: block;
+    color: var(--gold-dim);
+    font-size: 13px;
+    letter-spacing: 10px;
+    margin-top: 28px;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(14px, 2.5vw, 18px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border-top: 1px solid var(--border-strong);
+    padding-top: 40px;
+    margin-top: 54px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-title .icon { font-size: 22px; }
+  .section-subtitle {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--text-main);
+    margin-bottom: 28px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--parchment-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    border-radius: 4px 0 0 4px;
+  }
+  .card.danger::before  { background: var(--red-warn); }
+  .card.gold::before    { background: var(--gold); }
+  .card.scripture::before { background: var(--gold-dim); }
+  .card.egw::before     { background: #6b8faf; }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .card.danger .card-title  { color: #d06060; }
+  .card.gold .card-title    { color: var(--gold); }
+  .card.scripture .card-title { color: var(--gold-dim); }
+  .card.egw .card-title     { color: #8ab0d0; }
+
+  .card p { color: var(--text-main); margin-bottom: 8px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ── VERSE BLOCK ── */
+  .verse-block {
+    background: var(--parchment-mid);
+    border-left: 3px solid var(--gold-dim);
+    padding: 18px 22px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .verse-text {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-main);
+    line-height: 1.8;
+  }
+  .verse-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ── STAT ROW ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .stat-box {
+    background: var(--parchment-edge);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--red-warn);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-num.gold { color: var(--gold); }
+  .stat-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 16px;
+  }
+  .compare-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    background: var(--parchment-edge);
+    color: var(--gold-dim);
+    border-bottom: 1px solid var(--border-strong);
+    text-align: left;
+  }
+  .compare-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+    vertical-align: top;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: rgba(201,168,76,0.03); }
+  .badge-bad  { color: #d06060; font-weight: 600; }
+  .badge-good { color: #6aad6e; font-weight: 600; }
+
+  /* ── EGW QUOTE ── */
+  .egw-quote {
+    background: linear-gradient(135deg, rgba(107,143,175,0.08), rgba(107,143,175,0.03));
+    border: 1px solid rgba(107,143,175,0.25);
+    border-left: 3px solid #6b8faf;
+    padding: 22px 26px;
+    margin: 22px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .egw-quote p {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-main);
+    line-height: 1.85;
+    margin-bottom: 10px;
+  }
+  .egw-cite {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #6b8faf;
+    text-transform: uppercase;
+  }
+
+  /* ── PATHOGEN TABLE ── */
+  .pathogen-list { list-style: none; padding: 0; }
+  .pathogen-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pathogen-list li:last-child { border-bottom: none; }
+  .p-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .p-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #d06060;
+    margin-bottom: 3px;
+  }
+  .p-desc { font-size: 16px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── ANATOMY SECTION ── */
+  .anatomy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  @media (max-width: 600px) { .anatomy-grid { grid-template-columns: 1fr; } }
+  .anatomy-card {
+    background: var(--parchment-edge);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px;
+  }
+  .anatomy-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .anatomy-card ul { list-style: none; padding: 0; }
+  .anatomy-card li {
+    font-size: 15px;
+    color: var(--text-muted);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+  .anatomy-card li::before { content: '▸'; position: absolute; left: 0; color: var(--gold-dim); }
+
+  /* ── PROPHECY BANNER ── */
+  .prophecy-banner {
+    background: linear-gradient(135deg, rgba(184,64,64,0.12), rgba(184,64,64,0.04));
+    border: 1px solid rgba(184,64,64,0.3);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 30px 0;
+    text-align: center;
+  }
+  .prophecy-banner .verse-text { font-size: 20px; }
+  .prophecy-banner .verse-ref { color: #d06060; margin-top: 14px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+  }
+  .footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* ── SUMMARY BOX ── */
+  .summary-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.03));
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .summary-box h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .summary-box ol {
+    padding-left: 22px;
+    color: var(--text-main);
+    font-size: 17px;
+    line-height: 2;
+  }
+
+  /* ── ACCORDION ── */
+  details {
+    background: var(--parchment-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  details[open] { border-color: var(--border-strong); }
+  summary {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  summary:hover { color: var(--gold); }
+  summary::after { content: '▸'; transition: transform 0.2s; }
+  details[open] summary::after { transform: rotate(90deg); }
+  summary::-webkit-details-marker { display: none; }
+  .details-body { padding: 0 20px 20px; font-size: 16px; color: var(--text-muted); line-height: 1.7; }
+  .details-body strong { color: var(--text-main); }
+
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-label">Health · Scripture · Spirit of Prophecy</div>
+  <h1>Why Pork & Bacon Harm the Body</h1>
+  <p class="subtitle">A convergence of modern science, the Mosaic dietary code, and Ellen G. White's health counsel — three independent witnesses to one conclusion</p>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════
+       SECTION 1 — OVERVIEW
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚑</span> Overview</div>
+  <div class="section-subtitle">Three Witnesses, One Verdict</div>
+
+  <p style="color:var(--text-muted); margin-bottom:22px;">
+    The prohibition against pork is often dismissed as an ancient ceremonial rule with no modern relevance. But the convergence of parasitology, nutritional biochemistry, cancer research, the plain text of Scripture, and Ellen White's remarkably specific 19th-century health warnings forces a different conclusion. These are not independent opinions — they are three witnesses pointing to the same biological reality.
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num">4–18×</div>
+      <div class="stat-label">Higher risk of colorectal cancer from processed pork (WHO IARC Group 1)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">11M+</div>
+      <div class="stat-label">People infected with Taenia solium (pork tapeworm) globally at any time</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">3,500+</div>
+      <div class="stat-num" style="font-size:14px; margin-top:-6px;">yrs</div>
+      <div class="stat-label">Age of the Mosaic pork prohibition — predating germ theory by millennia</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num gold">1864</div>
+      <div class="stat-label">Year EGW specifically warned against pork in health visions — 20+ years before Pasteur's germ theory was accepted</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 2 — BIOLOGY OF THE PIG
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">🔬</span> Biology</div>
+  <div class="section-subtitle">The Pig's Anatomy — Designed for Speed, Not Safety</div>
+
+  <div class="anatomy-grid">
+    <div class="anatomy-card">
+      <h4>Digestive Comparison</h4>
+      <ul>
+        <li>Pig digestion: ~4 hours</li>
+        <li>Human digestion: ~24–72 hours</li>
+        <li>Ruminant digestion: 24+ hours</li>
+        <li>Pig has no sweat glands (toxins stored in fat)</li>
+        <li>No bile secretion between meals — toxins not flushed</li>
+      </ul>
+    </div>
+    <div class="anatomy-card">
+      <h4>Why Speed Matters</h4>
+      <ul>
+        <li>Rapid transit = less filtering time</li>
+        <li>Toxins from scavenging absorbed into fat tissue</li>
+        <li>Fat marbling distributes contaminants throughout muscle</li>
+        <li>Pigs eat carrion, feces, diseased matter by design</li>
+        <li>Ruminants filter through multi-chamber stomach</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">The Scavenger Design</div>
+    <p>The pig is a biological recycling system — designed by nature to consume decaying organic matter quickly and efficiently. Its 4-hour digestive cycle (vs. 24+ hours in ruminants) means pathogens and toxic compounds consumed by the pig transit rapidly into its muscle tissue without adequate detoxification. Unlike ruminants, the pig has no complex filtration stomach. Unlike fish with scales (which feed on surface matter), the pig ingests at ground level.</p>
+    <p>Its fat structure — deeply intramuscular and subcutaneous — stores whatever it eats. When you eat pork fat (bacon, lard, crackling), you are consuming a concentrated repository of whatever the pig processed.</p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 3 — PATHOGENS & PARASITES
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚠</span> Pathogens</div>
+  <div class="section-subtitle">Unique Disease Vectors in Pork</div>
+
+  <ul class="pathogen-list">
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Trichinella spiralis — Trichinosis</div>
+        <div class="p-desc">A roundworm that encysts directly in human muscle tissue — including the heart, diaphragm, and brain. Larvae survive mild cooking. Historically caused widespread neurological damage and death. Still present in commercial pork where regulations are weak. Completely absent in animals prohibited by Mosaic law.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Taenia solium — Pork Tapeworm</div>
+        <div class="p-desc">Can grow to 7 metres in the human gut. More critically: eggs (cysticerci) can travel to the brain causing <em>neurocysticercosis</em> — a leading cause of adult-onset epilepsy globally (50–70% of epilepsy cases in endemic areas). The WHO lists this as a neglected tropical disease affecting 2.5–8.3 million people with seizures from pork tapeworm alone.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Hepatitis E Virus (HEV)</div>
+        <div class="p-desc">Pigs are the primary zoonotic reservoir for HEV genotypes 3 and 4, which infect humans via undercooked pork and contaminate groundwater through pig waste. HEV in pregnancy carries up to 25% maternal mortality. Seroprevalence in blood donors in some countries reaches 20–50%, largely linked to pork consumption.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Yersinia enterocolitica</div>
+        <div class="p-desc">Found in 6–90% of pig tonsils at slaughter depending on region. Causes severe gastrointestinal illness, reactive arthritis, and thyroid autoimmune disorders (Graves' disease, Hashimoto's thyroiditis) through molecular mimicry. Unlike most foodborne pathogens, Yersinia thrives at refrigerator temperatures — chilling pork does not stop it.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Streptococcus suis</div>
+        <div class="p-desc">A pig bacterium causing bacterial meningitis, septicemia, and permanent deafness in humans who handle or consume infected pork. Over 1,600 human cases documented, mainly in Asia where pork handling is intensive. Mortality rates 3–20%.</div>
+      </div>
+    </li>
+    <li>
+      <span class="p-icon">🦠</span>
+      <div>
+        <div class="p-name">Influenza Reassortment</div>
+        <div class="p-desc">Pigs are the primary "mixing vessel" for avian and human influenza strains due to having receptor sites for both. The 2009 H1N1 pandemic originated in pigs. Pig farming density directly correlates with novel influenza emergence risk globally.</div>
+      </div>
+    </li>
+  </ul>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 4 — NUTRITIONAL BIOCHEMISTRY
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚗</span> Nutrition</div>
+  <div class="section-subtitle">What the Chemistry Reveals</div>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Compound / Factor</th>
+        <th>Pork / Bacon</th>
+        <th>Health Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>N-Nitrosamines</strong></td>
+        <td><span class="badge-bad">Very High (cured pork)</span></td>
+        <td>IARC Group 2A carcinogens — colorectal, stomach, oesophageal cancer</td>
+      </tr>
+      <tr>
+        <td><strong>Heterocyclic Amines (HCAs)</strong></td>
+        <td><span class="badge-bad">High when cooked at high heat</span></td>
+        <td>DNA-damaging mutagens; colorectal, pancreatic, prostate cancer</td>
+      </tr>
+      <tr>
+        <td><strong>Polycyclic Aromatic Hydrocarbons</strong></td>
+        <td><span class="badge-bad">High (smoked/fried bacon)</span></td>
+        <td>IARC Group 1 carcinogens from smoke processing</td>
+      </tr>
+      <tr>
+        <td><strong>Sodium (processed pork)</strong></td>
+        <td><span class="badge-bad">600–2,400mg per serving</span></td>
+        <td>Hypertension, cardiovascular disease, stroke, kidney disease</td>
+      </tr>
+      <tr>
+        <td><strong>Arachidonic Acid ratio</strong></td>
+        <td><span class="badge-bad">High omega-6 imbalance</span></td>
+        <td>Pro-inflammatory; worsens arthritis, cardiovascular disease, depression</td>
+      </tr>
+      <tr>
+        <td><strong>Saturated Fat (per 100g)</strong></td>
+        <td><span class="badge-bad">Bacon: ~14g</span></td>
+        <td>LDL elevation, TMAO production via gut microbiome</td>
+      </tr>
+      <tr>
+        <td><strong>Heme Iron</strong></td>
+        <td><span class="badge-bad">High bioavailable heme Fe²⁺</span></td>
+        <td>Promotes free radical formation; linked to colorectal cancer risk when oxidized</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="card danger">
+    <div class="card-title">WHO IARC Classification — Processed Meat (2015)</div>
+    <p>In 2015, the World Health Organization's International Agency for Research on Cancer classified <strong>processed meat</strong> (bacon, ham, sausage, hot dogs) as a <strong>Group 1 carcinogen</strong> — the same category as tobacco and asbestos. Each 50g daily serving of processed meat increases colorectal cancer risk by approximately 18%. The primary culprits are N-nitroso compounds formed during curing and smoking processes unique to preserved pork products.</p>
+    <p>Red meat (including pork) was classified <strong>Group 2A</strong> — "probably carcinogenic." This classification was based on evidence from over 800 studies reviewed by 22 experts from 10 countries.</p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 5 — SCRIPTURE
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">✦</span> Scripture</div>
+  <div class="section-subtitle">The Mosaic Prohibition — Leviticus, Deuteronomy & Isaiah</div>
+
+  <p style="color:var(--text-muted); margin-bottom:20px;">The criteria God gave Israel for clean animals are remarkably precise from a biological standpoint. The pig satisfies one criterion (split hoof) but fails the other (does not chew the cud — i.e., is not a ruminant with multi-chamber detoxification). This dual-criterion requirement functionally separates safe herbivorous ruminants from omnivorous scavengers.</p>
+
+  <div class="verse-block">
+    <div class="verse-text">"And the pig, though it has a divided hoof, does not chew the cud; it is unclean for you. You must not eat their meat or touch their carcasses; they are unclean for you."</div>
+    <div class="verse-ref">Leviticus 11:7–8 (NIV)</div>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"And the pig, because it parts the hoof but does not chew the cud, is unclean for you. Their flesh you shall not eat, and their carcasses you shall not touch."</div>
+    <div class="verse-ref">Deuteronomy 14:8 (ESV)</div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-title">The Cud-Chewing Criterion — A Biological Filter</div>
+    <p>Ruminants (cattle, sheep, goats, deer) possess multi-chambered stomachs and re-process their food through fermentation, giving them 24–72 hours to break down plant material and neutralise pathogens. Their fat profile is also fundamentally different — higher in conjugated linoleic acid (CLA), lower in arachidonic acid. The dietary law, whether viewed as ceremonial or health-based, happens to correspond exactly to a scientifically sound distinction between safe and unsafe meat sources.</p>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Those who consecrate and purify themselves to go into the gardens, following one who is among those who eat the flesh of pigs, rats and other unclean things — they will meet their end together, declares the LORD."</div>
+    <div class="verse-ref">Isaiah 66:17 (NIV)</div>
+  </div>
+
+  <div class="prophecy-banner">
+    <div class="verse-text">"For behold, the LORD will come in fire, and his chariots like the whirlwind, to render his anger in fury, and his rebuke with flames of fire. For by fire will the LORD enter into judgment, and by his sword, with all flesh; and those slain by the LORD shall be many."</div>
+    <div class="verse-ref">Isaiah 66:15–16 — The eschatological context for verse 17 is end-time judgment, suggesting the dietary prohibition carries moral weight into the new covenant age</div>
+  </div>
+
+  <details>
+    <summary>Does the New Testament Abolish the Pork Prohibition?</summary>
+    <div class="details-body">
+      <p><strong>Acts 10 — Peter's Vision:</strong> The vision of the sheet with unclean animals is contextually explained by Peter himself (v.28, 34–35) as being about accepting Gentiles, not dietary reform. Peter explicitly interprets it: "God has shown me that I should not call any <em>man</em> common or unclean." He never eats any animal in the vision.</p>
+      <p style="margin-top:10px;"><strong>Mark 7:19 — "Declaring all foods clean":</strong> The context is hand-washing, not dietary categories. Jesus is addressing the Pharisaic tradition of ritual hand-washing, not reclassifying pig as food. The Greek word <em>bromata</em> (foods) refers to what is already considered food — not to unclean animals being redefined as food.</p>
+      <p style="margin-top:10px;"><strong>Romans 14 / 1 Corinthians 8 — "Meat offered to idols":</strong> These passages address meat sacrificed to pagan idols (which was either clean or unclean depending on source) — not the Levitical dietary categories per se.</p>
+      <p style="margin-top:10px;"><strong>Isaiah 66:17</strong> places pork-eating in an eschatological judgment context, suggesting the Creator's design principle does not expire with the ceremonial system.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Clean vs. Unclean Animals — The Biological Logic</summary>
+    <div class="details-body">
+      <p><strong>Clean land animals:</strong> Must both chew the cud AND have split hooves. This selects for ruminants — detoxifying, multi-stomach herbivores with healthier fat profiles.</p>
+      <p style="margin-top:8px;"><strong>Clean fish:</strong> Must have both fins AND scales. This excludes bottom-feeders (catfish, eels), shellfish (filter-feeders concentrating heavy metals and pathogens), and scavengers — which are disproportionately high-risk for foodborne illness.</p>
+      <p style="margin-top:8px;"><strong>Clean birds:</strong> Explicitly listed — excludes raptors, carrion-eaters, and birds that feed on decomposing matter.</p>
+      <p style="margin-top:8px;">The pattern is consistent: <em>animals that consume and process decay are prohibited; animals that consume and process living vegetation or clean water sources are permitted.</em> This is sound nutritional ecology that modern science has confirmed rather than refuted.</p>
+    </div>
+  </details>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 6 — ELLEN G. WHITE
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">✦</span> Spirit of Prophecy</div>
+  <div class="section-subtitle">Ellen G. White's Health Counsel on Pork</div>
+
+  <p style="color:var(--text-muted); margin-bottom:20px;">Ellen White's specific warnings about pork predate the scientific discovery of Trichinella spiralis (1835, but its full danger established by 1860), the germ theory consensus (Pasteur, ~1860–1880), and certainly the WHO's 2015 carcinogen classification. She wrote with specific biological specificity that would only be confirmed generations later.</p>
+
+  <div class="egw-quote">
+    <p>"Pork, although one of the most common articles of diet, is one of the most injurious. God did not prohibit the Hebrews from eating swine's flesh merely to show His authority, but because it was not a proper article of food for man. It would fill the system with scrofula, and especially in that warm climate produced leprosy and disease of various kinds."</p>
+    <div class="egw-cite">— Spiritual Gifts, Vol. 4, p. 146–147 (1864)</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Swine's flesh above all other flesh meats, produces a bad state of the blood. Those who eat freely of pork can but have impure blood."</p>
+    <div class="egw-cite">— Testimonies for the Church, Vol. 2, p. 61 (1868)</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"The liability to take disease is increased tenfold by meat eating. The intellectual, the moral, and the physical powers are depreciated by the habitual use of flesh meats. Meat eating deranges the system, beclouds the intellect, and blunts the moral sensibilities."</p>
+    <div class="egw-cite">— Testimonies for the Church, Vol. 2, p. 64</div>
+  </div>
+
+  <div class="egw-quote">
+    <p>"Pork is not to be eaten by us — it is laden with worms... Some are troubled with eruptions and other difficulties of the skin... Some think that the leprosy of these last days is cancer. The eating of pork has a greater effect in producing cancer than anything else."</p>
+    <div class="egw-cite">— Ellen G. White, Letter 72, 1896 (written to a physician)</div>
+  </div>
+
+  <div class="card egw">
+    <div class="card-title">Prophetic Precision — Noting What Was Unknown in Her Time</div>
+    <p>When EGW wrote in 1864 that pork "would fill the system with scrofula" and "worms," she was describing what would later be identified as Trichinella spiralis larvae encysting in muscle tissue and Taenia solium tapeworm infection. The specific link between pork consumption and cancer (which she described as a skin/tissue disease) would not be confirmed by mainstream science for over a century (WHO 2015). Her counsel on pork predates Pasteur, Koch, and any microbiological basis for dietary reform by two decades.</p>
+    <p style="margin-top:10px;">This is not retroactively reading modern science onto vague historical claims — her language is specific: worms, blood impurity, cancer, skin disease. These correspond to Trichinosis, Taeniasis, N-nitrosamine carcinogenesis, and Hepatitis E and Yersinia autoimmune effects respectively.</p>
+  </div>
+
+  <details>
+    <summary>Did EGW Advocate Complete Vegetarianism?</summary>
+    <div class="details-body">
+      <p>Yes — progressively. EGW moved from cautioning against harmful flesh foods (especially pork) to advocating a complete plant-based diet as the ideal health reform. She wrote: <strong>"Grains, fruits, nuts, and vegetables constitute the diet chosen for us by our Creator."</strong> (<em>Ministry of Healing</em>, p. 296)</p>
+      <p style="margin-top:8px;">She was pragmatic however — she acknowledged that in cold climates or where plant food was unavailable, clean meats were permissible. Her condemnation of pork was absolute; her advocacy for vegetarianism was progressive and ideal-directed.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>EGW on Bacon Specifically</summary>
+    <div class="details-body">
+      <p>While EGW did not use the word "bacon" extensively, she addressed cured meats and the practice of preserving pork with salt and smoking. Her concern about "salted" and "spiced" meats corresponds precisely to what we now understand about N-nitrosamine formation in cured and smoked pork. She wrote that meat preserved by salting and smoking was "not fit for food" and that the curing process introduced additional harmful compounds rather than making pork safe.</p>
+    </div>
+  </details>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 7 — BACON SPECIFICALLY
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">⚠</span> Bacon Specifically</div>
+  <div class="section-subtitle">Why Bacon Is Worse Than Plain Pork</div>
+
+  <div class="card danger">
+    <div class="card-title">The Curing & Smoking Process Creates Additional Carcinogens</div>
+    <p>Bacon is not merely pork — it is pork that has been subjected to sodium nitrate/nitrite curing and often smoke or liquid smoke flavouring. This processing creates a cascade of additional chemical hazards:</p>
+    <p style="margin-top:10px;"><strong>1. N-Nitrosamines:</strong> Nitrites react with the amines in pork protein when cooked (especially at high heat) to form potent carcinogens. Even "uncured" bacon using celery juice/beet powder contains equivalent nitrate levels — the marketing is misleading.</p>
+    <p style="margin-top:10px;"><strong>2. Heterocyclic Amines:</strong> Frying or grilling any protein at high temperatures creates HCAs. Bacon cooked until crispy (which is standard) reaches internal temperatures that maximise HCA formation.</p>
+    <p style="margin-top:10px;"><strong>3. Polycyclic Aromatic Hydrocarbons:</strong> Smoked bacon absorbs PAHs — the same carcinogens in cigarette smoke — from the smoking process.</p>
+    <p style="margin-top:10px;"><strong>4. Sodium Load:</strong> A single rasher of bacon contains 300–600mg sodium. The kidneys, vascular system, and gut microbiome are all adversely affected.</p>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">The "Saturated Fat Is Fine" Counterargument</div>
+    <p>Recent research has partially rehabilitated saturated fat from clean animal sources (butter, grass-fed beef tallow, coconut oil) — separating it from processed meat risk. This does not rehabilitate bacon. The carcinogen risk of processed pork is not primarily driven by fat type but by <em>the combination of heme iron + nitrite curing + high-heat cooking + pork-specific pathogen profile.</em> Even low-fat turkey bacon or chicken processed with nitrites carries carcinogen risk — but pork additionally brings the parasite burden and the unique pork fat biochemistry.</p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SECTION 8 — PRACTICAL SUMMARY
+  ══════════════════════════════════════ -->
+  <div class="section-title"><span class="icon">✦</span> Summary</div>
+  <div class="section-subtitle">The Convergence of Three Witnesses</div>
+
+  <div class="summary-box">
+    <h3>Why the Evidence Converges</h3>
+    <ol>
+      <li><strong>The pig's biology</strong> makes it a concentrated storage vessel for pathogens, parasites, and dietary toxins it consumes as a scavenger — its rapid digestion bypasses the filtering ruminants perform.</li>
+      <li><strong>Specific pathogens</strong> unique to or concentrated in pork (Trichinella, Taenia solium, HEV, Yersinia) cause diseases ranging from brain cysts to epilepsy to autoimmune thyroid disorders.</li>
+      <li><strong>The curing and cooking of pork</strong> produces multiple distinct classes of IARC-classified carcinogens — nitrosamines, HCAs, and PAHs — making processed pork among the most carcinogenic common foods.</li>
+      <li><strong>Leviticus 11 and Deuteronomy 14</strong> give criteria that functionally exclude scavengers and bottom-feeders and select for biologically safer animal categories — 3,500 years before microbiology.</li>
+      <li><strong>Isaiah 66:17</strong> extends the prohibition to eschatological weight — eating pig is listed among the practices of the apostate who faces judgment, suggesting it carries moral not merely ceremonial significance.</li>
+      <li><strong>Ellen White (1864–1896)</strong> named pork as uniquely harmful, described "worms" and cancer risks, and called for its complete elimination from the diet — decades before science could verify the mechanism.</li>
+    </ol>
+  </div>
+
+  <div class="verse-block">
+    <div class="verse-text">"Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honour God with your bodies."</div>
+    <div class="verse-ref">1 Corinthians 6:19–20 (NIV)</div>
+  </div>
+
+  <div class="card gold">
+    <div class="card-title">A Note on the "It's Just Old Covenant" Objection</div>
+    <p>The dietary laws of Leviticus 11 are not ceremonial in the same category as circumcision or Levitical sacrifices — they do not point forward to Christ's atoning work. They are health principles grounded in the nature of the animals themselves, given to a people who did not have microscopes. The pig has not changed. Trichinella has not changed. Nitrosamines have not changed. If anything, modern factory-farming conditions — where pigs are raised in high-density, stress-contaminated environments — have made commercial pork <em>more</em> pathogen-dense than in the ancient Near East, not less. The prohibition was never arbitrary; the science confirms it was never merely ceremonial.</p>
+  </div>
+
+</div><!-- end container -->
+
+<div class="footer">
+  <p>Health Reform · Scripture Study · Spirit of Prophecy Reference</p>
+  <p style="margin-top:8px; font-size:9px; letter-spacing:2px;">Three witnesses — one conclusion</p>
+</div>
+
+</body>
+</html>
