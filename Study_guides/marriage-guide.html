@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sacred Union — A Biblical & Spirit of Prophecy Marriage Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c87a;
+    --gold-dim: #8a6a28;
+    --cream: #fdf6e8;
+    --parchment: #f5e9cc;
+    --warm-white: #fefaf2;
+    --ink: #1a1208;
+    --dark-brown: #2c1a06;
+    --mid-brown: #5c3d1a;
+    --rust: #8b3a1a;
+    --forest: #1e3d2a;
+    --deep-red: #6b1e1e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(107,30,30,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(30,61,42,0.25) 0%, transparent 50%),
+      linear-gradient(180deg, #0e0a04 0%, #1a1208 60%, #0e0a04 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 50% 50%, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.6;
+  }
+
+  .rings-symbol {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 20px rgba(201,168,76,0.4); }
+    to   { text-shadow: 0 0 50px rgba(201,168,76,0.8), 0 0 80px rgba(201,168,76,0.3); }
+  }
+
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    opacity: 0.85;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  }
+
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-style: italic;
+    color: rgba(253,246,232,0.7);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+  }
+
+  .verse-hero {
+    border: 1px solid rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.06);
+    padding: 1.4rem 2.5rem;
+    max-width: 600px;
+    border-radius: 2px;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--parchment);
+    position: relative;
+  }
+
+  .verse-hero::before, .verse-hero::after {
+    content: '';
+    position: absolute;
+    width: 30px; height: 30px;
+    border-color: var(--gold);
+    border-style: solid;
+    opacity: 0.5;
+  }
+  .verse-hero::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .verse-hero::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+  .verse-ref {
+    display: block;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-top: 0.75rem;
+    opacity: 0.8;
+  }
+
+  /* ===== NAV ===== */
+  .toc {
+    background: rgba(201,168,76,0.05);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .toc-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+  }
+
+  .toc-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .toc-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.6rem 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 1px;
+  }
+  .toc-btn:hover {
+    background: rgba(201,168,76,0.2);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .section-header { margin-bottom: 3rem; }
+
+  .section-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--cream);
+  }
+
+  .section-title em { color: var(--gold-light); font-style: italic; }
+
+  .section-intro {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: rgba(253,246,232,0.7);
+    margin-top: 1rem;
+    max-width: 640px;
+    border-left: 2px solid rgba(201,168,76,0.4);
+    padding-left: 1.2rem;
+  }
+
+  /* ===== BANDS ===== */
+  .band-red   { background: linear-gradient(180deg, #0e0a04, #1a0c0c, #0e0a04); }
+  .band-green { background: linear-gradient(180deg, #0e0a04, #0a140c, #0e0a04); }
+  .band-blue  { background: linear-gradient(180deg, #0e0a04, #0a0c1a, #0e0a04); }
+  .band-gold  { background: linear-gradient(180deg, #0e0a04, #120e04, #0e0a04); }
+  .band-deep  { background: linear-gradient(180deg, #0e0a04, #0d0a14, #0e0a04); }
+
+  /* ===== CARDS ===== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,168,76,0.18);
+    padding: 1.8rem 1.6rem;
+    border-radius: 2px;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover { transform: translateY(-3px); border-color: rgba(201,168,76,0.4); }
+  .card:hover::before { opacity: 1; }
+
+  .card-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 0.6rem;
+  }
+
+  .card p { font-size: 0.95rem; color: rgba(253,246,232,0.75); line-height: 1.65; }
+
+  /* ===== QUOTE BLOCKS ===== */
+  .quote-block {
+    background: rgba(201,168,76,0.05);
+    border-left: 3px solid var(--gold);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 2px 2px 0;
+    position: relative;
+  }
+
+  .quote-block::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.15;
+    position: absolute;
+    top: -0.5rem;
+    left: 0.5rem;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-style: italic;
+    font-size: 1.06rem;
+    color: var(--parchment);
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-source {
+    font-family: 'Cinzel', serif;
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-top: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  /* ===== VERSE CARDS ===== */
+  .verse-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 1.3rem 1.5rem;
+    margin: 0.9rem 0;
+    border-radius: 2px;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: background 0.3s;
+  }
+
+  .verse-card:hover { background: rgba(201,168,76,0.05); }
+
+  .verse-ref-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 0.25rem 0.55rem;
+    white-space: nowrap;
+    border-radius: 1px;
+    margin-top: 0.15rem;
+    min-width: fit-content;
+  }
+
+  .verse-text { font-size: 0.96rem; color: rgba(253,246,232,0.8); font-style: italic; }
+
+  /* ===== STEPS ===== */
+  .steps { display: flex; flex-direction: column; gap: 1.2rem; margin: 2rem 0; }
+
+  .step {
+    display: flex;
+    gap: 1.4rem;
+    align-items: flex-start;
+    padding: 1.4rem 1.6rem;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 2px;
+    transition: border-color 0.3s;
+  }
+  .step:hover { border-color: rgba(201,168,76,0.35); }
+
+  .step-num {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--gold);
+    opacity: 0.5;
+    min-width: 2rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+  }
+
+  .step-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    margin-bottom: 0.35rem;
+  }
+
+  .step-body p { font-size: 0.95rem; color: rgba(253,246,232,0.75); }
+
+  /* ===== ROLES GRID ===== */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 620px) { .roles-grid { grid-template-columns: 1fr; } }
+
+  .role-col {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .role-header {
+    padding: 1.2rem 1.6rem;
+    background: rgba(201,168,76,0.08);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+  }
+
+  .role-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+  }
+
+  .role-header span { font-size: 0.85rem; color: rgba(253,246,232,0.5); font-style: italic; }
+
+  .role-items { padding: 1.2rem 1.6rem; display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .role-item { display: flex; gap: 0.8rem; align-items: flex-start; }
+  .role-item::before { content: '✦'; color: var(--gold); font-size: 0.6rem; margin-top: 0.45rem; flex-shrink: 0; opacity: 0.6; }
+  .role-item p { font-size: 0.93rem; color: rgba(253,246,232,0.78); }
+  .role-item strong { color: var(--parchment); }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    border: 1px solid rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.06);
+    padding: 2rem 2.2rem;
+    margin: 2.5rem 0;
+    border-radius: 2px;
+  }
+
+  .highlight-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .highlight-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .highlight-box ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.96rem;
+    color: rgba(253,246,232,0.8);
+  }
+
+  .highlight-box ul li::before {
+    content: '›';
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  /* ===== CASE STUDY BLOCK ===== */
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin: 2rem 0;
+  }
+
+  .case-card {
+    border: 1px solid rgba(201,168,76,0.22);
+    background: rgba(255,255,255,0.025);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .case-card-header {
+    background: rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0.9rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .case-card-header .case-icon { font-size: 1.4rem; }
+
+  .case-card-header h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+  }
+
+  .case-card-header span {
+    font-size: 0.78rem;
+    font-style: italic;
+    color: rgba(253,246,232,0.5);
+    display: block;
+  }
+
+  .case-card-body { padding: 1.2rem 1.4rem; font-size: 0.93rem; color: rgba(253,246,232,0.78); line-height: 1.7; }
+
+  .case-lesson {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    font-size: 0.88rem;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* ===== TONGUE TABLE ===== */
+  .tongue-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.93rem;
+  }
+
+  .tongue-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.8rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.07);
+  }
+
+  .tongue-table td {
+    padding: 0.85rem 1.2rem;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    vertical-align: top;
+    color: rgba(253,246,232,0.78);
+  }
+
+  .tongue-table tr:hover td { background: rgba(201,168,76,0.03); }
+
+  .tongue-table td.destroy { color: #e07070; font-style: italic; }
+  .tongue-table td.heal    { color: #7dcca0; font-style: italic; }
+  .tongue-table td.ref     { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--gold); opacity: 0.65; }
+
+  /* ===== WARNING BOX ===== */
+  .warning-box {
+    border: 1px solid rgba(200, 80, 80, 0.35);
+    background: rgba(200, 80, 80, 0.05);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    border-radius: 2px;
+    border-left: 3px solid rgba(200,80,80,0.5);
+  }
+
+  .warning-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: #e8a0a0;
+    margin-bottom: 0.8rem;
+    font-size: 1.15rem;
+  }
+
+  .warning-box p { font-size: 0.95rem; color: rgba(253,246,232,0.75); }
+
+  /* ===== TYPOGRAPHY ===== */
+  .sub-h {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .prose { font-size: 1.01rem; color: rgba(253,246,232,0.78); margin-bottom: 1.2rem; line-height: 1.85; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    background: #0a0803;
+  }
+
+  footer .footer-symbol { font-size: 2rem; color: var(--gold); opacity: 0.4; margin-bottom: 1rem; }
+
+  footer p {
+    font-size: 0.88rem;
+    color: rgba(253,246,232,0.35);
+    font-style: italic;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  footer .footer-verse {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    opacity: 0.45;
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .section { padding: 3rem 1.2rem; }
+    .card-grid { grid-template-columns: 1fr; }
+    .quote-block { padding: 1.4rem 1.4rem; }
+    .tongue-table { font-size: 0.82rem; }
+    .tongue-table th, .tongue-table td { padding: 0.6rem 0.8rem; }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { opacity: 0; animation: fadeUp 0.8s ease forwards; }
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.25s; }
+  .fade-in:nth-child(3) { animation-delay: 0.4s; }
+  .fade-in:nth-child(4) { animation-delay: 0.55s; }
+
+  /* ===== SCROLL INDICATOR ===== */
+  .scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 42px; height: 42px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    z-index: 99;
+    transition: background 0.3s;
+  }
+  .scroll-top:hover { background: rgba(201,168,76,0.28); }
+</style>
+</head>
+<body>
+
+<a href="#" class="scroll-top" title="Back to top">↑</a>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="rings-symbol">◈ ◈</div>
+  <p class="hero-eyebrow">A Biblical &amp; Spirit of Prophecy Study — Complete Edition</p>
+  <h1 class="fade-in">Sacred <em>Union</em></h1>
+  <p class="hero-sub fade-in">From courtship to covenant — failing, repairing, and flourishing in the marriage God designed</p>
+  <div class="verse-hero fade-in">
+    "Therefore a man shall leave his father and his mother and hold fast to his wife,
+    and they shall become one flesh."
+    <span class="verse-ref">— Genesis 2:24 ESV</span>
+  </div>
+</section>
+
+<!-- ═══════ TABLE OF CONTENTS ═══════ -->
+<nav class="toc">
+  <p class="toc-title">Contents — Thirteen Sections</p>
+  <div class="toc-grid">
+    <a href="#foundation"   class="toc-btn">I. God's Design</a>
+    <a href="#courtship"    class="toc-btn">II. Courtship &amp; Choosing Wisely</a>
+    <a href="#failing"      class="toc-btn">III. Why Marriages Fail</a>
+    <a href="#repair"       class="toc-btn">IV. Repairing a Broken Marriage</a>
+    <a href="#tongue"       class="toc-btn">V. The Power of the Tongue</a>
+    <a href="#maintain"     class="toc-btn">VI. Maintaining a Good Marriage</a>
+    <a href="#husband"      class="toc-btn">VII. The Husband's Role</a>
+    <a href="#wife"         class="toc-btn">VIII. The Wife's Role</a>
+    <a href="#mutual"       class="toc-btn">IX. Mutual Duties</a>
+    <a href="#intimacy"     class="toc-btn">X. Intimacy &amp; Romance</a>
+    <a href="#trials"       class="toc-btn">XI. Trials &amp; Suffering Together</a>
+    <a href="#influences"   class="toc-btn">XII. Outside Influences</a>
+    <a href="#cases"        class="toc-btn">XIII. Biblical Marriages</a>
+    <a href="#prayer"       class="toc-btn">XIV. Prayer &amp; Devotion</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     SECTION I — GOD'S DESIGN
+═══════════════════════════════════════════ -->
+<div class="band-gold">
+<section class="section" id="foundation">
+  <div class="section-header">
+    <p class="section-num">Section I</p>
+    <h2 class="section-title">God's <em>Design</em> for Marriage</h2>
+    <p class="section-intro">Before we can understand failure or repair, we must see the original blueprint — marriage as Heaven ordained it, before sin ever entered the picture.</p>
+  </div>
+
+  <p class="prose">Marriage was not an invention of human culture or legal tradition. It was instituted by God in Eden, as the crowning expression of human relationship — a visible parable of the union between Christ and His Church. Ellen White wrote that "the family tie is the closest, the most tender and sacred, of any on earth." To understand marriage is to understand something of the very character of God.</p>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">🌿</div>
+      <h3>Instituted Before Sin</h3>
+      <p>"Marriage is honorable. It was one of the first gifts of God to man, and it is one of the two institutions that, after the Fall, Adam brought with him beyond the gates of paradise." — <em>EGW, Adventist Home, p. 25</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">✝</div>
+      <h3>A Lifelong Covenant</h3>
+      <p>"Marriage, as constituted by God, was to be a union for life between husband and wife. A complete merging of the interests of the two parties." — <em>EGW, Signs of the Times, 1882</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">💡</div>
+      <h3>Symbol of Christ &amp; Church</h3>
+      <p>Paul reveals that marriage images Christ's own relationship with the Church — a mystery of self-giving love, faithfulness, and unity that preaches the Gospel without words. <em>(Eph 5:32)</em></p>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Gen 2:18</span>
+    <p class="verse-text">"It is not good that the man should be alone; I will make him a helper fit for him."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Matt 19:6</span>
+    <p class="verse-text">"So they are no longer two but one flesh. What therefore God has joined together, let not man separate."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 18:22</span>
+    <p class="verse-text">"He who finds a wife finds a good thing and obtains favour from the Lord."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Eccl 4:9</span>
+    <p class="verse-text">"Two are better than one, because they have a good reward for their toil. For if they fall, one will lift up his fellow."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Heb 13:4</span>
+    <p class="verse-text">"Let marriage be held in honour among all, and let the marriage bed be undefiled."</p>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"The home in which the members are polite, courteous, and tender toward each other is a place that angels love to visit and where God is glorified. It is in such homes that children receive their best education, and the fruits of such a training are seen in noble, pure, God-fearing characters."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 422</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION II — COURTSHIP
+═══════════════════════════════════════════ -->
+<div class="band-blue">
+<section class="section" id="courtship">
+  <div class="section-header">
+    <p class="section-num">Section II</p>
+    <h2 class="section-title">Courtship &amp; <em>Choosing Wisely</em></h2>
+    <p class="section-intro">The seeds of a thriving or a troubled marriage are sown long before the wedding day. Ellen White devotes more pages in <em>The Adventist Home</em> to the danger of hasty, unwise courtship than almost any other single topic.</p>
+  </div>
+
+  <p class="prose">Many marriages are in ruins today not primarily because the couple failed after the wedding, but because they chose wrongly before it. Scripture and the Spirit of Prophecy both give extensive, practical guidance on who to seek, who to avoid, and how to conduct oneself during the courtship season.</p>
+
+  <h3 class="sub-h">What to Look For</h3>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">🙏</div>
+      <h3>Love for God Above All</h3>
+      <p>"Never should a Christian marry one who is irreligious or who has not the fear of God before them… To do this is to deliberately place yourself in temptation." — <em>EGW, AH, p. 49</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🪨</div>
+      <h3>Proven Character</h3>
+      <p>"Look not so much for those qualities that will dazzle and attract as for those that are solid and enduring — a sound mind in a sound body." — <em>EGW, Messages to Young People, p. 459</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🤲</div>
+      <h3>Spiritual Alignment</h3>
+      <p>"Do not be unequally yoked with unbelievers. For what partnership has righteousness with lawlessness? Or what fellowship has light with darkness?" <em>(2 Cor 6:14)</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">👁️</div>
+      <h3>Observe Before Committing</h3>
+      <p>"Examine carefully to see whether your future life will be happy or discordant and wretched. Let the question be asked: Will this union help me heavenward?" — <em>EGW, AH, p. 45</em></p>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"Young men and young women… are in danger of being led away by a sentimental feeling called love. But true love is a high and holy principle, altogether different in character from that love which is awakened by impulse and which suddenly dies when severely tested."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 50</p>
+  </div>
+
+  <h3 class="sub-h">Dangers to Avoid in Courtship</h3>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">⚠</span>
+      <div class="step-body">
+        <h4>Hasty, Impulsive Decision-Making</h4>
+        <p>"The same recklessness in forming a life partnership they would not show in a business arrangement. A few months' acquaintance is thought sufficient to warrant marriage." — <em>EGW, AH, p. 76</em>. Give time for character to reveal itself under pressure and in ordinary moments.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">⚠</span>
+      <div class="step-body">
+        <h4>Flattery and Surface Attraction</h4>
+        <p>"Charm is deceitful, and beauty is vain, but a woman who fears the Lord is to be praised." <em>(Prov 31:30)</em>. Physical attraction fades; character, faithfulness, and the fear of God do not. Choose substance over surface.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">⚠</span>
+      <div class="step-body">
+        <h4>Marrying to Escape or Fix</h4>
+        <p>"Many who would refuse to take a dangerous drug will yet contract a union that brings worse than physical death." — <em>EGW, AH, p. 46</em>. No marriage can fix emotional wounds that have not been brought to God. Enter marriage whole, not desperate.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">⚠</span>
+      <div class="step-body">
+        <h4>Courtship Without Boundaries</h4>
+        <p>"Before giving your affections to another, seek wisdom from God. Your eternal interests are at stake." — <em>EGW, AH, p. 45</em>. Physical and emotional boundaries during courtship protect the purity of the relationship and establish the pattern of self-control that marriage will require. <em>(1 Thess 4:3–5)</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 31:30</span>
+    <p class="verse-text">"Charm is deceitful, and beauty is vain, but a woman who fears the Lord is to be praised."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">2 Cor 6:14</span>
+    <p class="verse-text">"Do not be unequally yoked with unbelievers. For what partnership has righteousness with lawlessness?"</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 4:23</span>
+    <p class="verse-text">"Keep your heart with all vigilance, for from it flow the springs of life."</p>
+  </div>
+
+  <div class="highlight-box">
+    <h3>Questions to Pray Through Before Committing</h3>
+    <ul>
+      <li>Does this person love God more than they love me — and do I see evidence of it daily?</li>
+      <li>Have I observed their character under pressure, disappointment, and ordinary life?</li>
+      <li>Do we share the same spiritual convictions, including Sabbath observance, healthful living, and mission?</li>
+      <li>What do godly, wise people who know me well say about this relationship?</li>
+      <li>Am I drawn to this person's soul — or primarily to their appearance, status, or what they offer me?</li>
+      <li>Could I serve God more effectively with this person than without them?</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION III — WHY MARRIAGES FAIL
+═══════════════════════════════════════════ -->
+<div class="band-red">
+<section class="section" id="failing">
+  <div class="section-header">
+    <p class="section-num">Section III</p>
+    <h2 class="section-title">Why Marriages <em>Fail</em></h2>
+    <p class="section-intro">Honest diagnosis is the beginning of healing. Scripture and the Spirit of Prophecy speak plainly about the deep roots of marital breakdown — roots that begin in the unsurrendered heart.</p>
+  </div>
+
+  <p class="prose">Every marriage that deteriorates does so through traceable patterns of neglect, pride, selfishness, and spiritual drift. Ellen White observed that "the same unsanctified traits of character which mar the peace and happiness of the home will be brought into the church." Understanding the causes is not to excuse them — it equips us to honestly address them.</p>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">🔥</div>
+      <h3>Uncontrolled Temper</h3>
+      <p>"The hasty, passionate temper is a great evil… When anger has full sway in the heart, it poisons the life of those near and dear." — <em>EGW, AH, p. 436</em>. Proverbs 19:11 says a wise person restrains their anger.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🪞</div>
+      <h3>Selfishness &amp; Pride</h3>
+      <p>"Selfishness is the great curse of the home life." — <em>EGW, AH, p. 116</em>. "Do nothing out of selfish ambition or vain conceit… consider others better than yourselves." <em>(Phil 2:3)</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">📵</div>
+      <h3>Neglect of Spiritual Life</h3>
+      <p>When family worship, prayer, and Scripture are abandoned, the spiritual glue of marriage dissolves. "The greatest evidence of the power of Christianity is a well-ordered family." — <em>EGW, AH, p. 32</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">💸</div>
+      <h3>Financial Conflict</h3>
+      <p>"The love of money is a root of all kinds of evil." <em>(1 Tim 6:10)</em>. Debt, greed, financial secrets, and mismatched spending values destroy trust and create crushing pressure on a household.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">👂</div>
+      <h3>Breakdown in Communication</h3>
+      <p>"Let every word you speak to your husband or wife be gentle, kind, and courteous." — <em>EGW, AH, p. 439</em>. Contempt, stonewalling, and harsh tones erode the foundation brick by brick.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">⚖️</div>
+      <h3>Faultfinding &amp; Criticism</h3>
+      <p>"The husband and wife should cultivate a spirit of forbearance. They should not magnify little annoyances or dwell upon imperfections." — <em>EGW, AH, p. 105</em>. Chronic criticism poisons the atmosphere of love.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🍷</div>
+      <h3>Addictions &amp; Worldliness</h3>
+      <p>EGW writes powerfully that alcohol, indulgence, and worldly amusements "dethrone reason" and corrupt the home. "Wine is a mocker, strong drink a brawler." <em>(Prov 20:1)</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">👥</div>
+      <h3>Interference of Third Parties</h3>
+      <p>"For this reason a man will leave his father and mother." <em>(Gen 2:24)</em>. In-laws, friends, and gossips who meddle in a marriage do immeasurable damage. EGW: "Do not allow another to enter into your family counsels."</p>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"I would counsel those who have been harsh and overbearing to repent and confess their wrongs… If you have exercised authority over wife or husband that Jesus would not sanction, repent. Cease your domineering. Speak with kindness, act with courtesy, and give evidence that you have been with Jesus and learned of Him."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 215</p>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 14:1</span>
+    <p class="verse-text">"The wisest of women builds her house, but folly with her own hands tears it down."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Eph 4:26–27</span>
+    <p class="verse-text">"Do not let the sun go down on your anger, and give no opportunity to the devil."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 17:1</span>
+    <p class="verse-text">"Better is a dry morsel with quiet than a house full of feasting with strife."</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION IV — REPAIR
+═══════════════════════════════════════════ -->
+<div class="band-green">
+<section class="section" id="repair">
+  <div class="section-header">
+    <p class="section-num">Section IV</p>
+    <h2 class="section-title">Repairing a <em>Broken</em> Marriage</h2>
+    <p class="section-intro">God is a God of restoration. What sin has damaged, grace can rebuild — if both parties are willing to surrender fully to His process of renewal.</p>
+  </div>
+
+  <p class="prose">The Scriptures are saturated with the language of restoration. Joel 2:25 promises that God will restore "the years that the locust has eaten." This redemptive principle applies directly to marriages ravaged by sin, neglect, or conflict. Restoration is not instant — it is a spiritual journey requiring humility, repentance, and persistent love. But with God, no marriage is beyond hope.</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <div class="step-body">
+        <h4>Begin with Personal Repentance Before God</h4>
+        <p>"Create in me a clean heart, O God." <em>(Ps 51:10)</em>. Before the marriage can be repaired, the individuals must be repaired. Both spouses must come individually before God with honest, undefended confession — not of the other's failures, but their own. EGW: "If you have been hasty or unkind, confess your wrongs to each other and to God. This is the only way in which you can make the matter right." — <em>AH, p. 314</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <div class="step-body">
+        <h4>Extend Genuine Forgiveness — Refusing to Keep Score</h4>
+        <p>"Be kind to one another, tenderhearted, forgiving one another, as God in Christ forgave you." <em>(Eph 4:32)</em>. Forgiveness is not minimising harm — it is releasing the debt as Christ released ours. EGW: "Never carry the burden of unforgiven wrongs. The spirit that retains resentment is a spirit that God cannot dwell with." — <em>AH, p. 315</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <div class="step-body">
+        <h4>Face the Real Wounds with Radical Honesty</h4>
+        <p>Surface-level peace that avoids real wounds is not restoration — it is suppression. "Speaking the truth in love" <em>(Eph 4:15)</em> means naming what went wrong — addiction, infidelity, financial betrayal, emotional abuse — and addressing it with both courage and grace. Soft answers that refuse to name sin cannot heal it.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <div class="step-body">
+        <h4>Rebuild the Spiritual Foundation Together</h4>
+        <p>"Unless the Lord builds the house, those who build it labour in vain." <em>(Ps 127:1)</em>. Re-establish family worship, shared Bible study, and prayer. EGW: "Let the husband and wife together seek God in the morning before they engage in the work of the day; let them close the day with prayer, committing themselves to God." — <em>AH, p. 431</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">05</span>
+      <div class="step-body">
+        <h4>Seek Wise, Godly Counsel</h4>
+        <p>"Where there is no guidance, a people falls, but in an abundance of counsellors there is safety." <em>(Prov 11:14)</em>. A pastor, elder, or Spirit-filled counsellor provides accountability, perspective, and guided communication. Pride that refuses all help perpetuates the damage. "The proud he knows from afar." <em>(Ps 138:6)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">06</span>
+      <div class="step-body">
+        <h4>Rebuild Trust Through Consistent, Daily Action</h4>
+        <p>Trust is not rebuilt through promises alone — it is rebuilt through patterns. Small, consistent acts of faithfulness, transparency, and selfless service rebuild the confidence that was destroyed. "Love is patient, love is kind…" <em>(1 Cor 13:4)</em>. Patience means the process is allowed to take the time it needs — not days, but months and years.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">07</span>
+      <div class="step-body">
+        <h4>Recommit with Intention and Ceremony</h4>
+        <p>"Return to me, and I will return to you." <em>(Mal 3:7)</em>. After prayer and sufficient healing, the couple must make a deliberate, spoken recommitment — renewing their covenant with God as witness. Drifting back to cohabitation without resolution is not restoration. EGW: "The marriage covenant is sacred; treat it as such." — <em>AH, p. 341</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">08</span>
+      <div class="step-body">
+        <h4>Winning a Difficult or Unbelieving Spouse</h4>
+        <p>Peter gives specific counsel: "Wives, be subject to your own husbands, so that even if some do not obey the word, they may be won without a word by the conduct of their wives — when they see your respectful and pure conduct." <em>(1 Pet 3:1–2)</em>. EGW echoes this: "It is not argument, not pleading, not loud expressions of grief that will accomplish the work. It is a Christlike life." — <em>AH, p. 349</em>. Lived faith is the most powerful sermon.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"When difficulties arise between husband and wife, place both feet on the platform of Christ. Do not allow differences to widen. Seek counsel of God together, seek counsel of trusted and wise believers, and then do what God says — not what pride says."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 342 (paraphrased)</p>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Joel 2:25</span>
+    <p class="verse-text">"I will restore to you the years that the swarming locust has eaten."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Isa 43:19</span>
+    <p class="verse-text">"Behold, I am doing a new thing; now it springs forth, do you not perceive it? I will make a way in the wilderness and rivers in the desert."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">1 Pet 3:1–2</span>
+    <p class="verse-text">"Wives, be subject to your own husbands, so that even if some do not obey the word, they may be won without a word by the conduct of their wives."</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION V — THE TONGUE
+═══════════════════════════════════════════ -->
+<div class="band-deep">
+<section class="section" id="tongue">
+  <div class="section-header">
+    <p class="section-num">Section V</p>
+    <h2 class="section-title">The Power of <em>the Tongue</em></h2>
+    <p class="section-intro">No weapon is more frequently deployed in marital conflict — and no instrument more powerful for healing — than the human tongue. James 3 calls it a "small member" that sets the whole forest on fire.</p>
+  </div>
+
+  <p class="prose">Ellen White devoted extensive pages to the tone, temper, and content of speech in the home, warning that "a word hastily spoken, a single act of unkindness, may do more harm than years of patient kindness can undo." The marriage table is a proving ground for the tongue every single day.</p>
+
+  <div class="quote-block">
+    <p class="quote-text">"A kind, cheerful, loving tone of voice will do more to make the home happy than the most costly furniture. The husband may bring to his home a cross, fretful, and desponding spirit, and the wife may do the same; or they may both strive to bring an atmosphere of cheerfulness and peace."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 431</p>
+  </div>
+
+  <h3 class="sub-h">Words That Destroy vs. Words That Heal</h3>
+
+  <table class="tongue-table">
+    <thead>
+      <tr>
+        <th>Pattern</th>
+        <th class="destroy">Words That Destroy</th>
+        <th class="heal">Words That Heal</th>
+        <th>Scripture</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>In conflict</td>
+        <td class="destroy">"You always…" / "You never…"</td>
+        <td class="heal">"I feel… when… Could we talk?"</td>
+        <td class="ref">Prov 15:1</td>
+      </tr>
+      <tr>
+        <td>Under pressure</td>
+        <td class="destroy">Sharp sarcasm, contempt, mockery</td>
+        <td class="heal">Patient silence or a gentle answer</td>
+        <td class="ref">James 1:19</td>
+      </tr>
+      <tr>
+        <td>Daily greeting</td>
+        <td class="destroy">Grunts, distraction, indifference</td>
+        <td class="heal">Warm words; speaking the name with affection</td>
+        <td class="ref">Song 2:4</td>
+      </tr>
+      <tr>
+        <td>In public</td>
+        <td class="destroy">Humiliating jokes; correcting them</td>
+        <td class="heal">Praise and honour before others</td>
+        <td class="ref">Prov 31:28</td>
+      </tr>
+      <tr>
+        <td>After a failure</td>
+        <td class="destroy">"I told you so" / relentless blame</td>
+        <td class="heal">Covering sin with love; encouraging again</td>
+        <td class="ref">1 Pet 4:8</td>
+      </tr>
+      <tr>
+        <td>About the past</td>
+        <td class="destroy">Weaponising old wounds repeatedly</td>
+        <td class="heal">True forgiveness that does not revisit</td>
+        <td class="ref">1 Cor 13:5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 15:1</span>
+    <p class="verse-text">"A soft answer turns away wrath, but a harsh word stirs up anger."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Eph 4:29</span>
+    <p class="verse-text">"Let no corrupting talk come out of your mouths, but only such as is good for building up, as fits the occasion, that it may give grace to those who hear."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 12:18</span>
+    <p class="verse-text">"There is one whose rash words are like sword thrusts, but the tongue of the wise brings healing."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">James 3:5</span>
+    <p class="verse-text">"The tongue is a small member, yet it boasts of great things. How great a forest is set ablaze by such a small fire!"</p>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"Words have a power for good or ill that few realise. A sharp, cutting answer, given in a tone of displeasure, may wound the spirit of the one who receives it… Make it a rule never to speak to your husband or wife in tones of impatience or with sharp or bitter words. This is a rule that will preserve peace."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 439</p>
+  </div>
+
+  <div class="highlight-box">
+    <h3>The "Pause Rule" — A Practical Application</h3>
+    <ul>
+      <li>Before speaking in anger, take one full breath and ask: "Will this word build or break?"</li>
+      <li>"Do not let the sun go down on your anger." <em>(Eph 4:26)</em> — resolve before sleeping</li>
+      <li>Speak your spouse's name with warmth, not frustration, as a deliberate daily habit</li>
+      <li>Find one thing to genuinely praise every day — and say it aloud</li>
+      <li>Never discuss your spouse's faults with people outside the marriage without their consent</li>
+      <li>EGW: "Keep the tone of your voice under control. A gentle answer has saved many a quarrel."</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION VI — MAINTAINING
+═══════════════════════════════════════════ -->
+<div class="band-blue">
+<section class="section" id="maintain">
+  <div class="section-header">
+    <p class="section-num">Section VI</p>
+    <h2 class="section-title">Maintaining a <em>Good</em> Marriage</h2>
+    <p class="section-intro">A thriving marriage is not an accident. It is cultivated deliberately and daily by two people committed to growing together — in love, in Christ, and in character.</p>
+  </div>
+
+  <p class="prose">Ellen White described the ideal Christian home as "a little heaven on earth." That vision requires the same intentionality a gardener gives to a garden. Left untended, the weeds of busyness, routine, and selfishness will choke out even the most beautiful relationship. Flourishing requires daily choice.</p>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">🕯️</div>
+      <h3>Daily Family Worship</h3>
+      <p>"Pray together at night; pray together in the morning… Let the voice of prayer and praise be heard in every home." — <em>EGW, AH, p. 431</em>. Make God the first voice heard in your home every day.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">💬</div>
+      <h3>Intentional, Listening Communication</h3>
+      <p>"Study to be gentle and kind, and you will find a return of gentleness and kindness." — <em>EGW, AH, p. 106</em>. Set aside time daily to listen without advice, distraction, or defensiveness.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🎁</div>
+      <h3>Celebrate and Express Love</h3>
+      <p>"Let the husband make it his constant study to add to the happiness of his wife… Let each seek to give happiness to the other." — <em>EGW, AH, p. 228</em>. Speak words of appreciation; express love in your spouse's language, not only your own.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🏠</div>
+      <h3>Guard the Home's Atmosphere</h3>
+      <p>"Every member of the family exerts an influence upon every other member." — <em>EGW, AH, p. 20</em>. Intentionally cultivate an environment of peace, warmth, and grace. The home should be a place both spouses are eager to return to.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🌱</div>
+      <h3>Grow Together in Christ</h3>
+      <p>Study Scripture together. Pray for one another privately. Serve together in ministry. When two people grow independently closer to God, they inevitably grow closer to each other. <em>(Eccl 4:12)</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🛡️</div>
+      <h3>Proactively Guard Against Temptation</h3>
+      <p>"Flee from sexual immorality." <em>(1 Cor 6:18)</em>. Guard your eyes, your digital life, your close friendships. Build protective fences before they are needed. EGW: "A man who would not be tempted should not place himself where temptation is." — <em>AH, p. 329</em></p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3>Daily &amp; Weekly Habits of a Flourishing Marriage</h3>
+    <ul>
+      <li>Pray together morning and evening — however briefly — as a non-negotiable</li>
+      <li>Express genuine appreciation and affirmation every day; do not assume it is understood</li>
+      <li>Speak well of your spouse always in public; never humiliate or mock them to others</li>
+      <li>Resolve conflict before sleep; do not let anger fester overnight <em>(Eph 4:26)</em></li>
+      <li>Pursue shared activities, laughter, and recreation; marry your friend, and stay their friend</li>
+      <li>Be fully transparent with finances; make major decisions jointly and prayerfully</li>
+      <li>Read at least one chapter of Scripture together each week</li>
+      <li>Date your spouse deliberately and regularly — courtship should never fully end</li>
+      <li>Honour each other's family of origin while maintaining appropriate boundaries <em>(Gen 2:24)</em></li>
+      <li>Observe the Sabbath together as a weekly covenant reset and shared holy time</li>
+    </ul>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"Home should be a place where cheerfulness, courtesy, and love abide; where the members of the family delight in each other's society. Kindness and love manifested toward each other will make the home a little heaven on earth and will make you a blessing to all around you."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 17</p>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Col 3:14</span>
+    <p class="verse-text">"And above all these put on love, which binds everything together in perfect harmony."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 5:18</span>
+    <p class="verse-text">"Let your fountain be blessed, and rejoice in the wife of your youth."</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTIONS VII & VIII — ROLES
+═══════════════════════════════════════════ -->
+<div class="band-gold">
+<section class="section" id="husband">
+  <div class="section-header">
+    <p class="section-num">Sections VII &amp; VIII</p>
+    <h2 class="section-title">How Husband <em>&amp;</em> Wife Should Treat Each Other</h2>
+    <p class="section-intro">Scripture assigns distinct but equally dignified roles, both rooted in selfless, Christ-like love. Neither role is about power or precedence — both are about service and sacrifice.</p>
+  </div>
+
+  <p class="prose">The biblical pattern for marriage is not a hierarchy of worth, but a complementary structure of loving responsibility. The husband is called to lead sacrificially as Christ leads the Church; the wife to support wisely as the Church honours Christ. Both flow from a prior call to mutual submission. <em>(Eph 5:21)</em></p>
+
+  <div class="roles-grid">
+    <div class="role-col">
+      <div class="role-header">
+        <h3>The Husband</h3>
+        <span>Called to lead as Christ leads the Church</span>
+      </div>
+      <div class="role-items">
+        <div class="role-item"><p><strong>Love sacrificially.</strong> "Husbands, love your wives, as Christ loved the church and gave himself up for her." <em>(Eph 5:25)</em> — This is not domination; it is laying down your comfort, preferences, and rights for another.</p></div>
+        <div class="role-item"><p><strong>Honour her as an equal heir.</strong> "Live with your wives in an understanding way, showing honour to the woman as the weaker vessel, since they are heirs with you of the grace of life, so that your prayers may not be hindered." <em>(1 Pet 3:7)</em></p></div>
+        <div class="role-item"><p><strong>Never be harsh.</strong> "Husbands, love your wives, and do not be harsh with them." <em>(Col 3:19)</em>. Harshness is not strength — it is a failure of the love that was commanded.</p></div>
+        <div class="role-item"><p><strong>Provide and protect.</strong> "If anyone does not provide for his relatives, especially for members of his own household, he has denied the faith." <em>(1 Tim 5:8)</em></p></div>
+        <div class="role-item"><p><strong>Lead in spiritual life.</strong> "Sanctify her, having cleansed her by the washing of water with the word." <em>(Eph 5:26)</em>. The husband initiates worship, prayer, and Scripture in the home.</p></div>
+        <div class="role-item"><p><strong>Praise her publicly.</strong> "Her husband also, and he praises her: 'Many women have done excellently, but you surpass them all.'" <em>(Prov 31:28–29)</em></p></div>
+        <div class="role-item"><p><strong>EGW:</strong> "The husband should not speak in tones of harshness. The wife is not a servant, but a companion, a helpmeet. The husband is to cherish his wife as Christ cherishes the church." — <em>AH, p. 215</em></p></div>
+      </div>
+    </div>
+
+    <div class="role-col" id="wife">
+      <div class="role-header">
+        <h3>The Wife</h3>
+        <span>Called to support as the Church honours Christ</span>
+      </div>
+      <div class="role-items">
+        <div class="role-item"><p><strong>Honour godly leadership.</strong> "Wives, submit to your own husbands, as to the Lord." <em>(Eph 5:22)</em> — This is a voluntary, grace-filled posture, not coercion or inferiority. It applies to a husband who loves as Christ loves.</p></div>
+        <div class="role-item"><p><strong>Build, never tear down.</strong> "The wisest of women builds her house, but folly with her own hands tears it down." <em>(Prov 14:1)</em>. Words, tone, and attitude have architectural power.</p></div>
+        <div class="role-item"><p><strong>Cultivate inner beauty.</strong> "Let your adorning be the hidden person of the heart with the imperishable beauty of a gentle and quiet spirit, which in God's sight is very precious." <em>(1 Pet 3:4)</em></p></div>
+        <div class="role-item"><p><strong>The Proverbs 31 character.</strong> Industrious, dignified, strategic, compassionate — "She opens her mouth with wisdom, and the teaching of kindness is on her tongue." <em>(Prov 31:26)</em></p></div>
+        <div class="role-item"><p><strong>Fear God above all.</strong> "Charm is deceitful, and beauty is vain, but a woman who fears the Lord is to be praised." <em>(Prov 31:30)</em>. Her identity rests in God, not in her husband's approval.</p></div>
+        <div class="role-item"><p><strong>Win without words when necessary.</strong> "They may be won without a word by the conduct of their wives." <em>(1 Pet 3:1)</em> — Lived faithfulness is more powerful than argument.</p></div>
+        <div class="role-item"><p><strong>EGW:</strong> "The wife… exerts a powerful influence for good or ill. She can make the husband's life very happy or very wretched. She can encourage or discourage him in his efforts to work out God's will." — <em>AH, p. 231</em></p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"The husband is not to exercise an arbitrary rule over his wife. The wife is to respect her husband. Both are to cultivate patience, self-denial, and forbearance. Both are to bear each other's burdens. Speaking truth in love, they are to grow up into Christ, who is the Head."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 94</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION IX — MUTUAL DUTIES
+═══════════════════════════════════════════ -->
+<div class="band-red">
+<section class="section" id="mutual">
+  <div class="section-header">
+    <p class="section-num">Section IX</p>
+    <h2 class="section-title"><em>Mutual</em> Duties in Marriage</h2>
+    <p class="section-intro">Beyond the specific callings of husband and wife, there are obligations that belong to both — equally and without exception. These are the non-negotiables of any godly union.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">🤝</div>
+      <h3>Mutual Submission</h3>
+      <p>"Submitting to one another out of reverence for Christ." <em>(Eph 5:21)</em> — The entire passage on roles flows from this verse of mutual submission. Neither spouse is exempt from the call to yield.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🧡</div>
+      <h3>Marital Faithfulness</h3>
+      <p>"Let the marriage bed be undefiled." <em>(Heb 13:4)</em>. Physical and emotional faithfulness is a sacred covenant duty for both. Emotional infidelity — deep intimacy with someone outside the marriage — is as damaging as physical betrayal.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🏋️</div>
+      <h3>Bearing Each Other's Burdens</h3>
+      <p>"Bear one another's burdens, and so fulfil the law of Christ." <em>(Gal 6:2)</em>. In marriage, this means entering fully into the other's hardships — not solving them from a distance, but carrying them together.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🌬️</div>
+      <h3>Forgiving Repeatedly</h3>
+      <p>"Forgive as the Lord has forgiven you." <em>(Col 3:13)</em>. Not once, but "seventy times seven." <em>(Matt 18:22)</em>. A marriage that cannot forgive cannot survive. True forgiveness is complete — it does not maintain a running account.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🗣️</div>
+      <h3>Edifying Speech</h3>
+      <p>"Let no corrupting talk come out of your mouths, but only such as is good for building up." <em>(Eph 4:29)</em>. The tongue can be the instrument that destroys a marriage — or the instrument that daily reinforces it.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">👫</div>
+      <h3>Continuing to Pursue Each Other</h3>
+      <p>"Rejoice in the wife of your youth." <em>(Prov 5:18)</em>. EGW: "Continue the attention and kindness of courtship days. Speak words of tenderness." Never stop choosing your spouse intentionally.</p>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">1 Cor 13:4–7</span>
+    <p class="verse-text">"Love is patient and kind; love does not envy or boast; it is not arrogant or rude. It does not insist on its own way; it is not irritable or resentful… Love bears all things, believes all things, hopes all things, endures all things."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Col 3:12–14</span>
+    <p class="verse-text">"Put on compassion, kindness, humility, meekness, and patience, bearing with one another and forgiving each other… And above all these put on love."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Rom 12:10</span>
+    <p class="verse-text">"Love one another with brotherly affection. Outdo one another in showing honour."</p>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"Both the husband and the wife should cultivate a spirit of cheerfulness. Neither should seek to have their own way, but should each aim to make the other happy. It is a duty to speak pleasant, cheerful words; it is a duty to have a sunny, joyful countenance."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 102</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION X — INTIMACY & ROMANCE
+═══════════════════════════════════════════ -->
+<div class="band-gold">
+<section class="section" id="intimacy">
+  <div class="section-header">
+    <p class="section-num">Section X</p>
+    <h2 class="section-title">Intimacy <em>&amp;</em> Romance</h2>
+    <p class="section-intro">Physical intimacy and romantic love within marriage are not concessions to human weakness — they are gifts that God designed, celebrated in Scripture, and protected by the covenant of marriage.</p>
+  </div>
+
+  <p class="prose">The Song of Solomon stands as an entire book of Scripture devoted to the beauty of romantic and physical love within the covenant relationship. God is not embarrassed by sexuality within its proper, holy context. He created it. The problem is never love itself — it is love that strays outside the covenant boundaries God established for its protection and flourishing.</p>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">💛</div>
+      <h3>God Designed Romantic Love</h3>
+      <p>"His left hand is under my head, and his right hand embraces me!" <em>(Song 2:6)</em>. The Song of Solomon is Scripture's celebration of the beauty of romantic and physical love within the covenant of marriage.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🔒</div>
+      <h3>The Marriage Bed Is Holy</h3>
+      <p>"Let marriage be held in honour among all, and let the marriage bed be undefiled." <em>(Heb 13:4)</em>. Physical intimacy within marriage is not merely permitted — it is honoured and protected by God.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🌹</div>
+      <h3>Do Not Deprive One Another</h3>
+      <p>"The husband should give to his wife her conjugal rights, and likewise the wife to her husband… Do not deprive one another, except perhaps by agreement for a limited time… so that Satan may not tempt you." <em>(1 Cor 7:3–5)</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🌟</div>
+      <h3>Keep Courting Your Spouse</h3>
+      <p>EGW urges couples not to let affection grow cold: "Do not be stingy of your affections. Be affectionate, be kind, be thoughtful. Let small acts of tenderness be woven into the fabric of daily life." — <em>AH, p. 107</em></p>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Song 1:2</span>
+    <p class="verse-text">"Let him kiss me with the kisses of his mouth! For your love is better than wine."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Song 4:1</span>
+    <p class="verse-text">"Behold, you are beautiful, my love, behold, you are beautiful! Your eyes are doves behind your veil."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 5:18–19</span>
+    <p class="verse-text">"Let your fountain be blessed, and rejoice in the wife of your youth… be intoxicated always in her love."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">1 Cor 7:3–4</span>
+    <p class="verse-text">"The husband should give to his wife her conjugal rights, and likewise the wife to her husband. For the wife does not have authority over her own body, but the husband does. Likewise the husband does not have authority over his own body, but the wife does."</p>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"The warmth of true friendship, the beauty of kindly affection — these are tokens of the relationship that exists between Christ and His church, and they are a foretaste of the love that will exist in the purified family circle of the redeemed."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 94</p>
+  </div>
+
+  <div class="highlight-box">
+    <h3>Protecting Intimacy in Marriage</h3>
+    <ul>
+      <li>Never use intimacy as a reward or its withdrawal as punishment — both are manipulation</li>
+      <li>Guard the eyes and mind from pornography and inappropriate relationships; they corrupt the heart's capacity for pure love</li>
+      <li>Speak words of admiration and physical affirmation to your spouse regularly</li>
+      <li>Prioritise time alone together — romantic love must be nurtured, not assumed</li>
+      <li>EGW: "The husband and wife should study each other's happiness and never either of them practice unkindness or negligence." — <em>AH, p. 109</em></li>
+      <li>Pray together before bed — it is nearly impossible to maintain contempt for someone you are interceding for</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION XI — TRIALS & SUFFERING
+═══════════════════════════════════════════ -->
+<div class="band-deep">
+<section class="section" id="trials">
+  <div class="section-header">
+    <p class="section-num">Section XI</p>
+    <h2 class="section-title">Trials <em>&amp;</em> Suffering Together</h2>
+    <p class="section-intro">Every marriage will face seasons of fire. The question is not whether trials will come, but whether they will push you apart — or forge you together in something stronger than gold.</p>
+  </div>
+
+  <p class="prose">The Bible does not promise Christian marriage will be exempt from hardship. Job's marriage cracked under the weight of his suffering; Mary and Joseph navigated scandal and displacement. But Scripture consistently shows that trials, when faced together and anchored in God, produce a depth of covenant love that easy seasons never could.</p>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">🔨</div>
+      <h3>Trials Reveal &amp; Refine</h3>
+      <p>"The testing of your faith produces steadfastness." <em>(James 1:3)</em>. Pressure reveals what is truly inside the heart. Trials in marriage expose hidden selfishness — and invite transformation.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">⚓</div>
+      <h3>God Is the Anchor in the Storm</h3>
+      <p>"God is our refuge and strength, a very present help in trouble." <em>(Ps 46:1)</em>. When both spouses run to God — not away from each other — the storm becomes the occasion for deepened trust.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🤲</div>
+      <h3>Lament Together</h3>
+      <p>Job 2:13 — Job's companions sat with him in silence for seven days. Sometimes the most loving thing is to sit in the grief together without trying to fix it. "Weep with those who weep." <em>(Rom 12:15)</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🕊️</div>
+      <h3>Do Not Blame Each Other</h3>
+      <p>Job's wife, in her anguish, said "curse God and die." <em>(Job 2:9)</em> — a warning of how suffering, if not brought to God, can turn spouses against each other and even against God. Blame is the enemy of shared perseverance.</p>
+    </div>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Rom 5:3–4</span>
+    <p class="verse-text">"We rejoice in our sufferings, knowing that suffering produces endurance, and endurance produces character, and character produces hope."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Ps 34:18</span>
+    <p class="verse-text">"The Lord is near to the broken-hearted and saves the crushed in spirit."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">2 Cor 1:4</span>
+    <p class="verse-text">"He comforts us in all our affliction, so that we may be able to comfort those who are in any affliction."</p>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"The trials and difficulties of life are God's workmen to remove the impurities and roughness from our characters. The process is painful and trying, but it is needful — and the result will be worth everything it costs. Let not husband and wife be driven asunder in the hour of trial, but let them kneel together and ask God for wisdom."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 445 (composite)</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Grief &amp; Loss — Facing It Together</h4>
+        <p>The loss of a child, a miscarriage, a parent, or a dream can devastate a marriage if faced in isolation. Create space for both partners to grieve in their own way — and refuse to interpret different grieving styles as indifference. EGW: "Angels sympathise with human grief." <em>(AH, p. 444)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Financial Crisis — Trusting God Together</h4>
+        <p>"Give us this day our daily bread." <em>(Matt 6:11)</em>. Financial collapse strips pride and tests the true foundation. EGW counsels that couples in financial hardship should "reduce their standard of living rather than their integrity" — and trust God to provide as they are faithful stewards together.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Health Crises — Caring as a Covenant</h4>
+        <p>"In sickness and in health" is not poetic language — it is covenant language. The marriage vow commits each person to remain when bearing seems hardest. EGW: "The sick room needs the sunshine of a loving presence." — <em>MH, p. 221</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION XII — OUTSIDE INFLUENCES
+═══════════════════════════════════════════ -->
+<div class="band-red">
+<section class="section" id="influences">
+  <div class="section-header">
+    <p class="section-num">Section XII</p>
+    <h2 class="section-title">Guarding Against <em>Outside Influences</em></h2>
+    <p class="section-intro">Few things destroy marriages more subtly than the intrusion of outside voices, meddling relatives, ungodly companions, and the consuming noise of the world that leaves no room for the quiet work of love.</p>
+  </div>
+
+  <p class="prose">Genesis 2:24 records the very first instruction given about marriage: "Therefore a man shall leave his father and mother." The Bible's first word on the subject is about <em>leaving</em> — establishing the primacy of the new household. Ellen White spent entire chapters in <em>The Adventist Home</em> addressing the damage done by in-laws, gossiping relatives, and unwise friendships.</p>
+
+  <div class="card-grid">
+    <div class="card fade-in">
+      <div class="card-icon">👨‍👩‍👦</div>
+      <h3>The In-Law Boundary</h3>
+      <p>"Leave father and mother and cleave to your wife." <em>(Gen 2:24)</em>. EGW: "Do not permit your parents to come in and give you counsel unless they ask for it… The family circle should not be disturbed by outsiders." — <em>AH, p. 254</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">🗯️</div>
+      <h3>The Danger of Gossip</h3>
+      <p>"Whoever covers an offense seeks love, but he who repeats a matter separates close friends." <em>(Prov 17:9)</em>. Taking marital grievances to friends, social media, or family — rather than to God and the spouse — multiplies damage and invites partisan counsel.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">📱</div>
+      <h3>Technology &amp; Social Media</h3>
+      <p>EGW could not have named social media, but she named the principle: "The mind must not be allowed to feed on frivolous, corrupting things… that lead away from purity." — <em>AH, p. 406</em>. Screens that compete with the spouse are a modern form of worldliness.</p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">👥</div>
+      <h3>Ungodly Companions</h3>
+      <p>"Bad company ruins good morals." <em>(1 Cor 15:33)</em>. Friends who mock fidelity, who encourage one spouse against the other, or who model worldly attitudes toward marriage corrode the covenant. "Walk with the wise and become wise." <em>(Prov 13:20)</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">💼</div>
+      <h3>Overwork &amp; Busyness</h3>
+      <p>"Be still, and know that I am God." <em>(Ps 46:10)</em>. EGW warned repeatedly against the husband (and wife) being so consumed with work that the home is neglected: "No man should allow business to crowd out the duties he owes to his family." — <em>AH, p. 214</em></p>
+    </div>
+    <div class="card fade-in">
+      <div class="card-icon">⛪</div>
+      <h3>Even Church — Without Balance</h3>
+      <p>EGW uniquely warned that ministry involvement that leaves the spouse isolated is not godly sacrifice: "The husband who neglects his wife… while he is busy in religious duties, is making a grave mistake." — <em>AH, p. 220</em>. The home is the first ministry field.</p>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"Every family is a little church. Let not the confidence of husband and wife be violated by permitting any outsider to become the depository of family secrets, the confidant of either party against the other. These matters belong to God and to each other."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 177 (composite)</p>
+  </div>
+
+  <div class="verse-card">
+    <span class="verse-ref-tag">Gen 2:24</span>
+    <p class="verse-text">"Therefore a man shall leave his father and his mother and hold fast to his wife, and they shall become one flesh."</p>
+  </div>
+  <div class="verse-card">
+    <span class="verse-ref-tag">Prov 13:20</span>
+    <p class="verse-text">"Whoever walks with the wise becomes wise, but the companion of fools will suffer harm."</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION XIII — BIBLICAL MARRIAGES
+═══════════════════════════════════════════ -->
+<div class="band-green">
+<section class="section" id="cases">
+  <div class="section-header">
+    <p class="section-num">Section XIII</p>
+    <h2 class="section-title">Biblical <em>Marriages</em> — Models &amp; Mirrors</h2>
+    <p class="section-intro">Scripture does not give us idealized portraits of marriage — it gives us honest ones. The marriages of the Bible teach us through both their glory and their failures, and show that God works redemptively through imperfect unions surrendered to Him.</p>
+  </div>
+
+  <div class="case-grid">
+    <div class="case-card">
+      <div class="case-card-header">
+        <div class="case-icon">🌾</div>
+        <div>
+          <h4>Abraham &amp; Sarah</h4>
+          <span>Gen 12–23 · Faith and covenant under pressure</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        Theirs was a covenant that survived famine, displacement, fear, and decades of waiting for God's promise. Sarah's faith is celebrated in Hebrews 11. Their failure came when they acted in unbelief — Abraham's deception about Sarah, and the Hagar incident — showing that even strong faith stumbles when fear leads ahead of God.
+        <div class="case-lesson">✦ Lesson: Trust God's timeline together rather than engineering your own solutions under pressure.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div class="case-icon">🏹</div>
+        <div>
+          <h4>Isaac &amp; Rebekah</h4>
+          <span>Gen 24–27 · Love at first sight that grew complicated</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        Theirs began with divine leading and immediate love — "Isaac was comforted after his mother's death." <em>(Gen 24:67)</em>. But favouritism over their sons Esau and Jacob divided their household tragically, revealing that partiality and deception can fracture what love built.
+        <div class="case-lesson">✦ Lesson: Present the united front; never allow children to drive a wedge between husband and wife.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div class="case-icon">💌</div>
+        <div>
+          <h4>Boaz &amp; Ruth</h4>
+          <span>Ruth 1–4 · Redeeming love, loyalty, and character</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        Boaz noticed Ruth not for beauty alone but for her loyalty, her character, and her faithfulness to Naomi. He honoured her publicly, protected her practically, and redeemed her sacrificially. This is the picture of a husband pursuing a wife with noble intention, and a wife of proven character who trusted God's provision.
+        <div class="case-lesson">✦ Lesson: Character revealed in ordinary loyalty is the foundation of extraordinary love.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div class="case-icon">📖</div>
+        <div>
+          <h4>Aquila &amp; Priscilla</h4>
+          <span>Acts 18; Rom 16:3 · Ministry partnership</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        Named six times in the New Testament, always together, always in ministry. They taught Apollos <em>(Acts 18:26)</em>, hosted a church in their home, and risked their lives for Paul. Theirs is the picture of a marriage that is not merely domestic comfort but a shared apostolic mission — two people more effective for God together than apart.
+        <div class="case-lesson">✦ Lesson: The most fulfilled marriages are mission-driven, not merely comfort-driven.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div class="case-icon">🌟</div>
+        <div>
+          <h4>Mary &amp; Joseph</h4>
+          <span>Matt 1–2; Luke 1–2 · Faith through the incomprehensible</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        Joseph's response to news that would have shamed him publicly reveals a man of extraordinary character — he planned to divorce her quietly, to protect her. Then God spoke, and Joseph believed. Together they navigated scandal, a census journey, birth in a stable, exile in Egypt, and the raising of God's Son — all through radical, daily trust.
+        <div class="case-lesson">✦ Lesson: When God calls a couple into something they cannot understand, quiet obedience and protective love carry them through.</div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <div class="case-icon">💔</div>
+        <div>
+          <h4>Hosea &amp; Gomer</h4>
+          <span>Hosea 1–3 · Redeeming an unfaithful spouse</span>
+        </div>
+      </div>
+      <div class="case-card-body">
+        God commanded Hosea to marry an unfaithful woman and to pursue her even after she left — as a living parable of God's pursuit of unfaithful Israel. Hosea bought her back <em>(Hos 3:2)</em>. This is not a model for every marriage, but it is the deepest possible picture of covenant love that pursues, redeems, and restores at personal cost.
+        <div class="case-lesson">✦ Lesson: Covenant love is not conditioned on the worthiness of the beloved — it mirrors the love of God Himself.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"The Bible contains the most instructive history of family life… These records have been given for our admonition, that we should not fall into the same errors, and that where mistakes have been made, we should seek the grace of God to avoid repeating them, and the mercy of God to heal what has been broken."</p>
+    <p class="quote-source">— Ellen G. White, The Adventist Home, p. 26 (composite)</p>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION XIV — PRAYER & DEVOTION
+═══════════════════════════════════════════ -->
+<div class="band-blue">
+<section class="section" id="prayer">
+  <div class="section-header">
+    <p class="section-num">Section XIV</p>
+    <h2 class="section-title">Prayer, Devotion <em>&amp;</em> the Cord of Three</h2>
+    <p class="section-intro">The secret of every great marriage is not compatibility, communication techniques, or conflict-resolution frameworks — it is two people who are individually and collectively surrendered to the living God.</p>
+  </div>
+
+  <p class="prose">"A cord of three strands is not quickly broken." <em>(Eccl 4:12)</em> — the third strand is God Himself. No marriage reaches its God-intended potential without a living, daily, intentional spiritual life. The couple who prays together, worships together, and submits to Scripture together has access to a power that no human effort alone can replicate.</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Pray Together Every Day</h4>
+        <p>"The home where God is recognised and worshipped will be a happy home." — <em>EGW, AH, p. 420</em>. Morning and evening prayer, however brief, consecrates the day and signals to Heaven that this union belongs to God. Couples who pray together rarely give up on each other.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Read Scripture Together</h4>
+        <p>"The Bible is God's voice speaking to us, just as surely as if we could hear it with our ears." — <em>EGW, Testimonies, Vol. 6, p. 393</em>. Even one chapter together, discussed openly, reshapes both minds toward God's values and renews the couple's shared language of faith.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Intercede for Your Spouse Privately</h4>
+        <p>Pray for your spouse every day in your own closet — for their spiritual growth, their struggles, their calling, their joy. This posture of private intercession cultivates deep compassion and makes sustained resentment nearly impossible. "Pray for one another." <em>(James 5:16)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Observe the Sabbath Together</h4>
+        <p>The Sabbath is a weekly covenant reset — rest from striving, busyness, and the pressures that erode family life. "Remember the Sabbath day, to keep it holy." <em>(Ex 20:8)</em>. EGW: "The Sabbath of the Lord is a rest day for the family, a time of holy joy and peaceful contemplation." — <em>AH, p. 149</em>. A couple who Sabbaths together builds a rhythm of sacred rest into the week's most important relationship.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Serve Together in Mission</h4>
+        <p>"Let each of you look not only to his own interests, but also to the interests of others." <em>(Phil 2:4)</em>. A couple that serves together — in church, in community, in ministry — bonds through a shared purpose larger than themselves. Mission is the furnace that forges the deepest unity.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">✦</span>
+      <div class="step-body">
+        <h4>Fast Together in Crisis</h4>
+        <p>When a marriage faces a spiritual crisis, the power of united fasting and prayer should not be overlooked. "This kind does not go out except by prayer and fasting." <em>(Matt 17:21)</em>. EGW: "Prayer and fasting can break the power of the enemy where nothing else can." There are spiritual battles in a marriage that require extraordinary spiritual weapons.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3>A Covenant Prayer for Married Couples <span style="font-size:0.8rem; opacity:0.6; font-style:italic; font-family:'Cormorant Garamond'">(based on Scripture)</span></h3>
+    <ul>
+      <li>Lord, make us one as You and the Father are one <em>(John 17:21)</em></li>
+      <li>Teach us to prefer one another in honour <em>(Rom 12:10)</em></li>
+      <li>Protect us from pride — may we each consider the other more important than ourselves <em>(Phil 2:3)</em></li>
+      <li>Heal what sin has broken; restore the years the locust has eaten <em>(Joel 2:25)</em></li>
+      <li>Give us wisdom for every decision, patience for every trial, and grace to forgive without limit <em>(James 1:5)</em></li>
+      <li>Let our home be a sanctuary of Your presence, where Your Sabbath is honoured and Your Word is cherished</li>
+      <li>May our union give our children a picture of Your faithfulness, and may our grandchildren call us blessed <em>(Prov 31:28)</em></li>
+      <li>Keep us until the Marriage Supper of the Lamb, where all earthly covenants find their eternal fulfilment <em>(Rev 19:9)</em></li>
+    </ul>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"If husband and wife are devoted to God, their home will be a little heaven on earth; and their children, surrounded by a holy influence, will be drawn heavenward. Religion in the home is more powerful in its influence for good than all the sermons that are preached."</p>
+    <p class="quote-source">— Ellen G. White, Review and Herald, June 6, 1882</p>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-symbol">◈</div>
+  <p>This guide draws from the Holy Scriptures (ESV/KJV) and the writings of Ellen G. White, including <em>The Adventist Home</em>, <em>Messages to Young People</em>, <em>Ministry of Healing</em>, <em>Testimonies for the Church</em>, and selected Review &amp; Herald articles. All Scripture and EGW material quoted for personal Bible study and spiritual growth.</p>
+  <p class="footer-verse" style="margin-top:1.2rem">"A cord of three strands is not quickly broken." — Ecclesiastes 4:12</p>
+</footer>
+
+</body>
+</html>

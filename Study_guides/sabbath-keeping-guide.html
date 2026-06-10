@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sabbath — A Delight, Not a Burden</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0d0b;
+    --bg2: #141210;
+    --bg3: #1a1714;
+    --bg4: #201e1a;
+    --border: #3a3228;
+    --border-light: #4a4038;
+    --gold: #c9a84c;
+    --gold2: #e8c97a;
+    --gold-dim: #7a6535;
+    --cream: #e8e0cc;
+    --cream-dim: #b8ad98;
+    --red: #8b3030;
+    --red-light: #c05050;
+    --blue: #2d5a7a;
+    --blue-light: #4a8ab0;
+    --green: #2d5a3a;
+    --green-light: #4a8a5a;
+    --purple: #4a2d6a;
+    --purple-light: #7a5aaa;
+    --text: #d8cdb8;
+    --text-dim: #a09080;
+    --text-muted: #706050;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* Parchment texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    text-align: center;
+    padding: 70px 0 50px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 50px;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-eyebrow {
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 700;
+    color: var(--gold2);
+    line-height: 1.2;
+    margin-bottom: 10px;
+    text-shadow: 0 0 60px rgba(201,168,76,0.15);
+  }
+  .hero-sub {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--cream-dim);
+    margin-bottom: 28px;
+  }
+  .hero-verse {
+    display: inline-block;
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 15px;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+    max-width: 520px;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 50px;
+  }
+  .toc h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .toc ol {
+    padding-left: 20px;
+    color: var(--cream-dim);
+    font-size: 15px;
+    column-count: 2;
+    column-gap: 30px;
+  }
+  .toc li { margin-bottom: 7px; }
+  .toc a { color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--gold2); }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    margin: 60px 0 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--gold-dim);
+  }
+  .section-number {
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .section-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 600;
+    color: var(--gold2);
+    line-height: 1.3;
+  }
+
+  /* ── SUBSECTION ── */
+  h3.subsection {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--cream);
+    margin: 36px 0 14px;
+    letter-spacing: 0.05em;
+    padding-left: 12px;
+    border-left: 2px solid var(--gold-dim);
+  }
+
+  p { margin-bottom: 16px; color: var(--text); }
+
+  /* ── SCRIPTURE CARD ── */
+  .scripture {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue-light);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 20px 0;
+    position: relative;
+  }
+  .scripture-ref {
+    font-family: 'Crimson Pro', serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .scripture-text {
+    font-style: italic;
+    color: var(--cream);
+    font-size: 16.5px;
+    line-height: 1.75;
+  }
+  .scripture-note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  /* ── EGW QUOTE ── */
+  .egw {
+    background: var(--bg4);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--purple-light);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 22px 0;
+  }
+  .egw-label {
+    font-family: 'Crimson Pro', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .egw-text {
+    font-style: italic;
+    color: var(--cream-dim);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .egw-source {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: normal;
+  }
+
+  /* ── HEBREW/GREEK WORD BLOCK ── */
+  .word-study {
+    background: linear-gradient(135deg, #181410 0%, #1e1a14 100%);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 22px 0;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .word-original {
+    font-size: 36px;
+    color: var(--gold2);
+    line-height: 1;
+    min-width: 80px;
+    text-align: center;
+    padding-top: 4px;
+  }
+  .word-details { flex: 1; }
+  .word-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .word-transliteration {
+    font-style: italic;
+    color: var(--cream-dim);
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .word-meaning {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .word-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gold-dim);
+    color: var(--bg);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  /* ── ALLOWED / NOT ALLOWED GRID ── */
+  .practice-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+  @media (max-width: 600px) { .practice-grid { grid-template-columns: 1fr; } }
+  .practice-col {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+  }
+  .practice-col.allowed { border-top: 3px solid var(--green-light); }
+  .practice-col.avoid { border-top: 3px solid var(--red-light); }
+  .practice-col h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .practice-col.allowed h4 { color: var(--green-light); }
+  .practice-col.avoid h4 { color: var(--red-light); }
+  .practice-col ul { list-style: none; }
+  .practice-col li {
+    font-size: 15px;
+    color: var(--text);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .practice-col li:last-child { border-bottom: none; }
+  .practice-col.allowed li::before { content: '✓'; position: absolute; left: 0; color: var(--green-light); font-size: 12px; top: 8px; }
+  .practice-col.avoid li::before { content: '✗'; position: absolute; left: 0; color: var(--red-light); font-size: 12px; top: 8px; }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: var(--bg4);
+    border: 1px solid var(--gold-dim);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    position: relative;
+  }
+  .callout::before {
+    content: '✦';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: var(--bg4);
+    padding: 0 6px;
+    color: var(--gold);
+    font-size: 12px;
+  }
+  .callout-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .callout p { color: var(--cream-dim); font-size: 15.5px; margin-bottom: 0; }
+
+  /* ── TIMELINE BLOCK ── */
+  .timeline {
+    margin: 24px 0;
+    padding-left: 24px;
+    border-left: 2px solid var(--border-light);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 24px 20px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: var(--gold-dim);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+  }
+  .timeline-time {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .timeline-item p { font-size: 15px; color: var(--text); margin: 0; }
+
+  /* ── COLLAPSIBLE ── */
+  details {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin: 12px 0;
+  }
+  summary {
+    padding: 14px 18px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--cream);
+    letter-spacing: 0.04em;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '▸'; color: var(--gold-dim); font-size: 12px; transition: transform 0.2s; }
+  details[open] summary::after { transform: rotate(90deg); }
+  details[open] summary { border-bottom: 1px solid var(--border); }
+  .details-body { padding: 18px 22px; }
+  .details-body p { font-size: 15.5px; margin-bottom: 12px; }
+  .details-body p:last-child { margin-bottom: 0; }
+
+  /* ── WEEKLY SCHEDULE ── */
+  .schedule {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-time {
+    background: var(--bg4);
+    padding: 14px 16px;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border);
+  }
+  .schedule-content {
+    padding: 14px 18px;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── PRINCIPLE CARD ── */
+  .principle-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .principle-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px;
+    border-top: 2px solid var(--gold-dim);
+  }
+  .principle-icon { font-size: 24px; margin-bottom: 10px; }
+  .principle-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .principle-card p { font-size: 14.5px; color: var(--text-dim); margin: 0; line-height: 1.6; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    text-align: center;
+    margin: 40px 0;
+    color: var(--gold-dim);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    position: relative;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 50px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border));
+  }
+  .divider::before { left: 0; }
+  .divider::after { right: 0; background: linear-gradient(90deg, var(--border), transparent); }
+
+  /* ── SPIRIT PRINCIPLE ── */
+  .spirit-box {
+    background: linear-gradient(135deg, #0e1a14 0%, #0e1218 100%);
+    border: 1px solid #2a4a3a;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 28px 0;
+  }
+  .spirit-box h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--green-light);
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+  }
+  .spirit-box p { color: var(--text); font-size: 15.5px; margin-bottom: 10px; }
+  .spirit-box p:last-child { margin: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 70px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 600px) {
+    .word-study { flex-direction: column; gap: 10px; }
+    .word-original { min-width: auto; text-align: left; }
+    .schedule-row { grid-template-columns: 110px 1fr; }
+    .toc ol { column-count: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-eyebrow">A Biblical &amp; Spirit of Prophecy Study</p>
+    <h1>The Sabbath<br>A Delight, Not a Burden</h1>
+    <p class="hero-sub">How to Keep the Seventh Day Holy — in Heart, Home &amp; Practice</p>
+    <p class="hero-verse">"If you turn away your foot from the Sabbath, from doing your pleasure on My holy day, and call the Sabbath a delight..." — Isaiah 58:13</p>
+  </header>
+
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc fade-in">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#foundation">The Foundation: What Is the Sabbath?</a></li>
+      <li><a href="#timing">When Does the Sabbath Begin &amp; End?</a></li>
+      <li><a href="#preparation">Friday: Sabbath Preparation</a></li>
+      <li><a href="#spirit">The Spirit of the Sabbath</a></li>
+      <li><a href="#worship">Sabbath Worship &amp; Fellowship</a></li>
+      <li><a href="#allowed">What Is Permitted?</a></li>
+      <li><a href="#avoid">What to Avoid</a></li>
+      <li><a href="#family">Sabbath with Family &amp; Children</a></li>
+      <li><a href="#nature">Nature &amp; Outdoor Rest</a></li>
+      <li><a href="#closing">Closing the Sabbath</a></li>
+      <li><a href="#legalism">Avoiding Legalism</a></li>
+      <li><a href="#summary">The Heart of It All</a></li>
+    </ol>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 1. FOUNDATION -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="foundation" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section I</span>
+      <h2>The Foundation: What Is the Sabbath?</h2>
+    </div>
+
+    <p>The Sabbath is not a Jewish institution invented at Sinai — it is a <em>creation ordinance</em>, established at the very foundation of this world, before sin, before any nation, before any law code existed. It was woven into time itself.</p>
+
+    <div class="word-study">
+      <div class="word-original">שַׁבָּת</div>
+      <div class="word-details">
+        <span class="word-tag">Hebrew</span>
+        <div class="word-title">Shabbat</div>
+        <div class="word-transliteration">shab-BAHT (Strong's H7676)</div>
+        <div class="word-meaning">From the root <em>shabat</em> — "to rest, to cease, to desist." Not passive sleep but purposeful cessation. God did not rest because He was tired (Isaiah 40:28) — He modeled <em>being present</em>, setting sacred time apart.</div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Genesis 2:1–3 — The Creation Sabbath</span>
+      <div class="scripture-text">"Thus the heavens and the earth were finished, and all the host of them. And on the seventh day God ended his work which he had made; and he rested on the seventh day from all his work which he had made. And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work which God created and made."</div>
+    </div>
+
+    <p>Three divine acts mark the first Sabbath: God <strong>rested</strong> on it, God <strong>blessed</strong> it, and God <strong>sanctified</strong> (set apart as holy) it. These are not ceremonial acts — they are ontological realities inscribed in time before humanity had sinned or worshipped.</p>
+
+    <div class="word-study">
+      <div class="word-original">קָדַשׁ</div>
+      <div class="word-details">
+        <span class="word-tag">Hebrew</span>
+        <div class="word-title">Qadash</div>
+        <div class="word-transliteration">kah-DASH (Strong's H6942)</div>
+        <div class="word-meaning">"To consecrate, to set apart as holy." The same word used when the Israelites consecrated themselves before meeting God at Sinai (Ex. 19:10). God put holiness into time — a recurring weekly appointment with the divine.</div>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Exodus 20:8–11 — The Fourth Commandment</span>
+      <div class="scripture-text">"Remember the sabbath day, to keep it holy. Six days shalt thou labour, and do all thy work: but the seventh day is the sabbath of the LORD thy God: in it thou shalt not do any work... For in six days the LORD made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the LORD blessed the sabbath day, and hallowed it."</div>
+      <div class="scripture-note">Note: The command begins with <em>Remember</em> — implying it was already known, not new. The reason given is creation, not Sinai.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Patriarchs &amp; Prophets</span>
+      <div class="egw-text">"The Sabbath is not introduced as a new institution but as having been founded at creation. It is to be remembered and observed as the memorial of the Creator's work. Pointing to God as the Maker of the heavens and the earth, it distinguishes the true God from all false gods."</div>
+      <div class="egw-source">— Patriarchs and Prophets, p. 336</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"The Sabbath was made for man" — a gift, not a test. It is a day of communion with God, a foretaste of heaven's rest. Christ Himself observed the Sabbath, and His resurrection did not transfer the sanctity of the seventh day to the first."</div>
+      <div class="egw-source">— The Desire of Ages, p. 288</div>
+    </div>
+
+    <div class="principle-cards">
+      <div class="principle-card">
+        <div class="principle-icon">🌍</div>
+        <h4>Pre-Sinai Origin</h4>
+        <p>Sabbath preceded the Mosaic covenant by 2,500 years. It belongs to all humanity, not only to Israel.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">✝️</div>
+        <h4>Jesus Kept It</h4>
+        <p>"And he came to Nazareth... and, as his custom was, he went into the synagogue on the sabbath day." (Luke 4:16)</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🔮</div>
+        <h4>Eternal Sign</h4>
+        <p>"It is a sign between me and the children of Israel for ever." (Ex. 31:17). Isa. 66:23 shows it continues in the new earth.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">💝</div>
+        <h4>Made for Man</h4>
+        <p>"The sabbath was made for man, and not man for the sabbath." (Mark 2:27) — It is a gift of time, not a cage.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 2. TIMING -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="timing" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section II</span>
+      <h2>When Does the Sabbath Begin &amp; End?</h2>
+    </div>
+
+    <p>Scripture defines a day from sunset to sunset, not midnight to midnight. This is not rabbinic tradition — it is the creation pattern established in Genesis 1.</p>
+
+    <div class="scripture">
+      <span class="scripture-ref">Genesis 1:5 — The Biblical Day</span>
+      <div class="scripture-text">"And the evening and the morning were the first day." — Evening (sunset) comes <em>first</em>, then morning. Every creation day begins at sunset.</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Leviticus 23:32 — Sunset to Sunset</span>
+      <div class="scripture-text">"It shall be unto you a sabbath of rest, and ye shall afflict your souls: in the ninth day of the month at even, from even unto even, shall ye celebrate your sabbath."</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Nehemiah 13:19 — Practical Application</span>
+      <div class="scripture-text">"And it came to pass, that when the gates of Jerusalem began to be dark before the sabbath, I commanded that the gates should be shut, and charged that they should not be opened till after the sabbath." — Gates shut at sunset on Friday, opened after sunset on Saturday.</div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">Friday Afternoon</div>
+        <p>Preparation time — cook, clean, settle work, prepare heart and home</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">Friday Sunset</div>
+        <p>Sabbath begins. Candle lighting, family welcome, opening worship</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">Saturday Morning</div>
+        <p>Sabbath worship, church, fellowship</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">Saturday Afternoon</div>
+        <p>Rest, nature, family time, reading, ministry</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">Saturday Sunset</div>
+        <p>Sabbath ends. Closing worship (Havdalah spirit). Week begins again.</p>
+      </div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies for the Church, Vol. 6</span>
+      <div class="egw-text">"As the sun goes down, let all lay aside their work... The Sabbath is not to be given to the repairing of garments, to the cooking of food, to pleasure seeking, or to any other worldly employment. Before the setting of the sun, let all secular work be laid aside."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 6, p. 356</div>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 3. PREPARATION -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="preparation" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section III</span>
+      <h2>Friday: Sabbath Preparation</h2>
+    </div>
+
+    <p>The Sabbath does not begin well without preparation. Scripture itself records that Israel was given a preparation day before the Sabbath manna miracle.</p>
+
+    <div class="scripture">
+      <span class="scripture-ref">Exodus 16:22–23 — The Preparation Principle</span>
+      <div class="scripture-text">"And it came to pass, that on the sixth day they gathered twice as much bread, two omers for one man... And he said unto them, This is that which the LORD hath said, To morrow is the rest of the holy sabbath unto the LORD: bake that which ye will bake to day, and seethe that ye will seethe; and that which remaineth over lay up for you to be kept until the morning."</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Mark 15:42 — Jesus' Burial on Preparation Day</span>
+      <div class="scripture-text">"And now when the even was come, because it was the preparation, that is, the day before the sabbath..."</div>
+      <div class="scripture-note">Friday is explicitly called "the Preparation" (Greek: <em>paraskeuē</em>) — a term the early church preserved for Friday.</div>
+    </div>
+
+    <h3 class="subsection">A Practical Friday Preparation Checklist</h3>
+
+    <div class="schedule">
+      <div class="schedule-row">
+        <div class="schedule-time">Thursday Night</div>
+        <div class="schedule-content">Plan Sabbath meals. Review Sabbath school lesson. Identify any unfinished work that must be wrapped before Friday evening.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">Friday Morning</div>
+        <div class="schedule-content">Do major cooking (dishes that reheat well — stews, rice, roast veg). Tidy the home. Do laundry if needed.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">Friday Afternoon</div>
+        <div class="schedule-content">Bathe and dress. Set the table. Prepare Sabbath clothes for children. Wrap up any work emails or tasks. Silence work notifications.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">1–2 Hrs Before Sunset</div>
+        <div class="schedule-content">Wind down. Soft music, prayer, Bible reading. Create an atmosphere of transition from the week to holy time.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">At Sunset</div>
+        <div class="schedule-content">Welcome the Sabbath. Light candles if desired. Sing a hymn. Read a Psalm. Pray together as a household.</div>
+      </div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Child Guidance</span>
+      <div class="egw-text">"Friday is the day of preparation. The cooking should be done on the preparation day... It is possible to do this. If you make it a rule, you can do it. The Sabbath is not to be a day of unnecessary cooking."</div>
+      <div class="egw-source">— Child Guidance, p. 527</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 6</span>
+      <div class="egw-text">"On Friday let the preparation for the Sabbath be completed. See that all the clothing is in readiness and that all the cooking is done. Let the boots be blacked and the baths be taken. It is possible to do this if you make a determined effort."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 6, p. 355</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">The Atmosphere Matters</div>
+      <p>EGW taught that the spirit in which Sabbath arrives shapes the entire day. A frantic, rushed, cluttered house produces a frantic Sabbath. A peaceful, prepared home opens the heart to divine communion. The preparation is itself an act of worship.</p>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 4. SPIRIT OF THE SABBATH -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="spirit" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section IV</span>
+      <h2>The Spirit of the Sabbath</h2>
+    </div>
+
+    <p>The Pharisees had 39 categories of prohibited work and 613 derivative rules. Jesus rebuked not Sabbath-keeping, but Sabbath <em>distortion</em> — the transformation of a gift into a cage. He never abolished the Sabbath; He liberated it.</p>
+
+    <div class="scripture">
+      <span class="scripture-ref">Isaiah 58:13–14 — The Delight Principle</span>
+      <div class="scripture-text">"If thou turn away thy foot from the sabbath, from doing thy pleasure on my holy day; and call the sabbath a delight, the holy of the LORD, honourable; and shalt honour him, not doing thine own ways, nor finding thine own pleasure, nor speaking thine own words: Then shalt thou delight thyself in the LORD; and I will cause thee to ride upon the high places of the earth..."</div>
+    </div>
+
+    <p>Notice the key contrasts in Isaiah 58:13:</p>
+
+    <div class="practice-grid">
+      <div class="practice-col allowed">
+        <h4>Sabbath Orientation</h4>
+        <ul>
+          <li>Calling it a delight</li>
+          <li>Honouring the Lord</li>
+          <li>God's holy day</li>
+          <li>His ways, His words</li>
+          <li>His pleasure (delight in Him)</li>
+        </ul>
+      </div>
+      <div class="practice-col avoid">
+        <h4>The Problem Isaiah Names</h4>
+        <ul>
+          <li>Your own pleasure (self-amusement)</li>
+          <li>Your own ways (business, routine)</li>
+          <li>Your own words (secular talk, commerce)</li>
+          <li>Treating it as any other day</li>
+          <li>Going through motions without heart</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Mark 2:27–28 — Made for Man</span>
+      <div class="scripture-text">"And he said unto them, The sabbath was made for man, and not man for the sabbath: Therefore the Son of man is Lord also of the sabbath."</div>
+      <div class="scripture-note">Jesus' argument: the Sabbath serves humanity's deepest needs — rest, communion, restoration. If a rigid interpretation prevents that, the interpretation is wrong, not the Sabbath.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"The Sabbath was given to all mankind... It was to be a joyous occasion, a day of blessing and praise. Let all feel that the Sabbath is a delight, the holy of the Lord, honourable. The Sabbath school, the meeting for worship, the care for the poor and suffering — these are in harmony with the Sabbath."</div>
+      <div class="egw-source">— The Desire of Ages, p. 207</div>
+    </div>
+
+    <div class="spirit-box">
+      <h4>The Three Pillars of Sabbath Spirit</h4>
+      <p><strong>Rest</strong> — Genuine physical, mental, and emotional rest. Disengagement from the labour of earning, producing, striving. This is not laziness; it is trust that God provides while you cease.</p>
+      <p><strong>Worship</strong> — Turning the whole day toward God: corporate worship, personal devotion, singing, prayer, Scripture, contemplation. The goal is communion, not performance.</p>
+      <p><strong>Delight</strong> — Sabbath should feel like the best day of the week, not the most restricted. Families together, good food prepared ahead, joy, laughter, beauty in nature — all of these are Sabbath.</p>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 5. WORSHIP -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="worship" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section V</span>
+      <h2>Sabbath Worship &amp; Fellowship</h2>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Leviticus 23:3 — Holy Convocation</span>
+      <div class="scripture-text">"Six days shall work be done: but the seventh day is the sabbath of rest, an holy convocation; ye shall do no work therein: it is the sabbath of the LORD in all your dwellings."</div>
+      <div class="scripture-note"><em>Holy convocation</em> (Hebrew: <em>miqra qodesh</em>) — a sacred assembly. Sabbath is communal by design.</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Luke 4:16 — Jesus' Custom</span>
+      <div class="scripture-text">"And he came to Nazareth, where he had been brought up: and, as his custom was, he went into the synagogue on the sabbath day, and stood up for to read."</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Hebrews 10:25 — The Assembly Imperative</span>
+      <div class="scripture-text">"Not forsaking the assembling of ourselves together, as the manner of some is; but exhorting one another: and so much the more, as ye see the day approaching."</div>
+    </div>
+
+    <h3 class="subsection">What Sabbath Worship Can Include</h3>
+
+    <details>
+      <summary>Corporate Church Worship</summary>
+      <div class="details-body">
+        <p>Attending Sabbath School and the church service is the primary corporate act of Sabbath worship. Sabbath School provides a community of learning and discussion around Scripture. The worship service centres the congregation around God's Word, prayer, music, and the Lord's Supper when observed.</p>
+        <p>EGW was strong on church attendance: "God requires His people to assemble to worship Him... The Sabbath is a day for assembling together to receive the refreshing of the Spirit." (Testimonies, Vol. 6, p. 362)</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Family Worship (Morning &amp; Evening)</summary>
+      <div class="details-body">
+        <p>On Sabbath morning, begin with family worship before leaving for church — a hymn, prayer, and a short reading. In the evening, close the Sabbath together with a song and prayer. This creates sacred bookends to the day.</p>
+        <p>EGW: "Have your morning and evening worship. Sing praises... Make your home the very atmosphere of heaven." (Child Guidance, p. 520)</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Personal Devotion &amp; Bible Study</summary>
+      <div class="details-body">
+        <p>The Sabbath is uniquely suited for extended personal Bible study — not quick devotional reading but deep engagement with a passage, book, or theme. Without the pressure of weekday productivity, the mind can linger in Scripture.</p>
+        <p>Keep a Sabbath study journal. Meditate on one verse deeply rather than racing through chapters. Pray through Psalms. Memorize Scripture.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Visiting the Sick &amp; Ministry</summary>
+      <div class="details-body">
+        <p>Jesus consistently ministered on the Sabbath — healing, teaching, liberating. "It is lawful to do good on the sabbath days." (Matt. 12:12). Visiting the lonely, elderly, sick, or hospitalized is profoundly Sabbath-appropriate.</p>
+        <p>EGW: "The Sabbath school, the meeting for worship, the care for the poor and suffering — these are in harmony with the Sabbath." (Desire of Ages, p. 207)</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Singing Hymns &amp; Sacred Music</summary>
+      <div class="details-body">
+        <p>Music is a powerful Sabbath practice. Singing together — even informally as a family — is worship. The Psalms were Israel's Sabbath songbook. Choose music that elevates the mind toward God: hymns, praise songs, classical sacred works, or choral music.</p>
+        <p>The distinction is not rigid genre rules but the <em>direction</em> of the music — does it draw the mind upward or distract it?</p>
+      </div>
+    </details>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 6. WHAT IS PERMITTED -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="allowed" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section VI</span>
+      <h2>What Is Permitted on the Sabbath?</h2>
+    </div>
+
+    <p>Jesus answered this question directly in three categories when challenged by the Pharisees:</p>
+
+    <div class="scripture">
+      <span class="scripture-ref">Matthew 12:11–12 — The Principle of Necessity &amp; Mercy</span>
+      <div class="scripture-text">"What man shall there be among you, that shall have one sheep, and if it fall into a pit on the sabbath day, will he not lay hold on it, and lift it out? How much then is a man better than a sheep? Wherefore it is lawful to do well on the sabbath days."</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Luke 13:15–16 — Necessary Care Is Not Sabbath-Breaking</span>
+      <div class="scripture-text">"The Lord then answered him, and said, Thou hypocrite, doth not each one of you on the sabbath loose his ox or his ass from the stall, and lead him away to watering? And ought not this woman... be loosed from this bond on the sabbath day?"</div>
+    </div>
+
+    <h3 class="subsection">Clearly Permitted Activities</h3>
+
+    <div class="practice-col allowed" style="margin: 0 0 20px; border-radius: 6px; border-top: 3px solid var(--green-light);">
+      <h4>Permitted on the Sabbath</h4>
+      <ul>
+        <li>Corporate worship and church attendance</li>
+        <li>Bible study, devotional reading, prayer</li>
+        <li>Family fellowship and quality time</li>
+        <li>Walks in nature and enjoying God's creation</li>
+        <li>Visiting the sick, lonely, and needy</li>
+        <li>Sharing meals with family or friends (prepared ahead)</li>
+        <li>Sacred music — singing hymns, listening to worship music</li>
+        <li>Reading spiritually uplifting books and literature</li>
+        <li>Caring for children, elderly, and dependents</li>
+        <li>Emergency medical care (of course)</li>
+        <li>Feeding and basic care of animals (Prov. 12:10)</li>
+        <li>Rest — genuine sleep and physical restoration</li>
+        <li>Acts of charity, relief, and mercy</li>
+        <li>Witnessing and sharing faith with others</li>
+        <li>Missionary/evangelistic work (Jesus preached on Sabbath)</li>
+        <li>Study of nature as a window to God's character</li>
+        <li>Writing letters, journaling (spiritual content)</li>
+        <li>Reheating pre-cooked Sabbath meals</li>
+      </ul>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"The Sabbath calls our thoughts to nature, and brings us into communion with the Creator. In the song of the bird, the sighing of the trees, and the music of the sea, we still may hear His voice who talked with Adam in Eden in the cool of the day."</div>
+      <div class="egw-source">— The Desire of Ages, p. 281</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 6</span>
+      <div class="egw-text">"Parents should make the Sabbath a delight to their children. They should make the day pleasant in every way possible, with profitable reading, innocent amusements, and agreeable walks."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 6, p. 358</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">The Necessity Principle</div>
+      <p>Jesus established a clear rule: <em>mercy and necessity</em> override Sabbath restrictions. If someone is in danger, sick, in need — the Sabbath is the <em>best</em> day to help them. Medical workers, emergency responders, parents of sick children — these are not Sabbath-breakers when they serve in love.</p>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 7. WHAT TO AVOID -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="avoid" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section VII</span>
+      <h2>What to Avoid on the Sabbath</h2>
+    </div>
+
+    <p>Scripture does not give us a Pharisaic checklist — it gives us a <em>principle</em>: the Sabbath is God's holy time, and we avoid things that make it about us — our commerce, our entertainment, our routine labour. Here are the biblical and Spirit of Prophecy guidelines.</p>
+
+    <div class="scripture">
+      <span class="scripture-ref">Nehemiah 13:15–18 — Commerce Condemned</span>
+      <div class="scripture-text">"In those days saw I in Judah some treading wine presses on the sabbath, and bringing in sheaves, and lading asses; as also wine, grapes, and figs, and all manner of burdens, which they brought into Jerusalem on the sabbath day... Then I contended with the nobles of Judah, and said unto them, What evil thing is this that ye do, and profane the sabbath day?"</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Amos 8:5 — The Sabbath Attitude Check</span>
+      <div class="scripture-text">"Saying, When will the new moon be gone, that we may sell corn? and the sabbath, that we may set forth wheat..." — God condemns waiting impatiently for the Sabbath to end so you can get back to business.</div>
+    </div>
+
+    <div class="practice-col avoid" style="margin: 0 0 20px; border-radius: 6px; border-top: 3px solid var(--red-light);">
+      <h4>Things to Avoid on the Sabbath</h4>
+      <ul>
+        <li>Regular employment, business, and commercial activity</li>
+        <li>Shopping (grocery stores, malls, online shopping)</li>
+        <li>Buying and selling of any kind where possible</li>
+        <li>Secular work: DIY, garden labour, home renovation</li>
+        <li>Unnecessary cooking (do this on Friday)</li>
+        <li>Schoolwork, study for grades, academic projects</li>
+        <li>Secular entertainment: movies, sports events, video games</li>
+        <li>Social media scrolling for entertainment or news</li>
+        <li>Financial planning, paying bills, banking</li>
+        <li>Sports competitions (playing or attending)</li>
+        <li>Secular secular novels or entertainment reading</li>
+        <li>Discussions centered purely on business, politics, or worldly news</li>
+        <li>Activities that bring the same stress and rush as weekdays</li>
+        <li>Clothing and appearance labour (haircuts, nail salons)</li>
+      </ul>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 2</span>
+      <div class="egw-text">"All through the week keep the Sabbath in mind, and be making preparation to keep it according to the commandment. Not merely refraining from physical labour, but guarding the mind from dwelling upon worldly things — business plans, difficulties, politics."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 2, p. 703</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Child Guidance</span>
+      <div class="egw-text">"Parents should remember that their children's associates on the Sabbath will have much to do with the character they form. They should not allow them to go out and spend the Sabbath hours with those who have no respect for God's holy day."</div>
+      <div class="egw-source">— Child Guidance, p. 533</div>
+    </div>
+
+    <h3 class="subsection">What About Technology?</h3>
+
+    <p>EGW did not address the internet, smartphones, or streaming — but the principles she gave are sufficient. The question is not "Is this technology?" but "Does this pull my mind toward God or away from Him?"</p>
+
+    <details>
+      <summary>Social Media &amp; News</summary>
+      <div class="details-body">
+        <p>Scrolling social media for entertainment or news on Sabbath fills the mind with the week's noise — advertising, arguments, vanity, and distraction. This violates Isaiah 58:13's principle of not "finding your own pleasure" or "speaking your own words." Consider a Sabbath digital fast.</p>
+        <p>However, using your phone to access a Bible app, stream a sermon, join a church online service, or video-call a lonely relative — these are consistent with Sabbath spirit.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Video Games &amp; Streaming</summary>
+      <div class="details-body">
+        <p>Secular gaming and entertainment streaming are forms of "finding your own pleasure" that crowd out the sacred. The Sabbath is specifically the one day not oriented around personal entertainment. This doesn't mean joyless silence — it means redirecting toward God-centred joy.</p>
+        <p>Watching a nature documentary about God's creation? That can be uplifting. Binge-watching a thriller series? That belongs to another day.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Sports</summary>
+      <div class="details-body">
+        <p>Competitive sports — whether playing or watching — tend to arouse the competitive, performance-focused spirit rather than the restful, God-focused spirit. Many SDA families do not attend or participate in sports on Sabbath. EGW was consistent on this: the Sabbath is not an athletic event day.</p>
+        <p>However, a gentle walk, a swim, or playing with children in the garden are different in spirit from competitive sport.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Work That Cannot Wait — Emergencies vs. Convenience</summary>
+      <div class="details-body">
+        <p>The test is genuine necessity vs. convenience. A doctor performing emergency surgery is doing God's work. A developer finishing a client project because you forgot to start on time — that is convenience, not emergency. The honest question is: "If I do not do this now, will real harm result to someone?"</p>
+        <p>Jesus' "ox in the pit" principle is for genuine pits, not every inconvenience.</p>
+      </div>
+    </details>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 8. FAMILY & CHILDREN -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="family" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section VIII</span>
+      <h2>Sabbath with Family &amp; Children</h2>
+    </div>
+
+    <p>The Sabbath commandment includes children explicitly: "Thou shalt not do any work, thou, nor thy son, nor thy daughter..." (Ex. 20:10). This is both a command and a gift — weekly sacred family time that cannot be displaced by work or distraction.</p>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Child Guidance</span>
+      <div class="egw-text">"On the Sabbath day take your children into the garden or the field... Point out to them the beautiful things God has made — the flowers, the trees, the running water. Teach them that these things speak of God's love."</div>
+      <div class="egw-source">— Child Guidance, p. 531</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 6</span>
+      <div class="egw-text">"The Sabbath should be made so interesting to our families that its weekly return will be hailed with joy. In no better way can parents instil an appreciation for heaven... than by making the Sabbath a day of delight."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 6, p. 358</div>
+    </div>
+
+    <h3 class="subsection">Practical Ideas for Families with Children</h3>
+
+    <div class="principle-cards">
+      <div class="principle-card">
+        <div class="principle-icon">🕯️</div>
+        <h4>Candle Lighting Ritual</h4>
+        <p>Welcome the Sabbath together at sundown with candles, a family prayer, and a hymn. Children love ritual — this creates a sacred weekly memory.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🌿</div>
+        <h4>Nature Walks</h4>
+        <p>Walk together and point out God's creation. Collect leaves, look at insects, name birds. Turn creation into theology: "Who made this?"</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">📖</div>
+        <h4>Story Time</h4>
+        <p>Read Bible stories aloud. The Bible Story set by Arthur Maxwell, or Uncle Arthur's Bedtime Stories — classic and beloved by SDA families.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🎵</div>
+        <h4>Music Together</h4>
+        <p>Sing hymns as a family. Even young children can learn "Jesus Loves Me" or the 23rd Psalm set to music. Make singing a Sabbath tradition.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🍽️</div>
+        <h4>Sabbath Meal Tradition</h4>
+        <p>Make Friday evening supper special — a meal that says "this is a holy day." Even simple food feels sacred when served at a set table with gratitude.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🤲</div>
+        <h4>Acts of Kindness</h4>
+        <p>Involve children in visiting neighbours, taking food to someone in need, or writing cards to the sick. Make mercy a family Sabbath activity.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">The Long-term Effect</div>
+      <p>Adults who look back on joyful Sabbath childhoods overwhelmingly describe those days as formative to their faith. The Sabbath is not a restriction to impose on children — it is the most powerful discipleship tool available to a parent.</p>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 9. NATURE -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="nature" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section IX</span>
+      <h2>Nature &amp; Outdoor Rest</h2>
+    </div>
+
+    <p>EGW was emphatic: for families who cannot attend church, or after church, the natural world is God's second book — a Sabbath sanctuary open to all.</p>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"The Sabbath calls our thoughts to nature, and brings us into communion with the Creator. In the song of the bird, the sighing of trees, and the music of the sea, we still may hear His voice who talked with Adam in Eden. Nature speaks to our senses without ceasing."</div>
+      <div class="egw-source">— The Desire of Ages, p. 281</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 6</span>
+      <div class="egw-text">"Parents can and should take their children out of doors, to view God's handiwork. By observing the things He has made, by pointing out the beauties of nature, the parent can best explain the work of creation and awaken in the young mind a love for God the Creator."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 6, p. 362</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Psalm 19:1 — Creation Speaks</span>
+      <div class="scripture-text">"The heavens declare the glory of God; and the firmament sheweth his handywork."</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Romans 1:20 — Theology from Nature</span>
+      <div class="scripture-text">"For the invisible things of him from the creation of the world are clearly seen, being understood by the things that are made, even his eternal power and Godhead."</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Sabbath Afternoon Walk — A Spiritual Discipline</div>
+      <p>A quiet Sabbath afternoon walk in a park, veld, or garden — without headphones, without phones, without agenda — is one of the most powerful spiritual practices available. It returns us to Eden. It quiets the noisy mind. It opens the eyes to what we rush past all week. This is Sabbath rest in its fullest, most embodied form.</p>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 10. CLOSING THE SABBATH -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="closing" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section X</span>
+      <h2>Closing the Sabbath</h2>
+    </div>
+
+    <p>Just as the Sabbath opened with intention, it should close with intention. The Jewish practice of <em>Havdalah</em> (separation) — distinguishing the holy from the ordinary — reflects a biblical principle of sacred transition.</p>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 6</span>
+      <div class="egw-text">"When the sun has set and the stars appear in the sky, the Sabbath is past. Let the family assemble and sing a hymn of praise to God, and then kneel and pray, thanking Him for the holy Sabbath that is now past."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 6, p. 360</div>
+    </div>
+
+    <div class="schedule">
+      <div class="schedule-row">
+        <div class="schedule-time">Near Sunset</div>
+        <div class="schedule-content">Begin to wind down. Transition from outdoor activity to quieter indoor atmosphere. Perhaps a final Psalm or hymn.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">At Sunset</div>
+        <div class="schedule-content">Gather as family. Sing a closing hymn. Pray together — thank God for the Sabbath, ask for His blessing on the coming week.</div>
+      </div>
+      <div class="schedule-row">
+        <div class="schedule-time">After Sunset</div>
+        <div class="schedule-content">The week begins. You may now return to ordinary activities, work, or evening plans. Carry the Sabbath peace into the week.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Don't Rush Out Before Sunset</div>
+      <p>One subtle test of Sabbath heart: are you watching the clock waiting for sunset so you can return to entertainment or work? Or do you wish the day would last longer? The answer reveals how deeply the Sabbath has become a delight rather than a duty.</p>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 11. AVOIDING LEGALISM -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="legalism" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section XI</span>
+      <h2>Avoiding Legalism: Grace, Not Grids</h2>
+    </div>
+
+    <p>This is the most important section. Sabbath-keeping divorced from love becomes the Pharisaism Jesus rebuked. The commandment was never meant to produce anxiety, condemnation, or performance — but freedom, joy, and intimacy with God.</p>
+
+    <div class="scripture">
+      <span class="scripture-ref">Colossians 2:16–17 — The Shadow Fulfilled in Christ</span>
+      <div class="scripture-text">"Let no man therefore judge you in meat, or in drink, or in respect of an holyday, or of the new moon, or of the sabbath days: which are a shadow of things to come; but the body is of Christ."</div>
+      <div class="scripture-note">This refers to the <em>ceremonial</em> sabbaths (Lev. 23 feast days) that were shadows of Christ's sacrifice — not the seventh-day Sabbath of creation. Paul uses the plural "sabbath days" (sabbaton) pointing to annual ceremonial rest days, as the whole Colossian context is about food laws and festivals of the Mosaic ritual system.</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Romans 14:5–6 — Matters of Conscience</span>
+      <div class="scripture-text">"One man esteemeth one day above another: another esteemeth every day alike. Let every man be fully persuaded in his own mind. He that regardeth the day, regardeth it unto the Lord."</div>
+      <div class="scripture-note">Paul addresses a dispute about <em>fasting days</em> among Jewish and Gentile Christians in Rome — not a repeal of the Sabbath commandment. The context is dietary disputes (v. 2–3) and fasting traditions, not the weekly Sabbath institution.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"It is a fatal mistake to think that... Sabbath-keeping itself makes us righteous. Obedience is the fruit of faith and love — it is never its root. When love for God fills the heart, obedience becomes natural, joyful, not a burden. The Sabbath kept out of fear or habit, but not from love, is hollow."</div>
+      <div class="egw-source">— Steps to Christ, p. 61 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Thoughts from the Mount of Blessing</span>
+      <div class="egw-text">"Christ came not to abrogate the law, but to show what it really means — love expressed toward God and man. The Pharisees had buried the Sabbath under traditions until it became a burden. Jesus lifted it back to its original beauty: a day of merciful, joyful rest."</div>
+      <div class="egw-source">— Thoughts from the Mount of Blessing, p. 46 (paraphrased)</div>
+    </div>
+
+    <h3 class="subsection">Signs of Legalism to Guard Against</h3>
+
+    <div class="principle-cards">
+      <div class="principle-card">
+        <div class="principle-icon">⚖️</div>
+        <h4>Judging Others</h4>
+        <p>Keeping mental ledgers of others' Sabbath violations. Jesus never called His disciples to police Sabbath — He called them to keep it joyfully themselves.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">😰</div>
+        <h4>Anxiety Over Edge Cases</h4>
+        <p>Spending the Sabbath anxious about whether a specific activity is permitted destroys the rest the Sabbath was designed to give. Apply the spirit, not a rulebook.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">🤐</div>
+        <h4>Joyless Silence</h4>
+        <p>A Sabbath of grim silence and suppressed activity is not biblical rest — it is ascetic misery. God said <em>delight</em>. Children who experience joyless Sabbaths often abandon faith.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-icon">📋</div>
+        <h4>Rule-Based Motivation</h4>
+        <p>Keeping the Sabbath to avoid condemnation rather than from love for God is not worship — it is performance. Ask: "Do I keep the Sabbath because I love God, or because I fear punishment?"</p>
+      </div>
+    </div>
+
+    <div class="spirit-box">
+      <h4>The Test Question EGW Gives</h4>
+      <p>Before any Sabbath decision, ask: <em>"Does this bring me closer to God, or does it pull my mind away from Him?"</em> This question — applied honestly — does more work than any list of rules. It requires a heart connected to God to answer correctly, which is exactly the point.</p>
+      <p>The Sabbath is ultimately not about <em>what you don't do</em> — it is about <em>Whom you draw near to</em>. When your heart is truly turned toward God, the "dos and don'ts" largely sort themselves out.</p>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Review &amp; Herald, July 21, 1896</span>
+      <div class="egw-text">"The Sabbath is not a yoke of bondage, but a sign of liberty — liberty from the slavery of self, the world, and the ceaseless pressure of labor. It is God's gift to the weary soul, and the weary world."</div>
+      <div class="egw-source">— Review &amp; Herald, July 21, 1896</div>
+    </div>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- 12. SUMMARY -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section id="summary" class="fade-in">
+    <div class="section-header">
+      <span class="section-number">Section XII</span>
+      <h2>The Heart of It All</h2>
+    </div>
+
+    <p>The Sabbath is God's greatest weekly gift to the human soul — a recurring sanctuary in time when Heaven says: <em>Stop. Rest. Remember who made you. Remember who loves you. Let Me replenish what the week has taken.</em></p>
+
+    <div class="scripture">
+      <span class="scripture-ref">Isaiah 66:22–23 — The Eternal Sabbath</span>
+      <div class="scripture-text">"For as the new heavens and the new earth, which I will make, shall remain before me, saith the LORD, so shall your seed and your name remain. And it shall come to pass, that from one new moon to another, and from one sabbath to another, shall all flesh come to worship before me, saith the LORD."</div>
+      <div class="scripture-note">The Sabbath is not temporary. It stretches from Eden to the new earth — the weekly anthem of a redeemed universe before its Creator.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Great Controversy</span>
+      <div class="egw-text">"The Sabbath will be the great test of loyalty, for it is the point of truth especially controverted. When the final test shall be brought to bear upon men, then the line of distinction will be drawn between those who serve God and those who serve Him not."</div>
+      <div class="egw-source">— The Great Controversy, p. 605</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"As Jesus rested in the tomb on the Sabbath day, so His people are to rest in Him. The Sabbath points to the rest that remains for the people of God — not merely physical rest, but rest of soul, the peace of sins forgiven, the joy of complete surrender."</div>
+      <div class="egw-source">— The Desire of Ages, p. 769</div>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Hebrews 4:9–10 — The Sabbath Rest Remains</span>
+      <div class="scripture-text">"There remaineth therefore a rest to the people of God. For he that is entered into his rest, he also hath ceased from his own works, as God did from his."</div>
+    </div>
+
+    <div class="spirit-box">
+      <h4>A Summary of Sabbath-Keeping in One Paragraph</h4>
+      <p>Begin preparing on Friday, welcoming the sunset with prayer and a meal. Attend church and worship with God's people. Spend the afternoon in nature, family fellowship, visiting the needy, or devotional rest. Avoid commerce, secular labour, entertainment that crowds God out, and the anxious productivity of weekday life. Close the Sabbath at sunset with prayer and praise. Do all of this not from fear of condemnation, but from love for a God who loved you enough to carve holy time into the fabric of the universe — and to invite you into it every week.</p>
+    </div>
+
+    <div class="scripture">
+      <span class="scripture-ref">Exodus 31:13 — The Sabbath as Sign</span>
+      <div class="scripture-text">"Speak thou also unto the children of Israel, saying, Verily my sabbaths ye shall keep: for it is a sign between me and you throughout your generations; that ye may know that I am the LORD that doth sanctify you."</div>
+    </div>
+
+    <p>The Sabbath is not primarily about what you <em>do</em> or <em>don't do</em>. It is a sign — a weekly declaration that you belong to God, that He sanctifies you, and that in Him alone is your rest. Keep it as a love letter written back to the One who first wrote it into the stars.</p>
+  </section>
+
+  <footer>
+    <p>Compiled from Scripture (KJV) and the writings of Ellen G. White</p>
+    <p style="margin-top: 8px;">Study for the Seventh-day Adventist faith tradition — prepared for personal and family use</p>
+  </footer>
+
+</div>
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

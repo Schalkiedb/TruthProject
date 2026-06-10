@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growing in Love for God — Expanded Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0a0906;--bg2:#100e0a;--bg3:#161310;--bg4:#1c1916;--bg5:#221f1b;
+    --border:#332e26;--border2:#4a4338;
+    --amber:#d4913a;--amber2:#f0b96a;--amber-dim:#7a5522;
+    --rose:#b05a5a;--rose-light:#d08080;
+    --teal:#3a7a6a;--teal-light:#5aaa98;
+    --indigo:#4a527a;--indigo-light:#8090c0;
+    --sage:#4a6a4a;--sage-light:#80aa80;
+    --cream:#e8dfc8;--cream-dim:#b8ac90;
+    --text:#d0c4a8;--text-dim:#98886a;--text-muted:#60503a;
+    --gold-glow:rgba(212,145,58,0.08);
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Crimson Pro',Georgia,serif;font-size:18px;line-height:1.85;min-height:100vh;overflow-x:hidden;}
+  body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23f)' opacity='0.028'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
+  body::before{content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:500px;background:radial-gradient(ellipse,rgba(212,145,58,0.04) 0%,transparent 70%);pointer-events:none;z-index:0;}
+  .page-wrap{max-width:880px;margin:0 auto;padding:0 28px 100px;position:relative;z-index:1;}
+
+  /* MASTHEAD */
+  .masthead{text-align:center;padding:80px 0 56px;position:relative;}
+  .masthead-ornament{font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--amber-dim);font-family:'Crimson Pro',serif;margin-bottom:24px;display:block;}
+  .masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(34px,6vw,58px);color:var(--amber2);line-height:1.15;margin-bottom:16px;letter-spacing:-.01em;}
+  .masthead h1 em{font-style:italic;color:var(--cream);}
+  .masthead-rule{display:flex;align-items:center;gap:16px;justify-content:center;margin:22px 0;}
+  .masthead-rule span{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--amber-dim));}
+  .masthead-rule span:last-child{background:linear-gradient(90deg,var(--amber-dim),transparent);}
+  .masthead-rule .diamond{color:var(--amber);font-size:10px;}
+  .masthead-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--cream-dim);max-width:560px;margin:0 auto 24px;line-height:1.5;}
+  .masthead-verse{display:inline-block;font-style:italic;font-size:15px;color:var(--text-dim);border:1px solid var(--border);padding:12px 22px;border-radius:2px;background:var(--bg2);max-width:500px;}
+
+  /* INTRO */
+  .intro-statement{background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border2);border-left:4px solid var(--amber);border-radius:4px;padding:32px 36px;margin:40px 0 50px;font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--cream);line-height:1.75;}
+
+  /* TOC */
+  .toc{background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:30px 34px;margin-bottom:60px;}
+  .toc-title{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:18px;}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 30px;}
+  @media(max-width:600px){.toc-grid{grid-template-columns:1fr;}}
+  .toc-item{display:flex;gap:10px;align-items:baseline;font-size:15px;color:var(--cream-dim);}
+  .toc-item a{color:var(--cream-dim);text-decoration:none;transition:color .2s;}
+  .toc-item a:hover{color:var(--amber2);}
+  .toc-num{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--amber-dim);min-width:18px;}
+
+  /* SECTIONS */
+  section{margin-bottom:10px;}
+  .section-head{margin:70px 0 30px;position:relative;padding-bottom:18px;}
+  .section-head::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--amber-dim),transparent);}
+  .section-label{font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber-dim);display:block;margin-bottom:8px;}
+  .section-head h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(22px,3.5vw,34px);color:var(--amber2);line-height:1.2;letter-spacing:-.01em;}
+  .section-head .section-tagline{font-style:italic;font-size:16px;color:var(--text-dim);margin-top:8px;font-family:'Cormorant Garamond',serif;}
+  h3.sub{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px;color:var(--cream);margin:38px 0 14px;padding-left:14px;border-left:2px solid var(--amber-dim);letter-spacing:.01em;}
+  p{margin-bottom:18px;}
+
+  /* SCRIPTURE */
+  .sc{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--indigo-light);border-radius:3px;padding:20px 24px;margin:22px 0;}
+  .sc-ref{font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--indigo-light);margin-bottom:8px;display:block;}
+  .sc-text{font-style:italic;color:var(--cream);font-size:17px;line-height:1.8;font-family:'Cormorant Garamond',serif;}
+  .sc-note{margin-top:10px;font-size:14px;color:var(--text-dim);font-style:normal;padding-top:10px;border-top:1px solid var(--border);}
+
+  /* EGW */
+  .egw{background:var(--bg4);border:1px solid var(--border);border-left:3px solid var(--rose-light);border-radius:3px;padding:22px 26px;margin:22px 0;position:relative;}
+  .egw::before{content:'\201C';position:absolute;top:10px;right:18px;font-family:'Cormorant Garamond',serif;font-size:80px;color:var(--border2);line-height:1;pointer-events:none;}
+  .egw-label{font-family:'Crimson Pro',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-light);margin-bottom:10px;display:block;}
+  .egw-text{font-style:italic;color:var(--cream-dim);font-size:17px;line-height:1.82;font-family:'Cormorant Garamond',serif;position:relative;z-index:1;}
+  .egw-source{margin-top:12px;font-size:13px;color:var(--text-muted);font-style:normal;font-family:'Crimson Pro',serif;letter-spacing:.03em;}
+
+  /* WORD STUDY */
+  .word{background:linear-gradient(135deg,#12100c 0%,#1a1610 100%);border:1px solid var(--border2);border-radius:5px;padding:20px 24px;margin:22px 0;display:flex;gap:22px;align-items:flex-start;}
+  .word-glyph{font-size:42px;color:var(--amber2);line-height:1;min-width:70px;text-align:center;padding-top:2px;text-shadow:0 0 20px rgba(240,185,106,.2);}
+  .word-info{flex:1;}
+  .word-lang{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:var(--amber-dim);color:var(--bg);padding:2px 7px;border-radius:2px;margin-bottom:7px;}
+  .word-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--amber);margin-bottom:3px;}
+  .word-trans{font-style:italic;color:var(--cream-dim);font-size:14px;margin-bottom:8px;}
+  .word-def{font-size:15.5px;color:var(--text);line-height:1.65;}
+  @media(max-width:500px){.word{flex-direction:column;gap:10px;}.word-glyph{text-align:left;min-width:auto;}}
+
+  /* CALLOUT */
+  .callout{background:var(--gold-glow);border:1px solid var(--amber-dim);border-radius:5px;padding:22px 28px;margin:26px 0;position:relative;}
+  .callout-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--amber2);margin-bottom:10px;letter-spacing:.02em;}
+  .callout p{color:var(--cream-dim);font-size:16px;margin-bottom:0;line-height:1.75;}
+
+  /* PRACTICE */
+  .practice{background:var(--bg3);border:1px solid var(--border);border-radius:5px;overflow:hidden;margin:24px 0;}
+  .practice-head{background:var(--bg4);padding:12px 20px;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-light);border-bottom:1px solid var(--border);}
+  .practice-body{padding:18px 22px;}
+  .practice-body ul{list-style:none;}
+  .practice-body li{padding:7px 0 7px 22px;position:relative;border-bottom:1px solid var(--border);font-size:15.5px;color:var(--text);line-height:1.6;}
+  .practice-body li:last-child{border-bottom:none;}
+  .practice-body li::before{content:'→';position:absolute;left:0;color:var(--teal-light);font-size:13px;top:9px;}
+
+  /* INSIGHT GRID */
+  .insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:26px 0;}
+  .insight-card{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:20px 18px;border-top:2px solid var(--amber-dim);}
+  .insight-icon{font-size:22px;margin-bottom:10px;}
+  .insight-card h4{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--amber);margin-bottom:7px;letter-spacing:.02em;}
+  .insight-card p{font-size:14px;color:var(--text-dim);margin:0;line-height:1.65;}
+
+  /* OBSTACLE GRID */
+  .obstacle-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+  @media(max-width:580px){.obstacle-grid{grid-template-columns:1fr;}}
+  .obstacle-card{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:18px 20px;}
+  .obstacle-card h4{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--rose-light);margin-bottom:8px;}
+  .obstacle-card p{font-size:14.5px;color:var(--text-dim);margin:0;line-height:1.6;}
+
+  /* COLLAPSIBLE */
+  details{background:var(--bg3);border:1px solid var(--border);border-radius:4px;margin:12px 0;}
+  summary{padding:15px 20px;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--cream);list-style:none;display:flex;justify-content:space-between;align-items:center;user-select:none;letter-spacing:.01em;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:'▸';color:var(--amber-dim);font-size:12px;transition:transform .25s;}
+  details[open]>summary::after{transform:rotate(90deg);}
+  details[open]>summary{border-bottom:1px solid var(--border);}
+  .det-body{padding:20px 24px;}
+  .det-body p{font-size:16px;margin-bottom:14px;}
+  .det-body p:last-child{margin-bottom:0;}
+
+  /* DIVIDER */
+  .divider{display:flex;align-items:center;gap:14px;margin:56px 0;}
+  .divider-line{flex:1;height:1px;background:var(--border);}
+  .divider-mark{color:var(--amber-dim);font-size:14px;letter-spacing:.2em;white-space:nowrap;}
+
+  /* HEART BOX */
+  .heart-box{background:linear-gradient(135deg,#0e1308 0%,#120f0a 100%);border:1px solid #3a4a28;border-radius:6px;padding:26px 30px;margin:28px 0;}
+  .heart-box h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:var(--sage-light);margin-bottom:12px;}
+  .heart-box p{font-size:16px;color:var(--text);margin-bottom:12px;line-height:1.78;}
+  .heart-box p:last-child{margin:0;}
+
+  /* PROMISE */
+  .promise{text-align:center;padding:32px 28px;margin:28px 0;border:1px solid var(--border2);border-radius:6px;background:var(--bg2);position:relative;overflow:hidden;}
+  .promise::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber),transparent);}
+  .promise-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream);line-height:1.6;margin-bottom:10px;}
+  .promise-ref{font-size:13px;color:var(--text-muted);letter-spacing:.1em;font-family:'Crimson Pro',serif;}
+
+  /* STEPS */
+  .steps{margin:24px 0;}
+  .step{display:grid;grid-template-columns:52px 1fr;gap:18px;margin-bottom:22px;align-items:flex-start;}
+  .step-num{width:52px;height:52px;background:var(--bg4);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--amber);flex-shrink:0;}
+  .step-content h4{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--cream);margin-bottom:6px;}
+  .step-content p{font-size:15.5px;color:var(--text);margin:0;line-height:1.7;}
+
+  /* FOOTER */
+  footer{margin-top:80px;padding-top:30px;border-top:1px solid var(--border);text-align:center;color:var(--text-muted);font-size:13px;font-style:italic;font-family:'Crimson Pro',serif;letter-spacing:.04em;line-height:1.8;}
+
+  /* FADE IN */
+  .fi{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+  .fi.vis{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <header class="masthead fi">
+    <span class="masthead-ornament">A Biblical &amp; Spirit of Prophecy Study — Expanded Edition</span>
+    <h1>Growing in <em>Love</em><br>for God</h1>
+    <div class="masthead-rule">
+      <span></span><span class="diamond">✦</span><span></span>
+    </div>
+    <p class="masthead-subtitle">How to cultivate genuine intimacy with the living God — drawn from the full breadth of Scripture and Ellen G. White's writings</p>
+    <div class="masthead-verse">"Draw nigh to God, and he will draw nigh to you." — James 4:8</div>
+  </header>
+
+  <div class="intro-statement fi">
+    Growing in love for God is not a feeling you wait for — it is a direction you turn in. It begins not with emotion but with will, not with fervour but with faith. This expanded guide draws from the full breadth of Ellen White's writings — Steps to Christ, The Desire of Ages, Thoughts from the Mount of Blessing, The Ministry of Healing, Testimonies Vols. 1–9, Education, The Great Controversy, Christ's Object Lessons, Patriarchs and Prophets, Gospel Workers, Messages to Young People, Child Guidance, Review and Herald, and more — alongside the full sweep of Scripture, Hebrew and Greek word studies, and practical application, to lay out every path into deeper love for God.
+  </div>
+
+  <nav class="toc fi">
+    <div class="toc-title">Contents</div>
+    <div class="toc-grid">
+      <div class="toc-item"><span class="toc-num">I</span><a href="#s1">Understanding God's Love First</a></div>
+      <div class="toc-item"><span class="toc-num">II</span><a href="#s2">The Role of the Will</a></div>
+      <div class="toc-item"><span class="toc-num">III</span><a href="#s3">Beholding — The Transforming Gaze</a></div>
+      <div class="toc-item"><span class="toc-num">IV</span><a href="#s4">Prayer: The Breath of the Soul</a></div>
+      <div class="toc-item"><span class="toc-num">V</span><a href="#s5">The Word of God</a></div>
+      <div class="toc-item"><span class="toc-num">VI</span><a href="#s6">Surrender &amp; Self-Denial</a></div>
+      <div class="toc-item"><span class="toc-num">VII</span><a href="#s7">Obedience as Love Language</a></div>
+      <div class="toc-item"><span class="toc-num">VIII</span><a href="#s8">The Cross — The Centre of It All</a></div>
+      <div class="toc-item"><span class="toc-num">IX</span><a href="#s9">Gratitude &amp; Praise</a></div>
+      <div class="toc-item"><span class="toc-num">X</span><a href="#s10">Nature as a School of Love</a></div>
+      <div class="toc-item"><span class="toc-num">XI</span><a href="#s11">Service &amp; Loving Others</a></div>
+      <div class="toc-item"><span class="toc-num">XII</span><a href="#s12">Trials &amp; the Furnace of Growth</a></div>
+      <div class="toc-item"><span class="toc-num">XIII</span><a href="#s13">Common Obstacles to Love</a></div>
+      <div class="toc-item"><span class="toc-num">XIV</span><a href="#s14">Reviving Cold Love</a></div>
+      <div class="toc-item"><span class="toc-num">XV</span><a href="#s15">A Daily Rhythm of Growing Love</a></div>
+    </div>
+  </nav>
+
+<!-- PART 1: Sections I-VIII -->
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- I. UNDERSTANDING GOD'S LOVE FIRST -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s1" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section I</span>
+      <h2>Understanding God's Love First</h2>
+      <p class="section-tagline">"We love him, because he first loved us." — 1 John 4:19</p>
+    </div>
+
+    <p>The first and most foundational truth undergirding all growth in love for God is this: the initiative is always His. Before any human being sought God, God was already seeking them. Before any prayer was prayed, God had already prepared the answer. Before repentance arose in the heart, the Holy Spirit had already been working to produce it. You cannot grow in love for a God you do not know — and the beginning of knowing Him is not your striving toward Him, but your awakening to how far He has already come toward you.</p>
+
+    <p>EGW's very first chapter in Steps to Christ is titled "God's Love for Man" — not "Man's Need for God," not "The Law and Sin," but God's love. She understood that no other foundation would hold. Duty without love collapses. Rules without relationship corrupt. But love, once genuinely perceived, transforms everything it touches.</p>
+
+    <div class="word">
+      <div class="word-glyph">אַהֲבָה</div>
+      <div class="word-info">
+        <span class="word-lang">Hebrew</span>
+        <div class="word-name">Ahavah</div>
+        <div class="word-trans">ah-ha-VAH — Strong's H160</div>
+        <div class="word-def">The primary Old Testament word for love — both God's love for His people and the love He requires in return (Deut. 6:5). It carries the weight of committed, covenant-keeping affection — more action than sentiment. God's <em>ahavah</em> is described as everlasting (Jer. 31:3), as the motive behind creation and redemption (John 3:16), and as the bedrock of His character (1 John 4:8). It is most powerfully used in Hosea, where God likens His love for apostate Israel to a husband who pursues an unfaithful wife — not because she deserves it, but because love is His nature.</div>
+      </div>
+    </div>
+
+    <div class="word">
+      <div class="word-glyph">חֶסֶד</div>
+      <div class="word-info">
+        <span class="word-lang">Hebrew</span>
+        <div class="word-name">Chesed</div>
+        <div class="word-trans">KHEH-sed — Strong's H2617</div>
+        <div class="word-def">Often translated "lovingkindness," "mercy," or "steadfast love" — it is one of the richest theological words in the Old Testament, occurring over 240 times. <em>Chesed</em> is loyal, covenantal love that does not waver even when the beloved is undeserving. It is the word in Psalm 136 — "His mercy endureth for ever" — repeated 26 consecutive times. It is the word in Lamentations 3:22–23 — "It is of the LORD's mercies that we are not consumed." It describes a love that persists through betrayal, failure, and exile.</div>
+      </div>
+    </div>
+
+    <div class="word">
+      <div class="word-glyph">ἀγάπη</div>
+      <div class="word-info">
+        <span class="word-lang">Greek</span>
+        <div class="word-name">Agape</div>
+        <div class="word-trans">ah-GAH-pay — Strong's G26</div>
+        <div class="word-def">The New Testament word that most fully captures God's self-giving love. Unlike <em>eros</em> (desire-love) or <em>phileo</em> (warm friendship), <em>agape</em> gives without requiring return. It is the love of John 3:16, Romans 5:8, and 1 Corinthians 13. Crucially, when Jesus commands us to love God (Matt. 22:37) and when John says we love God because He first loved us (1 John 4:19), both use <em>agape</em>. We are being invited to respond to His agape with agape — to love as we have been loved.</div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Jeremiah 31:3 — Love That Precedes Everything</span>
+      <div class="sc-text">"The LORD hath appeared of old unto me, saying, Yea, I have loved thee with an everlasting love: therefore with lovingkindness have I drawn thee."</div>
+      <div class="sc-note">Hebrew: <em>ahavat olam</em> — love of the age, love without temporal boundary. The verb "drawn" (<em>mashak</em>) means to draw as with a cord — gently, persistently, not violently. God's love is not imposed but attracted. He draws rather than drags.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Romans 5:8 — Proven at the Worst Moment</span>
+      <div class="sc-text">"But God commendeth his love toward us, in that, while we were yet sinners, Christ died for us."</div>
+      <div class="sc-note"><em>Commendeth</em> (Greek: <em>synistēmi</em>) — proves beyond dispute, establishes as verified fact. God did not wait for us to be lovable. He demonstrated His love at maximum cost while we were actively His enemies (v.10). This is the evidence. No future performance is needed to earn what was freely given here.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">1 John 4:8–10 — Love Is Not Just What God Does</span>
+      <div class="sc-text">"He that loveth not knoweth not God; for God is love. In this was manifested the love of God toward us, because that God sent his only begotten Son into the world, that we might live through him. Herein is love, not that we loved God, but that he loved us, and sent his Son to be the propitiation for our sins."</div>
+      <div class="sc-note">John makes a staggering ontological claim: God does not merely <em>have</em> love — God <em>is</em> love. Love is not one of His attributes alongside power and wisdom; it is the essence into which all other attributes are subsumed. His power is love's power. His justice is love's justice. Everything He does flows from what He is.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Zephaniah 3:17 — God Rejoices Over You</span>
+      <div class="sc-text">"The LORD thy God in the midst of thee is mighty; he will save, he will rejoice over thee with joy; he will rest in his love, he will joy over thee with singing."</div>
+      <div class="sc-note">One of the most astonishing verses in the Old Testament — God is described as singing over His people in joy. The Creator of the universe erupts in song when He looks at you. This is not the God of stern disapproval — this is a God of exuberant, celebrating love.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ, Chapter 1</span>
+      <div class="egw-text">"Nature and revelation alike testify of God's love. Our Father in heaven is the source of life, of wisdom, and of joy. Look at the wonderful and beautiful things of nature. Think of their marvellous adaptation to the needs and happiness, not only of man, but of all living creatures. The sunshine and the rain, that gladden and refresh the earth, the hills and seas and plains, all speak to us of the Creator's love."</div>
+      <div class="egw-source">— Steps to Christ, p. 9</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"The angels of glory find their joy in giving — giving love and tireless watchcare to souls that are fallen and unholy. Heavenly beings woo the hearts of men; they bring to this dark world light from the courts above... God Himself is the greatest giver. He gave His only-begotten Son that whoever believes in Him should not perish."</div>
+      <div class="egw-source">— Steps to Christ, p. 77</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"From the beginning, God and Christ knew of the apostasy of Satan and of the fall of man through the deceptive power of the apostate. God did not ordain that sin should exist, but He foresaw its existence and made provision for its forgiveness. So great was His love for the world that He covenanted to give His only-begotten Son."</div>
+      <div class="egw-source">— The Desire of Ages, p. 22</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"It would be well for us to spend a thoughtful hour each day in contemplation of the life of Christ. We should take it point by point, and let the imagination grasp each scene, especially the closing ones. As we thus dwell upon His great sacrifice for us, our confidence in Him will be more constant, our love will be quickened, and we shall be more deeply imbued with His spirit. If we would be saved at last, we must learn the lesson of penitence and humiliation at the foot of the cross."</div>
+      <div class="egw-source">— The Desire of Ages, p. 83</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Thoughts from the Mount of Blessing</span>
+      <div class="egw-text">"God does not deal with us as finite men deal with one another. His thoughts are thoughts of mercy, of love, of tenderest compassion... Let the soul that is weighed down with a sense of sin behold the cross of Calvary. There see the price paid for the redemption of the race. There let the heart find rest."</div>
+      <div class="egw-source">— Thoughts from the Mount of Blessing, p. 9</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Patriarchs and Prophets</span>
+      <div class="egw-text">"The plan of redemption was not an afterthought, a plan formulated after the fall of Adam. It was a revelation of 'the mystery which hath been kept in silence through times eternal.' Rom. 16:25, R.V. It was an unfolding of the principles that from eternal ages have been the foundation of God's throne. From the beginning, God and Christ knew of the apostasy of Satan, and of the fall of man through the deceptive power of the apostate."</div>
+      <div class="egw-source">— Patriarchs and Prophets, p. 63</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Education</span>
+      <div class="egw-text">"The central theme of the Bible, the theme about which every other in the whole book clusters, is the redemption plan, the restoration in the human soul of the image of God. From the first intimation of hope in the sentence pronounced in Eden to that last glorious promise of the Revelation, 'They shall see His face; and His name shall be in their foreheads' (Rev. 22:4), the burden of every book and every passage of the Bible is the unfolding of this wondrous theme — man's uplifting — the power of God, 'which giveth us the victory through our Lord Jesus Christ.'"</div>
+      <div class="egw-source">— Education, p. 125</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"The story of the lost sheep and the lost coin reveals the heart of the Father. The shepherd who leaves the ninety-nine does not represent cold religious duty — he represents a love that cannot rest while one is missing. The woman with her lamp and her broom does not give up. Heaven does not give up on you. This is the God you are asked to love in return."</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 187 (paraphrased)</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Begin Here — Every Time</div>
+      <p>Whether you are beginning your walk with God or reviving a cold one, the starting point is always the same: sit with the evidence of His love. Read Romans 8:31–39. Read John 17 — Jesus' prayer for you, prayed hours before the cross. Read Hosea 2 — God pursuing a wayward people with extravagant tenderness. Read Psalm 103. Let the knowledge of His love saturate the mind before you attempt to generate any feeling toward Him. You cannot manufacture love for a stranger — but God is not a stranger. He has been drawing you since before you were born.</p>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- II. THE ROLE OF THE WILL -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s2" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section II</span>
+      <h2>The Role of the Will</h2>
+      <p class="section-tagline">"And thou shalt love the LORD thy God with all thine heart, and with all thy soul, and with all thy might." — Deuteronomy 6:5</p>
+    </div>
+
+    <p>Love for God is commanded — which means it is achievable even when it is not felt. This is among the most liberating and least practised truths in Christian spirituality. Many believers wait passively for a surge of spiritual feeling before they believe they can genuinely love God. They mistake the absence of emotion for the absence of love. But Scripture and EGW consistently teach otherwise: love in its deepest form is not primarily a feeling — it is a direction of the will.</p>
+
+    <p>The will is the seat of genuine religion. Not the emotions, which fluctuate with physical health, circumstances, and spiritual season. Not the intellect alone, which can affirm truth without living it. The will — the governing, choosing, deciding faculty of the human being — is where God meets us. And it is where we must meet Him.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Deuteronomy 6:5 — The Shema: The Commanding of Love</span>
+      <div class="sc-text">"And thou shalt love the LORD thy God with all thine heart, and with all thy soul, and with all thy might."</div>
+      <div class="sc-note">This is the great <em>Shema</em> — Israel's foundational confession of faith, recited morning and evening. The structure is imperative: <em>thou shalt love</em>. Love here is not described as a spontaneous emotional state but as a commanded orientation of the whole person — heart (inner life), soul (entire being), might (full strength of will and action). God would not command what is impossible. Love must therefore be cultivable, not merely feelable.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Joshua 24:15 — The Will Chooses</span>
+      <div class="sc-text">"And if it seem evil unto you to serve the LORD, choose you this day whom ye will serve... but as for me and my house, we will serve the LORD."</div>
+      <div class="sc-note">Joshua's famous declaration is not emotional testimony — it is an act of will. He does not say "I feel drawn to God." He says "I have decided." This decision precedes and produces the feelings that follow.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Philippians 2:12–13 — Human Will and Divine Power</span>
+      <div class="sc-text">"Work out your own salvation with fear and trembling. For it is God which worketh in you both to will and to do of his good pleasure."</div>
+      <div class="sc-note">Paul holds two truths simultaneously: you must work (the will is engaged), and God does the working (grace empowers the will). The person who says "I can't love God more — I don't feel it" is misunderstanding this text. God is already working in you to will. The desire you feel to be closer to God IS God at work. Cooperate with it.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"Many are inquiring, 'How am I to make the surrender of myself to God?' You desire to give yourself to Him, but you are weak in moral power, in slavery to doubt, and controlled by the habits of your life of sin. Your promises and resolutions are like ropes of sand. You cannot control your thoughts, your impulses, your affections... What you need to understand is the true force of the will. This is the governing power in the nature of man, the power of decision, or of choice. Everything depends on the right action of the will."</div>
+      <div class="egw-source">— Steps to Christ, pp. 47–48</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"The will should be placed on the side of God's will... Say to yourself, 'I will believe; I will accept the promise; I will act as though my prayers are heard, because God has promised.' This is not presumption — this is faith. And faith activates the love that feeling has not yet arrived at."</div>
+      <div class="egw-source">— Steps to Christ, p. 51 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"The warfare against self is the greatest battle that was ever fought. The yielding of self, surrendering all to the will of God, requires a struggle; but the soul must submit to God before it can be renewed in holiness... Every one has the power to choose what spirit shall rule over him."</div>
+      <div class="egw-source">— The Ministry of Healing, p. 452</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"God requires the entire surrender of the heart, before justification can take place; and in order for man to retain justification, there must be continual obedience, through active, living faith that works by love and purifies the soul."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 215</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Messages to Young People</span>
+      <div class="egw-text">"In the matchless gift of His Son, God has encircled the whole world with an atmosphere of grace as real as the air which circulates around the globe. All who choose to breathe this life-giving atmosphere will live and grow up to the stature of men and women in Christ Jesus."</div>
+      <div class="egw-source">— Messages to Young People, p. 34</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 4</span>
+      <div class="egw-text">"We must not trust to feeling. Feeling is not faith. Faith is the substance of things hoped for, the evidence of things not seen. We are to act upon the word of God regardless of feeling. When we do this, feeling will come in God's own time and in His own way."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 4, p. 140 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"Character is not formed in a crisis — it is only revealed there. It is formed in the ten thousand small decisions of ordinary days in which the will is exercised, in which one chooses to read the Word rather than something else, to pray rather than to sleep in, to forgive rather than to harbour. Love grows in these choices."</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 332 (paraphrased)</div>
+    </div>
+
+    <div class="heart-box">
+      <h4>Practical Will Exercises for Growing Love</h4>
+      <p><strong>1. The Morning Decision.</strong> Before any other act, before the phone, before coffee — say aloud or in your heart: "Lord, I choose You today. I give this day to You." This is a act of will that sets the direction before circumstances and feelings try to set it otherwise.</p>
+      <p><strong>2. Act Against Feeling.</strong> When prayer feels pointless, pray. When the Bible seems dry, open it. When God feels distant, speak to Him anyway. This is not hypocrisy — it is faith exercising the will against the deception of feeling. EGW: "Act as though your prayers are heard, because God has promised."</p>
+      <p><strong>3. Choose Your Inputs.</strong> What you feed the will matters. A will consistently fed on secular entertainment, anxious news, and social comparison is weakened. A will fed on Scripture, praise, and stories of God's faithfulness grows strong. Guard what you allow to form your inner life.</p>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- III. BEHOLDING -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s3" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section III</span>
+      <h2>Beholding — The Transforming Gaze</h2>
+      <p class="section-tagline">"But we all, with open face beholding as in a glass the glory of the Lord, are changed into the same image from glory to glory." — 2 Corinthians 3:18</p>
+    </div>
+
+    <p>No principle in EGW's entire body of writing is more central to spiritual growth than this: <em>we become what we behold</em>. She returns to it in book after book — Steps to Christ, The Desire of Ages, The Great Controversy, Christ's Object Lessons, Testimonies. It is not merely a devotional sentiment but a psychological and spiritual law: the mind is shaped by the objects it habitually contemplates. Fix the gaze on Christ, and Christlikeness grows. Fix the gaze on self, and self-absorption grows. Fix the gaze on the world, and worldliness grows. The transformation of the soul and the deepening of love for God both flow from where the eye and the imagination are anchored.</p>
+
+    <div class="sc">
+      <span class="sc-ref">2 Corinthians 3:18 — Transformation Through Contemplation</span>
+      <div class="sc-text">"But we all, with open face beholding as in a glass the glory of the Lord, are changed into the same image from glory to glory, even as by the Spirit of the Lord."</div>
+      <div class="sc-note">Greek: <em>katoptrizomenoi</em> — beholding as in a mirror, gazing intently at a reflected image. The transformation is progressive ("from glory to glory") and Spirit-wrought — but it requires the beholding. The Spirit does not transform those who do not look.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Hebrews 12:2 — The Fixed Gaze</span>
+      <div class="sc-text">"Looking unto Jesus the author and finisher of our faith; who for the joy that was set before him endured the cross, despising the shame, and is set down at the right hand of the throne of God."</div>
+      <div class="sc-note">Greek: <em>aphoraō</em> — to look away from all other objects and fix the gaze exclusively on one. It implies active redirection of attention away from competing objects. The runner in the Greek games fixed their eyes on the finish line to the exclusion of everything else. This is the quality of attention Scripture calls for in beholding Jesus.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Psalm 34:5 — The Effect of Beholding</span>
+      <div class="sc-text">"They looked unto him, and were lightened: and their faces were not ashamed."</div>
+      <div class="sc-note">The Psalm uses the imagery of radiance — those who look toward God are "lightened" (Hebrew: <em>nahar</em> — to shine, to beam). Moses came down from the mountain with a shining face (Ex. 34:29–30) because he had been in God's presence. The principle is consistent across both testaments: beholding God transforms the face and the character.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"By beholding we become changed. The mind gradually adapts itself to the subjects upon which it is allowed to dwell. It becomes assimilated to that which it is accustomed to love and reverence. Man will never rise higher than his standard of purity or goodness or truth. If self is his loftiest ideal, he will never attain to anything more ennobling."</div>
+      <div class="egw-source">— Steps to Christ, p. 90</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"The life of Jesus was a life of constant trust, sustained by continual communion with God... He who abides in Christ will be as Christ was... The beauty of holiness is to be sought, not by outward show, but by the inward adorning of a meek and quiet spirit, which in the sight of God is of great price — wrought by beholding Christ until His image is reflected in the life."</div>
+      <div class="egw-source">— The Desire of Ages, p. 668</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"The earth is to be lightened with the glory of God. This glory is not something that comes to us from without — it is the character of Christ formed within. It is Christ in us, the hope of glory. And Christ forms His character within by the repeated beholding of Him in His Word, in prayer, in the natural world, and in the faces of those we serve."</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 415 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 4</span>
+      <div class="egw-text">"The followers of Christ know little of the plots which Satan and his hosts are forming against them. But He who sitteth in the heavens will overrule all these devices for the accomplishment of His deep designs... The one safe course for the Christian is to keep the eye fixed on Jesus and the life hid with Christ in God."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 4, p. 44</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Great Controversy</span>
+      <div class="egw-text">"Those who would not fall prey to Satan's devices must guard well the avenues of the soul; they must avoid reading, seeing, or hearing that which will suggest impure thoughts... What we allow ourselves to contemplate we will eventually desire, and what we desire we will eventually become. The beholding principle cuts both ways."</div>
+      <div class="egw-source">— The Great Controversy, p. 508 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"We need to have far less self-contemplation and far more contemplation of the character of Christ... Dwell upon the great themes of redemption. Fix the mind upon the cross. Let the love of the Saviour fill the heart, and self will be forgotten in the joy of beholding Him."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 744</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Education</span>
+      <div class="egw-text">"More than any other study, the Bible, with its precious gems of thought, tends to strengthen and discipline the mind... The mind that is not disciplined by the study of Christ's life will have no high ideal to rise toward. But the mind that daily contemplates the example of the Son of God is elevated, refined, and ennobled."</div>
+      <div class="egw-source">— Education, p. 192</div>
+    </div>
+
+    <h3 class="sub">Practical Beholding Disciplines</h3>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Read The Desire of Ages as Devotional</h4>
+          <p>EGW considered this her most important work on the life of Christ. It is not a biography — it is a sustained devotional encounter with Jesus. Read one chapter per day slowly, pausing when a passage moves you. The cumulative effect over weeks is a profound deepening of love for Jesus. EGW: "Those who meditate upon the life of Christ will have their love quickened and their faith strengthened."</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Meditate at Calvary for 15 Minutes Daily</h4>
+          <p>Read John 18–19, Luke 23, Isaiah 53, or Psalm 22 slowly. Let the imagination dwell on the cross — not as historical information but as present love. Ask: "This was for me. What does this tell me about who God is?" EGW: "A thoughtful hour each day in contemplation of the closing scenes of Christ's life will do more for the soul than any other study."</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Guard What You Behold Otherwise</h4>
+          <p>The principle works inversely: what you fill your mind with shapes you. EGW was consistent and strong on this — entertainment, novels, violent or sensual media, and endless news cycles all compete for the contemplative space that belongs to Christ. A Sabbath media fast is one powerful application. Ask: does what I am about to watch/read draw me toward God or away?</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Keep a "Character of God" Journal</h4>
+          <p>As you read Scripture and EGW, record what you observe about God's character — specific attributes, specific actions. Over weeks and months you accumulate a written portrait of God that becomes the material of deepening love. "He who feeds on the knowledge of God will grow in love for God" (paraphrasing EGW, Testimonies Vol. 5).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>Read the Gospels as Portrait, Not Doctrine</h4>
+          <p>Spend an entire month in one Gospel — reading it not to extract theology but to watch how Jesus interacts with people. His tenderness with the woman caught in adultery. His grief at Lazarus's tomb. His delight in children. His patience with dense disciples. This is who you are asked to love — and seeing Him clearly makes loving Him irresistible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- IV. PRAYER -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s4" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section IV</span>
+      <h2>Prayer: The Breath of the Soul</h2>
+      <p class="section-tagline">"Evening, and morning, and at noon, will I pray, and cry aloud: and he shall hear my voice." — Psalm 55:17</p>
+    </div>
+
+    <p>Prayer is not the performance of religious duty — it is the exercise of relationship. You do not grow to love someone you never speak to and never listen to. Prayer is the primary channel through which love for God is cultivated, expressed, deepened, and sustained across the whole terrain of the spiritual life — through joy and grief, confidence and confusion, mountain heights and wilderness flatness.</p>
+
+    <p>EGW wrote more extensively about prayer than perhaps any other single subject, drawing from her own rich experience of prevailing prayer. Her counsel is consistently warm, practical, and grounded — never abstract, never merely theoretical. The following gathers her teaching from across her writings, alongside the deep biblical theology of prayer.</p>
+
+    <div class="word">
+      <div class="word-glyph">פָּלַל</div>
+      <div class="word-info">
+        <span class="word-lang">Hebrew</span>
+        <div class="word-name">Palal</div>
+        <div class="word-trans">pah-LAHL — Strong's H6419</div>
+        <div class="word-def">The most common Hebrew word for prayer — literally meaning "to judge" or "to intercede," carrying the idea of intervention between two parties. To pray is to bring one's case before the divine Judge, not in fear but in relationship. It implies both pleading and expectation of response. Used 84 times in the Old Testament, it is the word of Hannah's desperate intercession (1 Sam. 1:10), Solomon's dedicatory prayer (1 Kgs. 8:22), and Daniel's three-daily supplications (Dan. 6:10).</div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Matthew 6:6 — The Secret Place</span>
+      <div class="sc-text">"But thou, when thou prayest, enter into thy closet, and when thou hast shut thy door, pray to thy Father which is in secret; and thy Father which seeth in secret shall reward thee openly."</div>
+      <div class="sc-note">The "closet" (<em>tameion</em>) — a private inner room. Jesus is not prohibiting public prayer; He is establishing the indispensability of private, unperformed prayer. The relationship with God must have a secret dimension — something between you and God alone that no audience shapes or dilutes.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Luke 18:1 — Persistence Without Fainting</span>
+      <div class="sc-text">"And he spake a parable unto them to this end, that men ought always to pray, and not to faint."</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Romans 8:26–27 — The Spirit Prays When We Cannot</span>
+      <div class="sc-text">"Likewise the Spirit also helpeth our infirmities: for we know not what we should pray for as we ought: but the Spirit itself maketh intercession for us with groanings which cannot be uttered. And he that searcheth the hearts knoweth what is the mind of the Spirit, because he maketh intercession for the saints according to the will of God."</div>
+      <div class="sc-note">When you do not know how to pray — when grief or confusion or exhaustion reduces you to wordlessness — the Holy Spirit translates your groanings into perfect intercession. You are never praying alone. This truth should remove all performance anxiety from prayer.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"Prayer is the opening of the heart to God as to a friend. Not that it is necessary in order to make known to God what we are, but in order to enable us to receive Him. Prayer does not bring God down to us, but brings us up to Him."</div>
+      <div class="egw-source">— Steps to Christ, p. 93</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"Keep your wants, your joys, your sorrows, your cares, and your fears before God. You cannot burden Him; you cannot weary Him. He who numbers the hairs of your head is not indifferent to the wants of His children... His heart of love is touched by our sorrows and even by our utterances of them."</div>
+      <div class="egw-source">— The Ministry of Healing, p. 100</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Gospel Workers</span>
+      <div class="egw-text">"Pray, pray, pray. Let the soul be drawn out and upward, that God may commune with it as He communed with Enoch. We do not pray too much; we pray altogether too little. We should be importunate in prayer, constant, persevering, regardless of the feeling at the time."</div>
+      <div class="egw-source">— Gospel Workers, p. 255</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 1</span>
+      <div class="egw-text">"Secret prayer is a necessity of the soul. No one can truly grow in grace without it. Public worship, the study of the Scriptures, and all outward means of grace are necessary; but all these are not sufficient for the health of the soul. There must be personal, secret communion with God."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 1, p. 163 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"When we come to God in prayer we should have a sense of the divine majesty, and should realise that we are coming into the presence of One who reads the heart. We should not rush into God's presence carelessly, as though He were an equal. Yet we should also remember we come as children to a Father — not as criminals before a judge."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 200 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Education</span>
+      <div class="egw-text">"Prayer and faith will accomplish that which the highest human abilities cannot attain... Nothing that in any way concerns our peace is too small for Him to notice. There is no chapter in our experience too dark for Him to read; there is no perplexity too difficult for Him to unravel. No calamity can befall the least of His children, no anxiety harass the soul, no joy cheer, no sincere prayer escape the lips, of which our heavenly Father is unobservant."</div>
+      <div class="egw-source">— Education, p. 258</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Patriarchs and Prophets</span>
+      <div class="egw-text">"Jacob's experience during that night of wrestling and anguish represents the trial through which the people of God must pass before and during the time of trouble... Jacob's determination not to let go until God blessed him is the spirit that wins in prayer. Not desperation — but holy, tenacious, loving persistence."</div>
+      <div class="egw-source">— Patriarchs and Prophets, p. 203 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 4</span>
+      <div class="egw-text">"Watch and pray. Keep the heart with all diligence... The hours of morning and evening prayer, regularly observed, are the pillars upon which spiritual life is built. If these are strong, the rest of the day holds together. If they are neglected, the whole structure weakens."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 4, p. 459 (paraphrased)</div>
+    </div>
+
+    <h3 class="sub">The Many Dimensions of Prayer</h3>
+
+    <details>
+      <summary>Morning Prayer — The First Hour Belongs to God</summary>
+      <div class="det-body">
+        <p>EGW repeatedly and urgently emphasised that the first conscious act of each day should be directed toward God. "Before you allow your feet to touch the floor, let your heart ascend to God in prayer." (Testimonies, Vol. 4, p. 415). This is not merely a pious sentiment — it is a strategic spiritual discipline. The mind that begins its day in God's presence is anchored before the world's noise reaches it.</p>
+        <p>David established this pattern: "In the morning will I direct my prayer unto thee, and will look up." (Ps. 5:3). "O God, thou art my God; early will I seek thee: my soul thirsteth for thee, my flesh longeth for thee in a dry and thirsty land." (Ps. 63:1). Jesus Himself rose before dawn to pray: "And in the morning, rising up a great while before day, he went out, and departed into a solitary place, and there prayed." (Mark 1:35).</p>
+        <p>Practically: before the phone, before news, before social media — 10 minutes minimum. Acknowledge who God is. Thank Him for the night's rest. Ask for the Holy Spirit. Set the day's intention in His hands. This one discipline, faithfully practised, will transform the quality of every day within weeks.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Intercessory Prayer — Praying Others into God's Presence</summary>
+      <div class="det-body">
+        <p>Intercession is one of the most powerful and most neglected forms of prayer. Abraham interceded for Sodom with extraordinary persistence (Gen. 18:22–33). Moses interceded for Israel and literally altered God's declared course of action (Ex. 32:9–14). Paul told the Romans he served God "without ceasing" in his prayers for them (Rom. 1:9). Jesus spent the night in prayer before choosing the twelve (Luke 6:12) and prayed specifically for Peter's faith before Peter even knew he needed it (Luke 22:32).</p>
+        <p>EGW: "Prayer for others will open channels through which you yourself will be blessed." (Testimonies, Vol. 5, p. 112). One of the most direct routes to growing in love for a person — or even for God — is to pray persistently for them. You cannot sustain hatred for someone you are bringing before the throne of grace. Intercessory prayer softens the heart of the intercessor as much as it benefits the one prayed for.</p>
+        <p>Practical: maintain a written prayer list. Pray for five people by name each morning — their specific needs, their spiritual growth, their relationship with God. Pray for your enemies deliberately (Matt. 5:44). Pray for your church, your pastor, your government.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Confession and Repentance Prayer</summary>
+      <div class="det-body">
+        <p>Unconfessed sin is the most consistent biblical cause of distance in the relationship with God. "If I regard iniquity in my heart, the Lord will not hear me." (Ps. 66:18). "Your iniquities have separated between you and your God, and your sins have hid his face from you, that he will not hear." (Isa. 59:2). The remedy is not theological argument — it is honest confession.</p>
+        <p>"If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness." (1 John 1:9). The promise is absolute and unconditional — the only requirement is honest acknowledgment.</p>
+        <p>EGW: "Confess your sins to God, who alone can forgive them, and your faults to one another... The prayer of the humble, contrite heart is always heard. The only prayer that God cannot honour is the prayer of a heart that has not honestly examined itself." (Steps to Christ, p. 37, paraphrased)</p>
+        <p>Daily confession is not a ritual of self-punishment — it is honest relational maintenance. It treats God as Someone safe enough to be truthful with. That honesty itself is an act of intimacy. The depth of your confession reveals the depth of your trust.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Listening Prayer and Silence Before God</summary>
+      <div class="det-body">
+        <p>Prayer is a conversation, not a monologue. God speaks. "Call unto me, and I will answer thee, and shew thee great and mighty things, which thou knowest not." (Jer. 33:3). Eli's counsel to Samuel is one of the most instructive passages on receptive prayer: "Speak, LORD; for thy servant heareth." (1 Sam. 3:9). Samuel then lay still and listened.</p>
+        <p>Elijah heard the still small voice only after the earthquake and wind and fire had passed (1 Kgs. 19:12) — it came in the silence. "Be still, and know that I am God." (Ps. 46:10). God most often speaks through quiet impression, through Scripture illuminated by the Spirit, through a verse that arrests the heart. He rarely competes with noise.</p>
+        <p>EGW: "There is need of quiet hours for communion with God. Let the soul be drawn out in earnest prayer — and then, in stillness, let it listen. God has something to say to every soul that is quiet enough to hear Him." (Testimonies, Vol. 4, p. 459, paraphrased)</p>
+        <p>Practically: after praying, sit with an open Bible for five minutes. Ask God to speak. Read slowly. If a verse or phrase stops you, linger there. Write it down. This is not mysticism — it is the normal operation of the Holy Spirit illuminating the Word to the waiting heart.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Praying the Psalms — The God-Given Prayer Book</summary>
+      <div class="det-body">
+        <p>The Psalms are God's own prayer templates — 150 inspired prayers that cover the full spectrum of human experience before God. Grief, praise, confusion, terror, joy, betrayal, restoration, warfare, rest. They give language to what the heart feels but cannot articulate. When your own words fail, the Psalms speak.</p>
+        <p>Psalms of praise: 8, 19, 29, 100, 103, 145–150. Psalms of lament and honesty: 22, 42, 73, 88. Psalms of trust: 23, 27, 46, 91, 121. Psalms of confession: 32, 51. Read them aloud — they were written to be spoken and sung, not silently scanned. Let David's words become your words.</p>
+        <p>EGW frequently quoted the Psalms in her own devotional writings and clearly drew deeply from them in her prayer life. She commended them for personal devotion, for family worship, and for public services.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>When Prayer Feels Dry or Unanswered</summary>
+      <div class="det-body">
+        <p>Spiritual dryness in prayer is nearly universal in the mature Christian life. The medieval mystics called it <em>desolation</em> — a season when God seems absent, when prayer bounces off the ceiling, when the discipline feels pointless. EGW knew it; the Psalms are full of it ("My God, my God, why hast thou forsaken me?" — Ps. 22:1).</p>
+        <p>EGW: "Sometimes the way seems dark, and we cannot feel the divine Presence; our prayers seem to ascend no higher than the ceiling. Yet faith says, God is here. His love is unchanged." (Testimonies, Vol. 5, p. 215, paraphrased). The darkness of feeling is not evidence of God's absence — it is often a test of the depth of our faith and a call to deeper roots.</p>
+        <p>Remedies: pray the Psalms aloud when your own words fail. Pray shorter, more honest prayers rather than dutiful long ones. Pray with another believer (Matt. 18:20 — where two or three are gathered). Praise deliberately even without feeling — Paul and Silas sang hymns in prison and God broke the prison open (Acts 16:25). Read EGW or Scripture before praying to prime the mind. Do not stop.</p>
+      </div>
+    </details>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- V. THE WORD OF GOD -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s5" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section V</span>
+      <h2>The Word of God</h2>
+      <p class="section-tagline">"Thy word have I hid in mine heart, that I might not sin against thee." — Psalm 119:11</p>
+    </div>
+
+    <p>You cannot deeply love someone you do not know. The Bible is God's primary self-disclosure — His character, His ways, His passions, His grief, His joy, His purpose. It is not a code of rules or a theological textbook (though it contains both law and doctrine). It is, in EGW's phrase, "a love letter from God to man." Without regular, deep, receptive engagement with Scripture, love for God has no raw material to grow on.</p>
+
+    <p>EGW regarded the neglect of the Bible as the single greatest cause of spiritual weakness in her day — and her warnings are more urgent than ever in an age of information overload where Bible reading is crowded out by a thousand other forms of content.</p>
+
+    <div class="word">
+      <div class="word-glyph">דָּבָר</div>
+      <div class="word-info">
+        <span class="word-lang">Hebrew</span>
+        <div class="word-name">Dabar</div>
+        <div class="word-trans">dah-VAHR — Strong's H1697</div>
+        <div class="word-def">The primary Hebrew word for "word" or "word of God" — used over 2,500 times in the Old Testament. It carries connotations of active, creative, powerful speech. God's <em>dabar</em> does not merely inform — it accomplishes (Isa. 55:11). The same word that created the heavens (Ps. 33:6) is the word given to us in Scripture. To receive the Bible is to receive the creative power of God into the soul.</div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Isaiah 55:10–11 — The Word That Accomplishes</span>
+      <div class="sc-text">"For as the rain cometh down, and the snow from heaven, and returneth not thither, but watereth the earth, and maketh it bring forth and bud, that it may give seed to the sower, and bread to the eater: so shall my word be that goeth forth out of my mouth: it shall not return unto me void, but it shall accomplish that which I please, and it shall prosper in the thing whereto I sent it."</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">John 5:39 — Scripture Points to a Person</span>
+      <div class="sc-text">"Search the scriptures; for in them ye think ye have eternal life: and they are they which testify of me."</div>
+      <div class="sc-note">Jesus' rebuke to the Pharisees was not that they read too much Scripture — it was that they searched it for life rather than following it to the Person it pointed toward. Bible study that ends in intellectual knowledge and does not lead to encounter with Christ has missed the purpose of the Book.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Psalm 119:97–100 — The Love Relationship with Scripture</span>
+      <div class="sc-text">"O how love I thy law! it is my meditation all the day. Thou through thy commandments hast made me wiser than mine enemies: for they are ever with me. I have more understanding than all my teachers: for thy testimonies are my meditation. I understand more than the ancients, because I keep thy precepts."</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Jeremiah 15:16 — The Word as Joy and Nourishment</span>
+      <div class="sc-text">"Thy words were found, and I did eat them; and thy word was unto me the joy and rejoicing of mine heart: for I am called by thy name, O LORD God of hosts."</div>
+      <div class="sc-note">Jeremiah's metaphor — eating the Word — is more visceral than "reading." It suggests assimilation, nourishment, the Word becoming part of the self. This is the goal of Bible engagement: not information that sits in the head but truth that enters the bloodstream.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Great Controversy</span>
+      <div class="egw-text">"The Scriptures are to be received as God's word to us, not written merely, but spoken. When the afflicted one seeks to know the will of God, the Bible is a personal message to him. It is the voice of God speaking directly to his heart."</div>
+      <div class="egw-source">— The Great Controversy, p. 599</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"We should come to the Bible with a humble, teachable spirit... Approach the Word of God on your knees. The Holy Spirit, who moved holy men of old to write the Word, will move upon the heart that comes seeking illumination and transformation."</div>
+      <div class="egw-source">— Steps to Christ, p. 90 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"The Bible is God's voice speaking to us just as surely as though we could hear it with our ears. If we realised this, with what awe would we open God's Word, and with what earnestness would we search its precepts! The reading and contemplation of the Scriptures would be regarded as an audience with the Infinite One."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 385</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Education</span>
+      <div class="egw-text">"In its wide range of style and subjects the Bible has something to interest every mind and appeal to every heart. In its pages are found history the most ancient; biography the truest to life; principles of government for the control of human systems. It contains philosophy the most profound, poetry the sweetest and the most sublime... Nothing within the whole range of human knowledge can supply its place."</div>
+      <div class="egw-source">— Education, p. 123</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 8</span>
+      <div class="egw-text">"The neglect of the Word brings spiritual famine. As the body wastes without food, so the soul starves without the Word of God... Let the Bible be opened fresh every day with expectation — not to be got through, but to be met with God in."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 8, p. 157 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"The Scriptures are not to be adapted to meet the prejudice and selfishness of men. They can be understood only by those who are humbly seeking for divine light... To understand Scripture, live Scripture. Obedience to known light opens the understanding to more light. Disobedience closes it."</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 112 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 2</span>
+      <div class="egw-text">"The Lord desires us to use our reasoning powers in the study of the Bible. We are to dig as for hidden treasure. Fervent, diligent, prayerful Bible study is the means by which the soul is made strong. A chapter a day, hurriedly read, is spiritual poverty. Deep, meditative engagement with even a single verse can sustain the soul for a week."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 2, p. 634 (paraphrased)</div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-head">How to Read Scripture for Love, Not Just Knowledge</div>
+      <div class="practice-body">
+        <ul>
+          <li><strong>Lectio Divina (Sacred Reading):</strong> Read a short passage 3–4 times slowly. First for general understanding. Second for a word or phrase that stands out. Third, ask: what does this reveal about God's character or His heart toward me? Fourth, respond in prayer to what you found.</li>
+          <li><strong>Topical study of God's character:</strong> Spend weeks studying specific attributes — His mercy (Lam. 3:22–23), patience (2 Pet. 3:9), compassion (Ps. 103:13–14), justice (Ps. 89:14), faithfulness (Deut. 7:9), tenderness (Isa. 40:11), joy (Zeph. 3:17). Each deepens awe and love.</li>
+          <li><strong>Memorisation:</strong> "Thy word have I hid in mine heart." (Ps. 119:11). Memorised Scripture speaks in moments when you cannot open a Bible — in temptation, in fear at 2am, in grief. Begin with Romans 8:38–39, Psalm 23, Isaiah 41:10, Jeremiah 31:3, John 15:9.</li>
+          <li><strong>The "Character of God" journal:</strong> As you read, record only what you see about who God is — not commands, not prophecy, not doctrine, but God Himself. Over months you build a written portrait that becomes the substance of deepening love.</li>
+          <li><strong>Read EGW alongside Scripture:</strong> The Spirit of Prophecy is designed to illuminate Scripture. Read The Desire of Ages alongside the Gospels, Patriarchs and Prophets alongside Genesis-Deuteronomy, The Great Controversy alongside Daniel and Revelation. EGW amplifies and personalises what Scripture reveals.</li>
+          <li><strong>Read with expectation, not duty:</strong> Come to the Bible as to a person, not a textbook. Ask before you open it: "Lord, speak to me today." Come expecting to hear something. This posture changes everything.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- VI. SURRENDER -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s6" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section VI</span>
+      <h2>Surrender &amp; Self-Denial</h2>
+      <p class="section-tagline">"I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service." — Romans 12:1</p>
+    </div>
+
+    <p>Love for God and love for self cannot fully coexist as controlling forces. This is not self-hatred — it is the displacement of self from the throne of the inner life and the enthronement of Christ in its place. The deepening of love for God invariably involves a progressive yielding of self-will, self-sufficiency, self-protection, and self-centredness. What remains is not diminished humanity but liberated humanity — the person who finally becomes most fully themselves by being aligned with the One in whose image they were made.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Romans 12:1–2 — The Logic of Living Sacrifice</span>
+      <div class="sc-text">"I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service. And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God."</div>
+      <div class="sc-note">Paul grounds the appeal in "the mercies of God" — not in law or duty. The proper response to having received God's mercy is the offering of oneself. And he calls it "reasonable" (<em>logikēn</em> — logical, rational) — not extreme sacrifice but the only sensible response to what God has done.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Luke 9:23 — The Daily Cross</span>
+      <div class="sc-text">"And he said to them all, If any man will come after me, let him deny himself, and take up his cross daily, and follow me."</div>
+      <div class="sc-note">The word <em>daily</em> is critical. This is not a one-time crisis decision but a recurring morning commitment. Each day the self reasserts its claims; each day the disciple must re-choose to yield those claims to Christ.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Galatians 2:20 — The Exchanged Life</span>
+      <div class="sc-text">"I am crucified with Christ: nevertheless I live; yet not I, but Christ liveth in me: and the life which I now live in the flesh I live by the faith of the Son of God, who loved me, and gave himself for me."</div>
+      <div class="sc-note">Paul does not say "I have no life." He says "yet not I but Christ." The self is not annihilated — it is displaced from the centre. Paul lives, but Christ is the animating principle. The love Paul has for others and for God is the love of Christ flowing through a yielded channel.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"The surrender of all our powers to God greatly simplifies the problem of life. It weakens and cuts short a thousand struggles with the passions of the natural heart... Surrender of self is the first lesson to be learned by all who would follow Christ, and it is the lesson which needs to be repeated day by day."</div>
+      <div class="egw-source">— Steps to Christ, p. 44</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Thoughts from the Mount of Blessing</span>
+      <div class="egw-text">"The poor in spirit — those who recognise their own spiritual bankruptcy before God — are the ones to whom the kingdom of heaven is given. They have no righteousness of their own to defend, no reputation to protect from God. They come empty-handed, and God fills them. This is the open door to love."</div>
+      <div class="egw-source">— Thoughts from the Mount of Blessing, p. 7 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"The warfare against self is the greatest battle that was ever fought. The yielding of self, surrendering all to the will of God, requires a struggle; but the soul must submit to God before it can be renewed in holiness. The government of God is not, as Satan would make it appear, founded on a blind submission, an unreasoning control. It appeals to the intellect and the conscience."</div>
+      <div class="egw-source">— The Ministry of Healing, p. 452</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 2</span>
+      <div class="egw-text">"Perfect submission, perfect love, perfect trust in God — this is the condition of soul in which we may enter through the gates into the city... Self must die. This is not the language of gloom but of freedom. The death of self is the birth of joy."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 2, p. 133 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"We cannot do ourselves the good that we desire. We are condemned; we cannot save ourselves. We must accept salvation as a gift... Those who accept Christ's yoke find it easy — not because the demands are small, but because He bears the weight with us. Self's yoke is far heavier than Christ's because self is a cruel master."</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 159 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"The soul that loves God will surrender the will to God daily. It will not say 'I have surrendered once' — it will say 'I surrender now, again, as often as the self attempts to retake its throne.' This daily, hourly surrender is the secret of those who walk closely with God."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 513 (paraphrased)</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">Surrender Is Not Passivity</div>
+      <p>EGW was careful to distinguish biblical surrender from passive resignation or fatalistic quietism. Surrender is the most vigorous act of the will — the strong, decisive yielding of a strong will to a greater will. It requires more energy than self-assertion, not less. You are not destroyed in surrender — you are reoriented. "Not my will, but thine, be done" (Luke 22:42) — these were the hardest words ever spoken, yet they came from the strongest being who ever walked this earth.</p>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- VII. OBEDIENCE AS LOVE LANGUAGE -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s7" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section VII</span>
+      <h2>Obedience as Love Language</h2>
+      <p class="section-tagline">"If ye love me, keep my commandments." — John 14:15</p>
+    </div>
+
+    <p>Obedience is not the condition of God's love for us. It is the natural, inevitable, joyful expression of our love for Him. When love is genuine, keeping God's commandments does not feel like constraint — it feels like the most natural thing in the world, the way a person in love naturally wants to make the beloved happy. EGW was insistent on this distinction throughout her ministry: obedience that springs from love is the fruit of grace; obedience performed to earn favour is legalism.</p>
+
+    <div class="word">
+      <div class="word-glyph">שָׁמַר</div>
+      <div class="word-info">
+        <span class="word-lang">Hebrew</span>
+        <div class="word-name">Shamar</div>
+        <div class="word-trans">shah-MAR — Strong's H8104</div>
+        <div class="word-def">The primary Hebrew word for "keep" as in "keep the commandments" — meaning to guard, watch over, preserve, treasure. It is used of a watchman at a city gate, of a gardener tending a vineyard, of a mother watching a sleeping child. To "keep" God's commandments in this sense is not grudging compliance but treasured guardianship — you keep them the way you keep something precious.</div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">John 14:15 — If-Then of Love</span>
+      <div class="sc-text">"If ye love me, keep my commandments."</div>
+      <div class="sc-note">The Greek is actually a conditional of probability with a future implication: "If you love me [which I expect you do], you will keep my commandments [as the natural outcome]." It is not a threat — it is a description. Love produces obedience the way a tree produces fruit. You do not force the fruit; you nourish the tree.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">John 14:21 — The Ascending Cycle of Love and Revelation</span>
+      <div class="sc-text">"He that hath my commandments, and keepeth them, he it is that loveth me: and he that loveth me shall be loved of my Father, and I will love him, and will manifest myself to him."</div>
+      <div class="sc-note">The cycle: love → obedience → greater manifestation of Christ → deeper love. Each turn of the cycle deepens the relationship. The person who obeys God consistently will see more of Christ, love Him more, and obey more joyfully — a continuously ascending spiral.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">1 John 5:3 — Love Makes the Law Not Heavy</span>
+      <div class="sc-text">"For this is the love of God, that we keep his commandments: and his commandments are not grievous."</div>
+      <div class="sc-note">The word "grievous" (<em>barus</em>) means heavy, burdensome. John's test of genuine love: the one who truly loves God does not find the commandments burdensome. If the Sabbath, the health principles, the dietary laws, the tithing, the standards — if these feel like a heavy cage, it indicates the love relationship needs deepening, not that the standards need relaxing.</div>
+    </div>
+
+    <div name="sc">
+      <span class="sc-ref">Psalm 40:8 — The Law Written on the Heart</span>
+      <div class="sc-text">"I delight to do thy will, O my God: yea, thy law is within my heart."</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"The law of God is an expression of His very nature; it is an embodiment of the great principle of love... Instead of releasing man from obedience, it is faith, and faith only, that makes us partakers of the grace of Christ, which enables us to render obedience... It is not we who keep the law in our own strength that are saved — it is Christ in us, keeping His own law, through a character submitted to Him."</div>
+      <div class="egw-source">— Steps to Christ, pp. 60–62</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Thoughts from the Mount of Blessing</span>
+      <div class="egw-text">"The religion of Christ means more than the forgiveness of sin; it means taking away our sins, and filling the vacuum with the graces of the Holy Spirit. It means divine illumination, rejoicing in God. It means a heart emptied of self, and blessed with the abiding presence of Christ. When Christ reigns in the soul, there is purity, freedom from sin. The glory, the fullness, the completeness of the gospel plan is fulfilled in the life."</div>
+      <div class="egw-source">— Thoughts from the Mount of Blessing, p. 49</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 1</span>
+      <div class="egw-text">"True obedience is the outworking of a principle implanted within. It springs from the love of righteousness, the love of the law of God. The essence of all righteousness is loyalty to our Redeemer. It will lead us to love beauty and pursue it — the beauty of holiness."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 1, p. 416 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"Jesus declared that the principles of God's law are the principles of His kingdom. He did not come to destroy the law but to show what it really means — the law is love. Love to God — the whole heart given to the One who made it and who loves it. Love to man — the neighbour treated as oneself. The entire law is the description of what love does."</div>
+      <div class="egw-source">— The Desire of Ages, p. 308 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"The fruitful branch does not strive to produce fruit — it abides in the vine and fruit is the natural result. So the soul that abides in Christ does not strive and struggle to obey — obedience is the natural, inevitable outflow of love and union. The problem is never 'try harder to obey.' The problem is always 'abide more deeply in Christ.'"</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 67 (paraphrased)</div>
+    </div>
+
+    <div class="heart-box">
+      <h4>The Diagnostic Question</h4>
+      <p>Ask yourself honestly about each area of obedience — Sabbath, health, tithe, relationships, purity, service: <strong>Am I doing this to earn favour, avoid punishment, or maintain reputation? Or am I doing it because I love the God who gave these things for my blessing?</strong></p>
+      <p>If the answer is the first, the solution is not to stop obeying — it is to go deeper into the love relationship that makes obedience joyful. The discipline comes first; the delight follows. Keep obeying while asking God to transform the motive from duty to love.</p>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- VIII. THE CROSS -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s8" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section VIII</span>
+      <h2>The Cross — The Centre of It All</h2>
+      <p class="section-tagline">"But God forbid that I should glory, save in the cross of our Lord Jesus Christ, by whom the world is crucified unto me, and I unto the world." — Galatians 6:14</p>
+    </div>
+
+    <p>In EGW's theology, the cross is not merely the mechanism of forgiveness — it is the supreme revelation of God's character, the highest proof of His love, and the most powerful agency in the universe for producing love in the human heart. No other truth, no other sight, no other contemplation so consistently melts cold hearts, subdues proud spirits, and kindles deep affection for God as a sustained, deliberate return to Calvary. If love for God is cold, the cure is almost always a return to the cross.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Isaiah 53:3–6 — The Fullest Portrait Before the Event</span>
+      <div class="sc-text">"He is despised and rejected of men; a man of sorrows, and acquainted with grief: and we hid as it were our faces from him; he was despised, and we esteemed him not. Surely he hath borne our griefs, and carried our sorrows: yet we did esteem him stricken, smitten of God, and afflicted. But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed. All we like sheep have gone astray; we have turned every one to his own way; and the LORD hath laid on him the iniquity of us all."</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">John 3:16 — The Measure of Love</span>
+      <div class="sc-text">"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."</div>
+      <div class="sc-note">The word "so" (<em>houtōs</em>) — in this manner, to this degree. God loved in the manner of self-giving, to the degree of the cross. The depth of the giving measures the depth of the love. "Gave" (<em>edōken</em>) — a completed, irrevocable act. The Son was not loaned — He was given.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Romans 8:32 — The Logic That Removes All Doubt</span>
+      <div class="sc-text">"He that spared not his own Son, but delivered him up for us all, how shall he not with him also freely give us all things?"</div>
+      <div class="sc-note">Paul's argument is irrefutable: if God gave the most costly, most precious thing He possessed — the eternal Son — freely, why would He withhold anything of lesser value? The cross is the foundation of unshakeable trust in God's goodness in every circumstance.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"Could we as a people appreciate the great salvation provided for us, there would be much more fervent gratitude, much more earnest seeking after God... Nothing is so calculated to energise the memory and stimulate the affections as a sense of the matchless love of Christ in the gift of Calvary."</div>
+      <div class="egw-source">— The Desire of Ages, p. 660</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"It would be well for us to spend a thoughtful hour each day in contemplation of the life of Christ. We should take it point by point, and let the imagination grasp each scene, especially the closing ones. As we thus dwell upon His great sacrifice for us, our confidence in Him will be more constant, our love will be quickened."</div>
+      <div class="egw-source">— The Desire of Ages, p. 83</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"The love of Christ, once felt in the heart, will do what no other power can do — it will transform the heart, purify the desires, and fit the soul for the companionship of holy beings. When the soul is drawn to the cross of Christ, when it realises something of the infinite love of God there displayed, it is overwhelmed with gratitude and amazement."</div>
+      <div class="egw-source">— Steps to Christ, p. 26</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Great Controversy</span>
+      <div class="egw-text">"The cross of Christ will be the science and the song of the redeemed through all eternity. In Christ glorified they will behold Christ crucified. Never will it be forgotten that He whose power created and upheld the unnumbered worlds through the vast realms of space, the Beloved of God, the Majesty of heaven, He whom cherub and seraph delighted to adore — humbled Himself to uplift fallen man."</div>
+      <div class="egw-source">— The Great Controversy, p. 651</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 3</span>
+      <div class="egw-text">"Calvary is the measure of God's love. All spiritual growth must proceed from the cross as its centre. Take away the cross and you take away the reason for everything else in the Christian life. Leave it central and everything else — obedience, service, prayer, praise — finds its proper motive and proportion."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 3, p. 214 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Patriarchs and Prophets</span>
+      <div class="egw-text">"The sacrifice of Christ as an atonement for sin is the great truth around which all other truths cluster. In order to be rightly understood and appreciated, every truth in the Word of God, from Genesis to Revelation, must be studied in the light that streams from the cross of Calvary."</div>
+      <div class="egw-source">— Patriarchs and Prophets, p. 373</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Education</span>
+      <div class="egw-text">"The cross of Calvary challenges, and will finally vanquish, every earthly and hellish power. In the cross all influence centres, and from it all influence goes forth. It is the great attractive force which draws men unto God. It is the great magnet of history. When lifted up — in the life, in the preaching, in the contemplation — it draws."</div>
+      <div class="egw-source">— Education, p. 263 (paraphrased)</div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-head">Returning to the Cross — Disciplines for Daily and Weekly Life</div>
+      <div class="practice-body">
+        <ul>
+          <li>Read the Gethsemane-to-Resurrection chapters of The Desire of Ages (chapters 74–80) slowly, once a month — EGW called this her most important writing on the subject</li>
+          <li>Read one of the four crucifixion accounts (Matt. 26–27, Mark 14–15, Luke 22–23, John 18–19) slowly once a week, as if present at the scene</li>
+          <li>Meditate on one verse of Isaiah 53 per day for a month — let each phrase land fully before moving on</li>
+          <li>When guilt or spiritual distance is felt, go to the cross first — not to try harder, but to receive. Grace comes before effort.</li>
+          <li>Observe the Lord's Supper as a deliberate meditation on Calvary, not a ritual to complete — "Do this in remembrance of me" (Luke 22:19)</li>
+          <li>When beholding another person's need or suffering, ask: "What did God give up to redeem this person?" — it deepens both compassion and love for God</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<!-- PART 2: Sections IX-XV -->
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- IX. GRATITUDE & PRAISE -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s9" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section IX</span>
+      <h2>Gratitude &amp; Praise</h2>
+      <p class="section-tagline">"Bless the LORD, O my soul: and all that is within me, bless his holy name. Bless the LORD, O my soul, and forget not all his benefits." — Psalm 103:1–2</p>
+    </div>
+
+    <p>Gratitude is simultaneously a fruit of love for God and one of the most powerful channels through which love grows. The soul that cultivates thankfulness becomes increasingly aware of God's presence and goodness in every dimension of life — and awareness of God's goodness is the seedbed of deeper love. Conversely, the soul that allows itself to focus on lack, complaint, and disappointment gradually becomes blind to the God who is constantly surrounding it with mercy.</p>
+
+    <p>EGW was remarkably insistent on this — she treated gratitude not as a nice spiritual accent but as a moral and spiritual obligation, a spiritual discipline with measurable effects on the health of the soul. The Psalms model it extravagantly: 150 chapters in which praise, lament, and thanksgiving weave together in an unbreakable cord of relational honesty with God.</p>
+
+    <div class="word">
+      <div class="word-glyph">הָלַל</div>
+      <div class="word-info">
+        <span class="word-lang">Hebrew</span>
+        <div class="word-name">Halal</div>
+        <div class="word-trans">ha-LAHL — Strong's H1984</div>
+        <div class="word-def">The root of "Hallelujah" — to praise, to boast, to celebrate with great enthusiasm. It is exuberant, unrestrained praise. The word carries the idea of shining, of reflecting light. To praise God is to reflect His glory back to its source. Used 165 times in the Old Testament, it reaches its peak in the final five Psalms (146–150), each of which opens and closes with "Hallelujah." God does not call for reluctant, quiet acknowledgment — He calls for exuberant, joyful, shining praise.</div>
+      </div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Psalm 100:4 — Thanksgiving as the Gate</span>
+      <div class="sc-text">"Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name."</div>
+      <div class="sc-note">The temple had literal gates and courts — progressively inward spaces of increasing holiness. The Psalmist maps the spiritual journey into God's presence onto this architecture: you enter <em>through</em> thanksgiving. It is not that you arrive in God's presence and then feel grateful — you come through gratitude to arrive in His courts. Thanksgiving is the doorway.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Philippians 4:6–7 — The Peace That Follows Thankful Prayer</span>
+      <div class="sc-text">"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus."</div>
+      <div class="sc-note">Note that thanksgiving is embedded in the petition itself — not added as an afterthought. Paul instructs that every request be accompanied by thanksgiving. This disciplines the heart to see God's goodness even while presenting its needs. The result is not just answered prayer but peace — the "peace that passes understanding."</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">1 Thessalonians 5:18 — In Everything</span>
+      <div class="sc-text">"In every thing give thanks: for this is the will of God in Christ Jesus concerning you."</div>
+      <div class="sc-note">"In everything" — not <em>for</em> everything (we are not commanded to be grateful for evil itself) but <em>in</em> every circumstance, maintaining a posture of trust that God is sovereign and good even when the situation is not. This is advanced gratitude — the thanksgiving that operates in darkness as well as light.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Acts 16:25 — Praise in the Prison</span>
+      <div class="sc-text">"And at midnight Paul and Silas prayed, and sang praises unto God: and the prisoners heard them."</div>
+      <div class="sc-note">Midnight. After flogging. In stocks. Inner prison. And they sang. This is not cheerful denial of suffering — it is the active, deliberate choice to worship God in the worst circumstances. The result: an earthquake, open doors, a conversion. God answered the praise with power.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"Nothing tends more to promote health of body and of soul than does a spirit of gratitude and praise. It is a positive duty to resist melancholy, discontented thoughts and feelings — as much a duty as it is to pray. If we would have the blessing of God, we must cultivate cheerfulness; we must praise Him more."</div>
+      <div class="egw-source">— The Ministry of Healing, p. 251</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"Sing more, and talk less of your difficulties and discouragements. Praise God more. If you would have the joy of the Lord, cultivate gratitude... Those who are always sighing and complaining are robbing themselves of spiritual power. You cannot afford to grieve. Praise is a key that unlocks heaven's storehouses."</div>
+      <div class="egw-source">— Steps to Christ, p. 103 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"Gratitude is the fairest blossom which springs from the soul. It is not alone the poverty of the gifts we receive that fails to produce gratitude, but the poverty of our perception of those gifts... We are surrounded every moment with mercies too numerous to count, and too vast to measure."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 317 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 1</span>
+      <div class="egw-text">"In my travels I have met with those who seemed to think it a mark of humility to mourn and complain... But this is not humility — it is unbelief. True humility is grateful. It says, 'I deserve nothing, and God has given me everything.' The humble soul praises most because it is most astonished by mercy."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 1, p. 702 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Gospel Workers</span>
+      <div class="egw-text">"Music is one of the most effective means of impressing the heart with spiritual truth... Singing is as much an act of worship as prayer. Fill the home with music. Let the children learn hymns. Let praise be the atmosphere of the household as well as the church."</div>
+      <div class="egw-source">— Gospel Workers, p. 358 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Education</span>
+      <div class="egw-text">"Praise, with gratitude to God, the Maker of heaven and earth, will keep the heart young and joyous. To count your blessings, to tell of His mercies, to rehearse the goodness of God — this is not sentiment. It is the exercise of the most powerful spiritual faculty available to the human soul."</div>
+      <div class="egw-source">— Education, p. 159 (paraphrased)</div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-head">Gratitude Disciplines That Build Love for God</div>
+      <div class="practice-body">
+        <ul>
+          <li><strong>Evening gratitude review:</strong> Before sleep, name five specific things God gave or did that day — not generic ("life and breath") but particular ("He gave me patience when I was provoked," "He sent that person to encourage me at exactly the right moment"). Specificity deepens the sense of God's personal involvement in your life.</li>
+          <li><strong>Keep a praise journal:</strong> Write answered prayers, mercies noticed, moments of unexpected beauty or help. Review it when darkness comes — the accumulated record of God's faithfulness becomes an anchor for faith. "I have not forgotten your mercies of former years." (Lam. 3:22 paraphrased)</li>
+          <li><strong>Begin every prayer session with extended praise:</strong> Spend the first five minutes of prayer solely on who God is and what He has done — before any petition. The Lord's Prayer models this structure: "Hallowed be thy name" before "give us this day." This disciplines the heart to approach God as Giver before Responder.</li>
+          <li><strong>Praise specifically in trial:</strong> In hardship, identify one thing God is doing or one attribute of His character that is trustworthy in this situation. Thank Him for that specifically, even if you cannot yet see the outcome. This is the "sacrifice of praise" (Heb. 13:15) — offered when it costs something.</li>
+          <li><strong>Sing praise deliberately and regularly:</strong> Singing engages emotion and will simultaneously in a way spoken prayer alone does not. "Singing and making melody in your heart to the Lord." (Eph. 5:19). Keep hymns and worship music as the soundtrack of your daily life as much as possible.</li>
+          <li><strong>Tell others what God has done:</strong> "Come and hear, all ye that fear God, and I will declare what he hath done for my soul." (Ps. 66:16). Bearing witness to God's goodness deepens your own awareness of it. Testimony reinforces memory, and memory of God's goodness builds love.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- X. NATURE AS A SCHOOL OF LOVE -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s10" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section X</span>
+      <h2>Nature as a School of Love</h2>
+      <p class="section-tagline">"The heavens declare the glory of God; and the firmament sheweth his handywork. Day unto day uttereth speech, and night unto night sheweth knowledge." — Psalm 19:1–2</p>
+    </div>
+
+    <p>EGW held a theology of nature that was more robust, more intentional, and more spiritually practical than almost any contemporary voice. She did not view the natural world as a pleasant backdrop for human activity — she viewed it as God's second book, an ongoing revelation of His character that complements and illuminates the written Word. In an age of screens, artificiality, and indoor disconnection, this aspect of her counsel is perhaps more urgently needed than at any time since she wrote it.</p>
+
+    <p>God's original school for humanity was a garden (Gen. 2:8). His original Sabbath context was the completion of creation (Gen. 2:1–3). His original instruction for the human race was to tend, name, and engage with the living world around them. Disconnection from nature is not spiritually neutral — it cuts us off from one of God's primary channels of revelation and love.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Psalm 19:1–4 — Creation as Continuous Speech</span>
+      <div class="sc-text">"The heavens declare the glory of God; and the firmament sheweth his handywork. Day unto day uttereth speech, and night unto night sheweth knowledge. There is no speech nor language, where their voice is not heard. Their line is gone out through all the earth, and their words to the end of the world."</div>
+      <div class="sc-note">Creation speaks constantly — "day unto day uttereth speech." It is not a one-time message delivered at creation and then silent. It is ongoing declaration, moment by moment, in every language and every landscape. The question is whether we are listening.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Romans 1:20 — Invisible Things Made Visible</span>
+      <div class="sc-text">"For the invisible things of him from the creation of the world are clearly seen, being understood by the things that are made, even his eternal power and Godhead; so that they are without excuse."</div>
+      <div class="sc-note">Paul's claim is remarkable: God's <em>invisible</em> attributes — His eternal power and divine nature — are <em>clearly seen</em> through what He has made. The created order is not a hint of God; it is a clear revelation. Theology can be done outdoors, not only in libraries.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Job 12:7–9 — Ask the Animals</span>
+      <div class="sc-text">"But ask now the beasts, and they shall teach thee; and the fowls of the air, and they shall tell thee: Or speak to the earth, and it shall teach thee: and the fishes of the sea shall declare unto thee. Who knoweth not in all these that the hand of the LORD hath wrought this?"</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Matthew 6:26–29 — Jesus' Theology From Nature</span>
+      <div class="sc-text">"Behold the fowls of the air: for they sow not, neither do they reap, nor gather into barns; yet your heavenly Father feedeth them... Consider the lilies of the field, how they grow; they toil not, neither do they spin: And yet I say unto you, That even Solomon in all his glory was not arrayed like one of these."</div>
+      <div class="sc-note">Jesus habitually drew theological lessons from the natural world — birds, seeds, vines, sheep, wolves, weather, harvest. His parables are saturated with creation imagery. He was teaching His disciples to read God's character in what surrounded them every day.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Education</span>
+      <div class="egw-text">"Through nature and revelation, through His providence, and by the influence of the Holy Spirit, God speaks to us... Every budding flower, every dewdrop and gentle rain, the solemn grandeur of the hills, the mighty ocean, and countless orbs of night — all these speak to us of God's love and power."</div>
+      <div class="egw-source">— Education, p. 99</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Desire of Ages</span>
+      <div class="egw-text">"The Sabbath calls our thoughts to nature, and brings us into communion with the Creator. In the song of the bird, the sighing of the trees, and the music of the sea, we still may hear His voice who talked with Adam in Eden in the cool of the day. And nature still speaks to us of His tenderness and His love."</div>
+      <div class="egw-source">— The Desire of Ages, p. 281</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"There is healing in the natural world for the wounds of the soul. In contact with nature there is a restoration of that peace which so many have lost... God is approached more readily through nature than through the artificialities of human construction. He has placed His signature on every leaf, every stone, every creature."</div>
+      <div class="egw-source">— The Ministry of Healing, pp. 59–60 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 6</span>
+      <div class="egw-text">"Those who live in close contact with nature are refreshed and invigorated. Outdoor life is one of the most effective means of combating the depression and discouragement that so often attend spiritual decline. Open the windows of the soul to nature's classroom."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 6, p. 178 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"Let the student of nature turn his eyes to the God of nature, and a tide of love will flow from the heart of the Infinite to the finite... The flowers, the grass, the trees, the brooks, the very stones, are a language in which God speaks to us of His mercy, His tenderness, His care."</div>
+      <div class="egw-source">— Steps to Christ, p. 86</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Child Guidance</span>
+      <div class="egw-text">"Parents should take their children into the garden and the field, and point out to them the beautiful things God has made... Let children be taught that God made all of these things in love — that not one sparrow falls without His notice. This is the theology of childhood that produces the devotion of adulthood."</div>
+      <div class="egw-source">— Child Guidance, p. 45 (paraphrased)</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">How to Read Nature Theologically</div>
+      <p>The next time you are outdoors, choose one object — a tree, a flower, an ant colony, a bird, a sunset, a river — and ask deliberately: <em>What does this reveal about its Maker?</em> A tree's invisible root system sustaining what is visible above — the hidden life of faith. Seeds that must die to produce life — the theology of the cross encoded in botany. The sun that rises every morning without fail — the faithfulness of God who does not sleep. The sunset's gratuitous, unnecessary beauty, given freely to every creature every evening — the extravagance of divine love. These are not merely pleasant observations. They are love letters from a God who cannot stop expressing Himself through everything He makes.</p>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- XI. SERVICE & LOVING OTHERS -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s11" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section XI</span>
+      <h2>Service &amp; Loving Others</h2>
+      <p class="section-tagline">"Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me." — Matthew 25:40</p>
+    </div>
+
+    <p>One of the most counterintuitive but consistently verified truths in Christian spirituality is this: you do not grow in love for God by turning inward on yourself, even religiously. Self-examination taken to excess becomes a self-reinforcing spiral of introspection. But the soul that turns outward in service — that pours itself out for others — consistently finds God meeting it there in the service, and returns from service with a deeper love than it left with.</p>
+
+    <p>EGW returned to this truth across her writings with extraordinary consistency. It is the cure for doubt, depression, spiritual stagnation, backsliding, and cold love. Service is not the reward for spiritual maturity — it is the means of producing it.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Matthew 25:35–40 — Christ Encountered in the Needy</span>
+      <div class="sc-text">"For I was an hungred, and ye gave me meat: I was thirsty, and ye gave me drink: I was a stranger, and ye took me in: naked, and ye clothed me: I was sick, and ye visited me: I was in prison, and ye came unto me... Inasmuch as ye have done it unto one of the least of these my brethren, ye have done it unto me."</div>
+      <div class="sc-note">Jesus does not say He is <em>represented by</em> the suffering — He says He <em>is</em> the suffering. When you serve a hungry person, you are literally ministering to Christ. This transforms service from duty into encounter. You do not merely help the poor — you find Christ in the serving.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">1 John 4:20 — The Test That Cannot Be Faked</span>
+      <div class="sc-text">"If a man say, I love God, and hateth his brother, he is a liar: for he that loveth not his brother whom he hath seen, how can he love God whom he hath not seen?"</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">James 2:14–17 — Faith Made Visible in Service</span>
+      <div class="sc-text">"What doth it profit, my brethren, though a man say he hath faith, and have not works? can faith save him? If a brother or sister be naked, and destitute of daily food, and one of you say unto them, Depart in peace, be ye warmed and filled; notwithstanding ye give them not those things which are needful to the body; what doth it profit?"</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Isaiah 58:6–8 — The Fast God Chooses</span>
+      <div class="sc-text">"Is not this the fast that I have chosen? to loose the bands of wickedness, to undo the heavy burdens, and to let the oppressed go free... Is it not to deal thy bread to the hungry, and that thou bring the poor that are cast out to thy house? when thou seest the naked, that thou cover him... Then shall thy light break forth as the morning, and thine health shall spring forth speedily."</div>
+      <div class="sc-note">God explicitly links outward service to inward spiritual light. "Then shall thy light break forth" — after and because of the service. The light of spiritual experience is the consequence of outward, practical love for the suffering.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"If you will go to work as Christ designs that His disciples shall, and win souls for Him, you will feel the need of a deeper experience and a greater knowledge in divine things, and will hunger and thirst after righteousness. You will plead with God, and your faith will be strengthened, and your soul will drink deeper drafts at the well of salvation."</div>
+      <div class="egw-source">— Steps to Christ, p. 80</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"The soul that is sluggish and cold in spiritual things will find quickening power in service. It is not by contemplation alone that the soul grows strong, but by active effort in behalf of others. As the hand that is constantly in use grows stronger, so the spiritual faculties that are constantly employed in ministry grow stronger."</div>
+      <div class="egw-source">— The Ministry of Healing, p. 148 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 2</span>
+      <div class="egw-text">"Doing good is the best remedy for the doubting and the despairing. When the dark moods come, when faith wavers and love grows cold — do not sit and wait for the feeling to change. Rise and serve. Visit the sick. Relieve the poor. Encourage the discouraged. The warmth will return in the doing."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 2, p. 135 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"The talents are to be used for the benefit of the world. This is the condition of their growth. A talent withheld is a talent that atrophies. Love unexpressed is love that diminishes. Serve, and love multiplies. Withhold, and love contracts. The law of the kingdom is that giving increases."</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 356 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"Prayer and effort, effort and prayer, will be the business of your life. You must pray as though the efficiency were all in God, and labour as though it were all in you. Both are true simultaneously. And the combination produces a depth of love and a breadth of usefulness that neither alone can generate."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 200 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 9</span>
+      <div class="egw-text">"God has given to every man his work. The very humblest worker in the vineyard of the Lord is as much on a mission from God as the apostle Paul. The errand boy who runs his message, the domestic who sweeps the floor, the mother who rocks her child — all, if acting in the fear of God and love of man, are doing the will of God."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 9, p. 130 (paraphrased)</div>
+    </div>
+
+    <div class="heart-box">
+      <h4>Service as the Cure for Spiritual Stagnation</h4>
+      <p>Much spiritual coldness is the product of inward focus — endless self-examination, worry about spiritual state, preoccupation with one's own needs. EGW's prescription is consistent and almost shockingly simple: <strong>get up and serve someone</strong>. Not after you feel spiritual. Now, regardless of feeling.</p>
+      <p>Practical outlets this week: visit one person who is sick or lonely. Prepare a meal for a family under stress. Write a letter or message of genuine encouragement to someone struggling. Give something away that costs you something. Share your faith with one person — not with a pamphlet but with your own story. Volunteer at a food kitchen, a prison ministry, a community garden.</p>
+      <p>You will return from these acts of service with more love for God than you left with. This is not theory — it is the consistent testimony of everyone who has tried it.</p>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- XII. TRIALS -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s12" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section XII</span>
+      <h2>Trials &amp; the Furnace of Growth</h2>
+      <p class="section-tagline">"That the trial of your faith, being much more precious than of gold that perisheth, though it be tried with fire, might be found unto praise and honour and glory at the appearing of Jesus Christ." — 1 Peter 1:7</p>
+    </div>
+
+    <p>No serious treatment of spiritual growth can sidestep suffering. Trials are not the enemy of love for God — they are, handled rightly, among its most powerful and irreplaceable catalysts. The love produced in shallow prosperity is shallow love. The love forged in the furnace of genuine trial — the kind that holds through confusion, through unanswered prayer, through loss — is a love that eternity itself cannot shake.</p>
+
+    <p>EGW's theology of suffering is neither stoic denial nor passive resignation. It is active, interpretive trust — the decision to keep the eyes on God's character in the midst of what cannot yet be explained. And it is grounded in the consistent biblical narrative that God's greatest servants were almost universally shaped by severe trial.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Romans 5:3–5 — The Theology of Suffering</span>
+      <div class="sc-text">"And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; and patience, experience; and experience, hope: and hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us."</div>
+      <div class="sc-note">The chain is precise: tribulation → patience (endurance) → proven character → hope → and the destination is "the love of God shed abroad in our hearts by the Holy Spirit." Suffering, surrendered to God and endured in faith, leads directly to a greater experience of God's love — not as consolation prize, but as direct consequence.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Job 23:10 — Gold from the Fire</span>
+      <div class="sc-text">"But he knoweth the way that I take: when he hath tried me, I shall come forth as gold."</div>
+      <div class="sc-note">Job speaks this in the depths of his suffering — after he has lost everything, while he cannot find God, while his friends condemn him. Yet his faith holds: <em>when He has tried me</em> (not if, but when — certainty of outcome), <em>I shall come forth as gold</em>. This is not pretence — it is the most courageous act of faith in the Old Testament.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Hebrews 12:6–11 — Discipline as Evidence of Sonship</span>
+      <div class="sc-text">"For whom the Lord loveth he chasteneth, and scourgeth every son whom he receiveth... Now no chastening for the present seemeth to be joyous, but grievous: nevertheless afterward it yieldeth the peaceable fruit of righteousness unto them which are exercised thereby."</div>
+      <div class="sc-note">The word "afterward" is everything. The fruit is not present-tense but future-tense — it is yielded through and after the discipline. This requires patience: the willingness to trust God's purpose before the fruit is visible.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">2 Corinthians 4:17 — Weight of Glory</span>
+      <div class="sc-text">"For our light and momentary troubles are achieving for us an eternal glory that far outweighs them all."</div>
+      <div class="sc-note">Paul uses the language of weight — trials have weight, but glory has far greater weight. And the striking word is "achieving" (<em>katergazetai</em>) — the affliction is actively producing, working out, accomplishing the glory. Suffering is not merely endured — it is productive.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"The very trials that test our faith most severely are designed to strengthen it. God leads His people by a way they know not, but He knows the way. And when they have been sufficiently tested, He will bring forth their character as gold tried in the fire. Every soul who has gone through deep trial and emerged holding God's hand has a story that shallow comfort could never produce."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 212</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"In the school of trial, God would teach us lessons that we could not learn in any other way. In the furnace of affliction, the dross of self and pride and worldliness is burned away, and the gold of character is purified and made more precious. The Father's hand holds the chisel. The furnace is hot. But the gold does not suffer — only the dross does."</div>
+      <div class="egw-source">— The Ministry of Healing, p. 489 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Great Controversy</span>
+      <div class="egw-text">"The darkness of suffering is often God's light seen from behind. As Moses in the cleft of the rock saw God's back as He passed — not His full face — so in the midst of trial we see only the trailing edge of His glory. The full face is for after the trial. But the back of God is still God."</div>
+      <div class="egw-source">— The Great Controversy, p. 621 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Patriarchs and Prophets</span>
+      <div class="egw-text">"The history of Joseph is a history of a soul who grew in love for God through every trial — in the pit, in Potiphar's house, in the prison. At no point did he have answers. At every point he had God. And what came out of that furnace was not bitterness but wisdom, not hatred but forgiveness, not cynicism but the deepest trust in divine sovereignty that the Old Testament records."</div>
+      <div class="egw-source">— Patriarchs and Prophets, p. 239 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 4</span>
+      <div class="egw-text">"God does not willingly afflict or grieve the children of men. If we could see, as God sees, how great eternal results are being wrought out through the trials of life, we would not desire those trials removed, but would say with full heart: 'It is enough that what grieves me pleases God. His will be done.'"</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 4, p. 527 (paraphrased)</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">The Question in the Furnace</div>
+      <p>When trial comes, the deepest question is not "Why is God doing this?" but "Who is God in this?" The three Hebrew young men in Daniel 3 did not know whether they would survive the furnace — but they knew the character of the God they served. "Our God whom we serve is able to deliver us... but if not, be it known unto thee, O king, that we will not serve thy gods." (Dan. 3:17–18). And in the furnace, they encountered a Fourth Person. You do not encounter that Presence in comfort. You encounter Him in fire.</p>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- XIII. OBSTACLES TO LOVE -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s13" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section XIII</span>
+      <h2>Common Obstacles to Love for God</h2>
+      <p class="section-tagline">"Nevertheless I have somewhat against thee, because thou hast left thy first love." — Revelation 2:4</p>
+    </div>
+
+    <p>The church at Ephesus had correct doctrine, disciplined practice, patient endurance under persecution, and a tested ability to identify false teaching. By almost every external measure it was a model church. And yet Jesus had one devastating charge: <em>thou hast left thy first love</em>. It is possible — distressingly possible — to maintain all the forms of religion while the heart has quietly drifted from God. EGW identified the specific thieves of love with prophetic precision across her writings.</p>
+
+    <div class="obstacle-grid">
+      <div class="obstacle-card">
+        <h4>The Cares of This Life</h4>
+        <p>"Choked with cares and riches and pleasures of this life, and bring no fruit to perfection." (Luke 8:14). Busyness is the most socially acceptable and most spiritually lethal killer of love for God. The remedy is not less work but deliberately protected time with God — time that cannot be negotiated away by urgent things.</p>
+      </div>
+      <div class="obstacle-card">
+        <h4>Unconfessed and Cherished Sin</h4>
+        <p>"If I regard iniquity in my heart, the Lord will not hear me." (Ps. 66:18). Sin does not merely break God's law — it distorts the soul's perception of God. Cherished sin creates a spiritual blindfold. The remedy is not self-condemnation but honest, specific confession and the acceptance of forgiveness that God has promised.</p>
+      </div>
+      <div class="obstacle-card">
+        <h4>Spiritual Pride and Self-Sufficiency</h4>
+        <p>EGW: "The Laodicean message is given to a church that thinks it is rich and increased with goods and in need of nothing — but is in fact wretched, poor, blind, and naked." (Rev. 3:17). The soul confident in its own spiritual attainments stops hungering. Pride of knowledge or spiritual standing is a stone door against love.</p>
+      </div>
+      <div class="obstacle-card">
+        <h4>Dead Formalism</h4>
+        <p>Going through the motions — prayer without heart, church attendance without engagement, Bible reading without expectation. EGW called this "the most dangerous spiritual state": having the form of godliness while denying the power (2 Tim. 3:5). It produces comfort without connection and dulls the capacity for genuine spiritual experience.</p>
+      </div>
+      <div class="obstacle-card">
+        <h4>Media Saturation and Sensory Overload</h4>
+        <p>EGW warned repeatedly that the mind fed on exciting, violent, or sensual content loses its capacity for spiritual impression. "The mind is the medium through which God reaches the soul. Dull or corrupt it, and the channel is blocked." (Testimonies, Vol. 5, p. 543, paraphrased). The spiritual atrophy of excessive screen time is one of the most urgent modern applications of her counsel.</p>
+      </div>
+      <div class="obstacle-card">
+        <h4>Holding Unforgiveness and Grudges</h4>
+        <p>"If ye forgive not men their trespasses, neither will your Father forgive your trespasses." (Matt. 6:15). Unforgiveness is not merely a moral failing — it closes the heart at its deepest point. A heart that will not open fully to a human being it can see cannot fully open to God whom it cannot see. Forgiveness is a prerequisite of deep intimacy with God.</p>
+      </div>
+      <div class="obstacle-card">
+        <h4>Comparing Yourself to Others</h4>
+        <p>The soul that measures its spiritual state against other people's visible piety will become either proud or discouraged — neither of which leads toward God. EGW: "Keep the eye fixed on Jesus, not on your brother. Christ is the standard. Everything else is irrelevant as a measure." The comparison game always distracts from the only Comparison that matters.</p>
+      </div>
+      <div class="obstacle-card">
+        <h4>Neglecting Known Light</h4>
+        <p>"To him that knoweth to do good, and doeth it not, to him it is sin." (James 4:17). Disobedience to known light dims the spiritual perception that would receive more light. Love grows in the direction of obedience and atrophies in the direction of wilful neglect. Every time you act on what you know, love deepens. Every time you suppress it, the capacity diminishes.</p>
+      </div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"The first steps of apostasy are taken when men substitute their own plans for God's... Spiritual decline is almost always gradual — first one small compromise, then another, then a rationalisation, then a habit. By the time the soul realises how far it has drifted, the current is strong. The remedy must be equally decisive: stop, turn, return."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 217 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 4</span>
+      <div class="egw-text">"We lose much by not maintaining a constant, living connection with God. We should cultivate the knowledge of Him. We should not be content to know that the theory of truth is correct while the heart has grown cold toward the God of that truth."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 4, p. 394</div>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- XIV. REVIVING COLD LOVE -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s14" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section XIV</span>
+      <h2>Reviving Cold Love</h2>
+      <p class="section-tagline">"Remember therefore from whence thou art fallen, and repent, and do the first works." — Revelation 2:5</p>
+    </div>
+
+    <p>Spiritual coldness is not unusual — it is nearly universal at some season of the Christian life. The most honest saints in history have written about it: David in the Psalms, Jeremiah in his laments, John of the Cross in the Dark Night of the Soul, and EGW herself acknowledged that the spiritual life has seasons of winter. The question is not whether cold love will happen — it is what to do when it does.</p>
+
+    <p>Jesus' prescription to Ephesus is remarkably specific, practically actionable, and mercifully brief. Three words: <em>remember, repent, return</em>. There is no lengthy programme, no extended qualification process, no season of suffering required before restoration. Just three steps, available today.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Revelation 2:4–5 — The Three-Part Prescription</span>
+      <div class="sc-text">"Nevertheless I have somewhat against thee, because thou hast left thy first love. Remember therefore from whence thou art fallen, and repent, and do the first works; or else I will come unto thee quickly, and will remove thy candlestick out of his place, except thou repent."</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Hosea 6:1–3 — The Call to Return</span>
+      <div class="sc-text">"Come, and let us return unto the LORD: for he hath torn, and he will heal us; he hath smitten, and he will bind us up. After two days will he revive us: in the third day he will raise us up, and we shall live in his sight. Then shall we know, if we follow on to know the LORD."</div>
+      <div class="sc-note">"Follow on to know" — the knowledge of God deepens by following Him, not merely by studying about Him. Return is both intellectual (remember) and volitional (repent) and practical (do the first works — follow on).</div>
+    </div>
+
+    <div class="sc">
+      <span class="sc-ref">Lamentations 3:21–23 — Returning to Hope in Darkness</span>
+      <div class="sc-text">"This I recall to my mind, therefore have I hope. It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness."</div>
+      <div class="sc-note">Jeremiah writes this in the ashes of Jerusalem — surrounded by devastation, grief, and apparent divine abandonment. And yet he makes a deliberate decision: "This I recall to my mind" — he chooses what to think about. He reaches for mercy rather than despair. This is the first move of recovering love: deliberate remembrance of God's faithfulness.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"If you feel that you have no love for Christ, and yet desire this love, it is evidence that He is drawing you... The desire to be in harmony with God is the beginning of recovery. Do not wait until you feel right. Act right, and feeling will follow. Go to God in the poverty of your soul, without anything to recommend you, and cast yourself on His grace."</div>
+      <div class="egw-source">— Steps to Christ, pp. 47, 64 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 5</span>
+      <div class="egw-text">"When the soul that has wandered returns to God, it will find Him waiting. The prodigal while yet a great way off — still in rags, still smelling of the swine — was seen by the father who ran to meet him. God does not wait at the finish line of recovery — He runs toward you while you are still on the road back."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 5, p. 635 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Review and Herald, Nov. 1, 1892</span>
+      <div class="egw-text">"The backslider need not regard himself as beyond the reach of help. He has not sinned away his day of grace as long as he feels drawn toward God. The very drawing is the Holy Spirit at work. Come back. Come now. Every step toward God is met with many steps by God toward you."</div>
+      <div class="egw-source">— Review and Herald, November 1, 1892 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 1</span>
+      <div class="egw-text">"Return in memory to your first love. What were you doing when love was warm? Reading the Word daily? Praying with earnestness? Attending church with expectation? Serving others? Witnessing? Return to those practices — not to earn restoration, but as the channels through which restoration flows. The means of grace are the channels of grace."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 1, p. 155 (paraphrased)</div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Remember</h4>
+          <p>Go back in memory to when your love was alive. What were you doing? What were you reading? Who were you spending time with? What were your daily rhythms of prayer and Scripture? What was the quality of your attention to God? Compare that season with the present. The contrast itself is the beginning of returning — you cannot grieve what you do not remember.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Repent</h4>
+          <p>Not flogging yourself with guilt — that is not repentance, it is self-punishment. Repentance is honest reorientation: "Lord, I have drifted. I have let other things crowd You out. I have preferred my comfort to Your presence. I come back." The prodigal said "I will arise and go to my father" — and then he arose and went. Repentance is completed in the movement, not the feeling.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Do the First Works</h4>
+          <p>Return to the specific practices that marked your early love — even without the feeling. Open the Bible. Pray aloud. Attend church. Serve someone this week. Read The Desire of Ages. Take a prayer walk. Contact that friend you have been avoiding. Fast one meal and spend that time with God. Act in the direction of love, and love will follow. EGW: "The feelings are the caboose, not the engine. The will drives the train."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-text">"I will heal their backsliding, I will love them freely: for mine anger is turned away from him."</div>
+      <div class="promise-ref">— Hosea 14:4</div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-text">"Return unto me, and I will return unto you, saith the LORD of hosts."</div>
+      <div class="promise-ref">— Malachi 3:7</div>
+    </div>
+  </section>
+
+  <div class="divider fi"><div class="divider-line"></div><div class="divider-mark">✦ ✦ ✦</div><div class="divider-line"></div></div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- XV. DAILY RHYTHM -->
+  <!-- ══════════════════════════════════════════ -->
+  <section id="s15" class="fi">
+    <div class="section-head">
+      <span class="section-label">Section XV</span>
+      <h2>A Daily Rhythm of Growing Love</h2>
+      <p class="section-tagline">"It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness." — Lamentations 3:22–23</p>
+    </div>
+
+    <p>Love for God does not grow in theory — it grows in daily, specific, embodied practice. EGW was deeply and consistently practical: the spiritual life has rhythms and disciplines, and without them it withers regardless of intention or emotional sincerity. She was not legalistic about these rhythms — she was insistent about them because she understood the nature of the human soul in its present condition: it requires structure, it requires habits, it requires the repeated placing of itself before God to remain open to God.</p>
+
+    <p>The following rhythm is synthesised from across her writings, Scripture, and the practical wisdom of the whole tradition of Christian spirituality. It is a framework, not a formula — adapt it to your season, your responsibilities, your temperament. But do not abandon it entirely. The shape matters even when the form varies.</p>
+
+    <div class="sc">
+      <span class="sc-ref">Lamentations 3:22–23 — New Every Morning</span>
+      <div class="sc-text">"It is of the LORD's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness."</div>
+      <div class="sc-note">God's compassions (Hebrew: <em>rachamim</em> — womb-like tender mercies) are renewed every morning. Each day God presses fresh grace toward us. Each morning is a new beginning — not a continuation of yesterday's failure but a fresh outpouring of new mercy. The rhythm of daily renewal is built into the structure of divine compassion itself.</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ</span>
+      <div class="egw-text">"Consecrate yourself to God in the morning; make this your very first work. Let your prayer be, 'Take me, O Lord, as wholly Thine. I lay all my plans at Thy feet. Use me today in Thy service. Abide with me, and let all my work be wrought in Thee.' This is a daily matter. Each morning consecrate yourself to God for that day. Surrender all your plans to Him, to be carried out or given up as His providence shall indicate."</div>
+      <div class="egw-source">— Steps to Christ, p. 70</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 7</span>
+      <div class="egw-text">"Every morning we should present ourselves, our souls and bodies, to God and ask for the grace of the Holy Spirit to work in us mightily... Not only in the morning, but at noon, at night, and at all times, the soul needs to be kept humble and trusting before God, dependent upon divine grace and willing to be led and controlled by the Spirit."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 7, p. 44</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Messages to Young People</span>
+      <div class="egw-text">"The hours of morning and evening devotion are precious beyond calculation. Begin the day with God. Close the day with God. Let nothing crowd these appointments out. Every other part of the day will go better for having begun and ended in His presence."</div>
+      <div class="egw-source">— Messages to Young People, p. 337 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Testimonies, Vol. 4</span>
+      <div class="egw-text">"The morning watch — the quiet hour alone with God — is the foundation of the whole day's spiritual tone. If this is neglected, the soul goes into the day unarmed. If it is kept, the soul meets the day equipped. Simple as this sounds, it is among the most transformative disciplines available to the Christian."</div>
+      <div class="egw-source">— Testimonies for the Church, Vol. 4, p. 459 (paraphrased)</div>
+    </div>
+
+    <h3 class="sub">A Full Daily Rhythm</h3>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-icon">🌅</div>
+        <h4>First Moments — Consecration</h4>
+        <p>Before the phone, before news, before conversation — give the first conscious moments to God. A brief prayer of consecration: "Lord, this day is Yours. I am Yours. Lead me." This anchors the will before the world sets its agenda.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">📖</div>
+        <h4>Morning — Scripture</h4>
+        <p>20–30 minutes minimum in the Word. Read slowly. Read one passage and stay with it rather than racing through chapters. Ask: what does this show me about God? Journal one observation. Let the Word shape the day's mindset.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🙏</div>
+        <h4>Morning — Prayer</h4>
+        <p>Begin with praise (who God is). Move to gratitude (what He has done). Confess honestly. Intercede for five specific people by name. Present your own needs. Listen. Keep a prayer journal — record what you prayed and when God answers.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🌿</div>
+        <h4>Throughout the Day — Breath Prayers</h4>
+        <p>"Pray without ceasing" (1 Thess. 5:17) lived practically: short, arrow prayers all day. "Lord, help me here." "Thank you for that." "Give me wisdom in this meeting." "I trust you with this worry." The day becomes a sustained conversation rather than a secular interruption between two prayer sessions.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🤝</div>
+        <h4>Afternoon — One Act of Service</h4>
+        <p>Every day, one intentional act of love toward another person. It need not be large. Encourage one person specifically. Give something. Listen without interrupting. These small daily acts of service keep love flowing outward and prevent spiritual stagnation.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🌄</div>
+        <h4>Evening — Review and Gratitude</h4>
+        <p>Before sleep, review the day with God. Where did you see Him at work? What are you specifically grateful for? What needs to be confessed before you sleep? Rest in His forgiveness. Do not carry tomorrow's burdens into sleep — "casting all your care upon him; for he careth for you." (1 Pet. 5:7)</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🎵</div>
+        <h4>Throughout — Sacred Music</h4>
+        <p>EGW: "Cultivate the love of sacred music. It is one of the most effective means of impressing the heart with spiritual truth." (Gospel Workers, p. 358). Let hymns and worship music fill the silence of the day — while cooking, commuting, working. The singing heart is a heart turned toward God.</p>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">📚</div>
+        <h4>Weekly — EGW Devotional Reading</h4>
+        <p>Alongside Scripture, read one chapter of The Desire of Ages, Steps to Christ, or Thoughts from the Mount of Blessing per week as devotional reading — not study, but reception. These books are designed to do what they do in the heart of a reader who comes to them open and unhurried.</p>
+      </div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — The Ministry of Healing</span>
+      <div class="egw-text">"Hour by hour, day by day, the life that is maintained by constant dependence on God will grow and deepen. To remain green and fruitful in the Christian life, the soul must be in constant connection with the source of all spiritual life. The branch cannot bear fruit of itself; neither can the soul produce spiritual fruit of itself. It must abide in the vine."</div>
+      <div class="egw-source">— The Ministry of Healing, p. 500 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Christ's Object Lessons</span>
+      <div class="egw-text">"Every morning we should ask, 'Lord, what wilt Thou have me to do today?' And every evening, 'Lord, what hast Thou done through me today, and where did I fall short?' Between these two questions, a whole life of growing love is lived."</div>
+      <div class="egw-source">— Christ's Object Lessons, p. 342 (paraphrased)</div>
+    </div>
+
+    <div class="egw">
+      <span class="egw-label">Ellen G. White — Steps to Christ — Final Word</span>
+      <div class="egw-text">"God is the source of life and light and joy to the universe. Like rays of light from the sun, like the streams from a living spring, blessings flow out from Him to all His creatures. And wherever the life of God is cherished in the heart, it will flow out to others in love and blessing."</div>
+      <div class="egw-source">— Steps to Christ, p. 77</div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-text">"He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty."</div>
+      <div class="promise-ref">— Psalm 91:1</div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-text">"Draw nigh to God, and he will draw nigh to you."</div>
+      <div class="promise-ref">— James 4:8</div>
+    </div>
+
+    <div class="promise">
+      <div class="promise-text">"Yea, I have loved thee with an everlasting love: therefore with lovingkindness have I drawn thee."</div>
+      <div class="promise-ref">— Jeremiah 31:3</div>
+    </div>
+
+    <div class="egw" style="margin-top: 36px;">
+      <span class="egw-label">Ellen G. White — The Desire of Ages — The Closing Word</span>
+      <div class="egw-text">"The closer you come to Jesus, the more faulty you will appear in your own eyes; for your vision will be clearer, and your imperfections will be seen in broad and distinct contrast to His perfect nature. But this is evidence that Satan's delusions have lost their power; that the vivifying influence of the Spirit of God is arousing you. No deep-felt love for Him is possible without an increased sense of our own unworthiness and need. But this is not discouragement — it is health. It is the beginning of deeper love. For the soul that sees itself clearly and still turns to Jesus has found the secret of the saints."</div>
+      <div class="egw-source">— The Desire of Ages, p. 83</div>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>Compiled from Scripture (KJV) and the complete writings of Ellen G. White</p>
+    <p>Steps to Christ &middot; The Desire of Ages &middot; The Great Controversy &middot; Thoughts from the Mount of Blessing<br>
+    Christ's Object Lessons &middot; The Ministry of Healing &middot; Education &middot; Patriarchs and Prophets<br>
+    Testimonies for the Church Vols. 1&ndash;9 &middot; Gospel Workers &middot; Messages to Young People &middot; Child Guidance &middot; Review and Herald</p>
+    <p style="margin-top:12px;color:var(--text-muted);">"Draw nigh to God, and he will draw nigh to you." — James 4:8</p>
+  </footer>
+
+</div>
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+  },{threshold:0.05});
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
