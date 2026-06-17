@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galatians & the Two Laws — A Biblical Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment:     #f5f0e4;
+    --parchment-mid: #ede5cc;
+    --parchment-dark:#d4c9a8;
+    --ink:           #1a1209;
+    --ink-soft:      #2e2010;
+    --gold:          #b8922a;
+    --gold-light:    #d4ac45;
+    --gold-pale:     #f0dfa0;
+    --crimson:       #8b1a1a;
+    --crimson-light: #b52525;
+    --teal:          #1a4a4a;
+    --teal-light:    #2a6a6a;
+    --bg-dark:       #130e05;
+    --bg-panel:      #1e1608;
+    --bg-panel2:     #251c0a;
+    --separator:     #3a2e10;
+    --text-on-dark:  #e8dfc0;
+    --text-muted:    #a89060;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: radial-gradient(ellipse at 50% 30%, #2a1e08 0%, #0d0900 70%);
+    border-bottom: 2px solid var(--gold);
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(184,146,42,0.06) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(184,146,42,0.06) 60px);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.2;
+    text-shadow: 0 2px 24px rgba(184,146,42,0.35);
+    margin-bottom: 14px;
+  }
+  .hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    margin-bottom: 36px;
+  }
+  .hero-thesis {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: var(--parchment);
+    font-style: italic;
+    border-left: 3px solid var(--gold);
+    padding: 18px 24px;
+    background: rgba(184,146,42,0.07);
+    border-radius: 0 6px 6px 0;
+    text-align: left;
+  }
+
+  /* ── NAV ── */
+  .toc {
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--separator);
+    padding: 28px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .toc-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: center;
+  }
+  .toc-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .toc a {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .toc a:hover { color: var(--gold-light); }
+
+  /* ── LAYOUT ── */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-block { margin-bottom: 70px; }
+  .section-block:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 22px;
+    line-height: 1.3;
+  }
+  h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--parchment);
+    margin: 32px 0 14px;
+  }
+
+  p { margin-bottom: 16px; color: var(--text-on-dark); }
+  p:last-child { margin-bottom: 0; }
+
+  strong { color: var(--gold-pale); font-weight: 600; }
+  em { color: var(--parchment-mid); font-style: italic; }
+
+  /* ── VERSE CARDS ── */
+  .verse-grid {
+    display: grid;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .verse-grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+
+  .verse-card {
+    background: var(--bg-panel2);
+    border: 1px solid var(--separator);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 22px;
+    position: relative;
+  }
+  .verse-card.crimson { border-left-color: var(--crimson); }
+  .verse-card.teal    { border-left-color: var(--teal-light); }
+
+  .verse-ref {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .verse-card.crimson .verse-ref { color: var(--crimson-light); }
+  .verse-card.teal    .verse-ref { color: var(--teal-light); }
+
+  .verse-text {
+    font-style: italic;
+    color: var(--parchment);
+    font-size: 0.97rem;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .verse-note {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--separator);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  /* ── EGW QUOTE ── */
+  .egw-block {
+    background: linear-gradient(135deg, #1a1208 0%, #221a09 100%);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 28px 30px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .egw-block::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px;
+    left: 22px;
+    font-family: 'EB Garamond', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+  }
+  .egw-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .egw-text {
+    font-style: italic;
+    color: var(--parchment);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .egw-source {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: right;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 0.93rem;
+  }
+  .compare-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    background: var(--bg-panel2);
+    color: var(--gold-light);
+    border: 1px solid var(--separator);
+    text-align: left;
+  }
+  .compare-table th:first-child { color: var(--crimson-light); }
+  .compare-table th:last-child  { color: var(--teal-light); }
+  .compare-table td {
+    padding: 13px 18px;
+    border: 1px solid var(--separator);
+    vertical-align: top;
+    color: var(--text-on-dark);
+    line-height: 1.6;
+  }
+  .compare-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .compare-table td:first-child  { color: var(--parchment); font-weight: 500; }
+  .compare-table td:nth-child(2) { border-left: 3px solid var(--crimson); }
+  .compare-table td:nth-child(3) { border-left: 3px solid var(--teal-light); }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin: 28px 0;
+  }
+  .callout.warning {
+    background: rgba(139,26,26,0.15);
+    border: 1px solid var(--crimson);
+  }
+  .callout.insight {
+    background: rgba(26,74,74,0.2);
+    border: 1px solid var(--teal-light);
+  }
+  .callout.gold {
+    background: rgba(184,146,42,0.1);
+    border: 1px solid var(--gold);
+  }
+  .callout-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .callout.warning .callout-label { color: var(--crimson-light); }
+  .callout.insight .callout-label { color: var(--teal-light); }
+  .callout.gold    .callout-label { color: var(--gold); }
+
+  /* ── GREEK/HEBREW WORD STUDY ── */
+  .word-study {
+    background: var(--bg-panel2);
+    border: 1px solid var(--separator);
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin: 24px 0;
+  }
+  .word-original {
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    font-style: italic;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .word-transliteration {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .word-definition { color: var(--parchment); font-size: 0.95rem; }
+
+  /* ── CHAIN / STEPS ── */
+  .chain {
+    margin: 28px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .chain-item {
+    display: flex;
+    gap: 20px;
+    position: relative;
+  }
+  .chain-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 44px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--separator));
+  }
+  .chain-dot {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--bg-panel2);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .chain-body {
+    padding: 10px 0 30px;
+    flex: 1;
+  }
+  .chain-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--parchment);
+    margin-bottom: 6px;
+  }
+  .chain-text { font-size: 0.93rem; color: var(--text-muted); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--separator), transparent);
+    margin: 60px 0;
+  }
+  .divider-ornament {
+    text-align: center;
+    margin: -14px 0 0;
+    color: var(--gold);
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  /* ── COLLAPSIBLE ── */
+  details {
+    background: var(--bg-panel2);
+    border: 1px solid var(--separator);
+    border-radius: 8px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  summary {
+    padding: 16px 22px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--gold-light);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '▾';
+    color: var(--gold);
+    font-size: 1rem;
+    transition: transform 0.2s;
+  }
+  details[open] summary::after { transform: rotate(180deg); }
+  details[open] summary { border-bottom: 1px solid var(--separator); }
+  .details-body { padding: 20px 22px; font-size: 0.95rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--separator);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .toc { display: none; }
+    .hero { padding: 56px 16px 44px; }
+    .main { padding: 40px 16px 70px; }
+    .compare-table { font-size: 0.82rem; }
+    .compare-table th, .compare-table td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<header class="hero">
+  <div class="hero-eyebrow">Biblical Study Guide · Soteriology & Law</div>
+  <h1>Galatians & the Two Laws</h1>
+  <div class="hero-subtitle">The Ceremonial Law, the Moral Law, and the Gospel of Grace</div>
+  <blockquote class="hero-thesis">
+    Paul's letter to the Galatians targets the Mosaic ceremonial ordinances imposed as conditions of salvation — not the eternal moral law of God. Understanding this distinction is not a fine theological point: it is the difference between the true gospel and a counterfeit one.
+  </blockquote>
+</header>
+
+<!-- ═══════════════════════════════ TOC ═══════════════════════════════ -->
+<nav class="toc" aria-label="Table of Contents">
+  <div class="toc-inner">
+    <span class="toc-label">Contents</span>
+    <a href="#context">Historical Context</a>
+    <a href="#two-laws">The Two Laws</a>
+    <a href="#galatians-target">What Paul Targets</a>
+    <a href="#key-passages">Key Passages</a>
+    <a href="#cheirographon">The Handwriting</a>
+    <a href="#moral-law">The Moral Law Upheld</a>
+    <a href="#salvation-chain">Salvation Chain</a>
+    <a href="#misuse">Common Misreadings</a>
+    <a href="#egw">EGW on Galatians</a>
+    <a href="#summary">Summary</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ MAIN ═══════════════════════════════ -->
+<main class="main">
+
+  <!-- ── 1. HISTORICAL CONTEXT ── -->
+  <section class="section-block" id="context">
+    <div class="section-label">I · Background</div>
+    <h2>The Crisis in Galatia</h2>
+    <p>
+      The letter to the Galatians was written by Paul in response to a specific, urgent crisis: <strong>Judaizing teachers had followed his missionary work</strong> and were insisting that Gentile believers must submit to circumcision and adopt the full apparatus of Mosaic covenant observance in order to be truly saved. This was not an abstract theological debate — it was a direct attack on the sufficiency of Christ.
+    </p>
+    <p>
+      Paul calls it "another gospel" (Gal. 1:6–7) and responds with his most passionate and personal letter. The entire argument of Galatians is structured around one question: <em>On what basis does a sinner stand righteous before God?</em>
+    </p>
+
+    <div class="callout warning">
+      <div class="callout-label">⚠ The Specific Threat</div>
+      <p>The Judaizers were not teaching that the moral law saves. They were insisting that <strong>circumcision and Mosaic covenant identity markers</strong> were prerequisites for salvation alongside faith in Christ — effectively making Moses a co-mediator with Jesus.</p>
+    </div>
+
+    <p>
+      Understanding this historical situation is essential. Paul wrote to <em>this</em> crisis in <em>this</em> church. His polemic is a precision instrument aimed at the Mosaic ceremonial system as a <strong>mechanism of justification</strong> — not a broadside against God's eternal moral character enshrined in the Decalogue.
+    </p>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 2. THE TWO LAWS ── -->
+  <section class="section-block" id="two-laws">
+    <div class="section-label">II · Foundation</div>
+    <h2>Distinguishing the Two Laws</h2>
+    <p>
+      Scripture itself presents two distinct bodies of law operating in Israel's covenant life. Confusing them is the root error that leads to either <strong>legalism</strong> (burdening conscience with ceremonial obligations) or <strong>antinomianism</strong> (abolishing God's moral standard). Both are errors the biblical authors explicitly resist.
+    </p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>The Ceremonial / Mosaic Law</th>
+          <th>The Moral Law (Decalogue)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Origin</td>
+          <td>Given through Moses at Sinai</td>
+          <td>Spoken by God's own voice; written by His finger</td>
+        </tr>
+        <tr>
+          <td>Inscribed on</td>
+          <td>Parchment scrolls (the "book of the law")</td>
+          <td>Two tables of stone — imperishable material</td>
+        </tr>
+          <tr>
+          <td>Location in the sanctuary</td>
+          <td>Placed beside (outside) the ark</td>
+          <td>Placed inside the ark of the covenant</td>
+        </tr>
+        <tr>
+          <td>Character</td>
+          <td>Shadows and types pointing to Christ</td>
+          <td>Reflection of God's eternal character</td>
+        </tr>
+        <tr>
+          <td>Duration</td>
+          <td>Until "the seed" (Christ) came — Gal. 3:19</td>
+          <td>"Forever and ever" — Psalm 111:7–8; Matt. 5:18</td>
+        </tr>
+        <tr>
+          <td>Nailed to the cross?</td>
+          <td>Yes — Col. 2:14 (the certificate of debt)</td>
+          <td>No — its penalty was paid, not its obligation removed</td>
+        </tr>
+        <tr>
+          <td>Includes</td>
+          <td>Circumcision, feast days, sacrifices, dietary identity markers, Levitical priesthood</td>
+          <td>Ten Commandments including the Sabbath of the fourth</td>
+        </tr>
+        <tr>
+          <td>Paul's verdict in Galatians</td>
+          <td>Cannot justify; was a guardian until Christ</td>
+          <td>Not addressed as abolished — upheld through love</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout gold">
+      <div class="callout-label">✦ Key Distinction</div>
+      <p>The ceremonial law was <strong>added</strong> "because of transgressions" (Gal. 3:19) — it was a temporary, remedial system pointing forward to Christ. The moral law was not added; it existed before Sinai (Romans 5:13–14 presupposes it), and its binding character is never treated as contingent on the Mosaic covenant.</p>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 3. WHAT PAUL ACTUALLY TARGETS ── -->
+  <section class="section-block" id="galatians-target">
+    <div class="section-label">III · The Argument</div>
+    <h2>What Paul Is Actually Targeting in Galatians</h2>
+    <p>
+      A careful reading of Galatians reveals that Paul's specific targets are the <strong>identity markers of the Mosaic covenant</strong> — the works that separated Jew from Gentile and which the Judaizers were imposing as requirements for full standing before God.
+    </p>
+
+    <h3>Circumcision — The Central Issue</h3>
+    <p>
+      Circumcision is mentioned explicitly in Gal. 2:3, 2:7–9, 2:12, 5:2–3, 5:6, 5:11, 6:12–13, 6:15. It was the entry rite into the Mosaic covenant and the specific demand of the Judaizers. Paul's argument in 5:3 is decisive:
+    </p>
+
+    <div class="verse-grid">
+      <div class="verse-card crimson">
+        <div class="verse-ref">Galatians 5:2–3 · KJV</div>
+        <div class="verse-text">"Behold, I Paul say unto you, that if ye be circumcised, Christ shall profit you nothing. For I testify again to every man that is circumcised, that he is a debtor to do the whole law."</div>
+        <div class="verse-note">Accepting circumcision as a salvific act places a person under obligation to the <em>entire Mosaic covenant system</em> — an impossible burden Paul refuses to reimpose.</div>
+      </div>
+    </div>
+
+    <h3>The Mosaic Calendar — Days, Months, Times, Years</h3>
+    <p>
+      Galatians 4:10 is frequently misapplied to the weekly Sabbath. But the context — Paul comparing Mosaic observance to pagan elemental worship (4:8–9) — makes clear he is addressing the <strong>Mosaic feast cycle</strong>: new moon observances, annual feast days, sabbatical years, and jubilee cycles. These were <em>shadows</em> (Col. 2:17) of the redemptive calendar pointing to Christ.
+    </p>
+
+    <div class="verse-grid cols-2">
+      <div class="verse-card crimson">
+        <div class="verse-ref">Galatians 4:10 · KJV</div>
+        <div class="verse-text">"Ye observe days, and months, and times, and years."</div>
+        <div class="verse-note">The plural "days" matches the Mosaic feast calendar (Lev. 23), not the singular weekly creation Sabbath rooted in Genesis 2:1–3.</div>
+      </div>
+      <div class="verse-card teal">
+        <div class="verse-ref">Colossians 2:16–17 · KJV</div>
+        <div class="verse-text">"Let no man therefore judge you in meat, or in drink, or in respect of an holyday, or of the new moon, or of the sabbath days: which are a shadow of things to come; but the body is of Christ."</div>
+        <div class="verse-note">The "sabbath days" here are the annual ceremonial sabbaths of the Mosaic calendar — not the weekly Sabbath of the Decalogue.</div>
+      </div>
+    </div>
+
+    <div class="callout insight">
+      <div class="callout-label">Exegetical Note</div>
+      <p>The weekly Sabbath was instituted at <strong>creation</strong> (Gen. 2:1–3) — two millennia before Moses, before Israel, before any ceremonial system. It belongs to the created order itself, not to the Mosaic covenant. To abolish it from Galatians is to read a post-Sinai dispute about circumcision back into a pre-Sinai creation ordinance.</p>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 4. KEY PASSAGES ── -->
+  <section class="section-block" id="key-passages">
+    <div class="section-label">IV · Exegesis</div>
+    <h2>Key Passages in Galatians — Examined</h2>
+
+    <details open>
+      <summary>Galatians 3:10–13 — The Curse of the Law</summary>
+      <div class="details-body">
+        <div class="verse-card crimson" style="margin-bottom:16px;">
+          <div class="verse-ref">Galatians 3:10, 13 · KJV</div>
+          <div class="verse-text">"For as many as are of the works of the law are under the curse: for it is written, Cursed is every one that continueth not in all things which are written in the book of the law to do them... Christ hath redeemed us from the curse of the law, being made a curse for us."</div>
+        </div>
+        <p>Paul quotes <strong>Deuteronomy 27:26</strong> — explicitly from the Mosaic covenant curse framework, not from the Decalogue. The "book of the law" is the Mosaic code written by Moses and placed <em>beside</em> the ark (Deut. 31:26), distinct from the tablets of stone within it. Christ redeemed us from the <em>condemnation</em> of the law — its penal consequences — not from its moral authority.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Galatians 3:19 — Why Was the Law Added?</summary>
+      <div class="details-body">
+        <div class="verse-card crimson" style="margin-bottom:16px;">
+          <div class="verse-ref">Galatians 3:19 · KJV</div>
+          <div class="verse-text">"Wherefore then serveth the law? It was added because of transgressions, till the seed should come to whom the promise was made."</div>
+        </div>
+        <p>The phrase <strong>"it was added"</strong> (Greek: <em>prosetethē</em>) indicates something appended to a pre-existing covenant — the Abrahamic promise. The moral law was not "added" to anything; it predates Sinai and is intrinsic to God's character. The Mosaic ceremonial system, however, was "added" as a temporary remedial scaffold until "the seed" — Christ — arrived. Its temporal limitation ("till the seed should come") is explicit.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Galatians 3:24–25 — The Schoolmaster / Guardian</summary>
+      <div class="details-body">
+        <div class="verse-card crimson" style="margin-bottom:16px;">
+          <div class="verse-ref">Galatians 3:24–25 · KJV</div>
+          <div class="verse-text">"Wherefore the law was our schoolmaster to bring us unto Christ, that we might be justified by faith. But after that faith is come, we are no longer under a schoolmaster."</div>
+        </div>
+        <p>The Greek word is <em>paidagōgos</em> — a household slave who escorted children to school and maintained discipline, not a teacher. The ceremonial law functioned exactly this way: its sacrifices, priesthood, and rituals pointed Israel toward the coming Messiah. Once Christ arrived, the guardian's task was complete. This does not eliminate the moral law — it fulfills what the guardian was pointing to.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Galatians 5:14 — The Law Fulfilled Through Love</summary>
+      <div class="details-body">
+        <div class="verse-card teal" style="margin-bottom:16px;">
+          <div class="verse-ref">Galatians 5:14 · KJV</div>
+          <div class="verse-text">"For all the law is fulfilled in this; Thou shalt love thy neighbour as thyself."</div>
+        </div>
+        <p>Having dismantled the ceremonial law as a justification mechanism, Paul then affirms love as the <strong>fulfillment of the moral law's second table</strong>. This is a direct echo of Leviticus 19:18 and Jesus' teaching in Matthew 22:37–40. Love does not abolish the Decalogue — it is the Decalogue lived from the inside. Paul is not saying "love replaces law"; he is saying love <em>performs</em> the law's deepest intent.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Galatians 6:2 — The Law of Christ</summary>
+      <div class="details-body">
+        <div class="verse-card teal" style="margin-bottom:16px;">
+          <div class="verse-ref">Galatians 6:2 · KJV</div>
+          <div class="verse-text">"Bear ye one another's burdens, and so fulfil the law of Christ."</div>
+        </div>
+        <p>Paul closes by referencing "the law of Christ" — a law that is to be <em>fulfilled</em>, not abolished. This is the moral law internalized through the Spirit, consistent with the new covenant promise in Jeremiah 31:33: "I will put my law in their inward parts, and write it in their hearts." The contrast with the Mosaic system is not law versus no-law; it is external ordinance versus internalized character transformation.</p>
+      </div>
+    </details>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 5. THE HANDWRITING ── -->
+  <section class="section-block" id="cheirographon">
+    <div class="section-label">V · Colossians 2:14</div>
+    <h2>The Handwriting of Ordinances</h2>
+    <p>
+      Colossians 2:14 runs as the essential parallel to Galatians and is often misread to mean the Decalogue was nailed to the cross. A precise Greek word study demolishes this interpretation.
+    </p>
+
+    <div class="verse-grid">
+      <div class="verse-card crimson">
+        <div class="verse-ref">Colossians 2:14 · KJV</div>
+        <div class="verse-text">"Blotting out the handwriting of ordinances that was against us, which was contrary to us, and took it out of the way, nailing it to his cross."</div>
+      </div>
+    </div>
+
+    <div class="word-study">
+      <div class="word-original">χειρόγραφον</div>
+      <div class="word-transliteration">cheirographon · "handwriting"</div>
+      <div class="word-definition">
+        A handwritten certificate of debt — a legal IOU. In the Greco-Roman world this was a bond signed by the debtor acknowledging obligation. Paul's imagery: the Mosaic covenant certificate of debt accumulated our transgressions against us. Christ cancelled that debt instrument at the cross.
+      </div>
+    </div>
+
+    <p>
+      This word is <strong>never used of the Decalogue</strong> in any biblical or extra-biblical literature. The Ten Commandments were not a handwritten ordinance — they were inscribed in stone by the finger of God, kept inside the ark, and constitute God's character rather than a debt instrument. What was "against us" was the record of our transgressions measured by the law — not the law itself.
+    </p>
+
+    <div class="callout gold">
+      <div class="callout-label">✦ The Distinction in Stone vs. Scroll</div>
+      <p>
+        Deuteronomy 31:26 records Moses placing the book of the law <em>beside</em> the ark — a witness <em>against</em> Israel. The Decalogue was placed <em>inside</em> the ark (Deut. 10:5) — under the mercy seat, covered by atonement. This spatial distinction in the sanctuary encodes the theological difference between conditional Mosaic ordinances and God's eternal moral character.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 6. MORAL LAW UPHELD ── -->
+  <section class="section-block" id="moral-law">
+    <div class="section-label">VI · The Decalogue</div>
+    <h2>The Moral Law Upheld — Not Abolished</h2>
+    <p>
+      Paul's most explicit statement on the moral law comes not in Galatians but in Romans — written to address the same antinomian misreading that Galatians might produce.
+    </p>
+
+    <div class="verse-grid cols-2">
+      <div class="verse-card teal">
+        <div class="verse-ref">Romans 3:31 · KJV</div>
+        <div class="verse-text">"Do we then make void the law through faith? God forbid: yea, we establish the law."</div>
+        <div class="verse-note">Paul pre-empts the antinomian misreading of his own gospel: faith <em>establishes</em> the law — it places the law where it belongs, as a standard of righteousness fulfilled by Christ and written on the believer's heart.</div>
+      </div>
+      <div class="verse-card teal">
+        <div class="verse-ref">Romans 7:12 · KJV</div>
+        <div class="verse-text">"Wherefore the law is holy, and the commandment holy, and just, and good."</div>
+        <div class="verse-note">Paul never describes the Decalogue as a burden, an enemy, or an obsolete system. His language is uniformly reverential: holy, just, good.</div>
+      </div>
+      <div class="verse-card teal">
+        <div class="verse-ref">Romans 7:22 · KJV</div>
+        <div class="verse-text">"For I delight in the law of God after the inward man."</div>
+        <div class="verse-note">The regenerate heart delights in the law — echoing Psalm 119:97. This is not the language of someone describing an abolished system.</div>
+      </div>
+      <div class="verse-card teal">
+        <div class="verse-ref">Matthew 5:17–18 · KJV</div>
+        <div class="verse-text">"Think not that I am come to destroy the law, or the prophets: I am not come to destroy, but to fulfil. For verily I say unto you, Till heaven and earth pass, one jot or one tittle shall in no wise pass from the law."</div>
+        <div class="verse-note">Christ Himself settles the question. "Heaven and earth" have not passed. The moral law stands.</div>
+      </div>
+    </div>
+
+    <div class="egw-block">
+      <div class="egw-label">Ellen G. White · The Great Controversy</div>
+      <div class="egw-text">
+        "The law of God, as presented in the Scriptures, is the only standard of righteousness. It is the expression of the divine will — a transcript of God's character... The moral law never has been done away; it will never be done away. It is the foundation of God's government in heaven and earth."
+      </div>
+      <div class="egw-source">— Ellen G. White, <em>The Great Controversy</em>, p. 467</div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 7. SALVATION CHAIN ── -->
+  <section class="section-block" id="salvation-chain">
+    <div class="section-label">VII · The Gospel Order</div>
+    <h2>The Chain: Justification → Sanctification → Obedience</h2>
+    <p>
+      The proper relationship between faith, grace, and law-keeping is not the abolition of law but its <strong>relocation</strong> — from a tablet of stone to a heart of flesh (Jer. 31:33; Ezek. 36:26–27). The sequence is critical:
+    </p>
+
+    <div class="chain">
+      <div class="chain-item">
+        <div class="chain-dot">1</div>
+        <div class="chain-body">
+          <div class="chain-title">Recognition of Sin Through the Law</div>
+          <div class="chain-text">The moral law reveals the standard — "I had not known sin, but by the law" (Rom. 7:7). The law is a diagnostic, not a cure.</div>
+        </div>
+      </div>
+      <div class="chain-item">
+        <div class="chain-dot">2</div>
+        <div class="chain-body">
+          <div class="chain-title">Justification by Faith in Christ</div>
+          <div class="chain-text">The sinner, convicted, turns to Christ alone for righteousness. "Being justified freely by his grace through the redemption that is in Christ Jesus" (Rom. 3:24). No works contribute to this standing.</div>
+        </div>
+      </div>
+      <div class="chain-item">
+        <div class="chain-dot">3</div>
+        <div class="chain-body">
+          <div class="chain-title">Regeneration by the Holy Spirit</div>
+          <div class="chain-text">The Spirit births a new nature — "Except a man be born again, he cannot see the kingdom of God" (John 3:3). The desires change at the root.</div>
+        </div>
+      </div>
+      <div class="chain-item">
+        <div class="chain-dot">4</div>
+        <div class="chain-body">
+          <div class="chain-title">Sanctification — Growth in Holiness</div>
+          <div class="chain-text">The justified, regenerate believer grows in conformity to Christ's character — a lifelong process. "Work out your own salvation with fear and trembling; for it is God which worketh in you" (Phil. 2:12–13).</div>
+        </div>
+      </div>
+      <div class="chain-item">
+        <div class="chain-dot">5</div>
+        <div class="chain-body">
+          <div class="chain-title">Obedience as the Fruit of Love</div>
+          <div class="chain-text">The regenerate heart obeys because it loves — "If ye love me, keep my commandments" (John 14:15). Obedience is not the root of standing but the fruit of it. Law-keeping is the evidence, not the engine, of salvation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <div class="callout-label">✦ The Critical Distinction</div>
+      <p>
+        <strong>Legalism</strong> says: I keep the law to <em>earn</em> God's approval.<br>
+        <strong>Antinomianism</strong> says: Grace has made the law irrelevant.<br>
+        <strong>The Gospel</strong> says: I am accepted freely by grace, and therefore I keep the law joyfully — not to secure acceptance, but because I am already accepted, and the law reflects the character of the God I love.
+      </p>
+    </div>
+
+    <div class="egw-block">
+      <div class="egw-label">Ellen G. White · Steps to Christ</div>
+      <div class="egw-text">
+        "The condition of eternal life is now just what it always has been — just what it was in Paradise before the fall of our first parents — perfect righteousness, harmony with God, perfect conformity to the principles of His law... Instead of releasing man from obedience, it is faith, and faith only, that makes us partakers of the grace of Christ, which enables us to render obedience."
+      </div>
+      <div class="egw-source">— Ellen G. White, <em>Steps to Christ</em>, p. 62</div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 8. COMMON MISREADINGS ── -->
+  <section class="section-block" id="misuse">
+    <div class="section-label">VIII · Errors to Avoid</div>
+    <h2>Common Misreadings of Galatians</h2>
+    <p>Galatians is one of the most misapplied books in the New Testament. The following errors follow directly from failing to distinguish the two laws:</p>
+
+    <details open>
+      <summary>Error 1: "Galatians abolishes the Sabbath"</summary>
+      <div class="details-body">
+        <p>This reads Galatians 4:10 ("Ye observe days...") as a prohibition against Sabbath-keeping. But the Sabbath is a <strong>creation ordinance</strong> (Gen. 2:1–3) — it precedes Moses, Israel, and the Sinai covenant by two thousand years. The Sabbath belongs to the Decalogue written by God's finger; Paul's target in Galatians is circumcision and Mosaic feast-day observance as <em>salvific requirements</em>. To extend Paul's argument to the weekly Sabbath is to misread his precision argument as a blunt instrument against the entire law of God.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Error 2: "Paul's 'works of the law' means the Ten Commandments"</summary>
+      <div class="details-body">
+        <p>The Greek phrase <em>erga nomou</em> ("works of the law") in Galatians consistently refers to <strong>Mosaic covenant performance</strong> — specifically circumcision and the boundary markers that distinguished Jew from Gentile. Modern New Perspective scholars (Dunn, Wright) have helpfully clarified this. Paul is not attacking moral effort per se; he is attacking the Judaizing system that made Mosaic boundary markers the gateway into the covenant community.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Error 3: "We are not under law but under grace — therefore the law doesn't apply"</summary>
+      <div class="details-body">
+        <p>Romans 6:14–15 reads: <em>"Ye are not under the law, but under grace. What then? Shall we sin because we are not under grace? God forbid."</em> Paul himself identifies this reasoning as a distortion. "Not under law" means not under the law's <strong>condemning power</strong> — not exempt from its moral claim. The believer has been freed from the penalty of law-breaking, not from the law's standard. Grace produces obedience; it does not make obedience optional.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Error 4: "Galatians 3:28 means all distinctions — including Sabbath vs. Sunday — are erased"</summary>
+      <div class="details-body">
+        <p>Galatians 3:28 ("There is neither Jew nor Greek...") addresses <strong>standing before God</strong> in justification — all are equally accepted in Christ, regardless of ethnic or social status. It says nothing about the calendar, the Sabbath, or the Decalogue. This is a soteriological statement, not a liturgical one. Applying it to abolish time-based creation ordinances is a category error.</p>
+      </div>
+    </details>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 9. EGW ── -->
+  <section class="section-block" id="egw">
+    <div class="section-label">IX · Spirit of Prophecy</div>
+    <h2>Ellen G. White on Galatians and the Two Laws</h2>
+    <p>
+      EGW's treatment of Galatians is extensive and consistent. She identified the "law in Galatians" question as one of the most important theological distinctions for the remnant church to understand clearly.
+    </p>
+
+    <div class="egw-block">
+      <div class="egw-label">Ellen G. White · Selected Messages, Book 1</div>
+      <div class="egw-text">
+        "The law of ten commandments is not to be looked upon as much from the prohibitory side as from the mercy side. Its prohibitions are the sure guarantee of happiness in obedience. As received in Christ, it works in us the purity of character that will bring joy to us through eternal ages. To the obedient it is a wall of protection."
+      </div>
+      <div class="egw-source">— Ellen G. White, <em>Selected Messages</em>, Book 1, p. 235</div>
+    </div>
+
+    <div class="egw-block">
+      <div class="egw-label">Ellen G. White · Patriarchs and Prophets</div>
+      <div class="egw-text">
+        "There are two distinct laws brought to view in the Scriptures. One is the law of ceremonies and types which pointed to Christ as the Saviour of the world and was done away at His death. The other is the moral law — the Ten Commandments — which is the transcript of God's character and will stand throughout eternity."
+      </div>
+      <div class="egw-source">— Ellen G. White, <em>Patriarchs and Prophets</em>, p. 365</div>
+    </div>
+
+    <div class="egw-block">
+      <div class="egw-label">Ellen G. White · Galatians Study Notes</div>
+      <div class="egw-text">
+        "The law brought to view in Galatians is not the Decalogue... This ceremonial law, with its sacrifices and ordinances, was to be performed by the Hebrews as a pledge of their faith in the Messiah... These ceremonies were abolished at the cross. But the moral law, given in Eden and proclaimed from Sinai, was not nailed to the cross."
+      </div>
+      <div class="egw-source">— Ellen G. White, <em>Review and Herald</em>, September 1, 1896</div>
+    </div>
+  </section>
+
+  <hr class="divider"><div class="divider-ornament">✦</div>
+
+  <!-- ── 10. SUMMARY ── -->
+  <section class="section-block" id="summary">
+    <div class="section-label">X · Conclusion</div>
+    <h2>Summary — What Galatians Teaches</h2>
+
+    <div class="verse-grid">
+      <div class="verse-card teal">
+        <div class="verse-ref">✓ What Paul Abolishes</div>
+        <div class="verse-text">The Mosaic ceremonial law as a mechanism of justification — circumcision, feast days, annual sabbaths, sacrificial ordinances, and all Mosaic covenant identity markers imposed as salvific requirements.</div>
+      </div>
+      <div class="verse-card teal">
+        <div class="verse-ref">✓ What Paul Upholds</div>
+        <div class="verse-text">The eternal moral law — the Decalogue — as the standard of righteousness, fulfilled inwardly through the Spirit, expressed outwardly through love, and kept joyfully as the fruit of justifying faith.</div>
+      </div>
+      <div class="verse-card crimson">
+        <div class="verse-ref">✗ What Paul Does NOT Teach</div>
+        <div class="verse-text">That God's moral law is abolished, that the Sabbath is obsolete, that obedience is optional, or that grace removes all ethical obligation from the believer.</div>
+      </div>
+    </div>
+
+    <p style="margin-top:32px;">
+      The letter to the Galatians is one of the most powerful defenses of the gospel ever written. Its power lies precisely in its <em>precision</em>: Paul dismantles the ceremonial law as a justification mechanism while leaving the moral law standing as God's eternal standard — now written on the heart by the Spirit rather than imposed from outside by external ordinances.
+    </p>
+    <p>
+      We are not saved by keeping the moral law. But the saved <em>keep</em> the moral law — not to earn standing before God, but because they have been given new hearts that love what God loves. As John declared: <em>"For this is the love of God, that we keep his commandments: and his commandments are not grievous"</em> (1 John 5:3).
+    </p>
+
+    <div class="egw-block">
+      <div class="egw-label">Ellen G. White · Christ's Object Lessons</div>
+      <div class="egw-text">
+        "Obedience — the service and allegiance of love — is the true sign of discipleship. Thus the Scripture says, 'This is the love of God, that we keep his commandments.' Instead of releasing man from obedience, it is faith, and faith only, that makes us partakers of the grace of Christ, which enables us to render obedience."
+      </div>
+      <div class="egw-source">— Ellen G. White, <em>Christ's Object Lessons</em>, p. 97</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Galatians & the Two Laws · Biblical Study Reference · DS Consulting Theological Series
+</footer>
+
+</body>
+</html>

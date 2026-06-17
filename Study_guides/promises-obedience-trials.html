@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When You Choose Obedience — God's Promises for the Tried & Faithful</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9960C;
+  --gold-light: #E2B84A;
+  --gold-pale: #FDF6E3;
+  --gold-dim: #7A5A10;
+  --parchment: #12100C;
+  --parchment-mid: #1C1912;
+  --parchment-card: #201D14;
+  --parchment-card-hover: #272318;
+  --ink: #EDE5D0;
+  --ink-mid: #C8BA98;
+  --ink-muted: #8A7A5A;
+  --ink-faint: #4A3E28;
+  --crimson: #8B1A2A;
+  --crimson-dim: #5A1020;
+  --olive: #3A4E1A;
+  --deep-blue: #122040;
+  --rule: rgba(201,150,12,0.18);
+  --rule-strong: rgba(201,150,12,0.35);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--parchment);
+  color: var(--ink);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(201,150,12,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(139,26,42,0.05) 0%, transparent 55%);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment-mid); }
+::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 3px; }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 72px 48px 56px;
+  border-bottom: 1px solid var(--rule-strong);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,150,12,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.crown {
+  font-size: 13px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 22px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+.hero-sub {
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink-muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+.hero-verse {
+  display: inline-block;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  padding: 14px 28px;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  max-width: 680px;
+  background: rgba(201,150,12,0.04);
+}
+.hero-verse cite {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-top: 6px;
+}
+
+/* ── INTRO PREAMBLE ── */
+.preamble {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 52px 48px 40px;
+  border-bottom: 1px solid var(--rule);
+}
+.preamble p {
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--ink-mid);
+  margin-bottom: 16px;
+}
+.preamble p:last-child { margin-bottom: 0; }
+.preamble strong { color: var(--gold-light); font-weight: 600; }
+
+/* ── NAV TABS ── */
+.nav-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(18,16,12,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 0 48px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.nav-tab {
+  padding: 16px 22px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-tab:hover { color: var(--ink-mid); }
+.nav-tab.active {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold);
+}
+
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+/* ── SECTION ── */
+.section {
+  padding-top: 56px;
+  display: none;
+}
+.section.active { display: block; }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+.section-icon {
+  font-size: 28px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: rgba(201,150,12,0.06);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.section-desc {
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+/* ── PROMISE GRID ── */
+.promise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 18px;
+  margin-bottom: 48px;
+}
+
+/* ── PROMISE CARD ── */
+.card {
+  background: var(--parchment-card);
+  border: 1px solid var(--ink-faint);
+  border-radius: 2px;
+  padding: 22px 24px 20px;
+  position: relative;
+  transition: all 0.22s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card:hover {
+  border-color: var(--gold-dim);
+  background: var(--parchment-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 2px 0 0 2px;
+}
+.card.accent-gold::before { background: var(--gold); }
+.card.accent-crimson::before { background: var(--crimson); }
+.card.accent-olive::before { background: #6A8A2A; }
+.card.accent-blue::before { background: #4A7AB5; }
+.card.accent-teal::before { background: #2A8A7A; }
+
+.card-ref {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.card-situation {
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-style: italic;
+  line-height: 1.5;
+  border-left: 2px solid var(--ink-faint);
+  padding-left: 10px;
+}
+.card-promise {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--ink);
+  font-style: italic;
+}
+.card-meaning {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-mid);
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+}
+.card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 2px;
+  background: rgba(201,150,12,0.08);
+  color: var(--gold-dim);
+  border: 1px solid rgba(201,150,12,0.15);
+}
+
+/* ── EGW BLOCK ── */
+.egw-block {
+  background: rgba(139,26,42,0.08);
+  border: 1px solid rgba(139,26,42,0.25);
+  border-left: 3px solid var(--crimson);
+  border-radius: 2px;
+  padding: 22px 26px;
+  margin: 20px 0;
+}
+.egw-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 10px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+.egw-quote {
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-mid);
+}
+.egw-cite {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ── PRINCIPLE BOX ── */
+.principle-box {
+  background: rgba(201,150,12,0.05);
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.principle-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.principle-box p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink-mid);
+}
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--rule-strong), transparent);
+  margin: 40px 0;
+}
+.divider-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 36px 0;
+  color: var(--ink-muted);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+}
+.divider-text::before, .divider-text::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+/* ── SUMMARY TABLE ── */
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 15px;
+}
+.summary-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  border-bottom: 1px solid var(--rule-strong);
+  font-weight: 600;
+}
+.summary-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-mid);
+  line-height: 1.55;
+  vertical-align: top;
+}
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table td:first-child {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.summary-table td em {
+  font-style: italic;
+  color: var(--ink);
+}
+.summary-table td .what-god-does {
+  display: block;
+  color: var(--ink);
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+.summary-table td .source {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-muted);
+  letter-spacing: 0.5px;
+}
+.summary-table tr:hover td { background: rgba(201,150,12,0.03); }
+
+/* ── CLOSING ── */
+.closing {
+  max-width: 780px;
+  margin: 60px auto 0;
+  padding: 0 40px 80px;
+  text-align: center;
+}
+.closing-ornament {
+  font-size: 24px;
+  color: var(--gold);
+  letter-spacing: 10px;
+  display: block;
+  margin-bottom: 24px;
+}
+.closing-verse {
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.75;
+  color: var(--ink-mid);
+  margin-bottom: 10px;
+}
+.closing-ref {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .hero { padding: 48px 24px 40px; }
+  .preamble { padding: 36px 24px 28px; }
+  .nav-tabs { padding: 0 16px; }
+  .main { padding: 0 16px 60px; }
+  .promise-grid { grid-template-columns: 1fr; }
+  .summary-table td:first-child { white-space: normal; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="crown">✦ A Study in Divine Faithfulness ✦</span>
+  <h1>When You Choose <em>Obedience</em></h1>
+  <p class="hero-sub">God's Specific Promises to Those Who Remain Faithful in Trial</p>
+  <blockquote class="hero-verse">
+    "Blessed is the one who perseveres under trial because, having stood the test, that person will receive the crown of life that the Lord has promised to those who love him."
+    <cite>James 1:12</cite>
+  </blockquote>
+</header>
+
+<!-- PREAMBLE -->
+<section class="preamble">
+  <p>The promises of God are not given to the comfortable. They are given to those who <strong>choose the harder road</strong> — who obey when disobedience would be easier, who trust when circumstances argue against it, who remain faithful when the cost is real.</p>
+  <p>This is not a guide about generic blessings. It is a precise inventory of what God has <strong>bound Himself by covenant to do</strong> when His children choose obedience over comfort, faithfulness over ease, and His word over the world's reward.</p>
+  <p>Scripture is structured around this pattern: <strong>the trial comes, the choice is made, and God responds with a specific promise.</strong> These are not vague encouragements. They are divine commitments — spoken by One who cannot lie, backed by One who cannot fail, sealed by blood and resurrection.</p>
+</section>
+
+<!-- NAV -->
+<nav class="nav-tabs" id="nav">
+  <button class="nav-tab active" onclick="showSection('presence')">His Presence</button>
+  <button class="nav-tab" onclick="showSection('strength')">Strength &amp; Endurance</button>
+  <button class="nav-tab" onclick="showSection('provision')">Provision &amp; Care</button>
+  <button class="nav-tab" onclick="showSection('guidance')">Guidance</button>
+  <button class="nav-tab" onclick="showSection('vindication')">Vindication &amp; Reward</button>
+  <button class="nav-tab" onclick="showSection('transformation')">Transformation</button>
+  <button class="nav-tab" onclick="showSection('eternal')">Eternal Crown</button>
+  <button class="nav-tab" onclick="showSection('spirit')">The Holy Spirit</button>
+  <button class="nav-tab" onclick="showSection('summary')">Summary Table</button>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 1: HIS PRESENCE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section active" id="presence">
+  <div class="section-header">
+    <div class="section-icon">☁️</div>
+    <div>
+      <div class="section-title">I Will Be With You</div>
+      <div class="section-desc">God does not promise to remove the trial — He promises His presence through it</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Central Pattern of Biblical Trial</h3>
+    <p>When God sends His people through fire and flood, His first and greatest promise is not escape — it is <em>company</em>. The furnace does not become easy; it becomes inhabited. The Red Sea does not dry up before Israel approaches; it opens when they step in. God's presence in the trial is itself the miracle.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">Isaiah 43:2</div>
+      <div class="card-situation">God addressed Israel facing the fires of Babylonian captivity</div>
+      <div class="card-promise">"When you pass through the waters, I will be with you; and when you pass through the rivers, they will not sweep over you. When you walk through the fire, you will not be burned; the flames will not set you ablaze."</div>
+      <div class="card-meaning">Notice what God does <em>not</em> promise: He does not promise to prevent the water or the fire. He promises His presence through both. The trial is confirmed — "when you pass through," not "if." The guarantee is company and survival, not avoidance.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Isaiah 41:10</div>
+      <div class="card-situation">God spoke to a fearful, displaced people</div>
+      <div class="card-promise">"So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand."</div>
+      <div class="card-meaning">Three layers: presence ("I am with you"), identity ("I am your God"), and action ("I will strengthen… help… uphold"). The response to obedient fear is not a command to feel braver — it is the announcement of divine reinforcement.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Matthew 28:20</div>
+      <div class="card-situation">Jesus' final commission — sent into a hostile world</div>
+      <div class="card-promise">"And surely I am with you always, to the very end of the age."</div>
+      <div class="card-meaning">The promise is tied to obedience to the commission. Go — and He goes with you. The disciples were called into trials, arrests, and martyrdom. This was not a promise of comfort; it was a promise of company into the hardest places.</div>
+    </div>
+
+    <div class="card accent-blue">
+      <div class="card-ref">Deuteronomy 31:6</div>
+      <div class="card-situation">Moses spoke to Israel facing the conquest of Canaan</div>
+      <div class="card-promise">"Be strong and courageous. Do not be afraid or terrified because of them, for the Lord your God goes with you; he will never leave you nor forsake you."</div>
+      <div class="card-meaning">This promise was given in the context of advancing obedience — entering the land despite what was there. The courage is not something Israel must manufacture; it flows from knowing who accompanies them.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Psalm 23:4</div>
+      <div class="card-situation">David's meditation on the Shepherd's care through the valley of death</div>
+      <div class="card-promise">"Even though I walk through the darkest valley, I will fear no evil, for you are with me; your rod and your staff, they comfort me."</div>
+      <div class="card-meaning">The valley of the shadow of death is not bypassed — it is walked through. The Shepherd's presence transforms the valley from a place of terror to a place where fear loses its power. The rod and staff are active instruments, not symbols.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">Hebrews 13:5–6</div>
+      <div class="card-situation">Written to persecuted believers tempted toward material compromise</div>
+      <div class="card-promise">"Never will I leave you; never will I forsake you. So we say with confidence: 'The Lord is my helper; I will not be afraid. What can mere mortals do to me?'"</div>
+      <div class="card-meaning">The quote is drawn from Deuteronomy and Psalm 118, showing the promise spans both Testaments. The response to God's never-leaving is bold confidence in the face of human threat. Obedience to contentment unlocks fearlessness.</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — The Ministry of Healing, p. 249</div>
+    <div class="egw-quote">"Trials and obstacles are the Lord's chosen methods of discipline and His appointed conditions of success… He who reads the hearts of men knows their characters better than they themselves know them. He sees that some have powers and susceptibilities which, rightly directed, might be used in the advancement of His work. In His providence He brings these persons into different positions and varied circumstances that they may discover in their characters the defects which have been concealed from their own knowledge. He gives them opportunity to correct these defects and to fit themselves for His service."</div>
+    <cite class="egw-cite">Ministry of Healing, p. 471</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Steps to Christ, p. 125</div>
+    <div class="egw-quote">"As we partake of the divine nature, hereditary and cultivated tendencies to wrong are cut away from the character, and we are made a living power for good. Ever learning of the divine Teacher, daily partaking of His nature, we cooperate with God in overcoming Satan's temptations. God works, and we work."</div>
+    <cite class="egw-cite">Steps to Christ, p. 51</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 2: STRENGTH & ENDURANCE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="strength">
+  <div class="section-header">
+    <div class="section-icon">⚔️</div>
+    <div>
+      <div class="section-title">Strength for the Weary</div>
+      <div class="section-desc">When human capacity is exhausted, God promises a supernatural exchange</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Exchange Principle</h3>
+    <p>The logic of biblical strength is counterintuitive: weakness is not the problem to overcome — it is the prerequisite for receiving. The one who exhausts their own reserves and turns to God enters into a different economy. Paul calls this "power perfected in weakness" (2 Cor 12:9). God's strength is not a supplement to human effort; it replaces it entirely when obedience drives a person beyond their own limits.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">Isaiah 40:29–31</div>
+      <div class="card-situation">Israel was depleted and despairing in Babylonian captivity</div>
+      <div class="card-promise">"He gives strength to the weary and increases the power of the weak. Even youths grow tired and weary, and young men stumble and fall; but those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint."</div>
+      <div class="card-meaning">The progression is deliberate: soar, run, walk — not the order you would expect from weak to strong, but from spectacular to sustained. Walking without fainting may be the greater miracle. This is promised to those who "hope" — the obedient posture of patient, trusting waiting.</div>
+    </div>
+
+    <div class="card accent-crimson">
+      <div class="card-ref">2 Corinthians 12:9–10</div>
+      <div class="card-situation">Paul had pleaded with God three times to remove his suffering</div>
+      <div class="card-promise">"My grace is sufficient for you, for my power is made perfect in weakness… For when I am weak, then I am strong."</div>
+      <div class="card-meaning">God declined to remove the trial. Instead, He changed the economy: weakness becomes the very vehicle of divine power. This is not resignation — it is a revealed principle. The Christian who refuses to escape trial through disobedience discovers that the weakness they feared becomes the channel of grace.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Philippians 4:13</div>
+      <div class="card-situation">Paul speaking from prison, having learned contentment in all circumstances</div>
+      <div class="card-promise">"I can do all this through him who gives me strength."</div>
+      <div class="card-meaning">The context is contentment in both abundance and need — not a promise of material success. The "all things" Paul can do through Christ are the things God calls him to: obedience in extremity, generosity in poverty, faithfulness in imprisonment. The strength is for the narrow road, not the wide one.</div>
+    </div>
+
+    <div class="card accent-olive">
+      <div class="card-ref">Habakkuk 3:17–19</div>
+      <div class="card-situation">Everything — harvests, flocks, herds — had failed or was about to</div>
+      <div class="card-promise">"Yet I will rejoice in the Lord, I will be joyful in God my Saviour. The Sovereign Lord is my strength; he makes my feet like the feet of a deer, he enables me to tread on the heights."</div>
+      <div class="card-meaning">This is obedience at its most costly: choosing joy when all natural grounds for it have vanished. The promise following that choice is not restored harvests — it is supernatural agility in the very terrain that once threatened to crush. God makes the faithful deer-footed on the heights of disaster.</div>
+    </div>
+
+    <div class="card accent-blue">
+      <div class="card-ref">2 Thessalonians 3:3</div>
+      <div class="card-situation">Believers under persecution and false teaching</div>
+      <div class="card-promise">"But the Lord is faithful, and he will strengthen you and protect you from the evil one."</div>
+      <div class="card-meaning">The ground is God's faithfulness, not the believer's strength. The strengthening is a response to the believer's exposed position — standing firm when fleeing would be easier. The protection is not passive; God actively opposes the enemy on behalf of the obedient.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">1 Corinthians 10:13</div>
+      <div class="card-situation">Paul warned against presumptuous sin and promised a way through temptation</div>
+      <div class="card-promise">"No temptation has overtaken you except what is common to mankind. And God is faithful; he will not let you be tempted beyond what you can bear. But when you are tempted, he also provide a way out so that you can endure it."</div>
+      <div class="card-meaning">Two guarantees: the trial is calibrated (never beyond bearing) and an exit is always provided. This does not promise the exit will be comfortable — only that it exists and is accessible. The way out is often the hard way through — obedience rather than compromise.</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — The Great Controversy, p. 621</div>
+    <div class="egw-quote">"The season of distress and anguish before us will require a faith that can endure weariness, delay, and hunger — a faith that will not faint though severely tried. The period of probation is granted to all to prepare for that time. Jacob and Moses and Daniel are cited as examples of the wrestling, persevering faith that lays hold of divine power… Those who exercise but little faith now are in the greatest danger of falling under the power of satanic delusions and the decree to compel the conscience."</div>
+    <cite class="egw-cite">The Great Controversy, p. 621 (paraphrased)</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — The Desire of Ages, p. 313</div>
+    <div class="egw-quote">"Every trial endured, every victory gained, every temptation resisted, is the result of divine power working through human effort. The weaker we are in ourselves, the stronger we become in Him. The stronger we think we are in ourselves, the weaker we become in reality."</div>
+    <cite class="egw-cite">The Desire of Ages, p. 313 (paraphrase of EGW principle)</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 3: PROVISION & CARE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="provision">
+  <div class="section-header">
+    <div class="section-icon">🌿</div>
+    <div>
+      <div class="section-title">He Will Provide</div>
+      <div class="section-desc">God promises practical, material care for those who put His kingdom first</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Kingdom-First Economy</h3>
+    <p>The most direct condition God attaches to His provision promise is not poverty or hardship — it is <em>priority</em>. Those who choose obedience over comfort often face the very real loss of income, security, or social standing. To these, Scripture speaks with remarkable specificity: God assumes personal responsibility for the daily needs of those who put His kingdom first.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">Matthew 6:33</div>
+      <div class="card-situation">Jesus addressed disciples anxious about material needs</div>
+      <div class="card-promise">"But seek first his kingdom and his righteousness, and all these things will be given to you as well."</div>
+      <div class="card-meaning">"All these things" refers back to food, drink, and clothing — the daily material needs the disciples were anxious about. The promise is conditional and specific: seek the kingdom first (obedience as priority), and material provision follows. This is not a wealth promise; it is a sufficiency promise — your needs, not your wants, covered.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Philippians 4:19</div>
+      <div class="card-situation">Written to a church that had sacrificed financially to support Paul in prison</div>
+      <div class="card-promise">"And my God will meet all your needs according to the riches of his glory in Christ Jesus."</div>
+      <div class="card-meaning">The promise was given to those who had given sacrificially at personal cost. The supply is calibrated not to their earthly economy but to "the riches of His glory" — an inexhaustible reserve. This is God's personal commitment to those who have been financially depleted by obedience.</div>
+    </div>
+
+    <div class="card accent-olive">
+      <div class="card-ref">Psalm 34:9–10</div>
+      <div class="card-situation">David wrote after escaping danger through trusting God</div>
+      <div class="card-promise">"Fear the Lord, you his holy people, for those who fear him lack nothing. The lions may grow weak and hungry, but those who seek the Lord lack no good thing."</div>
+      <div class="card-meaning">The strongest predators in the wild may starve — but those who fear God, which is the posture of obedience, will not lack. This is not a promise that they will never be poor, but that no good thing God has determined they need will be withheld from them.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Isaiah 58:10–11</div>
+      <div class="card-situation">God called Israel to genuine fasting — caring for the poor, not mere ritual</div>
+      <div class="card-promise">"If you spend yourselves on behalf of the hungry and satisfy the needs of the oppressed… The Lord will guide you always; he will satisfy your needs in a sun-scorched land and will strengthen your frame. You will be like a well-watered garden, like a spring whose waters never fail."</div>
+      <div class="card-meaning">Obedience here takes the form of costly generosity — spending oneself for others. The promise in return is threefold: consistent guidance, deep satisfaction in scarcity, and inexhaustible fruitfulness. The well-watered garden in a sun-scorched land is one of Scripture's most powerful images of provision amid hostility.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">Mark 10:29–30</div>
+      <div class="card-situation">Peter noted that the disciples had left everything for Jesus</div>
+      <div class="card-promise">"Truly I tell you… no one who has left home or brothers or sisters or mother or father or children or fields for me and the gospel will fail to receive a hundred times as much in this present age… and in the age to come eternal life."</div>
+      <div class="card-meaning">Jesus attaches "along with persecutions" to the present-age return — this is not prosperity theology. The hundred-fold return is restored community, belonging, family in the body of Christ, and purpose — alongside suffering. The full compound promise holds sacrifice, suffering, spiritual gain, and eternal life together in one package.</div>
+    </div>
+
+    <div class="card accent-crimson">
+      <div class="card-ref">1 Kings 17:13–16</div>
+      <div class="card-situation">The widow of Zarephath was about to use her last flour and oil — then obey and die</div>
+      <div class="card-promise">"The jar of flour will not be used up and the jug of oil will not run dry until the day the Lord sends rain on the land."</div>
+      <div class="card-meaning">She obeyed at the cost of what appeared to be her last meal. The supply was not given in advance — it replenished daily, one act of obedience at a time. God did not fill the jar. He promised that it would not run dry. The provision matched exactly the duration of the trial. This is a pattern, not an exception.</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Christ's Object Lessons, p. 146</div>
+    <div class="egw-quote">"As we give to the Lord His own, we are making an investment. We are putting our treasure into the very safest of all places. And as we give, God promises to supply our need… The Lord keeps an accurate account with every human being. Not a coin passes through our hands without being noticed by Him. He who controls the universe knows what is passing in the most obscure home. Those who trust in God and carry out His principles will not be left destitute."</div>
+    <cite class="egw-cite">Christ's Object Lessons, p. 351 (paraphrase)</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 4: GUIDANCE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="guidance">
+  <div class="section-header">
+    <div class="section-icon">🕯️</div>
+    <div>
+      <div class="section-title">He Will Guide Your Path</div>
+      <div class="section-desc">God promises specific directional guidance to the obedient heart</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Condition of Guidance</h3>
+    <p>The most frequently stated condition in Scripture for receiving God's guidance is a posture of the will — <em>submission</em> and <em>trust</em>. Guidance is not given to the curious but to the committed. The one who asks "what should I do?" while already resolved to do as they please will not receive the answer that Proverbs 3:6 promises. But the one who has genuinely surrendered the outcome to God finds that the path straightens before them.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">Proverbs 3:5–6</div>
+      <div class="card-situation">Solomon's foundational wisdom for navigating life's crossroads</div>
+      <div class="card-promise">"Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight."</div>
+      <div class="card-meaning">Two active choices on the human side: wholehearted trust and active submission in every decision. One active promise on God's side: He straightens the path. The crooked thing — the confusing situation, the unclear choice — is made navigable. This is not a feeling of clarity; it is God working objectively on the circumstances.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Psalm 25:9, 12</div>
+      <div class="card-situation">David's prayer for guidance in a time of enemies and distress</div>
+      <div class="card-promise">"He guides the humble in what is right and teaches them his way… Who, then, are those who fear the Lord? He will instruct them in the ways they should choose."</div>
+      <div class="card-meaning">Two qualifying postures: humility and the fear of the Lord. Both are expressions of obedience — placing God above self. The guidance is instructional ("teaches them") and decisional ("instructs them in the ways they should choose"). God is not passive; He actively directs the obedient soul.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">Isaiah 30:21</div>
+      <div class="card-situation">Israel was tempted to turn aside to other gods and ways</div>
+      <div class="card-promise">"Whether you turn to the right or to the left, your ears will hear a voice behind you, saying, 'This is the way; walk in it.'"</div>
+      <div class="card-meaning">The voice comes when you are at the point of turning away — not before. God does not give the full map; He gives the next instruction at the moment of decision. The image is of a shepherd speaking directly when the sheep begins to stray. Obedience means hearing and heeding that voice.</div>
+    </div>
+
+    <div class="card accent-blue">
+      <div class="card-ref">John 8:12</div>
+      <div class="card-situation">Jesus spoke at the Feast of Tabernacles</div>
+      <div class="card-promise">"I am the light of the world. Whoever follows me will never walk in darkness, but will have the light of life."</div>
+      <div class="card-meaning">The condition is "follows" — active, present-tense discipleship. Not "whoever has once believed" or "whoever knows about me," but whoever keeps following. The person who keeps choosing obedience over the easier paths finds that their path is lit. Darkness is not a risk for the one who stays close to the Light.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Jeremiah 33:3</div>
+      <div class="card-situation">Jeremiah was imprisoned in the court of the guard</div>
+      <div class="card-promise">"Call to me and I will answer you and tell you great and unsearchable things you do not know."</div>
+      <div class="card-meaning">The promise was given to a man imprisoned for obedience to God's word. Jeremiah had not been freed from the trial; the trial had intensified. Yet from within that faithfulness, God offered to reveal things beyond human discovery. Obedient suffering becomes the classroom for hidden knowledge.</div>
+    </div>
+
+    <div class="card accent-olive">
+      <div class="card-ref">James 1:5</div>
+      <div class="card-situation">James addressed believers experiencing trials</div>
+      <div class="card-promise">"If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you."</div>
+      <div class="card-meaning">The context is trials (James 1:2–4). The wisdom promised is not general intelligence — it is the wisdom to navigate the specific trial in a way that produces the maturity God intends. He gives it "without finding fault" — no accusation, no withholding because of past failures. The only condition is asking in faith (v.6).</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Steps to Christ, p. 70</div>
+    <div class="egw-quote">"Many are inquiring, 'How am I to make the surrender of myself to God?' You desire to give yourself to Him, but you are weak in moral power, in slavery to doubt, and controlled by the habits of your life of sin. Your promises and resolutions are like ropes of sand. You cannot control your thoughts, your impulses, your affections. The knowledge of your broken promises and forfeited pledges weakens your confidence in your own sincerity, and causes you to feel that God cannot accept you; but you need not despair. What you need to understand is the true force of the will. This is the governing power in the nature of man, the power of decision, or of choice."</div>
+    <cite class="egw-cite">Steps to Christ, p. 47</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 5: VINDICATION & REWARD -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="vindication">
+  <div class="section-header">
+    <div class="section-icon">⚖️</div>
+    <div>
+      <div class="section-title">Vindication &amp; Reward</div>
+      <div class="section-desc">God promises that no act of faithful obedience is overlooked or unrewarded</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Ledger God Keeps</h3>
+    <p>One of the most difficult aspects of choosing obedience in trials is the apparent silence of heaven. The righteous suffer while the wicked prosper. This apparent injustice is addressed again and again in Scripture with the same answer: God sees, God records, and God acts in His own time. The obedient soul is not forgotten — they are seen with a precision that will astound them at the revelation of the books.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">Galatians 6:9</div>
+      <div class="card-situation">Paul urged believers not to give up on doing good</div>
+      <div class="card-promise">"Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up."</div>
+      <div class="card-meaning">The condition is persistence: "if we do not give up." The harvest is guaranteed by God — but it arrives at "the proper time," which is His timetable, not ours. This promise is specifically for those who are weary — those who have been doing good for a long time with no visible return. To them, God says: the harvest is coming.</div>
+    </div>
+
+    <div class="card accent-crimson">
+      <div class="card-ref">Revelation 2:10</div>
+      <div class="card-situation">Jesus wrote to the persecuted church at Smyrna facing imprisonment and death</div>
+      <div class="card-promise">"Do not be afraid of what you are about to suffer… Be faithful, even to the point of death, and I will give you life as your victor's crown."</div>
+      <div class="card-meaning">The reward is disproportionate to any human reckoning: the crown of life — immortality — in exchange for faithfulness unto death. Jesus does not promise to prevent the death. He promises that death at the hands of persecutors is not the final word. It is followed by the crown.</div>
+    </div>
+
+    <div class="card accent-olive">
+      <div class="card-ref">Romans 8:18</div>
+      <div class="card-situation">Paul addressed believers suffering for their faith in Rome</div>
+      <div class="card-promise">"I consider that our present sufferings are not worth comparing with the glory that will be revealed in us."</div>
+      <div class="card-meaning">Paul uses the language of a calculation: he has weighed present sufferings against future glory and concluded they are incommensurable. The glory is not just "worth it" — it is so disproportionately greater that comparison becomes absurd. The obedient sufferer is investing in an eternal return beyond all mathematics.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Psalm 37:5–6</div>
+      <div class="card-situation">David addressed the righteous who were fretting over the prosperity of the wicked</div>
+      <div class="card-promise">"Commit your way to the Lord; trust in him and he will do this: He will make your righteous reward shine like the dawn, your vindication like the noonday sun."</div>
+      <div class="card-meaning">The vindication is God's work, not the believer's. The righteous are told to stop fretting and commit — active trust. God's response is to make their vindication visible and undeniable as the sun at noon. They do not need to defend themselves; God will do so, on His own timetable.</div>
+    </div>
+
+    <div class="card accent-blue">
+      <div class="card-ref">Malachi 3:16–17</div>
+      <div class="card-situation">Those who feared God spoke to one another when the wicked seemed to prosper</div>
+      <div class="card-promise">"A scroll of remembrance was written in his presence concerning those who feared the Lord and honoured his name… 'They will be mine,' says the Lord Almighty, 'in the day when I make up my treasured possession.'"</div>
+      <div class="card-meaning">God keeps a specific ledger of names — every conversation about faith, every act of faithfulness in the dark — is recorded. In the final day, those whose names are written are claimed as God's personal treasure. Nothing done in obedience is invisible to heaven.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">Matthew 5:11–12</div>
+      <div class="card-situation">Jesus spoke to those reviled and persecuted for righteousness</div>
+      <div class="card-promise">"Blessed are you when people insult you, persecute you and falsely say all kinds of evil against you because of me. Rejoice and be glad, because great is your reward in heaven, for in the same way they persecuted the prophets who were before you."</div>
+      <div class="card-meaning">Jesus does not just promise reward — He calls those under this trial <em>blessed</em> in the present tense. The persecution is itself the evidence of standing with the prophets before them. The reward in heaven is called "great" — Jesus' own word for its magnitude.</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Prophets and Kings, p. 576</div>
+    <div class="egw-quote">"Every deed of loyalty and love is a seed sown that will bring forth fruit unto life eternal. Every such deed, registered in the books of heaven, will be a source of endless joy. God weighs every act. He who has given his life to God in faithful service will find that service honoured… God does not pay His servants in earthly coin; He does not reckon in earthly measure. The reward He gives is life eternal."</div>
+    <cite class="egw-cite">Prophets and Kings, p. 576 (paraphrase)</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — The Great Controversy, p. 651</div>
+    <div class="egw-quote">"All the treasures of the universe will be open to the study of God's redeemed. Unfettered by mortality, they wing their tireless flight to worlds afar — worlds that thrilled with sorrow at the spectacle of human woe, and rang with songs of gladness at the tidings of a ransomed soul. With unutterable delight the children of earth enter into the joy and the wisdom of unfallen beings… The great controversy is ended. Sin and sinners are no more. The entire universe is clean."</div>
+    <cite class="egw-cite">The Great Controversy, p. 677</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 6: TRANSFORMATION -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="transformation">
+  <div class="section-header">
+    <div class="section-icon">🔥</div>
+    <div>
+      <div class="section-title">The Fire That Purifies</div>
+      <div class="section-desc">God promises that obedient suffering produces something in us that nothing else can</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Furnace Purpose</h3>
+    <p>In God's economy, the trial that the believer endures in obedience is never waste. It is described repeatedly in Scripture as a refiner's fire, a potter's wheel, or a vine-pruning — processes that look destructive and feel painful, but exist entirely for the purpose of producing something of far greater quality. God does not allow suffering arbitrarily; He permits it purposefully, and He promises a specific outcome for those who submit to the process rather than flee it.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">James 1:2–4</div>
+      <div class="card-situation">James wrote to Christians scattered and suffering</div>
+      <div class="card-promise">"Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance. Let perseverance finish its work so that you may be mature and complete, not lacking anything."</div>
+      <div class="card-meaning">The promise is a process: trial → tested faith → perseverance → maturity/completeness. The outcome — "not lacking anything" — is the goal of a whole human character. This is not produced by ease. It is exclusively the product of endured trial. Obedience in trial is the only path to this completeness.</div>
+    </div>
+
+    <div class="card accent-crimson">
+      <div class="card-ref">Romans 5:3–5</div>
+      <div class="card-situation">Paul described the multi-stage fruit of suffering endured in faith</div>
+      <div class="card-promise">"We also glory in our sufferings, because we know that suffering produces perseverance; perseverance, character; and character, hope. And hope does not put us to shame, because God's love has been poured out into our hearts through the Holy Spirit, who has been given to us."</div>
+      <div class="card-meaning">Four guaranteed outcomes from obedient suffering: perseverance → character → hope → the love of God poured into the heart by the Spirit. The chain terminates not in our achievement but in a direct divine act — God Himself fills the vessel that trial has emptied and shaped. The Spirit is given specifically to those who have been formed by endurance.</div>
+    </div>
+
+    <div class="card accent-olive">
+      <div class="card-ref">1 Peter 1:6–7</div>
+      <div class="card-situation">Peter wrote to scattered believers facing "all kinds of trials"</div>
+      <div class="card-promise">"In all this you greatly rejoice, though now for a little while you may have had to suffer grief in all kinds of trials. These have come so that the proven genuineness of your faith — of greater worth than gold, which perishes even though refined by fire — may result in praise, glory and honour when Jesus Christ is revealed."</div>
+      <div class="card-meaning">The trial is not a mistake; it has a specific stated purpose: to prove, refine, and authenticate faith. Gold is refined by fire — but faith is "of greater worth than gold." The result of this fire is tangible: praise, glory, and honour at the revelation of Christ. Obedience under trial is the refining furnace that produces this outcome.</div>
+    </div>
+
+    <div class="card accent-blue">
+      <div class="card-ref">Zechariah 13:9</div>
+      <div class="card-situation">God described His remnant people coming through tribulation</div>
+      <div class="card-promise">"This third I will put into the fire; I will refine them like silver and test them like gold. They will call on my name and I will answer them; I will say, 'They are my people,' and they will say, 'The Lord is our God.'"</div>
+      <div class="card-meaning">The refining is God's own work — He puts them into the fire. The outcome of passing through is the most intimate possible relationship: "They are my people / The Lord is our God." The trial is the pathway to the deepest covenant intimacy. Those who stay through the fire find God on the other side claiming them as His own.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Hebrews 12:10–11</div>
+      <div class="card-situation">The author addressed believers under God's discipline</div>
+      <div class="card-promise">"God disciplines us for our good, in order that we may share in his holiness. No discipline seems pleasant at the time, but painful. Later on, however, it produces a harvest of righteousness and peace for those who have been trained by it."</div>
+      <div class="card-meaning">The specific outcome promised is: sharing in God's holiness. Not productivity, not success, not even happiness — holiness. This is the very character of God reproduced in the believer. The means is discipline that is uncomfortable. The condition is being "trained by it" — accepting it with obedience rather than resisting it with bitterness.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">John 15:2</div>
+      <div class="card-situation">Jesus used the vine-and-branches metaphor to explain His Father's work</div>
+      <div class="card-promise">"Every branch in me that does bear fruit he prunes so that it will be even more fruitful."</div>
+      <div class="card-meaning">Pruning is not punishment for the unfruitful — it is applied to the fruitful branch specifically to produce more fruit. The more productive the believer, the more likely the trial. God's goal is not less fruit but more. The cut that hurts is the act of a Vinedresser who wants a greater harvest, not a smaller one.</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — The Ministry of Healing, p. 471</div>
+    <div class="egw-quote">"Trials and obstacles are the Lord's chosen methods of discipline and His appointed conditions of success… It is the friction and the pressure that bring the brightness out of the diamond. So it is with the soul under trial. Patient submission to the providences of God brings peace and rest. But how few Christians readily consent to be trained and disciplined! They accept the blessing with gratitude, but murmur at the trial that is necessary to produce it."</div>
+    <cite class="egw-cite">Ministry of Healing, p. 471</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Testimonies for the Church, Vol. 5, p. 304</div>
+    <div class="egw-quote">"It is in the furnace of affliction that the dross is separated from the gold. God would have His servants become acquainted with the moral machinery of their own hearts… In the refiner's fire the dross is removed and the pure gold appears. God places His servants in the furnace of trial to prove them, not to destroy them."</div>
+    <cite class="egw-cite">Testimonies for the Church, Vol. 5 (paraphrase)</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 7: ETERNAL CROWN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="eternal">
+  <div class="section-header">
+    <div class="section-icon">👑</div>
+    <div>
+      <div class="section-title">The Eternal Crown</div>
+      <div class="section-desc">The final and greatest promises — what awaits those faithful to the end</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Weight of Eternal Glory</h3>
+    <p>Paul, writing from a Roman prison facing possible execution, called his present sufferings "light and momentary" compared to "an eternal glory that far outweighs them all" (2 Cor 4:17). This is not denial — it is a genuine comparative weighing. The eternal promises God has made to those who remain obedient under trial are of a different category from every earthly consideration. They cannot be approximated, only announced.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">Revelation 21:3–4</div>
+      <div class="card-situation">The final fulfilment — new heaven and new earth</div>
+      <div class="card-promise">"Look! God's dwelling place is now among the people, and he will dwell with them. They will be his people, and God himself will be with them and be their God. He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away."</div>
+      <div class="card-meaning">Every tear wiped — not just the great ones, but every one. The wiping is personal, specific, and divine. This is the destination toward which every obedient act of every trial is pointing. What is endured now is real. What is promised then is more real. The old order — in which suffering exists — ends permanently.</div>
+    </div>
+
+    <div class="card accent-crimson">
+      <div class="card-ref">Daniel 12:3</div>
+      <div class="card-situation">The angel revealed what awaits the wise in the final resurrection</div>
+      <div class="card-promise">"Those who are wise will shine like the brightness of the heavens, and those who lead many to righteousness, like the stars for ever and ever."</div>
+      <div class="card-meaning">The wisdom here is not intellectual — it is the wisdom of Proverbs, the fear of the Lord, the obedient life. Those who live wisely — and those who bring others to righteousness amid trial — will shine with a light that is permanent and stellar. For ever and ever: a duration without end.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">1 Corinthians 2:9</div>
+      <div class="card-situation">Paul described what no natural mind could conceive of God's plans</div>
+      <div class="card-promise">"What no eye has seen, what no ear has heard, and what no human mind has conceived — the things God has prepared for those who love him."</div>
+      <div class="card-meaning">The promise is explicitly beyond human imagination. The best we can conceive is still below the floor of what God has prepared. This means that every attempt to visualise the reward of obedience falls short — by God's own word, the reality will exceed our most expansive expectation.</div>
+    </div>
+
+    <div class="card accent-blue">
+      <div class="card-ref">2 Timothy 4:7–8</div>
+      <div class="card-situation">Paul wrote from his final imprisonment, facing execution</div>
+      <div class="card-promise">"I have fought the good fight, I have finished the race, I have kept the faith. Now there is in store for me the crown of righteousness, which the Lord, the righteous Judge, will award to me on that day — and not only to me, but also to all who have longed for his appearing."</div>
+      <div class="card-meaning">Paul's three-part declaration — fought, finished, kept — describes a life of obedience through every trial. The crown is given by "the righteous Judge": there will be no injustice, no overlooked sacrifice, no forgotten faithfulness. And it is not for Paul alone — it awaits all who long for Christ's return, which is the obedient posture of patient expectation.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">John 14:2–3</div>
+      <div class="card-situation">Jesus preparing His disciples for His absence on the night of His arrest</div>
+      <div class="card-promise">"My Father's house has many rooms… I am going there to prepare a place for you. And if I go and prepare a place for you, I will come back and take you to be with me that you also may be where I am."</div>
+      <div class="card-meaning">The place is prepared — actively, personally, by Christ Himself. The return is personal — "I will come back." The destination is not a concept but a location: where He is. For the faithful who endure the trials of this present age, the destination was being prepared while they suffered. Not a consolation prize — a prepared home.</div>
+    </div>
+
+    <div class="card accent-olive">
+      <div class="card-ref">1 John 3:2</div>
+      <div class="card-situation">John described the final transformation at Christ's appearing</div>
+      <div class="card-promise">"Dear friends, now we are children of God, and what we will be has not yet been made known. But we know that when Christ appears, we shall be like him, for we shall see him as he is."</div>
+      <div class="card-meaning">The final promise of transformation: we shall be like Him. Not resembling Him in some ways — like Him, in the fullest sense possible for a created being. The sight of Christ will complete the transformation that began at conversion and continued through every trial. Seeing Him produces becoming like Him.</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — The Great Controversy, p. 677</div>
+    <div class="egw-quote">"The great controversy is ended. Sin and sinners are no more. The entire universe is clean. One pulse of harmony and gladness beats through the vast creation. From Him who created all, flow life and light and gladness, throughout the realms of illimitable space. From the minutest atom to the greatest world, all things, animate and inanimate, in their unshadowed beauty and perfect joy, declare that God is love."</div>
+    <cite class="egw-cite">The Great Controversy, p. 678</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Early Writings, p. 16</div>
+    <div class="egw-quote">"Then a cloudy chariot, with wheels like flaming fire, surrounded by angels, came to where Jesus was. As He stepped into the chariot, six wings were folded about Him, and we cried out, 'Father, separate us not from Thee!' Then a cloud of angels swept round about us… I asked Jesus to let me remain in His presence continually; but He said I must go back and relate to others what He had shown me."</div>
+    <cite class="egw-cite">Early Writings, p. 16</cite>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SECTION 8: THE HOLY SPIRIT -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="spirit">
+  <div class="section-header">
+    <div class="section-icon">🕊️</div>
+    <div>
+      <div class="section-title">The Gift of the Holy Spirit</div>
+      <div class="section-desc">God promises the Holy Spirit specifically to those who obey Him</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>The Most Personal Promise of All</h3>
+    <p>Every other promise God makes to the obedient — presence, strength, provision, guidance, vindication, transformation — is ultimately delivered <em>through</em> this one. The Holy Spirit is not one blessing among many; He is the personal, indwelling presence of God Himself, given to those who obey. This promise appears in the most direct form in Acts 5:32: God gives the Holy Spirit <strong>to those who obey Him.</strong> Obedience is not the condition that earns the Spirit — it is the posture that receives Him.</p>
+    <p>The Spirit's arrival is the sign that sanctification is active, that God's power is at work, and that the indwelling has begun. No gift God gives is greater than Himself.</p>
+  </div>
+
+  <div class="promise-grid">
+    <div class="card accent-gold">
+      <div class="card-ref">Acts 5:32 — The Direct Statement</div>
+      <div class="card-situation">Peter and the apostles before the Sanhedrin, who had commanded them to stop preaching</div>
+      <div class="card-promise">"We are witnesses of these things, and so is the Holy Spirit, whom God has given to those who obey Him."</div>
+      <div class="card-meaning">This is the clearest single statement in Scripture connecting obedience and the gift of the Spirit. The Greek (<em>tois peitharchousin autō</em>) means "to those who comply with, who submit to" God. The apostles were themselves the living proof — they had chosen obedience to God over compliance with the council, and the Spirit was the fruit of that choice. <strong>Obedience is not the price of the Spirit — it is the channel through which He flows.</strong></div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Luke 11:13</div>
+      <div class="card-situation">Jesus taught on prayer — the Father's willingness to give the best gift</div>
+      <div class="card-promise">"If you then, though you are evil, know how to give good gifts to your children, how much more will your Father in heaven give the Holy Spirit to those who ask him!"</div>
+      <div class="card-meaning">Luke's version of Matthew 7:11 replaces "good gifts" with "the Holy Spirit" — revealing that <strong>the Holy Spirit is the best gift the Father gives.</strong> The asking Jesus refers to is prayer that flows from a surrendered, obedient relationship with the Father. The comparison is designed to dissolve all doubt: if flawed human parents give good things to their children, how much more certain is the Father's giving of His Spirit.</div>
+    </div>
+
+    <div class="card accent-blue">
+      <div class="card-ref">John 14:15–17 — The Condition and the Promise</div>
+      <div class="card-situation">Jesus' farewell discourse on the night of His arrest</div>
+      <div class="card-promise">"If you love me, keep my commands. And I will ask the Father, and he will give you another Advocate to help you and be with you forever — the Spirit of truth. The world cannot accept him, because it neither sees him nor knows him. But you know him, for he lives with you and will be in you."</div>
+      <div class="card-meaning">The structure is explicit: love → keep My commands → Father gives the Spirit. This is not a transactional formula — love is the root, obedience is love's expression, and the Spirit is the Father's response. The world does not receive the Spirit because it does not obey — it has no channel for Him. The obedient soul, by contrast, becomes His permanent home: <strong>"He will be in you."</strong> This is indwelling, not merely accompaniment.</div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">John 14:21, 23 — Manifest Presence for the Obedient</div>
+      <div class="card-situation">Jesus continued His farewell teaching on the Spirit's coming</div>
+      <div class="card-promise">"Whoever has my commands and keeps them is the one who loves me. The one who loves me will be loved by my Father, and I too will love them and show myself to them… Anyone who loves me will obey my teaching. My Father will love them, and we will come to them and make our home with them."</div>
+      <div class="card-meaning">The promise escalates from John 14:17: not only the Spirit, but the Father and Son themselves come and make their home in the obedient soul. This is the Trinitarian fullness of indwelling — given specifically to the one who keeps Christ's words. <strong>The obedient heart becomes the dwelling place of God.</strong> This is the deepest possible fulfilment of the sanctification promise.</div>
+    </div>
+
+    <div class="card accent-olive">
+      <div class="card-ref">Galatians 3:14</div>
+      <div class="card-situation">Paul explains the purpose of Christ's redemption</div>
+      <div class="card-promise">"He redeemed us in order that the blessing given to Abraham might come to the Gentiles through Christ Jesus, so that by faith we might receive the promise of the Spirit."</div>
+      <div class="card-meaning">The Abrahamic blessing — the covenant promise running through the whole Old Testament — finds its New Covenant fulfilment in the gift of the Spirit received through faith. The faith Paul speaks of is not mere intellectual assent but the obedient trust that Abraham himself modelled (Rom 4:3, Heb 11:8). The Spirit is the inheritance of the faithful.</div>
+    </div>
+
+    <div class="card accent-gold">
+      <div class="card-ref">Ezekiel 36:26–27 — The New Covenant Promise</div>
+      <div class="card-situation">God's great promise of inner renewal — spoken through Ezekiel to a rebellious nation</div>
+      <div class="card-promise">"I will give you a new heart and put a new spirit in you… And I will put my Spirit in you and move you to follow my decrees and be careful to keep my laws."</div>
+      <div class="card-meaning">Here the Spirit is the <em>cause</em> of obedience, not merely its reward — because God initiates the whole process. The Spirit is given so that the believer <em>will</em> obey. This is the full New Covenant logic: God gives the Spirit → the Spirit produces the desire and capacity for obedience → obedience is the fruit of the Spirit already given. It is a circle of grace, not a ladder of merit. <strong>The Spirit produces obedience; obedience deepens the Spirit's work.</strong></div>
+    </div>
+
+    <div class="card accent-crimson">
+      <div class="card-ref">Acts 2:38 — Repentance, Baptism, and the Gift</div>
+      <div class="card-situation">Peter's reply to the crowd at Pentecost — "What shall we do?"</div>
+      <div class="card-promise">"Repent and be baptised, every one of you, in the name of Jesus Christ for the forgiveness of your sins. And you will receive the gift of the Holy Spirit."</div>
+      <div class="card-meaning">Peter's formula for receiving the Spirit is not belief alone — it is belief that produces repentance (turning from sin, an act of the will toward obedience) and public commitment (baptism). The gift of the Spirit follows as God's covenantal response to these acts of surrender. <strong>The Spirit is not earned — He is received into the space that repentance and surrender create.</strong></div>
+    </div>
+
+    <div class="card accent-teal">
+      <div class="card-ref">Romans 8:14</div>
+      <div class="card-situation">Paul's description of the Spirit-led life as the life of God's children</div>
+      <div class="card-promise">"For those who are led by the Spirit of God are the children of God."</div>
+      <div class="card-meaning">The Spirit-led life and the obedient life are the same life described from two angles. To be led by the Spirit is to follow where the Spirit directs — which is always toward the Father's will. The obedient soul discovers that their obedience is itself the Spirit's work within them. <strong>They obey because the Spirit leads; they receive more of the Spirit because they obey.</strong> This upward spiral is the engine of sanctification.</div>
+    </div>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — The Desire of Ages, p. 671–672</div>
+    <div class="egw-quote">"The Holy Spirit is Christ's representative, but divested of the personality of humanity, and independent thereof. Cumbered with humanity, Christ could not be in every place personally. Therefore it was for their interest that He should go to the Father, and send the Spirit to be His successor on earth. No one could then have any advantage because of his location or his personal contact with Christ. By the Spirit the Saviour would be accessible to all. In this sense He would be nearer to them than if He had not ascended on high."</div>
+    <cite class="egw-src">The Desire of Ages, pp. 669–670</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Acts of the Apostles, p. 49</div>
+    <div class="egw-quote">"The lapse of time has wrought no change in Christ's parting promise to send the Holy Spirit as His representative. It is not because of any restriction on the part of God that the riches of His grace do not flow earthward to men. If the fulfillment of the promise is not seen as it might be, it is because the promise is not appreciated as it should be. If all were willing, all would be filled with the Spirit. Wherever the need of the Holy Spirit is a matter little thought of, there is seen spiritual drought, spiritual darkness, spiritual declension and death. Whenever minor matters occupy the attention, the divine power which is necessary for the growth and prosperity of the church, and which would bring all other blessings in its train, is lacking."</div>
+    <cite class="egw-src">Acts of the Apostles, p. 50</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — Steps to Christ, p. 52</div>
+    <div class="egw-quote">"The Spirit of God is ever seeking to pierce the heart of man, to awaken within him a knowledge of sin and a sense of his need. But it is only as the will yields to God, as the life is surrendered to His control, that the Holy Spirit can do His work. The Spirit works with the repentant soul that turns to obedience. And as we give ourselves to God, making full surrender, the Holy Spirit takes up His abode within — and the transformation is not of our making, but His."</div>
+    <cite class="egw-src">Steps to Christ (paraphrase of pp. 47–52)</cite>
+  </div>
+
+  <div class="principle-box" style="margin-top:24px">
+    <h3>The Spirit and the Sabbath — A Direct Connection</h3>
+    <p>EGW and Scripture both connect the Spirit's fullness to faithful Sabbath-keeping. The Sabbath is the weekly practice of ceasing from self-reliance — which is exactly the posture that receives the Spirit. Isaiah 58:13–14 promises that Sabbath-keepers will "delight in the Lord" — the same delight that is the fruit of the Spirit (Gal 5:22). The Spirit-filled life and the Sabbath-keeping life describe the same person from different angles: one fully yielded to God as Creator and Sanctifier, resting in His power rather than their own, and being transformed from the inside out.</p>
+  </div>
+</section>
+
+<!-- SECTION 9: SUMMARY TABLE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="section" id="summary">
+  <div class="section-header">
+    <div class="section-icon">📜</div>
+    <div>
+      <div class="section-title">Summary: What God Promises</div>
+      <div class="section-desc">A complete reference of divine commitments to the obedient soul in trial</div>
+    </div>
+  </div>
+
+  <div class="principle-box">
+    <h3>Reading This Table</h3>
+    <p>Each row represents a specific biblical promise made to those who choose obedience over comfort or ease. The left column names the situation of trial. The middle column states precisely what God has committed to do. The right column gives the primary Scripture reference and, where relevant, an EGW corroboration. These are not encouragements — they are covenantal obligations that God has placed upon Himself.</p>
+  </div>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>Trial / Obedience Context</th>
+        <th>What God Promises to Do</th>
+        <th>Key Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Passing through fire and flood</td>
+        <td><span class="what-god-does">He will be present through it — the flames will not consume</span></td>
+        <td>Isa 43:2</td>
+      </tr>
+      <tr>
+        <td>Fear and displacement</td>
+        <td><span class="what-god-does">He will strengthen, help, and uphold with His righteous right hand</span></td>
+        <td>Isa 41:10</td>
+      </tr>
+      <tr>
+        <td>Sent into hostile mission</td>
+        <td><span class="what-god-does">He will accompany always, to the very end of the age</span></td>
+        <td>Matt 28:20</td>
+      </tr>
+      <tr>
+        <td>Complete exhaustion of personal resources</td>
+        <td><span class="what-god-does">He renews strength — soaring, running, walking without fainting</span></td>
+        <td>Isa 40:31</td>
+      </tr>
+      <tr>
+        <td>Suffering that will not be removed</td>
+        <td><span class="what-god-does">His grace is sufficient; His power is perfected in the weakness</span></td>
+        <td>2 Cor 12:9</td>
+      </tr>
+      <tr>
+        <td>Every temptation to disobey</td>
+        <td><span class="what-god-does">He provides a way out — the trial is never beyond what can be borne</span></td>
+        <td>1 Cor 10:13</td>
+      </tr>
+      <tr>
+        <td>Seeking His kingdom first, at material cost</td>
+        <td><span class="what-god-does">He adds all daily needs — food, clothing, provision</span></td>
+        <td>Matt 6:33</td>
+      </tr>
+      <tr>
+        <td>Sacrificial giving in obedience</td>
+        <td><span class="what-god-does">He meets every need according to His own riches in glory</span></td>
+        <td>Phil 4:19</td>
+      </tr>
+      <tr>
+        <td>Generous obedience toward the poor</td>
+        <td><span class="what-god-does">He guides always, satisfies in scarcity, makes like a never-failing spring</span></td>
+        <td>Isa 58:11</td>
+      </tr>
+      <tr>
+        <td>Leaving everything to follow Christ</td>
+        <td><span class="what-god-does">He returns a hundred-fold in community and belonging, plus eternal life</span></td>
+        <td>Mark 10:29–30</td>
+      </tr>
+      <tr>
+        <td>Wholehearted trust and submission in decisions</td>
+        <td><span class="what-god-does">He makes the path straight — actively works on the circumstances</span></td>
+        <td>Prov 3:5–6</td>
+      </tr>
+      <tr>
+        <td>Humble, God-fearing heart</td>
+        <td><span class="what-god-does">He guides in what is right and instructs in choices</span></td>
+        <td>Ps 25:9, 12</td>
+      </tr>
+      <tr>
+        <td>Actively following Christ</td>
+        <td><span class="what-god-does">The path is lit — no walking in darkness for the follower</span></td>
+        <td>John 8:12</td>
+      </tr>
+      <tr>
+        <td>Lack of wisdom in a trial</td>
+        <td><span class="what-god-does">He gives wisdom generously, without fault-finding, to all who ask in faith</span></td>
+        <td>James 1:5</td>
+      </tr>
+      <tr>
+        <td>Weary in doing good with no visible harvest</td>
+        <td><span class="what-god-does">At the proper time, a harvest will come — if the faithful do not give up</span></td>
+        <td>Gal 6:9</td>
+      </tr>
+      <tr>
+        <td>Persecution and false accusation for righteousness</td>
+        <td><span class="what-god-does">Great reward in heaven; present blessedness; standing with the prophets</span></td>
+        <td>Matt 5:11–12</td>
+      </tr>
+      <tr>
+        <td>Faithfulness even unto death</td>
+        <td><span class="what-god-does">He gives the crown of life — immortality as the victor's reward</span></td>
+        <td>Rev 2:10</td>
+      </tr>
+      <tr>
+        <td>Name written for fearing God in dark times</td>
+        <td><span class="what-god-does">He claims them as His treasured possession on the day of reckoning</span></td>
+        <td>Mal 3:16–17</td>
+      </tr>
+      <tr>
+        <td>Faith tested in all kinds of trials</td>
+        <td><span class="what-god-does">Perseverance → character → hope → the love of God poured into the heart by the Spirit</span></td>
+        <td>Rom 5:3–5 / James 1:3–4</td>
+      </tr>
+      <tr>
+        <td>Submitted to God's discipline</td>
+        <td><span class="what-god-does">A harvest of righteousness and peace; sharing in His holiness</span></td>
+        <td>Heb 12:10–11</td>
+      </tr>
+      <tr>
+        <td>Fruitful branch submitted to pruning</td>
+        <td><span class="what-god-does">Even greater fruitfulness follows the cut</span></td>
+        <td>John 15:2</td>
+      </tr>
+      <tr>
+        <td>Refined through the furnace of affliction</td>
+        <td><span class="what-god-does">"They are my people" — the deepest covenant intimacy awaits those who pass through</span></td>
+        <td>Zech 13:9</td>
+      </tr>
+      <tr>
+        <td>Obedience, surrender, and asking in faith</td>
+        <td><span class="what-god-does">He gives the Holy Spirit — the personal indwelling presence of God — as His greatest gift</span></td>
+        <td>Acts 5:32 / Luke 11:13 / John 14:16–17</td>
+      </tr>
+      <tr>
+        <td>Keeping Christ's commands out of love</td>
+        <td><span class="what-god-does">Father and Son come and make their home in the obedient soul (Trinitarian indwelling)</span></td>
+        <td>John 14:21–23</td>
+      </tr>
+      <tr>
+        <td>The whole obedient life — fought, finished, kept faith</td>
+        <td><span class="what-god-does">The crown of righteousness, awarded by the righteous Judge on that day</span></td>
+        <td>2 Tim 4:7–8</td>
+      </tr>
+      <tr>
+        <td>At the end of all things — the final appearing</td>
+        <td><span class="what-god-does">Transformation into His likeness; every tear wiped; no more death, pain, or crying. God dwelling with His people forever</span></td>
+        <td>1 John 3:2 / Rev 21:3–4</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="divider-text">✦ The Threefold Guarantee ✦</div>
+
+  <div class="promise-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+    <div class="card accent-gold">
+      <div class="card-ref">God Cannot Lie</div>
+      <div class="card-promise">"God is not human, that he should lie, not a human being, that he should change his mind. Does he speak and then not act? Does he promise and not fulfil?" (Numbers 23:19)</div>
+      <div class="card-meaning">Every promise in this guide is backed by the unchangeable character of One for whom lying is an ontological impossibility.</div>
+    </div>
+    <div class="card accent-crimson">
+      <div class="card-ref">The Word Does Not Return Empty</div>
+      <div class="card-promise">"So is my word that goes out from my mouth: It will not return to me empty, but will accomplish what I desire and achieve the purpose for which I sent it." (Isaiah 55:11)</div>
+      <div class="card-meaning">God's promises are not wishes — they are purposeful declarations by the One who controls all outcomes.</div>
+    </div>
+    <div class="card accent-olive">
+      <div class="card-ref">Heaven and Earth Shall Pass Away</div>
+      <div class="card-promise">"Heaven and earth will pass away, but my words will never pass away." (Matthew 24:35 / Luke 21:33)</div>
+      <div class="card-meaning">The universe has a shorter life-expectancy than these promises. Every trial endured in obedience is investing in something with a longer duration than creation itself.</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- end .main -->
+
+<!-- CLOSING -->
+<div class="closing">
+  <span class="closing-ornament">✦ ✦ ✦</span>
+  <p class="closing-verse">"So do not throw away your confidence; it will be richly rewarded. You need to persevere so that when you have done the will of God, you will receive what he has promised."</p>
+  <span class="closing-ref">Hebrews 10:35–36</span>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: document.getElementById('nav').offsetTop - 1, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

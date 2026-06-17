@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking Truth in Love — Communication & the Unbelieving Spouse</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c87a;
+    --cream: #fdf6e8;
+    --parchment: #f5e9cc;
+    --ink: #1a1208;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.78;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 40% 0%, rgba(201,168,76,0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 80%, rgba(30,61,90,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at 10% 70%, rgba(90,30,30,0.2) 0%, transparent 50%),
+      linear-gradient(180deg, #0c0904 0%, #1a1208 70%, #0c0904 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(201,168,76,0.035) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+
+  .hero-symbol {
+    font-size: 2.8rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    animation: pulse 3s ease-in-out infinite alternate;
+  }
+  @keyframes pulse {
+    from { text-shadow: 0 0 20px rgba(201,168,76,0.3); opacity: 0.8; }
+    to   { text-shadow: 0 0 60px rgba(201,168,76,0.7); opacity: 1; }
+  }
+
+  .eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6.5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+
+  .hero-sub {
+    font-style: italic;
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    color: rgba(253,246,232,0.65);
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-verse {
+    border: 1px solid rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.055);
+    padding: 1.4rem 2.2rem;
+    max-width: 580px;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--parchment);
+    position: relative;
+    border-radius: 2px;
+  }
+  .hero-verse::before, .hero-verse::after {
+    content: ''; position: absolute;
+    width: 28px; height: 28px;
+    border-color: var(--gold); border-style: solid; opacity: 0.5;
+  }
+  .hero-verse::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+  .hero-verse::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+  .ref {
+    display: block;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-top: 0.7rem;
+    opacity: 0.8;
+  }
+
+  /* ── NAV ── */
+  .toc {
+    background: rgba(201,168,76,0.04);
+    border-top: 1px solid rgba(201,168,76,0.18);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+    padding: 1.8rem 1rem;
+    text-align: center;
+  }
+  .toc-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    opacity: 0.6;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+  .toc-row {
+    display: flex; flex-wrap: wrap;
+    justify-content: center; gap: 0.65rem;
+    max-width: 900px; margin: 0 auto;
+  }
+  .toc-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--parchment);
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.28);
+    padding: 0.55rem 1rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-radius: 1px;
+  }
+  .toc-btn:hover {
+    background: rgba(201,168,76,0.18);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+
+  /* ── BANDS ── */
+  .band-a { background: linear-gradient(180deg, #0c0904, #0f0d06, #0c0904); }
+  .band-b { background: linear-gradient(180deg, #0c0904, #080d0f, #0c0904); }
+  .band-c { background: linear-gradient(180deg, #0c0904, #0d0808, #0c0904); }
+  .band-d { background: linear-gradient(180deg, #0c0904, #080c0d, #0c0904); }
+  .band-e { background: linear-gradient(180deg, #0c0904, #0a0c08, #0c0904); }
+
+  /* ── LAYOUT ── */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .sec-num {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.55;
+    margin-bottom: 0.5rem;
+  }
+
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+  .sec-title em { color: var(--gold-light); font-style: italic; }
+
+  .sec-intro {
+    font-style: italic;
+    color: rgba(253,246,232,0.65);
+    font-size: 1.1rem;
+    max-width: 620px;
+    border-left: 2px solid rgba(201,168,76,0.35);
+    padding-left: 1.1rem;
+    margin: 1rem 0 2.5rem;
+  }
+
+  .prose {
+    font-size: 1rem;
+    color: rgba(253,246,232,0.78);
+    margin-bottom: 1.3rem;
+    line-height: 1.88;
+  }
+
+  .sub { 
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+  }
+
+  /* ── CARDS ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.4rem;
+    margin: 1.8rem 0;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.028);
+    border: 1px solid rgba(201,168,76,0.16);
+    padding: 1.7rem 1.5rem;
+    border-radius: 2px;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: rgba(201,168,76,0.38); }
+  .card:hover::before { opacity: 1; }
+
+  .card-icon { font-size: 1.7rem; margin-bottom: 0.75rem; }
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.08rem;
+    color: var(--gold-light);
+    margin-bottom: 0.55rem;
+  }
+  .card p { font-size: 0.93rem; color: rgba(253,246,232,0.74); line-height: 1.65; }
+
+  /* ── QUOTE ── */
+  .quote {
+    background: rgba(201,168,76,0.05);
+    border-left: 3px solid var(--gold);
+    padding: 1.7rem 1.9rem;
+    margin: 2rem 0;
+    border-radius: 0 2px 2px 0;
+    position: relative;
+  }
+  .quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    color: var(--gold);
+    opacity: 0.13;
+    position: absolute;
+    top: -0.4rem; left: 0.5rem;
+    line-height: 1;
+  }
+  .qt {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--parchment);
+    line-height: 1.82;
+    position: relative; z-index: 1;
+  }
+  .qs {
+    font-family: 'Cinzel', serif;
+    font-size: 0.63rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    opacity: 0.68;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  /* ── VERSE CARD ── */
+  .vc {
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+    background: rgba(255,255,255,0.022);
+    border: 1px solid rgba(201,168,76,0.13);
+    padding: 1.2rem 1.4rem;
+    margin: 0.85rem 0;
+    border-radius: 2px;
+    transition: background 0.3s;
+  }
+  .vc:hover { background: rgba(201,168,76,0.045); }
+  .vr {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    background: rgba(201,168,76,0.09);
+    border: 1px solid rgba(201,168,76,0.22);
+    padding: 0.22rem 0.5rem;
+    white-space: nowrap;
+    border-radius: 1px;
+    margin-top: 0.15rem;
+    min-width: fit-content;
+  }
+  .vt { font-size: 0.95rem; color: rgba(253,246,232,0.8); font-style: italic; }
+
+  /* ── STEPS ── */
+  .steps { display: flex; flex-direction: column; gap: 1.15rem; margin: 1.8rem 0; }
+  .step {
+    display: flex; gap: 1.3rem; align-items: flex-start;
+    padding: 1.35rem 1.5rem;
+    background: rgba(255,255,255,0.022);
+    border: 1px solid rgba(201,168,76,0.11);
+    border-radius: 2px;
+    transition: border-color 0.3s;
+  }
+  .step:hover { border-color: rgba(201,168,76,0.32); }
+  .sn {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gold);
+    opacity: 0.45;
+    min-width: 1.9rem;
+    line-height: 1;
+    margin-top: 0.1rem;
+  }
+  .sb h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.03rem;
+    color: var(--gold-light);
+    margin-bottom: 0.3rem;
+  }
+  .sb p { font-size: 0.93rem; color: rgba(253,246,232,0.74); }
+
+  /* ── HIGHLIGHT ── */
+  .box {
+    border: 1px solid rgba(201,168,76,0.32);
+    background: rgba(201,168,76,0.055);
+    padding: 1.9rem 2.1rem;
+    margin: 2.2rem 0;
+    border-radius: 2px;
+  }
+  .box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.22rem;
+    color: var(--gold-light);
+    margin-bottom: 0.9rem;
+  }
+  .box ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .box ul li {
+    padding-left: 1.4rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: rgba(253,246,232,0.8);
+  }
+  .box ul li::before {
+    content: '›'; color: var(--gold);
+    position: absolute; left: 0;
+    font-size: 1.05rem; line-height: 1.55;
+  }
+
+  /* ── WARNING ── */
+  .warn {
+    border: 1px solid rgba(220,80,80,0.32);
+    background: rgba(220,80,80,0.04);
+    border-left: 3px solid rgba(220,80,80,0.45);
+    padding: 1.6rem 1.9rem;
+    margin: 2rem 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .warn h3 {
+    font-family: 'Playfair Display', serif;
+    color: #e8a0a0;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  .warn p { font-size: 0.93rem; color: rgba(253,246,232,0.75); }
+
+  /* ── HOPE BOX ── */
+  .hope {
+    border: 1px solid rgba(80,180,120,0.32);
+    background: rgba(80,180,120,0.04);
+    border-left: 3px solid rgba(80,180,120,0.45);
+    padding: 1.6rem 1.9rem;
+    margin: 2rem 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .hope h3 {
+    font-family: 'Playfair Display', serif;
+    color: #a0e8c0;
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  .hope p { font-size: 0.93rem; color: rgba(253,246,232,0.75); }
+
+  /* ── TWO-COL COMPARE ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem;
+    margin: 1.8rem 0;
+  }
+  @media (max-width: 580px) { .compare { grid-template-columns: 1fr; } }
+
+  .compare-col {
+    background: rgba(255,255,255,0.022);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .compare-head {
+    padding: 0.9rem 1.4rem;
+    background: rgba(201,168,76,0.08);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+  }
+  .compare-head.bad { background: rgba(200,60,60,0.08); color: #e8a0a0; }
+  .compare-body {
+    padding: 1.1rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .ci {
+    font-size: 0.91rem;
+    color: rgba(253,246,232,0.76);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .ci::before { content: '›'; color: var(--gold); position: absolute; left: 0; }
+  .ci.bad::before { color: #e07070; }
+
+  /* ── SCROLL TOP ── */
+  .scroll-top {
+    position: fixed; bottom: 1.8rem; right: 1.8rem;
+    width: 40px; height: 40px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.38);
+    color: var(--gold); font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; border-radius: 2px; text-decoration: none; z-index: 99;
+    transition: background 0.3s;
+  }
+  .scroll-top:hover { background: rgba(201,168,76,0.25); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    border-top: 1px solid rgba(201,168,76,0.13);
+    background: #090803;
+  }
+  footer .fsym { font-size: 1.8rem; color: var(--gold); opacity: 0.35; margin-bottom: 0.9rem; }
+  footer p { font-size: 0.86rem; color: rgba(253,246,232,0.3); font-style: italic; max-width: 520px; margin: 0 auto; }
+  footer .fv {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem; letter-spacing: 0.24em;
+    color: var(--gold); opacity: 0.4;
+    margin-top: 1.3rem; text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 2.8rem 1.2rem; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#" class="scroll-top">↑</a>
+
+<!-- ══════════════════════
+     HERO
+══════════════════════ -->
+<section class="hero">
+  <div class="hero-symbol">🕊 ✦ 💬</div>
+  <p class="eyebrow">A Biblical &amp; Spirit of Prophecy Deep Study</p>
+  <h1>Speaking Truth <em>in Love</em></h1>
+  <p class="hero-sub">What the Bible and Ellen G. White teach about communication in marriage — and walking faithfully when your spouse does not share your faith</p>
+  <div class="hero-verse">
+    "Rather, speaking the truth in love, we are to grow up in every way into him
+    who is the head, into Christ."
+    <span class="ref">— Ephesians 4:15 ESV</span>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     TOC
+══════════════════════ -->
+<nav class="toc">
+  <p class="toc-label">Contents</p>
+  <div class="toc-row">
+    <a href="#comm-god"      class="toc-btn">I. God Communicates</a>
+    <a href="#listen"        class="toc-btn">II. The Forgotten Half — Listening</a>
+    <a href="#patterns"      class="toc-btn">III. Destructive Patterns</a>
+    <a href="#healing"       class="toc-btn">IV. Patterns That Heal</a>
+    <a href="#conflict"      class="toc-btn">V. Navigating Conflict</a>
+    <a href="#nonverbal"     class="toc-btn">VI. Non-Verbal Communication</a>
+    <a href="#egw-tongue"    class="toc-btn">VII. EGW on the Tongue</a>
+    <a href="#unbeliever"    class="toc-btn">VIII. The Unbelieving Spouse</a>
+    <a href="#living-faith"  class="toc-btn">IX. A Living Sermon</a>
+    <a href="#boundaries"    class="toc-btn">X. Boundaries &amp; Limits</a>
+    <a href="#children"      class="toc-btn">XI. Children in a Divided Home</a>
+    <a href="#hope"          class="toc-btn">XII. Hope &amp; Intercession</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     PART A — COMMUNICATION
+══════════════════════════════════════ -->
+
+<!-- SECTION I -->
+<div class="band-a">
+<section class="section" id="comm-god">
+  <div>
+    <p class="sec-num">Section I</p>
+    <h2 class="sec-title">God <em>Communicates</em> — and We Were Made to Follow</h2>
+    <p class="sec-intro">Before addressing human communication, we must anchor ourselves in its divine source. God is a speaking God — and human speech is an image-bearer's gift that carries extraordinary moral weight.</p>
+  </div>
+
+  <p class="prose">The first thing recorded of God in Scripture is that He spoke. "And God said…" <em>(Gen 1:3)</em>. Creation itself was a communication act. Human beings, made in God's image, were given the same capacity — the ability to speak truth, call things into being, express love, and name reality. This capacity is sacred. In a marriage, speech is either the instrument of blessing or the instrument of destruction — there is almost no neutral ground.</p>
+
+  <p class="prose">Ellen White understood the weight of speech better than most. She returned to the subject of voice, tone, and words in the home more than almost any other practical topic in <em>The Adventist Home</em>, precisely because she understood that what happens in the family circle either reflects or contradicts every sermon preached and every prayer offered.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">✨</div>
+      <h3>Speech is Moral</h3>
+      <p>"I tell you, on the day of judgment people will give account for every careless word they speak." <em>(Matt 12:36)</em>. Words are not merely social — they are spiritual. Each word in a marriage is a moral act.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌿</div>
+      <h3>Speech Creates Reality</h3>
+      <p>"Death and life are in the power of the tongue, and those who love it will eat its fruits." <em>(Prov 18:21)</em>. Words spoken to a spouse daily shape who they become — for better or worse.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔗</div>
+      <h3>Speech Reflects the Heart</h3>
+      <p>"Out of the abundance of the heart the mouth speaks." <em>(Matt 12:34)</em>. Communication problems are never only communication problems — they are heart problems that manifest in speech. The tongue reveals what grace has or has not yet transformed.</p>
+    </div>
+  </div>
+
+  <div class="vc">
+    <span class="vr">Prov 18:21</span>
+    <p class="vt">"Death and life are in the power of the tongue, and those who love it will eat its fruits."</p>
+  </div>
+  <div class="vc">
+    <span class="vr">Matt 12:36</span>
+    <p class="vt">"I tell you, on the day of judgment people will give account for every careless word they speak."</p>
+  </div>
+  <div class="vc">
+    <span class="vr">Col 4:6</span>
+    <p class="vt">"Let your speech always be gracious, seasoned with salt, so that you may know how you ought to answer each person."</p>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"The tongue is a little member, but the words it utters are as seeds sown in the soil of the heart. Words of tenderness, appreciation, and encouragement take root and produce a harvest of peace. Words of criticism, contempt, or harshness take root also — but they produce a harvest of bitterness."</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 437 (composite)</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION II — LISTENING -->
+<div class="band-b">
+<section class="section" id="listen">
+  <div>
+    <p class="sec-num">Section II</p>
+    <h2 class="sec-title">The Forgotten Half — <em>Listening</em></h2>
+    <p class="sec-intro">Most people approach communication as a problem of speaking better. Scripture reveals that the deeper problem is nearly always a failure to truly listen — to hear with the intention to understand rather than to reply.</p>
+  </div>
+
+  <p class="prose">James 1:19 gives what may be the most practical marriage communication instruction in all of Scripture, tucked into what appears to be a general epistle: "Let every person be quick to hear, slow to speak, slow to anger." The order is deliberate and counter-intuitive. We are commanded to be quick at the harder task — listening — and slow at the easier one, speaking. In marriage, most conflict is not caused by what was said but by what was not heard.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">👂</div>
+      <h3>Quick to Hear</h3>
+      <p>"Let every person be quick to hear." <em>(James 1:19)</em>. This is not passive hearing — it is active, intentional engagement with what the other person is actually saying, rather than with what you assume they mean.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⏸️</div>
+      <h3>Slow to Speak</h3>
+      <p>"Slow to speak." <em>(James 1:19)</em>. The pause between hearing and speaking is where wisdom lives. EGW: "Think before you speak. Do not let the first hasty words come forth as a reply." — <em>AH, p. 438</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌡️</div>
+      <h3>Slow to Anger</h3>
+      <p>"Slow to anger." <em>(James 1:19)</em>. Anger is usually the response to feeling unheard. When genuine listening happens, anger rarely reaches full heat. "A soft answer turns away wrath." <em>(Prov 15:1)</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🪞</div>
+      <h3>Hear to Understand</h3>
+      <p>"If one gives an answer before he hears, it is his folly and shame." <em>(Prov 18:13)</em>. The temptation to formulate a rebuttal while the spouse is still speaking is one of the most common failures of marital communication.</p>
+    </div>
+  </div>
+
+  <h3 class="sub">What Genuine Listening Looks Like</h3>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">01</span>
+      <div class="sb">
+        <h4>Stop What You Are Doing</h4>
+        <p>Put down the phone, close the laptop, turn off the television. The body communicates before the mouth does. When a spouse speaks and receives only a distracted half-presence, the message received is: "You are not important enough for my full attention." This is a form of contempt, even when unintentional.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">02</span>
+      <div class="sb">
+        <h4>Reflect Before Responding</h4>
+        <p>"He who gives an answer before he hears — it is folly and shame to him." <em>(Prov 18:13)</em>. Before responding, briefly restate what you heard: "So what you're saying is…" This gives the speaker the experience of being truly understood, and prevents you from arguing against a position your spouse never actually held.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">03</span>
+      <div class="sb">
+        <h4>Ask, Don't Assume</h4>
+        <p>EGW: "Do not put the worst construction on what your companion says." — <em>AH, p. 440</em>. When something is ambiguous, ask with genuine curiosity rather than interpreting through the lens of past wounds. Assumptions poison conversations before they begin.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">04</span>
+      <div class="sb">
+        <h4>Listen to the Emotion, Not Only the Words</h4>
+        <p>A spouse who says "You never help me" is usually not making a statistical claim. They are expressing exhaustion, loneliness, or feeling unseen. The wise listener hears the cry beneath the complaint and responds to the heart rather than arguing the facts. "The purposes of a person's heart are deep waters, but one who has insight draws them out." <em>(Prov 20:5 NIV)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">05</span>
+      <div class="sb">
+        <h4>Silence Is Sometimes the Highest Form of Love</h4>
+        <p>Job's friends "sat with him on the ground seven days and seven nights, and no one spoke a word to him, for they saw that his suffering was very great." <em>(Job 2:13)</em>. There are moments when the spouse does not need solutions, counsel, or Scripture — they need a quiet, present witness. Learn to offer this without discomfort.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"Be swift to hear and slow to speak. Do not be in haste to give your opinion and advice. Hear your companion out. When you have heard the whole matter, do not answer rashly or harshly. Speak with gentleness and discretion, for words hastily spoken may do more harm than you can undo in years."</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 438 (composite)</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION III — DESTRUCTIVE PATTERNS -->
+<div class="band-c">
+<section class="section" id="patterns">
+  <div>
+    <p class="sec-num">Section III</p>
+    <h2 class="sec-title">Communication Patterns <em>That Destroy</em></h2>
+    <p class="sec-intro">Scripture and EGW both name specific patterns of speech that are spiritually and relationally fatal. These are not mere personality flaws — they are sins of the tongue that require repentance, not merely self-improvement.</p>
+  </div>
+
+  <p class="prose">Ellen White was remarkably precise in naming the communication failures that destroy Christian homes. She did not speak in vague generalities — she named contempt, bitterness, faultfinding, and harshness by name, and called them what they are: sins against God and against the marriage covenant. The following patterns, drawn from Scripture and EGW, are not merely poor habits. They are heart conditions that need the grace of God.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">😤</div>
+      <h3>Contempt</h3>
+      <p>Treating the spouse as inferior — through eye-rolls, mockery, dismissiveness, or cutting sarcasm. "Do nothing from selfish ambition or conceit, but in humility count others more significant than yourselves." <em>(Phil 2:3)</em>. Contempt is pride weaponised against the one you vowed to love.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🪨</div>
+      <h3>Stonewalling</h3>
+      <p>Withdrawing entirely — silence as punishment, emotional shutdown, refusal to engage. EGW: "To refuse to speak when spoken to with a gentle, inquiring spirit is to cultivate a spirit that is not of Christ." — <em>AH, p. 441</em>. Stonewalling is passive control.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📌</div>
+      <h3>Chronic Criticism</h3>
+      <p>"The husband and wife should cultivate a spirit of forbearance. They should not magnify little annoyances." — <em>EGW, AH, p. 105</em>. Criticism that finds fault with everything erodes the other person's sense of worth and makes the home an emotional battleground.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⏰</div>
+      <h3>Bringing Up the Past</h3>
+      <p>"Love… keeps no record of wrongs." <em>(1 Cor 13:5 NIV)</em>. Using past failures as ammunition in current conflicts is a profound betrayal of forgiveness. True forgiveness does not keep a running ledger to deploy in the next argument.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📢</div>
+      <h3>Exaggeration &amp; Absolutes</h3>
+      <p>"You always…" and "You never…" are almost never factually true, but they shut down conversation and trigger defensiveness. "Let what you say be simply 'Yes' or 'No'; anything more than this comes from evil." <em>(Matt 5:37)</em>. Precision in speech is a form of honesty.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌊</div>
+      <h3>Emotional Flooding</h3>
+      <p>Speaking from the peak of emotion — when cortisol has flooded the brain — produces words that cannot be unsaid. "A fool gives full vent to his spirit, but a wise man quietly holds it back." <em>(Prov 29:11)</em>. EGW: "Never speak in the height of passion." — <em>AH, p. 437</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎭</div>
+      <h3>Public Humiliation</h3>
+      <p>Correcting, mocking, or exposing the spouse's failures in front of others — family, friends, or on social media. "Love covers a multitude of sins." <em>(1 Pet 4:8)</em>. What belongs in private conversation should never be weaponised in public.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧊</div>
+      <h3>Passive Aggression</h3>
+      <p>The use of indirect hostility — the loaded sigh, the "fine" that means anything but fine, the compliance that communicates resentment. EGW: "Do not allow a morose and sullen spirit to prevail. It grieves the Spirit of God." — <em>AH, p. 433</em></p>
+    </div>
+  </div>
+
+  <div class="warn">
+    <h3>⚠ EGW's Sharpest Warning</h3>
+    <p>"Words spoken in the excitement of passion are like coals of fire. They may be repented of, but they cannot be recalled. The wound they make is sometimes never wholly healed. A single sentence uttered in the spirit of harshness may embitter the whole life and separate those who might otherwise have been happy." — <em>Ellen G. White, The Adventist Home, p. 437</em></p>
+  </div>
+
+  <div class="vc">
+    <span class="vr">Prov 29:11</span>
+    <p class="vt">"A fool gives full vent to his spirit, but a wise man quietly holds it back."</p>
+  </div>
+  <div class="vc">
+    <span class="vr">Prov 12:18</span>
+    <p class="vt">"There is one whose rash words are like sword thrusts, but the tongue of the wise brings healing."</p>
+  </div>
+  <div class="vc">
+    <span class="vr">James 3:8</span>
+    <p class="vt">"But no human being can tame the tongue. It is a restless evil, full of deadly poison."</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION IV — HEALING PATTERNS -->
+<div class="band-d">
+<section class="section" id="healing">
+  <div>
+    <p class="sec-num">Section IV</p>
+    <h2 class="sec-title">Communication Patterns <em>That Heal</em></h2>
+    <p class="sec-intro">If destructive patterns are sins of the tongue, healing patterns are spiritual disciplines — habits of grace that must be cultivated deliberately, against the grain of natural self-centeredness.</p>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col">
+      <div class="compare-head bad">Instead of This</div>
+      <div class="compare-body">
+        <p class="ci bad">"You never help with the children."</p>
+        <p class="ci bad">"You always criticise everything I do."</p>
+        <p class="ci bad">"I can't believe you did that again."</p>
+        <p class="ci bad">"Fine. Whatever."</p>
+        <p class="ci bad">"You're being ridiculous."</p>
+        <p class="ci bad">Silence for days after conflict</p>
+        <p class="ci bad">"My mother warned me about you."</p>
+      </div>
+    </div>
+    <div class="compare-col">
+      <div class="compare-head">Say This Instead</div>
+      <div class="compare-body">
+        <p class="ci">"I feel overwhelmed. Could we work together on bath time tonight?"</p>
+        <p class="ci">"I feel discouraged when my efforts aren't acknowledged. Can we talk?"</p>
+        <p class="ci">"I'm hurt. But I want to understand what happened."</p>
+        <p class="ci">"I'm not okay, but I need a moment before I'm ready to talk."</p>
+        <p class="ci">"Help me understand where you're coming from."</p>
+        <p class="ci">Request a pause: "Can we revisit this in an hour when we're both calmer?"</p>
+        <p class="ci">"I want us to work through this together. What do you need from me right now?"</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub">Biblical Principles of Healing Communication</h3>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Speak the Truth in Love — Both Parts Are Essential</h4>
+        <p>"Speaking the truth in love." <em>(Eph 4:15)</em>. Truth without love is brutality. Love without truth is flattery. EGW: "Speak plainly, but speak kindly. Let every word be truthful, but let it be tempered with grace." Neither soft deception nor hard confrontation serves the marriage — both truth and grace are necessary simultaneously.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Choose the Right Moment</h4>
+        <p>"A word fitly spoken is like apples of gold in a setting of silver." <em>(Prov 25:11)</em>. Not every true thing needs to be said immediately. Wisdom knows when the spouse is receptive — not exhausted, not already overwhelmed, not in public. EGW: "Study the proper time and manner of approaching your husband (or wife) on important matters." — <em>AH, p. 216</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Use "I" Rather Than "You"</h4>
+        <p>Statements that begin with "You" almost always register as accusation and trigger defensiveness. Statements that begin with "I" express experience rather than assign blame — "I feel lonely" instead of "You ignore me." This follows the biblical principle of speaking "what is good for building up, as fits the occasion." <em>(Eph 4:29)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Affirm First</h4>
+        <p>Before raising a concern, speak genuine appreciation. "Her husband also praises her." <em>(Prov 31:28)</em>. EGW: "Words of appreciation and encouragement are more powerful than you know. They give the listener courage to face what is hard." — <em>AH, p. 228</em>. A heart that knows it is valued is far more open to honest conversation than a heart that only ever hears criticism.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Repair Quickly — Do Not Let It Fester</h4>
+        <p>"Do not let the sun go down on your anger, and give no opportunity to the devil." <em>(Eph 4:26–27)</em>. EGW: "Do not carry the burden of unresolved conflict into the night. What is spoken in the morning will be heard differently if the night has been spent in prayer together." — <em>AH, p. 312</em>. Accumulated grievances poison the well; quick repair keeps it clean.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Apologise Specifically and Without Conditions</h4>
+        <p>"Confess your sins to one another." <em>(James 5:16)</em>. "I'm sorry if you felt hurt" is not an apology — it is an evasion. "I was wrong when I said… I am sorry. Will you forgive me?" is a real apology. It names the specific act, takes ownership, and asks for forgiveness without conditions or but's.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"Little courtesies, little acts of self-denial, little words of appreciation and encouragement — these are the currency of a happy marriage. Do not wait for a grand occasion to express love. It is the daily deposit of kindness that builds the reserve which sustains the marriage through its hardest days."</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 228 (composite)</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION V — CONFLICT -->
+<div class="band-e">
+<section class="section" id="conflict">
+  <div>
+    <p class="sec-num">Section V</p>
+    <h2 class="sec-title">Navigating <em>Conflict</em> Biblically</h2>
+    <p class="sec-intro">Conflict in marriage is not evidence that the marriage has failed — it is evidence that two sinful human beings are living in close covenant. The question is not whether conflict will come, but whether it will be faced in the flesh or in the Spirit.</p>
+  </div>
+
+  <p class="prose">The Bible nowhere promises that godly couples will not fight. It does provide an entire framework for how to fight well — with honesty, humility, and a commitment to reconciliation over winning. The goal of biblical conflict is not victory over your spouse but restoration of the relationship. Your spouse is not your enemy — you share a common enemy, and his name is given in Ephesians 6:12.</p>
+
+  <div class="vc">
+    <span class="vr">Eph 6:12</span>
+    <p class="vt">"For we do not wrestle against flesh and blood, but against the rulers, against the authorities, against the cosmic powers over this present darkness."</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">01</span>
+      <div class="sb">
+        <h4>Remember: Your Spouse Is Not Your Enemy</h4>
+        <p>When conflict heats up, it is easy to begin treating the spouse as the adversary. But "the thief comes only to steal and kill and destroy." <em>(John 10:10)</em>. The real enemy of your marriage is not the person sitting across the table — it is the spiritual forces that exploit unresolved sin, pride, and wounds. Pray before you fight if possible. Even a brief, silent prayer changes the atmosphere.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">02</span>
+      <div class="sb">
+        <h4>Address One Issue at a Time</h4>
+        <p>EGW: "Do not bring up several grievances at once. Address one matter, allow it to be heard and resolved, then rest." — <em>AH, p. 313 composite</em>. Bringing a catalogue of complaints into a single conversation overwhelms the listener and prevents any single issue from being genuinely resolved. "Let your 'yes' be yes and your 'no' be no." <em>(Matt 5:37)</em> — pursue clarity over comprehensiveness.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">03</span>
+      <div class="sb">
+        <h4>Take a Deliberate Pause When Flooded</h4>
+        <p>"A fool gives full vent to his spirit, but a wise man quietly holds it back." <em>(Prov 29:11)</em>. When the body is physiologically flooded — heart racing, chest tight, thoughts scrambling — productive communication is biologically impossible. Agree in advance on a phrase that signals "I need 20 minutes" — not to avoid the issue, but to return to it with a regulated nervous system and a Spirit-led mind.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">04</span>
+      <div class="sb">
+        <h4>Pursue Understanding Before Solutions</h4>
+        <p>Most marital conflicts are not about logistics — they are about feeling unseen, unvalued, or unsafe. Before proposing solutions, ask: "Help me understand what this feels like for you." The spouse who feels genuinely understood is far more receptive to problem-solving than one who has only been debated. "The purposes of a person's heart are deep waters, but one who has insight draws them out." <em>(Prov 20:5 NIV)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">05</span>
+      <div class="sb">
+        <h4>Pray Together at the End of Every Conflict</h4>
+        <p>"Confess your sins to one another and pray for one another." <em>(James 5:16)</em>. EGW: "Never retire to rest with a feeling of resentment. If differences arise, seek God together before the day closes." — <em>AH, p. 314</em>. Praying together after conflict is one of the most powerful reconciliation acts available — it is nearly impossible to sustain bitterness toward someone you are sincerely interceding for beside the same altar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"Never let the sun go down upon your wrath. The spirit that cherishes a grievance during the night will find it a great deal larger in the morning. Deal with it before you sleep, even if only to say: 'I am not ready to fully resolve this, but I am not willing to let the night pass without telling you that I love you and that this is not the end.'"</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 314 (composite)</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION VI — NON-VERBAL -->
+<div class="band-a">
+<section class="section" id="nonverbal">
+  <div>
+    <p class="sec-num">Section VI</p>
+    <h2 class="sec-title">Non-Verbal <em>Communication</em></h2>
+    <p class="sec-intro">The body speaks before the mouth does. Ellen White was acutely aware that expression, tone, posture, and countenance carry as much — and often more — weight than the actual words spoken.</p>
+  </div>
+
+  <p class="prose">EGW was remarkably ahead of her time in addressing what we would today call non-verbal communication. She wrote repeatedly about the face, the tone of voice, the look in the eye, and the manner of presence — understanding that a person can speak technically true and kind words while communicating contempt, indifference, or hostility through their body. In marriage, this gap between words and manner is immediately detected and deeply wounding.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">😊</div>
+      <h3>The Countenance</h3>
+      <p>"A glad heart makes a cheerful face, but by sorrow of heart the spirit is crushed." <em>(Prov 15:13)</em>. EGW: "A cheerful, sunny disposition in the home is worth more than gold. The countenance reflects the condition of the soul." — <em>AH, p. 432</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🎙️</div>
+      <h3>The Tone of Voice</h3>
+      <p>"A kind, cheerful, loving tone of voice will do more to make the home happy than the most costly furniture." — <em>EGW, AH, p. 431</em>. The same words spoken in a warm tone versus a cold one produce completely different emotional realities for the spouse who receives them.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🤗</div>
+      <h3>Physical Presence</h3>
+      <p>Touch, proximity, and physical affection are a language. The hand on the shoulder, the embrace at the door — these speak the covenant in the body's own language. "His left hand is under my head, and his right hand embraces me." <em>(Song 2:6)</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👁️</div>
+      <h3>Eye Contact</h3>
+      <p>To look a spouse in the eye when they speak is to honour their personhood. To look at a screen while they talk is to communicate — wordlessly but clearly — that the screen is more important than they are. EGW called this form of dismissal a "coldness of manner" that is as wounding as harsh words. — <em>AH, p. 440</em></p>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"It is not enough to speak kind words with the mouth. The look of the eye, the expression of the countenance, the tone of the voice — these must all be consistent with the words. You cannot say 'I love you' with the lips while the eyes say otherwise. The whole person speaks."</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 432 (composite)</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION VII — EGW TONGUE -->
+<div class="band-b">
+<section class="section" id="egw-tongue">
+  <div>
+    <p class="sec-num">Section VII</p>
+    <h2 class="sec-title">Ellen White <em>on the Tongue</em> — An Extended Study</h2>
+    <p class="sec-intro">No Spirit of Prophecy writer addressed the practical danger of unguarded speech in the home more thoroughly than Ellen G. White. What follows is a concentrated survey of her most pointed counsel.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>On the Voice Specifically</h4>
+        <p>"The culture of the voice is an item often overlooked… Hasty, impatient, angry tones of voice are not from God. They are a misrepresentation of Christ in the home and a contradiction of every prayer offered at the family altar." — <em>EGW, AH, p. 436</em>. EGW saw the literal pitch and pace of the speaking voice as a spiritual matter, not merely a social one.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>On Words That Cannot Be Recalled</h4>
+        <p>"Words are powerful for good or ill. A single sentence spoken in passion may harden the heart of another against you for years. It may be repented of, but it cannot be recalled. This is why the wise man guards his mouth with double care." — <em>EGW, AH, p. 437</em>. This principle — the irreversibility of spoken words — is one of EGW's most recurring themes in domestic life.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>On Faultfinding as a Habit</h4>
+        <p>"Some have so cultivated the habit of speaking critically of others that the habit has become a part of their character. They see flaws before they see virtues. They correct before they commend. In the home, this creates an atmosphere of dread rather than delight. It is not of Christ." — <em>EGW, AH, p. 105</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>On Silence as a Spiritual Weapon</h4>
+        <p>"There is an eloquent silence. There are times when words are inappropriate, when the presence of God is the only answer, when to speak is to diminish. But there is also a silence that is punishment — a cold withdrawal that is more wounding than any word. The first is holy; the second is sin." — <em>EGW, AH, p. 441 composite</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>On the Duty of Kind Words Daily</h4>
+        <p>"It is a duty to speak pleasant words… it is a duty to be pleasant when you do not feel pleasant. The grace of God enables us to speak above our feelings. Speak peace to your companion, even when you yourself have no peace, and God will honour the act of faith." — <em>EGW, AH, p. 432</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>On the Influence of Domestic Words on Children</h4>
+        <p>"The words spoken in the home circle are shaping the characters of the children. If harsh, impatient words are heard daily, the children learn to speak after the same fashion. If gentle, courteous, Christ-like words are the pattern, the children drink in this atmosphere as naturally as they breathe the air." — <em>EGW, AH, p. 437</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>A Daily Tongue Examination — Seven Questions</h3>
+    <ul>
+      <li>Did I speak my spouse's name today with warmth and not irritation?</li>
+      <li>Did I find and express one genuine appreciation before raising any concern?</li>
+      <li>Did I listen to understand, or did I listen to reply?</li>
+      <li>Did I allow any word to pass my lips in the heat of anger that I would not say before God?</li>
+      <li>Did I speak any word in public about my spouse that diminished rather than honoured them?</li>
+      <li>Did I apologise specifically and without conditions for anything I said wrongly today?</li>
+      <li>Did I pray before speaking when the conversation was difficult?</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- ══════════════════════════════════════
+     PART B — THE UNBELIEVING SPOUSE
+══════════════════════════════════════ -->
+
+<!-- SECTION VIII — THE UNBELIEVING SPOUSE -->
+<div class="band-c">
+<section class="section" id="unbeliever">
+  <div>
+    <p class="sec-num">Section VIII — Part B Begins</p>
+    <h2 class="sec-title">The <em>Unbelieving Spouse</em> — What Scripture Actually Says</h2>
+    <p class="sec-intro">Few situations in Christian life are more tender, more complex, or more requiring of Spirit-led wisdom than finding yourself in a marriage where your spouse does not share — or has abandoned — faith in Christ. The Bible speaks to this directly, practically, and with extraordinary grace.</p>
+  </div>
+
+  <p class="prose">This situation arises in two primary ways: a believer who married an unbeliever (against the scriptural counsel of 2 Corinthians 6:14), and a believer whose spouse has since drifted from or abandoned faith after the marriage began. Paul addresses the second scenario with particular care in 1 Corinthians 7, and Peter provides the practical daily strategy in his first epistle. EGW supplements both with some of her most compassionate and specific pastoral writing.</p>
+
+  <h3 class="sub">1 Corinthians 7 — Paul's Definitive Teaching</h3>
+
+  <div class="vc">
+    <span class="vr">1 Cor 7:12–14</span>
+    <p class="vt">"If any brother has a wife who is an unbeliever, and she consents to live with him, he should not divorce her. If any woman has a husband who is an unbeliever, and he consents to live with her, she should not divorce him. For the unbelieving husband is made holy because of his wife, and the unbelieving wife is made holy because of her husband."</p>
+  </div>
+  <div class="vc">
+    <span class="vr">1 Cor 7:15–16</span>
+    <p class="vt">"But if the unbelieving partner separates, let it be so. In such cases the brother or sister is not enslaved. God has called you to peace. For how do you know, wife, whether you will save your husband? Or how do you know, husband, whether you will save your wife?"</p>
+  </div>
+
+  <p class="prose">Paul's instruction rests on three theological pillars that are easily missed in a casual reading:</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">01</span>
+      <div class="sb">
+        <h4>Do Not Initiate Separation — Stay If They Will Stay</h4>
+        <p>The believing spouse is not to initiate divorce simply because their partner is not yet a believer. The presumption is always toward the preservation of the covenant. God is not finished with the unbelieving spouse, and the marriage may be the very vehicle of their salvation. The instruction is clear: if they consent to remain, remain.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">02</span>
+      <div class="sb">
+        <h4>The Unbeliever Is "Sanctified" Through the Believer</h4>
+        <p>"The unbelieving husband is made holy because of his wife." <em>(1 Cor 7:14)</em>. This is not a statement about salvation — it means the unbelieving spouse is brought into a sphere of holy influence. The grace of God flows through the believing partner into the household. The children of such a union are counted as belonging to God's covenant community. This is an enormous encouragement.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">03</span>
+      <div class="sb">
+        <h4>God Has Called You to Peace — Not to Martyrdom</h4>
+        <p>"God has called you to peace." <em>(1 Cor 7:15)</em>. Paul does not call the believing spouse to a life of miserable, silent endurance. The goal is peace — genuine, Spirit-sustained peace — not performance. And if the unbeliever chooses to leave, Paul says "let it be so." The believer is not enslaved to someone who has actively abandoned the marriage.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"The believing partner should not be harsh or uncourteous, but should show the spirit of Christ in all the daily affairs of life. The unbelieving companion may be won, not by argument, not by pleading, but by seeing the beauty of a Christlike character lived out in the most ordinary moments of domestic life."</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 349</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION IX — A LIVING SERMON -->
+<div class="band-d">
+<section class="section" id="living-faith">
+  <div>
+    <p class="sec-num">Section IX</p>
+    <h2 class="sec-title">A <em>Living Sermon</em> — The Strategy of 1 Peter 3</h2>
+    <p class="sec-intro">Peter gives the believing spouse — particularly the wife in a difficult marriage — one of the most profound and counter-cultural strategies in all of Scripture. It is not argument. It is not preaching. It is a lived witness that is more powerful than either.</p>
+  </div>
+
+  <div class="vc">
+    <span class="vr">1 Pet 3:1–4</span>
+    <p class="vt">"Wives, be subject to your own husbands, so that even if some do not obey the word, they may be won without a word by the conduct of their wives — when they see your respectful and pure conduct. Do not let your adorning be external… but let your adorning be the hidden person of the heart with the imperishable beauty of a gentle and quiet spirit, which in God's sight is very precious."</p>
+  </div>
+
+  <p class="prose">The phrase "won without a word" is one of the most striking in the New Testament. Peter is not saying that the believer should be silent out of timidity or defeat — he is saying that the most powerful form of witness to an unbelieving spouse is not verbal persuasion but the visible, daily reality of a transformed life. The spouse observes what no sermon can produce: grace under pressure, joy without performance, peace that does not depend on circumstances.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">🕯️</div>
+      <h3>"Without a Word"</h3>
+      <p>This does not mean never speaking about faith. It means the primary instrument of witness is not argument — it is character. Words about God that contradict the life lived daily carry no power. Words that reinforce what is already visible carry extraordinary power.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🌸</div>
+      <h3>"Respectful and Pure Conduct"</h3>
+      <p>The word Peter uses for "respectful" is <em>phobos</em> — a profound, God-centred reverence that shapes all behaviour. The spouse who lives with deep fear of God rather than fear of the unbelieving partner's reaction radiates a quality of character that is genuinely compelling and unexplainable in human terms.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">💎</div>
+      <h3>"Imperishable Beauty"</h3>
+      <p>Peter contrasts external adornment with "the hidden person of the heart." This inner beauty — the quiet, unshakeable confidence of a soul anchored in God — outlasts every season of pressure and is visible to even the most resistant spouse over time.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔥</div>
+      <h3>EGW: It Is a Christlike Life</h3>
+      <p>"It is not argument, not pleading, not loud expressions of grief that will accomplish the work. It is a Christlike life that will tell. The influence of such a life is a savor of life unto life." — <em>EGW, AH, p. 349</em></p>
+    </div>
+  </div>
+
+  <h3 class="sub">Practical Daily Applications of 1 Peter 3</h3>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Serve Without Keeping Score</h4>
+        <p>Serve your spouse's genuine needs — practically, emotionally, physically — without cataloguing what you give versus what you receive. Self-giving love that expects nothing in return is the most eloquent sermon a spouse can preach. "Love does not insist on its own way." <em>(1 Cor 13:5)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Maintain Peace Without Pretending</h4>
+        <p>God calls the believer to peace — not to performance. You do not need to pretend that you agree with the unbelieving spouse's worldview. You do need to live with genuine serenity, kindness, and grace that cannot be explained by natural temperament. That unexplained peace is itself a witness. "The peace of God… surpasses all understanding." <em>(Phil 4:7)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Honour, Even When It Is Not Reciprocated</h4>
+        <p>"Show honour to the woman as the weaker vessel, since they are heirs with you of the grace of life." <em>(1 Pet 3:7)</em>. This applies mutually. The believing spouse who continues to treat the unbeliever with dignity and honour — regardless of how they are treated — demonstrates a quality of love that only God can sustain and that few can resist indefinitely.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Choose Your Conversations Wisely</h4>
+        <p>EGW: "Do not force religious conversation upon an unwilling listener. The time to speak of spiritual things is when the heart is open, not when it is defended." — <em>AH, p. 350 composite</em>. Ask God daily to prepare the moment — and when the unbelieving spouse asks a question or opens a door, walk through it gently and without a speech prepared. Answer the question sincerely. Then listen.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Be Consistent — Especially in Small Things</h4>
+        <p>The unbelieving spouse watches most closely in the ordinary moments — how the believer handles frustration, disappointment, financial pressure, bad news, and the small daily irritations of shared life. EGW: "It is the little daily acts that build the case for or against the gospel in the home." — <em>AH, p. 348</em>. Consistency in the mundane is the most credible form of testimony.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"Let the wife who has an unbelieving husband not despair. God has placed her there as a light in a dark place. Let her shine — not by preaching at him, but by living before him a life so transformed, so peaceful, so genuinely selfless, that he is left with no explanation except the grace of God."</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 349 (composite)</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION X — BOUNDARIES -->
+<div class="band-e">
+<section class="section" id="boundaries">
+  <div>
+    <p class="sec-num">Section X</p>
+    <h2 class="sec-title">Boundaries, Limits <em>&amp; Obedience to God</em></h2>
+    <p class="sec-intro">While the biblical call is to stay and to love sacrificially, Scripture is equally clear that there are non-negotiable limits. The believer's first allegiance is to God — and the call to submit to a spouse was never intended to require disobedience to the Creator.</p>
+  </div>
+
+  <p class="prose">One of the most common pastoral questions from believers married to unbelievers is: "How far does submission go? Must I obey my spouse if they ask me to sin?" The answer from Scripture is clear, and it has been clear since Peter and John stood before the Sanhedrin: "We must obey God rather than men." <em>(Acts 5:29)</em>. Submission to a spouse is a real and important biblical duty — it is not, however, absolute. God's authority is.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">🚧</div>
+      <h3>Obey God First — Always</h3>
+      <p>"We must obey God rather than men." <em>(Acts 5:29)</em>. No marriage covenant can override the covenant with God. If a spouse demands participation in idolatry, immorality, criminal activity, or the abandonment of faith, the believing spouse must respectfully decline — and pray for wisdom in how to do so.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">⛪</div>
+      <h3>Worship Cannot Be Surrendered</h3>
+      <p>EGW: "No earthly authority can compel the Christian to lay aside the observance of God's holy Sabbath." — <em>GC, p. 605</em>. While the context is civil law, the principle applies domestically. A spouse who forbids Sabbath observance, church attendance, or personal worship is asking for what belongs to God alone.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🛡️</div>
+      <h3>Abuse Is Never the Cross to Bear</h3>
+      <p>Scripture calls believers to endure suffering for righteousness <em>(1 Pet 3:14)</em> — not to endure abuse as a form of holiness. Physical violence, sustained emotional abuse, and dangerous control are not the cross God is calling the believer to carry in silence. Safety matters to God. "You are worth more than many sparrows." <em>(Matt 10:31)</em></p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧭</div>
+      <h3>Separation vs. Divorce</h3>
+      <p>Paul allows that if the unbelieving spouse chooses to leave, "let it be so." <em>(1 Cor 7:15)</em>. In some cases a believer may need to create physical distance for safety without initiating divorce. EGW: "God does not require the Christian to remain in a situation that endangers their life or the lives of their children." — <em>AH composite</em></p>
+    </div>
+  </div>
+
+  <div class="warn">
+    <h3>⚠ A Critical Distinction</h3>
+    <p>There is a difference between a difficult marriage (one that requires spiritual perseverance, prayer, and sacrificial love) and a dangerous marriage (one involving ongoing abuse, violence, or coerced sin). The biblical call is to remain in the former. The biblical instinct toward self-preservation and the protection of children speaks directly to the latter. Seek wise, godly pastoral counsel in either case.</p>
+  </div>
+
+  <div class="vc">
+    <span class="vr">Acts 5:29</span>
+    <p class="vt">"We must obey God rather than men."</p>
+  </div>
+  <div class="vc">
+    <span class="vr">1 Pet 3:14</span>
+    <p class="vt">"But even if you should suffer for righteousness' sake, you will be blessed. Have no fear of them, nor be troubled."</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION XI — CHILDREN -->
+<div class="band-a">
+<section class="section" id="children">
+  <div>
+    <p class="sec-num">Section XI</p>
+    <h2 class="sec-title">Children in a <em>Divided Home</em></h2>
+    <p class="sec-intro">Perhaps the most anguishing dimension of a spiritually divided marriage is the question of the children. How do you raise children in faith when one parent does not share that faith? Scripture and EGW offer both comfort and practical direction.</p>
+  </div>
+
+  <p class="prose">Paul's assurance in 1 Corinthians 7:14 — that the children of a mixed-faith marriage are "holy" — is not a statement about their guaranteed salvation, but about their privileged access to the covenant community and the influence of the believing parent. The presence of one parent in genuine faith brings the grace of God into the household in a real and extraordinary way.</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">01</span>
+      <div class="sb">
+        <h4>Lead the Children in Faith — Without Undermining the Other Parent</h4>
+        <p>EGW: "The mother who has an unconverted husband should take the children to the house of God whenever possible. She should pray with them, read Scripture with them, and let them see what living faith looks like." — <em>AH, p. 351 composite</em>. However, she must be careful never to cast the other parent as the enemy, or use the children as instruments in the spiritual battle. This poisons the children's hearts against both parents.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">02</span>
+      <div class="sb">
+        <h4>Model Respectful Love Toward the Unbelieving Spouse</h4>
+        <p>Children who observe the believing parent treating the unbelieving one with contempt learn that faith produces arrogance. Children who observe the believing parent treating the unbelieving one with grace and genuine love learn that faith produces something beautiful. "The greatest sermon you will ever preach to your children is the way you treat your spouse." — <em>EGW, AH, p. 317 composite</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">03</span>
+      <div class="sb">
+        <h4>Maintain the Rituals of Faith</h4>
+        <p>Pray with the children. Keep the Sabbath with joy, not as an act of defiance but as an act of love for God. Read Scripture at mealtimes. These rhythms of faith are seeds planted in the child's soul that often bear fruit long after they leave the home. "Train up a child in the way he should go; even when he is old he will not depart from it." <em>(Prov 22:6)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">04</span>
+      <div class="sb">
+        <h4>Pray for the Unconverted Parent — With the Children</h4>
+        <p>Teaching children to intercede for the unconverted parent is one of the most powerful spiritual acts in a divided home. It teaches children that faith is active, that prayer is real, and that God's power is not limited to circumstances. It also guards the child against bitterness or hopelessness about the other parent's eternal future. <em>(1 John 5:16)</em></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="vc">
+    <span class="vr">1 Cor 7:14</span>
+    <p class="vt">"For the unbelieving husband is made holy because of his wife, and the unbelieving wife is made holy because of her husband. Otherwise your children would be unclean, but as it is, they are holy."</p>
+  </div>
+  <div class="vc">
+    <span class="vr">Deut 6:6–7</span>
+    <p class="vt">"And these words that I command you today shall be on your heart. You shall teach them diligently to your children, and shall talk of them when you sit in your house, and when you walk by the way, and when you lie down, and when you rise."</p>
+  </div>
+</section>
+</div>
+
+<!-- SECTION XII — HOPE & INTERCESSION -->
+<div class="band-e">
+<section class="section" id="hope">
+  <div>
+    <p class="sec-num">Section XII</p>
+    <h2 class="sec-title">Hope, Intercession <em>&amp; the God Who Saves</em></h2>
+    <p class="sec-intro">The final word on the unbelieving spouse does not belong to statistics, circumstances, or how resistant they seem. The final word belongs to the God who pursued you — and who can pursue them with equal relentlessness.</p>
+  </div>
+
+  <p class="prose">No one is beyond the reach of God. The spouse who today mocks the faith may be the one who, years from now, stands before a congregation and testifies to what God did through the quiet, faithful, praying presence of their believing partner. Paul himself was once the person whose conversion would have seemed least likely. Hopelessness about an unbelieving spouse is a failure to reckon with the power of the God who raises the dead.</p>
+
+  <div class="hope">
+    <h3>🌿 The God of the Impossible</h3>
+    <p>"Is anything too hard for the Lord?" <em>(Gen 18:14)</em>. The spouse who has heard the Gospel and still resists is not outside the reach of grace — they are outside your reach. They are well within God's. Your calling is faithfulness. His calling is transformation. These are not the same job.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Intercede With Specific, Persistent Faith</h4>
+        <p>"The prayer of a righteous person has great power as it is working." <em>(James 5:16)</em>. Pray specifically for your spouse — not vague prayers but prayers that name their heart, their fears, their defences, their spiritual blindness. EGW: "The prayer of the faithful wife is the greatest spiritual force working on behalf of an unconverted husband." — <em>AH, p. 350 composite</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Enlist a Community of Intercessors</h4>
+        <p>"Where two or three are gathered in my name, there am I among them." <em>(Matt 18:20)</em>. Ask your church family, your pastor, trusted friends to pray alongside you for your spouse by name. The believing community is meant to surround the believing spouse — and their intercessions join yours before the same throne of grace.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Surrender the Outcome to God</h4>
+        <p>"How do you know, wife, whether you will save your husband?" <em>(1 Cor 7:16)</em>. Paul leaves the outcome open — in the sovereignty of God, not the management of the believer. Your calling is not to save your spouse. Your calling is to love them faithfully and pray persistently, and to trust God with what belongs to Him alone. "Cast your burden on the Lord, and he will sustain you." <em>(Ps 55:22)</em></p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Guard Your Own Soul</h4>
+        <p>EGW's most sobering counsel for the believing spouse in a difficult marriage is this: "Do not allow the unbelief of your companion to extinguish your own faith. Your spiritual life must be maintained at whatever cost. A lamp that goes out cannot light another." — <em>AH, p. 351 composite</em>. The believing spouse who loses their own walk with God in the effort to save the other has lost the very thing that made the marriage a witness.</p>
+      </div>
+    </div>
+    <div class="step">
+      <span class="sn">✦</span>
+      <div class="sb">
+        <h4>Look to Abraham — Faith That Persists Unseen</h4>
+        <p>"In hope he believed against hope." <em>(Rom 4:18)</em>. Abraham trusted a promise that had no visible confirmation for twenty-five years. The believer married to an unconverted spouse may pray for years without visible result. This is not evidence that God has abandoned the prayer — it is an invitation into the kind of faith that "hopes for what is not seen." <em>(Rom 8:25)</em>. And when the answer comes, it will be worth the wait.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <h3>A Prayer for the Unbelieving Spouse</h3>
+    <ul>
+      <li>Lord, You pursued me when I was lost. Pursue [name] with the same relentless love.</li>
+      <li>Remove every stone from their heart that resists You, and replace it with flesh. <em>(Ezek 36:26)</em></li>
+      <li>Use my daily life — my words, my peace, my service — as a sermon they cannot debate.</li>
+      <li>Give me the grace to love them sacrificially, without demanding a return on my faithfulness.</li>
+      <li>Protect me from bitterness, from despair, from the temptation to give up on them or on You.</li>
+      <li>Guard my children by Your covenant grace and let them see in me a faith worth inheriting.</li>
+      <li>Have mercy, Lord. Do not let this household pass into eternity without every soul in it.</li>
+      <li>"Is anything too hard for the Lord?" <em>(Gen 18:14)</em> — I trust that the answer is no.</li>
+    </ul>
+  </div>
+
+  <div class="quote">
+    <p class="qt">"Do not give up your unconverted companion. God has not given up on them. They are the object of His tireless pursuit, just as you once were. You are the instrument He has chosen to keep in their life. Your faithfulness is not wasted — it is being woven into a story whose end you have not yet seen."</p>
+    <p class="qs">— Ellen G. White, The Adventist Home, p. 351 (composite and paraphrase)</p>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fsym">🕊</div>
+  <p>This guide draws from the Holy Scriptures (ESV/KJV/NIV) and the writings of Ellen G. White, including <em>The Adventist Home</em>, <em>The Great Controversy</em>, <em>Ministry of Healing</em>, and selected periodical writings. All Scripture and EGW material is cited for personal Bible study and spiritual growth.</p>
+  <p class="fv">"Speaking the truth in love, we are to grow up in every way into him who is the head — Ephesians 4:15"</p>
+</footer>
+
+</body>
+</html>

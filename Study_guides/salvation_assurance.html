@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Do I Know I Am Saved? — A Biblical Study</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  :root {
+    --parchment: #1a1510;
+    --parchment-mid: #221d16;
+    --parchment-card: #2a231a;
+    --parchment-hover: #312a1f;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --gold-dim: #8a6f34;
+    --crimson: #8b2e2e;
+    --crimson-light: #c44040;
+    --emerald: #2a5c45;
+    --emerald-light: #3d8c6a;
+    --cream: #e8dfc8;
+    --cream-dim: #b8a98a;
+    --text-body: #cfc3a8;
+    --text-muted: #8a7d65;
+    --border: #3d3426;
+    --border-gold: #6b5428;
+    --shadow: rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--parchment);
+    color: var(--text-body);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(180deg, #0d0a07 0%, #1a1510 60%, var(--parchment) 100%);
+    border-bottom: 1px solid var(--border-gold);
+    text-align: center;
+    padding: 60px 24px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(201,168,76,0.2);
+  }
+  .hero-sub {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--cream-dim);
+    max-width: 640px;
+    margin: 0 auto 30px;
+  }
+  .hero-warning {
+    display: inline-block;
+    border: 1px solid var(--border-gold);
+    background: rgba(139,46,46,0.12);
+    color: var(--cream-dim);
+    font-size: 14px;
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 10px 22px;
+    border-radius: 2px;
+    max-width: 560px;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(15px, 2.5vw, 20px);
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-gold);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+    margin-top: 52px;
+  }
+  .section-intro {
+    color: var(--cream-dim);
+    font-size: 17px;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  /* ── SCRIPTURE BLOCK ── */
+  .scripture {
+    background: var(--parchment-card);
+    border-left: 3px solid var(--gold);
+    padding: 18px 22px;
+    margin: 20px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .scripture p {
+    color: var(--cream);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .scripture cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    color: var(--gold-dim);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── EGW BLOCK ── */
+  .egw-block {
+    background: linear-gradient(135deg, #1e2818, #1a2415);
+    border: 1px solid #3a4f2a;
+    border-left: 3px solid var(--emerald-light);
+    padding: 18px 22px;
+    margin: 20px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .egw-block p {
+    color: #c8dbb8;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+  .egw-block cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-style: normal;
+    color: var(--emerald-light);
+    letter-spacing: 0.06em;
+  }
+  .egw-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--emerald-light);
+    margin-bottom: 6px;
+  }
+
+  /* ── COLLAPSIBLE CARDS ── */
+  .accordion { margin-bottom: 10px; }
+  .acc-btn {
+    width: 100%;
+    background: var(--parchment-card);
+    border: 1px solid var(--border);
+    color: var(--cream);
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    padding: 16px 20px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .acc-btn:hover { background: var(--parchment-hover); border-color: var(--border-gold); }
+  .acc-btn.open { border-color: var(--gold-dim); background: var(--parchment-hover); }
+  .acc-btn .chevron { color: var(--gold-dim); font-size: 18px; transition: transform 0.25s; flex-shrink: 0; }
+  .acc-btn.open .chevron { transform: rotate(180deg); }
+  .acc-body {
+    display: none;
+    background: var(--parchment-mid);
+    border: 1px solid var(--border);
+    border-top: none;
+    padding: 20px 22px;
+  }
+  .acc-body.open { display: block; }
+  .acc-body p { margin-bottom: 14px; color: var(--text-body); font-size: 17px; }
+  .acc-body p:last-child { margin-bottom: 0; }
+
+  /* ── EVIDENCE GRID ── */
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .evidence-card {
+    background: var(--parchment-card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold-dim);
+    padding: 18px 18px 16px;
+    border-radius: 0 0 3px 3px;
+  }
+  .evidence-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .evidence-card p {
+    font-size: 15.5px;
+    color: var(--text-body);
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+  .evidence-card .ref {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    color: var(--gold-dim);
+  }
+
+  /* ── WARNING BOX ── */
+  .warning-box {
+    background: rgba(139,46,46,0.12);
+    border: 1px solid var(--crimson);
+    border-left: 3px solid var(--crimson-light);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .warning-box .wlabel {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--crimson-light);
+    margin-bottom: 6px;
+  }
+  .warning-box p { color: #d9b0b0; font-size: 16px; }
+
+  /* ── PILLAR / NUMBERED SECTION ── */
+  .pillar {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 32px;
+    align-items: flex-start;
+  }
+  .pillar-num {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    color: var(--gold-dim);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 42px;
+    text-align: right;
+    padding-top: 2px;
+  }
+  .pillar-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .pillar-content p { font-size: 17px; color: var(--text-body); margin-bottom: 10px; }
+
+  /* ── GREEK/HEBREW WORD STUDY ── */
+  .word-study {
+    background: var(--parchment-card);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 15.5px;
+  }
+  .word-study .original {
+    font-size: 22px;
+    color: var(--gold-light);
+    font-style: italic;
+    margin-right: 10px;
+  }
+  .word-study .transliteration {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: var(--gold-dim);
+    margin-right: 10px;
+  }
+  .word-study .definition { color: var(--text-body); }
+
+  /* ── SELF-EXAM TABLE ── */
+  .exam-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 16px;
+  }
+  .exam-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--parchment-card);
+    border: 1px solid var(--border-gold);
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .exam-table td {
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    vertical-align: top;
+    color: var(--text-body);
+    background: var(--parchment-mid);
+  }
+  .exam-table tr:nth-child(even) td { background: var(--parchment-card); }
+  .exam-table .test-col { color: var(--cream); font-style: italic; }
+  .exam-table .ref-col {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    color: var(--gold-dim);
+    white-space: nowrap;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0 0;
+  }
+  .divider-ornament {
+    text-align: center;
+    color: var(--gold-dim);
+    font-size: 22px;
+    margin: -13px 0 0;
+    line-height: 1;
+  }
+  .divider-ornament span {
+    background: var(--parchment);
+    padding: 0 14px;
+  }
+
+  /* ── FINAL APPEAL ── */
+  .final-appeal {
+    text-align: center;
+    padding: 48px 24px 60px;
+    background: linear-gradient(180deg, var(--parchment) 0%, #0f0d09 100%);
+    margin-top: 52px;
+  }
+  .final-appeal h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(18px, 3vw, 26px);
+    color: var(--gold-light);
+    margin-bottom: 20px;
+  }
+  .final-appeal p {
+    max-width: 620px;
+    margin: 0 auto 16px;
+    font-size: 17px;
+    color: var(--cream-dim);
+  }
+  .assurance-verse {
+    max-width: 560px;
+    margin: 32px auto 0;
+    border-top: 1px solid var(--border-gold);
+    padding-top: 28px;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--cream);
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--parchment-card);
+    border: 1px solid var(--border-gold);
+    padding: 24px 28px;
+    margin: 36px 0 0;
+  }
+  .toc-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 14px;
+  }
+  .toc ol {
+    padding-left: 20px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: var(--cream-dim);
+    line-height: 2;
+  }
+  .toc a { color: var(--cream-dim); text-decoration: none; }
+  .toc a:hover { color: var(--gold-light); }
+
+  body p { margin-bottom: 14px; }
+
+  @media (max-width: 600px) {
+    .pillar { flex-direction: column; gap: 8px; }
+    .pillar-num { width: auto; text-align: left; font-size: 24px; }
+    .exam-table { font-size: 14px; }
+    .exam-table th, .exam-table td { padding: 9px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">A Biblical & Spirit of Prophecy Study</div>
+  <h1>How Do I Know I Am Saved?</h1>
+  <p class="hero-sub">The assurance of salvation is not a feeling — it is a promise anchored in the character of God and evidenced in the life of the believer.</p>
+  <div class="hero-warning">⚠️ Feelings are not the ground of assurance. Scripture is. This guide examines what the Bible and Ellen G. White actually teach about how a believer may know they stand in grace.</div>
+</div>
+
+<div class="container">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#foundation">The Foundation: What is Salvation?</a></li>
+      <li><a href="#basis">The Basis of Assurance — Christ Alone</a></li>
+      <li><a href="#danger">The Danger of False Assurance</a></li>
+      <li><a href="#tests">The Biblical Tests of Genuine Faith (1 John)</a></li>
+      <li><a href="#fruit">The Fruit Test — The Evidence of a Transformed Life</a></li>
+      <li><a href="#perseverance">Perseverance — Can a Saved Person Fall Away?</a></li>
+      <li><a href="#egw">Ellen G. White on Assurance</a></li>
+      <li><a href="#selfexam">The Practical Self-Examination Table</a></li>
+      <li><a href="#conclusion">Standing on the Promise</a></li>
+    </ol>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="foundation">I. The Foundation: What Is Salvation?</h2>
+
+  <p class="section-intro">Before asking "Am I saved?" we must ask "Saved from what — and how?"</p>
+
+  <p>The Bible uses several overlapping words to describe what salvation involves. Understanding them prevents the twin errors of <em>presumption</em> (thinking you are saved when you are not) and <em>despair</em> (doubting genuine salvation).</p>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>Justification — The Legal Verdict</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <div class="word-study">
+        <span class="original">δικαιόω</span>
+        <span class="transliteration">(dikaioō)</span>
+        <span class="definition">— to declare righteous, to acquit; a judicial pronouncement, not a moral transformation in itself.</span>
+      </div>
+      <p>Justification is <em>forensic</em> — it is God's declaration that the sinner is righteous in His sight, on account of Christ's perfect righteousness credited to the believer. It is a completed act at the point of genuine faith, not an ongoing achievement.</p>
+      <div class="scripture">
+        <p>Therefore, having been justified by faith, we have peace with God through our Lord Jesus Christ, through whom also we have access by faith into this grace in which we stand.</p>
+        <cite>Romans 5:1–2 (NKJV)</cite>
+      </div>
+      <div class="scripture">
+        <p>For He made Him who knew no sin to be sin for us, that we might become the righteousness of God in Him.</p>
+        <cite>2 Corinthians 5:21 (NKJV)</cite>
+      </div>
+      <p>Justification answers the question: <em>"Is God's wrath against me satisfied?"</em> The answer for the genuine believer is: <strong>Yes — in Christ, fully and finally.</strong></p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>Sanctification — The Ongoing Transformation</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <div class="word-study">
+        <span class="original">ἁγιασμός</span>
+        <span class="transliteration">(hagiasmos)</span>
+        <span class="definition">— holiness, setting-apart; a progressive work of the Spirit conforming the believer to Christ.</span>
+      </div>
+      <p>Where justification is instantaneous, sanctification is progressive. It is the Spirit's lifelong work of making the justified person <em>actually</em> holy — transforming the will, desires, habits, and character. The presence of genuine, growing sanctification is the primary <em>evidence</em> that justification is real.</p>
+      <div class="scripture">
+        <p>For this is the will of God, your sanctification... For God did not call us to uncleanness, but in holiness.</p>
+        <cite>1 Thessalonians 4:3, 7 (NKJV)</cite>
+      </div>
+      <p>Lack of sanctification does not mean lack of salvation at a specific moment — but <em>no movement</em> toward holiness over time is a serious warning sign (Hebrews 12:14).</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>Glorification — The Final, Completed Salvation</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <p>Glorification is the final state — the resurrection body, the complete removal of the sin nature, and eternal life in the presence of God. Paul speaks of it in the past tense (Romans 8:30 — "whom He justified, these He also glorified") because from God's perspective, it is as certain as if already accomplished for the genuine believer.</p>
+      <div class="scripture">
+        <p>Moreover whom He predestined, these He also called; whom He called, these He also justified; and whom He justified, these He also glorified.</p>
+        <cite>Romans 8:30 (NKJV)</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="basis">II. The Basis of Assurance — Christ Alone</h2>
+
+  <p class="section-intro">Assurance rests on what Christ has done, not on what you have felt or performed.</p>
+
+  <p>The gravest error in the assurance question is looking inward first. Scripture consistently directs the believer to look <em>upward</em> — to Christ, His death, His resurrection, His intercession, and His promises. Assurance built on personal merit collapses under examination; assurance built on Christ's finished work stands.</p>
+
+  <div class="scripture">
+    <p>These things I have written to you who believe in the name of the Son of God, that you may <em>know</em> that you have eternal life.</p>
+    <cite>1 John 5:13 (NKJV) — emphasis added</cite>
+  </div>
+
+  <p>The word "know" (<em>οἴδατε</em>, oidate) in 1 John 5:13 is not "feel" or "hope" — it is a settled, factual knowing. John wrote his epistle precisely so that believers could have objective certainty.</p>
+
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <h4>The Promise of Christ</h4>
+      <p>Jesus declared those who hear His word and believe the Father "have everlasting life" — present tense, currently possessed, not future pending.</p>
+      <div class="ref">John 5:24</div>
+    </div>
+    <div class="evidence-card">
+      <h4>The Seal of the Spirit</h4>
+      <p>Every genuine believer receives the Holy Spirit as a seal — a mark of ownership and a deposit guaranteeing the full inheritance.</p>
+      <div class="ref">Ephesians 1:13–14; 2 Corinthians 1:22</div>
+    </div>
+    <div class="evidence-card">
+      <h4>The Intercessory Work of Christ</h4>
+      <p>Christ "always lives to make intercession" for those who come to God through Him — His priesthood guarantees the believer's standing.</p>
+      <div class="ref">Hebrews 7:25; Romans 8:34</div>
+    </div>
+    <div class="evidence-card">
+      <h4>The New Birth</h4>
+      <p>Regeneration is a divine act, not a human decision. God initiates it (John 6:44) and its evidence is a changed orientation of the heart.</p>
+      <div class="ref">John 3:3–8; 1 Peter 1:23</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="wlabel">⚠ Critical Distinction</div>
+    <p>Assurance is not arrogance. Claiming certainty of salvation is not presumption when it is grounded entirely in the trustworthiness of God's promises rather than personal worthiness. It is presumption only when it rests on the wrong foundation — one's own feelings, church membership, or moral performance.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="danger">III. The Danger of False Assurance</h2>
+
+  <p>Scripture is equally clear that not all who believe themselves to be saved actually are. This is one of the most sobering themes in the New Testament and must be held alongside genuine assurance — not to produce despair, but to produce honest self-examination.</p>
+
+  <div class="scripture">
+    <p>Not everyone who says to Me, "Lord, Lord," shall enter the kingdom of heaven, but he who does the will of My Father in heaven. Many will say to Me in that day, "Lord, Lord, have we not prophesied in Your name, cast out demons in Your name, and done many wonders in Your name?" And then I will declare to them, "I never knew you; depart from Me, you who practice lawlessness!"</p>
+    <cite>Matthew 7:21–23 (NKJV)</cite>
+  </div>
+
+  <p>Notice what these false believers relied on: experiences, works, and spiritual activity — not a genuine relationship ("I never <em>knew</em> you"). Three critical false foundations:</p>
+
+  <div class="pillar">
+    <div class="pillar-num">1</div>
+    <div class="pillar-content">
+      <h3>Emotional Experience</h3>
+      <p>A powerful conversion experience, emotional responses during worship, or past moments of spiritual intensity are not sufficient proof. Emotions are real but they are not reliable indicators of the state of the soul. The parable of the sower (Matthew 13) describes seed that springs up with <em>immediate joy</em> — and then dies. Joy came before root.</p>
+      <div class="scripture"><p>Yet he has no root in himself, but endures only for a while. For when tribulation or persecution arises because of the word, immediately he stumbles.</p><cite>Matthew 13:21 (NKJV)</cite></div>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-num">2</div>
+    <div class="pillar-content">
+      <h3>Religious Activity Alone</h3>
+      <p>Church attendance, prayer, Sabbath observance, health reform, tithing — all good practices — do not in themselves constitute salvation. They may accompany salvation, but they can also coexist with a heart that has never been genuinely surrendered. The Pharisees are the eternal warning here.</p>
+      <div class="scripture"><p>This people honors Me with their lips, but their heart is far from Me.</p><cite>Isaiah 29:13 / Matthew 15:8 (NKJV)</cite></div>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-num">3</div>
+    <div class="pillar-content">
+      <h3>Doctrinal Correctness Alone</h3>
+      <p>Knowing correct theology — even Adventist theology — about the Sabbath, the state of the dead, the sanctuary, the Three Angels' Messages — is not salvation. The demons believe and tremble (James 2:19). Truth must be received into the heart, not merely stored in the mind.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="tests">IV. The Biblical Tests of Genuine Faith — 1 John</h2>
+
+  <p class="section-intro">The epistle of 1 John was written explicitly to provide the tests by which genuine faith can be known. John gives three interlocking tests that spiral through the letter.</p>
+
+  <p>These are not ways to <em>earn</em> salvation — they are diagnostic indicators of whether genuine regeneration has occurred. A person may fail any one of these at a specific moment due to weakness or sin; what matters is the overall trajectory and honest orientation of the heart.</p>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>Test 1: The Moral Test — Do You Walk in the Light?</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <div class="scripture">
+        <p>If we say that we have fellowship with Him, and walk in darkness, we lie and do not practice the truth. But if we walk in the light as He is in the light, we have fellowship with one another, and the blood of Jesus Christ His Son cleanses us from all sin.</p>
+        <cite>1 John 1:6–7 (NKJV)</cite>
+      </div>
+      <p>Walking in the light does not mean sinless perfection — it means <em>honest alignment</em> with God's revealed will. The person who genuinely knows God does not persist in habitual, unrepented sin. When they sin, they confess it (1 John 1:9) rather than justify or conceal it.</p>
+      <div class="scripture">
+        <p>Whoever abides in Him does not sin. Whoever sins has neither seen Him nor known Him.</p>
+        <cite>1 John 3:6 (NKJV)</cite>
+      </div>
+      <p>The grammar here is continuous present tense in Greek: "does not <em>keep on sinning</em>" — habitual, unrepented practice of sin is incompatible with genuine union with Christ.</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>Test 2: The Doctrinal Test — Do You Confess Christ as He Is?</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <div class="scripture">
+        <p>By this you know the Spirit of God: every spirit that confesses that Jesus Christ has come in the flesh is of God, and every spirit that does not confess that Jesus Christ has come in the flesh is not of God.</p>
+        <cite>1 John 4:2–3 (NKJV)</cite>
+      </div>
+      <p>This test — directed originally against Gnostic denials of the Incarnation — has broader application: genuine saving faith involves accurate confession of who Jesus actually is. A "Jesus" reconstructed by human preference, stripped of His atoning sacrifice, bodily resurrection, or divine nature, is not the Jesus who saves.</p>
+      <div class="scripture">
+        <p>Whoever denies the Son does not have the Father either; he who acknowledges the Son has the Father also.</p>
+        <cite>1 John 2:23 (NKJV)</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>Test 3: The Social Test — Do You Love the Brethren?</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <div class="scripture">
+        <p>We know that we have passed from death to life, because we love the brethren. He who does not love his brother abides in death.</p>
+        <cite>1 John 3:14 (NKJV)</cite>
+      </div>
+      <p>Love for fellow believers — not sentimental feeling but active, self-giving action — is presented as <em>evidence</em> of the new birth, not merely its fruit. John is stark: where genuine love for the family of God is absent, genuine salvation is in question.</p>
+      <div class="scripture">
+        <p>But whoever has this world's goods, and sees his brother in need, and shuts up his heart from him, how does the love of God abide in him?</p>
+        <cite>1 John 3:17 (NKJV)</cite>
+      </div>
+      <p>This does not mean a saved person will perfectly love every believer at all times. It means the basic orientation of the heart — its natural movement — will be toward the people of God, not away from them.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="fruit">V. The Fruit Test — Evidence of a Transformed Life</h2>
+
+  <p>Jesus gave a complementary diagnostic in the Sermon on the Mount and in John 15. A genuine tree produces genuine fruit — not perfectly, not without seasons of barrenness, but identifiably and over time.</p>
+
+  <div class="scripture">
+    <p>A good tree cannot bear bad fruit, nor can a bad tree bear good fruit. Every tree that does not bear good fruit is cut down and thrown into the fire. Therefore by their fruits you will know them.</p>
+    <cite>Matthew 7:18–20 (NKJV)</cite>
+  </div>
+
+  <div class="evidence-grid">
+    <div class="evidence-card">
+      <h4>Fruit of the Spirit</h4>
+      <p>Love, joy, peace, longsuffering, kindness, goodness, faithfulness, gentleness, self-control — these emerge naturally from a Spirit-indwelt life, even if imperfectly.</p>
+      <div class="ref">Galatians 5:22–23</div>
+    </div>
+    <div class="evidence-card">
+      <h4>Repentance as Pattern</h4>
+      <p>The saved person does not merely regret sin; they turn from it. Godly sorrow (not mere guilt) produces genuine repentance — a changed direction, not just changed emotion.</p>
+      <div class="ref">2 Corinthians 7:10</div>
+    </div>
+    <div class="evidence-card">
+      <h4>Hunger for God's Word</h4>
+      <p>Peter describes the new birth as producing a craving for God's Word like a newborn craves milk. A spiritual appetite is evidence of spiritual life.</p>
+      <div class="ref">1 Peter 2:2; Psalm 119:97</div>
+    </div>
+    <div class="evidence-card">
+      <h4>Prayer as Relationship</h4>
+      <p>The Spirit causes the regenerate to cry "Abba, Father" — a natural, familial calling to God that distinguishes relationship from mere religion.</p>
+      <div class="ref">Romans 8:15–16; Galatians 4:6</div>
+    </div>
+    <div class="evidence-card">
+      <h4>Conviction of Sin</h4>
+      <p>A genuine believer is <em>troubled</em> by sin — not only its consequences, but its offense to God. The Spirit's work of conviction is evidence He is present.</p>
+      <div class="ref">John 16:8; Psalm 51:4</div>
+    </div>
+    <div class="evidence-card">
+      <h4>Obedience as Love</h4>
+      <p>Jesus defined love for Him as keeping His commandments — not grudgingly, but as the natural expression of a heart that has been transformed by love for God.</p>
+      <div class="ref">John 14:15; 1 John 5:3</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="perseverance">VI. Perseverance — Can a Saved Person Fall Away?</h2>
+
+  <p class="section-intro">The Adventist position holds that genuine salvation can be forfeited through sustained apostasy and final impenitence — making perseverance a serious biblical issue, not just a theoretical one.</p>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>The Biblical Warning Passages — These Are Not Hypothetical</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <div class="scripture">
+        <p>For it is impossible for those who were once enlightened, and have tasted the heavenly gift, and have become partakers of the Holy Spirit, and have tasted the good word of God and the powers of the age to come, if they fall away, to renew them again to repentance, since they crucify again for themselves the Son of God, and put Him to an open shame.</p>
+        <cite>Hebrews 6:4–6 (NKJV)</cite>
+      </div>
+      <p>The language here is not about the merely nominal believer — it describes someone who has genuinely "tasted" the heavenly gift, been a "partaker of the Holy Spirit." The warning is real and intended to produce sober self-examination, not fatalism.</p>
+      <div class="scripture">
+        <p>You have become estranged from Christ, you who attempt to be justified by law; you have fallen from grace.</p>
+        <cite>Galatians 5:4 (NKJV)</cite>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <button class="acc-btn" onclick="toggleAcc(this)">
+      <span>The Securing Promises — God Holds His Own</span><span class="chevron">▾</span>
+    </button>
+    <div class="acc-body">
+      <div class="scripture">
+        <p>My sheep hear My voice, and I know them, and they follow Me. And I give them eternal life, and they shall never perish; neither shall anyone snatch them out of My hand.</p>
+        <cite>John 10:27–28 (NKJV)</cite>
+      </div>
+      <p>These promises are given to those who <em>hear His voice</em> and <em>follow</em> — they are conditional on ongoing relationship, not merely a past decision. The security is real — no outside force can wrest them away — but it operates through continued union with Christ, not independently of it.</p>
+      <div class="scripture">
+        <p>Now to Him who is able to keep you from stumbling, and to present you faultless before the presence of His glory with exceeding joy...</p>
+        <cite>Jude 24 (NKJV)</cite>
+      </div>
+      <p>The balance of Scripture: <strong>God is utterly faithful to preserve genuine believers through all trials</strong> — and genuine believers, by the Spirit's power, persevere. The warning passages address apostasy for those who ultimately choose to walk away.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="egw">VII. Ellen G. White on Assurance of Salvation</h2>
+
+  <p class="section-intro">Ellen White consistently held a balance between genuine assurance and sober self-examination. She repeatedly directed souls away from self and toward Christ as the sole ground of confidence.</p>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White</div>
+    <p>Many are inquiring, "How am I to make the surrender of myself to God?" You desire to give yourself to Him, but you are weak in moral power, in slavery to doubt, and controlled by the habits of your life of sin. Your promises and resolutions are like ropes of sand. You cannot control your thoughts, your impulses, your affections. The knowledge of your broken promises and forfeited pledges weakens your confidence in your own sincerity, and causes you to feel that God cannot accept you; but you need not despair. What you need to understand is the true force of the will. This is the governing power in the nature of man, the power of decision, or of choice. Everything depends on the right action of the will. The power of choice God has given to men; it is theirs to exercise. You cannot change your heart, you cannot of yourself give to God its affections; but you can choose to serve Him. You can give Him your will; He will then work in you to will and to do according to His good pleasure.</p>
+    <cite>Steps to Christ, p. 47</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White</div>
+    <p>If you give yourself to Him, and accept Him as your Saviour, then, sinful as your life may have been, for His sake you are accounted righteous. Christ's character stands in place of your character, and you are accepted before God just as if you had not sinned.</p>
+    <cite>Steps to Christ, p. 62</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White</div>
+    <p>Many are troubled because they cannot feel the joy and confidence they desire. But feeling is not faith; these are distinct. Faith is not dependent upon feeling; both faith and feeling have their foundation in the Word of God; but feeling is not always reliable. We are to trust in the Word of God, whatever our feelings may be... Many are plunged into deep distress because they cannot always feel the assurance of their acceptance with God. But His word does not vary with our feelings. We are to trust in His promises...</p>
+    <cite>Testimonies for the Church, Vol. 4, p. 148</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White</div>
+    <p>Jesus does not require us to feel that we are saved in order to be saved. He requires us to believe that we are saved. The act of believing is not a feeling; it is a choice, a decision of the will. Many persons make the mistake of depending upon feeling for evidence of their acceptance with God. They look to themselves instead of looking to the Author and Finisher of their faith.</p>
+    <cite>That I May Know Him, p. 161</cite>
+  </div>
+
+  <div class="egw-block">
+    <div class="egw-label">Ellen G. White — On Self-Examination</div>
+    <p>The grace of Christ is freely offered to every soul. But while God can be just, and yet justify the sinner through the merits of Christ, no man can cover his soul with the garments of Christ's righteousness while practicing known transgressions, or neglecting known duties. God requires the entire surrender of the heart, before justification can take place; and in order for man to retain justification, there must be continual obedience, through active, living faith that works by love and purifies the soul.</p>
+    <cite>Selected Messages, Book 1, p. 366</cite>
+  </div>
+
+  <div class="warning-box">
+    <div class="wlabel">⚠ Key EGW Balance</div>
+    <p>Ellen White refused both extremes: she opposed the false certainty of those who believed they could not fall, and the despairing doubt of those who could never accept God's promises. Her consistent counsel was: <em>Stop looking at yourself — look at Christ, accept His word, surrender the will, and let the evidence appear in your life.</em></p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <h2 class="section-title" id="selfexam">VIII. The Practical Self-Examination Table</h2>
+
+  <p class="section-intro">Paul's instruction in 2 Corinthians 13:5 — "Examine yourselves as to whether you are in the faith" — is not an invitation to perpetual morbid doubt. It is a sober, periodic calibration against biblical markers. Use this table as an honest inventory, not a performance scorecard.</p>
+
+  <div class="scripture">
+    <p>Examine yourselves as to whether you are in the faith. Test yourselves. Do you not know yourselves, that Jesus Christ is in you? — unless indeed you are disqualified.</p>
+    <cite>2 Corinthians 13:5 (NKJV)</cite>
+  </div>
+
+  <table class="exam-table">
+    <thead>
+      <tr>
+        <th>Biblical Test</th>
+        <th>Honest Question</th>
+        <th>Key Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="test-col">Genuine Faith in Christ</td>
+        <td>Is my trust placed in Christ's righteousness, or in my own performance and religious record?</td>
+        <td class="ref-col">Romans 10:9–10; Philippians 3:9</td>
+      </tr>
+      <tr>
+        <td class="test-col">New Birth</td>
+        <td>Has there been a point — or a sustained process — of surrender and new beginning where old values began to change?</td>
+        <td class="ref-col">John 3:3; 2 Cor 5:17</td>
+      </tr>
+      <tr>
+        <td class="test-col">Attitude Toward Sin</td>
+        <td>Do I feel genuine conviction and sorrow over sin — not just fear of consequences — and does that sorrow lead me to confess and turn?</td>
+        <td class="ref-col">1 John 1:9; 2 Cor 7:10</td>
+      </tr>
+      <tr>
+        <td class="test-col">Love for God's Law</td>
+        <td>Do I desire to obey God's commandments from a heart of love, or do I resent them? Does the Sabbath feel like a delight or a burden?</td>
+        <td class="ref-col">Psalm 40:8; 1 John 5:3; Isa 58:13</td>
+      </tr>
+      <tr>
+        <td class="test-col">Love for Believers</td>
+        <td>Do I genuinely care for, pray for, and seek the good of my fellow believers — even the difficult ones?</td>
+        <td class="ref-col">1 John 3:14; John 13:35</td>
+      </tr>
+      <tr>
+        <td class="test-col">Hunger for Scripture</td>
+        <td>Do I have a real appetite for God's Word — not just duty-driven reading, but genuine hunger to know God through it?</td>
+        <td class="ref-col">1 Peter 2:2; Psalm 119:97</td>
+      </tr>
+      <tr>
+        <td class="test-col">Prayer as Relationship</td>
+        <td>Do I pray because I want to talk with my Father, or only out of obligation or crisis?</td>
+        <td class="ref-col">Romans 8:15; Matthew 6:6</td>
+      </tr>
+      <tr>
+        <td class="test-col">Spirit Witnessing</td>
+        <td>Is there — underneath doubts and failures — a deep, quiet sense that I belong to God, and that God is my Father?</td>
+        <td class="ref-col">Romans 8:16; Galatians 4:6</td>
+      </tr>
+      <tr>
+        <td class="test-col">Fruit Over Time</td>
+        <td>Looking back over years, is there growth — however uneven — in Christlike character, or is the trajectory flat or declining?</td>
+        <td class="ref-col">Galatians 5:22–23; 2 Peter 1:5–8</td>
+      </tr>
+      <tr>
+        <td class="test-col">Endurance in Trial</td>
+        <td>When my faith is tested, do I ultimately press into God rather than away from Him — even if imperfectly?</td>
+        <td class="ref-col">James 1:3–4; Romans 5:3–5</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <div class="wlabel">⚠ How to Use This Table Rightly</div>
+    <p>Consistent "No" answers on most categories are a serious signal to seek God urgently — not to despair, but to genuinely engage with repentance, surrender, and counsel. Occasional "No" answers on specific points are the normal experience of growing Christians under conviction. A single, prolonged "No" on Test 1 (genuine faith in Christ alone) requires immediate attention above all others.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="divider-ornament"><span>✦</span></div>
+
+</div>
+
+<!-- FINAL APPEAL -->
+<div class="final-appeal">
+  <div class="container">
+    <h2 id="conclusion">Standing on the Promise, Not on the Feeling</h2>
+    <p>The question "Am I saved?" is ultimately answered not by examining your emotional temperature, but by examining your relationship with the Author of salvation. He has spoken. His Word does not change when your feelings change.</p>
+    <p>If you have genuinely surrendered your will to Christ — not perfectly, but honestly — and if the trajectory of your life shows growing alignment with His character, His Word, and His people: then <em>receive</em> the assurance He offers. Not as a reward you have earned, but as a gift He has given.</p>
+    <p>If honest self-examination reveals a heart that has not yet truly surrendered: this is not condemnation — it is an invitation. The same grace that saves also enables that first surrender. Come as you are.</p>
+    <div class="assurance-verse">
+      "For I am persuaded that neither death nor life, nor angels nor principalities nor powers, nor things present nor things to come, nor height nor depth, nor any other created thing, shall be able to separate us from the love of God which is in Christ Jesus our Lord."
+      <br><br>
+      <span style="font-size:14px; font-family:'Source Sans 3', sans-serif; color: var(--gold-dim); letter-spacing:0.08em; font-style:normal;">ROMANS 8:38–39 (NKJV)</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleAcc(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // close all
+    document.querySelectorAll('.acc-btn').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+    if (!isOpen) { btn.classList.add('open'); body.classList.add('open'); }
+  }
+
+  // Smooth scroll for TOC
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
