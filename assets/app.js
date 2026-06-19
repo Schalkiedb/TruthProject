@@ -3654,10 +3654,39 @@ const STUDY_PATH = [
   { title: "Battle at the End — Part 2", file: "Study_guides/Battle_at_the_End_Part_2_Complete_Study_Guide.md" },
 ];
 
+function resetAllProgress() {
+  // Collect every scrollPos_ key first
+  const scrollKeys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith("scrollPos_")) scrollKeys.push(k);
+  }
+  scrollKeys.forEach((k) => localStorage.removeItem(k));
+
+  localStorage.removeItem("readDocs");
+  localStorage.removeItem("lastReadDoc");
+  localStorage.removeItem("lastReadTime");
+
+  // Refresh all read-state UI
+  buildHomeCards();
+  buildStudyPath();
+  buildContinueReading();
+}
+
 function buildStudyPath() {
   const container = document.getElementById("study-path");
   if (!container) return;
   container.innerHTML = "";
+
+  // Wire the reset button every time the study path rebuilds
+  const resetBtn = document.getElementById("reset-progress-btn");
+  if (resetBtn) {
+    resetBtn.onclick = () => {
+      if (confirm("Clear all read history and scroll positions? This cannot be undone.")) {
+        resetAllProgress();
+      }
+    };
+  }
 
   const readDocs = JSON.parse(localStorage.getItem("readDocs") || "[]");
 

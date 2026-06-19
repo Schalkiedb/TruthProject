@@ -1987,6 +1987,24 @@ body.light-theme #verse-modal {
   line-height: 1.6;
 }
 
+.reset-progress-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+  margin-left: 8px;
+  vertical-align: middle;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.reset-progress-btn:hover {
+  color: #e06060;
+  border-color: #e06060;
+}
+
 .study-path {
   display: flex;
   flex-wrap: wrap;
