@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prophecy Watch — Global Alert Map</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 <style>
 /* ── Reset & Base ─────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
@@ -164,6 +166,37 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .lvl-green .dot{background:#38a169;box-shadow:0 0 10px #38a16980}
 .lvl-green .ring{background:rgba(56,161,105,.35)}
 .lvl-gray .dot{background:#718096}
+
+/* clustered-marker bubble — replaces markercluster's default blue circles
+   so crowded regions (Europe, Middle East) decompose into a themed count
+   bubble instead of overlapping halos, and expand on zoom/click */
+.cluster-bubble{display:flex;align-items:center;justify-content:center;
+  border-radius:50%;background:rgba(13,17,23,.92);border:2px solid #c9a227;
+  color:#f0d77b;font-weight:800;font-family:inherit;box-shadow:0 0 10px rgba(201,162,39,.45)}
+.marker-cluster{background:transparent!important}
+
+/* live-feed activity overlay — distinct from the static threat-level ring */
+.cmarker .livebadge{position:absolute;top:-4px;right:-4px;min-width:15px;height:15px;
+  border-radius:50%;background:#2c7a7b;border:1.5px solid #0d1117;color:#e6fffa;
+  font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  padding:0 2px;z-index:2;line-height:1}
+.cmarker .livebadge.crit{background:#4fd1c5;color:#0d1117;box-shadow:0 0 6px #4fd1c5a0}
+.cmarker .livering{position:absolute;inset:-3px;border-radius:50%;opacity:0;
+  border:1.5px solid #4fd1c5}
+.cmarker.live-pulse .livering{animation:liveripple 1.8s ease-out infinite}
+@keyframes liveripple{
+  0%{transform:scale(1);opacity:.9}
+  100%{transform:scale(2.2);opacity:0}
+}
+
+/* "new since last visit" event card highlight */
+.le-card.le-new{border-left:3px solid #c9a227!important;background:rgba(201,162,39,.07)!important}
+.le-new-badge{font-size:9px;font-weight:800;background:#c9a227;color:#0d1117;
+  border-radius:3px;padding:1px 4px;letter-spacing:.5px;flex-shrink:0}
+/* secondary category tags shown on cards when content matches >1 category */
+.le-extra-cats{display:flex;gap:3px;align-items:center;flex-wrap:wrap}
+.le-extra-cat{font-size:10px;padding:1px 4px;border-radius:3px;
+  background:rgba(255,255,255,.08);cursor:default;opacity:.8}
 
 /* ── Mobile ──────────────────────────────────────────────── */
 #panel-handle{display:none}
@@ -584,18 +617,18 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     <div id="live-filters">
       <div class="lf-pill active" data-lf="all">All <span class="lf-n" id="lf-n-all">0</span></div>
       <div class="lf-pill" data-lf="sl">📅 Sunday Laws <span class="lf-n" id="lf-n-sl">0</span></div>
-      <div class="lf-pill" data-lf="cs">⛪ Church-State <span class="lf-n" id="lf-n-cs2">0</span></div>
+      <div class="lf-pill" data-lf="cs" title="Events whose primary topic is church-state separation">⛪ Church-State <span class="lf-n" id="lf-n-cs2">0</span></div>
       <div class="lf-pill" data-lf="cbdc">💳 CBDC <span class="lf-n" id="lf-n-cbdc">0</span></div>
       <div class="lf-pill" data-lf="did">👁 Digital ID <span class="lf-n" id="lf-n-did">0</span></div>
       <div class="lf-pill" data-lf="rl">✝ Liberty <span class="lf-n" id="lf-n-rl">0</span></div>
       <div class="lf-pill" data-lf="bs">🔗 Beast System <span class="lf-n" id="lf-n-bs">0</span></div>
-      <div class="lf-pill" data-lf="church-state">⚠️ All Church-State <span class="lf-n" id="lf-n-cs">0</span></div>
+      <div class="lf-pill" data-lf="church-state" title="Any event flagged church-state-relevant, regardless of which category it's filed under">⚠️ CS-Flagged (any cat.) <span class="lf-n" id="lf-n-cs">0</span></div>
     </div>
   </div>
   <div id="live-loading">
     <div class="spinner"></div>
     <span>Scanning global news sources...</span>
-    <span style="font-size:10px">GDELT · Google News · Bing News · Reddit</span>
+    <span style="font-size:10px">Google News · Bing · GDELT · Vatican News · Christian Post</span>
   </div>
   <div id="live-empty">
     <div class="le-icon">📡</div>
@@ -627,6 +660,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script>
 "use strict";
 
@@ -2315,9 +2349,34 @@ const markers = {};
 let selectedKey = null;
 let activeCat = 'all';
 
+/* Crowded regions (Europe, Middle East) previously just overlapped at low
+   zoom with no decluttering at all. Markers now live inside a cluster
+   group that breaks into themed count-bubbles until you zoom past
+   disableClusteringAtZoom, then resolves to the individual markers. */
+const clusterGroup = L.markerClusterGroup({
+  maxClusterRadius: 45,
+  disableClusteringAtZoom: 5,
+  spiderfyOnMaxZoom: true,
+  showCoverageOnHover: false,
+  zoomToBoundsOnClick: true,
+  iconCreateFunction: function (cluster) {
+    const count = cluster.getChildCount();
+    const size = count < 5 ? 32 : count < 12 ? 40 : 48;
+    return L.divIcon({
+      html: `<div class="cluster-bubble" style="width:${size}px;height:${size}px;font-size:${size < 40 ? 12 : 14}px">${count}</div>`,
+      className: '',
+      iconSize: [size, size]
+    });
+  }
+});
+map.addLayer(clusterGroup);
+
 /* Expose for live-events integration */
 window.COUNTRIES = COUNTRIES;
 window.selectedKey = null;
+window.map = map;
+window.markers = markers;
+window.clusterGroup = clusterGroup;
 
 function getLevel(key, cat) {
   const c = COUNTRIES[key];
@@ -2326,6 +2385,8 @@ function getLevel(key, cat) {
 }
 
 function makeIcon(level, r, pulse) {
+  // Kept for backward compatibility — buildIcon() below is what's actually
+  // used now, since it also layers in live-feed activity.
   const c = COL[level] || '#718096';
   const sz = r || 22;
   return L.divIcon({
@@ -2339,15 +2400,70 @@ function makeIcon(level, r, pulse) {
   });
 }
 
+/* Looks at LiveEvents (if loaded) for recent high/critical activity tied to
+   this country, respecting the current category filter so the badge stays
+   consistent with the marker's own threat color. */
+function getLiveInfoForCountry(key) {
+  if (!window.LiveEvents || typeof window.LiveEvents.getEventsForCountry !== 'function') {
+    return { count: 0, hasCritical: false };
+  }
+  const events = window.LiveEvents.getEventsForCountry(key) || [];
+  const cutoff = Date.now() - 72 * 60 * 60 * 1000; // last 72h
+  const recent = events.filter(e => {
+    const t = new Date(e.date).getTime();
+    if (isNaN(t) || t < cutoff) return false;
+    if (e.severity !== 'critical' && e.severity !== 'high') return false;
+    if (activeCat !== 'all' && e.category !== activeCat) return false;
+    return true;
+  });
+  return { count: recent.length, hasCritical: recent.some(e => e.severity === 'critical') };
+}
+
+/* Single source of truth for marker icons — static threat-level ring/dot
+   plus, when present, a live-activity badge and a distinct teal pulse ring
+   for genuinely recent critical/high live events. Replaces three separate
+   places that used to build near-identical divIcon HTML by hand. */
+function buildIcon(key, opts) {
+  opts = opts || {};
+  const c = COUNTRIES[key];
+  const level = getLevel(key, activeCat);
+  const col = COL[level] || '#718096';
+  const sz = c.r || 22;
+  const live = getLiveInfoForCountry(key);
+  const staticPulse = level === 'red';
+  const livePulse = live.count > 0 && live.hasCritical;
+  const pulseClass = (staticPulse || livePulse) ? ' pulse' : '';
+  const liveRingClass = livePulse ? ' live-pulse' : '';
+  const selectedClass = opts.selected ? ' selected' : '';
+  const outline = opts.selected ? 'outline:3px solid #fff;outline-offset:2px;' : '';
+  const glow = opts.selected ? `0 0 ${sz}px ${col}` : `0 0 ${sz/2}px ${col}80`;
+
+  let badgeHtml = '';
+  if (live.count > 0) {
+    const label = live.count > 9 ? '9+' : String(live.count);
+    badgeHtml = `<div class="livebadge${live.hasCritical ? ' crit' : ''}" title="${live.count} recent live event${live.count === 1 ? '' : 's'}">${label}</div>`;
+  }
+
+  return L.divIcon({
+    className: '',
+    html: `<div class="cmarker${pulseClass}${liveRingClass}${selectedClass} lvl-${level}" style="width:${sz}px;height:${sz}px">
+             <div class="ring" style="background:${col}40"></div>
+             ${livePulse ? '<div class="livering"></div>' : ''}
+             <div class="dot" style="width:${sz}px;height:${sz}px;background:${col};box-shadow:${glow};border-radius:50%;${outline}"></div>
+             ${badgeHtml}
+           </div>`,
+    iconSize: [sz, sz],
+    iconAnchor: [sz/2, sz/2]
+  });
+}
+
 Object.keys(COUNTRIES).forEach(key => {
   const c = COUNTRIES[key];
-  const level = c.level;
-  const pulse = level === 'red';
-  const m = L.marker([c.lat, c.lng], { icon: makeIcon(level, c.r, pulse) }).addTo(map);
+  const m = L.marker([c.lat, c.lng], { icon: buildIcon(key) });
   m.bindTooltip(c.flag + ' ' + c.name, { direction:'top', className:'', offset:[0,-4] });
   m.on('click', () => selectCountry(key));
-  m.on('touchstart', () => selectCountry(key));
   markers[key] = m;
+  clusterGroup.addLayer(m);
 });
 
 /* ── Counter stats ────────────────────────────────────────── */
@@ -2378,13 +2494,7 @@ document.querySelectorAll('.flt').forEach(btn => {
 
 function refreshMarkers() {
   Object.keys(COUNTRIES).forEach(key => {
-    const c = COUNTRIES[key];
-    const level = getLevel(key, activeCat);
-    const pulse = level === 'red';
-    markers[key].setIcon(makeIcon(level, c.r, pulse));
-    if (key === selectedKey) {
-      // keep selected state visible — re-open panel won't change tabs
-    }
+    markers[key].setIcon(buildIcon(key, { selected: key === selectedKey }));
   });
   // if cat changed and a country is selected, re-open its tab
   if (selectedKey && activeCat !== 'all') {
@@ -2395,28 +2505,26 @@ function refreshMarkers() {
   }
 }
 
+/* Called whenever LiveEvents finishes a scan (hooked up below, near the
+   LiveEvents.init call) so markers pick up new live-activity badges/pulses
+   without needing a category-filter click to refresh. */
+window.refreshLiveMarkerOverlay = function () {
+  Object.keys(COUNTRIES).forEach(key => {
+    if (markers[key]) markers[key].setIcon(buildIcon(key, { selected: key === selectedKey }));
+  });
+};
+
 /* ── Select country ───────────────────────────────────────── */
 function selectCountry(key) {
   if (selectedKey && markers[selectedKey]) {
-    const c = COUNTRIES[selectedKey];
-    markers[selectedKey].setIcon(makeIcon(getLevel(selectedKey, activeCat), c.r, getLevel(selectedKey, activeCat) === 'red'));
+    markers[selectedKey].setIcon(buildIcon(selectedKey));
   }
   selectedKey = key;
   window.selectedKey = key;
   const c = COUNTRIES[key];
 
   // Highlight selected
-  const selLevel = getLevel(key, activeCat);
-  const selCol = COL[selLevel];
-  const sz = c.r;
-  markers[key].setIcon(L.divIcon({
-    className: '',
-    html: `<div class="cmarker lvl-${selLevel} selected" style="width:${sz}px;height:${sz}px">
-             <div class="ring" style="background:${selCol}40"></div>
-             <div class="dot" style="width:${sz}px;height:${sz}px;background:${selCol};box-shadow:0 0 ${sz}px ${selCol};border-radius:50%;outline:3px solid #fff;outline-offset:2px"></div>
-           </div>`,
-    iconSize: [sz,sz], iconAnchor: [sz/2,sz/2]
-  }));
+  markers[key].setIcon(buildIcon(key, { selected: true }));
 
   // Fill panel
   document.getElementById('panel-welcome').style.display = 'none';
@@ -2515,9 +2623,30 @@ document.getElementById('srch').addEventListener('input', function() {
   if (!q) return;
   const found = Object.keys(COUNTRIES).find(k => COUNTRIES[k].name.toLowerCase().startsWith(q));
   if (found) {
-    const c = COUNTRIES[found];
-    map.flyTo([c.lat, c.lng], 4, { duration: 1.2 });
-    setTimeout(() => selectCountry(found), 1300);
+    if (clusterGroup && markers[found] && typeof clusterGroup.zoomToShowLayer === 'function') {
+      clusterGroup.zoomToShowLayer(markers[found], () => selectCountry(found));
+    } else {
+      const c = COUNTRIES[found];
+      map.flyTo([c.lat, c.lng], 4, { duration: 1.2 });
+      setTimeout(() => selectCountry(found), 1300);
+    }
+    return;
+  }
+  // No country name match — this box used to ignore live-feed content
+  // entirely, so e.g. typing "CBDC" found nothing even with matching
+  // headlines in the feed. Check live event titles too, and surface the
+  // panel + fly to the first tagged country if there's a hit.
+  if (window.LiveEvents && typeof window.LiveEvents.getEvents === 'function' && q.length >= 3) {
+    const hit = window.LiveEvents.getEvents().find(e => e.title.toLowerCase().includes(q));
+    if (hit) {
+      if (hit.countries && hit.countries[0] && typeof window.flyToCountry === 'function') {
+        window.flyToCountry(hit.countries[0]);
+      }
+      const panel = document.getElementById('live-panel');
+      if (panel && !panel.classList.contains('open') && typeof window.toggleLivePanel === 'function') {
+        window.toggleLivePanel();
+      }
+    }
   }
 });
 
@@ -2526,9 +2655,13 @@ if (location.hash) {
   const key = location.hash.slice(1).toUpperCase();
   if (COUNTRIES[key]) {
     setTimeout(() => {
-      const c = COUNTRIES[key];
-      map.flyTo([c.lat, c.lng], 4, { duration: 1.5 });
-      setTimeout(() => selectCountry(key), 1600);
+      if (clusterGroup && markers[key] && typeof clusterGroup.zoomToShowLayer === 'function') {
+        clusterGroup.zoomToShowLayer(markers[key], () => selectCountry(key));
+      } else {
+        const c = COUNTRIES[key];
+        map.flyTo([c.lat, c.lng], 4, { duration: 1.5 });
+        setTimeout(() => selectCountry(key), 1600);
+      }
     }, 800);
   }
 }
@@ -2785,16 +2918,41 @@ if (location.hash) {
     });
   };
 
+  /* ── New-since-last-visit tracking ──────────────────────── */
+  var LAST_VIEWED_KEY = "prophecy_lf_last_viewed";
+  var _lastViewedTs = parseInt(localStorage.getItem(LAST_VIEWED_KEY) || "0", 10);
+  var _newSinceLastVisit = 0;
+
+  function markAsViewed() {
+    _lastViewedTs = Date.now();
+    localStorage.setItem(LAST_VIEWED_KEY, String(_lastViewedTs));
+  }
+
+  // Stamp "viewed" when the panel is opened so next visit can diff.
+  var _liveBtn = document.getElementById("live-btn");
+  if (_liveBtn) {
+    _liveBtn.addEventListener("click", function () {
+      setTimeout(markAsViewed, 2000); // slight delay so the badge is seen first
+    });
+  }
+
   /* ── Render events when LiveEvents updates ───────────────── */
   function onEventsUpdate(events) {
     // Hide loading
     document.getElementById("live-loading").style.display = "none";
 
-    // Update counts
+    // Count using the multi-category `categories` array so an article that
+    // is legitimately both "sl" and "cs" increments both pill counters —
+    // previously a single-category string meant it only ever counted once.
     var counts = { all: events.length, sl: 0, cs: 0, cbdc: 0, did: 0, rl: 0, bs: 0, csFlag: 0 };
+    _newSinceLastVisit = 0;
     events.forEach(function (e) {
-      if (counts[e.category] !== undefined) counts[e.category]++;
+      var cats = Array.isArray(e.categories) ? e.categories : [e.category];
+      cats.forEach(function (cat) {
+        if (counts[cat] !== undefined) counts[cat]++;
+      });
       if (e.churchStateFlag) counts.csFlag++;
+      if (_lastViewedTs && new Date(e.date).getTime() > _lastViewedTs) _newSinceLastVisit++;
     });
 
     document.getElementById("live-count").textContent = counts.all;
@@ -2807,12 +2965,20 @@ if (location.hash) {
     document.getElementById("lf-n-bs").textContent = counts.bs;
     document.getElementById("lf-n-cs").textContent = counts.csFlag;
 
-    // Update badge on header button
+    // Update badge on header button — shows new-since-last-visit count
+    // when available (more meaningful than raw critical count), falls back
+    // to critical count when no prior visit is stamped.
     var critical = events.filter(function (e) { return e.severity === "critical" || e.severity === "high"; });
     var badge = document.getElementById("live-badge");
-    if (critical.length > 0) {
+    var badgeCount = _lastViewedTs && _newSinceLastVisit > 0 ? _newSinceLastVisit : critical.length;
+    if (badgeCount > 0) {
       badge.style.display = "flex";
-      badge.textContent = critical.length;
+      badge.textContent = _lastViewedTs && _newSinceLastVisit > 0
+        ? "+" + _newSinceLastVisit
+        : critical.length;
+      badge.title = _lastViewedTs && _newSinceLastVisit > 0
+        ? _newSinceLastVisit + " new since your last visit"
+        : critical.length + " critical/high-severity events";
       document.getElementById("live-btn").classList.add("has-critical");
     } else {
       badge.style.display = "none";
@@ -2823,7 +2989,6 @@ if (location.hash) {
     var ts = LiveEvents.getLastUpdateTime();
     if (ts) {
       document.getElementById("live-updated").textContent = formatTime(ts);
-      // Also update the stats bar timestamp
       var refreshEl = document.getElementById("refresh-time");
       if (refreshEl) refreshEl.textContent = formatTime(ts);
     }
@@ -2833,6 +2998,11 @@ if (location.hash) {
 
     // Render ticker
     renderTicker(events);
+
+    // Reflect latest activity on the map markers themselves
+    if (typeof window.refreshLiveMarkerOverlay === "function") {
+      window.refreshLiveMarkerOverlay();
+    }
   }
 
   /* ── Render event cards ──────────────────────────────────── */
@@ -2853,13 +3023,29 @@ if (location.hash) {
     var html = "";
     filtered.forEach(function (e) {
       var catLabel = (LiveEvents.KEYWORD_GROUPS[e.category] || {}).label || e.category;
-      var catIcon = (LiveEvents.KEYWORD_GROUPS[e.category] || {}).icon || "📰";
-      var sevIcon = { critical: "🔴", high: "🟠", medium: "🔵", low: "⚪" }[e.severity] || "⚪";
-      var timeAgo = getTimeAgo(e.date);
+      var catIcon  = (LiveEvents.KEYWORD_GROUPS[e.category] || {}).icon  || "📰";
+      var sevIcon  = { critical:"🔴", high:"🟠", medium:"🔵", low:"⚪" }[e.severity] || "⚪";
+      var timeAgo  = getTimeAgo(e.date);
+      var isNew    = _lastViewedTs && new Date(e.date).getTime() > _lastViewedTs;
 
-      html += '<div class="le-card sev-' + e.severity + '" onclick="window.open(\'' + escHtml(e.url) + '\',\'_blank\')">';
+      // Secondary category tags (those derived from content, beyond the
+      // original query category) shown as small pills on the card.
+      var extraCats = "";
+      if (Array.isArray(e.categories) && e.categories.length > 1) {
+        e.categories.forEach(function (cat) {
+          if (cat !== e.category) {
+            var lbl = (LiveEvents.KEYWORD_GROUPS[cat] || {}).icon || cat;
+            extraCats += '<span class="le-extra-cat le-cat-' + cat + '" title="Also: ' +
+              ((LiveEvents.KEYWORD_GROUPS[cat] || {}).label || cat) + '">' + lbl + "</span>";
+          }
+        });
+      }
+
+      html += '<div class="le-card sev-' + e.severity + (isNew ? " le-new" : "") + '" onclick="window.open(\'' + escHtml(e.url) + '\',\'_blank\')">';
       html += '<div class="le-top">';
+      if (isNew) html += '<span class="le-new-badge" title="Published since your last visit">NEW</span>';
       html += '<span class="le-cat le-cat-' + e.category + '">' + catIcon + " " + catLabel + "</span>";
+      if (extraCats) html += '<span class="le-extra-cats">' + extraCats + "</span>";
       html += '<span class="le-sev le-sev-' + e.severity + '">' + sevIcon + " " + e.severity + "</span>";
       if (e.churchStateFlag) {
         html += '<span class="le-church-state">⚠️ CHURCH-STATE</span>';
@@ -2898,7 +3084,13 @@ if (location.hash) {
     if (activeFilter === "church-state") {
       return events.filter(function (e) { return e.churchStateFlag; });
     }
-    return events.filter(function (e) { return e.category === activeFilter; });
+    // Use the multi-category `categories` array so an article tagged both
+    // "sl" and "cs" shows up under either filter pill — not just whichever
+    // single category string was assigned at fetch time.
+    return events.filter(function (e) {
+      var cats = Array.isArray(e.categories) ? e.categories : [e.category];
+      return cats.indexOf(activeFilter) !== -1;
+    });
   }
 
   /* ── Filter pill clicks ──────────────────────────────────── */
@@ -2932,10 +3124,12 @@ if (location.hash) {
     top.forEach(function (e) {
       var sevIcon = { critical: "🔴", high: "🟠", medium: "🔵", low: "⚪" }[e.severity] || "⚪";
       var catIcon = (LiveEvents.KEYWORD_GROUPS[e.category] || {}).icon || "📰";
+      var flyCode = (e.countries && e.countries[0]) ? e.countries[0] : null;
+      var flyAttr = flyCode ? ' onclick="flyToCountry(\'' + flyCode + '\')"' : '';
       html += '<span class="ticker-item">';
       html += '<span class="ti-sev">' + sevIcon + "</span>";
       html += '<span class="ti-cat le-cat-' + e.category + '">' + catIcon + "</span>";
-      html += '<a href="' + escHtml(e.url) + '" target="_blank" rel="noopener">' + escHtml(truncate(e.title, 80)) + "</a>";
+      html += '<a href="' + escHtml(e.url) + '" target="_blank" rel="noopener"' + flyAttr + '>' + escHtml(truncate(e.title, 80)) + "</a>";
       html += "</span>";
     });
     // Duplicate for seamless loop
@@ -2950,7 +3144,15 @@ if (location.hash) {
   /* ── Fly to country from event card ──────────────────────── */
   window.flyToCountry = function (code) {
     var c = window.COUNTRIES && window.COUNTRIES[code];
-    if (c && window.map) {
+    var m = window.markers && window.markers[code];
+    if (!c || !window.map) return;
+    if (m && window.clusterGroup && typeof window.clusterGroup.zoomToShowLayer === "function") {
+      // Guarantees the marker is actually visible (not buried in a cluster
+      // bubble) before we try to select it.
+      window.clusterGroup.zoomToShowLayer(m, function () {
+        if (typeof selectCountry === "function") selectCountry(code);
+      });
+    } else {
       window.map.flyTo([c.lat, c.lng], 4, { duration: 1.2 });
       setTimeout(function () {
         if (typeof selectCountry === "function") selectCountry(code);
