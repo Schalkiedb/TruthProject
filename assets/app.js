@@ -1926,6 +1926,21 @@ function buildHomeCards() {
         <span class="card-tag ${item.tagClass || ""}">${item.tag}</span>
       `;
       card.addEventListener("click", () => loadDocument(item.file));
+
+      // Show read-progress badge if this guide has been opened before
+      const readDocs = JSON.parse(localStorage.getItem("readDocs") || "[]");
+      if (readDocs.includes(item.file)) {
+        card.classList.add("card-read");
+        const badge = document.createElement("div");
+        badge.className = "card-read-badge";
+        badge.innerHTML = `✓ Read<button class="clear-read-btn" title="Clear read status" aria-label="Clear read status">×</button>`;
+        badge.querySelector(".clear-read-btn").addEventListener("click", (e) => {
+          e.stopPropagation(); // don't open the document
+          clearReadStatus(item.file);
+        });
+        card.appendChild(badge);
+      }
+
       grid.appendChild(card);
     });
   });
@@ -2269,6 +2284,11 @@ async function loadDocument(filePath, fragment) {
 
     // Track reading progress
     trackReadingProgress(filePath);
+
+    // If the user is returning to a guide they previously read, jump them
+    // back to approximately where they stopped. Fragment links take priority
+    // (the fragment scroll is handled separately for each link type).
+    if (!fragment) restoreScrollPosition(filePath);
   } catch (err) {
     console.error("Failed to load document:", err);
     if (
@@ -3686,6 +3706,27 @@ function restoreScrollPosition(filePath) {
   if (saved) {
     setTimeout(() => window.scrollTo({ top: parseInt(saved, 10) }), 100);
   }
+}
+
+function clearReadStatus(filePath) {
+  // Remove from readDocs
+  const readDocs = JSON.parse(localStorage.getItem("readDocs") || "[]");
+  const updated = readDocs.filter((f) => f !== filePath);
+  localStorage.setItem("readDocs", JSON.stringify(updated));
+
+  // Remove saved scroll position
+  localStorage.removeItem("scrollPos_" + filePath);
+
+  // If this was the lastReadDoc, clear that too
+  if (localStorage.getItem("lastReadDoc") === filePath) {
+    localStorage.removeItem("lastReadDoc");
+    localStorage.removeItem("lastReadTime");
+  }
+
+  // Rebuild the home page so the badge and study path both update
+  buildHomeCards();
+  buildStudyPath();
+  buildContinueReading();
 }
 
 function buildContinueReading() {
