@@ -2052,8 +2052,15 @@ async function loadDocument(filePath, fragment) {
     return;
   }
 
-  // Source files (PDF/images) — desktop keeps in-app iframe viewer
+  // Source files (PDF/images) — iOS opens natively (iframes show black on Safari/iPad)
   if (isPdfFile(filePath) || isSourceImageFile(filePath)) {
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent || "");
+    if (isIOS) {
+      const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
+      window.open(encodedPath, "_blank", "noopener,noreferrer");
+      return;
+    }
+
     const iframe = document.getElementById("doc-iframe");
     const contentEl = document.getElementById("doc-content");
     const docPage = document.getElementById("doc-page");
