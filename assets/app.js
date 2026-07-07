@@ -2393,6 +2393,22 @@ function processLinks(contentEl, filePath, flushFn) {
         e.preventDefault();
         loadDocument(targetItem.file, resolvedFragment);
       });
+      return;
+    }
+
+    // Direct source-document link (PDF/image) not tracked in ALL_ITEMS
+    // (e.g. "Supporting Documents/Quote N - ....pdf"). Default browser
+    // navigation works fine on desktop, but iOS home-screen (standalone
+    // PWA) apps render non-HTML navigations as a black screen — escape
+    // to Safari with window.open() instead, only on iOS.
+    if (isPdfFile(resolvedFile) || isSourceImageFile(resolvedFile)) {
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent || "");
+      if (isIOS) {
+        anchor.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.open(anchor.href, "_blank", "noopener,noreferrer");
+        });
+      }
     }
   });
 }
