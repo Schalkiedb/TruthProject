@@ -20,10 +20,13 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#0c0f1a" />
+  <meta name="color-scheme" content="dark light" />
   <link rel="apple-touch-icon" href="assets/icon-192.svg" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="assets/style.css?v=20260710" />
+  <script defer src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 </head>
 <body>
 
@@ -44,8 +47,8 @@
   ══════════════════════════════════════════════════════ -->
   <aside id="sidebar">
     <div class="sidebar-header">
-      <div class="sidebar-logo" onclick="showHome()" title="Go to Home">
-        <span class="logo-icon">✦</span>
+      <div class="sidebar-logo" onclick="showHome()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showHome()}" role="button" tabindex="0" title="Go to Home" aria-label="Go to Home">
+        <span class="logo-icon" aria-hidden="true">✦</span>
         <div class="logo-text">
           <span class="logo-title">Babylon's Wine</span>
           <span class="logo-sub">The Constantine Legacy</span>
@@ -54,8 +57,8 @@
     </div>
 
     <div class="sidebar-search">
-      <input id="nav-search" type="text" placeholder="Search topics & content…" autocomplete="off" />
-      <span class="search-icon">⌕</span>
+      <input id="nav-search" type="search" placeholder="Search topics & content…" autocomplete="off" aria-label="Search topics and content" />
+      <span class="search-icon" aria-hidden="true">⌕</span>
       <div id="search-results-panel"></div>
     </div>
 
@@ -76,18 +79,21 @@
 
     <!-- Top bar -->
     <header id="topbar">
-      <button id="sidebar-toggle" onclick="toggleSidebar(event)" title="Toggle menu">☰</button>
-      <button id="topbar-home" onclick="showHome()" title="Home">⌂</button>
+      <button id="sidebar-toggle" onclick="toggleSidebar(event)" title="Toggle menu" aria-label="Toggle navigation menu">☰</button>
+      <button id="topbar-home" onclick="showHome()" title="Home" aria-label="Go to home page">⌂</button>
       <div id="breadcrumb">
         <span id="breadcrumb-section"></span>
         <span id="breadcrumb-sep" style="display:none"> › </span>
         <span id="breadcrumb-title"></span>
       </div>
       <div id="topbar-actions">
-        <button id="btn-theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀</button>
-        <button id="btn-print" onclick="window.print()" title="Print / Save as PDF">⎙ Print</button>
+        <button id="btn-theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle light or dark mode">☀</button>
+        <button id="btn-print" onclick="window.print()" title="Print / Save as PDF" aria-label="Print or save as PDF">⎙ Print</button>
       </div>
     </header>
+
+    <!-- Reading progress bar (visible while a document is open) -->
+    <div id="reading-progress" aria-hidden="true"><div id="reading-progress-fill"></div></div>
 
     <!-- Content area -->
     <main id="content-area">
@@ -261,9 +267,9 @@
             <div class="footer-verse">"And ye shall know the truth, and the truth shall make you free." — John 8:32</div>
             <div class="footer-tagline">Built on Scripture Alone &bull; Sola Scriptura</div>
             <div class="footer-links">
-              <span onclick="showHome()" class="footer-link">Home</span>
-              <span class="footer-sep">&bull;</span>
-              <span onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer-link">Back to Top</span>
+              <button type="button" onclick="showHome()" class="footer-link">Home</button>
+              <span class="footer-sep" aria-hidden="true">&bull;</span>
+              <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer-link">Back to Top</button>
             </div>
           </div>
         </footer>
@@ -297,7 +303,8 @@
           </div>
           <ul id="doc-toc-list"></ul>
         </nav>
-        <button id="doc-toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰ TOC</button>
+        <button id="doc-toc-toggle" onclick="toggleTOC()" title="Table of Contents" aria-label="Toggle table of contents" aria-controls="doc-toc">☰ TOC</button>
+        <div id="doc-meta" class="doc-meta" style="display:none"></div>
         <div id="doc-content" class="markdown-body"></div>
         <!-- Infographic viewer: shown instead of doc-content for .html files -->
         <iframe id="doc-iframe"
@@ -378,12 +385,12 @@
   </div>
 
   <!-- FUMS tracking for api.bible (required by terms of service) -->
-  <script src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
-  <script src="assets/app.js?v=20260707"></script>
+  <script defer src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
+  <script defer src="assets/app.js?v=20260710"></script>
   <script>
     // Register service worker for offline support
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js?v=4').catch(() => {});
+      navigator.serviceWorker.register('sw.js?v=5').catch(() => {});
     }
   </script>
 </body>

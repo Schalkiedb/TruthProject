@@ -813,7 +813,7 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 
 .markdown-body {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.75;
   color: var(--text-primary);
   /* Break long URLs/strings so they never push the layout wider */
@@ -2332,10 +2332,100 @@ body.light-theme #verse-modal {
   #doc-page       { padding: 24px 20px 40px 20px; }
   #doc-page.pdf-mode { padding: 12px 12px 20px; }
 
-  .markdown-body  { font-size: 15px; }
+  .markdown-body  { font-size: 16px; }
 
   /* Tables scroll horizontally instead of overflowing */
   .markdown-body table { font-size: 13px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ACCESSIBILITY & POLISH (2026-07 revamp)
+══════════════════════════════════════════════════════════════ */
+
+/* Visible keyboard focus — a clear gold ring on every interactive
+   element, only for keyboard navigation (not mouse clicks). */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.topic-card:focus-visible,
+.study-path-step:focus-visible,
+.video-card-thumb:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.nav-item:focus-visible,
+.nav-section-header:focus-visible,
+.search-result-item:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+/* Text selection in brand gold */
+::selection {
+  background: rgba(201,162,39,0.35);
+  color: var(--text-primary);
+}
+
+/* Balanced multi-line headings (supported browsers only) */
+.hero-title, .markdown-body h1, .markdown-body h2 { text-wrap: balance; }
+
+/* Footer links are real <button>s now — strip default chrome */
+button.footer-link {
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 0;
+}
+
+/* Reading progress bar — thin gold line under the topbar */
+#reading-progress {
+  position: fixed;
+  top: var(--topbar-height);
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  z-index: 120;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+#reading-progress.visible { opacity: 1; }
+#reading-progress-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold-light));
+  border-radius: 0 2px 2px 0;
+}
+
+/* Document meta line (reading time) above the study text */
+.doc-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+/* Reduced motion — honour the visitor's system setting.
+   Animations complete instantly; content is always visible. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .card-section, .topic-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .topic-card:hover, .study-path-step:hover, .video-card:hover {
+    transform: none !important;
+  }
+  .hero::after { animation: none !important; }
 }
 
 /* ── Small phone (≤ 560px) ───────────────────────────────── */
@@ -2355,7 +2445,7 @@ body.light-theme #verse-modal {
   .doc-nav-footer { flex-direction: column; gap: 10px; }
   .doc-nav-footer button { width: 100%; text-align: center; min-height: 48px; font-size: 15px; }
 
-  .markdown-body  { font-size: 15px; line-height: 1.7; }
+  .markdown-body  { font-size: 16px; line-height: 1.7; }
   .markdown-body h2 { font-size: 19px; }
   .markdown-body h3 { font-size: 16px; }
 

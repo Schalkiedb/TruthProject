@@ -3,7 +3,7 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v4";
+const CACHE_NAME = "babylons-wine-v5";
 
 const PRECACHE_URLS = [
   "./index.html",
@@ -46,6 +46,34 @@ self.addEventListener("fetch", (event) => {
 
   // Skip POST, etc.
   if (event.request.method !== "GET") return;
+
+  // App shell (HTML/JS/CSS): network-first so a new deploy is picked up
+  // immediately; the cache is only used when offline. Prevents version
+  // skew between a cached shell and updated content.
+  const isShell =
+    event.request.mode === "navigate" ||
+    /\/assets\/(app\.js|style\.css|print-responsive\.css)/.test(url.pathname);
+
+  if (isShell) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        try {
+          const response = await fetch(event.request);
+          if (response.ok) cache.put(event.request, response.clone());
+          return response;
+        } catch {
+          const cached = await cache.match(event.request, { ignoreSearch: true });
+          if (cached) return cached;
+          return new Response(
+            "<html><body style='background:#0c0f1a;color:#e6c04c;font-family:Georgia,serif;text-align:center;padding:60px 20px'>" +
+            "<h1>✦ Offline</h1><p>You are offline and this page has not been cached yet. Please reconnect to the internet.</p></body></html>",
+            { headers: { "Content-Type": "text/html" } }
+          );
+        }
+      })
+    );
+    return;
+  }
 
   event.respondWith(
     caches.open(CACHE_NAME).then(async (cache) => {

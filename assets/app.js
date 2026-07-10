@@ -1828,9 +1828,17 @@ function buildSidebar() {
 
     const header = document.createElement("div");
     header.className = "nav-section-header";
-    header.innerHTML = `<span>${section.icon} ${section.section}</span><span class="section-chevron">▾</span>`;
-    header.addEventListener("click", () => {
-      sectionEl.classList.toggle("collapsed");
+    header.setAttribute("role", "button");
+    header.setAttribute("tabindex", "0");
+    header.setAttribute("aria-expanded", "false");
+    header.innerHTML = `<span>${section.icon} ${section.section}</span><span class="section-chevron" aria-hidden="true">▾</span>`;
+    const toggleSection = () => {
+      const collapsed = sectionEl.classList.toggle("collapsed");
+      header.setAttribute("aria-expanded", String(!collapsed));
+    };
+    header.addEventListener("click", toggleSection);
+    header.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSection(); }
     });
 
     // Start all sections collapsed — user expands what they need
@@ -1843,10 +1851,16 @@ function buildSidebar() {
       const navItem = document.createElement("div");
       navItem.className = "nav-item";
       navItem.dataset.file = item.file;
-      navItem.innerHTML = `<span class="nav-item-icon">${item.icon}</span><span class="nav-item-title">${item.title}</span>`;
-      navItem.addEventListener("click", () => {
+      navItem.setAttribute("role", "link");
+      navItem.setAttribute("tabindex", "0");
+      navItem.innerHTML = `<span class="nav-item-icon" aria-hidden="true">${item.icon}</span><span class="nav-item-title">${item.title}</span>`;
+      const openItem = () => {
         if (window.innerWidth <= 900) closeMobileSidebar();
         loadDocument(item.file);
+      };
+      navItem.addEventListener("click", openItem);
+      navItem.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openItem(); }
       });
       itemsEl.appendChild(navItem);
     });
@@ -1864,8 +1878,18 @@ function buildSidebar() {
 
     const header = document.createElement("div");
     header.className = "nav-section-header";
-    header.innerHTML = `<span>🎬 Video Library</span><span class="section-chevron">▾</span>`;
-    header.addEventListener("click", () => sectionEl.classList.toggle("collapsed"));
+    header.setAttribute("role", "button");
+    header.setAttribute("tabindex", "0");
+    header.setAttribute("aria-expanded", "false");
+    header.innerHTML = `<span>🎬 Video Library</span><span class="section-chevron" aria-hidden="true">▾</span>`;
+    const toggleVideoSection = () => {
+      const collapsed = sectionEl.classList.toggle("collapsed");
+      header.setAttribute("aria-expanded", String(!collapsed));
+    };
+    header.addEventListener("click", toggleVideoSection);
+    header.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleVideoSection(); }
+    });
     sectionEl.classList.add("collapsed");
 
     const itemsEl = document.createElement("div");
@@ -1875,10 +1899,16 @@ function buildSidebar() {
       const navItem = document.createElement("div");
       navItem.className = "nav-item";
       navItem.dataset.videoCat = idx;
-      navItem.innerHTML = `<span class="nav-item-icon">${cat.icon || "🎬"}</span><span class="nav-item-title">${escapeHtml(cat.category)} <span class="nav-video-count">${cat.videos.length}</span></span>`;
-      navItem.addEventListener("click", () => {
+      navItem.setAttribute("role", "link");
+      navItem.setAttribute("tabindex", "0");
+      navItem.innerHTML = `<span class="nav-item-icon" aria-hidden="true">${cat.icon || "🎬"}</span><span class="nav-item-title">${escapeHtml(cat.category)} <span class="nav-video-count">${cat.videos.length}</span></span>`;
+      const openCat = () => {
         if (window.innerWidth <= 900) closeMobileSidebar();
         showVideoCategory(idx);
+      };
+      navItem.addEventListener("click", openCat);
+      navItem.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCat(); }
       });
       itemsEl.appendChild(navItem);
     });
@@ -1919,13 +1949,18 @@ function buildHomeCards() {
       const card = document.createElement("div");
       card.className = "topic-card";
       if (item.tagClass) card.dataset.accent = item.tagClass;
+      card.setAttribute("role", "link");
+      card.setAttribute("tabindex", "0");
       card.innerHTML = `
-        <div class="card-icon" role="img" aria-label="${escapeHtml(item.title)} icon">${item.icon}</div>
+        <div class="card-icon" aria-hidden="true">${item.icon}</div>
         <div class="card-title">${item.title}</div>
         <div class="card-desc">${item.desc}</div>
         <span class="card-tag ${item.tagClass || ""}">${item.tag}</span>
       `;
       card.addEventListener("click", () => loadDocument(item.file));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); loadDocument(item.file); }
+      });
 
       // Show read-progress badge if this guide has been opened before
       const readDocs = JSON.parse(localStorage.getItem("readDocs") || "[]");
@@ -1949,8 +1984,43 @@ function buildHomeCards() {
   requestAnimationFrame(() => initScrollReveal());
 }
 
+/* ── Deep linking (shareable URLs / refresh-safe) ─────────────
+   Every document gets a #doc=<path> hash so links can be shared,
+   the browser back/forward buttons work, and a refresh returns
+   the reader to the same study. Legacy "#<path>" links (used by
+   prophecy_map.html) are also understood. */
+function parseDocHash() {
+  const raw = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+  if (!raw) return null;
+  const path = raw.startsWith("doc=") ? raw.slice(4) : raw;
+  const item = ALL_ITEMS.find((i) => normalise(i.file) === normalise(path));
+  return item ? item.file : null;
+}
+
+function pushDocHash(filePath) {
+  const target = "#doc=" + encodeURIComponent(filePath);
+  if (window.location.hash === target) return;
+  try { history.pushState(null, "", target); } catch { /* file:// etc. */ }
+}
+
+function clearDocHash() {
+  if (!window.location.hash) return;
+  try {
+    history.pushState(null, "", window.location.pathname + window.location.search);
+  } catch { /* ignore */ }
+}
+
+function routeFromLocation() {
+  const file = parseDocHash();
+  if (file) loadDocument(file, undefined, { fromHistory: true });
+  else showHome({ fromHistory: true });
+}
+
+window.addEventListener("popstate", routeFromLocation);
+
 /* ── Show / Hide States ───────────────────────────────────── */
-function showHome() {
+function showHome(opts) {
+  if (!opts || !opts.fromHistory) clearDocHash();
   document.getElementById("home-page").style.display = "";
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "none";
@@ -2007,7 +2077,7 @@ function showError(msg) {
 }
 
 /* ── Load & Render Document ───────────────────────────────── */
-async function loadDocument(filePath, fragment) {
+async function loadDocument(filePath, fragment, opts) {
   // Mobile PDF behaviour: open in the browser's native viewer so users can
   // scroll all pages reliably (iOS Safari iframe PDF is often first-page only).
   if (isPdfFile(filePath) && shouldUseNativePdfViewer()) {
@@ -2017,9 +2087,22 @@ async function loadDocument(filePath, fragment) {
 
   showLoading();
 
+  // Reset per-document reading UI (repopulated below for markdown docs)
+  const docMetaEl = document.getElementById("doc-meta");
+  if (docMetaEl) docMetaEl.style.display = "none";
+  setReadingProgressVisible(false);
+
   // Find index in flat list
   const idx = ALL_ITEMS.findIndex((i) => i.file === filePath);
   currentIndex = idx;
+
+  // Record the document in the URL so it can be shared / refreshed / navigated.
+  // Full-page tools navigate away from the SPA, so recording them here would
+  // trap the browser back button in a redirect loop — skip them.
+  const isFullPageTool =
+    filePath === "prophecy_map.html" ||
+    filePath === "Sign_of_the_times/signs_of_the_times.html";
+  if (idx >= 0 && !isFullPageTool && (!opts || !opts.fromHistory)) pushDocHash(filePath);
 
   // Update active nav item
   document.querySelectorAll(".nav-item").forEach((el) => {
@@ -2220,6 +2303,15 @@ async function loadDocument(filePath, fragment) {
     const isLargeDoc = md.length > 100000; // ~5000+ lines
     const splitPattern = isLargeDoc ? /(?=\n#{1,3} )/ : /(?=\n#{1,2} )/;
     const sections = md.split(splitPattern);
+
+    // Estimated reading time (~200 words/min) — shown above the document
+    if (docMetaEl) {
+      const words = (md.match(/\S+/g) || []).length;
+      const minutes = Math.max(1, Math.round(words / 200));
+      docMetaEl.textContent = `≈ ${minutes} min read · ${words.toLocaleString()} words`;
+      docMetaEl.style.display = "";
+    }
+    setReadingProgressVisible(true);
 
     // First section → paint it now
     contentEl.innerHTML = sanitize(marked.parse(sections[0]));
@@ -2521,6 +2613,34 @@ window.addEventListener("scroll", () => {
   const btn = document.getElementById("back-to-top");
   btn.classList.toggle("visible", window.scrollY > 400);
 });
+
+/* ── Reading progress bar (markdown documents only) ───────── */
+let _progressVisible = false;
+let _progressTicking = false;
+
+function setReadingProgressVisible(visible) {
+  _progressVisible = visible;
+  const bar = document.getElementById("reading-progress");
+  if (bar) bar.classList.toggle("visible", visible);
+  if (visible) updateReadingProgress();
+}
+
+function updateReadingProgress() {
+  const fill = document.getElementById("reading-progress-fill");
+  if (!fill) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = scrollable > 0 ? Math.min(100, (window.scrollY / scrollable) * 100) : 0;
+  fill.style.width = pct + "%";
+}
+
+window.addEventListener("scroll", () => {
+  if (!_progressVisible || _progressTicking) return;
+  _progressTicking = true;
+  requestAnimationFrame(() => {
+    updateReadingProgress();
+    _progressTicking = false;
+  });
+}, { passive: true });
 
 /* ── Helpers ──────────────────────────────────────────────── */
 function truncate(str, max) {
@@ -3352,9 +3472,12 @@ function openBibleModal(reference) {
     tabsEl.appendChild(tab);
   });
 
-  // Show modal
+  // Show modal — remember focus origin, move focus into the dialog
+  document._verseModalReturnFocus = document.activeElement;
   overlay.classList.add("active");
   document.body.style.overflow = "hidden";
+  const closeBtn = document.getElementById("verse-modal-close");
+  if (closeBtn) closeBtn.focus();
 
   // Load default translation (fall back to 'web' if the default is a locked api.bible one)
   let startTranslation = defaultTranslation;
@@ -3534,6 +3657,11 @@ function closeBibleModal() {
     document.removeEventListener("keydown", document._verseEscHandler);
     document._verseEscHandler = null;
   }
+  // Return focus to the verse reference that opened the dialog
+  if (document._verseModalReturnFocus && document._verseModalReturnFocus.focus) {
+    try { document._verseModalReturnFocus.focus(); } catch { /* detached */ }
+  }
+  document._verseModalReturnFocus = null;
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -3604,13 +3732,20 @@ function buildVideoCard(v) {
       <div class="video-card-tags">${(v.tags || []).map((t) => `<span class="video-tag">${escapeHtml(t)}</span>`).join("")}</div>
     </div>
   `;
-  card.querySelector(".video-card-thumb").addEventListener("click", () => {
-    const thumb = card.querySelector(".video-card-thumb");
-    thumb.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(v.youtubeId)}?autoplay=1&rel=0"
+  const thumbEl = card.querySelector(".video-card-thumb");
+  thumbEl.setAttribute("role", "button");
+  thumbEl.setAttribute("tabindex", "0");
+  thumbEl.setAttribute("aria-label", `Play video: ${v.title}`);
+  const playVideo = () => {
+    thumbEl.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(v.youtubeId)}?autoplay=1&rel=0"
       title="${escapeHtml(v.title)}" allowfullscreen loading="lazy" frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
     </iframe>`;
-    thumb.classList.add("playing");
+    thumbEl.classList.add("playing");
+  };
+  thumbEl.addEventListener("click", playVideo);
+  thumbEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playVideo(); }
   });
   return card;
 }
@@ -3723,9 +3858,14 @@ function buildStudyPath() {
 
     const el = document.createElement("div");
     el.className = "study-path-step";
+    el.setAttribute("role", "link");
+    el.setAttribute("tabindex", "0");
     if (readDocs.includes(step.file)) el.classList.add("completed");
-    el.innerHTML = `<span class="step-number">${i + 1}</span><span class="step-title">${escapeHtml(step.title)}</span>`;
+    el.innerHTML = `<span class="step-number" aria-hidden="true">${i + 1}</span><span class="step-title">${escapeHtml(step.title)}</span>`;
     el.addEventListener("click", () => loadDocument(step.file));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); loadDocument(step.file); }
+    });
     container.appendChild(el);
   });
 }
@@ -3810,15 +3950,21 @@ function buildContinueReading() {
   const card = document.createElement("div");
   card.className = "topic-card";
   if (item.tagClass) card.dataset.accent = item.tagClass;
+  card.setAttribute("role", "link");
+  card.setAttribute("tabindex", "0");
   card.innerHTML = `
-    <div class="card-icon">${item.icon}</div>
+    <div class="card-icon" aria-hidden="true">${item.icon}</div>
     <div class="card-title">${item.title}</div>
     <div class="card-desc">Last read ${timeAgo}. Click to resume where you left off.</div>
     <span class="card-tag ${item.tagClass || ""}">Continue Reading</span>
   `;
-  card.addEventListener("click", () => {
+  const resumeReading = () => {
     loadDocument(item.file);
     setTimeout(() => restoreScrollPosition(item.file), 500);
+  };
+  card.addEventListener("click", resumeReading);
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); resumeReading(); }
   });
   grid.appendChild(card);
   section.style.display = "";
@@ -3908,7 +4054,13 @@ function toggleTheme() {
 
 function applyStoredTheme() {
   const stored = localStorage.getItem("theme");
-  if (stored === "light") {
+  // No explicit choice yet → respect the visitor's system preference
+  const preferLight =
+    stored === "light" ||
+    (!stored &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-color-scheme: light)").matches);
+  if (preferLight) {
     document.body.classList.add("light-theme");
     const btn = document.getElementById("btn-theme-toggle");
     if (btn) btn.textContent = "☾";
@@ -3925,25 +4077,31 @@ async function buildSearchIndex() {
   if (_searchIndexBuilt) return;
   _searchIndexBuilt = true;
 
-  for (const item of ALL_ITEMS) {
-    if (item.file.endsWith(".html") || item.file.endsWith(".pdf") ||
-        item.file.endsWith(".png") || item.file.endsWith(".jpg") || item.file.endsWith(".jpeg")) {
-      // Only index markdown files
-      continue;
-    }
-    try {
-      const res = await fetch(item.file);
-      if (!res.ok) continue;
-      const text = await res.text();
-      _searchIndex.set(item.file, {
-        title: item.title,
-        section: item.sectionLabel || "",
-        content: text.substring(0, 50000), // cap to prevent memory issues
-      });
-    } catch {
-      // Skip files that can't be fetched
+  const mdItems = ALL_ITEMS.filter((item) =>
+    !/\.(html|pdf|png|jpe?g|gif)$/i.test(item.file)); // only index markdown
+
+  // Fetch with limited concurrency — much faster than one-at-a-time,
+  // without flooding the connection.
+  const CONCURRENCY = 4;
+  let cursor = 0;
+  async function worker() {
+    while (cursor < mdItems.length) {
+      const item = mdItems[cursor++];
+      try {
+        const res = await fetch(item.file);
+        if (!res.ok) continue;
+        const text = await res.text();
+        _searchIndex.set(item.file, {
+          title: item.title,
+          section: item.sectionLabel || "",
+          content: text.substring(0, 50000), // cap to prevent memory issues
+        });
+      } catch {
+        // Skip files that can't be fetched
+      }
     }
   }
+  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
 }
 
 function searchContent(query) {
@@ -4005,7 +4163,7 @@ function showSearchResults(query) {
   }
 
   panel.innerHTML = results.map((r) => `
-    <div class="search-result-item" data-file="${escapeHtml(r.file)}">
+    <div class="search-result-item" data-file="${escapeHtml(r.file)}" role="link" tabindex="0">
       <div class="search-result-title">${escapeHtml(r.title)}</div>
       <div class="search-result-section">${escapeHtml(r.section)}</div>
       ${r.snippet ? `<div class="search-result-snippet">${highlightSnippet(escapeHtml(r.snippet), query)}</div>` : ""}
@@ -4013,7 +4171,7 @@ function showSearchResults(query) {
   `).join("");
 
   panel.querySelectorAll(".search-result-item").forEach((el) => {
-    el.addEventListener("click", () => {
+    const openResult = () => {
       const file = el.dataset.file;
       if (file) {
         panel.classList.remove("visible");
@@ -4021,6 +4179,10 @@ function showSearchResults(query) {
         if (window.innerWidth <= 900) closeMobileSidebar();
         loadDocument(file);
       }
+    };
+    el.addEventListener("click", openResult);
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openResult(); }
     });
   });
 
@@ -4033,32 +4195,44 @@ function showSearchResults(query) {
 async function initApp() {
   applyStoredTheme();
   rebuildAllItems();
-  try {
-    await populateSourceDocumentsSection();
-  } catch (error) {
-    console.warn("Could not auto-load source PDFs:", error);
-  }
-  try {
-    await populateInfographicsSection();
-  } catch (error) {
-    console.warn("Could not auto-load infographics:", error);
-  }
-  try {
-    await populateVideoSection();
-  } catch (error) {
-    console.warn("Could not load video library:", error);
-  }
+
+  // Paint the UI immediately from the static catalog…
   buildSidebar();
   buildHomeCards();
   buildStudyPath();
   buildContinueReading();
-  showHome();
+  if (!parseDocHash()) showHome({ fromHistory: true });
+
+  // …then discover dynamic content (source PDFs, infographics, videos)
+  // in parallel and refresh the UI once, instead of a serial waterfall.
+  await Promise.all([
+    populateSourceDocumentsSection().catch((e) => console.warn("Could not auto-load source PDFs:", e)),
+    populateInfographicsSection().catch((e) => console.warn("Could not auto-load infographics:", e)),
+    populateVideoSection().catch((e) => console.warn("Could not load video library:", e)),
+  ]);
+  buildSidebar();
+  buildHomeCards();
+
+  // Deep link: if the URL names a document, open it now that the
+  // full catalog (including discovered items) is available.
+  const deepLink = parseDocHash();
+  if (deepLink) loadDocument(deepLink, undefined, { fromHistory: true });
 
   // Build full-text search index in background
   requestIdleCallback ? requestIdleCallback(() => buildSearchIndex()) : setTimeout(buildSearchIndex, 2000);
 
   // Enhanced search — full-text when index is ready, title-only otherwise
   let searchDebounce = null;
+  // Enter opens the first search result; Escape dismisses the panel
+  document.getElementById("nav-search").addEventListener("keydown", (e) => {
+    const panel = document.getElementById("search-results-panel");
+    if (e.key === "Enter") {
+      const first = panel && panel.querySelector(".search-result-item[data-file]");
+      if (first) { e.preventDefault(); first.click(); }
+    } else if (e.key === "Escape" && panel) {
+      panel.classList.remove("visible");
+    }
+  });
   document.getElementById("nav-search").addEventListener("input", function () {
     const q = this.value.trim();
     // Always filter sidebar items by title
