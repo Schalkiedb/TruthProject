@@ -1,7 +1,7 @@
 # Website Revamp — Audit & Change Report
 
-**Date:** 2026-07-10
-**Scope:** Full-site audit (Phases 1–10 of the revamp brief) and the first implementation round (Phase 11).
+**Date:** 2026-07-10 (Round 1) · 2026-07-14 (Round 2)
+**Scope:** Full-site audit (Phases 1–10 of the revamp brief) and two implementation rounds (Phase 11).
 **Rule honoured throughout:** *No doctrinal content was modified.* Every change below is design, accessibility, performance, or navigation infrastructure only.
 
 ---
@@ -90,6 +90,43 @@
 
 ---
 
+## Part 2b — Round 2 Changes (2026-07-14)
+
+### 8. Shared infographic stylesheet (`assets/infographics-theme.css` + all 17 `infographics/*.html`)
+**What:** The canonical palette was extracted into one shared stylesheet, linked in every infographic's `<head>` before its inline styles. Two token families exist (the numbered infographics use `--gold: #C9A84C`; infographics 11b–14 use `--gold: #C8A84A` with `--ink`/`--text` tokens), so family B is scoped to a `.ig-theme-b` class on those four files' `<html>` element — this prevents token leakage into files that use the same names differently. Per-file `:root` declarations were deleted **only where the value exactly matches** the shared file; differing values remain as intentional per-file overrides (e.g. infographic1's `--parchment: #F4ECD8`). Files with unique palettes (8, 11, worldmap; 9 and 10 use no variables) received only the link.
+**Why:** The palette was duplicated in 17 files and had already begun to drift.
+**Maintainability:** New infographics can now rely on the shared tokens; existing pages render pixel-identically.
+
+### 9. Self-hosted map libraries (`assets/vendor/`, `prophecy_map.html`, `infographics/worldmap.html`, `sw.js`)
+**What:** Leaflet 1.9.4 (CSS+JS), Leaflet.markercluster 1.5.3 (2 CSS + JS), D3 7.8.5, topojson 3.0.2, and the world-atlas `countries-110m.json` (~600 KB total) are now served from `assets/vendor/` instead of unpkg/cdnjs/jsdelivr. Both map pages reference the local copies; the service worker (cache v6) precaches them plus `prophecy_map.html` and `live-events.js`.
+**Why:** The service worker only caches same-origin requests, so every CDN dependency made the maps completely non-functional offline and a single point of failure if a CDN was blocked or down.
+**Reliability:** The prophecy map and world map now load offline (the CARTO basemap tiles remain online-only — country data, markers, and panels all work without them being fresh). No more third-party JS supply-chain exposure for these pages.
+
+### 10. Prophecy-map accessibility (`prophecy_map.html`)
+**What:**
+- **Contrast:** all 15 uses of `#5c6580` text (≈2.9:1 against the dark background — WCAG AA fail) replaced with `#7f89a8` (≈5:1), preserving the muted-text hierarchy.
+- **ARIA tabs:** the desktop country-detail tabs implement the WAI-ARIA tabs pattern (`role="tablist"/"tab"/"tabpanel"`, `aria-selected`, roving `tabindex`, Arrow/Home/End key navigation). The mobile detail tabs got the same pattern.
+- **Keyboard operability:** category filter chips (`aria-pressed` toggle buttons), live-feed filter pills, the Live Feed button, and every row of the mobile country list are now focusable and respond to Enter/Space, with country rows labelled "Name — Alert level" for screen readers.
+- **Focus visibility & reduced motion:** a gold `:focus-visible` ring and a `prefers-reduced-motion` block were added, matching the main site.
+**Why:** The entire map UI was mouse-only `<div>`s with sub-AA contrast.
+**Accessibility:** The map is now navigable end-to-end by keyboard and announces its state to assistive technology.
+
+### 11. Bookmarks & personal notes (`assets/app.js`, `index.html`, `assets/style.css`)
+**What:** A complete personal-study layer, stored only in the visitor's browser (localStorage):
+- **🔖+ Bookmark button** (top bar, appears while reading a study): saves the document, the nearest heading above the current position, and the exact scroll offset; confirms with a small toast.
+- **🔖 Bookmarks & Notes panel** (top bar, always available): lists all bookmarks (click to jump straight back to that heading — works with progressive rendering via a short retry loop; delete per item), a per-document **notes textarea** that auto-saves as you type, and a list of every other document that has notes.
+- **Export:** one click downloads everything as `study-bookmarks-notes.json` (re-importable/archivable) or as a formatted plain-text file.
+- Panel follows the dialog pattern: Escape closes, focus moves in on open and returns on close; all new UI is excluded from print output.
+**Why:** Serious study sessions span days; readers had no way to mark passages or keep notes alongside the material.
+**Usability:** Major for returning students. No document content is ever modified — notes live entirely outside the texts.
+
+### Round 2 verification
+- `node --check` passes on `app.js` and `sw.js`; zero remaining `unpkg`/`cdnjs`/`jsdelivr` references in the two map pages; all 17 infographics link the shared theme (verified per-token that every deleted declaration is re-provided with an identical value).
+- Automated jsdom boot test extended to 21 checks: **21/21 pass** — including bookmark save, panel open/list/close, note auto-save, and button visibility toggling between reader and home views.
+- All new URLs (theme CSS, vendor libraries, both map pages) return 200 from the local server.
+
+---
+
 ## Part 3 — Recommended Next Steps (not yet implemented)
 
 Ranked by value vs. effort:
@@ -98,7 +135,5 @@ Ranked by value vs. effort:
 2. **Rename URL-hostile files** (medium): spaces/`&`/`()` in `Supporting Documents/` and folder names; update the JSON manifests to match. Reduces broken-link risk on GitHub Pages.
 3. **Oversized PDFs** (medium): `Sabbath History.pdf` (205 MB) and `Quote 52` (163 MB) exceed GitHub's 100 MB limit — split, compress, or host externally.
 4. **Scripture index page** (medium): a generated index mapping Bible books/chapters → studies that cite them, using the existing verse-reference detector. The single best study-flow feature not yet present.
-5. **Infographic shared stylesheet** (medium): extract the duplicated `:root` palette into one CSS file to stop drift.
-6. **Map/worldmap offline + resilience** (medium): self-host Leaflet/D3 (or add SRI + SW caching for those origins).
-7. **Prophecy-map accessibility** (higher effort): ARIA tabs, keyboard country list, contrast fixes for `#5c6580` text.
-8. **Bookmarks & personal notes** (higher effort): localStorage-based verse/section bookmarks with an export option.
+
+Completed in Round 2: ~~infographic shared stylesheet~~, ~~map/worldmap offline + resilience~~, ~~prophecy-map accessibility~~, ~~bookmarks & personal notes~~.

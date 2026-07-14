@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Truth Project — Global Prophetic Intelligence Map</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script src="../assets/vendor/d3/d3.min.js"></script>
+<script src="../assets/vendor/d3/topojson.min.js"></script>
+<link rel="stylesheet" href="../assets/infographics-theme.css" />
 <style>
 /* ══════════════════════════════════════════════════
    ROOT TOKENS
@@ -1739,7 +1740,7 @@ function init() {
     .attr("d", path);
 
   // Load world map
-  fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
+  fetch("../assets/vendor/d3/countries-110m.json")
     .then(r => r.json())
     .then(world => {
       const countries = topojson.feature(world, world.objects.countries);

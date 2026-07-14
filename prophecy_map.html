@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prophecy Watch — Global Alert Map</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css"/>
+<link rel="stylesheet" href="assets/vendor/markercluster/MarkerCluster.css"/>
+<link rel="stylesheet" href="assets/vendor/markercluster/MarkerCluster.Default.css"/>
 <style>
 /* ── Reset & Base ─────────────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
@@ -42,7 +42,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   border:1px solid rgba(255,255,255,.12);border-radius:20px;color:#eaeef8;
   font-size:12px;width:150px;outline:none;transition:border .2s}
 #srch:focus{border-color:rgba(201,162,39,.5);width:190px}
-#srch::placeholder{color:#5c6580}
+#srch::placeholder{color:#7f89a8}
 
 /* ── Stats Bar ───────────────────────────────────────────── */
 #stats{position:fixed;top:56px;left:0;right:0;z-index:1999;height:34px;
@@ -66,7 +66,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   display:flex;flex-direction:column;overflow:hidden;
   box-shadow:-4px 0 32px rgba(0,0,0,.3)}
 #panel-welcome{flex:1;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:14px;padding:30px;text-align:center;color:#5c6580}
+  justify-content:center;gap:14px;padding:30px;text-align:center;color:#7f89a8}
 #panel-welcome .globe{font-size:64px;filter:drop-shadow(0 0 20px rgba(201,162,39,.3))}
 #panel-welcome h2{color:#9aa3c0;font-size:16px}
 #panel-welcome p{font-size:13px;line-height:1.7;max-width:300px}
@@ -94,7 +94,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 /* Category tabs */
 #p-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0}
 .p-tab{flex:1;padding:10px 4px;text-align:center;font-size:11px;font-weight:600;
-  color:#5c6580;cursor:pointer;border-bottom:2px solid transparent;
+  color:#7f89a8;cursor:pointer;border-bottom:2px solid transparent;
   transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:3px}
 .p-tab .ticon{font-size:16px}
 .p-tab:hover{color:#9aa3c0}
@@ -116,7 +116,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .cat-points li::before{content:'▸';position:absolute;left:0;color:#c9a227}
 .cat-points li strong{color:#e6c04c}
 .guide-links{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
-.guide-links h4{font-size:11px;color:#5c6580;font-weight:600;
+.guide-links h4{font-size:11px;color:#7f89a8;font-weight:600;
   text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .guide-link{display:flex;align-items:center;gap:8px;padding:7px 10px;
   background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.2);
@@ -333,7 +333,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 #live-close:hover{background:rgba(255,255,255,.12);color:#eaeef8}
 
 #live-meta{
-  display:flex;align-items:center;gap:12px;font-size:11px;color:#5c6580;
+  display:flex;align-items:center;gap:12px;font-size:11px;color:#7f89a8;
 }
 #live-meta .lm-count{color:#4fd1c5;font-weight:600}
 #live-refresh-btn{
@@ -454,7 +454,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 /* Loading state */
 #live-loading{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:12px;padding:40px;color:#5c6580;flex:1;
+  gap:12px;padding:40px;color:#7f89a8;flex:1;
 }
 #live-loading .spinner{
   width:28px;height:28px;border:3px solid rgba(79,209,197,.2);
@@ -462,13 +462,20 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 }
 #live-empty{
   display:none;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;padding:40px;color:#5c6580;flex:1;text-align:center;
+  gap:10px;padding:40px;color:#7f89a8;flex:1;text-align:center;
 }
 #live-empty .le-icon{font-size:40px;opacity:.5}
 
 @media(max-width:800px){
   #live-panel{width:100%;border-right:none}
   #live-ticker{display:none}
+}
+/* ── Keyboard focus visibility (accessibility) ── */
+:focus-visible{outline:2px solid #c9a227;outline-offset:2px;border-radius:4px}
+.p-tab:focus-visible,.flt:focus-visible,.lf-pill:focus-visible,.mob-cc:focus-visible{outline-offset:-2px}
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
 }
 </style>
 </head>
@@ -479,18 +486,19 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <a id="btn-back" href="index.html">← Library</a>
   <span class="pipe">|</span>
   <h1>🌍 <span class="long">Prophecy Watch — </span>Global Alert Map</h1>
-  <div id="filter-bar">
-    <div class="flt active" data-cat="all">🌐 All</div>
-    <div class="flt" data-cat="sl">📅 Sunday Laws</div>
-    <div class="flt" data-cat="cs">⛪ Church & State</div>
-    <div class="flt" data-cat="cbdc">💳 CBDC</div>
-    <div class="flt" data-cat="did">👁 Digital ID</div>
-    <div class="flt" data-cat="rl">✝ Religious Liberty</div>
-    <div class="flt" data-cat="bs">🔗 Beast System</div>
+  <div id="filter-bar" role="group" aria-label="Filter countries by category">
+    <div class="flt active" data-cat="all" role="button" tabindex="0" aria-pressed="true">🌐 All</div>
+    <div class="flt" data-cat="sl" role="button" tabindex="0" aria-pressed="false">📅 Sunday Laws</div>
+    <div class="flt" data-cat="cs" role="button" tabindex="0" aria-pressed="false">⛪ Church & State</div>
+    <div class="flt" data-cat="cbdc" role="button" tabindex="0" aria-pressed="false">💳 CBDC</div>
+    <div class="flt" data-cat="did" role="button" tabindex="0" aria-pressed="false">👁 Digital ID</div>
+    <div class="flt" data-cat="rl" role="button" tabindex="0" aria-pressed="false">✝ Religious Liberty</div>
+    <div class="flt" data-cat="bs" role="button" tabindex="0" aria-pressed="false">🔗 Beast System</div>
   </div>
-  <input id="srch" type="text" placeholder="🔍 Search country…">
-  <div id="live-btn" onclick="toggleLivePanel()">
-    <div id="live-dot"></div>
+  <input id="srch" type="text" placeholder="🔍 Search country…" aria-label="Search country">
+  <div id="live-btn" onclick="toggleLivePanel()" role="button" tabindex="0" aria-label="Toggle live prophecy event feed"
+       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleLivePanel()}">
+    <div id="live-dot" aria-hidden="true"></div>
     <span>📡 Live Feed</span>
     <div id="live-badge">0</div>
   </div>
@@ -590,14 +598,14 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       <div id="p-badge"></div>
       <div id="p-summary"></div>
     </div>
-    <div id="p-tabs">
-      <div class="p-tab active" data-tab="sl"><span class="ticon">📅</span>Sunday Laws</div>
-      <div class="p-tab" data-tab="cbdc"><span class="ticon">💳</span>CBDC</div>
-      <div class="p-tab" data-tab="did"><span class="ticon">👁</span>Digital ID</div>
-      <div class="p-tab" data-tab="rl"><span class="ticon">✝</span>Liberty</div>
-      <div class="p-tab" data-tab="bs"><span class="ticon">🔗</span>Beast System</div>
+    <div id="p-tabs" role="tablist" aria-label="Country detail categories">
+      <div class="p-tab active" data-tab="sl" role="tab" tabindex="0" aria-selected="true" aria-controls="p-body"><span class="ticon" aria-hidden="true">📅</span>Sunday Laws</div>
+      <div class="p-tab" data-tab="cbdc" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body"><span class="ticon" aria-hidden="true">💳</span>CBDC</div>
+      <div class="p-tab" data-tab="did" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body"><span class="ticon" aria-hidden="true">👁</span>Digital ID</div>
+      <div class="p-tab" data-tab="rl" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body"><span class="ticon" aria-hidden="true">✝</span>Liberty</div>
+      <div class="p-tab" data-tab="bs" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body"><span class="ticon" aria-hidden="true">🔗</span>Beast System</div>
     </div>
-    <div id="p-body"></div>
+    <div id="p-body" role="tabpanel"></div>
   </div>
 </div>
 
@@ -659,8 +667,8 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <div class="leg-row"><div class="leg-dot ld-gray"></div><span>Limited Data</span></div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="assets/vendor/markercluster/leaflet.markercluster.js"></script>
 <script>
 "use strict";
 
@@ -2483,12 +2491,20 @@ updateStats();
 
 /* ── Category filter ──────────────────────────────────────── */
 document.querySelectorAll('.flt').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
+  const applyFilter = () => {
+    document.querySelectorAll('.flt').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
     activeCat = btn.dataset.cat;
     refreshMarkers();
     updateStats();
+  };
+  btn.addEventListener('click', applyFilter);
+  btn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); applyFilter(); }
   });
 });
 
@@ -2546,7 +2562,10 @@ function selectCountry(key) {
   // Set active tab
   const startTab = (activeCat !== 'all' && c[activeCat]) ? activeCat : 'sl';
   document.querySelectorAll('.p-tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.tab === startTab);
+    const isActive = t.dataset.tab === startTab;
+    t.classList.toggle('active', isActive);
+    t.setAttribute('aria-selected', String(isActive));
+    t.setAttribute('tabindex', isActive ? '0' : '-1');
   });
   renderTab(key, startTab);
 }
@@ -2558,7 +2577,7 @@ function renderTab(key, cat) {
   const data = c[cat];
 
   if (!data) {
-    body.innerHTML = `<p style="color:#5c6580;font-size:13px;margin-top:20px">No data available for this category in ${c.name}.</p>`;
+    body.innerHTML = `<p style="color:#7f89a8;font-size:13px;margin-top:20px">No data available for this category in ${c.name}.</p>`;
     return;
   }
 
@@ -2603,13 +2622,36 @@ function renderTab(key, cat) {
   body.innerHTML = html;
 }
 
-/* ── Tab click events ─────────────────────────────────────── */
+/* ── Tab click + keyboard events (WAI-ARIA tabs pattern) ──── */
+function activatePanelTab(tab) {
+  if (!selectedKey) return;
+  document.querySelectorAll('.p-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+    t.setAttribute('tabindex', '-1');
+  });
+  tab.classList.add('active');
+  tab.setAttribute('aria-selected', 'true');
+  tab.setAttribute('tabindex', '0');
+  renderTab(selectedKey, tab.dataset.tab);
+}
 document.querySelectorAll('.p-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    if (!selectedKey) return;
-    document.querySelectorAll('.p-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    renderTab(selectedKey, tab.dataset.tab);
+  tab.addEventListener('click', () => activatePanelTab(tab));
+  tab.addEventListener('keydown', (e) => {
+    const tabs = [...document.querySelectorAll('.p-tab')];
+    const i = tabs.indexOf(tab);
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault(); activatePanelTab(tab);
+    } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      activatePanelTab(next);
+      next.focus();
+    } else if (e.key === 'Home') {
+      e.preventDefault(); activatePanelTab(tabs[0]); tabs[0].focus();
+    } else if (e.key === 'End') {
+      e.preventDefault(); activatePanelTab(tabs[tabs.length - 1]); tabs[tabs.length - 1].focus();
+    }
   });
 });
 
@@ -2740,7 +2782,7 @@ if (location.hash) {
     }
     cList.innerHTML = '';
     if (!keys.length) {
-      cList.innerHTML = '<p style="padding:20px;color:#5c6580">No countries found.</p>';
+      cList.innerHTML = '<p style="padding:20px;color:#7f89a8">No countries found.</p>';
       return;
     }
     keys.forEach(function(key) {
@@ -2748,14 +2790,20 @@ if (location.hash) {
       var lv = c.level || 'gray';
       var div = document.createElement('div');
       div.className = 'mob-cc';
+      div.setAttribute('role', 'button');
+      div.setAttribute('tabindex', '0');
+      div.setAttribute('aria-label', c.name + ' — ' + BL[lv]);
       div.innerHTML =
-        '<div class="mob-cc-flag">'+(c.flag||'🌍')+'</div>'+
+        '<div class="mob-cc-flag" aria-hidden="true">'+(c.flag||'🌍')+'</div>'+
         '<div style="flex:1;min-width:0">'+
           '<div class="mob-cc-name">'+c.name+'</div>'+
           '<div class="mob-cc-sub">'+(c.summary||'')+'</div>'+
         '</div>'+
         '<span class="mob-cc-badge" style="'+BS[lv]+'">'+BL[lv]+'</span>';
       div.addEventListener('click', function(){ showDetail(key); });
+      div.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showDetail(key); }
+      });
       cList.appendChild(div);
     });
   }
@@ -2793,20 +2841,38 @@ if (location.hash) {
     /* Tabs */
     dTabs.innerHTML = '';
     var firstTab = 'sl';
+    dTabs.setAttribute('role', 'tablist');
+    dTabs.setAttribute('aria-label', 'Country detail categories');
     TABS.forEach(function(t) {
       var el = document.createElement('div');
       el.style.cssText = 'flex:1;padding:10px 2px;text-align:center;font-size:10px;font-weight:600;'+
-        'cursor:pointer;touch-action:manipulation;color:#5c6580;'+
+        'cursor:pointer;touch-action:manipulation;color:#7f89a8;'+
         'border-bottom:2px solid transparent;display:flex;flex-direction:column;align-items:center;gap:3px';
-      el.innerHTML = '<span style="font-size:15px">' + t.icon + '</span>' + t.label;
+      el.innerHTML = '<span style="font-size:15px" aria-hidden="true">' + t.icon + '</span>' + t.label;
       el.dataset.tid = t.id;
+      el.setAttribute('role', 'tab');
+      el.setAttribute('tabindex', t.id === firstTab ? '0' : '-1');
+      el.setAttribute('aria-selected', String(t.id === firstTab));
       if (t.id === firstTab) { el.style.color='#c9a227'; el.style.borderBottomColor='#c9a227'; }
-      el.addEventListener('click', function(){
+      var activate = function(){
         Array.from(dTabs.children).forEach(function(x){
-          x.style.color='#5c6580'; x.style.borderBottomColor='transparent';
+          x.style.color='#7f89a8'; x.style.borderBottomColor='transparent';
+          x.setAttribute('aria-selected', 'false'); x.setAttribute('tabindex', '-1');
         });
         el.style.color='#c9a227'; el.style.borderBottomColor='#c9a227';
+        el.setAttribute('aria-selected', 'true'); el.setAttribute('tabindex', '0');
         renderDetail(key, t.id);
+      };
+      el.addEventListener('click', activate);
+      el.addEventListener('keydown', function(e){
+        var kids = Array.from(dTabs.children);
+        var i = kids.indexOf(el);
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+        else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          var next = kids[(i + (e.key === 'ArrowRight' ? 1 : kids.length - 1)) % kids.length];
+          next.click(); next.focus();
+        }
       });
       dTabs.appendChild(el);
     });
@@ -2818,7 +2884,7 @@ if (location.hash) {
     var c = COUNTRIES[key];
     var data = c[cat];
     if (!data) {
-      dBody.innerHTML = '<p style="color:#5c6580;font-size:13px;margin-top:16px">No data for this category in '+c.name+'.</p>';
+      dBody.innerHTML = '<p style="color:#7f89a8;font-size:13px;margin-top:16px">No data for this category in '+c.name+'.</p>';
       return;
     }
     var lv = data.level || 'gray';
@@ -2835,7 +2901,7 @@ if (location.hash) {
     html += '</ul>';
     if (c.guides && c.guides.length && cat !== 'did') {
       html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)">'+
-        '<h4 style="font-size:11px;color:#5c6580;font-weight:600;text-transform:uppercase;'+
+        '<h4 style="font-size:11px;color:#7f89a8;font-weight:600;text-transform:uppercase;'+
           'letter-spacing:.08em;margin-bottom:10px">📖 Related Study Guides</h4>';
       c.guides.forEach(function(g){
         var file = FM[g];
@@ -3093,13 +3159,24 @@ if (location.hash) {
     });
   }
 
-  /* ── Filter pill clicks ──────────────────────────────────── */
+  /* ── Filter pill clicks (mouse + keyboard) ───────────────── */
   document.querySelectorAll(".lf-pill").forEach(function (pill) {
-    pill.addEventListener("click", function () {
-      document.querySelectorAll(".lf-pill").forEach(function (p) { p.classList.remove("active"); });
+    pill.setAttribute("role", "button");
+    pill.setAttribute("tabindex", "0");
+    pill.setAttribute("aria-pressed", pill.classList.contains("active") ? "true" : "false");
+    var applyPill = function () {
+      document.querySelectorAll(".lf-pill").forEach(function (p) {
+        p.classList.remove("active");
+        p.setAttribute("aria-pressed", "false");
+      });
       pill.classList.add("active");
+      pill.setAttribute("aria-pressed", "true");
       activeFilter = pill.dataset.lf;
       renderEventsList(LiveEvents.getEvents());
+    };
+    pill.addEventListener("click", applyPill);
+    pill.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); applyPill(); }
     });
   });
 
@@ -3184,12 +3261,12 @@ if (location.hash) {
       var sevColor = { critical: "#fc8181", high: "#f6ad55", medium: "#90cdf4", low: "#a0aec0" }[e.severity] || "#a0aec0";
       html += '<a href="' + escHtml(e.url) + '" target="_blank" rel="noopener" class="guide-link" style="border-color:rgba(56,178,172,.2);background:rgba(56,178,172,.06);flex-direction:column;align-items:flex-start;gap:4px">';
       html += '<span style="font-size:11px;color:' + sevColor + ';font-weight:600">' + escHtml(truncate(e.title, 70)) + "</span>";
-      html += '<span style="font-size:10px;color:#5c6580">' + escHtml(e.source) + " · " + getTimeAgo(e.date) + "</span>";
+      html += '<span style="font-size:10px;color:#7f89a8">' + escHtml(e.source) + " · " + getTimeAgo(e.date) + "</span>";
       html += "</a>";
     });
 
     if (countryEvents.length > 5) {
-      html += '<div style="font-size:10px;color:#5c6580;text-align:center;padding:6px">+' + (countryEvents.length - 5) + " more — open Live Feed panel</div>";
+      html += '<div style="font-size:10px;color:#7f89a8;text-align:center;padding:6px">+' + (countryEvents.length - 5) + " more — open Live Feed panel</div>";
     }
 
     html += "</div>";

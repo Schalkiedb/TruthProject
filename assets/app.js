@@ -2049,6 +2049,13 @@ function showHome(opts) {
   // Hide floating TOC
   hideTOC();
 
+  // Hide per-document reading UI
+  const _homeAddBm = document.getElementById("btn-add-bookmark");
+  if (_homeAddBm) _homeAddBm.style.display = "none";
+  const _homeMeta = document.getElementById("doc-meta");
+  if (_homeMeta) _homeMeta.style.display = "none";
+  setReadingProgressVisible(false);
+
   // Refresh study path (marks completed steps) and continue reading
   buildStudyPath();
   buildContinueReading();
@@ -2091,6 +2098,8 @@ async function loadDocument(filePath, fragment, opts) {
   const docMetaEl = document.getElementById("doc-meta");
   if (docMetaEl) docMetaEl.style.display = "none";
   setReadingProgressVisible(false);
+  const addBmBtn = document.getElementById("btn-add-bookmark");
+  if (addBmBtn) addBmBtn.style.display = "none";
 
   // Find index in flat list
   const idx = ALL_ITEMS.findIndex((i) => i.file === filePath);
@@ -2312,6 +2321,7 @@ async function loadDocument(filePath, fragment, opts) {
       docMetaEl.style.display = "";
     }
     setReadingProgressVisible(true);
+    if (addBmBtn) addBmBtn.style.display = "";
 
     // First section → paint it now
     contentEl.innerHTML = sanitize(marked.parse(sections[0]));
@@ -4187,6 +4197,285 @@ function showSearchResults(query) {
   });
 
   panel.classList.add("visible");
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BOOKMARKS & PERSONAL NOTES
+   Stored in localStorage only (this browser). Exportable as a
+   JSON or plain-text file. No document content is ever modified.
+══════════════════════════════════════════════════════════════ */
+const BOOKMARKS_KEY = "studyBookmarks";
+const NOTES_KEY = "studyNotes";
+
+function getBookmarks() {
+  try { return JSON.parse(localStorage.getItem(BOOKMARKS_KEY) || "[]"); }
+  catch { return []; }
+}
+function saveBookmarks(list) {
+  localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(list));
+}
+function getNotes() {
+  try { return JSON.parse(localStorage.getItem(NOTES_KEY) || "{}"); }
+  catch { return {}; }
+}
+function saveNotes(notes) {
+  localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+}
+
+function currentDocFile() {
+  return currentIndex >= 0 && ALL_ITEMS[currentIndex]
+    ? ALL_ITEMS[currentIndex].file
+    : null;
+}
+
+/** Small transient confirmation toast */
+function showToast(message) {
+  let toast = document.getElementById("app-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "app-toast";
+    toast.setAttribute("role", "status");
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add("visible");
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => toast.classList.remove("visible"), 2200);
+}
+
+/** Bookmark the reader's current position in the open markdown document. */
+function addBookmark() {
+  const file = currentDocFile();
+  const contentEl = document.getElementById("doc-content");
+  if (!file || !contentEl || contentEl.style.display === "none") {
+    showToast("Open a study guide first to bookmark it.");
+    return;
+  }
+
+  // Nearest heading above the current viewport position
+  const topbarH = document.getElementById("topbar").offsetHeight;
+  let heading = null;
+  contentEl.querySelectorAll("h1[id], h2[id], h3[id]").forEach((h) => {
+    if (h.getBoundingClientRect().top < topbarH + 80) heading = h;
+  });
+
+  const item = ALL_ITEMS[currentIndex];
+  const bookmarks = getBookmarks();
+  bookmarks.unshift({
+    file,
+    docTitle: item ? item.title : file,
+    headingId: heading ? heading.id : "",
+    headingText: heading ? heading.textContent.trim() : "Top of document",
+    scrollY: Math.round(window.scrollY),
+    created: Date.now(),
+  });
+  saveBookmarks(bookmarks);
+  showToast("🔖 Bookmarked: " + (heading ? heading.textContent.trim() : "top of document"));
+}
+
+function deleteBookmark(created) {
+  saveBookmarks(getBookmarks().filter((b) => b.created !== created));
+  renderBookmarksPanel();
+}
+
+function goToBookmark(bm) {
+  closeBookmarksPanel();
+  loadDocument(bm.file);
+  // Progressive rendering means the heading may appear a moment later —
+  // poll briefly for it, then fall back to the stored scroll offset.
+  let tries = 0;
+  const attempt = () => {
+    tries++;
+    const target = bm.headingId ? findAnchorTarget(bm.headingId) : null;
+    if (target) {
+      const topbarH = document.getElementById("topbar").offsetHeight;
+      const y = target.getBoundingClientRect().top + window.scrollY - topbarH - 12;
+      window.scrollTo({ top: y });
+    } else if (tries < 12) {
+      setTimeout(attempt, 250);
+      return;
+    } else if (bm.scrollY) {
+      window.scrollTo({ top: bm.scrollY });
+    }
+  };
+  setTimeout(attempt, 400);
+}
+
+/* ── Export ───────────────────────────────────────────────── */
+function downloadFile(filename, mime, content) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}
+
+function exportStudyDataJson() {
+  const data = {
+    exported: new Date().toISOString(),
+    site: "Babylon's Wine — Study Library",
+    bookmarks: getBookmarks(),
+    notes: getNotes(),
+  };
+  downloadFile("study-bookmarks-notes.json", "application/json", JSON.stringify(data, null, 2));
+}
+
+function exportStudyDataText() {
+  const bookmarks = getBookmarks();
+  const notes = getNotes();
+  let out = "BABYLON'S WINE — STUDY BOOKMARKS & NOTES\nExported: " + new Date().toLocaleString() + "\n\n";
+  out += "══ BOOKMARKS (" + bookmarks.length + ") ══\n\n";
+  bookmarks.forEach((b) => {
+    out += "• " + b.docTitle + "\n  ↳ " + b.headingText + "\n  (" + new Date(b.created).toLocaleString() + ")\n\n";
+  });
+  out += "══ NOTES ══\n\n";
+  Object.keys(notes).forEach((file) => {
+    if (!notes[file] || !notes[file].trim()) return;
+    const item = ALL_ITEMS.find((i) => i.file === file);
+    out += "── " + (item ? item.title : file) + " ──\n" + notes[file].trim() + "\n\n";
+  });
+  downloadFile("study-bookmarks-notes.txt", "text/plain", out);
+}
+
+/* ── Panel UI ─────────────────────────────────────────────── */
+function closeBookmarksPanel() {
+  const overlay = document.getElementById("bookmarks-overlay");
+  if (overlay) overlay.remove();
+  if (document._bmEscHandler) {
+    document.removeEventListener("keydown", document._bmEscHandler);
+    document._bmEscHandler = null;
+  }
+  if (document._bmReturnFocus && document._bmReturnFocus.focus) {
+    try { document._bmReturnFocus.focus(); } catch { /* detached */ }
+  }
+  document._bmReturnFocus = null;
+}
+
+let _noteSaveTimer = null;
+
+function renderBookmarksPanel() {
+  const listEl = document.getElementById("bm-list");
+  if (!listEl) return;
+  const bookmarks = getBookmarks();
+
+  if (bookmarks.length === 0) {
+    listEl.innerHTML =
+      '<p class="bm-empty">No bookmarks yet. While reading a study guide, press the <strong>🔖+</strong> button in the top bar to save your place.</p>';
+  } else {
+    listEl.innerHTML = "";
+    bookmarks.forEach((bm) => {
+      const row = document.createElement("div");
+      row.className = "bm-item";
+      row.innerHTML = `
+        <div class="bm-item-main" role="link" tabindex="0">
+          <div class="bm-item-doc">${escapeHtml(bm.docTitle)}</div>
+          <div class="bm-item-heading">↳ ${escapeHtml(bm.headingText)}</div>
+          <div class="bm-item-date">${new Date(bm.created).toLocaleString()}</div>
+        </div>
+        <button class="bm-item-del" title="Delete bookmark" aria-label="Delete bookmark">✕</button>
+      `;
+      const main = row.querySelector(".bm-item-main");
+      main.addEventListener("click", () => goToBookmark(bm));
+      main.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); goToBookmark(bm); }
+      });
+      row.querySelector(".bm-item-del").addEventListener("click", () => deleteBookmark(bm.created));
+      listEl.appendChild(row);
+    });
+  }
+
+  // Notes section for the currently open document
+  const notesWrap = document.getElementById("bm-notes-wrap");
+  const file = currentDocFile();
+  if (notesWrap) {
+    const notes = getNotes();
+    if (file && !file.endsWith(".html") && !isPdfFile(file)) {
+      const item = ALL_ITEMS[currentIndex];
+      notesWrap.innerHTML = `
+        <h4 class="bm-subhead">📝 Notes — ${escapeHtml(item ? item.title : file)}</h4>
+        <textarea id="bm-note-input" rows="5" placeholder="Write your personal study notes for this document… (saved automatically in this browser)">${escapeHtml(notes[file] || "")}</textarea>
+        <div class="bm-note-status" id="bm-note-status"></div>
+      `;
+      const input = document.getElementById("bm-note-input");
+      input.addEventListener("input", () => {
+        clearTimeout(_noteSaveTimer);
+        _noteSaveTimer = setTimeout(() => {
+          const all = getNotes();
+          all[file] = input.value;
+          saveNotes(all);
+          const status = document.getElementById("bm-note-status");
+          if (status) {
+            status.textContent = "Saved ✓";
+            setTimeout(() => { if (status.textContent === "Saved ✓") status.textContent = ""; }, 1500);
+          }
+        }, 400);
+      });
+    } else {
+      notesWrap.innerHTML =
+        '<h4 class="bm-subhead">📝 Notes</h4><p class="bm-empty">Open a study guide to write notes for it. Existing notes are included in exports.</p>';
+    }
+
+    // All other saved notes (jump links)
+    const notesAll = getNotes();
+    const otherFiles = Object.keys(notesAll).filter((f) => f !== file && notesAll[f] && notesAll[f].trim());
+    if (otherFiles.length > 0) {
+      const list = document.createElement("div");
+      list.className = "bm-other-notes";
+      list.innerHTML = '<h4 class="bm-subhead">All documents with notes</h4>';
+      otherFiles.forEach((f) => {
+        const item = ALL_ITEMS.find((i) => i.file === f);
+        const link = document.createElement("button");
+        link.type = "button";
+        link.className = "bm-note-link";
+        link.textContent = "📄 " + (item ? item.title : f);
+        link.addEventListener("click", () => { closeBookmarksPanel(); loadDocument(f); });
+        list.appendChild(link);
+      });
+      notesWrap.appendChild(list);
+    }
+  }
+}
+
+function openBookmarksPanel() {
+  closeBookmarksPanel();
+  document._bmReturnFocus = document.activeElement;
+
+  const overlay = document.createElement("div");
+  overlay.id = "bookmarks-overlay";
+  overlay.innerHTML = `
+    <div id="bookmarks-panel" role="dialog" aria-label="Bookmarks and notes">
+      <div class="bm-header">
+        <span class="bm-title">🔖 Bookmarks &amp; Notes</span>
+        <button id="bm-close" title="Close" aria-label="Close bookmarks panel">✕</button>
+      </div>
+      <div class="bm-body">
+        <div id="bm-list"></div>
+        <div id="bm-notes-wrap"></div>
+      </div>
+      <div class="bm-footer">
+        <button id="bm-export-json" class="btn-ghost">⬇ Export JSON</button>
+        <button id="bm-export-txt" class="btn-ghost">⬇ Export Text</button>
+        <span class="bm-footer-hint">Stored only in this browser</span>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  renderBookmarksPanel();
+
+  document.getElementById("bm-close").addEventListener("click", closeBookmarksPanel);
+  document.getElementById("bm-export-json").addEventListener("click", exportStudyDataJson);
+  document.getElementById("bm-export-txt").addEventListener("click", exportStudyDataText);
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeBookmarksPanel(); });
+
+  document._bmEscHandler = (e) => { if (e.key === "Escape") closeBookmarksPanel(); };
+  document.addEventListener("keydown", document._bmEscHandler);
+
+  document.getElementById("bm-close").focus();
 }
 
 /* ══════════════════════════════════════════════════════════════

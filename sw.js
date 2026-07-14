@@ -3,16 +3,29 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v5";
+const CACHE_NAME = "babylons-wine-v6";
 
 const PRECACHE_URLS = [
   "./index.html",
   "./assets/style.css",
   "./assets/app.js",
   "./assets/print-responsive.css",
+  "./assets/infographics-theme.css",
   "./assets/videos.json",
   "./assets/infographics-manifest.json",
   "./assets/source-documents-catholic.json",
+  // Interactive tools + self-hosted map libraries (offline-capable
+  // except the online basemap tiles).
+  "./prophecy_map.html",
+  "./assets/live-events.js",
+  "./assets/vendor/leaflet/leaflet.css",
+  "./assets/vendor/leaflet/leaflet.js",
+  "./assets/vendor/markercluster/MarkerCluster.css",
+  "./assets/vendor/markercluster/MarkerCluster.Default.css",
+  "./assets/vendor/markercluster/leaflet.markercluster.js",
+  "./assets/vendor/d3/d3.min.js",
+  "./assets/vendor/d3/topojson.min.js",
+  "./assets/vendor/d3/countries-110m.json",
 ];
 
 /* ── Install — precache the app shell ──────────────────────── */

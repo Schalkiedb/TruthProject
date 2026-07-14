@@ -1,0 +1,43 @@
+/* ============================================================
+   infographics-theme.css — canonical shared palette for all
+   infographics/*.html files.
+
+   This file is linked in each infographic's <head> BEFORE the
+   inline <style> block, so any per-file :root declaration still
+   overrides these defaults by source order (equal specificity).
+
+   Two token families are in use:
+   - Family A (numbered infographics 1–7, sabbath_world): applied
+     globally via :root below.
+   - Family B (infographic11b, 12, 13, 14): uses a DIFFERENT
+     --gold (#C8A84A vs #C9A84C), so it is scoped to the
+     .ig-theme-b class placed on those files' <html> element.
+     The .ig-theme-b block must come AFTER :root so its --gold
+     wins in those files.
+
+   Do not change values here without checking every infographic —
+   these are the exact colors the files shipped with.
+   ============================================================ */
+
+:root {
+  color-scheme: dark;
+  /* Family A tokens */
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dim: #7A6020;
+  --parchment: #F2E8D0;
+}
+
+/* Family B tokens — scoped; add class="ig-theme-b" to <html> */
+.ig-theme-b {
+  --ink: #07060B;
+  --ink2: #0D0B14;
+  --gold: #C8A84A;
+  --gold-hi: #EDD98A;
+  --gold-lo: #7A6020;
+  --blood: #8B1A1A;
+  --text: rgba(240,232,210,0.95);
+  --text-dim: rgba(220,210,185,0.65);
+  --text-faint: rgba(200,190,160,0.40);
+  --rule: rgba(200,168,74,0.18);
+}
