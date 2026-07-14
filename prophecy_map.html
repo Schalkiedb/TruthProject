@@ -470,6 +470,60 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   #live-panel{width:100%;border-right:none}
   #live-ticker{display:none}
 }
+/* ── Category briefing card ──────────────────────────────── */
+#cat-briefing{position:fixed;top:98px;left:14px;z-index:1500;
+  width:min(460px,calc(100vw - 470px));
+  background:linear-gradient(160deg,rgba(16,20,42,.97),rgba(12,16,31,.97));
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(201,162,39,.3);border-radius:14px;
+  padding:14px 16px 12px;
+  box-shadow:0 12px 48px rgba(0,0,0,.55);
+  animation:cb-in .25s ease-out}
+@keyframes cb-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.cb-head{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.cb-icon{font-size:20px}
+.cb-title{font-size:14px;font-weight:800;color:#e6c04c;letter-spacing:.02em;flex:1}
+.cb-live{display:flex;align-items:center;gap:5px;padding:3px 10px;
+  background:rgba(56,178,172,.12);border:1px solid rgba(56,178,172,.35);
+  border-radius:14px;color:#4fd1c5;font-size:11px;font-weight:700;cursor:pointer;
+  white-space:nowrap;transition:all .2s}
+.cb-live:hover{background:rgba(56,178,172,.22)}
+.cb-close{background:none;border:none;color:#7f89a8;font-size:14px;cursor:pointer;
+  padding:2px 6px;border-radius:5px;transition:all .2s}
+.cb-close:hover{color:#eaeef8;background:rgba(255,255,255,.08)}
+.cb-blurb{font-size:12px;line-height:1.65;color:#9aa3c0;margin-bottom:10px}
+.cb-chips{display:flex;flex-wrap:wrap;gap:6px}
+.cb-chip{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;
+  background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.28);
+  border-radius:16px;color:#d9b545;font-size:11.5px;font-weight:600;
+  text-decoration:none;transition:all .2s;line-height:1.3}
+.cb-chip:hover{background:rgba(201,162,39,.2);transform:translateY(-1px)}
+.cb-chip-alt{background:rgba(74,127,212,.1);border-color:rgba(74,127,212,.3);color:#8fb3e8}
+.cb-chip-alt:hover{background:rgba(74,127,212,.2)}
+@media(max-width:800px){
+  #cat-briefing{left:10px;right:10px;width:auto;top:96px;max-height:44vh;overflow-y:auto}
+}
+
+/* ── Filter chip country-count badges ────────────────────── */
+.flt{display:inline-flex;align-items:center;gap:6px}
+.flt-n{font-size:9.5px;font-weight:800;min-width:16px;text-align:center;
+  background:rgba(255,255,255,.1);border-radius:9px;padding:1px 5px;color:#9aa3c0;
+  transition:all .2s}
+.flt.active .flt-n{background:rgba(201,162,39,.3);color:#f0d77b}
+
+/* ── Visual polish ───────────────────────────────────────── */
+#hdr h1{font-family:Georgia,'Times New Roman',serif;letter-spacing:.03em}
+.stat-item span.lbl{text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.guide-link{transition:background .2s,transform .15s}
+.guide-link:hover{transform:translateX(3px)}
+#panel-welcome .globe{animation:globe-float 5s ease-in-out infinite}
+@keyframes globe-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+#panel-welcome h2{font-family:Georgia,serif;font-size:17px;color:#c9a227}
+.cat-level-bar{border:1px solid rgba(255,255,255,.06)}
+.p-tab{transition:all .2s,background .2s}
+.p-tab:hover{background:rgba(255,255,255,.03)}
+.p-tab.active{background:rgba(201,162,39,.06)}
+
 /* ── Keyboard focus visibility (accessibility) ── */
 :focus-visible{outline:2px solid #c9a227;outline-offset:2px;border-radius:4px}
 .p-tab:focus-visible,.flt:focus-visible,.lf-pill:focus-visible,.mob-cc:focus-visible{outline-offset:-2px}
@@ -513,6 +567,9 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <div class="stat-item"><div class="stat-dot sd-gray"></div><span class="lbl">Tracking: </span><span class="stat-n" id="s-gray">0</span></div>
   <div class="stat-item" id="last-refreshed" style="margin-left:auto;opacity:0.7;font-size:10px"><span class="lbl">Updated: </span><span id="refresh-time">—</span></div>
 </div>
+
+<!-- Category briefing (shown when a category filter is active) -->
+<div id="cat-briefing" role="region" aria-label="Category briefing" style="display:none"></div>
 
 <!-- Map -->
 <div id="map"></div>
@@ -665,6 +722,10 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   <div class="leg-row"><div class="leg-dot ld-blue"></div><span>Monitoring / Developing</span></div>
   <div class="leg-row"><div class="leg-dot ld-green"></div><span>Relatively Free</span></div>
   <div class="leg-row"><div class="leg-dot ld-gray"></div><span>Limited Data</span></div>
+  <div class="leg-row" style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.07)">
+    <div class="leg-dot" style="background:#4fd1c5;box-shadow:0 0 8px #4fd1c580"></div>
+    <span>Live news activity</span>
+  </div>
 </div>
 
 <script src="assets/vendor/leaflet/leaflet.js"></script>
@@ -2489,6 +2550,147 @@ function updateStats() {
 }
 updateStats();
 
+/* ── Category briefing content ─────────────────────────────
+   Curated deep links into the study library for each category.
+   Links use the SPA deep-link format: index.html#doc=<path>   */
+const CAT_CONTENT = {
+  sl: {
+    icon: '📅', label: 'Sunday Laws',
+    blurb: 'Tracks Sunday-rest legislation, blue laws, and religious-rest proposals worldwide — the prophetic flashpoint of Revelation 13. Each country is rated by how far Sunday-law activity has advanced.',
+    guides: [
+      ['The Mark of the Beast', 'Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md'],
+      ["God's Special Sign: The Sabbath", 'Study_guides/Gods_Special_Sign_Complete_Study_Guide.md'],
+      ['Sabbath: 39 Objections Answered', 'Study_guides/Sabbath_study_guide.md'],
+    ],
+    extras: [
+      ['The Global Rest Day Push (2024–2026)', 'infographics/infographic8_global_push.html'],
+      ['Six Convergence Streams (2014–2026)', 'infographics/infographic9_restday_push.html'],
+      ['Every Decree Against the Sabbath', 'infographics/infographic14_councils_decrees.html'],
+      ['The Sunday Convergence (Leo XIV, 2026)', 'Sign_of_the_times/sunday_law_convergence_guide.html'],
+    ],
+  },
+  cs: {
+    icon: '⛪', label: 'Church & State',
+    blurb: 'Tracks the merging of church and state — concordats, state religions, faith-based policy structures, and the erosion of separation. Prophecy identifies this union as the "image of the beast" (Revelation 13:14-15).',
+    guides: [
+      ['The Other Beast: America in Prophecy', 'Study_guides/The_Other_Beast_Complete_Study_Guide.md'],
+      ['The Little Horn', 'Study_guides/The_Little_Horn_Complete_Study_Guide.md'],
+      ['The Vatican Empire', 'The_Vatican_Empire_Complete_Exposure.md'],
+    ],
+    extras: [
+      ['The Saturday Persecution (1879–1896)', 'infographics/infographic10_persecution.html'],
+    ],
+  },
+  cbdc: {
+    icon: '💳', label: 'CBDC / Digital Currency',
+    blurb: 'Tracks central bank digital currencies and cashless infrastructure — the technical capability to control buying and selling that Revelation 13:17 describes.',
+    guides: [
+      ['The Beast System Infrastructure', 'The_Beast_System_Infrastructure_Complete_Guide.md'],
+      ['The Mark of the Beast', 'Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md'],
+    ],
+    extras: [],
+  },
+  did: {
+    icon: '👁', label: 'Digital ID & Surveillance',
+    blurb: 'Tracks digital identity systems, biometric databases, and surveillance networks — infrastructure capable of enforcing economic exclusion person-by-person.',
+    guides: [
+      ['The Beast System Infrastructure', 'The_Beast_System_Infrastructure_Complete_Guide.md'],
+      ['The Mark of the Beast', 'Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md'],
+      ['Media Influence Guide', 'Media_Influence_Complete_Guide.md'],
+    ],
+    extras: [],
+  },
+  rl: {
+    icon: '✝', label: 'Religious Liberty',
+    blurb: 'Tracks religious liberty conditions — persecution, worship restrictions, and conscience protections — watching where the freedom to obey God according to conscience is narrowing.',
+    guides: [
+      ['Battle at the End — Part 1', 'Study_guides/Battle_at_the_End_Part_1_Complete_Study_Guide.md'],
+      ['Battle at the End — Part 2', 'Study_guides/Battle_at_the_End_Part_2_Complete_Study_Guide.md'],
+    ],
+    extras: [
+      ['The Saturday Persecution (1879–1896)', 'infographics/infographic10_persecution.html'],
+      ['The Forgotten Sabbath-Keepers', 'infographics/infographic13_forgotten_keepers.html'],
+    ],
+  },
+  bs: {
+    icon: '🔗', label: 'Beast System Connections',
+    blurb: "Tracks each nation's connections to the emerging global enforcement network — payment rails, digital ID, church-state ties, and rest-day advocacy combined into one picture.",
+    guides: [
+      ['The Beast System Infrastructure', 'The_Beast_System_Infrastructure_Complete_Guide.md'],
+      ["Babylon's Wine (Core Document)", 'Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md'],
+      ['The Vatican Empire', 'The_Vatican_Empire_Complete_Exposure.md'],
+    ],
+    extras: [],
+  },
+};
+
+function libLink(file) {
+  return 'index.html#doc=' + encodeURIComponent(file);
+}
+
+function escText(str) {
+  const d = document.createElement('div');
+  d.textContent = String(str);
+  return d.innerHTML;
+}
+
+function countLiveEventsFor(cat) {
+  if (!(window.LiveEvents && typeof window.LiveEvents.getEvents === 'function')) return null;
+  const events = window.LiveEvents.getEvents() || [];
+  if (cat === 'cs') return events.filter(e => e.churchStateFlag || (Array.isArray(e.categories) ? e.categories.includes('cs') : e.category === 'cs')).length;
+  return events.filter(e => (Array.isArray(e.categories) ? e.categories : [e.category]).indexOf(cat) !== -1).length;
+}
+
+let _briefingDismissedFor = null;
+
+function renderCatBriefing(cat) {
+  const el = document.getElementById('cat-briefing');
+  if (!el) return;
+  const info = CAT_CONTENT[cat];
+  if (cat === 'all' || !info || _briefingDismissedFor === cat) {
+    el.style.display = 'none';
+    return;
+  }
+
+  const guideChips = info.guides.map(([t, f]) =>
+    `<a class="cb-chip" href="${libLink(f)}">📖 ${escText(t)}</a>`).join('');
+  const extraChips = (info.extras || []).map(([t, f]) =>
+    `<a class="cb-chip cb-chip-alt" href="${libLink(f)}">🗺️ ${escText(t)}</a>`).join('');
+
+  const liveCount = countLiveEventsFor(cat);
+  const liveBtn = liveCount !== null
+    ? `<button type="button" class="cb-live" id="cb-live-btn">📡 ${liveCount} live event${liveCount === 1 ? '' : 's'}</button>`
+    : '';
+
+  el.innerHTML = `
+    <div class="cb-head">
+      <span class="cb-icon" aria-hidden="true">${info.icon}</span>
+      <span class="cb-title">${escText(info.label)}</span>
+      ${liveBtn}
+      <button type="button" class="cb-close" id="cb-close-btn" aria-label="Dismiss briefing">✕</button>
+    </div>
+    <p class="cb-blurb">${escText(info.blurb)}</p>
+    <div class="cb-chips">${guideChips}${extraChips}</div>
+  `;
+  el.style.display = '';
+
+  document.getElementById('cb-close-btn').addEventListener('click', () => {
+    _briefingDismissedFor = cat;
+    el.style.display = 'none';
+  });
+  const lb = document.getElementById('cb-live-btn');
+  if (lb) {
+    lb.addEventListener('click', () => {
+      const panel = document.getElementById('live-panel');
+      if (panel && !panel.classList.contains('open') && typeof window.toggleLivePanel === 'function') {
+        window.toggleLivePanel();
+      }
+      const pill = document.querySelector('.lf-pill[data-lf="' + cat + '"]');
+      if (pill) pill.click();
+    });
+  }
+}
+
 /* ── Category filter ──────────────────────────────────────── */
 document.querySelectorAll('.flt').forEach(btn => {
   const applyFilter = () => {
@@ -2499,14 +2701,33 @@ document.querySelectorAll('.flt').forEach(btn => {
     btn.classList.add('active');
     btn.setAttribute('aria-pressed', 'true');
     activeCat = btn.dataset.cat;
+    if (activeCat !== _briefingDismissedFor) _briefingDismissedFor = null;
     refreshMarkers();
     updateStats();
+    renderCatBriefing(activeCat);
   };
   btn.addEventListener('click', applyFilter);
   btn.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); applyFilter(); }
   });
 });
+
+/* Country-count badges on the filter chips */
+(function addFilterCounts() {
+  const total = Object.keys(COUNTRIES).length;
+  document.querySelectorAll('.flt').forEach(btn => {
+    const cat = btn.dataset.cat;
+    const n = cat === 'all'
+      ? total
+      : Object.keys(COUNTRIES).filter(k => COUNTRIES[k][cat]).length;
+    if (n > 0) {
+      const b = document.createElement('span');
+      b.className = 'flt-n';
+      b.textContent = n;
+      btn.appendChild(b);
+    }
+  });
+})();
 
 function refreshMarkers() {
   Object.keys(COUNTRIES).forEach(key => {
@@ -2596,7 +2817,8 @@ function renderTab(key, cat) {
   });
   html += `</ul>`;
 
-  // Guide links
+  // Guide links — the country's own guide list first…
+  const linkedFiles = new Set();
   if (c.guides && c.guides.length && cat !== 'did') {
     html += `<div class="guide-links"><h4>📖 Related Study Guides</h4>`;
     c.guides.forEach(g => {
@@ -2613,10 +2835,27 @@ function renderTab(key, cat) {
       };
       const file = fileMap[g];
       if (file) {
-        html += `<a class="guide-link" href="index.html#${encodeURIComponent(file)}">📖 ${g}</a>`;
+        linkedFiles.add(file);
+        html += `<a class="guide-link" href="${libLink(file)}">📖 ${g}</a>`;
       }
     });
     html += `</div>`;
+  }
+
+  // …then curated content for the CATEGORY being viewed (deduplicated)
+  const catContent = CAT_CONTENT[cat];
+  if (catContent) {
+    const topicLinks = [
+      ...catContent.guides.map(([t, f]) => ['📖', t, f]),
+      ...(catContent.extras || []).map(([t, f]) => ['🗺️', t, f]),
+    ].filter(([, , f]) => !linkedFiles.has(f));
+    if (topicLinks.length) {
+      html += `<div class="guide-links"><h4>${catInfo.icon} Explore: ${catContent.label}</h4>`;
+      topicLinks.forEach(([ic, t, f]) => {
+        html += `<a class="guide-link" href="${libLink(f)}">${ic} ${escText(t)}</a>`;
+      });
+      html += `</div>`;
+    }
   }
 
   body.innerHTML = html;

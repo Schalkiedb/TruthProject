@@ -4572,17 +4572,26 @@ function loadBibleSymbols() {
         if (/^Symbol$|^Number$|^Meaning$/i.test(label)) continue;
         if (/^[-\s:]+$/.test(label)) continue;
 
-        const sense = { label, meaning, refs };
-        // Derive match terms: strip parentheticals, split "/" variants,
-        // and cut trailing ", Doctrine of"-style qualifiers.
+        const sense = { label, meaning, refs, scope: parseSenseRefs(refs) };
+        // Derive match terms: strip parentheticals and split "/" variants.
         const base = label.replace(/\([^)]*\)/g, " ");
         base.split("/").forEach((part) => {
-          let term = part.trim().replace(/,.*$/, "").trim();
+          let term = part.trim();
+          if (!term) return;
+          // Cut a trailing ", Doctrine of"-style qualifier ONLY when there
+          // is a single comma (e.g. "Balaam, Doctrine of" → "Balaam").
+          // Multi-comma entries are phrases and must stay whole —
+          // "Time, Times, Half a Time" must NOT collapse to "Time",
+          // or the bare word "time" wrongly inherits the 1260-year sense.
+          const commas = (term.match(/,/g) || []).length;
+          if (commas === 1) term = term.replace(/,.*$/, "").trim();
           if (!term) return;
           addSense(term, sense);
-          // Simple singular/plural variants
-          if (term.endsWith("s")) addSense(term.slice(0, -1), sense);
-          else addSense(term + "s", sense);
+          // Simple singular/plural variants (single words only)
+          if (!term.includes(",")) {
+            if (term.endsWith("s")) addSense(term.slice(0, -1), sense);
+            else addSense(term + "s", sense);
+          }
         });
       }
 
@@ -4606,23 +4615,122 @@ function loadBibleSymbols() {
   return _symbolsLoadPromise;
 }
 
+/**
+ * Parse a sense's Scriptural References column into its "applies-in" scope:
+ * the set of books and book+chapter pairs the chart cites for that sense.
+ * Handles inherited book names ("Daniel 8:16; 9:21" → Daniel 8, Daniel 9).
+ */
+function parseSenseRefs(refs) {
+  const books = new Set();
+  const chapters = new Set();
+  let lastBook = null;
+  String(refs).split(";").forEach((part) => {
+    const p = part.trim();
+    if (!p) return;
+    const m = p.match(/^((?:\d\s+)?[A-Za-z. ]+?)?\s*(\d+)\s*(?::|$)/);
+    if (!m) return;
+    const book = m[1] ? canonicalBookName(m[1]) : lastBook;
+    if (!book) return;
+    lastBook = book;
+    books.add(book);
+    chapters.add(book + "|" + parseInt(m[2], 10));
+  });
+  return { books, chapters };
+}
+
+/** How well a sense fits the passage context: 2 = chapter, 1 = book, 0 = none. */
+function senseScore(sense, ctx) {
+  if (!ctx || !sense.scope) return 0;
+  if (sense.scope.chapters.has(ctx.book + "|" + ctx.chapter)) return 2;
+  if (sense.scope.books.has(ctx.book)) return 1;
+  return 0;
+}
+
 function getSymbolSenses(matchedText) {
   if (!_symbolsMap) return null;
   const key = matchedText.toLowerCase().replace(/’/g, "'").replace(/\s+/g, " ");
   return _symbolsMap.get(key) || null;
 }
 
-/** Short substitution text for the swapper — first sense, first clause. */
-function symbolSwapText(senses) {
-  const meaning = senses[0].meaning;
-  const short = meaning.split(";")[0].trim();
+/**
+ * Resolve the best symbol interpretation for a matched term in a passage.
+ * If the matched (longer) term doesn't fit the context but a contained
+ * dictionary term does — e.g. "four beasts" in Daniel 7, where "beast"
+ * (kingdom, Daniel 7:17) fits but "Four Beasts / Living Creatures"
+ * (Revelation 4-6) doesn't — the contained term wins.
+ * Returns { term, senses (sorted by fit), score } or null.
+ */
+function resolveSymbol(matchedText, ctx) {
+  const clean = matchedText.toLowerCase().replace(/’/g, "'").replace(/\s+/g, " ");
+  const candidates = [];
+  const direct = _symbolsMap && _symbolsMap.get(clean);
+  if (direct) candidates.push({ term: clean, senses: direct });
+
+  if (ctx && _symbolsMap) {
+    for (const key of _symbolsMap.keys()) {
+      if (key === clean) continue;
+      if (clean.includes(key) &&
+          new RegExp("\\b" + key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i").test(clean)) {
+        candidates.push({ term: key, senses: _symbolsMap.get(key) });
+      }
+    }
+  }
+  if (candidates.length === 0) return null;
+
+  let best = null;
+  candidates.forEach((c) => {
+    const score = Math.max(...c.senses.map((s) => senseScore(s, ctx)));
+    // Prefer higher context fit; on ties prefer the longer (more specific) term
+    if (!best || score > best.score || (score === best.score && c.term.length > best.term.length)) {
+      best = { term: c.term, senses: c.senses, score };
+    }
+  });
+
+  const sorted = [...best.senses].sort((a, b) => senseScore(b, ctx) - senseScore(a, ctx));
+  return { term: best.term, senses: sorted, score: best.score };
+}
+
+/**
+ * Determine which passage a verse container quotes (book + chapter),
+ * using the clickable reference inside it, the preview's stored ref,
+ * or the modal's title.
+ */
+function getPassageContext(el) {
+  let ref = null;
+  if (el.classList && el.classList.contains("verse-inline-text")) {
+    ref = el.dataset.for;
+  } else if (el.id === "verse-text") {
+    const refEl = document.getElementById("verse-modal-ref");
+    ref = refEl ? refEl.textContent : null;
+  } else {
+    const vr = el.querySelector && el.querySelector(".verse-ref[data-verse-ref]");
+    if (vr) ref = vr.dataset.verseRef;
+    else {
+      VERSE_REF_REGEX.lastIndex = 0;
+      const m = VERSE_REF_REGEX.exec(el.textContent || "");
+      ref = m && m[1];
+    }
+  }
+  if (!ref) return null;
+  const bm = String(ref).match(/^((?:\d\s+)?[A-Za-z. ]+?)\s*(\d+)\s*:/);
+  if (!bm) return null;
+  const book = canonicalBookName(bm[1]);
+  if (!book) return null;
+  return { book, chapter: parseInt(bm[2], 10) };
+}
+
+/** Short substitution text for the swapper — best-fit sense, first clause. */
+function symbolSwapText(sense) {
+  const short = sense.meaning.split(";")[0].trim();
   return short.charAt(0).toLowerCase() + short.slice(1);
 }
 
-/** Wrap symbol words in one element's text nodes. Returns count wrapped. */
-function annotateSymbolElement(el) {
+/** Wrap symbol words in one element's text nodes. Returns count of
+ *  context-swappable symbols (book-level match or unknown context). */
+function annotateSymbolElement(el, ctx) {
   if (!_symbolsRegex || el.dataset.symbolsAnnotated) return 0;
   el.dataset.symbolsAnnotated = "1";
+  const ctxKey = ctx ? ctx.book + "|" + ctx.chapter : "";
 
   const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
@@ -4636,7 +4744,7 @@ function annotateSymbolElement(el) {
   const nodes = [];
   while (walker.nextNode()) nodes.push(walker.currentNode);
 
-  let count = 0;
+  let swappable = 0;
   nodes.forEach((node) => {
     const text = node.nodeValue;
     _symbolsRegex.lastIndex = 0;
@@ -4646,25 +4754,34 @@ function annotateSymbolElement(el) {
     const frag = document.createDocumentFragment();
     let last = 0;
     let m;
+    let wrapped = 0;
     while ((m = _symbolsRegex.exec(text)) !== null) {
       const matched = m[0];
-      if (!getSymbolSenses(matched)) continue;
+      const resolved = resolveSymbol(matched, ctx);
+      if (!resolved) continue;
       frag.appendChild(document.createTextNode(text.slice(last, m.index)));
       const span = document.createElement("span");
       span.className = "bible-symbol";
       span.textContent = matched;
+      span.dataset.ctx = ctxKey;
+      span.dataset.term = resolved.term;
+      span.dataset.score = String(resolved.score);
       span.setAttribute("tabindex", "0");
       span.setAttribute("role", "note");
       span.setAttribute("aria-label", "Bible symbol: " + matched);
       frag.appendChild(span);
       last = m.index + matched.length;
-      count++;
+      wrapped++;
+      // Swap only when the chart explicitly references this symbol in the
+      // passage's own chapter. Book-level matches are NOT enough — "time"
+      // is prophetic in Revelation 12 but literal in Revelation 1:3.
+      if (resolved.score >= 2) swappable++;
     }
-    if (count === 0) return;
+    if (wrapped === 0) return;
     frag.appendChild(document.createTextNode(text.slice(last)));
     node.parentNode.replaceChild(frag, node);
   });
-  return count;
+  return swappable;
 }
 
 /** Add the "Symbolic reading" toggle after a verse container. */
@@ -4694,11 +4811,24 @@ function attachSymbolToggle(el) {
     clone.removeAttribute("id");
     clone.querySelectorAll(".symbol-toggle-btn, .symbol-swap-view").forEach((n) => n.remove());
     clone.querySelectorAll(".bible-symbol").forEach((s) => {
-      const senses = getSymbolSenses(s.textContent);
-      if (!senses) return;
       const original = s.textContent;
-      s.textContent = symbolSwapText(senses);
+      const ctx = parseCtxKey(s.dataset.ctx);
+      const resolved = resolveSymbol(original, ctx);
+      if (!resolved) return;
+      // Strict context guard: substitute ONLY when the chart references
+      // this symbol in the passage's own chapter. Book-level or unknown
+      // context stays untouched — highlighting and the tooltip still
+      // present the possible meanings without asserting them.
+      if (!ctx || resolved.score < 2) return;
+      const bestSense = resolved.senses[0];
+      // Replace only the resolved term within the matched text, preserving
+      // qualifiers — "four beasts" (Daniel 7) → "four <kingdoms…>".
+      const termRe = new RegExp(
+        "\\b" + resolved.term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+") + "(s)?\\b", "i");
+      const swapped = original.replace(termRe, symbolSwapText(bestSense));
+      s.textContent = swapped === original ? symbolSwapText(bestSense) : swapped;
       s.classList.add("swapped");
+      s.dataset.original = original;
       s.title = "Original word: " + original;
       s.setAttribute("aria-label", original + " symbolically means " + s.textContent);
     });
@@ -4717,6 +4847,13 @@ function attachSymbolToggle(el) {
   el.after(btn);
 }
 
+function parseCtxKey(ctxKey) {
+  if (!ctxKey) return null;
+  const [book, chapter] = ctxKey.split("|");
+  if (!book || !chapter) return null;
+  return { book, chapter: parseInt(chapter, 10) };
+}
+
 /** Annotate all verse containers inside a rendered document / preview / modal. */
 async function annotateBibleSymbols(container, currentFile) {
   if (!container) return;
@@ -4729,8 +4866,11 @@ async function annotateBibleSymbols(container, currentFile) {
     : [...container.querySelectorAll("blockquote")];
 
   targets.forEach((el) => {
-    const count = annotateSymbolElement(el);
-    if (count > 0) attachSymbolToggle(el);
+    const ctx = getPassageContext(el);
+    const swappable = annotateSymbolElement(el, ctx);
+    // Only offer the symbolic-reading toggle when at least one symbol
+    // actually applies to this passage per the chart's references.
+    if (swappable > 0) attachSymbolToggle(el);
   });
 }
 
@@ -4747,20 +4887,35 @@ function getSymbolTooltip() {
 }
 
 function showSymbolTooltip(target) {
-  const senses = getSymbolSenses(target.textContent.trim()) ||
-    (target.title && target.title.startsWith("Original word: ")
-      ? getSymbolSenses(target.title.slice("Original word: ".length))
-      : null);
-  if (!senses) return;
+  const word = target.dataset.original || target.textContent.trim();
+  const ctx = parseCtxKey(target.dataset.ctx);
+  const resolved = resolveSymbol(word, ctx);
+  if (!resolved) return;
 
   const tip = getSymbolTooltip();
-  tip.innerHTML = senses.map((s) => `
-    <div class="st-sense">
-      <div class="st-label">${escapeHtml(s.label)}</div>
+  const sensesHtml = resolved.senses.map((s) => {
+    const score = senseScore(s, ctx);
+    const badge = score === 2
+      ? `<span class="st-badge st-badge-strong">✓ referenced in ${escapeHtml(ctx.book + " " + ctx.chapter)}</span>`
+      : score === 1
+        ? `<span class="st-badge">✓ referenced in ${escapeHtml(ctx.book)}</span>`
+        : "";
+    return `
+    <div class="st-sense${score > 0 ? " st-sense-fit" : ""}">
+      <div class="st-label">${escapeHtml(s.label)} ${badge}</div>
       <div class="st-meaning">${escapeHtml(s.meaning)}</div>
       <div class="st-refs">${escapeHtml(s.refs)}</div>
-    </div>
-  `).join("") + `<div class="st-footer">Bible Symbols Chart</div>`;
+    </div>`;
+  }).join("");
+
+  let literalNote = "";
+  if (ctx && resolved.score === 0) {
+    literalNote = `<div class="st-note">The chart lists no reference in ${escapeHtml(ctx.book + " " + ctx.chapter)} — this word may be literal in this passage.</div>`;
+  } else if (ctx && resolved.score === 1) {
+    literalNote = `<div class="st-note">The chart references this symbol elsewhere in ${escapeHtml(ctx.book)}, but not in chapter ${escapeHtml(String(ctx.chapter))} — it may be literal here.</div>`;
+  }
+
+  tip.innerHTML = sensesHtml + literalNote + `<div class="st-footer">Bible Symbols Chart</div>`;
 
   const rect = target.getBoundingClientRect();
   tip.style.display = "block";

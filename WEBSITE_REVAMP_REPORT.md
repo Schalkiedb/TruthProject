@@ -160,8 +160,23 @@ Both were removed from git tracking/LFS (`.gitattributes` cleared, `.gitignore` 
 - **Highlighting:** words that appear in the symbols chart ("woman", "beast", "waters", "horn", "Lord's Day"…) are marked in blue with a dotted underline. Hovering, tapping, or keyboard-focusing shows a tooltip with the symbol's biblical meaning and the supporting Scripture references. Symbols with multiple senses (e.g. Woman — Pure vs Corrupt) show every sense.
 - **Symbolic reading (swapper):** every passage containing symbols gets a "🔁 Symbolic reading" toggle that renders the passage again underneath with each symbol replaced by its meaning (e.g. *woman* → *the true, faithful church of God*), substitutions highlighted and still hoverable, with the original verse untouched above and a link to the full chart.
 Multi-word symbols match correctly (longest-first, so "white robes" wins over "white"), plural/singular variants are handled, and matching is scoped to quoted passages only, so ordinary prose isn't cluttered.
+
+**Context-aware interpretation (owner-directed refinement):** the chart's *Scriptural References* column is treated as each sense's "applies-in" scope. The passage's book+chapter (detected from the reference in the quote/preview/modal) is scored against each sense's references — chapter match beats book match beats none — and:
+- If a longer matched term doesn't fit the context but a contained term does, the contained term wins: "four beasts" in **Daniel 7** resolves to *Beast = kingdom* (Daniel 7:17), while the same phrase in **Revelation 4** resolves to *Living Creatures* (Revelation 4:6-9).
+- Ambiguous symbols pick the right sense by chapter: "woman" in Revelation 12 → *Pure (true church)*; in Revelation 17 → *Corrupt (apostate church)*.
+- **The swapper substitutes only on an exact chapter match** (second owner-directed tightening): book-level matches proved too coarse — "the time is at hand" in Revelation 1:3 is literal even though "times" is prophetic in Revelation 12-13. Now "time" swaps in Daniel 7 and Revelation 12 (chapters the chart cites) but never in Revelation 1 or Psalm 23. The Symbolic-reading toggle only appears on passages with at least one chapter-verified symbol.
+- A parsing fix accompanies this: the phrase row "Time, Times, Half a Time" no longer collapses to the bare word "time", which had wrongly given every "time" the 1260-year sense. Multi-comma chart entries stay whole; only single-comma qualifiers ("Balaam, Doctrine of") are trimmed.
+- The tooltip orders senses by fit, badges the applicable one ("✓ referenced in Daniel 7"), dims non-applicable senses, and states plainly when the current chapter isn't referenced — "referenced elsewhere in Revelation, but not in chapter 1 — it may be literal here."
 **Why:** The symbols chart existed as a stand-alone reference; readers had to cross-reference it manually while studying prophecy. Now the chart meets the reader inside the verse.
 **Verification:** in the Daniel 2 guide alone, 166 symbol occurrences highlight across 61 quoted passages; the swapper round-trips on/off cleanly (boot test now 33/33 passing).
+
+### 18. Prophecy map — category briefings & visual refresh (`prophecy_map.html`)
+**What:**
+- **Category briefings (relevant content):** selecting any category filter (Sunday Laws, Church & State, CBDC, Digital ID, Religious Liberty, Beast System) now opens a dismissible briefing card over the map: a one-paragraph description of what the category tracks, curated deep links into the study library (study guides in gold, infographics in blue — all `index.html#doc=` links), and a live-event counter that opens the Live Feed pre-filtered to that category.
+- **Country panel enrichment:** each tab in the country detail panel now appends an "Explore: <category>" section with the same curated topic links (deduplicated against the country's own guide list), so every category view leads somewhere deeper.
+- **Filter chips** show a count badge of how many countries have data for that category.
+- **Visual polish:** serif display title matching the main site, floating-globe welcome animation, gold-tinted active tabs, uppercase stat labels, guide-link hover nudge, and a "Live news activity" row added to the map legend (the teal markers were previously unexplained).
+**Verification:** dedicated jsdom smoke test, 10/10 passing — briefing opens with 7 deep links on Sunday Laws, links use the `#doc=` format, dismissal is per-category, chips expose `aria-pressed`, zero unexpected JS errors.
 
 ### Round 3 verification
 - Automated jsdom boot test now at **27/27 passing**, including: Scripture Index renders 64 books, Daniel's detail lists 26 studies, the index is deep-linkable, and the Drive-hosted documents appear in navigation.
