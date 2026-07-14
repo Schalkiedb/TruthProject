@@ -12,6 +12,14 @@ INFOGRAPHICS_OUTPUT_FILE = REPO_ROOT / "assets" / "infographics-manifest.json"
 SOURCE_SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".gif"}
 INFOGRAPHICS_SUPPORTED_EXTENSIONS = {".html"}
 
+# Files too large for GitHub (>100 MB) — hosted on Google Drive instead.
+# They may still exist locally but must not enter the manifest; the site
+# links to them via EXTERNAL_SOURCE_DOCS in assets/app.js.
+SOURCE_EXCLUDED_FILES = {
+    "Sabbath History.pdf",
+    "Quote 52 - The_Catholic_Encyclopedia.pdf",
+}
+
 
 def collect_paths(directory: Path, extensions: set[str]) -> list[str]:
     if not directory.exists():
@@ -20,7 +28,9 @@ def collect_paths(directory: Path, extensions: set[str]) -> list[str]:
     paths = [
         path.relative_to(REPO_ROOT).as_posix()
         for path in directory.rglob("*")
-        if path.is_file() and path.suffix.lower() in extensions
+        if path.is_file()
+        and path.suffix.lower() in extensions
+        and path.name not in SOURCE_EXCLUDED_FILES
     ]
     paths.sort(key=str.casefold)
     return paths

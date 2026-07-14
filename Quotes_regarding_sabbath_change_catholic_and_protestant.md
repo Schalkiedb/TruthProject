@@ -12,14 +12,14 @@
    - *"The Christian Sabbath, the Genuine Offspring of the Union of the Holy Spirit with the Catholic Church His Spouse"* - Series of articles, September 1893
    - **Key Quote**: "The Catholic Church, for over one thousand years before the existence of a Protestant, by virtue of her divine mission, changed the day from Saturday to Sunday... The Christian Sabbath is therefore to this day the acknowledged offspring of the Catholic Church as spouse of the Holy Ghost, without a word of remonstrance from the Protestant world."
    - **Significance**: Official Catholic publication explicitly claiming sole authority for Sabbath change
-   - 📄 **Source Document**: [View Original — The Catholic Mirror, 23 Dec 1893](Supporting%20Documents/Quote%201%20-%20The%20Christian%20Sabbath,%20The%20Catholic%20Mirror,%2023%20Dec%201893.pdf#search=changed%20the%20day%20from%20Saturday%20to%20Sunday)
+   - 📄 **Source Document**: [View Original — The Catholic Mirror, 23 Dec 1893](Supporting%20Documents/Quote_1-The_Christian_Sabbath_The_Catholic_Mirror_23_Dec_1893.pdf#search=changed%20the%20day%20from%20Saturday%20to%20Sunday)
 
 2. **Rome's Challenge: Why Do Protestants Keep Sunday?**:
    - Published by Catholic church sources (various editions, early-to-mid 1900s)
    - **Core Argument**: Challenges Protestants to justify Sunday observance when the Bible commands Saturday Sabbath
    - **Key Quote**: "The [Catholic] Church changed the observance of the Sabbath to Sunday by right of the divine, infallible authority given to her by her founder, Jesus Christ. The Protestant claiming the Bible to be the only guide of faith, has no warrant for observing Sunday."
    - **Significance**: Catholic Church openly challenges biblical authority of Sunday, claims only Catholic tradition supports it
-   - 📄 **Source Document**: [View Original — Rome's Challenge](Supporting%20Documents/Quote%202%20-%20Romes-Challenge.pdf#search=infallible%20authority)
+   - 📄 **Source Document**: [View Original — Rome's Challenge](Supporting%20Documents/Quote_2-Romes-Challenge.pdf#search=infallible%20authority)
 
 3. **The Christian Sabbath** (Catholic Educational Literature):
    - Various Catholic publications explaining Sunday as "Christian Sabbath"
@@ -36,30 +36,30 @@
    - **Note**: The catechism incorrectly dates the Council of Laodicea to 336 CE; the actual date was approximately 363-364 CE. This historical error in the Catholic source does not change the admission that the Church, not Scripture, changed the Sabbath.
    - **Key Quote**: "The Church substituted Sunday for Saturday by the plenitude of that divine power which Jesus Christ bestowed upon her."
    - **Significance**: Official Catholic catechism for converts explicitly teaches that Saturday is the biblical Sabbath, but the Church changed it to Sunday by its own authority
-   - 📄 **Source Document**: [View Original — The Convert's Catechism, 1910](Supporting%20Documents/Quote%204%20-%20converts-catechism1910.pdf#search=observe%20Sunday%20instead%20of%20Saturday)
+   - 📄 **Source Document**: [View Original — The Convert's Catechism, 1910](Supporting%20Documents/Quote_4-converts-catechism1910.pdf#search=observe%20Sunday%20instead%20of%20Saturday)
 
 5. **The Question Box: Answers to Questions Received on Missions to Non-Catholics**:
    - Catholic missionary handbook used for evangelism and answering Protestant objections
    - Published by Paulist Fathers (various editions throughout 20th century)
    - **Direct Quote**: "Who gave the Pope the authority to change a command of God? If the Bible is the only guide for the Christian, then the Seventh Day Adventist is right in observing the Saturday with the Jew. But Catholics learn what to believe and do from the divine, infallible authority established by Jesus Christ, the Catholic Church, which in Apostolic times made Sunday the day of rest to honor our Lord's resurrection on that day, and to mark off clearly the Jew from the Christian. St. Justin Martyr (Apol., c. 67) speaks of the early Christians meeting for the holy sacrifice of the Mass on Sunday. Is it not strange that those who make the Bible their only teacher should inconsistently follow in this matter the tradition of the Church?"
    - **Significance**: This Catholic missionary handbook frames the Sabbath question by openly conceding the Seventh-day Adventist position is the only logically consistent one for a Bible-only Christian — if the Bible is your sole guide, Saturday observance is correct. It then defends Sunday not from Scripture but from the Church's claimed "divine, infallible authority." Notably the book cites Justin Martyr (c. 155 AD) as the earliest evidence of Sunday worship — an admission that no apostolic command exists, only a 2nd-century tradition. The closing challenge — that Bible-only Protestants "inconsistently follow the tradition of the Church" — is the same argument repeated across every Catholic source in this collection.
-   - 📄 **Source Document**: [View Original — The Question Box](Supporting%20Documents/Quote%205%20-%20The%20Question%20Box_%20Answers%20to%20Questions%20Received%20on%20Missions%20to%20Non-Catholics.pdf#search=Sabbath)
+   - 📄 **Source Document**: [View Original — The Question Box](Supporting%20Documents/Quote_5-The_Question_Box_Answers_to_Questions_Received_on_Missions_to_Non-Catholics.pdf#search=Sabbath)
 
 6. **Saint Catherine Catholic Church Sentinel**, May 21, 1995 (Pastor's Page):
    - **Quote**: "Perhaps the boldest thing, the most revolutionary change the Church ever did, happened in the first century. The holy day, the Sabbath, was changed from Saturday to Sunday... not from any directions noted in the Scriptures, but from the Church's sense of its own power... People who think that the Scriptures should be the sole authority, should logically become 7th Day Adventists, and keep Saturday holy."
    - **Significance**: Modern (1995) Catholic parish publication explicitly stating the Church changed the Sabbath "not from any directions noted in the Scriptures, but from the Church's sense of its own power" - remarkable candor that the change had no biblical basis and was based solely on claimed church authority
-   - 📄 **Source Document**: [View Original — Saint Catherine Catholic Church Sentinel, 1995](Supporting%20Documents/Quote%206%20-%20Saint%20Catherine%20Catholic%20Church%20Sentinel,%20May%2021,%201995%20(Pastor_s%20Page).jpg)
+   - 📄 **Source Document**: [View Original — Saint Catherine Catholic Church Sentinel, 1995](Supporting%20Documents/Quote_6-Saint_Catherine_Catholic_Church_Sentinel_May_21_1995_Pastor_s_Page.jpg)
 
 7. **The Australian Catholic Truth Society Record**, February 10, 1950:
    - **Extended Quote**: "...the week, Sunday, was to be observed as a civic day of rest from ordinary work and business. That did not impose any obligations of religious observance upon Christians. But in 336 A.D., the Catholic Church, at the Council of Laodicea, made the ecclesiastical law obliging the faithful to attend Mass and to abstain from servile works on Sundays. And all Christians accepted that law in virtue of the divine authority Christ gave to His Church when He said, 'Whatsoever you bind upon earth shall be bound also in Heaven; and whatsoever you loose upon earth shall be loosed also in Heaven' (Matt., xviii, 18)... Seventh Day Adventists are right, however, in accusing other Protestants of inconsistency who speak of any obligation of Sunday observance whilst rejecting the authority of the Catholic Church. It is not that there is no authority in the Bible for Sunday observance. But there is no direct authority for it as an obligation. The only direct authority for the obligation of Sunday, is that of the Catholic Church; but that involves the authority of the Bible at least indirectly in so far as the Bible itself teaches clearly that the Catholic Church is directly authorized by Christ to legislate in His name."
    - **Note on Dating**: The document dates the Council of Laodicea to A.D. 336; most modern historians place it at c. A.D. 363–364. This error is consistent with the same mistake in *The Convert's Catechism* (Quote 4) and does not alter the substance of the admission.
    - **Significance**: This Catholic Truth Society publication makes a multi-layered admission of exceptional value: (1) it concedes there is *no direct biblical authority* for Sunday observance as an obligation — only indirect authority through the Church; (2) it explicitly states the Council of Laodicea (not Christ or the apostles) established the ecclesiastical law obliging Sunday Mass attendance; (3) most remarkably, it openly agrees with Seventh-day Adventists that other Protestants are *inconsistent* — acknowledging that those who reject Catholic Church authority have no valid basis for Sunday obligation; (4) its only defence of Sunday rests entirely on Matthew 18:18 (the Church's binding authority), not on any direct Sabbath-transfer text in Scripture — precisely the position every other Catholic source in this collection takes
-   - 📄 **Source Document**: [View Original — The Australian Catholic Truth Society Record, Feb 10, 1950](Supporting%20Documents/Quote%207%20-%20The%20Australian%20Catholic%20Truth%20Society%20Record,%20February%2010,%201950.gif)
+   - 📄 **Source Document**: [View Original — The Australian Catholic Truth Society Record, Feb 10, 1950](Supporting%20Documents/Quote_7-The_Australian_Catholic_Truth_Society_Record_February_10_1950.gif)
 
 8. **The Catholic Universe Bulletin**, August 14, 1942:
    - **Quote**: "The Church changed the observance of the Sabbath to Sunday by right of the divine, infallible authority given to her by her Founder, Jesus Christ."
    - **Significance**: 20th century reaffirmation of church's claim to change God's law
-   - 📄 **Source Document**: [View Original — Catholic Universe Bulletin, Aug 14, 1942](Supporting%20Documents/Quote%208%20-%20Catholic-Universe-Bulletin-Aug-14-1942.gif) | [View Full Page](Supporting%20Documents/Quote%208%20-%20Catholic-Universe-Bulletin-full-page-Aug-14-1942.gif)
+   - 📄 **Source Document**: [View Original — Catholic Universe Bulletin, Aug 14, 1942](Supporting%20Documents/Quote_8-Catholic-Universe-Bulletin-Aug-14-1942.gif) | [View Full Page](Supporting%20Documents/Quote_8-Catholic-Universe-Bulletin-full-page-Aug-14-1942.gif)
 
 9. **Catholic Catechism** (Current edition):
    - Ten Commandments listing with second commandment removed, tenth split
@@ -67,12 +67,12 @@
    - Official doctrinal position of Catholic Church
    - **Quote** (§2177): "The Sunday celebration of the Lord's Day and his Eucharist is at the heart of the Church's life. 'Sunday is the day on which the paschal mystery is celebrated in light of the apostolic tradition and is to be observed as the foremost holy day of obligation in the universal Church.'"
    - **Significance**: The official Catechism of the Catholic Church enshrines Sunday observance as the *foremost holy day of obligation* — binding on the entire universal Church. Notably this same paragraph (§2177) is quoted in Pope John Paul II's *Dies Domini* (Quote 39), where it is cited as the foundation for Sunday being "at the heart of the Church's life," directly tying Sunday obligation to the Eucharist. The Church's own catechism thus confirms that Sunday rest and the Mass are inseparable ecclesiastical laws — not biblical commandments.
-   - 📄 **Source Document**: [View Original — Catechism of the Catholic Church](Supporting%20Documents/Quote%209%20-%20Catechism%20of%20the%20Catholic%20Church%20-%20Current%20Edition.pdf#search=Sunday)
+   - 📄 **Source Document**: [View Original — Catechism of the Catholic Church](Supporting%20Documents/Quote_9-Catechism_of_the_Catholic_Church-Current_Edition.pdf#search=Sunday)
 
 10. **Papal Encyclicals on Sunday Observance**:
    - *Dies Domini* (Apostolic Letter on the Lord's Day) by Pope John Paul II, 1998
    - Various papal statements affirming Sunday as "the Lord's Day"
-   - 📄 **Source Document**: [View Original — Dies Domini, 1998](Supporting%20Documents/Quote%2039%20-%20Dies%20Domini%20(May%2031,%201998)%20quote%2010%20and%2039.pdf#search=Lord%27s%20Day)
+   - 📄 **Source Document**: [View Original — Dies Domini, 1998](Supporting%20Documents/Quote_39-Dies_Domini_May_31_1998_quote_10_and_39.pdf#search=Lord%27s%20Day)
 
 **Vatican Documents**:
 - Lateran Treaty (1929) - Re-establishment of Vatican City as sovereign state
@@ -86,34 +86,34 @@
    - **Quote**: "The Church, using the power our Lord gave her, altered the observance of the Sabbath to the observance of Sunday, to commemorate our Lord's resurrection on Easter Sunday and the descent of the Holy Ghost on Whitsunday. There is evidence in the New Testament (Acts 20:7; I Cor. 16:2) that the apostles were beginning to observe Sunday as a day of worship as well as Saturday; but the apostles made no law on the matter, and the full transfer from Saturday to Sunday was a gradual process, under the authority of the Church. Those Christians who believe in the Bible and the Bible only have some difficulty in explaining why they keep Sunday holy and not the Sabbath."
    - **Extended Context**: Cafferata opens by acknowledging that Saturday was the Jews' Sabbath, kept sacred because God rested on the seventh day at creation and as a commemoration of the Exodus. He then states explicitly that the Church — "using the power our Lord gave her" — altered the observance. Critically, he concedes that while the apostles were *beginning* to observe Sunday alongside Saturday, "the apostles made no law on the matter," and the full transfer was a *gradual process* under Church authority. He closes by acknowledging that Bible-only Christians "have some difficulty in explaining why they keep Sunday holy and not the Sabbath."
    - **Significance**: Catholic catechism openly admitting: (1) Saturday is the biblical Sabbath rooted in creation; (2) the apostles made *no law* transferring the day; (3) the full change was a *gradual process* effected by Church authority alone; (4) Bible-only Christians have no adequate explanation for keeping Sunday — a direct challenge to Protestant *sola scriptura*
-   - 📄 **Source Document**: [View Original — Canon Cafferata, The Catechism Explained](Supporting%20Documents/Quote%2011%20-%20Canon%20Cafferata-%20The%20Catechism%20Explained.pdf#search=full%20transfer%20from%20Saturday%20to%20Sunday)
+   - 📄 **Source Document**: [View Original — Canon Cafferata, The Catechism Explained](Supporting%20Documents/Quote_11-Canon_Cafferata-The_Catechism_Explained.pdf#search=full%20transfer%20from%20Saturday%20to%20Sunday)
 
 12. **Catholic Press**, August 25, 1900:
    - Early 20th-century Catholic periodical
    - **Quote**: "Sunday is a Catholic institution, and... can be defended only on Catholic principles... From beginning to end of Scripture there is not a single passage that warrants the transfer of weekly public worship from the last day of the week to the first."
    - **Significance**: Explicitly states no biblical basis for Sunday
-   - 📄 **Source Document**: [View Original — Catholic Press, August 25, 1900](Supporting%20Documents/Quote%2012%20-%20Catholic%20Press,%20August%2025,%201900.pdf#search=Catholic%20institution)
+   - 📄 **Source Document**: [View Original — Catholic Press, August 25, 1900](Supporting%20Documents/Quote_12-Catholic_Press_August_25_1900.pdf#search=Catholic%20institution)
 
 13. **Rev. John Laux, M.A., A Course in Religion for Catholic High Schools and Academies**:
    - Benzinger Brothers (exact edition uncertain — the quote circulates widely online attributed to this work; it may appear in an earlier or later reprint)
    - **Quote**: "If we consulted the Bible only, we should still have to keep holy the Sabbath Day, that is, Saturday, with the Jews, instead of Sunday... Tradition is necessary, and the Christian must believe all that God has revealed and the Church proposes to his belief, whether it be contained in Holy Scripture or in Tradition."
    - **Extended Context**: The book argues for the equal authority of Scripture and Tradition, stating that Tradition can contain revealed truths not found in Scripture. As an example of what Tradition alone gives us — and what Scripture alone would not — it explicitly names Sunday observance: *"If we consulted the Bible only, we should still have to keep holy the Sabbath Day, that is, Saturday, with the Jews, instead of Sunday."* The passage continues listing other practices impossible to establish from Scripture alone, concluding that the Christian must follow whatever the Church proposes, whether found in Scripture or Tradition.
    - **Significance**: Catholic educational textbook used to instruct youth, openly admitting that the Bible, by itself, requires keeping Saturday — and that Sunday is kept solely on the authority of Church Tradition, not Scripture
-   - 📄 **Source Document**: [View Original — A Course in Religion for Catholic High Schools](Supporting%20Documents/Quote%2013%20-%20A%20Course%20in%20Religion%20for%20Catholic%20High%20Schools%20and%20Academies.pdf#search=Sabbath%20Day%20Saturday)
+   - 📄 **Source Document**: [View Original — A Course in Religion for Catholic High Schools](Supporting%20Documents/Quote_13-A_Course_in_Religion_for_Catholic_High_Schools_and_Academies.pdf#search=Sabbath%20Day%20Saturday)
 
 14. **Vincent J. Kelly, Forbidden Sunday and Feast-Day Occupations**:
    - Washington, DC: Catholic University of America Press, 1943
    - Studies in Sacred Theology, No. 70, p. 2
    - **Quote**: "The Sabbath was Saturday, not Sunday... The early Christians did not transfer the observance of the seventh day to the first. On the contrary, they added the observance of the first day... It was not until several hundred years after Christ that the Sabbath observance was by law transferred from Saturday to Sunday."
    - **Significance**: Academic theological work acknowledging change happened centuries after Christ, not by apostolic authority
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2014%20-%20Forbidden-cover.jpg) | [View Page 1](Supporting%20Documents/Quote%2014%20-%20Forbidden-pg1.gif) | [View Page 2](Supporting%20Documents/Quote%2014%20-%20Forbidden-pg2.gif)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_14-Forbidden-cover.jpg) | [View Page 1](Supporting%20Documents/Quote_14-Forbidden-pg1.gif) | [View Page 2](Supporting%20Documents/Quote_14-Forbidden-pg2.gif)
 
 15. **Henry Tuberville, An Abridgment of the Christian Doctrine** (1833 approbation):
    - Page 58 (Same statement in *Manual of Christian Doctrine*, ed. by Daniel Ferris [1916 ed.], p. 67)
    - **Q**: "Have you any other way of proving that the Church has power to institute festivals of precept?"
    - **A**: "Had she not such power, she could not have done that in which all modern religionists agree with her—she could not have substituted the observance of Sunday, the first day of the week, for the observance of Saturday, the seventh day, a change for which there is no Scriptural authority."
    - **Significance**: Long-standing Catholic teaching (1833-1916) using Sunday change as proof of Church authority
-   - 📄 **Source Document**: [View Original — An Abridgment of the Christian Doctrine](Supporting%20Documents/Quote%2015%20-%20An%20Abridgment%20of%20the%20Christian%20Doctrine,%20Rev%20Henry%20Tuberville.pdf#search=substituted%20the%20observance%20of%20Sunday)
+   - 📄 **Source Document**: [View Original — An Abridgment of the Christian Doctrine](Supporting%20Documents/Quote_15-An_Abridgment_of_the_Christian_Doctrine_Rev_Henry_Tuberville.pdf#search=substituted%20the%20observance%20of%20Sunday)
 
 16. **Our Sunday Visitor**, October 7, 1951:
    - Major Catholic weekly newspaper
@@ -124,20 +124,20 @@
    - Catholic intellectual journal
    - **Quote**: "We hold upon this earth the place of God Almighty... The Pope is of so great dignity and so exalted that he is not a mere man, but as it were God, and the vicar of God."
    - **Significance**: Scholarly defense of papal authority to change God's laws
-   - 📄 **Source Document**: [View Original — The Catholic World, March 1894](Supporting%20Documents/Quote%2017%20-%20The%20catholic%20World.pdf#search=place%20of%20God%20Almighty)
+   - 📄 **Source Document**: [View Original — The Catholic World, March 1894](Supporting%20Documents/Quote_17-The_catholic_World.pdf#search=place%20of%20God%20Almighty)
 
 18. **Lucius Ferraris, Prompta Bibliotheca**, art. Papa, II, Vol. VI, p. 29:
    - Encyclopedic work on papal authority
    - **Quote**: "The Pope is of so great authority and power that he can modify, explain, or interpret even divine laws... The Pope can modify divine law, since his power is not of man but of God, and he acts as vicegerent of God upon earth."
    - **Significance**: Claims Pope has power to change divine law itself
-   - 📄 **Source Document**: [View Original — Prompta Bibliotheca, Vol. VI](Supporting%20Documents/Quote%2018%20-%20Lucius%20Ferraris,%20Prompta%20Bibliotheca,%20art.%20Papa,%20II,%20Vol.%20VI,%20p.%2029.png)
+   - 📄 **Source Document**: [View Original — Prompta Bibliotheca, Vol. VI](Supporting%20Documents/Quote_18-Lucius_Ferraris_Prompta_Bibliotheca_art._Papa_II_Vol._VI_p._29.png)
 
 19. **Adrien Nampon, Catholic Doctrine as Defined by the Council of Trent**:
    - Explanation of official Catholic teaching on tradition vs. Scripture
    - **Quote (p. 152)**: "Who taught them that a multitude of texts of Scripture are to be understood in a sense quite opposed to their literal meaning? for instance, that Sunday is to be set apart for the worship of God, and not the Sabbath..."
    - **Quote (p. 695, Conclusion)**: "You reject tradition as subversive of the Christian faith. And yet the little Christianity you have preserved, you hold from tradition, by which alone you have learned the relics of religious opinions and practices, which you still possess. For all these opinions you draw from the Bible; and that is conveyed to you by tradition; and all these practices you sum up in the observance of Sunday, and it is tradition alone which authorizes you to substitute that day for the Sabbath of the Jews."
    - **Significance**: Nampon's actual argument is that Protestants, despite rejecting tradition, depend entirely on tradition for their core practices — including Sunday observance. He explicitly states that **"tradition alone"** authorizes Sunday as a substitute for the Jewish Sabbath, and that no direct Scripture text independently establishes it. The page 152 passage frames Sunday-keeping as a departure from the Bible's literal meaning, accepted only through tradition.
-   - 📄 **Source Document**: [View Original — Catholic Doctrine, Council of Trent](Supporting%20Documents/Quote%2019%20-%20Catholic%20Doctrine%20as%20Defined%20by%20the%20Council%20of%20Trent.pdf#search=tradition+alone+which+authorizes)
+   - 📄 **Source Document**: [View Original — Catholic Doctrine, Council of Trent](Supporting%20Documents/Quote_19-Catholic_Doctrine_as_Defined_by_the_Council_of_Trent.pdf#search=tradition+alone+which+authorizes)
 
 20. **C. F. Thomas, Chancellor of Cardinal Gibbons**, letter dated November 11, 1895:
    - Official response to inquiry about Sabbath change
@@ -148,37 +148,37 @@
    - Catholic priest's public defense of Church's power to change Sabbath
    - **Quote**: "I have repeatedly offered $1,000 to anyone who can prove to me from the Bible alone that I am bound to keep Sunday holy. There is no such law in the Bible. It is a law of the holy Catholic Church alone. The Bible says, 'Remember the Sabbath day to keep it holy.' The Catholic Church says: 'No. By my divine power I abolish the Sabbath day and command you to keep holy the first day of the week.' And lo! The entire civilized world bows down in a reverent obedience to the command of the holy Catholic Church."
    - **Significance**: Public challenge offering $1,000 for biblical proof of Sunday, admitting entire practice rests on Catholic authority alone
-   - 📄 **Source Document**: [View Original — Hartford Weekly Call](Supporting%20Documents/Quote%2021%20-%20Hartford%20Weekly%20Call.pdf#search=offered%20%241%2C000) | [View Enright Letter 1899](Supporting%20Documents/Quote%2021%20-%20Enright%20ltr%201899.gif) | [View Enright Letter 1902](Supporting%20Documents/Quote%2021%20-%20Enright%20ltr%201902.gif) | [View Enright Letter 1909–12](Supporting%20Documents/Quote%2021%20-%20Enright-letter-1909-12.gif)
+   - 📄 **Source Document**: [View Original — Hartford Weekly Call](Supporting%20Documents/Quote_21-Hartford_Weekly_Call.pdf#search=offered%20%241%2C000) | [View Enright Letter 1899](Supporting%20Documents/Quote_21-Enright_ltr_1899.gif) | [View Enright Letter 1902](Supporting%20Documents/Quote_21-Enright_ltr_1902.gif) | [View Enright Letter 1909–12](Supporting%20Documents/Quote_21-Enright-letter-1909-12.gif)
 
 22. **Library of Christian Doctrine: Why Don't You Keep Holy the Sabbath-Day?**:
    - London: Burns and Oates, Ltd., pp. 3, 4
    - **Quote**: "You will tell me that Saturday was the Jewish Sabbath, but that the Christian Sabbath has been changed to Sunday. Changed! but by whom? Who has authority to change an express commandment of Almighty God? When God has spoken and said, Thou shalt keep holy the seventh day, who shall dare to say, Nay, thou mayest work and do all manner of business on the seventh day; but thou shalt keep holy the first day in its stead? This is a most important question, which I know not how you can answer. You are a Protestant, and you profess to go by the Bible and the Bible only; and yet in so important a matter as the observance of one day in seven as a holy day, you go against the plain letter of the Bible, and put another day in the place of that day which the Bible has commanded. The command to keep holy the seventh day is one of the ten commandments; you believe that the other nine are still binding; who gave you authority to tamper with the fourth? If you are consistent with your own principles, if you really follow the Bible and the Bible only, you ought to be able to produce some portion of the New Testament in which this fourth commandment is expressly altered."
    - **Significance**: Catholic apologetic directly challenging Protestant inconsistency in keeping Sunday while claiming "Bible only"
-   - 📄 **Source Document**: [View Original — The Clifton Tracts, Vol. 4](Supporting%20Documents/Quote%2022%20-%20The_Clifton_Tracts,_Volume_4_(IA_CliftonTractsV4).pdf#search=keep%20holy%20the%20Sabbath)
+   - 📄 **Source Document**: [View Original — The Clifton Tracts, Vol. 4](Supporting%20Documents/Quote_22-The_Clifton_Tracts_Volume_4_IA_CliftonTractsV4.pdf#search=keep%20holy%20the%20Sabbath)
 
 23. **Monsignor Louis Segur, Plain Talk about the Protestantism of Today**, p. 213:
    - Catholic critique of Protestant inconsistency
    - **Quote**: "The observance of Sunday by the Protestants is an homage they pay, in spite of themselves, to the authority of the [Catholic] Church."
    - **Significance**: Points out contradiction in rejecting Catholic authority while keeping Catholic Sunday
-   - 📄 **Source Document**: [View Original — Plain Talk about the Protestantism of Today](Supporting%20Documents/Quote%2023%20-%20Plain_talk_about_the_Protestantism_of_to-day_(IA_PlainTalkAboutTheProtestantism).pdf#search=homage%20they%20pay)
+   - 📄 **Source Document**: [View Original — Plain Talk about the Protestantism of Today](Supporting%20Documents/Quote_23-Plain_talk_about_the_Protestantism_of_to-day_IA_PlainTalkAboutTheProtestantism.pdf#search=homage%20they%20pay)
 
 24. **Albert Smith, Chancellor of the Archdiocese of Baltimore**, letter dated February 10, 1920:
    - Official Church correspondence affirming Sunday change authority, replying for Cardinal
    - **Quote**: "If Protestants would follow the Bible, they should worship God on the Sabbath Day by God is Saturday. In keeping the Sunday, they are following a law of the Catholic Church."
    - **Significance**: Official Church representative stating Protestants follow Catholic law, not Bible, in Sunday observance
-   - 📄 **Source Document**: [View Original Letter — Albert Smith, Feb 10, 1920](Supporting%20Documents/Quote%2024%20-%20Albert%20Smith,%20Chancellor%20of%20the%20Archdiocese%20of%20Baltimore,%20letter%20dated%20February%2010,%201920.gif)
+   - 📄 **Source Document**: [View Original Letter — Albert Smith, Feb 10, 1920](Supporting%20Documents/Quote_24-Albert_Smith_Chancellor_of_the_Archdiocese_of_Baltimore_letter_dated_February_10_1920.gif)
 
 25. **The Faith of Millions** (Rev. John A. O'Brien, PhD):
    - Popular Catholic apologetic work
    - **Quote**: "Since Saturday, not Sunday, is specified in the Bible, isn't it curious that non-Catholics who profess to take their religion directly from the Bible and not from the Church, observe Sunday instead of Saturday? Yes, of course, it is inconsistent; but this change was made about fifteen centuries before Protestantism was born, and by that time the custom was universally observed. They have continued the custom, even though it rests upon the authority of the Catholic Church and not upon an explicit text in the Bible. That observance remains as a reminder of the Mother Church from which the non-Catholic sects broke away—like a boy running away from home but still carrying in his pocket a picture of his mother or a lock of her hair."
    - **Significance**: Widely distributed Catholic book pointing out Protestant inconsistency, describing Sunday as "reminder of the Mother Church"
-   - 📄 **Source Document**: [View Original — Faith of Millions (1938 ed.)](Supporting%20Documents/Quote%2025%20-%20Faith%20of%20Millions%20page%20147%20sunday%20claim%206th%20edition%201938.pdf#search=Saturday%20not%20Sunday) | [View 1974 Edition Image](Supporting%20Documents/Quote%2025%20-%20Faith%20of%20millions%201974%20edition%20quote%20from%20digital%20library.png)
+   - 📄 **Source Document**: [View Original — Faith of Millions (1938 ed.)](Supporting%20Documents/Quote_25-Faith_of_Millions_page_147_sunday_claim_6th_edition_1938.pdf#search=Saturday%20not%20Sunday) | [View 1974 Edition Image](Supporting%20Documents/Quote_25-Faith_of_millions_1974_edition_quote_from_digital_library.png)
 
 26. **Catholic Record**, September 1, 1928:
    - Catholic periodical
    - **Quote**: "The church is above the Bible, and this transference of Sabbath observance is proof of that fact. Deny the authority of the Church and you have no adequate or reasonable explanation or justification for the substitution of Sunday for Saturday"
    - **Significance**: Explicitly calls Sunday the "MARK of authority" proving Church is above Bible
-   - 📄 **Source Document**: [View Original — Catholic Record (full)](Supporting%20Documents/Quote%2026%20-%20Catholic%20Record%20(full).pdf#search=MARK%20of%20authority) | [View September 1923 Issue](Supporting%20Documents/Quote%2026%20-%20THE%20CATHOLIC%20RECORD%201%20September%201923.pdf)
+   - 📄 **Source Document**: [View Original — Catholic Record (full)](Supporting%20Documents/Quote_26-Catholic_Record_full.pdf#search=MARK%20of%20authority) | [View September 1923 Issue](Supporting%20Documents/Quote_26-THE_CATHOLIC_RECORD_1_September_1923.pdf)
 
 27. **James Cardinal Gibbons, The Faith of Our Fathers**:
    - 88th edition, page 89 (Originally published 1876, republished 1980 by TAN Books)
@@ -186,7 +186,7 @@
    - **Quote**: "You may read the Bible from Genesis to Revelation, and you will not find a single line authorizing the sanctification of Sunday. The Scriptures enforce the religious observance of Saturday, a day which we never sanctify."
    - **Additional Quote** (pages 72-73): "Reason and sense demand the acceptance of one or the other of these alternatives: either Protestantism and the keeping holy of Saturday, or Catholicity and the keeping holy of Sunday. Compromise is impossible."
    - **Significance**: Cardinal Gibbons, Archbishop of Baltimore, explicitly states choice is between biblical Saturday or Catholic Sunday—"compromise is impossible"
-   - 📄 **Source Document**: [View Original — The Faith of Our Fathers](Supporting%20Documents/Quote%2027%20-%20Faith-of-Our-Fathers.pdf#search=not%20find%20a%20single%20line)
+   - 📄 **Source Document**: [View Original — The Faith of Our Fathers](Supporting%20Documents/Quote_27-Faith-of-Our-Fathers.pdf#search=not%20find%20a%20single%20line)
 
 27a. **James Cardinal Gibbons, Archbishop of Baltimore, in a signed letter**:
    - Personal signed letter from Cardinal Gibbons (1877-1921)
@@ -197,7 +197,7 @@
    - Diocesan newspaper
    - **Quote**: "I have repeatedly offered $1,000 to anyone who can furnish any proof from the Bible that Sunday is the day we are bound to keep... The Bible says, 'Remember the Sabbath day to keep it holy,' but the Catholic Church says, 'No, keep the first day of the week,' and the whole world bows down in obedience."
    - **Significance**: Mid-20th century reaffirmation of no biblical basis for Sunday
-   - 📄 **Source Document**: [View Original — The Catholic Virginian, Oct 3, 1947](Supporting%20Documents/Quote%2028%20-%20The%20Catholic%20Virginian%20-%20To%20Tell%20You%20The%20Truth,%20Vol.%2022,%20No.%2049%20(October%203,%201947).gif)
+   - 📄 **Source Document**: [View Original — The Catholic Virginian, Oct 3, 1947](Supporting%20Documents/Quote_28-The_Catholic_Virginian-To_Tell_You_The_Truth_Vol._22_No._49_October_3_1947.gif)
 
 29. **Manual of Christian Doctrine: Comprising Dogma, Moral, and Worship** (Joseph John 1906):
    - Catholic doctrinal manual with official Church approval
@@ -208,14 +208,14 @@
    - **Q. 6**: "Why was the first day of the week substituted for the last day, as the Lord's day?"
    - **A**: "On account of the important events which occurred on that day. It was the first day of the creation of the world, the day on which Jesus Christ arose from the dead, and the day on which the Holy Ghost descended on the Apostles."
    - **Significance**: This Catholic doctrinal manual attributes the Sabbath-to-Sunday change directly to the Apostles, acting on God-given authority — a claim directly contradicted by Protestant church historians (Schaff, Neander) and other Catholic sources in this collection that acknowledge the change occurred centuries after the apostles through church and imperial authority, not apostolic decree.
-   - 📄 **Source Document**: [View Original — Manual of Christian Doctrine](Supporting%20Documents/Quote%2029%20-%20Manual%20of%20Christian%20Doctrine.pdf#search=substitution%20of%20Sunday%20for%20the%20Sabbath)
+   - 📄 **Source Document**: [View Original — Manual of Christian Doctrine](Supporting%20Documents/Quote_29-Manual_of_Christian_Doctrine.pdf#search=substitution%20of%20Sunday%20for%20the%20Sabbath)
 
 30. **Martin J. Scott, Things Catholics Are Asked About** (1927):
    - Page 136
    - Popular Catholic Q&A book addressing Protestant inquiries
    - **Quote**: "Nowhere in the Bible do we find that Christ or the Apostles ordered that the Sabbath be changed from Saturday to Sunday. We have the commandment of God given to Moses to keep holy the Sabbath day, that is the 7th day of the week, Saturday. Today most Christians keep Sunday because it has been revealed to us by the [Catholic] church outside the Bible."
    - **Significance**: 1920s Catholic apologetics openly admitting change came from Church tradition "outside the Bible," not from Scripture
-   - 📄 **Source Document**: [View Original — Things Catholics Are Asked About](Supporting%20Documents/Quote%2030%20-%20Things_Catholics_Are_Asked_About.pdf#search=Sabbath%20be%20changed)
+   - 📄 **Source Document**: [View Original — Things Catholics Are Asked About](Supporting%20Documents/Quote_30-Things_Catholics_Are_Asked_About.pdf#search=Sabbath%20be%20changed)
 
 31. **Peter R. Kraemer, Catholic Church Extension Society**:
    - Catholic Church Extension Society official statement
@@ -228,7 +228,7 @@
    - **Q**: "Have you any other way of proving that the Church has power to institute festivals of precept?"
    - **A**: "Had she not such power... she could not have substituted the observance of Sunday the first day of the week, for the observance of Saturday the seventh day, a change for which there is no Scriptural authority."
    - **Significance**: Apologetic catechism designed to answer Protestant objections, using Sunday as proof of Church authority
-   - 📄 **Source Document**: [View Original — A Doctrinal Catechism (Quotes 32 & 33)](Supporting%20Documents/Quote%2032%20%26%20Quote%2033%20-%20ADoctrinalCatechism.pdf#search=substituted%20the%20observance%20of%20Sunday)
+   - 📄 **Source Document**: [View Original — A Doctrinal Catechism (Quotes 32 & 33)](Supporting%20Documents/Quote_32_and_Quote_33-ADoctrinalCatechism.pdf#search=substituted%20the%20observance%20of%20Sunday)
 
 33. **Rev. Stephen Keenan, A Doctrinal Catechism**, New York, 1857:
    - **Page 174** - **Q**: "Have you any other way of proving that the Church has power to institute festivals of precept?"
@@ -236,19 +236,19 @@
    - **Pages 101–102** - **Q**: "Give some examples of both?"
    - **A**: "They should, if the Scripture were their only rule, wash the feet of one another, according to the command of Christ, in the 13th chap, of St. John;—they should keep, not the Sunday, but the Saturday, according to the commandment, 'Remember thou keep holy the SABBATH-day;' for this commandment has not, in Scripture, been changed or abrogated;—they should receive, what they call the sacrament, after supper, and not in the morning, because Christ instituted that sacrament at night, and his Apostles received it after supper;—they should not eat blood or strangled meat, because the Apostles forbid it in the 15th chap, of the Acts;—they should not baptize infants, as there is no example in Scripture to justify such a practice."
    - **Significance**: Multiple references with Imprimatur (official Church approval). Pages 101–102 explicitly state that if Protestants followed Scripture alone, they would keep Saturday not Sunday, because the Sabbath commandment "has not, in Scripture, been changed or abrogated." Page 174 uses the Sunday change as proof of Church authority over Scripture.
-   - 📄 **Source Document**: [View Original — A Doctrinal Catechism (Quotes 32 & 33)](Supporting%20Documents/Quote%2032%20%26%20Quote%2033%20-%20ADoctrinalCatechism.pdf#search=keep%20not%20the%20Sunday%20but%20the%20Saturday)
+   - 📄 **Source Document**: [View Original — A Doctrinal Catechism (Quotes 32 & 33)](Supporting%20Documents/Quote_32_and_Quote_33-ADoctrinalCatechism.pdf#search=keep%20not%20the%20Sunday%20but%20the%20Saturday)
 
 34. **This Rock, The Magazine of Catholic Apologetics and Evangelization**, June 1997, p. 8:
    - Modern Catholic apologetics magazine
    - **Quote**: "Fundamentalists... have denied that the Catholic Church has any authority to change Scripture. Yet they all accept the Catholic Church's decision to transfer the Sabbath to Sunday."
    - **Significance**: Late 20th-century affirmation showing continued consistency, challenging Protestant acceptance of Catholic change
-   - 📄 **Source Document**: [View Original — This Rock, June 1997, p. 8](Supporting%20Documents/Quote%2034%20-%20This%20Rock,%20The%20Magazine%20of%20Catholic%20Apologetics%20and%20Evangelization,%20June%201997,%20p.%208.gif)
+   - 📄 **Source Document**: [View Original — This Rock, June 1997, p. 8](Supporting%20Documents/Quote_34-This_Rock_The_Magazine_of_Catholic_Apologetics_and_Evangelization_June_1997_p._8.gif)
 
 35. **Our Sunday Visitor**, February 5, 1950:
    - Major Catholic weekly newspaper
    - **Quote**: "Practically everything Protestants regard as essential or important they have received from the Catholic Church... The Protestant mind does not seem to realize that in accepting the Bible and observing the Sunday, in keeping Christmas and Easter, they are accepting the authority of the spokesman for the Catholic Church."
    - **Significance**: States Protestants accept Catholic authority by keeping Sunday
-   - 📄 **Source Document**: [View Original — Our Sunday Visitor, Feb 5, 1950](Supporting%20Documents/Quote%2035%20-%20Sunday%20Visitor%201950-02-05.pdf#search=Protestants%20regard%20as%20essential)
+   - 📄 **Source Document**: [View Original — Our Sunday Visitor, Feb 5, 1950](Supporting%20Documents/Quote_35-Sunday_Visitor_1950-02-05.pdf#search=Protestants%20regard%20as%20essential)
 
 36. **Priest Brady, address reported in Elizabeth, NJ 'News'**, March 18, 1903:
    - Public statement by Catholic priest in secular newspaper
@@ -261,7 +261,7 @@
    - **On the Eucharist**: Describes the "Blessed Sacrament" as central to Catholic identity and worship
    - **Key Teaching**: Sunday observance combined with Eucharistic celebration constitutes the fundamental mark of Catholic Church membership
    - **Significance**: Official liturgical dictionary identifying Sunday worship and Eucharist as defining marks of Catholic identity
-   - 📄 **Source Document**: [View Original — Page 1](Supporting%20Documents/Quote%2037%20-%20Dictionary%20of%20the%20Liturgy%20by%20Rev.%20Jovian%20P.%20Lang%20-%201.png) | [View Page 2](Supporting%20Documents/Quote%2037%20-%20Dictionary%20of%20the%20Liturgy%20by%20Rev.%20Jovian%20P.%20Lang%20-%202.png)
+   - 📄 **Source Document**: [View Original — Page 1](Supporting%20Documents/Quote_37-Dictionary_of_the_Liturgy_by_Rev._Jovian_P._Lang-1.png) | [View Page 2](Supporting%20Documents/Quote_37-Dictionary_of_the_Liturgy_by_Rev._Jovian_P._Lang-2.png)
 
 38. **Abbé J. Gaume, *The Catechism of Perseverance: An Historical, Dogmatical, Moral, Liturgical, Apologetical, Philosophical and Social Exposition of Religion*** (translated into English; various editions 1849–1886):
    - Four-volume comprehensive Catholic catechetical work widely used in Catholic schools and seminaries
@@ -270,7 +270,7 @@
      - Confirms Sunday Mass is a **Church commandment**, not a biblical one: *"the church prescribes one in particular, under the pain of mortal sin — that is, to assist at mass"* — explicitly framing Sunday Mass attendance as an ecclesiastical law
      - Lists the six commandments of the Church, the first being: *"to hear mass and rest from servile works on Sundays and holy days of obligation"* — Sunday rest and Mass are Catholic Church law, not the biblical fourth commandment
    - **Significance**: The book confirms what other Catholic sources in this collection state: Sunday observance is a Church-instituted practice enforced by ecclesiastical law "under pain of mortal sin," chosen by the Church for theological reasons (not by direct biblical mandate). The book's own framing — Church commandment, not biblical commandment — is the admission that matters.
-   - 📄 **Source Document**: [View Original — The Catechism of Perseverance](Supporting%20Documents/Quote%2038%20-%20Catechism%20of%20perseverance%20an%20historical,%20doctrinal,%20moral,%20and%20liturgical%20exposition%20of%20the%20Catholic%20religion.pdf) | [View Online — Archive.org (Vol. 1)](https://archive.org/details/CatechismOfPerseveranceV1)
+   - 📄 **Source Document**: [View Original — The Catechism of Perseverance](Supporting%20Documents/Quote_38-Catechism_of_perseverance_an_historical_doctrinal_moral_and_liturgical_exposition_of_the_Catholic_religion.pdf) | [View Online — Archive.org (Vol. 1)](https://archive.org/details/CatechismOfPerseveranceV1)
 
 39. **Apostolic Letter Dies Domini of the Holy Father John Paul II to the Bishops, Clergy and Faithful of the Catholic Church on Keeping the Lord's Day** (1998):
    - Full title: *Dies Domini: On Keeping the Lord's Day Holy*
@@ -291,14 +291,14 @@
      - **Section 63** — on the transfer of the Sabbath: *"This is why Christians, called as they are to proclaim the liberation won by the blood of Christ, **felt that they had the authority** to transfer the meaning of the Sabbath to the day of the Resurrection."* — The document itself admits the transfer was based on what early Christians **felt** they had authority to do, not a direct divine command.
      - **Section 64** — on when Sunday rest became law: *"For several centuries, Christians observed Sunday simply as a day of worship, without being able to give it the specific meaning of Sabbath rest. **Only in the fourth century did the civil law of the Roman Empire** recognize the weekly recurrence, determining that on 'the day of the sun' the judges, the people of the cities and the various trade corporations would not work."* — Even this papal document openly confirms that Sunday rest as a legal institution originated with **Constantine's imperial edict (321 AD)**, not with Christ or the apostles.
    - **Significance**: This modern papal document (1998) presents Sunday observance as central to Catholic identity and as an obligation binding on all the faithful — connecting it inseparably to the Eucharist. Yet its own text admits: (1) the Sabbath-to-Sunday transfer was a decision that Christians "felt they had authority" to make, not a direct biblical command; and (2) Sunday as a day of civil rest only became law under the pagan Roman Emperor Constantine in the 4th century. These admissions, embedded in the very document defending Sunday, corroborate the prophetic framework of Daniel 7:25 (a power changing "times and laws") and the broader Catholic pattern documented throughout this collection.
-   - 📄 **Source Document**: [View Original — Dies Domini, 1998](Supporting%20Documents/Quote%2039%20-%20Dies%20Domini%20(May%2031,%201998)%20quote%2010%20and%2039.pdf) | [View Online — Vatican Website](https://www.vatican.va/content/john-paul-ii/en/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html)
+   - 📄 **Source Document**: [View Original — Dies Domini, 1998](Supporting%20Documents/Quote_39-Dies_Domini_May_31_1998_quote_10_and_39.pdf) | [View Online — Vatican Website](https://www.vatican.va/content/john-paul-ii/en/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html)
 
 40. **The Roman Catechism (Catechism of the Council of Trent)**, promulgated by Pope Pius V (1566):
    - The authoritative catechism defined by the Council of Trent and issued as the official doctrinal standard of the post-Reformation Catholic Church
    - **On the Sabbath Commandment**: "It pleased the Church of God that the religious celebration of the Sabbath day should be transferred to the Lord's Day. For as on that day light first shone on the world, so by the resurrection of our Lord on that same day, by whom was cast out the darkness of death, the life and justice of the holy gospel rose upon the world. For this reason the apostles called that day also the Lord's Day."
    - **On Church Authority**: Teaches explicitly that the Church exercised authority in determining the day of worship and that this authority supersedes the original Mosaic command
    - **Significance**: The Council of Trent's own authoritative catechism — the official doctrinal response to Protestantism — explicitly teaches that the Church transferred the day, framing it as an act of ecclesiastical authority, not biblical command
-   - 📄 **Source Document**: [View Original — Catechism of the Council of Trent](Supporting%20Documents/Quote%2040%20-%20Catechism_of_the_Council%20of_Trent.pdf#search=Sabbath%20day%20should%20be%20transferred)
+   - 📄 **Source Document**: [View Original — Catechism of the Council of Trent](Supporting%20Documents/Quote_40-Catechism_of_the_Council_of_Trent.pdf#search=Sabbath%20day%20should%20be%20transferred)
 
 41. **John Henry Newman, *An Essay on the Development of Christian Doctrine*** (1845; revised 1878 as Cardinal):
    - Written as Newman was converting from Anglicanism to Catholicism (he formally converted in October 1845 when the book was published); substantially revised in 1878 after he had become a Cardinal — one of the most influential works in 19th-century Catholic theology
@@ -308,33 +308,33 @@
    - **On Scripture and Tradition**: Newman's actual position is that the whole Catholic faith can be proved from Scripture, but not by reading it directly — it requires Tradition as the necessary interpretive aid. He argues these two authorities work together, with the Church's living tradition unlocking what Scripture alone does not yield on the surface
    - **Significance**: Newman explicitly concedes that Sunday observance is not derived from direct, independent use of Scripture, but through doctrinal development guided by Church authority and tradition. His framework — the most intellectually sophisticated Catholic explanation for Sunday observance — confirms what less guarded Catholic admissions state plainly: the Sabbath-to-Sunday change rests on the Church's tradition and interpretive authority, not on a clear and direct Scriptural command
    - ⚠️ **Source Note**: A quote frequently attributed to this work — *"The sacred text was never intended to teach doctrine, but only to prove it; and if we would learn doctrine, we must have recourse to the formularies of the Church"* — does **not** appear in the *Essay on Development*. It originates from Newman's later work *The Apologia of Saint John Henry Newmanh*
-   - 📄 **Source Document**: [View Original — An Essay on the Development of Christian Doctrine](Supporting%20Documents/Quote%2041%20-%20An%20Essay%20on%20the%20Development%20of%20Christian%20Doctrine.pdf#search=development%20of%20doctrine) | [View The Apologia of Saint John Henry Newman (1865)](Supporting%20Documents/Quote%2041b%20-%20The%20Apologia%20of%20Saint%20John%20Henry%20Newman%20(1865)%20%E2%80%93%20The%20Friar.pdf)
+   - 📄 **Source Document**: [View Original — An Essay on the Development of Christian Doctrine](Supporting%20Documents/Quote_41-An_Essay_on_the_Development_of_Christian_Doctrine.pdf#search=development%20of%20doctrine) | [View The Apologia of Saint John Henry Newman (1865)](Supporting%20Documents/Quote_41b-The_Apologia_of_Saint_John_Henry_Newman_1865-The_Friar.pdf)
 
 42. **The Catholic Encyclopaedia (1913)**, article: "Sunday":
    - The authoritative English-language reference work of the early 20th-century Catholic Church
    - **Direct Quote**: "Sunday was the first day of the week according to the Jewish method of reckoning, but for Christians it began to take the place of the Jewish Sabbath in Apostolic times as the day set apart for the public and solemn worship of God."
    - **Additional Relevant Content**: The article explicitly traces the name "Sunday" to Egyptian astrology and the planetary naming system — *"Sunday (Day of the Sun), as the name of the first day of the week, is derived from Egyptian astrology"* — making the pagan solar origin a matter of record in the Catholic Church's own reference work. On formal legislation, the article confirms: the Council of Elvira (300 AD) was the first to impose excommunication for missing Sunday worship; Constantine's civil edict (321 AD) is cited as foundational civil Sunday law; and even the Council of Laodicea (late 4th century) only prescribed that the faithful "abstain from work as far as possible" — a notably weak formulation. On the Sabbath, the article records that St. Caesarius of Arles (6th century) taught that "the whole glory of the Jewish Sabbath had been transferred to the Sunday" — an ecclesiastical decree, not a biblical one.
    - **Significance**: The Catholic Church's own encyclopaedia confirms: (1) The name "Sunday" is openly traced to *Egyptian astrology* and pagan solar worship — not a Christian institution; (2) Formal ecclesiastical and civil legislation mandating Sunday rest only emerged in the 4th century (Council of Elvira 300, Constantine's edict 321, Council of Laodicea ~363); (3) As late as the 6th century, church Doctors were still having to decree that the Sabbath's "glory" had been "transferred" to Sunday — showing the transition was a gradual ecclesiastical process, not an apostolic institution. The article presents Sunday worship itself as having apostolic origins (citing New Testament texts), but the *precept* and *civil enforcement* are confirmed as 4th-century constructs rooted in church and imperial authority.
-   - 📄 **Source Document**: [View Original — Catholic Encyclopaedia (1913), "Sunday"](Supporting%20Documents/Quote%2042%20-%20Catholic%20Encyclopedia%20(1913)_Sunday%20-%20Wikisource,%20the%20free%20online%20library.pdf)
+   - 📄 **Source Document**: [View Original — Catholic Encyclopaedia (1913), "Sunday"](Supporting%20Documents/Quote_42-Catholic_Encyclopedia_1913_Sunday-Wikisource_the_free_online_library.pdf)
 
 43. **Pope Leo XIII, *Rerum Novarum*** (Encyclical on Capital and Labour, 1891), Para. 41–42:
    - Landmark social encyclical — one of the most quoted papal documents in history
    - **Para. 41 — On Sunday Rest**: "From this follows the obligation of the cessation from work and labor on Sundays and certain holy days. The rest from labor is not to be understood as mere giving way to idleness... but it should be rest from labor, hallowed by religion... It is this, above all, which is the reason and motive of Sunday rest; a rest sanctioned by God's great law of the Ancient Covenant — 'Remember thou keep holy the Sabbath day,' and taught to the world by His own mysterious 'rest' after the creation of man: 'He rested on the seventh day from all His work which He had done.'"
    - **Para. 42 — On Labour Conditions**: "If we turn now to things external and material, the first thing of all to secure is to save unfortunate working people from the cruelty of men of greed, who use human beings as mere instruments for money-making. It is neither just nor human so to grind men down with excessive labor as to stupefy their minds and wear out their bodies... Daily labor, therefore, should be so regulated as not to be protracted over longer hours than strength admits."
    - **Significance**: Paragraph 41 is a remarkable theological sleight of hand: Leo XIII justifies Sunday rest by citing two divine authorities — the fourth commandment ("Remember thou keep holy the Sabbath day") and God's own rest on the seventh day at creation. Both of these citations point explicitly to the *seventh day*, not the first. Yet he applies their authority to Sunday (the first day). In other words, a pope is borrowing the divine weight of the Sabbath commandment — which specifies Saturday — to command observance of a different day entirely, without ever explaining or acknowledging the contradiction. This is precisely what other Catholic sources in this collection openly admit: there is no biblical authority for Sunday, only the authority of the Church. Leo XIII obscures this by conflating the seventh-day Sabbath with Sunday, presenting state-enforced Sunday observance as though it were the fulfilment of God's own law — the exact convergence of religious and civil authority that Revelation 13 describes in prophetic terms
-   - 📄 **Source Document**: [View Original — Rerum Novarum (May 15, 1891)](Supporting%20Documents/Quote%2043%20-%20Rerum%20Novarum%20(May%2015,%201891).pdf)
+   - 📄 **Source Document**: [View Original — Rerum Novarum (May 15, 1891)](Supporting%20Documents/Quote_43-Rerum_Novarum_May_15_1891.pdf)
 
 44. **Pope Pius XII, *Mediator Dei*** (Encyclical on Sacred Liturgy, 1947), Section 150:
    - Major encyclical defining Catholic worship theology
    - **On Sunday**: " Let the public and private observance of the feasts of the Church, which are in a special way dedicated and consecrated to God, be kept inviolable; and especially the Lord's day which the Apostles, under the guidance of the Holy Ghost, substituted for the sabbath"
    - **Significance**: Pius XII attributes the Sunday substitution directly to "the Apostles, under the guidance of the Holy Ghost" — yet no New Testament text records any apostle commanding Sunday worship or declaring the Sabbath abolished. This papal claim directly contradicts Protestant church historians (Schaff, Neander) and even other Catholic sources that acknowledge the change occurred gradually through church authority centuries after the apostles. By invoking the Holy Ghost, Pius XII attempts to grant divine sanction to a change that Catholic apologists elsewhere openly admit was made by the Church's own authority, not by Scripture or apostolic command
-   - 📄 **Source Document**: [View Original — Mediator Dei (November 20, 1947)](Supporting%20Documents/Quote%2045%20-%20Mediator%20Dei%20(November%2020,%201947).pdf)
+   - 📄 **Source Document**: [View Original — Mediator Dei (November 20, 1947)](Supporting%20Documents/Quote_45-Mediator_Dei_November_20_1947.pdf)
 
 45. **Pope Pius XII, *Mediator Dei*** (Encyclical on Sacred Liturgy, 1947), Section 49:
    - Major encyclical defining Catholic worship theology
    - **Church Authority**: "   From time immemorial the ecclesiastical hierarchy has exercised this right in matters liturgical. It has organized and regulated divine worship, enriching it constantly with new splendor and beauty, to the glory of God and the spiritual profit of Christians. What is more, it has not been slow - keeping the substance of the Mass and sacraments carefully intact - to modify what it deemed not altogether fitting, and to add what appeared more likely to increase the honor paid to Jesus Christ and the august Trinity, and to instruct and stimulate the Christian people to greater advantage"
    - **Significance**: Pius XII explicitly claims the ecclesiastical hierarchy holds an inherent, ancient right to modify divine worship — including adding, removing, or changing what "it deemed not altogether fitting." This is the precise theological foundation on which the Catholic Church justifies the Sabbath-to-Sunday transfer: not a biblical command, but the hierarchy's self-asserted power to reshape God's own worship ordinances. The phrase "from time immemorial" is used to normalize what is, in fact, a human institution substituted for a divine commandment — the same authority claimed by every Catholic source in this collection that defends the Sabbath change
-   - 📄 **Source Document**: [View Original — Mediator Dei (November 20, 1947)](Supporting%20Documents/Quote%2045%20-%20Mediator%20Dei%20(November%2020,%201947).pdf)
+   - 📄 **Source Document**: [View Original — Mediator Dei (November 20, 1947)](Supporting%20Documents/Quote_45-Mediator_Dei_November_20_1947.pdf)
 
 46. **Catholic Mirror (Official Organ of Cardinal Gibbons), Additional Editorial**:
    - Same September 1893 series as item 1, continued editorial analysis
@@ -346,7 +346,7 @@
    - Jesuit theological manual for advanced Catholic students
    - **Quote**: "We have seen (n. 314) that God in the Old Law- had appointed the last day of the week, the Sabbath, to be specially consecrated to His honor. No power but God's could have dispensed with this obliga tion. We do not read that Christ did so; on the contrary, we know that He observed it Himself. And jet we also know that the Church abolished the obligation of keeping that day, and in its stead instituted the observance of the Lord's Day, the first day of the week. This fact by itself shows that the Church from the beginning claimed the fulness of power to have been committed to her. to legislate in God's name for the followers of Christ."
    - **Significance**: This Jesuit manual makes an extraordinary three-part admission that dismantles every common defence of Sunday observance: (1) Coppens openly states that *"no power but God's"* could have dispensed with the Sabbath obligation — setting the bar at divine authority; (2) He then explicitly confirms that Christ did NOT exercise that power — *"we do not read that Christ did so; on the contrary, we know that He observed it Himself"* — directly undercutting any claim that Jesus instituted Sunday; (3) He concludes that the Church itself abolished the Sabbath and replaced it with Sunday, and uses this act as proof that the Church holds the "fulness of power to legislate in God's name." In other words, a Jesuit theologian is openly claiming that the Catholic Church wielded God-level authority to override a divine commandment that even Christ left intact — a claim with direct prophetic resonance to Daniel 7:25's description of a power that would "think to change times and laws"
-   - 📄 **Source Document**: [View Original — A Systematic Study of the Catholic Religion (1903), pp. 131–132](Supporting%20Documents/Quote%2047%20-%20A%20Systematic%20Study%20of%20the%20Catholic%20Religion%20(1903),%20pp.%20131%E2%80%93132.pdf)
+   - 📄 **Source Document**: [View Original — A Systematic Study of the Catholic Religion (1903), pp. 131–132](Supporting%20Documents/Quote_47-A_Systematic_Study_of_the_Catholic_Religion_1903_pp._131-132.pdf)
 
    
    QUOTES BELOW DIGITAL SOURCE DOCUMENTS TO BE UPLOADED SOON
@@ -357,13 +357,13 @@
    - **Quote 2**: "The change from Saturday to Sunday was made by the Apostles, though the Bible does not clearly teach Sunday observance."
    - **Quote 3**: "The Church commands us to keep the Sunday holy instead of the Sabbath because on Sunday Christ rose from the dead, and on Sunday He sent the Holy Ghost upon the Apostles."
    - **Significance**: Catholic catechism openly distinguishing Sabbath from Sunday and admitting the Bible "does not clearly teach Sunday observance" — the change is attributed to the Church's authority, not Scripture
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2048%20-%20Advanced-Catechism-cover-640x480.jpg) | [View Pages 180–182](Supporting%20Documents/Quote%2048%20-%20Advanced-pg180-182.gif) | [View Detail](Supporting%20Documents/Quote%2048%20-%20Advanced-Catechism-181-182-640x480.jpg)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_48-Advanced-Catechism-cover-640x480.jpg) | [View Pages 180–182](Supporting%20Documents/Quote_48-Advanced-pg180-182.gif) | [View Detail](Supporting%20Documents/Quote_48-Advanced-Catechism-181-182-640x480.jpg)
 
 49. **Cardinal Humbert quoting Pope Sylvester I (A.D. 314–335)**, *Patrologia Cursus Completus*, J.P. Migne, Vol. 143, col. 937:
    - Cardinal Humbert citing a papal statement on the relationship between the Sabbath and Sunday
    - **Quote**: "If every Lord's day is to be observed joyfully by the Christians on account of the resurrection, then every Sabbath on account of the burial is detestably Jewish. In fact all the disciples of the Lord lamented on the Sabbath, bewailing the buried Lord, and the Jews exulted. But sadness reigned for the fasting apostles. In like manner we are sad, saddened by the burial of the Lord, and rejoice with them in the Lord's resurrection. Neither in fact is it proper to feast [on the Sabbath] as the Jewish custom observed by the Jews."
    - **Significance**: Early papal-era statement framing Sabbath observance as "detestably Jewish" — the theological motivation behind the change is anti-Jewish prejudice dressed as piety, not a biblical command. The day was changed to distinguish Christians from Jews, not because Scripture authorised it.
-   - 📄 **Source Document**: [View Original — Patrologia Cursus Completus, Vol. 143, col. 937](Supporting%20Documents/Quote%2049%20-%20Patrologiæ_cursus_completus.pdf) | [View Column 937](Supporting%20Documents/Quote%2049%20-%20Patrologia%20Cursus%20Completus%2C%201853%2C%20Migne%20J.%20P.%2C%20Volume%20143%2C%20column%20937..png)
+   - 📄 **Source Document**: [View Original — Patrologia Cursus Completus, Vol. 143, col. 937](Supporting%20Documents/Quote_49-Patrologi-cursus_completus.pdf) | [View Column 937](Supporting%20Documents/Quote_49-Patrologia_Cursus_Completus_1853_Migne_J._P._Volume_143_column_937.png)
 
 50. **Catholic Catechism** (anonymous, p. 65):
    - Catholic catechism in question-and-answer format
@@ -371,7 +371,7 @@
    - **Q. 227**: "Which is the Lord's day?"
    - **A**: "The Lord's day is Sunday. Sunday is the first day of the week. On that day God the Father said: 'Be light made;' on that day God the Son arose from the dead; on that day God the Holy Ghost came down upon the Apostles. —The Jews kept holy as the Lord's day the Sabbath, or Saturday, the last day of the week, in memory of the day on which God completed the work of creation."
    - **Significance**: This catechism's own hedging language — "probably by the apostles" — reveals the uncertainty at the heart of the Catholic claim. If the change had clear apostolic or scriptural authority, the word "probably" would never appear. The catechism tacitly concedes that no definitive warrant exists.
-   - 📄 **Source Document**: [View Original — Page 65](Supporting%20Documents/Quote%2050%20-%20Groenings-Catechism-pg-65.gif)
+   - 📄 **Source Document**: [View Original — Page 65](Supporting%20Documents/Quote_50-Groenings-Catechism-pg-65.gif)
 
 51. **Butler's Catechism**, p. 58:
    - Standard Catholic catechism
@@ -380,26 +380,26 @@
    - **Q**: "Did Jesus Christ write the New Scripture?"
    - **A**: "No; he did not write any part of it."
    - **Significance**: Butler's Catechism lists Sunday as a tradition that pre-dates written Scripture — placing it in the same category as unwritten apostolic tradition. Its candid admission that Jesus wrote no part of the New Testament indirectly confirms that there is no written record of Him authorising Sunday; the change rests entirely on tradition.
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2051%20-%20Butler%27s-Catechism-cover-640x480.jpg) | [View Page 58](Supporting%20Documents/Quote%2051%20-%20butlers-pg58.gif)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_51-Butlers-Catechism-cover-640x480.jpg) | [View Page 58](Supporting%20Documents/Quote_51-butlers-pg58.gif)
 
 52. **Catholic Encyclopedia**, article on "Commandments of God":
    - The authoritative English-language Catholic reference work
    - **Quote**: "The Church, on the other hand, after changing the day of rest from the Jewish Sabbath, or seventh day of the week, to the first, made the Third Commandment refer to Sunday as the day to be kept holy as the Lord's Day."
    - **Significance**: The Catholic Encyclopedia's own article on the Commandments openly states the Church "changed the day of rest" and then retroactively "made the Third Commandment refer to Sunday." This is an extraordinary admission: the Commandment itself was not changed by God or Scripture — the Church first changed the day and then re-applied God's law to its own institution. See also *Catholic Encyclopaedia* (1913), "Sunday" (Quote 42 above).
-   - 📄 **Source Document**: [View Original — The Catholic Encyclopedia](Supporting%20Documents/Quote%2052%20-%20The_Catholic_Encyclopedia.pdf) | [View Title Page](Supporting%20Documents/Quote%2052%20-%20The%20Catholic%20Encyclopedia%20The%20Encyclopedia%20Press%201913.png)
+   - 📄 **Source Document**: [View Original — The Catholic Encyclopedia (Google Drive, 163 MB)](https://drive.google.com/file/d/1VVlRREvaSQlhlaDMbRU-egVVporgWZKF/view) | [View Title Page](Supporting%20Documents/Quote_52-The_Catholic_Encyclopedia_The_Encyclopedia_Press_1913.png)
 
 53. **Faerber's Catechism**, p. 41:
    - Catholic catechism in question-and-answer format
    - **Q. 209**: "Which is the Lord's day?"
    - **A**: "Sunday, the first day of the week, is the Lord's day. On Sunday, God the Father began the creation, God the Son arose from the dead, and the Holy Ghost descended from Heaven. —The Jews observed the last day of the week, the Sabbath, and the Apostles, commissioned by our Lord Jesus Christ, substituted for it the first day, the Sunday."
    - **Significance**: Attributes the change to the Apostles acting under Christ's commission — a claim unsupported by any New Testament text. This catechism presents as fact what other Catholic sources acknowledge cannot be found in Scripture.
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2053%20-%20Faerbers-Catechism-cover-640x480.jpg) | [View Page 41](Supporting%20Documents/Quote%2053%20-%20Faerbers-Catechism-PG41-640x480.jpg)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_53-Faerbers-Catechism-cover-640x480.jpg) | [View Page 41](Supporting%20Documents/Quote_53-Faerbers-Catechism-PG41-640x480.jpg)
 
 54. **Vaux's Catechism**, 1583, pp. 34–35:
    - 16th-century Catholic catechism, one of the earliest post-Reformation examples
    - **Quote** (original spelling preserved): "In the law of grace we doe not sanctifie or keepe holy the seuenth day, called the Saturday: but we sanctifie or keepe holy the day following, called the Sunday, or our Lords day: in the which day christ our Lord arose from death, making mankind (that vvas created earthly) a heuenly creation, in the day of his resurrection."
    - **Significance**: A 1583 Catholic catechism — pre-dating the Council of Trent's full implementation — already presents Sunday as the established Christian day with resurrection theology as justification, but no Scripture reference. The tradition was already deeply entrenched centuries before the Reformation ended; Protestants were born into it and simply carried it forward.
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2054%20-%20Vaux%27s-Catechism-cover-640x480.jpg) | [View Pages 34–35](Supporting%20Documents/Quote%2054%20-%20vauxs-catechism.gif)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_54-Vauxs-Catechism-cover-640x480.jpg) | [View Pages 34–35](Supporting%20Documents/Quote_54-vauxs-catechism.gif)
 
 55. **Catholic Catechism** (Third Commandment, pp. 106–107):
    - Catholic catechism — extended teaching on Sunday observance
@@ -409,7 +409,7 @@
    - **Q**: "What are we commanded by the third commandment?"
    - **A**: "We are commanded to keep the Sunday holy. By hearing Mass, and resting from servile works."
    - **Significance**: Even while attributing the change to the Apostles, the catechism's own words undermine that claim — Quote 3 openly states Sunday is known to be holy "only from the tradition and teaching of the Catholic Church," not from Scripture. The two statements cannot both be true; the frank admission in Quote 3 is the operative one.
-   - 📄 **Source Document**: [View Original — Catechism Made Easy](Supporting%20Documents/Quote%2055%20-%20Catechism_made_easy_a_familiar_explanati.pdf) | [View Page 1](Supporting%20Documents/Quote%2055%20-%20Catechism%20Made%20Easy%201.png) | [View Page 2](Supporting%20Documents/Quote%2055%20-%20Catechism%20Made%20Easy%202.png)
+   - 📄 **Source Document**: [View Original — Catechism Made Easy](Supporting%20Documents/Quote_55-Catechism_made_easy_a_familiar_explanati.pdf) | [View Page 1](Supporting%20Documents/Quote_55-Catechism_Made_Easy_1.png) | [View Page 2](Supporting%20Documents/Quote_55-Catechism_Made_Easy_2.png)
 
 56. **Catechism of Perseverance**, pp. 195–196:
    - Abbé J. Gaume's multi-volume Catholic catechetical work (also cited as Quote 38 above)
@@ -420,14 +420,14 @@
    - **Q**: "What are we commanded by the third commandment?"
    - **A**: "We are commanded the performance of good works in general in order to sanctify the Sunday; but the Church prescribes one in particular, under the pain of mortal sin; that is, to assist at mass."
    - **Significance**: Sunday Mass attendance is explicitly an ecclesiastical precept "under pain of mortal sin" — Church law, not biblical commandment. The reason given for Sunday is anti-Jewish theology ("to show that all the Jewish ceremonies are abolished"), confirming the change was motivated by religious politics, not Scripture.
-   - 📄 **Source Document**: [View Title Page](Supporting%20Documents/Quote%2056%20-%20perseverance-title.gif) | [View Page 66](Supporting%20Documents/Quote%2056%20-%20perseverance-p66.gif) | [View Page 195](Supporting%20Documents/Quote%2056%20-%20perseverance-p195.gif) | [View Page 196](Supporting%20Documents/Quote%2056%20-%20perseverance-p196.gif) | [View Pages 246–247](Supporting%20Documents/Quote%2056%20-%20perseverance-p246-247.gif)
+   - 📄 **Source Document**: [View Title Page](Supporting%20Documents/Quote_56-perseverance-title.gif) | [View Page 66](Supporting%20Documents/Quote_56-perseverance-p66.gif) | [View Page 195](Supporting%20Documents/Quote_56-perseverance-p195.gif) | [View Page 196](Supporting%20Documents/Quote_56-perseverance-p196.gif) | [View Pages 246–247](Supporting%20Documents/Quote_56-perseverance-p246-247.gif)
 
 57. **Catechism of Perseverance**, pp. 348–349:
    - Same work as Quote 56 (also Quote 38 above), different section
    - **Q**: "Which is the first festival of the church?"
    - **A**: "The first festival of the church is the Sunday. Among all nations there is a day consecrated to the service of God. The apostles consecrated Sunday to the worship of God, in memory of the resurrection of our Lord; so that the Sunday stands a perpetual monument of this great miracle."
    - **Significance**: Claims apostolic authority for Sunday, but no New Testament text records any apostle "consecrating" Sunday. The Catechism of Perseverance in Quote 56 already admitted Sunday is kept by Church precept "under pain of mortal sin" — a Church law, not an apostolic decree.
-   - 📄 **Source Document**: [View Original — Pages 348–349](Supporting%20Documents/Quote%2057%20-%20perseverance-p348-349.gif)
+   - 📄 **Source Document**: [View Original — Pages 348–349](Supporting%20Documents/Quote_57-perseverance-p348-349.gif)
 
 58. **The Catechism Simply Explained**, p. 89:
    - Catholic catechism (also known as Cafferata's catechism — see also Quote 11 and Quote 75 below)
@@ -437,13 +437,13 @@
    - **A**: "By the third Commandment we are commanded to keep Sunday holy."
    - **Quote on Protestants**: "The Sabbath was Saturday, not Sunday; why, then, do we keep Sunday holy instead of Saturday? The Church altered the observance of the Sabbath to the observance of Sunday in commemoration of our Lord having risen from the dead on Easter Sunday, and of the Holy Ghost having descended upon the apostles on Whit Sunday. Protestants who say that they go by the Bible and the Bible only, and that they do not believe anything that is not in the Bible, must be rather puzzled by the keeping of Sunday when God distinctly said, 'Keep holy the Sabbath Day.' The word Sunday does not come anywhere in the Bible, so, without knowing it, they are obeying the authority of the Catholic Church."
    - **Significance**: Tells Protestants directly — "without knowing it, they are obeying the authority of the Catholic Church." The word "Sunday" does not appear in the Bible at all. This is the same catechism cited in slightly varied form as Quote 11 (Cafferata) and Quote 75 below.
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2058%20-%20Cafferata-cover-640x480.jpg) | [View Page 89](Supporting%20Documents/Quote%2058%20-%20Cafferata-pg89-150dpi.gif) | [View Page 89 (Detail A)](Supporting%20Documents/Quote%2058%20-%20Cafferata-pg89A-640x480.jpg) | [View Page 89 (Detail B)](Supporting%20Documents/Quote%2058%20-%20Cafferata-pg89B-640x480.jpg)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_58-Cafferata-cover-640x480.jpg) | [View Page 89](Supporting%20Documents/Quote_58-Cafferata-pg89-150dpi.gif) | [View Page 89 (Detail A)](Supporting%20Documents/Quote_58-Cafferata-pg89A-640x480.jpg) | [View Page 89 (Detail B)](Supporting%20Documents/Quote_58-Cafferata-pg89B-640x480.jpg)
 
 59. **Kansas City Catholic**, Feb. 9, 1893 (cited in *History of the Sabbath*, p. 802):
    - Catholic periodical
    - **Quote**: "The Catholic Church of its own infallible authority created Sunday a holy day to take the place of the Sabbath of the old law."
    - **Significance**: Concise and unambiguous — the Church claims "infallible authority" as the sole basis for Sunday. No Scripture, no apostolic mandate — only the Church's own self-declared authority.
-   - 📄 **Source Document**: [View Original — History of the Sabbath, p. 802](Supporting%20Documents/Quote%2059%20-%20History-of-Sabbath-pg802.gif)
+   - 📄 **Source Document**: [View Original — History of the Sabbath, p. 802](Supporting%20Documents/Quote_59-History-of-Sabbath-pg802.gif)
 
 60. **Father C. Enright, C.S.S.R.**, Redemptoral College, Kansas City, Mo., June 1893 (cited in *History of the Sabbath*, p. 802):
    - Catholic priest's public challenge (see also the longer version in Quote 21 above)
@@ -454,13 +454,13 @@
    - Official organ of Cardinal Gibbons — same publication series as Quotes 1 and 46 above
    - **Quote**: "Reason and common sense demand the acceptance of one or the other of these alternates: either Protestantism and the keeping holy of Saturday, or Catholicity and the keeping of Sunday. Compromise is impossible."
    - **Significance**: The Catholic Mirror's December 1893 editorial restates the ultimatum from the September series (Quotes 1 and 46): Saturday or Sunday — there is no middle ground. Protestants who keep Sunday while claiming *sola scriptura* have chosen Catholic Sunday without Catholic authority.
-   - 📄 **Source Document**: [View Original — History of the Sabbath, p. 802](Supporting%20Documents/Quote%2061%20-%20History-of-Sabbath-pg802.gif)
+   - 📄 **Source Document**: [View Original — History of the Sabbath, p. 802](Supporting%20Documents/Quote_61-History-of-Sabbath-pg802.gif)
 
 62. **Dictionary of the Liturgy**, Rev. Jovian P. Lang OFM, p. 604:
    - Official Catholic liturgical reference dictionary (see also Quote 37 above)
    - **Quote**: "Distinctive of the Roman Catholic Church, Sunday Mass observance became a mark of a practicing Catholic."
    - **Significance**: Sunday Mass is the defining "mark" of Catholic practice — the outward sign identifying someone as belonging to Rome. The liturgical dictionary of the Catholic Church itself uses the word *mark* in this context. See also C.F. Thomas (Quote 20) and the Catholic Record (Quote 26) on Sunday as the "MARK of [Catholic] authority."
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2062%20-%20Dictionary-Liturgy-cover.gif) | [View Page 604](Supporting%20Documents/Quote%2062%20-%20Dictionary-Liturgy-pg-604.gif)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_62-Dictionary-Liturgy-cover.gif) | [View Page 604](Supporting%20Documents/Quote_62-Dictionary-Liturgy-pg-604.gif)
 
 63. **Catholic Catechism**, pp. 188–189 (Third Commandment section):
    - Catholic catechism in question-and-answer format
@@ -468,20 +468,20 @@
    - **A**: "It is Saturday. Then why do we not keep Saturday holy? Because the Church, in the Apostles' time, transferred the obligation from the Seventh to the First day of the week. Why was this done? In honor of Jesus Christ; and therefore the First day of the week is called 'The Lord's day.'"
    - **Quote on Protestants**: "Protestants profess to learn the whole of their Religion from the Bible; but where does the Bible tell them that the obligation of the Sabbath is transferred from the Seventh to the First day of the week?"
    - **Significance**: The catechism directly challenges Protestants — "where does the Bible tell them?" — because no such text exists. The transfer is admitted to be a Church act, and the Protestant world's acceptance of it is held up as silent proof of Catholic authority.
-   - 📄 **Source Document**: [View Original — Pages 188–189](Supporting%20Documents/Quote%2063%20-%20Perrys-1860-pgs188-189(Update%20Name).gif)
+   - 📄 **Source Document**: [View Original — Pages 188–189](Supporting%20Documents/Quote_63-Perrys-1860-pgs188-189Update_Name.gif)
 
 64. **Life in Christ: Instructions in the Catholic Faith**, Killgallon & Weber, p. 245:
    - Catholic instructional text for the faithful
    - **Q. 12**: "Why did the Church change the Lord's Day from the Sabbath to Sunday? The Church, using the power of binding and loosing which Christ gave to the pope, changed the Lord's Day to Sunday because it was on Sunday (the first day of the week) that Christ rose from the dead and that the Holy Spirit descended upon the apostles."
    - **Additional Quote**: "Let the public and private observance of the feasts of the Church, which are in a special way dedicated and consecrated to God, be kept inviolable; and especially the Lord's day which the apostles, under the guidance of the Holy Ghost, substituted for the Sabbath."
    - **Significance**: Grounds the change in Matthew 16:19 ("binding and loosing") — papal authority, not Scripture. The second quote (attributed to the apostles "under the Holy Ghost") repeats the claim made in *Mediator Dei* (Quote 44) — a claim for which there is no New Testament evidence.
-   - 📄 **Source Document**: [View Original — Life in Christ, p. 245](Supporting%20Documents/Quote%2064%20-%20Life%20in%20Christ%20instructions%20in%20the%20Catholic%20faith.png)
+   - 📄 **Source Document**: [View Original — Life in Christ, p. 245](Supporting%20Documents/Quote_64-Life_in_Christ_instructions_in_the_Catholic_faith.png)
 
 65. **Quote 65 - The_Papal_Controversy_Involving_the_Clai**, p. 179:
    - Catholic apologetic text addressing Protestant objections
    - **Quote**: "From the same Catholic Church you have accepted your Sunday, and that Sunday, as the Lord's day, she has handed down as a tradition; and the entire Protestant world has accepted it as tradition, for you have not an iota of Scripture to establish it. Therefore that which you have accepted as your rule of faith, inadequate as it of course is, as well as your Sunday, you have accepted on the authority of the Roman Catholic Church."
    - **Significance**: Catholics challenge Protestants point-blank — "you have not an iota of Scripture" for Sunday. The Protestant world accepted it as tradition from Rome. Their rule of faith (*sola scriptura*) is called "inadequate" precisely because they apply it inconsistently; they follow Rome on Sunday while claiming to follow only the Bible.
-   - 📄 **Source Document**: [View Original — The Papal Controversy](Supporting%20Documents/Quote%2065%20-%20The_Papal_Controversy_Involving_the_Clai.pdf) | [View Title Page](Supporting%20Documents/Quote%2065%20-%20The%20Papal%20controversy%20involving%20the%20claim%20of%20the%20Roman%20Catholic%20Church%20to%20the%20church%20of%20God.png)
+   - 📄 **Source Document**: [View Original — The Papal Controversy](Supporting%20Documents/Quote_65-The_Papal_Controversy_Involving_the_Clai.pdf) | [View Title Page](Supporting%20Documents/Quote_65-The_Papal_controversy_involving_the_claim_of_the_Roman_Catholic_Church_to_the_church_of_God.png)
 
 66. **Radio Replies**, pp. 235–237:
    - Catholic apologetics Q&A series, widely distributed for answering Protestant questions
@@ -489,13 +489,13 @@
    - **Q. 1162**: "What are the reasons for the selection of Sunday rather than Saturday? After Christ's resurrection and the establishment of the Church of the New Law, Christians kept the substance of the Old Law in this matter by still retaining one day out of seven. But the Apostles, as I have said, changed the specification of the day to Sunday... The Sabbath, God's rest day, was transferred from Saturday to Sunday."
    - **Q. 1163**: "Does Scripture in any way justify such a change as a fact? Yes. Christ, of course, accepting the Old Law prior to fulfilling and perfecting it by His new revelation, observed Saturday. But He Himself prepared the way for the change of day."
    - **Significance**: *Radio Replies* attempts to reframe the Sabbath as partly ceremonial (the specific day) and partly essential (one day in seven), then claims the Church legitimately changed the ceremonial element. This is the most sophisticated Catholic defence of Sunday — but it is self-refuting: if the day is merely ceremonial, the Fourth Commandment specifies Saturday as that ceremonial day. The Church changed it by its own authority. Q. 1163's appeal to Scripture is notably vague — no specific text is cited.
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2066%20-%20Radio-Replies-1-cover-title.jpg) | [View Page 235](Supporting%20Documents/Quote%2066%20-%20Radio-Replies-1-pg235.gif) | [View Pages 236–237](Supporting%20Documents/Quote%2066%20-%20Radio-Replies-1-pgs236-237.gif)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_66-Radio-Replies-1-cover-title.jpg) | [View Page 235](Supporting%20Documents/Quote_66-Radio-Replies-1-pg235.gif) | [View Pages 236–237](Supporting%20Documents/Quote_66-Radio-Replies-1-pgs236-237.gif)
 
 67. **Our Sunday Visitor**, Oct. 26, 1913:
    - Major Catholic weekly newspaper
    - **Quote**: "Is it true that the Catholic Church substituted the observance of Sunday for the observance of the Bible Sabbath?... It is true that Protestants contradict their 'Bible only' theory by keeping the Sunday instead of Saturday, because nowhere in the Bible can a clear text be found to show that Christ changed the day of worship from Saturday to Sunday. From tradition only, which Protestants claim to reject, can Sunday observance be justified."
    - **Significance**: "Nowhere in the Bible can a clear text be found" — Catholic newspaper, 1913. "From tradition only... can Sunday observance be justified" — the admission that settles the question. Protestants who reject tradition have no basis for Sunday.
-   - 📄 **Source Document**: [View Original — Our Sunday Visitor, Oct. 26, 1913](Supporting%20Documents/Quote%2067%20-%20OSV-Oct26-1913.gif)
+   - 📄 **Source Document**: [View Original — Our Sunday Visitor, Oct. 26, 1913](Supporting%20Documents/Quote_67-OSV-Oct26-1913.gif)
 
 68. **Rev. Philip Carrington, Anglican Archbishop of Quebec** (Toronto, Oct. 27 — newspaper report):
    - This entry, while included in the original *Quotes.md* numbering sequence, is an Anglican (Protestant) source and has been relocated to the Protestant section of this document. See the Protestant Admissions section (Quote 33, Phillip Carrington, Archbishop of Quebec).
@@ -506,7 +506,7 @@
    - **Q. 640**: "Why was Sunday set aside as the Lord's day in place of the Sabbath of the Old Testament?"
    - **A**: "Sunday was set aside as the Lord's day in place of the Sabbath of the Old Testament because of an apostolic tradition which took its origin from the day of Christ's resurrection."
    - **Significance**: Attributes Sunday to "apostolic tradition" — not Scripture, not a direct command of Christ. This is an honest admission: the basis is tradition, and the tradition is attributed to the apostles without any New Testament text to confirm it.
-   - 📄 **Source Document**: [View Original — St. Paul Family Catechism, p. 253](Supporting%20Documents/Quote%2069-%20family-catechism.gif)
+   - 📄 **Source Document**: [View Original — St. Paul Family Catechism, p. 253](Supporting%20Documents/Quote_69-family-catechism.gif)
 
 70. **Challoner, *The Catholic Christian Instructed***, 1852, pp. 202–204:
    - Standard Catholic instructional work by Bishop Richard Challoner
@@ -519,13 +519,13 @@
    - **Q**: "But has the Church a power to make any alterations in the commandments of God?"
    - **A**: "...as far as it prescribes the seventh day in particular for this purpose, it is no more than a ceremonial precept of the old law, which obligeth not Christians. And therefore, instead of the seventh day, and other festivals appointed by the old law, the Church has prescribed the Sundays and holydays to be set apart for God's worship."
    - **Significance**: Challoner's two-part defence — (1) Scripture does not command Sunday ("the scripture does not in particular mention this change"), (2) Church authority suffices — is the standard Catholic position stated with unusual clarity. The admission is complete: no scriptural authority; only Church authority.
-   - 📄 **Source Document**: [View Original — Challoner, The Catholic Christian Instructed, 1852](Supporting%20Documents/Quote%2070%20-%20challoner-1852.gif)
+   - 📄 **Source Document**: [View Original — Challoner, The Catholic Christian Instructed, 1852](Supporting%20Documents/Quote_70-challoner-1852.gif)
 
 71. **The Sign-Post**, Vol. 21, No. 1, August 1941, pp. 47–48:
    - Catholic periodical
    - **Quote**: "Sunday in Place of Sabbath — The Apostles could not change the Sabbath into the Sunday; they remain distinct days of the week. But what the Apostles and their successors did was to transfer the obligations attaching to the Sabbath, divine worship and cessation from servile work, to the Sunday. This was done gradually, and it was not until about the second century of the Christian era that the observance of the Sunday in place of the Sabbath became universal."
    - **Significance**: A remarkable self-correction within Catholic literature: the Apostles "could not change the Sabbath into Sunday" — the days remain distinct. The obligations were gradually transferred by the Church over centuries. "Not until about the second century" — confirming what Protestant historians Schaff and Neander also state: no apostolic decree, only a slow ecclesiastical process.
-   - 📄 **Source Document**: [View Original — The Sign-Post, August 1941](Supporting%20Documents/Quote%2071%20-%20sign-1941.gif)
+   - 📄 **Source Document**: [View Original — The Sign-Post, August 1941](Supporting%20Documents/Quote_71-sign-1941.gif)
 
 72. **Teacher's Handbook to the Catechism**, 1903, pp. 113, 116:
    - Catholic educational handbook for catechism teachers
@@ -536,19 +536,19 @@
    - **Q6**: "But if God in the Old Law commanded the seventh day to be kept holy, who ordained that the first day of the week should be celebrated?"
    - **A**: "The apostles ordained the first day to be celebrated."
    - **Significance**: This teacher's handbook makes multiple admissions in close succession: (1) "No absolute command in Holy Writ" for Sunday — the clearest possible admission; (2) For the "first centuries" many Christians kept *both* Saturday and Sunday — the change was not immediate or apostolic; (3) Bishops "tried for a long time in vain" to suppress Saturday worship — confirming the transition required centuries of ecclesiastical coercion; (4) The Council of Laodicea (c. 363–364) eventually forced the issue by decree. Q6's claim that "the apostles ordained" Sunday is directly contradicted by the handbook's own historical account in Quote 2.
-   - 📄 **Source Document**: [View Original — Teacher's Handbook to the Catechism, 1903](Supporting%20Documents/Quote%2072%20-%20handbook-urban.gif)
+   - 📄 **Source Document**: [View Original — Teacher's Handbook to the Catechism, 1903](Supporting%20Documents/Quote_72-handbook-urban.gif)
 
 73. **James Cardinal Gibbons, D.D.**, Introductory chapter, *The Cross and the Flag*:
    - Personal statement by Cardinal Gibbons (Archbishop of Baltimore) — see also Quotes 27 and 27a above
    - **Quote**: "The Divine institution of a day of rest from ordinary occupations and of religious worship, transferred by the authority of the Church from the Sabbath, the last day, to Sunday, the first day of the week, has always been revered in this country, has entered into our legislation and customs, and is one of the most patent signs that we are a Christian people."
    - **Significance**: Cardinal Gibbons himself states the Sabbath was "transferred by the authority of the Church" — not by Christ, not by the apostles, not by Scripture. The transfer has "entered into our legislation" — confirming that civil law enforcing Sunday rest is the direct outworking of Catholic ecclesiastical authority. See also *Dies Domini* (Quote 39) and Constantine's Edict (Early Church section, Quote 1).
-   - 📄 **Source Document**: [View Original — The Cross and the Flag](Supporting%20Documents/Quote%2073%20-%20cross-and-flag.gif)
+   - 📄 **Source Document**: [View Original — The Cross and the Flag](Supporting%20Documents/Quote_73-cross-and-flag.gif)
 
 74. **Rebuilding a Lost Faith**, p. 80:
    - Catholic apologetic work
    - **Quote**: "The first positive command in the Decalogue is to 'Remember the Sabbath Day to keep it holy,' and this precept was enforced by the Jews for thousands of years. But the Sabbath Day, the observance of which God commanded, was our Saturday. Yet who among either Catholics or Protestants, except a sect or two, like the 'Seventh Day Baptists,' ever keep that commandment now? None. Why is this? The Bible, which Protestants claim to obey exclusively, gives no authorisation for the substitution of the first day of the week for the seventh. On what authority, therefore, have they done so? Plainly on the authority of that very Catholic Church which they abandoned, and whose traditions they condemn."
    - **Significance**: Poses the question every Protestant must answer: you keep Sunday, the Bible gives no authority for it, you abandoned Catholic authority — so on what basis do you keep it? The logic is airtight; the only honest answer is that Protestants follow a Catholic tradition while claiming to reject Catholicism.
-   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote%2074%20-%20Rebuilding-cover-640x480.jpg) | [View Original — Rebuilding a Lost Faith, p. 80](Supporting%20Documents/Quote%2074%20-%20stoddard.gif)
+   - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_74-Rebuilding-cover-640x480.jpg) | [View Original — Rebuilding a Lost Faith, p. 80](Supporting%20Documents/Quote_74-stoddard.gif)
 
 75. **Cafferata, *Catechism Simply Explained***, 1932, p. 89:
    - *(Note: this is the 1932 edition of the same work cited as Quote 58 and Quote 11 above. The text is essentially identical to Quote 58, confirming the consistency of this catechism across printings.)*
@@ -559,7 +559,7 @@
    - **A**: "By the third Commandment we are commanded to keep Sunday holy."
    - **Quote on Protestants**: "A word about Sunday. God said, 'Remember that thou keep holy the Sabbath Day.' The Sabbath was Saturday, not Sunday; why, then, do we keep Sunday holy instead of Saturday? The Church altered the observance of the Sabbath to the observance of Sunday... Protestants who say that they go by the Bible and the Bible only, and that they do not believe anything that is not in the Bible, must be rather puzzled by the keeping of Sunday when God distinctly said, 'Keep holy the Sabbath Day.' The word Sunday does not come anywhere in the Bible, so, without knowing it, they are obeying the authority of the Catholic Church."
    - **Significance**: Same text as Quote 58. Retained as a separate entry to document the 1932 edition attribution (Cafferata). The consistency of wording across editions and printings confirms this was standard Catholic catechetical teaching across generations.
-   - 📄 **Source Document**: [View Original — Cafferata, Catechism Simply Explained, 1932, p. 89](Supporting%20Documents/Quote%2075%20-%20cafferata.gif)
+   - 📄 **Source Document**: [View Original — Cafferata, Catechism Simply Explained, 1932, p. 89](Supporting%20Documents/Quote_75-cafferata.gif)
 
 76. **The New Question Box**, 1988, pp. 118–120:
    - Modern Catholic Q&A apologetics book, updated edition
@@ -567,7 +567,7 @@
    - **Quote 2**: "The very early Christians changed the 'Sabbath' day to Sunday for a variety of reasons. First, the fact that the resurrection of Jesus is recorded in Scripture as occurring on the first day of the week certainly had much to do with the fact that this seemed the most appropriate day to celebrate the Eucharist to commemorate that event. The first Christians also made a point of changing their days of observance (including fast days) from those prescribed by Jewish law to emphasize their departure from traditions and customs of the people of Israel."
    - **Quote 3**: "Why was the Sabbath changed from Saturday to Sunday, and is there a chance it might be changed back someday?... Christians have, of course, celebrated Sunday as the Lord's Day from the earliest centuries, but the obligation to attend Mass on Sunday, as we know it, is comparatively recent. That obligation, as it now exists in church law, could be removed or modified by the church itself."
    - **Significance**: A 1988 Catholic publication makes admissions across three areas: (1) The Sabbath commandment "could never be interpreted as a commandment referring to Sunday Mass" — the commandment itself cannot be stretched to cover Sunday; (2) The change was motivated partly by anti-Jewish sentiment — "to emphasize their departure from... the people of Israel"; (3) Most remarkably, the Sunday Mass obligation "could be removed or modified by the church itself" — confirming that Sunday is a human ecclesiastical institution, not a divine commandment. If God had commanded it, the Church could not modify or remove it.
-   - 📄 **Source Document**: [View Original — The New Question Box, 1988](Supporting%20Documents/Quote%2076%20-%20new-question-box.gif)
+   - 📄 **Source Document**: [View Original — The New Question Box, 1988](Supporting%20Documents/Quote_76-new-question-box.gif)
 
 **Catholic Apologetic Works Acknowledging the Change**:
 - Multiple Catholic apologetic books and tracts from 19th-20th centuries spanning 1833-2003
@@ -1286,54 +1286,54 @@ The following table maps each Catholic quote to its corresponding primary source
 
 | Quote # | Source Title | Document |
 |---------|-------------|----------|
-| 1 | The Catholic Mirror, 23 Dec 1893 | [📄 View PDF](Supporting%20Documents/Quote%201%20-%20The%20Christian%20Sabbath,%20The%20Catholic%20Mirror,%2023%20Dec%201893.pdf#search=changed%20the%20day%20from%20Saturday%20to%20Sunday) |
-| 2 | Rome's Challenge | [📄 View PDF](Supporting%20Documents/Quote%202%20-%20Romes-Challenge.pdf#search=infallible%20authority) |
+| 1 | The Catholic Mirror, 23 Dec 1893 | [📄 View PDF](Supporting%20Documents/Quote_1-The_Christian_Sabbath_The_Catholic_Mirror_23_Dec_1893.pdf#search=changed%20the%20day%20from%20Saturday%20to%20Sunday) |
+| 2 | Rome's Challenge | [📄 View PDF](Supporting%20Documents/Quote_2-Romes-Challenge.pdf#search=infallible%20authority) |
 | 3 | The Christian Sabbath (Educational Lit.) | *No source document available* |
-| 4 | The Convert's Catechism, 1910 | [📄 View PDF](Supporting%20Documents/Quote%204%20-%20converts-catechism1910.pdf#search=observe%20Sunday%20instead%20of%20Saturday) |
-| 5 | The Question Box (Paulist Fathers) | [📄 View PDF](Supporting%20Documents/Quote%205%20-%20The%20Question%20Box_%20Answers%20to%20Questions%20Received%20on%20Missions%20to%20Non-Catholics.pdf#search=Sabbath) |
-| 6 | Saint Catherine Catholic Church Sentinel, 1995 | [🖼️ View Image](Supporting%20Documents/Quote%206%20-%20Saint%20Catherine%20Catholic%20Church%20Sentinel,%20May%2021,%201995%20(Pastor_s%20Page).jpg) |
+| 4 | The Convert's Catechism, 1910 | [📄 View PDF](Supporting%20Documents/Quote_4-converts-catechism1910.pdf#search=observe%20Sunday%20instead%20of%20Saturday) |
+| 5 | The Question Box (Paulist Fathers) | [📄 View PDF](Supporting%20Documents/Quote_5-The_Question_Box_Answers_to_Questions_Received_on_Missions_to_Non-Catholics.pdf#search=Sabbath) |
+| 6 | Saint Catherine Catholic Church Sentinel, 1995 | [🖼️ View Image](Supporting%20Documents/Quote_6-Saint_Catherine_Catholic_Church_Sentinel_May_21_1995_Pastor_s_Page.jpg) |
 | 7 | Australian Catholic Truth Society Record, 1950 | *No source document available* |
-| 8 | Catholic Universe Bulletin / Dies Domini | [🖼️ View Image](Supporting%20Documents/Quote%208%20-%20Dies%20Domini%20Is%20Saturday%20the%20True%20Sabbath(Catholicism.org).png) · [📄 Full Article](Supporting%20Documents/Quote%208%20-%20Dies%20Domini_%20Is%20Saturday%20the%20True%20Sabbath_%20-%20Catholicism.org%20entire%20article.pdf#search=Sabbath%20to%20Sunday) |
-| 9 | Catechism of the Catholic Church | [📄 View PDF](Supporting%20Documents/Quote%209%20-%20Catechism%20of%20the%20Catholic%20Church%20-%20Current%20Edition.pdf#search=Sunday) |
-| 10 | Dies Domini (Papal Encyclical, 1998) | [📄 View PDF](Supporting%20Documents/Quote%2039%20-%20Dies%20Domini%20(May%2031,%201998)%20quote%2010%20and%2039.pdf#search=Lord%27s%20Day) |
-| 11 | Canon Cafferata, The Catechism Explained | [📄 View PDF](Supporting%20Documents/Quote%2011%20-%20Canon%20Cafferata-%20The%20Catechism%20Explained.pdf#search=substituted%20Sunday%20for%20Saturday) |
-| 12 | Catholic Press, August 25, 1900 | [📄 View PDF](Supporting%20Documents/Quote%2012%20-%20Catholic%20Press,%20August%2025,%201900.pdf#search=Catholic%20institution) |
-| 13 | A Course in Religion for Catholic Schools | [📄 View PDF](Supporting%20Documents/Quote%2013%20-%20A%20Course%20in%20Religion%20for%20Catholic%20High%20Schools%20and%20Academies.pdf#search=Church%20chose%20Sunday) |
-| 14 | Forbidden Sunday and Feast-Day Occupations | [📄 View PDF](Supporting%20Documents/Quote%2014%20-%20Forbidden%20Sunday%20and%20Feast-Day%20Occupations.pdf#search=Sabbath%20was%20Saturday) |
-| 15 | An Abridgment of the Christian Doctrine | [📄 View PDF](Supporting%20Documents/Quote%2015%20-%20An%20Abridgment%20of%20the%20Christian%20Doctrine,%20Rev%20Henry%20Tuberville.pdf#search=substituted%20the%20observance%20of%20Sunday) |
+| 8 | Catholic Universe Bulletin, Aug 14, 1942 | [🖼️ View Image](Supporting%20Documents/Quote_8-Catholic-Universe-Bulletin-Aug-14-1942.gif) · [🖼️ Full Page](Supporting%20Documents/Quote_8-Catholic-Universe-Bulletin-full-page-Aug-14-1942.gif) |
+| 9 | Catechism of the Catholic Church | [📄 View PDF](Supporting%20Documents/Quote_9-Catechism_of_the_Catholic_Church-Current_Edition.pdf#search=Sunday) |
+| 10 | Dies Domini (Papal Encyclical, 1998) | [📄 View PDF](Supporting%20Documents/Quote_39-Dies_Domini_May_31_1998_quote_10_and_39.pdf#search=Lord%27s%20Day) |
+| 11 | Canon Cafferata, The Catechism Explained | [📄 View PDF](Supporting%20Documents/Quote_11-Canon_Cafferata-The_Catechism_Explained.pdf#search=substituted%20Sunday%20for%20Saturday) |
+| 12 | Catholic Press, August 25, 1900 | [📄 View PDF](Supporting%20Documents/Quote_12-Catholic_Press_August_25_1900.pdf#search=Catholic%20institution) |
+| 13 | A Course in Religion for Catholic Schools | [📄 View PDF](Supporting%20Documents/Quote_13-A_Course_in_Religion_for_Catholic_High_Schools_and_Academies.pdf#search=Church%20chose%20Sunday) |
+| 14 | Forbidden Sunday and Feast-Day Occupations | [🖼️ Cover](Supporting%20Documents/Quote_14-Forbidden-cover.jpg) · [🖼️ Page 1](Supporting%20Documents/Quote_14-Forbidden-pg1.gif) · [🖼️ Page 2](Supporting%20Documents/Quote_14-Forbidden-pg2.gif) |
+| 15 | An Abridgment of the Christian Doctrine | [📄 View PDF](Supporting%20Documents/Quote_15-An_Abridgment_of_the_Christian_Doctrine_Rev_Henry_Tuberville.pdf#search=substituted%20the%20observance%20of%20Sunday) |
 | 16 | Our Sunday Visitor, Oct 7, 1951 | *No source document available* |
-| 17 | The Catholic World, March 1894 | [📄 View PDF](Supporting%20Documents/Quote%2017%20-%20The%20catholic%20World.pdf#search=place%20of%20God%20Almighty) |
+| 17 | The Catholic World, March 1894 | [📄 View PDF](Supporting%20Documents/Quote_17-The_catholic_World.pdf#search=place%20of%20God%20Almighty) |
 | 18 | Prompta Bibliotheca (Ferraris) | *No source document available* |
-| 19 | Catholic Doctrine, Council of Trent | [📄 View PDF](Supporting%20Documents/Quote%2019%20-%20Catholic%20Doctrine%20as%20Defined%20by%20the%20Council%20of%20Trent.pdf#search=sanctification%20of%20Sunday) |
+| 19 | Catholic Doctrine, Council of Trent | [📄 View PDF](Supporting%20Documents/Quote_19-Catholic_Doctrine_as_Defined_by_the_Council_of_Trent.pdf#search=sanctification%20of%20Sunday) |
 | 20 | C. F. Thomas Letter, 1895 | *No source document available* |
-| 21 | T. Enright Lecture, 1893 (Hartford Weekly Call) | [📄 View PDF](Supporting%20Documents/Quote%2021%20-%20Hartford%20Weekly%20Call.pdf#search=offered%20%241%2C000) |
-| 22 | Library of Christian Doctrine (Clifton Tracts) | [📄 View PDF](Supporting%20Documents/Quote%2022%20-%20The_Clifton_Tracts,_Volume_4_(IA_CliftonTractsV4).pdf#search=keep%20holy%20the%20Sabbath) |
-| 23 | Plain Talk about the Protestantism of Today | [📄 View PDF](Supporting%20Documents/Quote%2023%20-%20Plain_talk_about_the_Protestantism_of_to-day_(IA_PlainTalkAboutTheProtestantism).pdf#search=homage%20they%20pay) |
+| 21 | T. Enright Lecture, 1893 (Hartford Weekly Call) | [📄 View PDF](Supporting%20Documents/Quote_21-Hartford_Weekly_Call.pdf#search=offered%20%241%2C000) |
+| 22 | Library of Christian Doctrine (Clifton Tracts) | [📄 View PDF](Supporting%20Documents/Quote_22-The_Clifton_Tracts_Volume_4_IA_CliftonTractsV4.pdf#search=keep%20holy%20the%20Sabbath) |
+| 23 | Plain Talk about the Protestantism of Today | [📄 View PDF](Supporting%20Documents/Quote_23-Plain_talk_about_the_Protestantism_of_to-day_IA_PlainTalkAboutTheProtestantism.pdf#search=homage%20they%20pay) |
 | 24 | Albert Smith Letter, 1920 | *No source document available* |
-| 25 | The Faith of Millions (O'Brien) | [📄 View 1938 PDF](Supporting%20Documents/Quote%2025%20-%20Faith%20of%20Millions%20page%20147%20sunday%20claim%206th%20edition%201938.pdf#search=Saturday%20not%20Sunday) · [🖼️ 1974 Image](Supporting%20Documents/Quote%2025%20-%20Faith%20of%20millions%201974%20edition%20quote%20from%20digital%20library.png) |
-| 26 | Catholic Record, Sep 1, 1923 | [📄 View Full](Supporting%20Documents/Quote%2026%20-%20Catholic%20Record%20(full).pdf#search=MARK%20of%20authority) · [📄 Sep 1923](Supporting%20Documents/Quote%2026%20-%20THE%20CATHOLIC%20RECORD%201%20September%201923.pdf) |
-| 27 | The Faith of Our Fathers (Gibbons) | [📄 View PDF](Supporting%20Documents/Quote%2027%20-%20Faith-of-Our-Fathers.pdf#search=not%20find%20a%20single%20line) |
+| 25 | The Faith of Millions (O'Brien) | [📄 View 1938 PDF](Supporting%20Documents/Quote_25-Faith_of_Millions_page_147_sunday_claim_6th_edition_1938.pdf#search=Saturday%20not%20Sunday) · [🖼️ 1974 Image](Supporting%20Documents/Quote_25-Faith_of_millions_1974_edition_quote_from_digital_library.png) |
+| 26 | Catholic Record, Sep 1, 1923 | [📄 View Full](Supporting%20Documents/Quote_26-Catholic_Record_full.pdf#search=MARK%20of%20authority) · [📄 Sep 1923](Supporting%20Documents/Quote_26-THE_CATHOLIC_RECORD_1_September_1923.pdf) |
+| 27 | The Faith of Our Fathers (Gibbons) | [📄 View PDF](Supporting%20Documents/Quote_27-Faith-of-Our-Fathers.pdf#search=not%20find%20a%20single%20line) |
 | 27a | Gibbons Signed Letter | *No source document available* |
 | 28 | The Catholic Virginian, 1947 | *No source document available* |
-| 29 | Manual of Christian Doctrine (Ferres) | [📄 View PDF](Supporting%20Documents/Quote%2029%20-%20Manual%20of%20Christian%20Doctrine.pdf#search=changing%20the%20Sabbath%20into%20Sunday) |
-| 30 | Things Catholics Are Asked About (Scott) | [📄 View PDF](Supporting%20Documents/Quote%2030%20-%20Things_Catholics_Are_Asked_About.pdf#search=Sabbath%20be%20changed) |
+| 29 | Manual of Christian Doctrine (Ferres) | [📄 View PDF](Supporting%20Documents/Quote_29-Manual_of_Christian_Doctrine.pdf#search=changing%20the%20Sabbath%20into%20Sunday) |
+| 30 | Things Catholics Are Asked About (Scott) | [📄 View PDF](Supporting%20Documents/Quote_30-Things_Catholics_Are_Asked_About.pdf#search=Sabbath%20be%20changed) |
 | 31 | Catholic Church Extension Society | *No source document available* |
-| 32 | Controversial Catechism (Keenan) | [📄 View PDF](Supporting%20Documents/Quote%2032%20%26%20Quote%2033%20-%20ADoctrinalCatechism.pdf#search=substituted%20the%20observance%20of%20Sunday) |
-| 33 | A Doctrinal Catechism (Keenan) | [📄 View PDF](Supporting%20Documents/Quote%2032%20%26%20Quote%2033%20-%20ADoctrinalCatechism.pdf#search=infallible%20authority%20created%20Sunday) |
+| 32 | Controversial Catechism (Keenan) | [📄 View PDF](Supporting%20Documents/Quote_32_and_Quote_33-ADoctrinalCatechism.pdf#search=substituted%20the%20observance%20of%20Sunday) |
+| 33 | A Doctrinal Catechism (Keenan) | [📄 View PDF](Supporting%20Documents/Quote_32_and_Quote_33-ADoctrinalCatechism.pdf#search=infallible%20authority%20created%20Sunday) |
 | 34 | This Rock Magazine, June 1997 | *No source document available* |
-| 35 | Our Sunday Visitor, Feb 5, 1950 | [📄 View PDF](Supporting%20Documents/Quote%2035%20-%20Sunday%20Visitor%201950-02-05.pdf#search=Protestants%20regard%20as%20essential) |
+| 35 | Our Sunday Visitor, Feb 5, 1950 | [📄 View PDF](Supporting%20Documents/Quote_35-Sunday_Visitor_1950-02-05.pdf#search=Protestants%20regard%20as%20essential) |
 | 36 | Priest Brady Address, 1903 | *No source document available* |
-| 37 | Dictionary of the Liturgy (Lang) | [🖼️ Page 1](Supporting%20Documents/Quote%2037%20-%20Dictionary%20of%20the%20Liturgy%20by%20Rev.%20Jovian%20P.%20Lang%20-%201.png) · [🖼️ Page 2](Supporting%20Documents/Quote%2037%20-%20Dictionary%20of%20the%20Liturgy%20by%20Rev.%20Jovian%20P.%20Lang%20-%202.png) |
-| 38 | The Catechism of Perseverance | [📄 View PDF](Supporting%20Documents/Quote%2038%20-%20Catechism%20of%20perseverance%20an%20historical,%20doctrinal,%20moral,%20and%20liturgical%20exposition%20of%20the%20Catholic%20religion.pdf#search=Sunday%20Mass) |
-| 39 | Dies Domini (John Paul II, 1998) | [📄 View PDF](Supporting%20Documents/Quote%2039%20-%20Dies%20Domini%20(May%2031,%201998)%20quote%2010%20and%2039.pdf#search=distinguishing%20sign) |
-| 40 | Catechism of the Council of Trent | [📄 View PDF](Supporting%20Documents/Quote%2040%20-%20Catechism_of_the_Council%20of_Trent.pdf#search=Sabbath%20day%20should%20be%20transferred) |
-| 41 | An Essay on the Development of Doctrine | [📄 View PDF](Supporting%20Documents/Quote%2041%20-%20An%20Essay%20on%20the%20Development%20of%20Christian%20Doctrine.pdf#search=development%20of%20doctrine) |
+| 37 | Dictionary of the Liturgy (Lang) | [🖼️ Page 1](Supporting%20Documents/Quote_37-Dictionary_of_the_Liturgy_by_Rev._Jovian_P._Lang-1.png) · [🖼️ Page 2](Supporting%20Documents/Quote_37-Dictionary_of_the_Liturgy_by_Rev._Jovian_P._Lang-2.png) |
+| 38 | The Catechism of Perseverance | [📄 View PDF](Supporting%20Documents/Quote_38-Catechism_of_perseverance_an_historical_doctrinal_moral_and_liturgical_exposition_of_the_Catholic_religion.pdf#search=Sunday%20Mass) |
+| 39 | Dies Domini (John Paul II, 1998) | [📄 View PDF](Supporting%20Documents/Quote_39-Dies_Domini_May_31_1998_quote_10_and_39.pdf#search=distinguishing%20sign) |
+| 40 | Catechism of the Council of Trent | [📄 View PDF](Supporting%20Documents/Quote_40-Catechism_of_the_Council_of_Trent.pdf#search=Sabbath%20day%20should%20be%20transferred) |
+| 41 | An Essay on the Development of Doctrine | [📄 View PDF](Supporting%20Documents/Quote_41-An_Essay_on_the_Development_of_Christian_Doctrine.pdf#search=development%20of%20doctrine) |
 | 42 | The Catholic Encyclopaedia (1913) | *No source document available* |
 | 43 | Rerum Novarum (Leo XIII, 1891) | *No source document available* |
 | 44 | Mediator Dei (Pius XII, 1947) | *No source document available* |
 | 45 | The Treasure of Our Faith (Bettwy) | *No source document available* |
 | 46 | Pope Innocent I Letter (416 AD) | *No source document available* |
-| 47 | Catholic Mirror (Additional Editorial, 1893) | [📄 View PDF](Supporting%20Documents/Quote%201%20-%20The%20Christian%20Sabbath,%20The%20Catholic%20Mirror,%2023%20Dec%201893.pdf#search=changed%20the%20day%20from%20Saturday%20to%20Sunday) *(same series)* |
+| 47 | Catholic Mirror (Additional Editorial, 1893) | [📄 View PDF](Supporting%20Documents/Quote_1-The_Christian_Sabbath_The_Catholic_Mirror_23_Dec_1893.pdf#search=changed%20the%20day%20from%20Saturday%20to%20Sunday) *(same series)* |
 | 48 | A Systematic Study of the Catholic Religion | *No source document available* |
 
 **Coverage**: Source documents now available for the majority of Catholic quotes (48–76 linked). Missing sources are primarily for quotes without surviving digital scans (notably Quote 60 — Fr. Enright letter, and Quote 68 — Anglican placeholder).

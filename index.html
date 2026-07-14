@@ -295,6 +295,19 @@
         </div>
       </div>
 
+      <!-- SCRIPTURE INDEX (books → studies that cite them) -->
+      <div id="scripture-index-page" style="display:none">
+        <div class="si-header">
+          <h1>📇 Scripture Index</h1>
+          <p class="si-intro">Every Bible book cited across the study library. Choose a book to see which studies reference it — then open the study and click any bold reference to read the verse in multiple translations.</p>
+        </div>
+        <div id="si-loading" style="display:none"><div class="spinner"></div><p>Indexing Scripture references across all studies…</p></div>
+        <div id="si-content"></div>
+        <div class="doc-nav-footer">
+          <button onclick="showHome()">⌂ Home</button>
+        </div>
+      </div>
+
       <!-- DOCUMENT VIEW (shown when a doc is selected) -->
       <div id="doc-page" style="display:none">
         <!-- Floating Table of Contents -->

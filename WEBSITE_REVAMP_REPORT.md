@@ -1,7 +1,7 @@
 # Website Revamp — Audit & Change Report
 
-**Date:** 2026-07-10 (Round 1) · 2026-07-14 (Round 2)
-**Scope:** Full-site audit (Phases 1–10 of the revamp brief) and two implementation rounds (Phase 11).
+**Date:** 2026-07-10 (Round 1) · 2026-07-14 (Rounds 2 & 3)
+**Scope:** Full-site audit (Phases 1–10 of the revamp brief) and three implementation rounds (Phase 11).
 **Rule honoured throughout:** *No doctrinal content was modified.* Every change below is design, accessibility, performance, or navigation infrastructure only.
 
 ---
@@ -127,13 +127,43 @@
 
 ---
 
+## Part 2c — Round 3 Changes (2026-07-14)
+
+### 12. URL-safe source-document filenames (`Supporting Documents/`, manifests, Quotes study)
+**What:** All 107 files in `Supporting Documents/` with URL-hostile names (spaces, `&`, `()`, `'`, commas, non-breaking spaces, and mojibake characters like `�`) were renamed via `git mv` (history preserved) to clean underscore/hyphen names — e.g. `Quote 32 & Quote 33 - ADoctrinalCatechism.pdf` → `Quote_32_and_Quote_33-ADoctrinalCatechism.pdf`. The manifest was regenerated (`scripts/generate_source_manifest.py`), and all 98 source-document links inside the Quotes study were rewritten to the new names — including links that used full percent-encoding and links containing parentheses (matched with a balanced-paren parser + fuzzy name matching).
+**Verification:** every one of the 108 manifest entries returns HTTP 200; 95 of 98 links in the Quotes study resolve. The 3 that don't are **pre-existing broken links** whose target files never existed in the repo or the Drive folder: `Quote 8 - Dies Domini…(Catholicism.org).png`, `Quote 8 - Dies Domini… entire article.pdf`, and `Quote 14 - Forbidden Sunday and Feast-Day Occupations.pdf` (only the `.md` and page images exist for Quote 14).
+**Note:** the folder name `Supporting Documents/` itself was kept — a space in a folder name is handled cleanly by URL-encoding everywhere it's used, and renaming it would have touched dozens of references for no practical gain. The genuinely dangerous characters were all in the filenames.
+
+### 13. Oversized PDFs → Google Drive (`assets/app.js`, `.gitignore`, `.gitattributes`, generator)
+**What:** The two files over GitHub's hard 100 MB limit are now served from the owner's public Google Drive folder:
+- `Sabbath History.pdf` (205 MB) — was gitignored, so it 404'd on the live site while still appearing in the manifest (a broken card).
+- `Quote 52 - The_Catholic_Encyclopedia.pdf` (163 MB) — was in Git LFS, which GitHub Pages serves as a useless pointer file (also effectively broken).
+Both were removed from git tracking/LFS (`.gitattributes` cleared, `.gitignore` updated), excluded from the manifest generator, and added to the library as ☁️ "Drive PDF" entries that open in a new tab. The Quote 52 link inside the Quotes study now points to Drive as well. Local copies remain on disk untouched.
+**Hosting recommendation (as asked):** keep everything under ~50 MB on GitHub Pages (same-origin, works in the in-app viewer, cacheable offline); use Google Drive for anything above that. Drive is well suited to big documents — free, reliable, streams large PDFs in its own viewer — with two caveats: files open in a new tab rather than the in-app frame, and if a file is ever re-uploaded (not "Manage versions → replace") its ID changes and the link must be updated. The full Drive folder mapping (111 file IDs) was captured during this work, so extending Drive fallback to more files later is easy.
+
+### 14. Scripture Index (`assets/app.js`, `index.html`, `assets/style.css`)
+**What:** A new **📇 Scripture Index** tool (first card under Interactive Tools, also in the sidebar, deep-linkable as `#doc=__scripture-index__`). It reuses the existing verse-reference detector to scan the full text of every markdown study (piggybacking on the search-index fetch pass — no build step, always current) and maps **every Bible book → the studies that cite it**, grouped Old/New Testament with total citation counts. Selecting a book reveals the studies ranked by citation count, each showing its section and the chapters cited; clicking opens the study, where every bold reference remains clickable for multi-translation comparison. Fully keyboard-accessible.
+**Result on current content:** 64 of 66 Bible books are cited somewhere in the library; Daniel alone is referenced in 26 studies.
+**Why:** This was the top-ranked missing study-flow feature — it lets a reader start from Scripture ("what does this library say about Joel?") instead of from the catalog.
+
+### 15. Dead-link repair in the Quotes study (owner-confirmed)
+**What:** The three remaining dead links in the Source Document Reference Table were fixed per the owner's clarification:
+- **Row 8** wrongly credited "Dies Domini" to the Catholic Universe Bulletin quote — it now links the two Catholic Universe Bulletin page images that actually exist (Dies Domini remains correctly attached to Quote 10, which shares the Quote 39 PDF).
+- **Row 14** linked a PDF that never existed — it now links the actual cover + page 1 + page 2 scans of *Forbidden Sunday and Feast-Day Occupations*.
+**Verification:** all 95 source-document links in the Quotes study now resolve with HTTP 200 — zero broken links remain.
+
+### 16. Drive fallbacks for the remaining large PDFs (`assets/app.js`, `assets/style.css`)
+**What:** The three 60–85 MB PDFs that still ship via GitHub (Quote 35 — Sunday Visitor, Quote 49 — Patrologiæ Cursus Completus, The Catholic Educator) now show a banner above the in-app PDF viewer: "☁️ Large document… Open it on Google Drive ↗", using the Drive file IDs captured from the shared folder. The GitHub copy remains the primary (loads in-app, works offline once cached); Drive is the escape hatch for slow connections or serving failures.
+
+### Round 3 verification
+- Automated jsdom boot test now at **27/27 passing**, including: Scripture Index renders 64 books, Daniel's detail lists 26 studies, the index is deep-linkable, and the Drive-hosted documents appear in navigation.
+- All 108 regenerated manifest entries return HTTP 200 from the local server; `node --check` passes; renames were done with `git mv` so history follows the files.
+
+---
+
 ## Part 3 — Recommended Next Steps (not yet implemented)
 
-Ranked by value vs. effort:
+1. **Content housekeeping** (low effort): delete "- Copy" image duplicates in `Study_guides/images/`, fix the broken `../Commandments.md` link, add the missing Google Fonts link to `salvation_assurance.html`, deduplicate the twice-stored Sabbath Observance PDF.
 
-1. **Content housekeeping** (low effort): delete "- Copy" image duplicates, fix the broken `../Commandments.md` link, add the missing Google Fonts link to `salvation_assurance.html`, deduplicate the twice-stored Sabbath Observance PDF.
-2. **Rename URL-hostile files** (medium): spaces/`&`/`()` in `Supporting Documents/` and folder names; update the JSON manifests to match. Reduces broken-link risk on GitHub Pages.
-3. **Oversized PDFs** (medium): `Sabbath History.pdf` (205 MB) and `Quote 52` (163 MB) exceed GitHub's 100 MB limit — split, compress, or host externally.
-4. **Scripture index page** (medium): a generated index mapping Bible books/chapters → studies that cite them, using the existing verse-reference detector. The single best study-flow feature not yet present.
-
-Completed in Round 2: ~~infographic shared stylesheet~~, ~~map/worldmap offline + resilience~~, ~~prophecy-map accessibility~~, ~~bookmarks & personal notes~~.
+Completed in Round 2: ~~infographic shared stylesheet~~, ~~map/worldmap offline~~, ~~prophecy-map accessibility~~, ~~bookmarks & notes~~.
+Completed in Round 3: ~~rename URL-hostile files~~, ~~oversized PDFs → Drive~~, ~~Scripture index~~, ~~dead-link repair (Quotes study)~~, ~~Drive fallbacks for large PDFs~~.

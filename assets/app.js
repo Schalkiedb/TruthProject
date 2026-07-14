@@ -259,6 +259,14 @@ const LIBRARY = [
     id: "interactive-tools",
     items: [
       {
+        title: "Scripture Index — Find Studies by Bible Book",
+        file: "__scripture-index__",
+        icon: "📇",
+        tag: "Study Tool",
+        tagClass: "green",
+        desc: "Every Bible book cited across the library, with the studies that reference it — trace any prophecy from Genesis to Revelation straight into the relevant study guides.",
+      },
+      {
         title: "Prophecy Watch: Global Alert Map",
         file: "prophecy_map.html",
         icon: "🌍",
@@ -1092,6 +1100,64 @@ const INFOGRAPHICS_SECTION_ID = "infographics";
 const INFOGRAPHICS_ROOT = "infographics/";
 const INFOGRAPHICS_MANIFEST = "assets/infographics-manifest.json";
 
+/* Source documents too large for GitHub (>100 MB per-file limit) are
+   hosted on Google Drive (view access for anyone with the link) and
+   open in a new tab. Folder:
+   https://drive.google.com/drive/folders/1KFwulHXlwJGCsqqax-iYDmuIEf7fJwox */
+const EXTERNAL_SOURCE_DOCS = [
+  {
+    title: "Quote 52 - The Catholic Encyclopedia (1913, full volume)",
+    file: "https://drive.google.com/file/d/1VVlRREvaSQlhlaDMbRU-egVVporgWZKF/view",
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "Primary Catholic source document (163 MB) — hosted on Google Drive; opens in a new tab.",
+  },
+  {
+    title: "Sabbath History (complete volume)",
+    file: "https://drive.google.com/file/d/108yf2w-o-LOPUWvfXx0s4KdLUfByoZ2Z/view",
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "Primary source document (205 MB) — hosted on Google Drive; opens in a new tab.",
+  },
+];
+
+function isExternalUrl(filePath) {
+  return /^https?:\/\//i.test(String(filePath));
+}
+
+/* Large PDFs (60–85 MB) that still ship via GitHub but have a Google
+   Drive fallback for slow connections or if GitHub serving fails. */
+const DRIVE_FALLBACKS = {
+  "Supporting Documents/Quote_35-Sunday_Visitor_1950-02-05.pdf":
+    "https://drive.google.com/file/d/1tezFOZcQwEm1aRSdr2uPbzJeDZmjxvFU/view",
+  "Supporting Documents/Quote_49-Patrologi-cursus_completus.pdf":
+    "https://drive.google.com/file/d/1p3h-rXtiT_7m5nTdSoWtqUPLv-sQVZ9S/view",
+  "Supporting Documents/THE_CATHOLIC_EDUCATOR_A_LIBRARY_OF_CATHOLIC_INSTRUCTION_AND_DEVOTIONClaim_Pope_can_change_divine_law.pdf":
+    "https://drive.google.com/file/d/1E8cmHBs2pcu6VtEVQDo_i72FdsXWvFoM/view",
+};
+
+/** Show/hide the "also on Google Drive" banner above the PDF viewer. */
+function updateDriveFallbackBanner(filePath) {
+  let banner = document.getElementById("drive-fallback-banner");
+  const driveUrl = DRIVE_FALLBACKS[filePath];
+  if (!driveUrl) {
+    if (banner) banner.style.display = "none";
+    return;
+  }
+  if (!banner) {
+    banner = document.createElement("div");
+    banner.id = "drive-fallback-banner";
+    const iframe = document.getElementById("doc-iframe");
+    iframe.parentNode.insertBefore(banner, iframe);
+  }
+  banner.innerHTML =
+    `☁️ Large document (60–85 MB). Slow to load or not displaying? ` +
+    `<a href="${driveUrl}" target="_blank" rel="noopener noreferrer">Open it on Google Drive ↗</a>`;
+  banner.style.display = "";
+}
+
 function isPdfFile(filePath) {
   return String(filePath).toLowerCase().endsWith(".pdf");
 }
@@ -1405,7 +1471,7 @@ async function populateSourceDocumentsSection() {
     naturalSortCompare(formatSourceDocTitle(a), formatSourceDocTitle(b)),
   );
 
-  sourceSection.items = sourceFiles.map((filePath) => {
+  const localItems = sourceFiles.map((filePath) => {
     const kind = getSourceDocumentKind(filePath);
     const isImage = kind === "image";
     return {
@@ -1417,6 +1483,11 @@ async function populateSourceDocumentsSection() {
     desc: "Primary Catholic source document.",
   };
   });
+
+  // Merge in Drive-hosted oversized documents, keeping natural title order
+  sourceSection.items = [...localItems, ...EXTERNAL_SOURCE_DOCS].sort((a, b) =>
+    naturalSortCompare(a.title, b.title),
+  );
 
   rebuildAllItems();
 }
@@ -2021,6 +2092,7 @@ window.addEventListener("popstate", routeFromLocation);
 /* ── Show / Hide States ───────────────────────────────────── */
 function showHome(opts) {
   if (!opts || !opts.fromHistory) clearDocHash();
+  hideScriptureIndexPage();
   document.getElementById("home-page").style.display = "";
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "none";
@@ -2065,6 +2137,9 @@ function showHome(opts) {
 }
 
 function showLoading() {
+  hideScriptureIndexPage();
+  const _dfBanner = document.getElementById("drive-fallback-banner");
+  if (_dfBanner) _dfBanner.style.display = "none";
   document.getElementById("home-page").style.display = "none";
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "flex";
@@ -2074,6 +2149,7 @@ function showLoading() {
 }
 
 function showError(msg) {
+  hideScriptureIndexPage();
   document.getElementById("home-page").style.display = "none";
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "none";
@@ -2085,6 +2161,19 @@ function showError(msg) {
 
 /* ── Load & Render Document ───────────────────────────────── */
 async function loadDocument(filePath, fragment, opts) {
+  // Externally hosted documents (Google Drive) open in a new tab
+  if (isExternalUrl(filePath)) {
+    window.open(filePath, "_blank", "noopener,noreferrer");
+    return;
+  }
+
+  // Scripture Index — an in-app view rather than a document
+  if (filePath === SCRIPTURE_INDEX_FILE) {
+    if (!opts || !opts.fromHistory) pushDocHash(filePath);
+    showScriptureIndex();
+    return;
+  }
+
   // Mobile PDF behaviour: open in the browser's native viewer so users can
   // scroll all pages reliably (iOS Safari iframe PDF is often first-page only).
   if (isPdfFile(filePath) && shouldUseNativePdfViewer()) {
@@ -2153,6 +2242,7 @@ async function loadDocument(filePath, fragment, opts) {
       return;
     }
 
+    updateDriveFallbackBanner(filePath);
     const iframe = document.getElementById("doc-iframe");
     const contentEl = document.getElementById("doc-content");
     const docPage = document.getElementById("doc-page");
@@ -3767,6 +3857,7 @@ function buildVideoCard(v) {
 function showVideoCategory(catIdx) {
   const cat = _videosData[catIdx];
   if (!cat) return;
+  hideScriptureIndexPage();
 
   // Hide other views
   document.getElementById("home-page").style.display = "none";
@@ -4088,6 +4179,7 @@ async function buildSearchIndex() {
   _searchIndexBuilt = true;
 
   const mdItems = ALL_ITEMS.filter((item) =>
+    !isExternalUrl(item.file) &&
     !/\.(html|pdf|png|jpe?g|gif)$/i.test(item.file)); // only index markdown
 
   // Fetch with limited concurrency — much faster than one-at-a-time,
@@ -4106,6 +4198,8 @@ async function buildSearchIndex() {
           section: item.sectionLabel || "",
           content: text.substring(0, 50000), // cap to prevent memory issues
         });
+        // Feed the Scripture index from the FULL text (before truncation)
+        indexScriptureRefs(item, text);
       } catch {
         // Skip files that can't be fetched
       }
@@ -4197,6 +4291,210 @@ function showSearchResults(query) {
   });
 
   panel.classList.add("visible");
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCRIPTURE INDEX
+   Maps every Bible book → the studies that cite it, using the
+   same verse-reference detector as the translation lookup. The
+   index is built from the full document texts during the search
+   index pass (background/idle) — no build step required.
+══════════════════════════════════════════════════════════════ */
+const SCRIPTURE_INDEX_FILE = "__scripture-index__";
+
+const CANONICAL_BOOKS = [
+  // Old Testament
+  "Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth",
+  "1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles",
+  "Ezra","Nehemiah","Esther","Job","Psalms","Proverbs","Ecclesiastes","Song of Solomon",
+  "Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel","Amos","Obadiah",
+  "Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi",
+  // New Testament (index 39+)
+  "Matthew","Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians",
+  "Galatians","Ephesians","Philippians","Colossians","1 Thessalonians","2 Thessalonians",
+  "1 Timothy","2 Timothy","Titus","Philemon","Hebrews","James","1 Peter","2 Peter",
+  "1 John","2 John","3 John","Jude","Revelation",
+];
+const NT_START_INDEX = 39;
+
+const _CANONICAL_LOOKUP = (() => {
+  const map = new Map();
+  CANONICAL_BOOKS.forEach((b) => map.set(b.toLowerCase(), b));
+  map.set("psalm", "Psalms");
+  Object.entries(ABBREV_TO_FULL_NAME).forEach(([abbr, full]) => {
+    const canon = full === "Psalms" ? "Psalms" : full;
+    if (CANONICAL_BOOKS.includes(canon)) map.set(abbr, canon);
+  });
+  return map;
+})();
+
+function canonicalBookName(raw) {
+  const key = String(raw).trim().toLowerCase().replace(/\.$/, "").replace(/\s+/g, " ");
+  return _CANONICAL_LOOKUP.get(key) || null;
+}
+
+/** book → Map(file → { count, chapters:Set<number> }) */
+const _scriptureIndex = new Map();
+
+function indexScriptureRefs(item, text) {
+  VERSE_REF_REGEX.lastIndex = 0;
+  let m;
+  while ((m = VERSE_REF_REGEX.exec(text)) !== null) {
+    const ref = m[1];
+    const bm = ref.match(/^((?:\d\s+)?[A-Za-z. ]+?)\s*(\d+)\s*:/);
+    if (!bm) continue;
+    const book = canonicalBookName(bm[1]);
+    if (!book) continue;
+    const chapter = parseInt(bm[2], 10);
+
+    let perFile = _scriptureIndex.get(book);
+    if (!perFile) { perFile = new Map(); _scriptureIndex.set(book, perFile); }
+    let entry = perFile.get(item.file);
+    if (!entry) {
+      entry = { title: item.title, section: item.sectionLabel || "", count: 0, chapters: new Set() };
+      perFile.set(item.file, entry);
+    }
+    entry.count++;
+    if (!Number.isNaN(chapter)) entry.chapters.add(chapter);
+  }
+}
+
+function hideScriptureIndexPage() {
+  const page = document.getElementById("scripture-index-page");
+  if (page) page.style.display = "none";
+}
+
+async function showScriptureIndex() {
+  // Hide other views
+  document.getElementById("home-page").style.display = "none";
+  document.getElementById("doc-page").style.display = "none";
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("error-state").style.display = "none";
+  const vcPage = document.getElementById("video-cat-page");
+  if (vcPage) vcPage.style.display = "none";
+  const pill = document.getElementById("verse-translation-pill");
+  if (pill) pill.style.display = "none";
+  hideTOC();
+  setReadingProgressVisible(false);
+  const addBmBtn = document.getElementById("btn-add-bookmark");
+  if (addBmBtn) addBmBtn.style.display = "none";
+
+  const page = document.getElementById("scripture-index-page");
+  page.style.display = "";
+
+  // Breadcrumb + sidebar highlight
+  document.getElementById("breadcrumb-section").textContent = "Interactive Tools";
+  document.getElementById("breadcrumb-sep").style.display = "";
+  document.getElementById("breadcrumb-title").textContent = "Scripture Index";
+  document.querySelectorAll(".nav-item").forEach((el) => {
+    el.classList.toggle("active", el.dataset.file === SCRIPTURE_INDEX_FILE);
+  });
+  window.scrollTo({ top: 0 });
+
+  // Build (or wait for) the index, then render
+  const loadingEl = document.getElementById("si-loading");
+  if (_scriptureIndex.size === 0) {
+    loadingEl.style.display = "flex";
+    await buildSearchIndex();
+    loadingEl.style.display = "none";
+  }
+  renderScriptureIndex();
+}
+
+let _siSelectedBook = null;
+
+function renderScriptureIndex() {
+  const cont = document.getElementById("si-content");
+  if (!cont) return;
+  cont.innerHTML = "";
+
+  if (_scriptureIndex.size === 0) {
+    cont.innerHTML = '<p class="bm-empty">No Scripture references could be indexed. Please check that the site is served over HTTP (not file://).</p>';
+    return;
+  }
+
+  const groups = [
+    { label: "Old Testament", books: CANONICAL_BOOKS.slice(0, NT_START_INDEX) },
+    { label: "New Testament", books: CANONICAL_BOOKS.slice(NT_START_INDEX) },
+  ];
+
+  groups.forEach((group) => {
+    const present = group.books.filter((b) => _scriptureIndex.has(b));
+    if (present.length === 0) return;
+
+    const h = document.createElement("h2");
+    h.className = "si-group-heading";
+    h.textContent = group.label;
+    cont.appendChild(h);
+
+    const grid = document.createElement("div");
+    grid.className = "si-book-grid";
+    present.forEach((book) => {
+      const perFile = _scriptureIndex.get(book);
+      let total = 0;
+      perFile.forEach((e) => { total += e.count; });
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "si-book" + (book === _siSelectedBook ? " active" : "");
+      btn.innerHTML = `<span class="si-book-name">${escapeHtml(book)}</span><span class="si-book-count">${total}</span>`;
+      btn.setAttribute("aria-pressed", String(book === _siSelectedBook));
+      btn.addEventListener("click", () => {
+        _siSelectedBook = book === _siSelectedBook ? null : book;
+        renderScriptureIndex();
+        if (_siSelectedBook) {
+          const detail = document.getElementById("si-detail");
+          if (detail) detail.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }
+      });
+      grid.appendChild(btn);
+
+      // Render the detail panel directly after the selected book's group
+      if (book === _siSelectedBook) grid.dataset.hasSelection = "1";
+    });
+    cont.appendChild(grid);
+
+    if (_siSelectedBook && present.includes(_siSelectedBook)) {
+      cont.appendChild(buildScriptureDetail(_siSelectedBook));
+    }
+  });
+}
+
+function buildScriptureDetail(book) {
+  const perFile = _scriptureIndex.get(book);
+  const wrap = document.createElement("div");
+  wrap.id = "si-detail";
+  wrap.className = "si-detail";
+
+  const docs = [...perFile.entries()]
+    .map(([file, e]) => ({ file, ...e, chapterList: [...e.chapters].sort((a, b) => a - b) }))
+    .sort((a, b) => b.count - a.count);
+
+  wrap.innerHTML = `<h3 class="si-detail-heading">${escapeHtml(book)} — cited in ${docs.length} ${docs.length === 1 ? "study" : "studies"}</h3>`;
+
+  docs.forEach((doc) => {
+    const row = document.createElement("div");
+    row.className = "si-doc";
+    row.setAttribute("role", "link");
+    row.setAttribute("tabindex", "0");
+    const chapters = doc.chapterList.length
+      ? `ch. ${doc.chapterList.slice(0, 18).join(", ")}${doc.chapterList.length > 18 ? "…" : ""}`
+      : "";
+    row.innerHTML = `
+      <div class="si-doc-main">
+        <div class="si-doc-title">${escapeHtml(doc.title)}</div>
+        <div class="si-doc-sub">${escapeHtml(doc.section)}${chapters ? " · " + escapeHtml(chapters) : ""}</div>
+      </div>
+      <span class="si-doc-count">${doc.count} ref${doc.count === 1 ? "" : "s"}</span>
+    `;
+    const open = () => loadDocument(doc.file);
+    row.addEventListener("click", open);
+    row.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+    });
+    wrap.appendChild(row);
+  });
+
+  return wrap;
 }
 
 /* ══════════════════════════════════════════════════════════════
