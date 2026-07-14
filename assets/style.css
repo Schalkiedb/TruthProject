@@ -2527,6 +2527,123 @@ button.footer-link {
   .si-book-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
 }
 
+/* ── Bible Symbols (highlighter, tooltip, swapper) ────────── */
+.bible-symbol {
+  color: var(--accent-blue);
+  border-bottom: 1px dotted var(--accent-blue);
+  cursor: help;
+  border-radius: 2px;
+  transition: background var(--transition);
+}
+.bible-symbol:hover,
+.bible-symbol:focus-visible {
+  background: rgba(74,127,212,0.12);
+}
+body.light-theme .bible-symbol { color: #2a5fa4; border-bottom-color: #2a5fa4; }
+
+#symbol-tooltip {
+  display: none;
+  position: fixed;
+  z-index: 10600;
+  max-width: 340px;
+  background: var(--bg-panel);
+  border: 1px solid var(--accent-blue);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.55;
+  pointer-events: none;
+}
+#symbol-tooltip .st-sense { margin-bottom: 8px; }
+#symbol-tooltip .st-sense:last-of-type { margin-bottom: 0; }
+#symbol-tooltip .st-label {
+  font-weight: 700;
+  color: var(--accent-blue);
+  font-size: 12px;
+}
+body.light-theme #symbol-tooltip .st-label { color: #2a5fa4; }
+#symbol-tooltip .st-meaning { color: var(--text-primary); margin-top: 2px; }
+#symbol-tooltip .st-refs {
+  color: var(--text-muted);
+  font-size: 10.5px;
+  font-style: italic;
+  margin-top: 3px;
+}
+#symbol-tooltip .st-footer {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.symbol-toggle-btn {
+  display: inline-block;
+  background: none;
+  border: 1px solid rgba(74,127,212,0.35);
+  border-radius: 16px;
+  color: var(--accent-blue);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 12px;
+  margin: -8px 0 16px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.symbol-toggle-btn:hover {
+  background: rgba(74,127,212,0.1);
+  border-color: var(--accent-blue);
+}
+body.light-theme .symbol-toggle-btn { color: #2a5fa4; }
+
+.symbol-swap-view {
+  margin: 0 0 20px;
+  padding: 4px 0 4px 16px;
+  border-left: 3px solid var(--accent-blue);
+  background: rgba(74,127,212,0.05);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.symbol-swap-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-blue);
+  padding: 8px 0 2px;
+}
+body.light-theme .symbol-swap-label { color: #2a5fa4; }
+.symbol-swap-chart-link {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.symbol-swap-view blockquote {
+  margin: 8px 0 10px;
+  border-left: none;
+  background: none;
+  padding: 0 8px 4px 0;
+}
+.symbol-swap-view .bible-symbol.swapped {
+  color: var(--accent-blue);
+  font-weight: 600;
+  font-style: normal;
+  border-bottom: 1px dotted var(--accent-blue);
+  background: rgba(74,127,212,0.09);
+  padding: 0 3px;
+  border-radius: 3px;
+}
+.symbol-swap-view .verse-inline-tag { display: none; }
+.symbol-swap-view .symbol-toggle-btn { display: none; }
+
+@media print {
+  #symbol-tooltip, .symbol-toggle-btn { display: none !important; }
+  .bible-symbol { color: inherit !important; border-bottom: none !important; }
+  .symbol-swap-view { border-left: 3px solid #4a7fd4 !important; }
+}
+
 /* ── Google Drive fallback banner (large PDFs) ────────────── */
 #drive-fallback-banner {
   background: rgba(201,162,39,0.07);

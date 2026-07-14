@@ -3,7 +3,7 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v6";
+const CACHE_NAME = "babylons-wine-v7";
 
 const PRECACHE_URLS = [
   "./index.html",
@@ -60,12 +60,15 @@ self.addEventListener("fetch", (event) => {
   // Skip POST, etc.
   if (event.request.method !== "GET") return;
 
-  // App shell (HTML/JS/CSS): network-first so a new deploy is picked up
-  // immediately; the cache is only used when offline. Prevents version
-  // skew between a cached shell and updated content.
+  // App shell (HTML/JS/CSS) AND text content (.md/.json): network-first
+  // so a new deploy is picked up immediately; the cache is only used when
+  // offline. Prevents version skew — e.g. a stale document whose links
+  // point at files that were renamed in the same deploy. Heavy assets
+  // (PDF/images/vendor libs) keep stale-while-revalidate below.
   const isShell =
     event.request.mode === "navigate" ||
-    /\/assets\/(app\.js|style\.css|print-responsive\.css)/.test(url.pathname);
+    /\/assets\/(app\.js|style\.css|print-responsive\.css)/.test(url.pathname) ||
+    /\.(md|json)$/i.test(url.pathname);
 
   if (isShell) {
     event.respondWith(

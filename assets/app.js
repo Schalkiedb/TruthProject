@@ -2478,6 +2478,9 @@ async function loadDocument(filePath, fragment, opts) {
     // Wire up Bible verse references for translation comparison
     wireVerseReferences(contentEl);
 
+    // Highlight Bible symbols inside quoted passages (hover for meaning)
+    annotateBibleSymbols(contentEl, filePath);
+
     // Build floating table of contents from headings
     buildTOC();
 
@@ -3390,7 +3393,12 @@ async function expandAllInlineVerses(container, translationId) {
       const anchor = (el.parentElement && el.parentElement.tagName === "P") ? el.parentElement : el;
       // Find the correct insertion point: after any existing previews that follow the anchor
       let insertAfter = anchor;
-      while (insertAfter.nextElementSibling && insertAfter.nextElementSibling.classList.contains("verse-inline-text")) {
+      while (
+        insertAfter.nextElementSibling &&
+        (insertAfter.nextElementSibling.classList.contains("verse-inline-text") ||
+          insertAfter.nextElementSibling.classList.contains("symbol-toggle-btn") ||
+          insertAfter.nextElementSibling.classList.contains("symbol-swap-view"))
+      ) {
         insertAfter = insertAfter.nextElementSibling;
       }
       insertAfter.after(preview);
@@ -3420,6 +3428,17 @@ async function expandAllInlineVerses(container, translationId) {
       if (data.copyright) {
         preview.innerHTML += ` <span class="verse-inline-copy">${escapeHtml(data.copyright.replace(/<[^>]+>/g, ""))}</span>`;
       }
+      // Highlight Bible symbols in the fetched verse text.
+      // Reset any previous annotation/toggle (translation switch re-renders).
+      delete preview.dataset.symbolsAnnotated;
+      delete preview.dataset.symbolToggleAttached;
+      let sib = preview.nextElementSibling;
+      while (sib && (sib.classList.contains("symbol-toggle-btn") || sib.classList.contains("symbol-swap-view"))) {
+        const nx = sib.nextElementSibling;
+        sib.remove();
+        sib = nx;
+      }
+      annotateBibleSymbols(preview);
     }).catch((err) => {
       if (err && err.message === "BIBLEGATEWAY_LINK") {
         preview.innerHTML = `<span class="verse-inline-tag">${escapeHtml(tLabel)}</span>` +
@@ -3635,6 +3654,18 @@ async function loadVerseInModal(reference, translationId) {
       copy.textContent = data.copyright.replace(/<[^>]+>/g, "");
       textEl.appendChild(copy);
     }
+
+    // Highlight Bible symbols in the modal verse text (reset first —
+    // the same element is reused across translations/references)
+    delete textEl.dataset.symbolsAnnotated;
+    delete textEl.dataset.symbolToggleAttached;
+    let _symSib = textEl.nextElementSibling;
+    while (_symSib && (_symSib.classList.contains("symbol-toggle-btn") || _symSib.classList.contains("symbol-swap-view"))) {
+      const _nx = _symSib.nextElementSibling;
+      _symSib.remove();
+      _symSib = _nx;
+    }
+    annotateBibleSymbols(textEl);
   } catch (err) {
     loadEl.style.display = "none";
     if (err.message === "BIBLEGATEWAY_LINK") {
@@ -4498,6 +4529,282 @@ function buildScriptureDetail(book) {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   BIBLE SYMBOL HIGHLIGHTER & SWAPPER
+   Data source: Study_guides/Bible_Symbols_Chart.md (parsed at
+   runtime — edit the chart and this feature updates itself).
+   Symbol words inside quoted Bible passages (blockquotes, inline
+   verse previews, and the translation modal) are highlighted;
+   hovering shows the symbolic meaning, and a "Symbolic reading"
+   toggle re-renders the verse with symbols replaced by meanings.
+   The document text itself is never modified.
+══════════════════════════════════════════════════════════════ */
+const SYMBOLS_CHART_FILE = "Study_guides/Bible_Symbols_Chart.md";
+
+/** matchTerm (lowercase) → [{ label, meaning, refs }] (multiple senses allowed) */
+let _symbolsMap = null;
+let _symbolsRegex = null;
+let _symbolsLoadPromise = null;
+
+function loadBibleSymbols() {
+  if (_symbolsLoadPromise) return _symbolsLoadPromise;
+  _symbolsLoadPromise = (async () => {
+    try {
+      const res = await fetch(SYMBOLS_CHART_FILE);
+      if (!res.ok) return;
+      const md = await res.text();
+
+      const map = new Map();
+      const addSense = (term, sense) => {
+        const key = term.toLowerCase();
+        if (key.length < 3) return;
+        if (!map.has(key)) map.set(key, []);
+        const senses = map.get(key);
+        if (!senses.some((s) => s.label === sense.label)) senses.push(sense);
+      };
+
+      const rowRe = /^\|([^|\n]+)\|([^|\n]+)\|([^|\n]+)\|\s*$/gm;
+      let m;
+      while ((m = rowRe.exec(md)) !== null) {
+        const label = m[1].trim();
+        const meaning = m[2].trim();
+        const refs = m[3].trim();
+        // Skip header and separator rows
+        if (/^Symbol$|^Number$|^Meaning$/i.test(label)) continue;
+        if (/^[-\s:]+$/.test(label)) continue;
+
+        const sense = { label, meaning, refs };
+        // Derive match terms: strip parentheticals, split "/" variants,
+        // and cut trailing ", Doctrine of"-style qualifiers.
+        const base = label.replace(/\([^)]*\)/g, " ");
+        base.split("/").forEach((part) => {
+          let term = part.trim().replace(/,.*$/, "").trim();
+          if (!term) return;
+          addSense(term, sense);
+          // Simple singular/plural variants
+          if (term.endsWith("s")) addSense(term.slice(0, -1), sense);
+          else addSense(term + "s", sense);
+        });
+      }
+
+      if (map.size === 0) return;
+      _symbolsMap = map;
+
+      // Longest terms first so "white robes" wins over "white"
+      const patterns = [...map.keys()]
+        .sort((a, b) => b.length - a.length)
+        .map((t) =>
+          t
+            .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+            .replace(/'/g, "['’]") // straight or curly apostrophe
+            .replace(/\s+/g, "\\s+"),
+        );
+      _symbolsRegex = new RegExp("\\b(?:" + patterns.join("|") + ")\\b", "gi");
+    } catch {
+      /* chart unavailable — feature silently off */
+    }
+  })();
+  return _symbolsLoadPromise;
+}
+
+function getSymbolSenses(matchedText) {
+  if (!_symbolsMap) return null;
+  const key = matchedText.toLowerCase().replace(/’/g, "'").replace(/\s+/g, " ");
+  return _symbolsMap.get(key) || null;
+}
+
+/** Short substitution text for the swapper — first sense, first clause. */
+function symbolSwapText(senses) {
+  const meaning = senses[0].meaning;
+  const short = meaning.split(";")[0].trim();
+  return short.charAt(0).toLowerCase() + short.slice(1);
+}
+
+/** Wrap symbol words in one element's text nodes. Returns count wrapped. */
+function annotateSymbolElement(el) {
+  if (!_symbolsRegex || el.dataset.symbolsAnnotated) return 0;
+  el.dataset.symbolsAnnotated = "1";
+
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const p = node.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      if (p.closest("a, button, .bible-symbol, .verse-inline-tag, .verse-inline-copy, .verse-num"))
+        return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    },
+  });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  let count = 0;
+  nodes.forEach((node) => {
+    const text = node.nodeValue;
+    _symbolsRegex.lastIndex = 0;
+    if (!_symbolsRegex.test(text)) return;
+    _symbolsRegex.lastIndex = 0;
+
+    const frag = document.createDocumentFragment();
+    let last = 0;
+    let m;
+    while ((m = _symbolsRegex.exec(text)) !== null) {
+      const matched = m[0];
+      if (!getSymbolSenses(matched)) continue;
+      frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+      const span = document.createElement("span");
+      span.className = "bible-symbol";
+      span.textContent = matched;
+      span.setAttribute("tabindex", "0");
+      span.setAttribute("role", "note");
+      span.setAttribute("aria-label", "Bible symbol: " + matched);
+      frag.appendChild(span);
+      last = m.index + matched.length;
+      count++;
+    }
+    if (count === 0) return;
+    frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag, node);
+  });
+  return count;
+}
+
+/** Add the "Symbolic reading" toggle after a verse container. */
+function attachSymbolToggle(el) {
+  if (el.dataset.symbolToggleAttached) return;
+  el.dataset.symbolToggleAttached = "1";
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "symbol-toggle-btn";
+  btn.textContent = "🔁 Symbolic reading";
+  btn.title = "Show this passage again with each symbol replaced by its biblical meaning";
+  btn.setAttribute("aria-expanded", "false");
+
+  btn.addEventListener("click", () => {
+    const existing = btn.nextElementSibling;
+    if (existing && existing.classList.contains("symbol-swap-view")) {
+      existing.remove();
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "🔁 Symbolic reading";
+      return;
+    }
+    const view = document.createElement("div");
+    view.className = "symbol-swap-view";
+    const clone = el.cloneNode(true);
+    // Clean the clone: strip ids/toggles, swap each symbol for its meaning
+    clone.removeAttribute("id");
+    clone.querySelectorAll(".symbol-toggle-btn, .symbol-swap-view").forEach((n) => n.remove());
+    clone.querySelectorAll(".bible-symbol").forEach((s) => {
+      const senses = getSymbolSenses(s.textContent);
+      if (!senses) return;
+      const original = s.textContent;
+      s.textContent = symbolSwapText(senses);
+      s.classList.add("swapped");
+      s.title = "Original word: " + original;
+      s.setAttribute("aria-label", original + " symbolically means " + s.textContent);
+    });
+    view.innerHTML = `<div class="symbol-swap-label">Symbolic reading — symbols replaced with their biblical meaning (see <span class="symbol-swap-chart-link" role="link" tabindex="0">Bible Symbols Chart</span>)</div>`;
+    view.appendChild(clone);
+    const chartLink = view.querySelector(".symbol-swap-chart-link");
+    chartLink.addEventListener("click", () => loadDocument(SYMBOLS_CHART_FILE));
+    chartLink.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); loadDocument(SYMBOLS_CHART_FILE); }
+    });
+    btn.after(view);
+    btn.setAttribute("aria-expanded", "true");
+    btn.textContent = "🔁 Hide symbolic reading";
+  });
+
+  el.after(btn);
+}
+
+/** Annotate all verse containers inside a rendered document / preview / modal. */
+async function annotateBibleSymbols(container, currentFile) {
+  if (!container) return;
+  if (currentFile === SYMBOLS_CHART_FILE) return; // don't annotate the chart itself
+  await loadBibleSymbols();
+  if (!_symbolsRegex) return;
+
+  const targets = container.matches && container.matches("blockquote, .verse-inline-text, #verse-text")
+    ? [container]
+    : [...container.querySelectorAll("blockquote")];
+
+  targets.forEach((el) => {
+    const count = annotateSymbolElement(el);
+    if (count > 0) attachSymbolToggle(el);
+  });
+}
+
+/* ── Symbol tooltip (shared, event-delegated) ─────────────── */
+function getSymbolTooltip() {
+  let tip = document.getElementById("symbol-tooltip");
+  if (!tip) {
+    tip = document.createElement("div");
+    tip.id = "symbol-tooltip";
+    tip.setAttribute("role", "tooltip");
+    document.body.appendChild(tip);
+  }
+  return tip;
+}
+
+function showSymbolTooltip(target) {
+  const senses = getSymbolSenses(target.textContent.trim()) ||
+    (target.title && target.title.startsWith("Original word: ")
+      ? getSymbolSenses(target.title.slice("Original word: ".length))
+      : null);
+  if (!senses) return;
+
+  const tip = getSymbolTooltip();
+  tip.innerHTML = senses.map((s) => `
+    <div class="st-sense">
+      <div class="st-label">${escapeHtml(s.label)}</div>
+      <div class="st-meaning">${escapeHtml(s.meaning)}</div>
+      <div class="st-refs">${escapeHtml(s.refs)}</div>
+    </div>
+  `).join("") + `<div class="st-footer">Bible Symbols Chart</div>`;
+
+  const rect = target.getBoundingClientRect();
+  tip.style.display = "block";
+  // Position after display so dimensions are measurable
+  const tw = tip.offsetWidth;
+  const th = tip.offsetHeight;
+  let left = rect.left + rect.width / 2 - tw / 2;
+  left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
+  let top = rect.top - th - 8;
+  if (top < 8) top = rect.bottom + 8;
+  tip.style.left = left + "px";
+  tip.style.top = top + "px";
+}
+
+function hideSymbolTooltip() {
+  const tip = document.getElementById("symbol-tooltip");
+  if (tip) tip.style.display = "none";
+}
+
+document.addEventListener("mouseover", (e) => {
+  const sym = e.target.closest && e.target.closest(".bible-symbol");
+  if (sym) showSymbolTooltip(sym);
+});
+document.addEventListener("mouseout", (e) => {
+  if (e.target.closest && e.target.closest(".bible-symbol")) hideSymbolTooltip();
+});
+document.addEventListener("focusin", (e) => {
+  const sym = e.target.closest && e.target.closest(".bible-symbol");
+  if (sym) showSymbolTooltip(sym);
+});
+document.addEventListener("focusout", (e) => {
+  if (e.target.closest && e.target.closest(".bible-symbol")) hideSymbolTooltip();
+});
+// Tap toggles on touch devices
+document.addEventListener("click", (e) => {
+  const sym = e.target.closest && e.target.closest(".bible-symbol");
+  if (!sym) { hideSymbolTooltip(); return; }
+  const tip = document.getElementById("symbol-tooltip");
+  if (tip && tip.style.display === "block") hideSymbolTooltip();
+  else showSymbolTooltip(sym);
+});
+window.addEventListener("scroll", hideSymbolTooltip, { passive: true });
+
+/* ══════════════════════════════════════════════════════════════
    BOOKMARKS & PERSONAL NOTES
    Stored in localStorage only (this browser). Exportable as a
    JSON or plain-text file. No document content is ever modified.
@@ -4805,8 +5112,9 @@ async function initApp() {
   const deepLink = parseDocHash();
   if (deepLink) loadDocument(deepLink, undefined, { fromHistory: true });
 
-  // Build full-text search index in background
+  // Build full-text search index + Bible symbols map in background
   requestIdleCallback ? requestIdleCallback(() => buildSearchIndex()) : setTimeout(buildSearchIndex, 2000);
+  requestIdleCallback ? requestIdleCallback(() => loadBibleSymbols()) : setTimeout(loadBibleSymbols, 1500);
 
   // Enhanced search — full-text when index is ready, title-only otherwise
   let searchDebounce = null;

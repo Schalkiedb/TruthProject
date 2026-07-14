@@ -155,6 +155,14 @@ Both were removed from git tracking/LFS (`.gitattributes` cleared, `.gitignore` 
 ### 16. Drive fallbacks for the remaining large PDFs (`assets/app.js`, `assets/style.css`)
 **What:** The three 60–85 MB PDFs that still ship via GitHub (Quote 35 — Sunday Visitor, Quote 49 — Patrologiæ Cursus Completus, The Catholic Educator) now show a banner above the in-app PDF viewer: "☁️ Large document… Open it on Google Drive ↗", using the Drive file IDs captured from the shared folder. The GitHub copy remains the primary (loads in-app, works offline once cached); Drive is the escape hatch for slow connections or serving failures.
 
+### 17. Bible Symbol highlighter & swapper (`assets/app.js`, `assets/style.css`)
+**What:** A study aid built directly on `Study_guides/Bible_Symbols_Chart.md` — the chart is parsed at runtime, so editing the chart automatically updates the feature (no code changes needed). Inside quoted Bible passages (blockquotes in study guides, the inline verse previews, and the translation-comparison modal):
+- **Highlighting:** words that appear in the symbols chart ("woman", "beast", "waters", "horn", "Lord's Day"…) are marked in blue with a dotted underline. Hovering, tapping, or keyboard-focusing shows a tooltip with the symbol's biblical meaning and the supporting Scripture references. Symbols with multiple senses (e.g. Woman — Pure vs Corrupt) show every sense.
+- **Symbolic reading (swapper):** every passage containing symbols gets a "🔁 Symbolic reading" toggle that renders the passage again underneath with each symbol replaced by its meaning (e.g. *woman* → *the true, faithful church of God*), substitutions highlighted and still hoverable, with the original verse untouched above and a link to the full chart.
+Multi-word symbols match correctly (longest-first, so "white robes" wins over "white"), plural/singular variants are handled, and matching is scoped to quoted passages only, so ordinary prose isn't cluttered.
+**Why:** The symbols chart existed as a stand-alone reference; readers had to cross-reference it manually while studying prophecy. Now the chart meets the reader inside the verse.
+**Verification:** in the Daniel 2 guide alone, 166 symbol occurrences highlight across 61 quoted passages; the swapper round-trips on/off cleanly (boot test now 33/33 passing).
+
 ### Round 3 verification
 - Automated jsdom boot test now at **27/27 passing**, including: Scripture Index renders 64 books, Daniel's detail lists 26 studies, the index is deep-linkable, and the Drive-hosted documents appear in navigation.
 - All 108 regenerated manifest entries return HTTP 200 from the local server; `node --check` passes; renames were done with `git mv` so history follows the files.
