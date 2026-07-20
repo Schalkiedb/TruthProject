@@ -3765,6 +3765,20 @@ Being complete in Christ means the Holy Spirit is actively writing God's laws in
 
 ---
 
+**5. Jesus Already Condemned This Exact Argument — By Name — in Revelation**:
+
+The claim "we are complete/saved in Christ, therefore the law no longer restrains us" is not a modern invention. Jesus confronts it directly in His letters to the churches:
+
+> **Revelation 2:6** — "But this you have, that you hate the **deeds of the Nicolaitans**, which I also hate."
+
+> **Revelation 2:14-15** — "But I have a few things against you, because you have there those who hold the doctrine of Balaam... to eat things sacrificed to idols, and to commit sexual immorality. Thus you also have those who hold the **doctrine of the Nicolaitans**, which thing I hate."
+
+Jesus places the Nicolaitans' doctrine in the same sentence as Balaam's — a teaching that used a technically-true theological claim ("Israel is blessed and cannot be cursed," Numbers 23:8) to argue Israel was therefore free to disregard God's boundaries and indulge the flesh (Numbers 25:1-3; 31:16). The name itself (from Greek *nikaō*, "to conquer/overcome," + *laos*, "the people") points to a doctrine of triumphing over or setting aside restraint for "the people." The earliest Christian testimony we have about this group (Irenaeus, *Against Heresies* 1.26.3, c. 180 CE) describes them as teaching that believers could "lead lives of unrestrained indulgence" because grace had freed them from moral constraint.
+
+Note the structure of the error: it is the *same shape* as the "complete in Christ, therefore no need to keep commandments" argument answered above — a true premise (union with Christ, freedom from the ceremonial burden, standing in grace) stretched into a false conclusion (the law's moral boundaries, including the Sabbath, no longer apply). Jesus does not commend this reasoning; He says twice, unambiguously, "which I hate." This is the same lawlessness — *anomia* — that Jesus rejects in Matthew 7:23 and that 1 John 3:4 defines as sin. A theology of "just believe, the law no longer restrains you" is not a neutral, modern development — it is the doctrine Christ Himself named and condemned in the churches of Revelation, and the pattern of using grace as a license persists wherever the Sabbath and the rest of the Ten Commandments are declared obsolete today.
+
+---
+
 ## Objection 38
 
 **The Claim**: God prophesied through Hosea: "I will also cause all her mirth to cease, her feast days, her **New Moons**, her **Sabbaths** — all her appointed feasts" (Hosea 2:11). This prophecy shows God intended to end the Sabbath — fulfilled in Christ. The New Testament age is one where the Sabbaths have been "caused to cease."
