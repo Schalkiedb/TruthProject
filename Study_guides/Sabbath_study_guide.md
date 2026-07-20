@@ -49,7 +49,11 @@
 40. [Objection 37: "Colossians 2:10 — You Are Complete in Christ; No External Observances Needed"](#objection-37)
 41. [Objection 38: "Hosea 2:11 Prophesied God Would End Israel's Sabbaths — Fulfilled in Christ"](#objection-38)
 42. [Objection 39: "The New Testament Never Specifies a Fixed Worship Day — Any Day Is Valid"](#objection-39)
-43. [Conclusion: The Weight of Evidence](#conclusion)
+43. [Objection 40: "The Sabbath Is the Only Commandment Never Repeated in the New Testament Epistles"](#objection-40)
+44. [Objection 41: "Paul Called Himself 'Without Law' (1 Corinthians 9:20-21)"](#objection-41)
+45. [Objection 42: "We're Under a Different Dispensation Now — Grace, Not Law"](#objection-42)
+46. [Objection 43: "Deuteronomy 5:15 Ties the Sabbath to Israel's Exodus, Not to Creation"](#objection-43)
+47. [Conclusion: The Weight of Evidence](#conclusion)
 
 ---
 
