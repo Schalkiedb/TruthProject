@@ -203,6 +203,14 @@ Before any objection can be answered, the positive case must be firmly establish
 ### 4. An Eternal Sign
 > **Exodus 31:16-17** — "The children of Israel shall keep the Sabbath... as a **perpetual covenant**. It is a sign between Me and the children of Israel **forever**."
 
+A "perpetual covenant... forever" is only as reliable as the One who swore it. God does not leave that to inference — He explicitly declares that He does not revise His covenant word:
+
+> **Psalm 89:34** — "My covenant I will not break, nor alter the word that has gone out of My lips."
+
+> **Deuteronomy 4:13** — "So He declared to you His covenant which He commanded you to perform, the Ten Commandments, and He wrote them on two tablets of stone."
+
+Deuteronomy 4:13 identifies "His covenant" as the Ten Commandments by name — the same covenant Exodus 31:16-17 calls "perpetual" and "forever." Psalm 89:34 is God's own oath not to break or alter that covenant word. The Sabbath is not a term of the covenant that quietly expired; it is a term God bound Himself never to alter.
+
 ### 5. Jesus Kept the Sabbath
 > **Luke 4:16** — "As His **custom was**, He went into the synagogue on the Sabbath day." Custom = habitual practice, not an occasional visit.
 
@@ -259,6 +267,14 @@ God identifies Himself at Sinai as the One who performed the Exodus. Since Scrip
 > **Exodus 20:8** — "**Remember** the Sabbath day, to keep it holy..."
 
 The One saying "Remember the Sabbath" is the One who made the Sabbath.
+
+**It Could Not Have Been the Father Whom Israel Encountered at Sinai**:
+
+> **John 1:18** — "**No one has seen God at any time.** The only begotten Son, who is in the bosom of the Father, He has declared Him."
+
+> **John 6:46** — "Not that anyone has seen the Father, except He who is from God; He has seen the Father."
+
+Scripture is explicit: no one has ever seen the Father. Yet at Sinai, God was seen, heard, and spoken with directly — Moses and the elders "saw the God of Israel" (Exodus 24:9-11), and the voice that thundered the Ten Commandments was audible and direct. If no one has seen the Father, the Person Israel saw and heard at Sinai — giving His own law, in His own voice — must have been the Son. This is the same conclusion Jude 1:5 and 1 Corinthians 10:4 already point to: the pre-incarnate Christ led the Exodus and spoke from Sinai. The commandments, including the Sabbath, are not merely "God's law" in the abstract — they are Jesus' own words, given face to face, later asking Israel: **"How long do you refuse to keep My commandments and My laws?"** (Exodus 16:28).
 
 **Jesus Enforced the Sabbath in the Wilderness — Before Sinai — And His Words Prove the Law Already Existed**:
 
@@ -706,6 +722,12 @@ Paul quotes the **tenth commandment** — part of the Ten Commandments — and s
 > **1 John 3:4** — "Whoever commits sin also commits lawlessness, for **sin is the transgression of the law**."
 
 If the law is abolished, there is no sin. If there is no sin, there is nothing to be saved from. Grace without law is meaningless because grace answers the problem of sin, and sin is defined by the law.
+
+**Jesus Rejects, Not Embraces, Those Who Are "Torah-less"**:
+
+> **Matthew 7:22-23** — "Many will say to Me in that day, 'Lord, Lord, have we not prophesied in Your name...' And then I will declare to them, 'I never knew you; **depart from Me, you who practice lawlessness (ἀνομίαν, *anomia*)**!'"
+
+*Anomia* is built from *nomos* — "law" — with the negating prefix *a-*: literally "without-law" or "Torah-less." Jesus does not reject these people for observing His commandments too carefully; He rejects them for claiming His name while practicing *anomia*. This is the same word John uses to define sin in 1 John 3:4. Read together, the two passages say the same thing from opposite directions: sin is lawlessness (1 John 3:4), and it is the lawless — not the law-keepers — whom Jesus turns away at the judgment (Matthew 7:23).
 
 ---
 
@@ -2176,6 +2198,12 @@ Israel immediately hardened their hearts through explicit Sabbath-breaking:
 > *"On the seventh day some of the people went out to gather, but they found none. And the Lord said to Moses, **'How long do you refuse to keep my commandments and my laws?'**"* (Exodus 16:27–28)
 
 The hardening of the heart at Meribah and Massah was directly linked to breaking God's actual, physical commandments — specifically the seventh-day Sabbath. The prophet Ezekiel confirms: *"But the house of Israel rebelled against me in the wilderness... and **my Sabbaths they greatly profaned**."* (Ezekiel 20:13).
+
+**"Profane" Is Not a Minor Word — Paul Lists It Alongside Murder and Lying**:
+
+> **1 Timothy 1:9-10** — "...the law is not made for a righteous person, but for the lawless and insubordinate, for the ungodly and for sinners, for the **unholy and profane**, for murderers of fathers and murderers of mothers, for manslayers, for fornicators, for sodomites, for kidnappers, for liars, for perjurers, and if there is any other thing that is contrary to sound doctrine."
+
+To be "profane" (Greek *bebēlos*) is to treat what is holy as common — to strip something God has set apart of its sacredness. Ezekiel 20:13 uses the same charge against Israel specifically for the Sabbath: they "greatly profaned" it. Paul places "profane" in a list alongside murder, perjury, and other violations of the Ten Commandments — not as a lesser, ceremonial footnote, but as the same category of moral offense. Scripture's own most frequent target for the charge of "profaning" is God's Sabbaths (see also Isaiah 56:2, 6; Nehemiah 13:17-18) — underscoring that treating the Sabbath as ordinary time is not a neutral preference but a violation Scripture treats with the same weight as the sins in Paul's list.
 
 ---
 
