@@ -3913,9 +3913,155 @@ When New Covenant practices genuinely replaced Old Covenant practices, the New T
 
 ---
 
+## Objection 40
+
+**The Claim**: The Sabbath is the only one of the Ten Commandments never repeated as a command in the New Testament epistles. Paul lists "do not murder," "do not commit adultery," "do not steal" (Romans 13:9) and "honor your father and mother" (Ephesians 6:2) — but never writes "keep the Sabbath" to a church. If the other nine still apply and the fourth is conspicuously missing from these lists, that silence proves the Sabbath alone was dropped.
+
+---
+
+### The Biblical Answer
+
+**This argument rests on an argument from silence, and the actual New Testament text is not silent.**
+
+---
+
+**1. Paul's Lists in Romans 13 and Ephesians 6 Are Not Exhaustive Restatements of the Decalogue**:
+
+Romans 13:9 itself says so: "and if there is **any other commandment**, are all summed up in this saying, namely, 'You shall love your neighbour as yourself.'" Paul is illustrating a principle (love fulfills the law) with examples that were relevant to the immediate point about neighbor-relations — not compiling a checklist of which commandments still count. The first three commandments (no other gods, no idols, no taking God's name in vain) are equally absent from Romans 13:9's list, for the same reason: they aren't about "neighbor," so they don't fit that illustration. No one argues the first commandment was abolished because Romans 13:9 doesn't quote it.
+
+**2. The Sabbath Is Directly Reaffirmed Elsewhere in the New Testament — By Name**:
+
+> **Hebrews 4:9** — "There **remains** therefore a **Sabbath rest** (Greek: *sabbatismos* — "a Sabbath-keeping") for the people of God."
+
+Written decades after the cross, to a mixed Jewish-Gentile audience, using a rare word that lexically means the literal seventh-day observance. This is not silence — it is explicit, post-resurrection confirmation.
+
+**3. The Disciples and Paul Are Shown Keeping It — After the Cross, By Name**:
+
+> **Luke 23:56** — the women "rested on the Sabbath according to the commandment" — narrated *after* the crucifixion, by a Gentile writer (Luke), addressed to a Gentile reader (Theophilus, Luke 1:3), as ordinary continuing practice.
+
+> **Acts 13:42-44** — Gentiles ask Paul to keep teaching "the next Sabbath," and the following week nearly the whole city gathers "to hear the word of God" **on the Sabbath**.
+
+> **Acts 17:2; 18:4** — Paul's "**custom**" is reasoning in the synagogue "**every Sabbath**," years after the resurrection.
+
+**4. James Treats the Ten Commandments as One Indivisible Law — Making Selective Repetition Irrelevant**:
+
+> **James 2:10-11** — "For whoever shall keep the whole law, and yet stumble in one point, he is guilty of all. For He who said, 'Do not commit adultery,' also said, 'Do not murder.'... So speak and so do as those who will be judged by the **law of liberty**."
+
+James's point is that the Ten Commandments stand or fall together as a single law — you cannot logically extract one commandment as void while keeping the others binding, on the basis that it happens not to be independently re-quoted in a given epistle. The argument from silence would, by its own logic, have to explain why the same silence doesn't nullify the first, second, and third commandments too.
+
+**Conclusion**: The claim that the Sabbath is "the only commandment never repeated" is not true — Hebrews 4:9, Luke 23:56, Acts 13:42-44, and Acts 17:2/18:4 all show it, by name, after the cross. The absence from Romans 13:9 and Ephesians 6:2 is explained by the topical focus of those verses (love of neighbor), not by abolition — the same silence would erase the first three commandments too, which no one claims.
+
+---
+
+## Objection 41
+
+**The Claim**: Paul writes, "to those who are without law, as without law (yet not being without law toward God, but under law toward Christ), that I might win those who are without law" (1 Corinthians 9:20-21). This proves Paul himself treated the law — including the Sabbath — as negotiable and optional, adapting it as convenient for ministry.
+
+---
+
+### The Biblical Answer
+
+**The verse refutes the claim in its own second half.**
+
+---
+
+**1. Paul Explicitly Denies Being "Without Law" Toward God — In the Same Sentence**:
+
+> **1 Corinthians 9:21** — "...(**not being without law toward God, but under law toward Christ**)..."
+
+This parenthetical is Paul correcting a possible misunderstanding of his own words in real time. He anticipates that "as without law" could be misread exactly as this objection misreads it, and he stops to clarify: he is *not* lawless toward God. He is "under law toward Christ" (Greek: *ennomos Christou* — "in-lawed to Christ"). The verse cannot be used to prove Paul considered God's law optional when Paul himself, in the same breath, denies it.
+
+**2. The Context Is Cultural Custom, Not Moral Command**:
+
+The surrounding verses show exactly what Paul is flexing on:
+
+> **1 Corinthians 9:20** — "and to the Jews I became as a Jew, that I might win Jews; to those who are under the law, as under the law, that I might win those who are under the law."
+
+Paul is describing his willingness to observe or set aside **circumcision, dietary customs, and ceremonial regulations** depending on his audience (compare Acts 16:3, circumcising Timothy for Jewish sensitivities, and Acts 21:20-26, Paul purifying himself in the temple) — the same category of "works of the law" (ceremonial identity markers) addressed throughout Galatians. Nothing in the passage suggests Paul murdered, stole, or broke the Sabbath depending on his audience. Moral law and ceremonial custom are different categories, and 1 Corinthians 9 is explicitly about the latter.
+
+**3. Paul's Own Practice Elsewhere Confirms He Kept the Sabbath as His Custom**:
+
+> **Acts 17:2** — "Then Paul, **as his custom was**, went in to them, and for **three Sabbaths** reasoned with them from the Scriptures."
+
+If 1 Corinthians 9:20-21 meant Paul discarded the Sabbath as negotiable, Acts would show him doing so. Instead, it shows the opposite — Paul's habitual, customary practice was Sabbath observance, years after writing 1 Corinthians.
+
+---
+
+## Objection 42
+
+**The Claim**: God relates to humanity differently across different periods or "dispensations" — the age of Law given at Sinai and the present age of Grace under the Church. The Sabbath was a requirement of the Mosaic dispensation. We are now under a different administration where that specific requirement no longer applies, even though it once genuinely did.
+
+---
+
+### The Biblical Answer
+
+**Scripture does not describe God's moral standard as changing by administrative era — it explicitly denies that God's standard shifts at all.**
+
+---
+
+**1. God Declares His Unchangeableness Directly, Without Reference to "Ages" or "Administrations"**:
+
+> **Malachi 3:6** — "For I am the LORD, **I do not change**; therefore you are not consumed, O sons of Jacob."
+
+> **1 Samuel 15:29** — "the Strength of Israel will not lie nor relent [change His mind]. For He is not a man, that He should relent."
+
+> **Hebrews 13:8** — "Jesus Christ is **the same yesterday, today, and forever**."
+
+These are not statements about God's actions varying by era — they are statements about His *character* being fixed. A moral law is a transcript of that character (Romans 7:12, "the commandment is holy and just and good"). If the character behind the Sabbath command never changes, the command's binding force does not change with it.
+
+**2. Paul's Own Theology of Grace Explicitly Denies That Grace Nullifies the Law**:
+
+> **Romans 3:31** — "Do we then make void the law through faith? **Certainly not!** On the contrary, **we establish the law**."
+
+This is the direct opposite of the claim that the "age of grace" set aside the law's requirements. Paul, writing the fullest New Testament treatment of grace, states in plain terms that grace does not cancel the law — it upholds it.
+
+**3. God's Works Are Declared Permanent by Explicit Statement — Not Tied to Any Era**:
+
+> **Ecclesiastes 3:14** — "I know that whatever God does, **it shall be forever**. Nothing can be added to it, and nothing taken from it. God does it, that men should fear before Him."
+
+The Sabbath is one of God's works — instituted, blessed, and sanctified at Creation (Genesis 2:2-3), before any "dispensation" of law or grace existed. Ecclesiastes 3:14 says God's works are permanent by their nature. The premise that a work of God can quietly expire when history moves into a new administrative period has no verse supporting it — every verse that speaks to the question says the opposite.
+
+---
+
+## Objection 43
+
+**The Claim**: Deuteronomy 5:15 gives the reason for the Sabbath command as Israel's redemption from Egyptian slavery — "remember that you were a slave in the land of Egypt... therefore the LORD your God commanded you to keep the Sabbath day." This ties the Sabbath to a specific national historical event, not to Creation. Since believers today were never slaves in Egypt, this version of the command is Israel's national memorial and does not extend to everyone else.
+
+---
+
+### The Biblical Answer
+
+**The command has two stated reasons across its two givings — a second layer of meaning, not a replacement of the first.**
+
+---
+
+**1. Exodus 20:11 Already Grounds the Sabbath in Creation — Before Egypt Existed**:
+
+> **Exodus 20:11** — "For in six days the LORD made the heavens and the earth, the sea, and all that is in them, and rested the seventh day. Therefore the LORD **blessed the Sabbath day and hallowed it**."
+
+This is the reason given the first time the Ten Commandments are recorded. Creation predates Israel, Egypt, and slavery by thousands of years (Genesis 2:2-3). Deuteronomy 5:15, given a second time forty years later as Moses reviews the law for the generation about to enter Canaan, adds a further reason relevant to that generation's own story — it does not delete or override the first.
+
+**2. A Command Having Two Reasons Is Not a Contradiction — It Is Enrichment**:
+
+Nothing in Deuteronomy 5:15 says "keep the Sabbath **only** because of Egypt" or "disregard the Creation basis." Both reasons stand side by side, the way a single command can carry layered meaning without either layer canceling the other.
+
+**3. The Redemption Rationale Extends to Every Believer, Not Only Ethnic Israel**:
+
+> **Romans 6:17-18** — "But God be thanked that though you **were slaves of sin**, yet you obeyed from the heart... and having been **set free from sin**, you became slaves of righteousness."
+
+Every believer, Jew or Gentile, has their own true exodus — deliverance from slavery to sin. Deuteronomy 5:15's logic ("remember you were a slave... therefore keep the Sabbath") applies with equal force to anyone redeemed from bondage, which Scripture says is every Christian. Combined with Gentile believers being "grafted in" to Israel and its covenants (Romans 11:17; Galatians 3:29), the Deuteronomy rationale for Sabbath-keeping is inherited along with the rest of Israel's covenant promises — not excluded by it.
+
+**4. God's Own Stated Purpose for the Sabbath Is Identity, Not National Memorial**:
+
+> **Ezekiel 20:12, 20** — "I gave them My Sabbaths... that they might know that **I am the LORD who sanctifies them**."
+
+The same purpose given in Exodus 31:13. The Sabbath's stated function throughout Scripture is to mark who God is to His people — not merely to commemorate one nation's escape from one empire.
+
+---
+
 ## Conclusion
 
-After examining 39 objections against the Sabbath — covering every major theological, historical, linguistic, and logical argument advanced by any sincere Bible student or theologian — the biblical verdict is clear and consistent:
+After examining 43 objections against the Sabbath — covering every major theological, historical, linguistic, and logical argument advanced by any sincere Bible student or theologian — the biblical verdict is clear and consistent:
 
 ---
 
