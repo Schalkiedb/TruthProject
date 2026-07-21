@@ -7,10 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-deep:        #120f1a;
-    --bg-mid:         #1a1624;
-    --bg-warm:        #221e2e;
-    --bg-surface:     #2c2838;
+    --bg-deep:        #14100A;
+    --bg-mid:         #1A1208;
+    --bg-warm:        #241A0E;
+    --bg-surface:     #2E2415;
     --gold:           #d4a843;
     --gold-mid:       #b08828;
     --gold-dim:       #7a6018;
@@ -28,11 +28,11 @@
     --amber-light:    #e09030;
     --amber-glow:     rgba(200,120,32,0.14);
     --blue-greek:     #7ab0e0;
-    --text-body:      #ddd0f0;
-    --text-soft:      #a898c8;
-    --text-dim:       #5a5070;
-    --white-soft:     #ede8f8;
-    --ink:            #08060e;
+    --text-body:      #E8DCC0;
+    --text-soft:      #A08D62;
+    --text-dim:       #7A6845;
+    --white-soft:     #F0E8D0;
+    --ink:            #0D0A06;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,7 +45,7 @@
     font-size: 17px;
     line-height: 1.82;
     background-image:
-      radial-gradient(ellipse 100% 50% at 50% 0%, rgba(106,78,156,0.07) 0%, transparent 65%),
+      radial-gradient(ellipse 100% 50% at 50% 0%, rgba(200,168,75,0.05) 0%, transparent 65%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   }
 
@@ -59,7 +59,7 @@
   .hero::before {
     content: ''; position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 55% 50% at 50% 55%, rgba(106,78,156,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 55% 50% at 50% 55%, rgba(200,168,75,0.08) 0%, transparent 70%),
       radial-gradient(ellipse 70% 25% at 50% 100%, rgba(200,120,32,0.06) 0%, transparent 60%);
     pointer-events: none;
   }
@@ -107,7 +107,7 @@
   /* NAV */
   .toc-bar {
     position: sticky; top: 0; z-index: 100;
-    background: rgba(8,6,14,0.95); border-bottom: 1px solid var(--gold-border);
+    background: rgba(13,10,6,0.95); border-bottom: 1px solid var(--gold-border);
     backdrop-filter: blur(14px); padding: 0 20px;
   }
   .toc-inner {
@@ -130,7 +130,7 @@
 
   /* FRAMING BOX */
   .framing-box {
-    background: linear-gradient(135deg, rgba(34,30,46,0.9), rgba(18,15,26,0.95));
+    background: linear-gradient(135deg, rgba(36,26,14,0.9), rgba(20,15,9,0.95));
     border: 1px solid var(--violet);
     border-left: 4px solid var(--violet-light);
     padding: 32px 36px; margin: 60px 0 40px;
@@ -211,7 +211,7 @@
 
   /* SCRIPTURE */
   .sblock {
-    background: rgba(8,6,14,0.7);
+    background: rgba(13,10,6,0.7);
     border-left: 3px solid var(--violet);
     padding: 16px 20px 16px 24px; margin: 14px 0 18px;
     font-style: italic; color: var(--white-soft);
@@ -268,7 +268,7 @@
 
   /* EGW BOX */
   .egw-box {
-    background: linear-gradient(180deg, rgba(30,26,40,0.7), rgba(14,12,22,0.92));
+    background: linear-gradient(180deg, rgba(32,25,13,0.7), rgba(16,12,7,0.92));
     border: 1px solid var(--gold-border); padding: 24px 30px; margin: 24px 0; position: relative;
   }
   .egw-box::before {
@@ -293,7 +293,7 @@
 
   /* BALANCE NOTICE */
   .balance-notice {
-    background: linear-gradient(135deg, rgba(106,78,156,0.10), rgba(18,15,26,0.95));
+    background: linear-gradient(135deg, rgba(106,78,156,0.10), rgba(20,15,9,0.95));
     border: 1px solid var(--violet); padding: 22px 28px; margin: 28px 0;
     font-size: 15px; color: var(--text-soft); line-height: 1.8;
     position: relative;
@@ -313,7 +313,7 @@
 
   /* CONCLUSION */
   .conclusion {
-    background: linear-gradient(135deg, rgba(22,18,32,0.9), rgba(14,12,22,0.97));
+    background: linear-gradient(135deg, rgba(24,18,10,0.9), rgba(16,12,7,0.97));
     border: 1px solid var(--gold-border); border-top: 3px solid var(--gold-mid);
     padding: 40px 44px; margin: 52px 0;
   }

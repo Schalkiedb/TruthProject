@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"><!--canonical-fonts-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Forbidden Sky — All Levitically Prohibited Birds</title>
@@ -8,14 +11,14 @@
   @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
 
   :root {
-    --sky:            #0c0e18;
-    --sky-mid:        #111422;
-    --sky-card:       #151828;
-    --sky-edge:       #1a1e30;
-    --sky-bright:     #1f2438;
-    --violet:         #6060b0;
-    --violet-bright:  #8888d0;
-    --violet-dim:     #383870;
+    --sky:            #0D0A06;
+    --sky-mid:        #14100A;
+    --sky-card:       #1A1208;
+    --sky-edge:       #241A0E;
+    --sky-bright:     #2C2012;
+    --violet:         #c8a84b;
+    --violet-bright:  #e8c96a;
+    --violet-dim:     #8b6a1f;
     --crimson:        #a03040;
     --crimson-bright: #c04858;
     --crimson-dim:    #602030;
@@ -27,11 +30,11 @@
     --dawn:           #c08040;
     --dawn-bright:    #e0a060;
     --dawn-dim:       #805030;
-    --text-main:      #e0daf0;
-    --text-muted:     #7870a0;
-    --text-dim:       #404060;
-    --border:         rgba(96,96,176,0.2);
-    --border-strong:  rgba(96,96,176,0.45);
+    --text-main:      #E8DCC0;
+    --text-muted:     #A08D62;
+    --text-dim:       #7A6845;
+    --border:         rgba(200,168,75,0.3);
+    --border-strong:  rgba(200,168,75,0.6);
     --border-gold:    rgba(201,168,76,0.28);
   }
 
@@ -40,12 +43,12 @@
   body {
     background: var(--sky);
     color: var(--text-main);
-    font-family: 'Crimson Pro', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 18px;
     line-height: 1.78;
     background-image:
-      radial-gradient(ellipse at 20% 0%, rgba(80,60,160,0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 100%, rgba(60,40,120,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 0%, rgba(200,168,75,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(160,120,40,0.06) 0%, transparent 50%),
       radial-gradient(ellipse at 50% 30%, rgba(180,80,60,0.04) 0%, transparent 40%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   }
@@ -56,7 +59,7 @@
     padding: 70px 24px 50px;
     border-bottom: 1px solid var(--border-strong);
     position: relative; overflow: hidden;
-    background: linear-gradient(180deg, rgba(96,96,176,0.07) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(200,168,75,0.06) 0%, transparent 100%);
   }
   .masthead::before {
     content: '';
@@ -73,7 +76,7 @@
     font-family: 'Cinzel Decorative', serif;
     font-size: clamp(24px, 5vw, 46px); font-weight: 700;
     color: var(--violet-bright); line-height: 1.15; margin-bottom: 8px;
-    text-shadow: 0 0 40px rgba(136,136,208,0.4), 0 2px 20px rgba(0,0,0,0.7);
+    text-shadow: 0 0 40px rgba(232,201,106,0.35), 0 2px 20px rgba(0,0,0,0.7);
   }
   .masthead h2 {
     font-family: 'Cinzel', serif;
@@ -81,7 +84,7 @@
     color: var(--violet-dim); letter-spacing: 3px; margin-bottom: 20px;
   }
   .masthead .subtitle {
-    font-family: 'IM Fell English', serif; font-style: italic;
+    font-family: 'EB Garamond', Georgia, serif; font-style: italic;
     font-size: 19px; color: var(--text-muted);
     max-width: 720px; margin: 0 auto 30px;
   }
@@ -121,7 +124,7 @@
   }
   .section-title .icon { font-size: 20px; }
   .section-subtitle {
-    font-family: 'IM Fell English', serif; font-style: italic;
+    font-family: 'EB Garamond', Georgia, serif; font-style: italic;
     font-size: 22px; color: var(--text-main); margin-bottom: 26px;
   }
 
@@ -133,7 +136,7 @@
   .creature-header {
     display: flex; align-items: center; gap: 16px;
     padding: 20px 24px 16px; border-bottom: 1px solid var(--border);
-    background: linear-gradient(90deg, rgba(96,96,176,0.07), transparent);
+    background: linear-gradient(90deg, rgba(200,168,75,0.06), transparent);
     cursor: pointer; user-select: none;
   }
   .creature-icon { font-size: 28px; flex-shrink: 0; }
@@ -142,7 +145,7 @@
     color: var(--violet-bright); letter-spacing: 1px;
   }
   .creature-latin {
-    font-family: 'IM Fell English', serif; font-style: italic;
+    font-family: 'EB Garamond', Georgia, serif; font-style: italic;
     font-size: 14px; color: var(--text-dim); margin-top: 2px;
   }
   .creature-verdict {
@@ -222,7 +225,7 @@
     padding: 18px 24px; margin: 20px 0; border-radius: 0 4px 4px 0;
   }
   .verse-text {
-    font-family: 'IM Fell English', serif; font-style: italic;
+    font-family: 'EB Garamond', Georgia, serif; font-style: italic;
     font-size: 19px; color: var(--text-main); line-height: 1.85;
   }
   .verse-ref {
@@ -237,7 +240,7 @@
     padding: 20px 24px; margin: 20px 0; border-radius: 0 4px 4px 0;
   }
   .egw-quote p {
-    font-family: 'IM Fell English', serif; font-style: italic;
+    font-family: 'EB Garamond', Georgia, serif; font-style: italic;
     font-size: 18px; color: var(--text-main); line-height: 1.85; margin-bottom: 8px;
   }
   .egw-cite { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: #6b8faf; text-transform: uppercase; }
@@ -261,7 +264,7 @@
     padding: 3px 10px; border-radius: 2px; margin-bottom: 16px; margin-top: 8px;
   }
   .cat-raptor   { background: rgba(192,72,72,0.1); border: 1px solid rgba(192,72,72,0.3); color: #d06060; }
-  .cat-carrion  { background: rgba(96,96,176,0.1); border: 1px solid rgba(96,96,176,0.3); color: var(--violet-bright); }
+  .cat-carrion  { background: rgba(96,96,176,0.1); border: 1px solid rgba(96,96,176,0.3); color: #8888d0; }
   .cat-water    { background: rgba(40,120,160,0.1); border: 1px solid rgba(40,120,160,0.3); color: #60b0d0; }
   .cat-wading   { background: rgba(192,128,64,0.1); border: 1px solid rgba(192,128,64,0.3); color: var(--dawn-bright); }
   .cat-domestic { background: rgba(80,160,80,0.1); border: 1px solid rgba(80,160,80,0.3); color: #70c070; }
@@ -277,7 +280,7 @@
   }
   .compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text-main); vertical-align: top; }
   .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:hover td { background: rgba(96,96,176,0.04); }
+  .compare-table tr:hover td { background: rgba(200,168,75,0.04); }
   .badge-bad { color: #d06060; font-weight: 600; }
   .badge-mid { color: var(--gold); font-weight: 600; }
   .badge-ok  { color: #70c070; font-weight: 600; }
@@ -301,8 +304,8 @@
 
   /* ── PRINCIPLE BOX ── */
   .principle {
-    background: linear-gradient(135deg, rgba(96,96,176,0.08), rgba(96,96,176,0.02));
-    border: 1px solid rgba(96,96,176,0.25); border-radius: 4px; padding: 22px 26px; margin: 22px 0;
+    background: linear-gradient(135deg, rgba(200,168,75,0.08), rgba(200,168,75,0.02));
+    border: 1px solid rgba(200,168,75,0.28); border-radius: 4px; padding: 22px 26px; margin: 22px 0;
   }
   .principle-title { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--violet-bright); margin-bottom: 10px; }
   .principle p { font-size: 17px; color: var(--text-main); line-height: 1.75; margin-bottom: 8px; }
@@ -310,7 +313,7 @@
 
   /* ── SUMMARY BOX ── */
   .summary-box {
-    background: linear-gradient(135deg, rgba(96,96,176,0.1), rgba(96,96,176,0.03));
+    background: linear-gradient(135deg, rgba(200,168,75,0.1), rgba(200,168,75,0.03));
     border: 1px solid var(--border-strong); border-radius: 6px; padding: 30px 34px; margin: 36px 0;
   }
   .summary-box h3 { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--violet); margin-bottom: 16px; }
@@ -321,7 +324,7 @@
     background: linear-gradient(135deg, rgba(184,64,64,0.1), rgba(184,64,64,0.03));
     border: 1px solid rgba(184,64,64,0.28); border-radius: 4px; padding: 20px 24px; margin: 22px 0; text-align: center;
   }
-  .danger-banner p { font-family: 'IM Fell English', serif; font-style: italic; font-size: 17px; color: var(--text-main); line-height: 1.7; }
+  .danger-banner p { font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 17px; color: var(--text-main); line-height: 1.7; }
 
   /* ── FOOTER ── */
   .footer { text-align: center; padding: 50px 20px; border-top: 1px solid var(--border); margin-top: 60px; }

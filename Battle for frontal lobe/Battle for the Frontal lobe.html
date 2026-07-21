@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"><!--canonical-fonts-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>In-Depth Study: Alcohol & Pornography</title>
@@ -15,19 +18,19 @@
 
   :root {
     --sidebar-width: 230px;
-    --ink: #1c1c1c;
-    --muted: #555555;
-    --border: #e0e0e0;
-    --paper: #ffffff;
-    --paper-soft: #f8f8f6;
+    --ink: #E8DCC0;
+    --muted: #A08D62;
+    --border: rgba(200,168,75,0.3);
+    --paper: #1A1208;
+    --paper-soft: #14100A;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Source Serif 4', Georgia, serif;
-    background: #ffffff;
-    color: #1c1c1c;
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #0D0A06;
+    color: #E8DCC0;
     font-size: 16px;
     line-height: 1.8;
     overflow-x: hidden;
@@ -35,36 +38,36 @@
 
   /* ===== MASTHEAD ===== */
   .masthead {
-    background: #ffffff;
+    background: #1A1208;
     text-align: center;
     padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 40px) clamp(20px, 4vw, 36px);
-    border-top: 5px solid #8b1a1a;
-    border-bottom: 2px solid #e0e0e0;
+    border-top: 5px solid #B22222;
+    border-bottom: 2px solid rgba(200,168,75,0.3);
   }
 
   .masthead-label {
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #9a6f00;
+    color: #C8A84B;
     margin-bottom: 10px;
     font-weight: 400;
   }
 
   .masthead h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(22px, 5vw, 52px);
     font-weight: 900;
     line-height: 1.1;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
-  .masthead h1 span { color: #8b1a1a; }
+  .masthead h1 span { color: #B22222; }
 
   .masthead-sub {
     margin-top: 10px;
     font-size: clamp(12px, 2vw, 14px);
-    color: #666;
+    color: #A08D62;
     font-style: italic;
     max-width: 600px;
     margin-left: auto;
@@ -90,16 +93,16 @@
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #fafaf8;
-    border-right: 1px solid #e0e0e0;
+    background: #14100A;
+    border-right: 1px solid rgba(200,168,75,0.3);
     scrollbar-width: thin;
-    scrollbar-color: #ddd transparent;
+    scrollbar-color: rgba(200,168,75,0.3) transparent;
     z-index: 10;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
   .sidebar::-webkit-scrollbar { width: 3px; }
-  .sidebar::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(200,168,75,0.3); border-radius: 2px; }
 
   .sidebar-inner { padding: 14px 0 60px; }
 
@@ -108,36 +111,36 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 14px 10px;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     margin-bottom: 10px;
   }
 
   .sidebar-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: 12px;
     font-weight: 700;
-    color: #1c1c1c;
+    color: #E8DCC0;
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
 
   .print-btn {
     background: none;
-    border: 1px solid #ccc;
+    border: 1px solid #8B6A1F;
     border-radius: 3px;
     padding: 3px 7px;
     font-size: 12px;
     cursor: pointer;
-    color: #555;
+    color: #A08D62;
     transition: background 0.15s;
     white-space: nowrap;
   }
-  .print-btn:hover { background: #f0f0f0; }
+  .print-btn:hover { background: #241A0E; }
 
   /* Progress bar */
   .progress-bar-wrap {
     height: 3px;
-    background: #ebebeb;
+    background: #241A0E;
     margin: 0 14px 3px;
     border-radius: 2px;
     overflow: hidden;
@@ -146,14 +149,14 @@
   .progress-bar-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #8b1a1a, #9a6f00);
+    background: linear-gradient(90deg, #B22222, #C8A84B);
     border-radius: 2px;
     transition: width 0.2s ease;
   }
 
   .progress-label {
     font-size: 10px;
-    color: #aaa;
+    color: #A08D62;
     text-align: right;
     padding: 0 14px 10px;
   }
@@ -180,11 +183,11 @@
     opacity: 0.2;
   }
 
-  .danger-label { color: #b03020; }
-  .food-label   { color: #8b5e00; }
-  .body-label   { color: #1a4a2a; }
-  .mind-label   { color: #1a3a5c; }
-  .heal-label   { color: #256825; }
+  .danger-label { color: #CD5C3C; }
+  .food-label   { color: #B89340; }
+  .body-label   { color: #57A87A; }
+  .mind-label   { color: #4A7FD4; }
+  .heal-label   { color: #3A9060; }
 
   /* Nav links */
   .nav-link {
@@ -193,21 +196,21 @@
     gap: 8px;
     padding: 6px 14px;
     font-size: 12px;
-    color: #444;
+    color: #A08D62;
     text-decoration: none;
     border-left: 3px solid transparent;
     transition: background 0.12s, color 0.12s;
     line-height: 1.3;
-    font-family: 'Source Serif 4', serif;
+    font-family: 'EB Garamond', Georgia, serif;
   }
 
-  .nav-link:hover { background: #f0f0ee; color: #1c1c1c; }
+  .nav-link:hover { background: #241A0E; color: #E8DCC0; }
 
   .nav-link.active {
-    background: #fff;
-    color: #1c1c1c;
+    background: #1A1208;
+    color: #E8DCC0;
     font-weight: 600;
-    border-left-color: #8b1a1a;
+    border-left-color: #B22222;
   }
 
   .nav-dot {
@@ -224,8 +227,8 @@
     position: sticky;
     top: 0;
     z-index: 200;
-    background: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    background: #1A1208;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     padding: 10px 16px;
     justify-content: space-between;
     align-items: center;
@@ -233,13 +236,13 @@
   }
 
   .mobile-menu-btn {
-    background: #ffffff;
-    border: 1px solid #ccc;
+    background: #1A1208;
+    border: 1px solid #8B6A1F;
     border-radius: 3px;
     padding: 7px 14px;
-    font-family: 'Source Serif 4', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 14px;
-    color: #333;
+    color: #E8DCC0;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -248,12 +251,12 @@
   }
 
   .print-btn-mobile {
-    background: #ffffff;
-    border: 1px solid #ccc;
+    background: #1A1208;
+    border: 1px solid #8B6A1F;
     border-radius: 3px;
     padding: 7px 12px;
     font-size: 13px;
-    color: #555;
+    color: #A08D62;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -274,82 +277,82 @@
   /* ===== SECTIONS ===== */
   .study-section {
     padding: clamp(28px, 5vw, 52px) 0 clamp(24px, 4vw, 40px);
-    border-bottom: 1px solid #e0e0e0;
-    background: #ffffff;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
+    background: #1A1208;
     scroll-margin-top: 16px;
   }
 
   .section-banner {
     padding: clamp(14px, 3vw, 22px) clamp(16px, 4vw, 36px);
     margin-bottom: clamp(20px, 4vw, 32px);
-    background: #f8f8f6;
-    border: 1px solid #e0e0e0;
-    border-left: 6px solid #ccc;
+    background: #14100A;
+    border: 1px solid rgba(200,168,75,0.3);
+    border-left: 6px solid #8B6A1F;
   }
 
-  .section-banner.red  { border-left-color: #8b1a1a; }
-  .section-banner.blue { border-left-color: #1a3a5c; }
-  .section-banner.dark { border-left-color: #555555; }
+  .section-banner.red  { border-left-color: #B22222; }
+  .section-banner.blue { border-left-color: #4A7FD4; }
+  .section-banner.dark { border-left-color: #A08D62; }
 
   .section-banner .section-num {
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #888;
+    color: #A08D62;
     margin-bottom: 5px;
   }
 
-  .section-banner.red  .section-num { color: #8b1a1a; }
-  .section-banner.blue .section-num { color: #1a3a5c; }
+  .section-banner.red  .section-num { color: #B22222; }
+  .section-banner.blue .section-num { color: #4A7FD4; }
 
   .section-banner h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(18px, 3.5vw, 34px);
     font-weight: 700;
     line-height: 1.2;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
   /* ===== TYPOGRAPHY ===== */
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(17px, 2.5vw, 21px);
     font-weight: 700;
-    color: #1c1c1c;
+    color: #E8DCC0;
     margin: clamp(24px, 4vw, 34px) 0 12px;
     padding-bottom: 7px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid rgba(200,168,75,0.3);
   }
 
   h4 {
     font-size: 11px;
     font-weight: 700;
-    color: #555;
+    color: #A08D62;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin: 18px 0 8px;
   }
 
-  p { margin-bottom: 14px; color: #1c1c1c; }
-  strong { font-weight: 700; color: #1c1c1c; }
-  em { font-style: italic; color: #444; }
+  p { margin-bottom: 14px; color: #E8DCC0; }
+  strong { font-weight: 700; color: #E8DCC0; }
+  em { font-style: italic; color: #A08D62; }
 
   /* ===== CALLOUTS ===== */
   .callout {
     padding: 13px 16px;
     margin: 16px 0;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-left: 4px solid #ccc;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.3);
+    border-left: 4px solid #8B6A1F;
     overflow-wrap: break-word;
     word-wrap: break-word;
   }
 
-  .callout.scripture { border-left-color: #9a6f00; }
-  .callout.science   { border-left-color: #1a3a5c; }
-  .callout.danger    { border-left-color: #b03020; }
-  .callout.egw       { border-left-color: #1a4a2a; }
-  .callout.recovery  { border-left-color: #256825; }
+  .callout.scripture { border-left-color: #C8A84B; }
+  .callout.science   { border-left-color: #4A7FD4; }
+  .callout.danger    { border-left-color: #CD5C3C; }
+  .callout.egw       { border-left-color: #57A87A; }
+  .callout.recovery  { border-left-color: #3A9060; }
 
   .callout-label {
     font-size: 9px;
@@ -359,28 +362,28 @@
     margin-bottom: 7px;
   }
 
-  .callout.scripture .callout-label { color: #9a6f00; }
-  .callout.science   .callout-label { color: #1a3a5c; }
-  .callout.danger    .callout-label { color: #b03020; }
-  .callout.egw       .callout-label { color: #1a4a2a; }
-  .callout.recovery  .callout-label { color: #256825; }
+  .callout.scripture .callout-label { color: #C8A84B; }
+  .callout.science   .callout-label { color: #4A7FD4; }
+  .callout.danger    .callout-label { color: #CD5C3C; }
+  .callout.egw       .callout-label { color: #57A87A; }
+  .callout.recovery  .callout-label { color: #3A9060; }
 
   .callout blockquote {
     font-style: italic;
     font-size: clamp(14px, 2.5vw, 16px);
     line-height: 1.7;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
   .callout cite {
     display: block;
     font-size: 12px;
     margin-top: 8px;
-    color: #666;
+    color: #A08D62;
     font-style: normal;
   }
 
-  .callout p { color: #1c1c1c; margin-bottom: 6px; }
+  .callout p { color: #E8DCC0; margin-bottom: 6px; }
 
   /* ===== TIMELINE ===== */
   .timeline { position: relative; padding: 8px 0; margin: 22px 0; }
@@ -389,7 +392,7 @@
     content: '';
     position: absolute;
     left: 24px; top: 0; bottom: 0;
-    width: 2px; background: #e0e0e0;
+    width: 2px; background: rgba(200,168,75,0.3);
   }
 
   .timeline-item { display: flex; gap: 14px; margin-bottom: 18px; }
@@ -401,33 +404,33 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 10px; font-weight: 700;
     position: relative; z-index: 1;
-    border: 2px solid #ccc;
-    background: #ffffff; color: #555;
+    border: 2px solid #8B6A1F;
+    background: #1A1208; color: #A08D62;
   }
 
-  .timeline-dot.red    { border-color: #8b1a1a; color: #8b1a1a; }
-  .timeline-dot.orange { border-color: #b06020; color: #b06020; }
-  .timeline-dot.gold   { border-color: #9a6f00; color: #9a6f00; }
-  .timeline-dot.green  { border-color: #256825; color: #256825; }
-  .timeline-dot.blue   { border-color: #1a3a5c; color: #1a3a5c; }
+  .timeline-dot.red    { border-color: #B22222; color: #B22222; }
+  .timeline-dot.orange { border-color: #C6863F; color: #C6863F; }
+  .timeline-dot.gold   { border-color: #C8A84B; color: #C8A84B; }
+  .timeline-dot.green  { border-color: #3A9060; color: #3A9060; }
+  .timeline-dot.blue   { border-color: #4A7FD4; color: #4A7FD4; }
 
   .timeline-content {
     flex: 1;
     min-width: 0;
     padding: 12px 15px;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.3);
     border-radius: 3px;
     overflow-wrap: break-word;
   }
 
   .timeline-content h5 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: 15px; font-weight: 700;
-    margin-bottom: 5px; color: #1c1c1c;
+    margin-bottom: 5px; color: #E8DCC0;
   }
 
-  .timeline-content p { font-size: 14px; color: #333; margin: 0; line-height: 1.6; }
+  .timeline-content p { font-size: 14px; color: #E8DCC0; margin: 0; line-height: 1.6; }
 
   /* ===== TABLES — scrollable on small screens ===== */
   .table-scroll {
@@ -435,7 +438,7 @@
     -webkit-overflow-scrolling: touch;
     margin: 16px 0;
     border-radius: 3px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(200,168,75,0.3);
   }
 
   .compare-table {
@@ -446,23 +449,23 @@
   }
 
   .compare-table th {
-    background: #f0f0f0; color: #1c1c1c;
+    background: #241A0E; color: #E8DCC0;
     padding: 9px 12px; text-align: left;
     font-weight: 700; font-size: 11px;
-    border-bottom: 2px solid #ccc;
-    border-right: 1px solid #ddd;
+    border-bottom: 2px solid #8B6A1F;
+    border-right: 1px solid rgba(200,168,75,0.3);
     white-space: nowrap;
   }
 
   .compare-table td {
     padding: 8px 12px;
-    border-bottom: 1px solid #eee;
-    border-right: 1px solid #f0f0f0;
-    color: #1c1c1c; vertical-align: top;
+    border-bottom: 1px solid rgba(200,168,75,0.2);
+    border-right: 1px solid #241A0E;
+    color: #E8DCC0; vertical-align: top;
     line-height: 1.5;
   }
 
-  .compare-table tr:nth-child(even) td { background: #fafaf8; }
+  .compare-table tr:nth-child(even) td { background: #14100A; }
   .compare-table tr:last-child td { border-bottom: none; }
 
   /* ===== BADGES ===== */
@@ -472,9 +475,9 @@
     border: 1px solid; white-space: nowrap;
   }
 
-  .badge.red    { background: #fff0ee; color: #b03020; border-color: #b03020; }
-  .badge.green  { background: #eef6ee; color: #256825; border-color: #256825; }
-  .badge.orange { background: #fff8ee; color: #b06020; border-color: #b06020; }
+  .badge.red    { background: #2A0810; color: #CD5C3C; border-color: #CD5C3C; }
+  .badge.green  { background: #0E1E10; color: #3A9060; border-color: #3A9060; }
+  .badge.orange { background: #241A0E; color: #C6863F; border-color: #C6863F; }
 
   /* ===== IMPACT GRID ===== */
   .impact-grid {
@@ -485,36 +488,36 @@
   }
 
   .impact-card {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.3);
     padding: 14px;
     border-radius: 3px;
   }
 
   .impact-card h5 {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px; margin-bottom: 9px; color: #1c1c1c;
+    font-family: 'Cinzel', serif;
+    font-size: 14px; margin-bottom: 9px; color: #E8DCC0;
   }
 
-  .impact-bar-label { font-size: 12px; color: #555; margin-bottom: 3px; }
+  .impact-bar-label { font-size: 12px; color: #A08D62; margin-bottom: 3px; }
 
   .impact-bar {
-    height: 6px; background: #eee;
+    height: 6px; background: rgba(200,168,75,0.2);
     border-radius: 3px; overflow: hidden; margin-bottom: 7px;
   }
 
   .impact-fill { height: 100%; border-radius: 3px; }
-  .fill-red    { background: #b03020; }
-  .fill-orange { background: #b06020; }
-  .fill-gold   { background: #9a6f00; }
-  .impact-card p { font-size: 12px; color: #555; margin: 4px 0 0; }
+  .fill-red    { background: #CD5C3C; }
+  .fill-orange { background: #C6863F; }
+  .fill-gold   { background: #C8A84B; }
+  .impact-card p { font-size: 12px; color: #A08D62; margin: 4px 0 0; }
 
   /* ===== STAGE FLOW ===== */
   .stage-flow {
     display: flex;
     flex-wrap: wrap;
     margin: 16px 0;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(200,168,75,0.3);
     border-radius: 3px;
     overflow: hidden;
   }
@@ -522,82 +525,82 @@
   .stage-block {
     flex: 1 1 120px;
     padding: 14px 10px;
-    border-right: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid rgba(200,168,75,0.3);
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     text-align: center;
-    background: #ffffff;
+    background: #1A1208;
   }
 
   .stage-block:last-child { border-right: none; }
 
   .stage-num {
     font-size: 22px; font-weight: 900;
-    font-family: 'Playfair Display', serif;
-    color: #ccc; line-height: 1;
+    font-family: 'Cinzel', serif;
+    color: #8B6A1F; line-height: 1;
   }
 
   .stage-title {
     font-size: 11px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.8px;
-    margin: 5px 0 3px; color: #1c1c1c;
+    margin: 5px 0 3px; color: #E8DCC0;
   }
 
-  .stage-desc { font-size: 12px; color: #555; line-height: 1.5; }
+  .stage-desc { font-size: 12px; color: #A08D62; line-height: 1.5; }
 
   /* ===== ORNAMENT ===== */
   .ornament {
     text-align: center; margin: 28px 0;
-    color: #9a6f00; font-size: 16px; letter-spacing: 8px;
+    color: #C8A84B; font-size: 16px; letter-spacing: 8px;
   }
 
   /* ===== PULL QUOTE ===== */
   .pull-quote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(15px, 2.5vw, 21px);
     font-style: italic; line-height: 1.5;
-    color: #8b1a1a; text-align: center;
+    color: #B22222; text-align: center;
     padding: clamp(18px, 4vw, 28px) clamp(16px, 5vw, 36px);
     margin: 22px 0;
-    border-top: 2px solid #8b1a1a;
-    border-bottom: 2px solid #8b1a1a;
+    border-top: 2px solid #B22222;
+    border-bottom: 2px solid #B22222;
   }
 
   .pull-quote cite {
     display: block; font-size: 12px;
-    color: #666; margin-top: 10px; font-style: normal;
+    color: #A08D62; margin-top: 10px; font-style: normal;
   }
 
   /* ===== SUMMARY BOX ===== */
   .summary-box {
-    background: #ffffff; color: #1c1c1c;
+    background: #1A1208; color: #E8DCC0;
     padding: clamp(20px, 4vw, 34px);
     margin: clamp(20px, 4vw, 34px) 0;
-    border: 2px solid #9a6f00; border-radius: 3px;
+    border: 2px solid #C8A84B; border-radius: 3px;
     overflow-wrap: break-word;
   }
 
   .summary-box h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(18px, 3vw, 23px);
-    color: #8b1a1a;
-    border-bottom: 1px solid #e0e0e0;
+    color: #B22222;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     padding-bottom: 12px; margin: 0 0 14px;
   }
 
-  .summary-box p { color: #1c1c1c; }
+  .summary-box p { color: #E8DCC0; }
   .summary-box ul { list-style: none; padding: 0; }
 
   .summary-box ul li {
     padding: 7px 0 7px 20px;
-    border-bottom: 1px solid #eee;
-    color: #1c1c1c;
+    border-bottom: 1px solid rgba(200,168,75,0.2);
+    color: #E8DCC0;
     font-size: clamp(13px, 2.5vw, 16px);
     position: relative; line-height: 1.6;
   }
 
   .summary-box ul li::before {
     content: '✦'; position: absolute; left: 0;
-    color: #9a6f00; font-size: 10px; top: 11px;
+    color: #C8A84B; font-size: 10px; top: 11px;
   }
 
   /* ===== STUDY LIST ===== */
@@ -605,26 +608,26 @@
 
   ul.study-list li {
     padding: 6px 0 6px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(200,168,75,0.2);
     position: relative;
     font-size: clamp(13px, 2.5vw, 16px);
-    color: #1c1c1c;
+    color: #E8DCC0;
     line-height: 1.6;
     overflow-wrap: break-word;
   }
 
   ul.study-list li::before {
     content: '▸'; position: absolute; left: 0;
-    color: #9a6f00; font-size: 12px; top: 9px;
+    color: #C8A84B; font-size: 12px; top: 9px;
   }
 
   /* ===== FOOTER ===== */
   .doc-footer {
-    background: #f8f8f6;
-    border-top: 1px solid #e0e0e0;
+    background: #14100A;
+    border-top: 1px solid rgba(200,168,75,0.3);
     padding: clamp(18px, 4vw, 28px) clamp(16px, 5vw, 40px);
     text-align: center;
-    font-size: 12px; color: #666; font-style: italic;
+    font-size: 12px; color: #A08D62; font-style: italic;
   }
 
   /* ===== BACK TO TOP ===== */
@@ -632,8 +635,8 @@
     position: fixed;
     bottom: 20px; right: 20px;
     width: 40px; height: 40px;
-    background: #ffffff;
-    border: 1px solid #ccc;
+    background: #1A1208;
+    border: 1px solid #8B6A1F;
     border-radius: 50%;
     font-size: 18px;
     cursor: pointer;
@@ -644,7 +647,7 @@
     pointer-events: none;
     transition: opacity 0.3s;
     z-index: 100;
-    color: #555;
+    color: #A08D62;
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
@@ -654,7 +657,7 @@
     pointer-events: auto;
   }
 
-  .back-to-top:hover { background: #f4f4f4; }
+  .back-to-top:hover { background: #241A0E; }
 
   /* ===================================================
      BREAKPOINTS
@@ -775,7 +778,7 @@
     .compare-table { min-width: 0; font-size: 10px; }
     .compare-table th, .compare-table td { padding: 5px 7px; }
 
-    .section-banner { border: 1px solid #ccc; }
+    .section-banner { border: 1px solid #8B6A1F; }
     .section-banner h2 { font-size: 18px; }
   }
 
@@ -908,140 +911,140 @@
     <div class="nav-group">
       <div class="nav-group-label danger-label">⚠ Substances</div>
       <a href="#alcohol-overview" class="nav-link" data-section="alcohol-overview">
-        <span class="nav-dot" style="background:#b03020;"></span>Alcohol
+        <span class="nav-dot" style="background:#CD5C3C;"></span>Alcohol
       </a>
       <a href="#porn-overview" class="nav-link" data-section="porn-overview">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Pornography
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Pornography
       </a>
       <a href="#combined" class="nav-link" data-section="combined">
-        <span class="nav-dot" style="background:#555;"></span>Combined View
+        <span class="nav-dot" style="background:#A08D62;"></span>Combined View
       </a>
       <a href="#nicotine" class="nav-link" data-section="nicotine">
-        <span class="nav-dot" style="background:#777;"></span>Nicotine
+        <span class="nav-dot" style="background:#B8A882;"></span>Nicotine
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label food-label">🍽 Diet &amp; Food</div>
       <a href="#sugar" class="nav-link" data-section="sugar">
-        <span class="nav-dot" style="background:#c07020;"></span>Sugar
+        <span class="nav-dot" style="background:#D69A4A;"></span>Sugar
       </a>
       <a href="#carbs" class="nav-link" data-section="carbs">
-        <span class="nav-dot" style="background:#8b5e00;"></span>Refined Carbs
+        <span class="nav-dot" style="background:#B89340;"></span>Refined Carbs
       </a>
       <a href="#dairy-full" class="nav-link" data-section="dairy-full">
-        <span class="nav-dot" style="background:#1a4a2a;"></span>Dairy
+        <span class="nav-dot" style="background:#57A87A;"></span>Dairy
       </a>
       <a href="#caffeine-full" class="nav-link" data-section="caffeine-full">
-        <span class="nav-dot" style="background:#555555;"></span>Caffeine
+        <span class="nav-dot" style="background:#A08D62;"></span>Caffeine
       </a>
       <a href="#seed-oils" class="nav-link" data-section="seed-oils">
-        <span class="nav-dot" style="background:#b06020;"></span>Seed Oils
+        <span class="nav-dot" style="background:#C6863F;"></span>Seed Oils
       </a>
       <a href="#additives" class="nav-link" data-section="additives">
-        <span class="nav-dot" style="background:#b03020;"></span>Food Additives
+        <span class="nav-dot" style="background:#CD5C3C;"></span>Food Additives
       </a>
       <a href="#unclean-meat" class="nav-link" data-section="unclean-meat">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>Pork &amp; Shellfish
+        <span class="nav-dot" style="background:#B22222;"></span>Pork &amp; Shellfish
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label body-label">🧬 Body &amp; Hormones</div>
       <a href="#gut-brain" class="nav-link" data-section="gut-brain">
-        <span class="nav-dot" style="background:#256825;"></span>Gut-Brain Axis
+        <span class="nav-dot" style="background:#3A9060;"></span>Gut-Brain Axis
       </a>
       <a href="#iodine-thyroid" class="nav-link" data-section="iodine-thyroid">
-        <span class="nav-dot" style="background:#9a6f00;"></span>Iodine &amp; Thyroid
+        <span class="nav-dot" style="background:#C8A84B;"></span>Iodine &amp; Thyroid
       </a>
       <a href="#xenoestrogens" class="nav-link" data-section="xenoestrogens">
-        <span class="nav-dot" style="background:#1a4a2a;"></span>Xenoestrogens
+        <span class="nav-dot" style="background:#57A87A;"></span>Xenoestrogens
       </a>
       <a href="#dehydration" class="nav-link" data-section="dehydration">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Dehydration
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Dehydration
       </a>
       <a href="#oral-health" class="nav-link" data-section="oral-health">
-        <span class="nav-dot" style="background:#9a6f00;"></span>Teeth &amp; Gum Health
+        <span class="nav-dot" style="background:#C8A84B;"></span>Teeth &amp; Gum Health
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label mind-label">🧠 Mind &amp; Behaviour</div>
       <a href="#sleep" class="nav-link" data-section="sleep">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Sleep &amp; Blue Light
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Sleep &amp; Blue Light
       </a>
       <a href="#chronic-stress" class="nav-link" data-section="chronic-stress">
-        <span class="nav-dot" style="background:#555555;"></span>Chronic Stress
+        <span class="nav-dot" style="background:#A08D62;"></span>Chronic Stress
       </a>
       <a href="#news-doom" class="nav-link" data-section="news-doom">
-        <span class="nav-dot" style="background:#b03020;"></span>Doomscrolling
+        <span class="nav-dot" style="background:#CD5C3C;"></span>Doomscrolling
       </a>
       <a href="#loneliness" class="nav-link" data-section="loneliness">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>Isolation
+        <span class="nav-dot" style="background:#B22222;"></span>Isolation
       </a>
     </div>
 
     <div class="nav-group">
-      <div class="nav-group-label" style="color:#1a3a5c;">📱 Media &amp; Behaviour</div>
+      <div class="nav-group-label" style="color:#4A7FD4;">📱 Media &amp; Behaviour</div>
       <a href="#short-form-video" class="nav-link" data-section="short-form-video">
-        <span class="nav-dot" style="background:#b03020;"></span>Short-Form Video
+        <span class="nav-dot" style="background:#CD5C3C;"></span>Short-Form Video
       </a>
       <a href="#gaming" class="nav-link" data-section="gaming">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Gaming Addiction
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Gaming Addiction
       </a>
       <a href="#music-brain" class="nav-link" data-section="music-brain">
-        <span class="nav-dot" style="background:#9a6f00;"></span>Music &amp; Brain
+        <span class="nav-dot" style="background:#C8A84B;"></span>Music &amp; Brain
       </a>
       <a href="#sedentary" class="nav-link" data-section="sedentary">
-        <span class="nav-dot" style="background:#555555;"></span>Sedentary Lifestyle
+        <span class="nav-dot" style="background:#A08D62;"></span>Sedentary Lifestyle
       </a>
       <a href="#binge-watching" class="nav-link" data-section="binge-watching">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Binge-Watching
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Binge-Watching
       </a>
       <a href="#divided-mind" class="nav-link" data-section="divided-mind">
-        <span class="nav-dot" style="background:#555555;"></span>The Divided Mind
+        <span class="nav-dot" style="background:#A08D62;"></span>The Divided Mind
       </a>
       <a href="#identity" class="nav-link" data-section="identity">
-        <span class="nav-dot" style="background:#9a6f00;"></span>Identity Formation
+        <span class="nav-dot" style="background:#C8A84B;"></span>Identity Formation
       </a>
     </div>
 
     <div class="nav-group">
-      <div class="nav-group-label" style="color:#8b1a1a;">⚔ Spiritual &amp; Mind</div>
+      <div class="nav-group-label" style="color:#B22222;">⚔ Spiritual &amp; Mind</div>
       <a href="#spiritual-warfare" class="nav-link" data-section="spiritual-warfare">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>Satan's 4 Methods
+        <span class="nav-dot" style="background:#B22222;"></span>Satan's 4 Methods
       </a>
       <a href="#trauma" class="nav-link" data-section="trauma">
-        <span class="nav-dot" style="background:#b03020;"></span>Trauma &amp; ACEs
+        <span class="nav-dot" style="background:#CD5C3C;"></span>Trauma &amp; ACEs
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label heal-label">✦ Healing</div>
       <a href="#exercise-brain" class="nav-link" data-section="exercise-brain">
-        <span class="nav-dot" style="background:#256825;"></span>Exercise &amp; BDNF
+        <span class="nav-dot" style="background:#3A9060;"></span>Exercise &amp; BDNF
       </a>
       <a href="#fasting" class="nav-link" data-section="fasting">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Fasting
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Fasting
       </a>
       <a href="#deep-reading" class="nav-link" data-section="deep-reading">
-        <span class="nav-dot" style="background:#256825;"></span>Deep Reading
+        <span class="nav-dot" style="background:#3A9060;"></span>Deep Reading
       </a>
       <a href="#nature-sunlight" class="nav-link" data-section="nature-sunlight">
-        <span class="nav-dot" style="background:#9a6f00;"></span>Nature &amp; Sunlight
+        <span class="nav-dot" style="background:#C8A84B;"></span>Nature &amp; Sunlight
       </a>
     </div>
 
     <div class="nav-group">
-      <div class="nav-group-label" style="color:#8b1a1a;">📊 Reference</div>
+      <div class="nav-group-label" style="color:#B22222;">📊 Reference</div>
       <a href="#frontal-lobe-table" class="nav-link" data-section="frontal-lobe-table">
-        <span class="nav-dot" style="background:#b03020;"></span>Frontal Lobe — Harms
+        <span class="nav-dot" style="background:#CD5C3C;"></span>Frontal Lobe — Harms
       </a>
       <a href="#frontal-lobe-strengthen" class="nav-link" data-section="frontal-lobe-strengthen">
-        <span class="nav-dot" style="background:#256825;"></span>Frontal Lobe — Healing
+        <span class="nav-dot" style="background:#3A9060;"></span>Frontal Lobe — Healing
       </a>
       <a href="#synergy" class="nav-link" data-section="synergy">
-        <span class="nav-dot" style="background:#9a6f00;"></span>Final Summary
+        <span class="nav-dot" style="background:#C8A84B;"></span>Final Summary
       </a>
     </div>
 
@@ -1182,7 +1185,7 @@
           <div class="impact-bar-label">Stroke risk</div>
           <div class="impact-bar"><div class="impact-fill fill-orange" style="width:65%"></div></div>
         </div>
-        <p style="font-size:13px;color:#555555;margin-top:10px;">Cardiomyopathy, atrial fibrillation, weakened heart muscle</p>
+        <p style="font-size:13px;color:#A08D62;margin-top:10px;">Cardiomyopathy, atrial fibrillation, weakened heart muscle</p>
       </div>
       <div class="impact-card">
         <h5>🫁 Liver</h5>
@@ -1194,7 +1197,7 @@
           <div class="impact-bar-label">Cirrhosis risk (long-term)</div>
           <div class="impact-bar"><div class="impact-fill fill-red" style="width:85%"></div></div>
         </div>
-        <p style="font-size:13px;color:#555555;margin-top:10px;">Alcoholic hepatitis → cirrhosis (irreversible scarring) → liver failure</p>
+        <p style="font-size:13px;color:#A08D62;margin-top:10px;">Alcoholic hepatitis → cirrhosis (irreversible scarring) → liver failure</p>
       </div>
       <div class="impact-card">
         <h5>🧬 Hormonal</h5>
@@ -1206,7 +1209,7 @@
           <div class="impact-bar-label">Oestrogen disruption (women)</div>
           <div class="impact-bar"><div class="impact-fill fill-red" style="width:70%"></div></div>
         </div>
-        <p style="font-size:13px;color:#555555;margin-top:10px;">Sexual dysfunction, fertility problems, endocrine disruption</p>
+        <p style="font-size:13px;color:#A08D62;margin-top:10px;">Sexual dysfunction, fertility problems, endocrine disruption</p>
       </div>
       <div class="impact-card">
         <h5>🛡 Immune System</h5>
@@ -1218,7 +1221,7 @@
           <div class="impact-bar-label">Cancer risk increase</div>
           <div class="impact-bar"><div class="impact-fill fill-red" style="width:72%"></div></div>
         </div>
-        <p style="font-size:13px;color:#555555;margin-top:10px;">Mouth, throat, oesophagus, colon cancer risk; slower wound healing</p>
+        <p style="font-size:13px;color:#A08D62;margin-top:10px;">Mouth, throat, oesophagus, colon cancer risk; slower wound healing</p>
       </div>
     </div>
 
@@ -1633,9 +1636,9 @@
       </ul>
 
       <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--border);">
-        <div class="callout-label" style="color:#9a6f00; font-size:10px; letter-spacing:3px; margin-bottom:10px;">✝ FREEDOM VERSE</div>
-        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:#8b1a1a;">"It is for freedom that Christ has set us free. Stand firm, then, and do not let yourselves be burdened again by a yoke of slavery."</p>
-        <p style="font-size:13px; color:#555555; margin-top:6px;">— Galatians 5:1</p>
+        <div class="callout-label" style="color:#C8A84B; font-size:10px; letter-spacing:3px; margin-bottom:10px;">✝ FREEDOM VERSE</div>
+        <p style="font-family: 'Cinzel', serif; font-style:italic; font-size:18px; color:#B22222;">"It is for freedom that Christ has set us free. Stand firm, then, and do not let yourselves be burdened again by a yoke of slavery."</p>
+        <p style="font-size:13px; color:#A08D62; margin-top:6px;">— Galatians 5:1</p>
       </div>
     </div>
 
@@ -1646,8 +1649,8 @@
 <!-- ============================== NICOTINE ============================== -->
 
 <div class="study-section" id="nicotine">
-  <div class="section-banner" style="border-left-color:#555555;">
-    <div class="section-num" style="color:#555555;">Part Seventeen — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#A08D62;">
+    <div class="section-num" style="color:#A08D62;">Part Seventeen — Under the Radar</div>
     <h2>Nicotine &amp; Vaping — The "Clean" Addiction That Isn't</h2>
   </div>
   <div class="container">
@@ -1715,8 +1718,8 @@
 <!-- ============================== SUGAR ============================== -->
 
 <div class="study-section" id="sugar">
-  <div class="section-banner" style="border-left-color:#c07020;">
-    <div class="section-num" style="color:#c07020;">Part Four</div>
+  <div class="section-banner" style="border-left-color:#D69A4A;">
+    <div class="section-num" style="color:#D69A4A;">Part Four</div>
     <h2>Sugar — The Silent Frontal Lobe Suppressor</h2>
   </div>
   <div class="container">
@@ -1869,8 +1872,8 @@
 <!-- ============================== REFINED CARBS ============================== -->
 
 <div class="study-section" id="carbs">
-  <div class="section-banner" style="border-left-color:#8b5e00;">
-    <div class="section-num" style="color:#8b5e00;">Part Five</div>
+  <div class="section-banner" style="border-left-color:#B89340;">
+    <div class="section-num" style="color:#B89340;">Part Five</div>
     <h2>Refined Carbohydrates — White Bread and the Glycaemic Deception</h2>
   </div>
   <div class="container">
@@ -1976,8 +1979,8 @@
 <!-- ============================== DAIRY FULL ============================== -->
 
 <div class="study-section" id="dairy-full">
-  <div class="section-banner" style="border-left-color:#1a4a2a;">
-    <div class="section-num" style="color:#1a4a2a;">Part Seven</div>
+  <div class="section-banner" style="border-left-color:#57A87A;">
+    <div class="section-num" style="color:#57A87A;">Part Seven</div>
     <h2>Dairy — Concentrated Hormones in a Glass</h2>
   </div>
   <div class="container">
@@ -2012,7 +2015,7 @@
       <tr><th>Dairy Product</th><th>Hormonal Concentration</th><th>Casomorphin Level</th><th>Risk Level</th></tr>
       <tr><td>Aged hard cheese (cheddar, parmesan)</td><td>Very high — 10× milk</td><td>Highest</td><td><span class="badge red">Very High</span></td></tr>
       <tr><td>Skim milk</td><td>High — fat removed, hormones remain concentrated</td><td>Low</td><td><span class="badge red">High</span></td></tr>
-      <tr><td>Full-fat milk</td><td>Moderate</td><td>Low</td><td><span class="badge orange" style="background:#fff8ee;color:#b06020;border:1px solid #b06020;">Moderate</span></td></tr>
+      <tr><td>Full-fat milk</td><td>Moderate</td><td>Low</td><td><span class="badge orange" style="background:#241A0E;color:#C6863F;border:1px solid #C6863F;">Moderate</span></td></tr>
       <tr><td>Butter / ghee</td><td>Low — mostly fat, minimal protein</td><td>None</td><td><span class="badge green">Lower</span></td></tr>
     </table></div>
 
@@ -2081,8 +2084,8 @@
 <!-- ============================== CAFFEINE FULL ============================== -->
 
 <div class="study-section" id="caffeine-full">
-  <div class="section-banner" style="border-left-color:#555555;">
-    <div class="section-num" style="color:#555555;">Part Six</div>
+  <div class="section-banner" style="border-left-color:#A08D62;">
+    <div class="section-num" style="color:#A08D62;">Part Six</div>
     <h2>Caffeine — The Socially Acceptable Hormone Disruptor</h2>
   </div>
   <div class="container">
@@ -2176,8 +2179,8 @@
 <!-- ============================== SEED OILS ============================== -->
 
 <div class="study-section" id="seed-oils">
-  <div class="section-banner" style="border-left-color:#b06020;">
-    <div class="section-num" style="color:#b06020;">Part Nine — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#C6863F;">
+    <div class="section-num" style="color:#C6863F;">Part Nine — Under the Radar</div>
     <h2>Seed Oils &amp; The Omega Imbalance — The Most Invisible Dietary Harm</h2>
   </div>
   <div class="container">
@@ -2239,8 +2242,8 @@
 <!-- ============================== FOOD ADDITIVES ============================== -->
 
 <div class="study-section" id="additives">
-  <div class="section-banner" style="border-left-color:#b03020;">
-    <div class="section-num" style="color:#b03020;">Part Eleven — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#CD5C3C;">
+    <div class="section-num" style="color:#CD5C3C;">Part Eleven — Under the Radar</div>
     <h2>Food Additives — The Chemistry Experiment in Every Meal</h2>
   </div>
   <div class="container">
@@ -2302,8 +2305,8 @@
 <!-- ============================== PROCESSED MEAT / PORK / SHELLFISH ============================== -->
 
 <div class="study-section" id="unclean-meat">
-  <div class="section-banner" style="border-left-color:#8b1a1a;">
-    <div class="section-num" style="color:#8b1a1a;">Part Sixteen — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#B22222;">
+    <div class="section-num" style="color:#B22222;">Part Sixteen — Under the Radar</div>
     <h2>Pork, Shellfish &amp; Processed Meat — What God Knew That Science Confirms</h2>
   </div>
   <div class="container">
@@ -2376,8 +2379,8 @@
 <!-- ============================== HIDDEN CONSTIPATION ============================== -->
 
 <div class="study-section" id="gut-brain">
-  <div class="section-banner" style="border-left-color:#256825;">
-    <div class="section-num" style="color:#256825;">Part Twelve — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#3A9060;">
+    <div class="section-num" style="color:#3A9060;">Part Twelve — Under the Radar</div>
     <h2>Hidden Constipation &amp; The Gut-Brain Axis — The Silent Epidemic</h2>
   </div>
   <div class="container">
@@ -2433,8 +2436,8 @@
 <!-- ============================== IODINE AND THYROID ============================== -->
 
 <div class="study-section" id="iodine-thyroid">
-  <div class="section-banner" style="border-left-color:#9a6f00;">
-    <div class="section-num" style="color:#9a6f00;">Part Twenty-One — What's Missing</div>
+  <div class="section-banner" style="border-left-color:#C8A84B;">
+    <div class="section-num" style="color:#C8A84B;">Part Twenty-One — What's Missing</div>
     <h2>Iodine &amp; Thyroid Function — The Silent Deficiency Nobody Checks</h2>
   </div>
   <div class="container">
@@ -2482,8 +2485,8 @@
 <!-- ============================== MICROPLASTICS / XENOESTROGENS ============================== -->
 
 <div class="study-section" id="xenoestrogens">
-  <div class="section-banner" style="border-left-color:#1a4a2a;">
-    <div class="section-num" style="color:#1a4a2a;">Part Nineteen — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#57A87A;">
+    <div class="section-num" style="color:#57A87A;">Part Nineteen — Under the Radar</div>
     <h2>Microplastics &amp; Xenoestrogens — The Environmental Hormone Flood</h2>
   </div>
   <div class="container">
@@ -2538,8 +2541,8 @@
 <!-- ============================== DEHYDRATION ============================== -->
 
 <div class="study-section" id="dehydration">
-  <div class="section-banner" style="border-left-color:#1a3a5c;">
-    <div class="section-num" style="color:#1a3a5c;">Part Fourteen — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#4A7FD4;">
+    <div class="section-num" style="color:#4A7FD4;">Part Fourteen — Under the Radar</div>
     <h2>Dehydration — The Most Overlooked Brain Impairment</h2>
   </div>
   <div class="container">
@@ -2583,8 +2586,8 @@
 <!-- ============================== ORAL HEALTH ============================== -->
 
 <div class="study-section" id="oral-health">
-  <div class="section-banner" style="border-left-color:#8b1a1a;">
-    <div class="section-num" style="color:#8b1a1a;">Part Thirty-Four — The Overlooked Gateway</div>
+  <div class="section-banner" style="border-left-color:#B22222;">
+    <div class="section-num" style="color:#B22222;">Part Thirty-Four — The Overlooked Gateway</div>
     <h2>Teeth &amp; Gum Health — The Mouth as a Window to the Whole Body</h2>
   </div>
   <div class="container">
@@ -2842,8 +2845,8 @@
 <!-- ============================== SLEEP ============================== -->
 
 <div class="study-section" id="sleep">
-  <div class="section-banner" style="border-left-color:#1a3a5c;">
-    <div class="section-num" style="color:#1a3a5c;">Part Ten — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#4A7FD4;">
+    <div class="section-num" style="color:#4A7FD4;">Part Ten — Under the Radar</div>
     <h2>Sleep Deprivation &amp; Blue Light — The Ignored Brain Emergency</h2>
   </div>
   <div class="container">
@@ -2922,8 +2925,8 @@
 <!-- ============================== CHRONIC STRESS ============================== -->
 
 <div class="study-section" id="chronic-stress">
-  <div class="section-banner" style="border-left-color:#555555;">
-    <div class="section-num" style="color:#555555;">Part Thirteen — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#A08D62;">
+    <div class="section-num" style="color:#A08D62;">Part Thirteen — Under the Radar</div>
     <h2>Chronic Stress &amp; The HPA Axis — The Invisible Disease Factory</h2>
   </div>
   <div class="container">
@@ -2975,8 +2978,8 @@
 <!-- ============================== DOOMSCROLLING / NEWS ============================== -->
 
 <div class="study-section" id="news-doom">
-  <div class="section-banner" style="border-left-color:#b03020;">
-    <div class="section-num" style="color:#b03020;">Part Eighteen — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#CD5C3C;">
+    <div class="section-num" style="color:#CD5C3C;">Part Eighteen — Under the Radar</div>
     <h2>Doomscrolling &amp; News Addiction — Manufactured Urgency, Real Brain Damage</h2>
   </div>
   <div class="container">
@@ -3021,8 +3024,8 @@
 <!-- ============================== LONELINESS ============================== -->
 
 <div class="study-section" id="loneliness">
-  <div class="section-banner" style="border-left-color:#8b1a1a;">
-    <div class="section-num" style="color:#8b1a1a;">Part Fifteen — Under the Radar</div>
+  <div class="section-banner" style="border-left-color:#B22222;">
+    <div class="section-num" style="color:#B22222;">Part Fifteen — Under the Radar</div>
     <h2>Social Isolation &amp; Loneliness — The Underestimated Biological Threat</h2>
   </div>
   <div class="container">
@@ -3085,8 +3088,8 @@
 
 <!-- SHORT-FORM VIDEO -->
 <div class="study-section" id="short-form-video">
-  <div class="section-banner" style="border-left-color:#b03020;">
-    <div class="section-num" style="color:#b03020;">Part Twenty-Three</div>
+  <div class="section-banner" style="border-left-color:#CD5C3C;">
+    <div class="section-num" style="color:#CD5C3C;">Part Twenty-Three</div>
     <h2>Short-Form Video &amp; TikTok — The Most Addictive Format Ever Engineered</h2>
   </div>
   <div class="container">
@@ -3122,8 +3125,8 @@
 
 <!-- GAMING -->
 <div class="study-section" id="gaming">
-  <div class="section-banner" style="border-left-color:#1a3a5c;">
-    <div class="section-num" style="color:#1a3a5c;">Part Twenty-Four</div>
+  <div class="section-banner" style="border-left-color:#4A7FD4;">
+    <div class="section-num" style="color:#4A7FD4;">Part Twenty-Four</div>
     <h2>Gaming Addiction — Drug-Like Brain Changes Without a Drug</h2>
   </div>
   <div class="container">
@@ -3155,8 +3158,8 @@
 
 <!-- MUSIC -->
 <div class="study-section" id="music-brain">
-  <div class="section-banner" style="border-left-color:#9a6f00;">
-    <div class="section-num" style="color:#9a6f00;">Part Twenty-Five</div>
+  <div class="section-banner" style="border-left-color:#C8A84B;">
+    <div class="section-num" style="color:#C8A84B;">Part Twenty-Five</div>
     <h2>Music — The Frontal Lobe Bypass That Cuts Both Ways</h2>
   </div>
   <div class="container">
@@ -3191,8 +3194,8 @@
 
 <!-- SEDENTARY LIFESTYLE -->
 <div class="study-section" id="sedentary">
-  <div class="section-banner" style="border-left-color:#555555;">
-    <div class="section-num" style="color:#555555;">Part Twenty-Six</div>
+  <div class="section-banner" style="border-left-color:#A08D62;">
+    <div class="section-num" style="color:#A08D62;">Part Twenty-Six</div>
     <h2>Sedentary Lifestyle — Sitting as the New Smoking</h2>
   </div>
   <div class="container">
@@ -3226,8 +3229,8 @@
 <!-- ============================== BINGE-WATCHING ============================== -->
 
 <div class="study-section" id="binge-watching">
-  <div class="section-banner" style="border-left-color:#1a3a5c;">
-    <div class="section-num" style="color:#1a3a5c;">Part Twenty-Nine — Media &amp; Behaviour</div>
+  <div class="section-banner" style="border-left-color:#4A7FD4;">
+    <div class="section-num" style="color:#4A7FD4;">Part Twenty-Nine — Media &amp; Behaviour</div>
     <h2>Binge-Watching — The Slow Erosion of the Watching Soul</h2>
   </div>
   <div class="container">
@@ -3321,8 +3324,8 @@
 <!-- ============================== THE DIVIDED MIND ============================== -->
 
 <div class="study-section" id="divided-mind">
-  <div class="section-banner" style="border-left-color:#555555;">
-    <div class="section-num" style="color:#555555;">Part Thirty — Media &amp; Behaviour</div>
+  <div class="section-banner" style="border-left-color:#A08D62;">
+    <div class="section-num" style="color:#A08D62;">Part Thirty — Media &amp; Behaviour</div>
     <h2>The Divided Mind — Double-Mindedness in the Age of Infinite Distraction</h2>
   </div>
   <div class="container">
@@ -3403,8 +3406,8 @@
 <!-- ============================== IDENTITY FORMATION ============================== -->
 
 <div class="study-section" id="identity">
-  <div class="section-banner" style="border-left-color:#9a6f00;">
-    <div class="section-num" style="color:#9a6f00;">Part Thirty-One — Media &amp; Behaviour</div>
+  <div class="section-banner" style="border-left-color:#C8A84B;">
+    <div class="section-num" style="color:#C8A84B;">Part Thirty-One — Media &amp; Behaviour</div>
     <h2>Identity Formation — Who Are You Becoming by What You Watch?</h2>
   </div>
   <div class="container">
@@ -3522,8 +3525,8 @@
 <!-- ============================== SATAN'S 4 METHODS ============================== -->
 
 <div class="study-section" id="spiritual-warfare">
-  <div class="section-banner" style="border-left-color:#8b1a1a;">
-    <div class="section-num" style="color:#8b1a1a;">Part Thirty-Two — Spiritual &amp; Mind</div>
+  <div class="section-banner" style="border-left-color:#B22222;">
+    <div class="section-num" style="color:#B22222;">Part Thirty-Two — Spiritual &amp; Mind</div>
     <h2>Satan's 4 Methods — How the Adversary Uses Media, Appetite, and Habit Against the Soul</h2>
   </div>
   <div class="container">
@@ -3646,8 +3649,8 @@
 <!-- ============================== TRAUMA & ACES ============================== -->
 
 <div class="study-section" id="trauma">
-  <div class="section-banner" style="border-left-color:#b03020;">
-    <div class="section-num" style="color:#b03020;">Part Thirty-Three — Spiritual &amp; Mind</div>
+  <div class="section-banner" style="border-left-color:#CD5C3C;">
+    <div class="section-num" style="color:#CD5C3C;">Part Thirty-Three — Spiritual &amp; Mind</div>
     <h2>Trauma &amp; ACEs — How Wounded Histories Drive the Habits This Study Documents</h2>
   </div>
   <div class="container">
@@ -3795,8 +3798,8 @@
 <!-- ============================== EXERCISE AND BDNF ============================== -->
 
 <div class="study-section" id="exercise-brain">
-  <div class="section-banner" style="border-left-color:#256825;">
-    <div class="section-num" style="color:#256825;">Part Twenty — What Helps</div>
+  <div class="section-banner" style="border-left-color:#3A9060;">
+    <div class="section-num" style="color:#3A9060;">Part Twenty — What Helps</div>
     <h2>Exercise &amp; BDNF — The Most Underused Brain Medicine</h2>
   </div>
   <div class="container">
@@ -3852,8 +3855,8 @@
 <!-- ============================== FASTING ============================== -->
 
 <div class="study-section" id="fasting">
-  <div class="section-banner" style="border-left-color:#1a3a5c;">
-    <div class="section-num" style="color:#1a3a5c;">Part Twenty-Two — What Helps</div>
+  <div class="section-banner" style="border-left-color:#4A7FD4;">
+    <div class="section-num" style="color:#4A7FD4;">Part Twenty-Two — What Helps</div>
     <h2>Fasting — The Ancient Practice That Modern Neuroscience Validates</h2>
   </div>
   <div class="container">
@@ -3904,8 +3907,8 @@
 
 <!-- DEEP READING -->
 <div class="study-section" id="deep-reading">
-  <div class="section-banner" style="border-left-color:#256825;">
-    <div class="section-num" style="color:#256825;">Part Twenty-Seven — What Helps</div>
+  <div class="section-banner" style="border-left-color:#3A9060;">
+    <div class="section-num" style="color:#3A9060;">Part Twenty-Seven — What Helps</div>
     <h2>Deep Reading — The Most Accessible Frontal Lobe Exercise</h2>
   </div>
   <div class="container">
@@ -3940,8 +3943,8 @@
 
 <!-- NATURE EXPOSURE -->
 <div class="study-section" id="nature-sunlight">
-  <div class="section-banner" style="border-left-color:#256825;">
-    <div class="section-num" style="color:#256825;">Part Twenty-Eight — What Helps</div>
+  <div class="section-banner" style="border-left-color:#3A9060;">
+    <div class="section-num" style="color:#3A9060;">Part Twenty-Eight — What Helps</div>
     <h2>Nature &amp; Sunlight — God's Original Pharmacy</h2>
   </div>
   <div class="container">
@@ -3978,8 +3981,8 @@
 <!-- ============================== FRONTAL LOBE MASTER TABLE ============================== -->
 
 <div class="study-section" id="frontal-lobe-table">
-  <div class="section-banner" style="border-left-color:#8b1a1a;">
-    <div class="section-num" style="color:#8b1a1a;">Master Reference</div>
+  <div class="section-banner" style="border-left-color:#B22222;">
+    <div class="section-num" style="color:#B22222;">Master Reference</div>
     <h2>Every Topic — Frontal Lobe Impact Rated</h2>
   </div>
   <div class="container">
@@ -4153,8 +4156,8 @@
 <!-- ============================== WHAT STRENGTHENS THE FRONTAL LOBE ============================== -->
 
 <div class="study-section" id="frontal-lobe-strengthen">
-  <div class="section-banner" style="border-left-color:#256825;">
-    <div class="section-num" style="color:#256825;">Master Reference — Healing</div>
+  <div class="section-banner" style="border-left-color:#3A9060;">
+    <div class="section-num" style="color:#3A9060;">Master Reference — Healing</div>
     <h2>What Strengthens the Frontal Lobe — The Complete List</h2>
   </div>
   <div class="container">
@@ -4299,8 +4302,8 @@
 
 <!-- ========== PHYSICAL HEALTH AND SPIRITUAL LIFE ========== -->
 <div class="study-section" id="physical-spiritual">
-  <div class="section-banner" style="border-left-color:#9a6f00;">
-    <div class="section-num" style="color:#9a6f00;">Part Thirty-Five — The Deepest Connection</div>
+  <div class="section-banner" style="border-left-color:#C8A84B;">
+    <div class="section-num" style="color:#C8A84B;">Part Thirty-Five — The Deepest Connection</div>
     <h2>Physical Health &amp; Spiritual Life — When the Body Governs the Soul</h2>
   </div>
   <div class="container">
@@ -4455,8 +4458,8 @@
 <!-- ============================== SYNERGISTIC EFFECT ============================== -->
 
 <div class="study-section" id="synergy">
-  <div class="section-banner" style="border-left-color:#8b1a1a;">
-    <div class="section-num" style="color:#8b1a1a;">Part Eight</div>
+  <div class="section-banner" style="border-left-color:#B22222;">
+    <div class="section-num" style="color:#B22222;">Part Eight</div>
     <h2>The Synergistic Effect — How These All Combine</h2>
   </div>
   <div class="container">
@@ -4491,10 +4494,10 @@
     <div class="table-scroll"><table class="compare-table">
       <tr><th>Priority</th><th>Change</th><th>Primary Benefit</th><th>Difficulty</th></tr>
       <tr><td>1</td><td><strong>Remove sugar from rooibos tea</strong></td><td>Immediate: 25–30g daily added sugar eliminated. Insulin, PCOS, skin</td><td><span class="badge green">Low</span></td></tr>
-      <tr><td>2</td><td><strong>Eliminate sugar broadly</strong></td><td>PCOS insulin resistance, frontal lobe, mood stability, endometriosis inflammation</td><td><span class="badge orange" style="background:#fff8ee;color:#b06020;border:1px solid #b06020;">Medium</span></td></tr>
+      <tr><td>2</td><td><strong>Eliminate sugar broadly</strong></td><td>PCOS insulin resistance, frontal lobe, mood stability, endometriosis inflammation</td><td><span class="badge orange" style="background:#241A0E;color:#C6863F;border:1px solid #C6863F;">Medium</span></td></tr>
       <tr><td>3</td><td><strong>Replace refined carbs with whole grains</strong></td><td>Oestrogen clearance, gut microbiome, sustained brain fuel, PCOS</td><td><span class="badge green">Low-Medium</span></td></tr>
-      <tr><td>4</td><td><strong>Trial dairy elimination (21 days)</strong></td><td>IGF-1 reduction, hormonal oestrogen load, PCOS androgens, endometriosis</td><td><span class="badge orange" style="background:#fff8ee;color:#b06020;border:1px solid #b06020;">Medium</span></td></tr>
-      <tr><td>5</td><td><strong>Reduce or eliminate caffeine</strong></td><td>Cortisol → progesterone recovery, oestrogen clearance, sleep, fertility</td><td><span class="badge orange" style="background:#fff8ee;color:#b06020;border:1px solid #b06020;">Medium</span></td></tr>
+      <tr><td>4</td><td><strong>Trial dairy elimination (21 days)</strong></td><td>IGF-1 reduction, hormonal oestrogen load, PCOS androgens, endometriosis</td><td><span class="badge orange" style="background:#241A0E;color:#C6863F;border:1px solid #C6863F;">Medium</span></td></tr>
+      <tr><td>5</td><td><strong>Reduce or eliminate caffeine</strong></td><td>Cortisol → progesterone recovery, oestrogen clearance, sleep, fertility</td><td><span class="badge orange" style="background:#241A0E;color:#C6863F;border:1px solid #C6863F;">Medium</span></td></tr>
       <tr><td>6</td><td><strong>Eliminate alcohol</strong></td><td>Liver oestrogen clearance, frontal lobe, gut microbiome, fertility</td><td><span class="badge red">High (if habitual)</span></td></tr>
       <tr><td>7</td><td><strong>Eliminate processed food</strong></td><td>All of the above — removes the vehicle for most other harms</td><td><span class="badge red">High</span></td></tr>
     </table></div>
@@ -4514,10 +4517,10 @@
         <li>All of them are recoverable — the body heals with remarkable speed and completeness when given what it needs</li>
         <li>The Daniel Diet is not deprivation — it is restoration to the original design of Genesis 1:29</li>
       </ul>
-      <div style="margin-top:24px; padding-top:20px; border-top:1px solid #dddddd;">
-        <div style="font-size:10px; letter-spacing:3px; color:#9a6f00; margin-bottom:10px; text-transform:uppercase; font-weight:700;">✝ Daniel's Testimony</div>
-        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:#8b1a1a;">"In every matter of wisdom and understanding about which the king questioned them, he found them ten times better than all the magicians and enchanters in his whole kingdom."</p>
-        <p style="font-size:13px; color:#555555; margin-top:6px;">— Daniel 1:20 — The result of 10 days on God's original diet. Imagine what 10 months would do.</p>
+      <div style="margin-top:24px; padding-top:20px; border-top:1px solid rgba(200,168,75,0.3);">
+        <div style="font-size:10px; letter-spacing:3px; color:#C8A84B; margin-bottom:10px; text-transform:uppercase; font-weight:700;">✝ Daniel's Testimony</div>
+        <p style="font-family: 'Cinzel', serif; font-style:italic; font-size:18px; color:#B22222;">"In every matter of wisdom and understanding about which the king questioned them, he found them ten times better than all the magicians and enchanters in his whole kingdom."</p>
+        <p style="font-size:13px; color:#A08D62; margin-top:6px;">— Daniel 1:20 — The result of 10 days on God's original diet. Imagine what 10 months would do.</p>
       </div>
     </div>
 

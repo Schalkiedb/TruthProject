@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"><!--canonical-fonts-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Forbidden Ocean — All Levitically Prohibited Aquatic Foods</title>
@@ -8,15 +11,15 @@
   @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
 
   :root {
-    --deep:           #0a1520;
-    --deep-mid:       #0e1d2a;
-    --deep-card:      #112232;
-    --deep-edge:      #162940;
-    --deep-bright:    #1a3350;
-    --ocean:          #1a6b8a;
-    --ocean-bright:   #2a9bc0;
-    --ocean-dim:      #0f4a62;
-    --ocean-pale:     #4ab8d8;
+    --deep:           #0D0A06;
+    --deep-mid:       #14100A;
+    --deep-card:      #1A1208;
+    --deep-edge:      #241A0E;
+    --deep-bright:    #2C2012;
+    --ocean:          #c8a84b;
+    --ocean-bright:   #e8c96a;
+    --ocean-dim:      #8b6a1f;
+    --ocean-pale:     #edd488;
     --gold:           #c9a84c;
     --gold-bright:    #e8c96a;
     --gold-dim:       #8a6d2e;
@@ -24,11 +27,11 @@
     --red-dim:        #7a2e2e;
     --biolume:        #00d4aa;
     --biolume-dim:    #006655;
-    --text-main:      #cce8f0;
-    --text-muted:     #6a9aaa;
-    --text-dim:       #3a6070;
-    --border:         rgba(26,107,138,0.22);
-    --border-strong:  rgba(26,107,138,0.5);
+    --text-main:      #E8DCC0;
+    --text-muted:     #A08D62;
+    --text-dim:       #7A6845;
+    --border:         rgba(200,168,75,0.3);
+    --border-strong:  rgba(200,168,75,0.6);
     --border-gold:    rgba(201,168,76,0.28);
   }
 
@@ -37,13 +40,13 @@
   body {
     background: var(--deep);
     color: var(--text-main);
-    font-family: 'Crimson Pro', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 18px;
     line-height: 1.78;
     background-image:
-      radial-gradient(ellipse at 10% 0%, rgba(0,120,160,0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 100%, rgba(0,80,120,0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(0,30,50,0.4) 0%, transparent 80%),
+      radial-gradient(ellipse at 10% 0%, rgba(200,168,75,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 100%, rgba(160,120,40,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(8,6,3,0.5) 0%, transparent 80%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   }
 
@@ -59,8 +62,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse at 50% 0%, rgba(0,180,220,0.07) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(0,100,140,0.08) 0%, transparent 100%);
+      radial-gradient(ellipse at 50% 0%, rgba(200,168,75,0.06) 0%, transparent 60%),
+      linear-gradient(180deg, rgba(160,120,40,0.06) 0%, transparent 100%);
   }
   .masthead-deco {
     position: absolute;
@@ -87,7 +90,7 @@
     line-height: 1.15;
     margin-bottom: 8px;
     position: relative;
-    text-shadow: 0 0 40px rgba(42,155,192,0.4), 0 2px 20px rgba(0,0,0,0.6);
+    text-shadow: 0 0 40px rgba(232,201,106,0.35), 0 2px 20px rgba(0,0,0,0.6);
   }
   .masthead h2 {
     font-family: 'Cinzel', serif;
@@ -99,7 +102,7 @@
     position: relative;
   }
   .masthead .subtitle {
-    font-family: 'IM Fell English', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-size: 19px;
     color: var(--text-muted);
@@ -180,7 +183,7 @@
   }
   .section-title .icon { font-size: 20px; }
   .section-subtitle {
-    font-family: 'IM Fell English', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-size: 22px;
     color: var(--text-main);
@@ -202,7 +205,7 @@
     gap: 16px;
     padding: 20px 24px 16px;
     border-bottom: 1px solid var(--border);
-    background: linear-gradient(90deg, rgba(26,107,138,0.08), transparent);
+    background: linear-gradient(90deg, rgba(200,168,75,0.06), transparent);
     cursor: pointer;
     user-select: none;
   }
@@ -215,7 +218,7 @@
     letter-spacing: 1px;
   }
   .creature-latin {
-    font-family: 'IM Fell English', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-size: 14px;
     color: var(--text-dim);
@@ -341,7 +344,7 @@
     border-radius: 0 4px 4px 0;
   }
   .verse-text {
-    font-family: 'IM Fell English', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-size: 19px;
     color: var(--text-main);
@@ -366,7 +369,7 @@
     border-radius: 0 4px 4px 0;
   }
   .egw-quote p {
-    font-family: 'IM Fell English', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-size: 18px;
     color: var(--text-main);
@@ -433,7 +436,7 @@
     vertical-align: top;
   }
   .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table tr:hover td { background: rgba(26,107,138,0.04); }
+  .compare-table tr:hover td { background: rgba(200,168,75,0.04); }
   .badge-bad  { color: #d06060; font-weight: 600; }
   .badge-mid  { color: var(--gold); font-weight: 600; }
   .badge-ok   { color: var(--biolume); font-weight: 600; }
@@ -470,7 +473,7 @@
 
   /* ── SUMMARY BOX ── */
   .summary-box {
-    background: linear-gradient(135deg, rgba(26,107,138,0.1), rgba(26,107,138,0.03));
+    background: linear-gradient(135deg, rgba(200,168,75,0.1), rgba(200,168,75,0.03));
     border: 1px solid var(--border-strong);
     border-radius: 6px;
     padding: 30px 34px;
@@ -520,7 +523,7 @@
     text-align: center;
   }
   .danger-banner p {
-    font-family: 'IM Fell English', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-size: 17px;
     color: var(--text-main);
@@ -539,7 +542,7 @@
     margin-bottom: 16px;
     margin-top: 8px;
   }
-  .cat-bivalve  { background: rgba(26,107,138,0.15); border: 1px solid rgba(26,107,138,0.4); color: var(--ocean-pale); }
+  .cat-bivalve  { background: rgba(26,107,138,0.15); border: 1px solid rgba(26,107,138,0.4); color: #4ab8d8; }
   .cat-crust    { background: rgba(201,168,76,0.1);  border: 1px solid rgba(201,168,76,0.3); color: var(--gold); }
   .cat-ceph     { background: rgba(0,212,170,0.08);  border: 1px solid rgba(0,212,170,0.25); color: var(--biolume); }
   .cat-fish     { background: rgba(192,72,72,0.1);   border: 1px solid rgba(192,72,72,0.3);  color: #d06060; }

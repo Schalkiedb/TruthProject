@@ -13,10 +13,10 @@
    ROOT TOKENS
 ══════════════════════════════════════════════════ */
 :root {
-  --ink:       #06050A;
-  --ink2:      #0B0A10;
-  --ink3:      #100F18;
-  --panel:     #0C0B12;
+  --ink:       #0D0A06;
+  --ink2:      #14100A;
+  --ink3:      #1A1208;
+  --panel:     #16110A;
   --border:    rgba(180,155,80,0.22);
   --border2:   rgba(180,155,80,0.08);
   --gold:      #C8A84A;
@@ -31,7 +31,7 @@
   --c-blue:    #2860AA;
   --c-green:   #228840;
   --c-teal:    #1A8878;
-  --c-neutral: #2A2838;
+  --c-neutral: #2A2416;
 
   --r-red:     rgba(214,48,48,0.18);
   --r-orange:  rgba(212,112,12,0.18);
@@ -78,10 +78,10 @@ body::after {
 #hdr {
   grid-column:1/-1;
   background: linear-gradient(90deg,
-    #06050A 0%,
-    #0E0C16 30%,
-    #0E0C16 70%,
-    #06050A 100%);
+    #0D0A06 0%,
+    #16110A 30%,
+    #16110A 70%,
+    #0D0A06 100%);
   border-bottom:1px solid var(--border);
   display:flex; align-items:center; justify-content:space-between;
   padding:0 28px;
@@ -140,14 +140,14 @@ body::after {
 #map-wrap {
   position:relative; overflow:hidden;
   background:
-    radial-gradient(ellipse 80% 60% at 45% 55%, #0D0C1A 0%, #06050A 75%);
+    radial-gradient(ellipse 80% 60% at 45% 55%, #1A1408 0%, #0D0A06 75%);
 }
 
 /* Subtle vignette */
 #map-wrap::before {
   content:''; position:absolute; inset:0; pointer-events:none; z-index:2;
   background:radial-gradient(ellipse 100% 100% at 50% 50%,
-    transparent 55%, rgba(6,5,10,0.7) 100%);
+    transparent 55%, rgba(13,10,6,0.7) 100%);
 }
 
 /* Latitude/longitude grid drawn by D3 */
@@ -158,7 +158,7 @@ body::after {
 
 /* Country paths */
 .country {
-  stroke:#1C1A2A;
+  stroke:#2A2214;
   stroke-width:0.4;
   transition:fill 0.2s, stroke 0.2s, stroke-width 0.15s;
   cursor:pointer;
@@ -178,30 +178,30 @@ body::after {
 .t-watch    { fill:#3A3008; }
 .t-monitor  { fill:#0C1E3A; }
 .t-good     { fill:#0C2E18; }
-.t-neutral  { fill:#13111E; }
-.t-dim      { fill:#0E0D16; opacity:0.35; }
+.t-neutral  { fill:#1A1208; }
+.t-dim      { fill:#14100A; opacity:0.35; }
 
 .country:hover.t-critical { fill:#8B1A1A; }
 .country:hover.t-high     { fill:#7A3E10; }
 .country:hover.t-watch    { fill:#5A4A0C; }
 .country:hover.t-monitor  { fill:#1A3060; }
 .country:hover.t-good     { fill:#1A4825; }
-.country:hover.t-neutral  { fill:#201D30; }
-.country:hover.t-dim      { fill:#1A1828; opacity:0.5; }
+.country:hover.t-neutral  { fill:#241A0E; }
+.country:hover.t-dim      { fill:#1F1810; opacity:0.5; }
 
 .country:hover.t-critical { fill:#8B1A1A; }
 .country:hover.t-high     { fill:#7A3E10; }
 .country:hover.t-watch    { fill:#5A4A0C; }
 .country:hover.t-monitor  { fill:#1A3060; }
 .country:hover.t-good     { fill:#1A4825; }
-.country:hover.t-neutral  { fill:#201D30; }
+.country:hover.t-neutral  { fill:#241A0E; }
 
 .country.active.t-critical { fill:#AA2020; }
 .country.active.t-high     { fill:#996018; }
 .country.active.t-watch    { fill:#886810; }
 .country.active.t-monitor  { fill:#2248A0; }
 .country.active.t-good     { fill:#287838; }
-.country.active.t-neutral  { fill:#302C48; }
+.country.active.t-neutral  { fill:#2E2414; }
 
 /* Graticule (grid lines) */
 .graticule {
@@ -209,7 +209,7 @@ body::after {
   stroke:rgba(180,155,80,0.06);
   stroke-width:0.5;
 }
-.sphere { fill:#080712; }
+.sphere { fill:#100C06; }
 
 /* Pulsing beacon for critical */
 @keyframes beacon {
@@ -235,7 +235,7 @@ body::after {
 }
 .ctrl-btn {
   width:32px; height:32px;
-  background:rgba(6,5,10,0.88);
+  background:rgba(13,10,6,0.88);
   border:1px solid var(--border);
   color:var(--gold);
   font-size:18px; line-height:1;
@@ -254,7 +254,7 @@ body::after {
 /* Stats overlay */
 #stats {
   position:absolute; bottom:20px; right:calc(var(--panel-w) + 20px); z-index:10;
-  background:rgba(6,5,10,0.92);
+  background:rgba(13,10,6,0.92);
   border:1px solid var(--border);
   padding:14px 16px; min-width:170px;
   backdrop-filter:blur(8px);
@@ -288,7 +288,7 @@ body::after {
   font-family:'Cinzel',serif; font-size:8px;
   letter-spacing:2px; text-transform:uppercase;
   padding:5px 11px;
-  background:rgba(6,5,10,0.85);
+  background:rgba(13,10,6,0.85);
   border:1px solid rgba(180,155,80,0.2);
   color:var(--text-dim); cursor:pointer;
   transition:all 0.18s;
@@ -306,7 +306,7 @@ body::after {
 /* Tooltip */
 #tip {
   position:fixed; pointer-events:none; z-index:9000;
-  background:rgba(6,5,10,0.97);
+  background:rgba(13,10,6,0.97);
   border:1px solid var(--border);
   padding:10px 14px; max-width:240px;
   opacity:0; transition:opacity 0.12s;
@@ -568,7 +568,7 @@ body::after {
   top: 16px;
   left: 16px;
   z-index: 9000;
-  background: rgba(12,15,26,0.85);
+  background: rgba(26,18,8,0.85);
   color: #e6c04c;
   border: 1px solid rgba(201,162,39,0.4);
   border-radius: 8px;
@@ -586,7 +586,7 @@ body::after {
   font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
 }
 .infographic-back-btn:hover {
-  background: rgba(12,15,26,0.95);
+  background: rgba(36,26,14,0.95);
   border-color: #e6c04c;
   transform: translateY(-1px);
 }
@@ -733,7 +733,7 @@ if (window.self !== window.top) {
       <div class="hdr-title">Global Prophetic Intelligence Map</div>
     </div>
     <div style="display:flex;align-items:center;gap:14px;">
-      <select id="jump-select" onchange="jumpToRegion(this.value)" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;background:rgba(6,5,10,0.92);border:1px solid rgba(200,168,74,0.35);color:var(--text-dim);padding:5px 10px;cursor:pointer;outline:none;max-width:200px;" title="Jump to region">
+      <select id="jump-select" onchange="jumpToRegion(this.value)" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;background:rgba(13,10,6,0.92);border:1px solid rgba(200,168,74,0.35);color:var(--text-dim);padding:5px 10px;cursor:pointer;outline:none;max-width:200px;" title="Jump to region">
         <option value="">↗ Jump to Region…</option>
         <optgroup label="── Critical ──" style="color:var(--c-red)">
           <option value="156">China</option>

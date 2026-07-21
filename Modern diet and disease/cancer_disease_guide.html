@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"><!--canonical-fonts-->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sugar, Cancer & Modern Disease — A Biblical and Scientific Study</title>
@@ -15,19 +18,19 @@
 
   :root {
     --sidebar-width: 230px;
-    --ink: #1c1c1c;
-    --muted: #555555;
-    --border: #e0e0e0;
-    --paper: #ffffff;
-    --paper-soft: #f8f8f6;
+    --ink: #E8DCC0;
+    --muted: #A08D62;
+    --border: rgba(200,168,75,0.3);
+    --paper: #1A1208;
+    --paper-soft: #14100A;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Source Serif 4', Georgia, serif;
-    background: #ffffff;
-    color: #1c1c1c;
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #0D0A06;
+    color: #E8DCC0;
     font-size: 16px;
     line-height: 1.8;
     overflow-x: hidden;
@@ -35,36 +38,36 @@
 
   /* ===== MASTHEAD ===== */
   .masthead {
-    background: #ffffff;
+    background: #14100A;
     text-align: center;
     padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 40px) clamp(20px, 4vw, 36px);
-    border-top: 5px solid #8b1a1a;
-    border-bottom: 2px solid #e0e0e0;
+    border-top: 5px solid #B22222;
+    border-bottom: 2px solid rgba(200,168,75,0.3);
   }
 
   .masthead-label {
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #9a6f00;
+    color: #C8A84B;
     margin-bottom: 10px;
     font-weight: 400;
   }
 
   .masthead h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(22px, 5vw, 52px);
     font-weight: 900;
     line-height: 1.1;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
-  .masthead h1 span { color: #8b1a1a; }
+  .masthead h1 span { color: #B22222; }
 
   .masthead-sub {
     margin-top: 10px;
     font-size: clamp(12px, 2vw, 14px);
-    color: #666;
+    color: #A08D62;
     font-style: italic;
     max-width: 600px;
     margin-left: auto;
@@ -89,16 +92,16 @@
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #fafaf8;
-    border-right: 1px solid #e0e0e0;
+    background: #14100A;
+    border-right: 1px solid rgba(200,168,75,0.3);
     scrollbar-width: thin;
-    scrollbar-color: #ddd transparent;
+    scrollbar-color: rgba(200,168,75,0.3) transparent;
     z-index: 10;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
   .sidebar::-webkit-scrollbar { width: 3px; }
-  .sidebar::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(200,168,75,0.3); border-radius: 2px; }
 
   .sidebar-inner { padding: 14px 0 60px; }
 
@@ -107,35 +110,35 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 14px 10px;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     margin-bottom: 10px;
   }
 
   .sidebar-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: 12px;
     font-weight: 700;
-    color: #1c1c1c;
+    color: #E8DCC0;
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
 
   .print-btn {
     background: none;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(200,168,75,0.45);
     border-radius: 3px;
     padding: 3px 7px;
     font-size: 12px;
     cursor: pointer;
-    color: #555;
+    color: #A08D62;
     transition: background 0.15s;
     white-space: nowrap;
   }
-  .print-btn:hover { background: #f0f0f0; }
+  .print-btn:hover { background: #241A0E; }
 
   .progress-bar-wrap {
     height: 3px;
-    background: #ebebeb;
+    background: #241A0E;
     margin: 0 14px 3px;
     border-radius: 2px;
     overflow: hidden;
@@ -144,14 +147,14 @@
   .progress-bar-fill {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #8b1a1a, #9a6f00);
+    background: linear-gradient(90deg, #B22222, #C8A84B);
     border-radius: 2px;
     transition: width 0.2s ease;
   }
 
   .progress-label {
     font-size: 10px;
-    color: #aaa;
+    color: #7A6845;
     text-align: right;
     padding: 0 14px 10px;
   }
@@ -177,15 +180,15 @@
     opacity: 0.2;
   }
 
-  .cancer-label  { color: #b03020; }
-  .heart-label   { color: #8b1a1a; }
-  .metabolic-label { color: #b06020; }
-  .immune-label  { color: #8b2020; }
-  .gut-label     { color: #1a4a2a; }
-  .meat-label    { color: #8b5e00; }
-  .oral-label    { color: #8b1a1a; }
-  .matrix-label  { color: #1a3a5c; }
-  .source-label  { color: #9a6f00; }
+  .cancer-label  { color: #B22222; }
+  .heart-label   { color: #B22222; }
+  .metabolic-label { color: #D98E4B; }
+  .immune-label  { color: #B22222; }
+  .gut-label     { color: #3A9060; }
+  .meat-label    { color: #C8A84B; }
+  .oral-label    { color: #B22222; }
+  .matrix-label  { color: #4A7FD4; }
+  .source-label  { color: #C8A84B; }
 
   .nav-link {
     display: flex;
@@ -193,21 +196,21 @@
     gap: 8px;
     padding: 6px 14px;
     font-size: 12px;
-    color: #444;
+    color: #A08D62;
     text-decoration: none;
     border-left: 3px solid transparent;
     transition: background 0.12s, color 0.12s;
     line-height: 1.3;
-    font-family: 'Source Serif 4', serif;
+    font-family: 'EB Garamond', Georgia, serif;
   }
 
-  .nav-link:hover { background: #f0f0ee; color: #1c1c1c; }
+  .nav-link:hover { background: #241A0E; color: #E8DCC0; }
 
   .nav-link.active {
-    background: #fff;
-    color: #1c1c1c;
+    background: #241A0E;
+    color: #E8DCC0;
     font-weight: 600;
-    border-left-color: #8b1a1a;
+    border-left-color: #B22222;
   }
 
   .nav-dot {
@@ -224,8 +227,8 @@
     position: sticky;
     top: 0;
     z-index: 200;
-    background: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    background: #1A1208;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     padding: 10px 16px;
     justify-content: space-between;
     align-items: center;
@@ -233,13 +236,13 @@
   }
 
   .mobile-menu-btn {
-    background: #ffffff;
-    border: 1px solid #ccc;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.45);
     border-radius: 3px;
     padding: 7px 14px;
-    font-family: 'Source Serif 4', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 14px;
-    color: #333;
+    color: #D8C8A0;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -248,12 +251,12 @@
   }
 
   .print-btn-mobile {
-    background: #ffffff;
-    border: 1px solid #ccc;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.45);
     border-radius: 3px;
     padding: 7px 12px;
     font-size: 13px;
-    color: #555;
+    color: #A08D62;
     cursor: pointer;
     white-space: nowrap;
   }
@@ -274,94 +277,94 @@
   /* ===== SECTIONS ===== */
   .study-section {
     padding: clamp(28px, 5vw, 52px) 0 clamp(24px, 4vw, 40px);
-    border-bottom: 1px solid #e0e0e0;
-    background: #ffffff;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
+    background: #0D0A06;
     scroll-margin-top: 16px;
   }
 
   .section-banner {
     padding: clamp(14px, 3vw, 22px) clamp(16px, 4vw, 36px);
     margin-bottom: clamp(20px, 4vw, 32px);
-    background: #f8f8f6;
-    border: 1px solid #e0e0e0;
-    border-left: 6px solid #ccc;
+    background: #14100A;
+    border: 1px solid rgba(200,168,75,0.3);
+    border-left: 6px solid rgba(200,168,75,0.45);
   }
 
   /* Alcohol file classes */
-  .section-banner.red  { border-left-color: #8b1a1a; }
-  .section-banner.blue { border-left-color: #1a3a5c; }
-  .section-banner.dark { border-left-color: #555555; }
+  .section-banner.red  { border-left-color: #B22222; }
+  .section-banner.blue { border-left-color: #4A7FD4; }
+  .section-banner.dark { border-left-color: #A08D62; }
 
   /* Cancer file classes */
-  .section-banner.danger { border-left-color: #b03020; }
-  .section-banner.amber  { border-left-color: #9a6f00; }
-  .section-banner.navy   { border-left-color: #1a3a5c; }
-  .section-banner.green  { border-left-color: #1a4a2a; }
+  .section-banner.danger { border-left-color: #B22222; }
+  .section-banner.amber  { border-left-color: #C8A84B; }
+  .section-banner.navy   { border-left-color: #4A7FD4; }
+  .section-banner.green  { border-left-color: #3A9060; }
 
   .section-banner .section-num {
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #888;
+    color: #A08D62;
     margin-bottom: 5px;
   }
 
-  .section-banner.red    .section-num { color: #8b1a1a; }
-  .section-banner.blue   .section-num { color: #1a3a5c; }
-  .section-banner.danger .section-num { color: #b03020; }
-  .section-banner.amber  .section-num { color: #9a6f00; }
-  .section-banner.navy   .section-num { color: #1a3a5c; }
-  .section-banner.green  .section-num { color: #1a4a2a; }
+  .section-banner.red    .section-num { color: #B22222; }
+  .section-banner.blue   .section-num { color: #4A7FD4; }
+  .section-banner.danger .section-num { color: #B22222; }
+  .section-banner.amber  .section-num { color: #C8A84B; }
+  .section-banner.navy   .section-num { color: #4A7FD4; }
+  .section-banner.green  .section-num { color: #3A9060; }
 
   .section-banner h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(18px, 3.5vw, 34px);
     font-weight: 700;
     line-height: 1.2;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
   /* ===== TYPOGRAPHY ===== */
   h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(17px, 2.5vw, 21px);
     font-weight: 700;
-    color: #1c1c1c;
+    color: #E8DCC0;
     margin: clamp(24px, 4vw, 34px) 0 12px;
     padding-bottom: 7px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid rgba(200,168,75,0.3);
   }
 
   h4 {
     font-size: 11px;
     font-weight: 700;
-    color: #555;
+    color: #A08D62;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin: 18px 0 8px;
   }
 
-  p { margin-bottom: 14px; color: #1c1c1c; }
-  strong { font-weight: 700; color: #1c1c1c; }
-  em { font-style: italic; color: #444; }
+  p { margin-bottom: 14px; color: #E8DCC0; }
+  strong { font-weight: 700; color: #E8DCC0; }
+  em { font-style: italic; color: #A08D62; }
 
   /* ===== CALLOUTS ===== */
   .callout {
     padding: 13px 16px;
     margin: 16px 0;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-left: 4px solid #ccc;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.3);
+    border-left: 4px solid rgba(200,168,75,0.45);
     overflow-wrap: break-word;
     word-wrap: break-word;
   }
 
-  .callout.scripture { border-left-color: #9a6f00; }
-  .callout.science   { border-left-color: #1a3a5c; }
-  .callout.danger    { border-left-color: #b03020; }
-  .callout.egw       { border-left-color: #1a4a2a; }
-  .callout.recovery  { border-left-color: #256825; }
-  .callout.warning   { border-left-color: #9a6f00; }
+  .callout.scripture { border-left-color: #C8A84B; }
+  .callout.science   { border-left-color: #4A7FD4; }
+  .callout.danger    { border-left-color: #B22222; }
+  .callout.egw       { border-left-color: #3A9060; }
+  .callout.recovery  { border-left-color: #3A9060; }
+  .callout.warning   { border-left-color: #C8A84B; }
 
   .callout-label {
     font-size: 9px;
@@ -371,69 +374,69 @@
     margin-bottom: 7px;
   }
 
-  .callout.scripture .callout-label { color: #9a6f00; }
-  .callout.science   .callout-label { color: #1a3a5c; }
-  .callout.danger    .callout-label { color: #b03020; }
-  .callout.egw       .callout-label { color: #1a4a2a; }
-  .callout.recovery  .callout-label { color: #256825; }
-  .callout.warning   .callout-label { color: #9a6f00; }
+  .callout.scripture .callout-label { color: #C8A84B; }
+  .callout.science   .callout-label { color: #4A7FD4; }
+  .callout.danger    .callout-label { color: #B22222; }
+  .callout.egw       .callout-label { color: #3A9060; }
+  .callout.recovery  .callout-label { color: #3A9060; }
+  .callout.warning   .callout-label { color: #C8A84B; }
 
   .callout blockquote {
     font-style: italic;
     font-size: clamp(14px, 2.5vw, 16px);
     line-height: 1.7;
-    color: #1c1c1c;
+    color: #E8DCC0;
   }
 
   .callout cite {
     display: block;
     font-size: 12px;
     margin-top: 8px;
-    color: #666;
+    color: #A08D62;
     font-style: normal;
   }
 
-  .callout p { color: #1c1c1c; margin-bottom: 6px; }
+  .callout p { color: #E8DCC0; margin-bottom: 6px; }
 
   /* ===== WARBURG BOX — cancer-specific ===== */
   .warburg-box {
-    background: #f8f8f6;
-    border: 1px solid #e0e0e0;
-    border-left: 5px solid #8b1a1a;
+    background: #14100A;
+    border: 1px solid rgba(200,168,75,0.3);
+    border-left: 5px solid #B22222;
     padding: clamp(18px, 4vw, 28px);
     margin: 22px 0;
   }
 
   .warburg-box h4 {
-    color: #8b1a1a;
+    color: #B22222;
     font-size: 11px;
     letter-spacing: 2px;
     margin-bottom: 12px;
   }
 
-  .warburg-box p { color: #1c1c1c; margin-bottom: 8px; }
-  .warburg-box strong { color: #1c1c1c; }
+  .warburg-box p { color: #E8DCC0; margin-bottom: 8px; }
+  .warburg-box strong { color: #E8DCC0; }
 
   .warburg-stat {
     display: flex;
     align-items: baseline;
     gap: 14px;
     padding: 12px 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
   }
   .warburg-stat:last-child { border-bottom: none; }
 
   .warburg-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: 36px;
     font-weight: 700;
-    color: #8b1a1a;
+    color: #B22222;
     line-height: 1;
     flex-shrink: 0;
     min-width: 80px;
   }
 
-  .warburg-desc { font-size: 14px; color: #333; line-height: 1.6; }
+  .warburg-desc { font-size: 14px; color: #D8C8A0; line-height: 1.6; }
 
   /* ===== TIMELINE ===== */
   .timeline { position: relative; padding: 8px 0; margin: 22px 0; }
@@ -442,7 +445,7 @@
     content: '';
     position: absolute;
     left: 24px; top: 0; bottom: 0;
-    width: 2px; background: #e0e0e0;
+    width: 2px; background: rgba(200,168,75,0.3);
   }
 
   .timeline-item { display: flex; gap: 14px; margin-bottom: 18px; }
@@ -454,35 +457,35 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 10px; font-weight: 700;
     position: relative; z-index: 1;
-    border: 2px solid #ccc;
-    background: #ffffff; color: #555;
+    border: 2px solid rgba(200,168,75,0.45);
+    background: #1A1208; color: #A08D62;
   }
 
-  .timeline-dot.red    { border-color: #8b1a1a; color: #8b1a1a; }
-  .timeline-dot.orange { border-color: #b06020; color: #b06020; }
-  .timeline-dot.gold   { border-color: #9a6f00; color: #9a6f00; }
-  .timeline-dot.amber  { border-color: #9a6f00; color: #9a6f00; }
-  .timeline-dot.green  { border-color: #256825; color: #256825; }
-  .timeline-dot.blue   { border-color: #1a3a5c; color: #1a3a5c; }
-  .timeline-dot.navy   { border-color: #1a3a5c; color: #1a3a5c; }
+  .timeline-dot.red    { border-color: #B22222; color: #B22222; }
+  .timeline-dot.orange { border-color: #D98E4B; color: #D98E4B; }
+  .timeline-dot.gold   { border-color: #C8A84B; color: #C8A84B; }
+  .timeline-dot.amber  { border-color: #C8A84B; color: #C8A84B; }
+  .timeline-dot.green  { border-color: #3A9060; color: #3A9060; }
+  .timeline-dot.blue   { border-color: #4A7FD4; color: #4A7FD4; }
+  .timeline-dot.navy   { border-color: #4A7FD4; color: #4A7FD4; }
 
   .timeline-content {
     flex: 1;
     min-width: 0;
     padding: 12px 15px;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.3);
     border-radius: 3px;
     overflow-wrap: break-word;
   }
 
   .timeline-content h5 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: 15px; font-weight: 700;
-    margin-bottom: 5px; color: #1c1c1c;
+    margin-bottom: 5px; color: #E8DCC0;
   }
 
-  .timeline-content p { font-size: 14px; color: #333; margin: 0; line-height: 1.6; }
+  .timeline-content p { font-size: 14px; color: #D8C8A0; margin: 0; line-height: 1.6; }
 
   /* ===== TABLES ===== */
   .table-scroll {
@@ -490,7 +493,7 @@
     -webkit-overflow-scrolling: touch;
     margin: 16px 0;
     border-radius: 3px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(200,168,75,0.3);
   }
 
   .compare-table {
@@ -501,23 +504,23 @@
   }
 
   .compare-table th {
-    background: #f0f0f0; color: #1c1c1c;
+    background: #241A0E; color: #E8DCC0;
     padding: 9px 12px; text-align: left;
     font-weight: 700; font-size: 11px;
-    border-bottom: 2px solid #ccc;
-    border-right: 1px solid #ddd;
+    border-bottom: 2px solid rgba(200,168,75,0.45);
+    border-right: 1px solid rgba(200,168,75,0.3);
     white-space: nowrap;
   }
 
   .compare-table td {
     padding: 8px 12px;
-    border-bottom: 1px solid #eee;
-    border-right: 1px solid #f0f0f0;
-    color: #1c1c1c; vertical-align: top;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
+    border-right: 1px solid #241A0E;
+    color: #E8DCC0; vertical-align: top;
     line-height: 1.5;
   }
 
-  .compare-table tr:nth-child(even) td { background: #fafaf8; }
+  .compare-table tr:nth-child(even) td { background: #14100A; }
   .compare-table tr:last-child td { border-bottom: none; }
 
   /* ===== BADGES ===== */
@@ -527,11 +530,11 @@
     border: 1px solid; white-space: nowrap;
   }
 
-  .badge.red    { background: #fff0ee; color: #b03020; border-color: #b03020; }
-  .badge.green  { background: #eef6ee; color: #256825; border-color: #256825; }
-  .badge.orange { background: #fff8ee; color: #b06020; border-color: #b06020; }
-  .badge.amber  { background: #fff8ee; color: #7a5000; border-color: #9a7010; }
-  .badge.navy   { background: #eef2f8; color: #1a2e47; border-color: #1a2e47; }
+  .badge.red    { background: #2A1210; color: #B22222; border-color: #B22222; }
+  .badge.green  { background: #12211A; color: #3A9060; border-color: #3A9060; }
+  .badge.orange { background: #241A0E; color: #D98E4B; border-color: #D98E4B; }
+  .badge.amber  { background: #241A0E; color: #C8A84B; border-color: #C8A84B; }
+  .badge.navy   { background: #111C2A; color: #4A7FD4; border-color: #4A7FD4; }
 
   /* ===== IMPACT GRID ===== */
   .impact-grid {
@@ -542,25 +545,25 @@
   }
 
   .impact-card {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.3);
     padding: 14px;
     border-radius: 3px;
   }
 
   .impact-card h5 {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px; margin-bottom: 9px; color: #1c1c1c;
+    font-family: 'Cinzel', serif;
+    font-size: 14px; margin-bottom: 9px; color: #E8DCC0;
   }
 
-  .impact-card p { font-size: 12px; color: #555; margin: 0; line-height: 1.6; }
+  .impact-card p { font-size: 12px; color: #A08D62; margin: 0; line-height: 1.6; }
 
   /* ===== STAGE FLOW ===== */
   .stage-flow {
     display: flex;
     flex-wrap: wrap;
     margin: 16px 0;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(200,168,75,0.3);
     border-radius: 3px;
     overflow: hidden;
   }
@@ -568,82 +571,82 @@
   .stage-block {
     flex: 1 1 120px;
     padding: 14px 10px;
-    border-right: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid rgba(200,168,75,0.3);
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     text-align: center;
-    background: #ffffff;
+    background: #1A1208;
   }
 
   .stage-block:last-child { border-right: none; }
 
   .stage-num {
     font-size: 22px; font-weight: 900;
-    font-family: 'Playfair Display', serif;
-    color: #ccc; line-height: 1;
+    font-family: 'Cinzel', serif;
+    color: rgba(200,168,75,0.45); line-height: 1;
   }
 
   .stage-title {
     font-size: 11px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.8px;
-    margin: 5px 0 3px; color: #1c1c1c;
+    margin: 5px 0 3px; color: #E8DCC0;
   }
 
-  .stage-desc { font-size: 12px; color: #555; line-height: 1.5; }
+  .stage-desc { font-size: 12px; color: #A08D62; line-height: 1.5; }
 
   /* ===== ORNAMENT ===== */
   .ornament {
     text-align: center; margin: 28px 0;
-    color: #9a6f00; font-size: 16px; letter-spacing: 8px;
+    color: #C8A84B; font-size: 16px; letter-spacing: 8px;
   }
 
   /* ===== PULL QUOTE ===== */
   .pull-quote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(15px, 2.5vw, 21px);
     font-style: italic; line-height: 1.5;
-    color: #8b1a1a; text-align: center;
+    color: #B22222; text-align: center;
     padding: clamp(18px, 4vw, 28px) clamp(16px, 5vw, 36px);
     margin: 22px 0;
-    border-top: 2px solid #8b1a1a;
-    border-bottom: 2px solid #8b1a1a;
+    border-top: 2px solid #B22222;
+    border-bottom: 2px solid #B22222;
   }
 
   .pull-quote cite {
     display: block; font-size: 12px;
-    color: #666; margin-top: 10px; font-style: normal;
+    color: #A08D62; margin-top: 10px; font-style: normal;
   }
 
   /* ===== SUMMARY BOX ===== */
   .summary-box {
-    background: #ffffff; color: #1c1c1c;
+    background: #1A1208; color: #E8DCC0;
     padding: clamp(20px, 4vw, 34px);
     margin: clamp(20px, 4vw, 34px) 0;
-    border: 2px solid #9a6f00; border-radius: 3px;
+    border: 2px solid #C8A84B; border-radius: 3px;
     overflow-wrap: break-word;
   }
 
   .summary-box h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(18px, 3vw, 23px);
-    color: #8b1a1a;
-    border-bottom: 1px solid #e0e0e0;
+    color: #B22222;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     padding-bottom: 12px; margin: 0 0 14px;
   }
 
-  .summary-box p { color: #1c1c1c; }
+  .summary-box p { color: #E8DCC0; }
   .summary-box ul { list-style: none; padding: 0; }
 
   .summary-box ul li {
     padding: 7px 0 7px 20px;
-    border-bottom: 1px solid #eee;
-    color: #1c1c1c;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
+    color: #E8DCC0;
     font-size: clamp(13px, 2.5vw, 16px);
     position: relative; line-height: 1.6;
   }
 
   .summary-box ul li::before {
     content: '✦'; position: absolute; left: 0;
-    color: #9a6f00; font-size: 10px; top: 11px;
+    color: #C8A84B; font-size: 10px; top: 11px;
   }
 
   /* ===== STUDY LIST ===== */
@@ -651,26 +654,26 @@
 
   ul.study-list li {
     padding: 6px 0 6px 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
     position: relative;
     font-size: clamp(13px, 2.5vw, 16px);
-    color: #1c1c1c;
+    color: #E8DCC0;
     line-height: 1.6;
     overflow-wrap: break-word;
   }
 
   ul.study-list li::before {
     content: '▸'; position: absolute; left: 0;
-    color: #9a6f00; font-size: 12px; top: 9px;
+    color: #C8A84B; font-size: 12px; top: 9px;
   }
 
   /* ===== FOOTER ===== */
   .doc-footer {
-    background: #f8f8f6;
-    border-top: 1px solid #e0e0e0;
+    background: #14100A;
+    border-top: 1px solid rgba(200,168,75,0.3);
     padding: clamp(18px, 4vw, 28px) clamp(16px, 5vw, 40px);
     text-align: center;
-    font-size: 12px; color: #666; font-style: italic;
+    font-size: 12px; color: #A08D62; font-style: italic;
   }
 
   /* ===== BACK TO TOP ===== */
@@ -678,8 +681,8 @@
     position: fixed;
     bottom: 20px; right: 20px;
     width: 40px; height: 40px;
-    background: #ffffff;
-    border: 1px solid #ccc;
+    background: #1A1208;
+    border: 1px solid rgba(200,168,75,0.45);
     border-radius: 50%;
     font-size: 18px;
     cursor: pointer;
@@ -690,13 +693,13 @@
     pointer-events: none;
     transition: opacity 0.3s;
     z-index: 100;
-    color: #555;
+    color: #A08D62;
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
   .back-to-top.visible { opacity: 1; pointer-events: auto; }
-  .back-to-top:hover { background: #f4f4f4; }
+  .back-to-top:hover { background: #241A0E; }
 
   /* ===================================================
      BREAKPOINTS
@@ -774,41 +777,41 @@
     .table-scroll { overflow: visible; border: none; }
     .compare-table { min-width: 0; font-size: 10px; }
     .compare-table th, .compare-table td { padding: 5px 7px; }
-    .section-banner { border: 1px solid #ccc; }
+    .section-banner { border: 1px solid rgba(200,168,75,0.45); }
     .section-banner h2 { font-size: 18px; }
-    .warburg-box { border: 1px solid #ccc; }
+    .warburg-box { border: 1px solid rgba(200,168,75,0.45); }
   }
 
   /* ===== CITATIONS — cancer-specific ===== */
   sup.cite-ref {
     font-size: 10px;
     font-weight: 700;
-    color: #9a6f00;
+    color: #C8A84B;
     cursor: pointer;
     margin-left: 2px;
     text-decoration: none;
   }
-  sup.cite-ref:hover { color: #8b1a1a; }
+  sup.cite-ref:hover { color: #B22222; }
 
   .ref-section {
-    background: #f8f8f6;
-    border-top: 2px solid #9a6f00;
+    background: #14100A;
+    border-top: 2px solid #C8A84B;
     padding: clamp(28px,4vw,48px) 0;
   }
 
   .ref-section .container { max-width: 820px; margin: 0 auto; padding: 0 clamp(16px,4vw,40px); }
 
   .ref-section h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', serif;
     font-size: clamp(22px,3vw,32px);
     font-weight: 700;
-    color: #1c1c1c;
+    color: #E8DCC0;
     margin-bottom: 8px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid rgba(200,168,75,0.3);
   }
 
-  .ref-intro { font-size: 13px; color: #666; margin-bottom: 24px; font-style: italic; }
+  .ref-intro { font-size: 13px; color: #A08D62; margin-bottom: 24px; font-style: italic; }
   .ref-group { margin-bottom: 28px; }
 
   .ref-group-title {
@@ -816,18 +819,18 @@
     letter-spacing: 2.5px;
     text-transform: uppercase;
     font-weight: 700;
-    color: #9a6f00;
+    color: #C8A84B;
     margin-bottom: 10px;
     padding-bottom: 4px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(200,168,75,0.3);
   }
 
-  .ref-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
-  .ref-num { font-size: 11px; font-weight: 700; color: #9a6f00; min-width: 28px; padding-top: 2px; }
+  .ref-item { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid rgba(200,168,75,0.3); align-items: flex-start; }
+  .ref-num { font-size: 11px; font-weight: 700; color: #C8A84B; min-width: 28px; padding-top: 2px; }
   .ref-content { flex: 1; min-width: 0; }
-  .ref-authors { font-size: 13px; color: #1c1c1c; font-weight: 500; line-height: 1.5; }
-  .ref-title { font-size: 13px; color: #333; font-style: italic; line-height: 1.5; margin: 2px 0; }
-  .ref-journal { font-size: 12px; color: #555; line-height: 1.4; }
+  .ref-authors { font-size: 13px; color: #E8DCC0; font-weight: 500; line-height: 1.5; }
+  .ref-title { font-size: 13px; color: #D8C8A0; font-style: italic; line-height: 1.5; margin: 2px 0; }
+  .ref-journal { font-size: 12px; color: #A08D62; line-height: 1.4; }
 
   .ref-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
 
@@ -844,16 +847,16 @@
     transition: background .12s;
   }
 
-  .ref-link.doi  { color: #1a3a5c; border-color: #1a3a5c; }
-  .ref-link.doi:hover  { background: #eef2f8; }
-  .ref-link.pub  { color: #256825; border-color: #256825; }
-  .ref-link.pub:hover  { background: #eef6ee; }
-  .ref-link.free { color: #7a5000; border-color: #9a7010; }
-  .ref-link.free:hover { background: #fff8ee; }
-  .ref-link.who  { color: #8b1a1a; border-color: #8b1a1a; }
-  .ref-link.who:hover  { background: #fff0ee; }
-  .ref-link.cdc  { color: #1a3a5c; border-color: #1a3a5c; }
-  .ref-link.cdc:hover  { background: #eef2f8; }
+  .ref-link.doi  { color: #4A7FD4; border-color: #4A7FD4; }
+  .ref-link.doi:hover  { background: #111C2A; }
+  .ref-link.pub  { color: #3A9060; border-color: #3A9060; }
+  .ref-link.pub:hover  { background: #12211A; }
+  .ref-link.free { color: #C8A84B; border-color: #C8A84B; }
+  .ref-link.free:hover { background: #241A0E; }
+  .ref-link.who  { color: #B22222; border-color: #B22222; }
+  .ref-link.who:hover  { background: #2A1210; }
+  .ref-link.cdc  { color: #4A7FD4; border-color: #4A7FD4; }
+  .ref-link.cdc:hover  { background: #111C2A; }
 
   @media print {
     .ref-links { display: none; }
@@ -890,111 +893,111 @@
     <div class="nav-group">
       <div class="nav-group-label cancer-label">🧬 Cancer &amp; Sugar</div>
       <a href="#warburg" class="nav-link" data-section="warburg">
-        <span class="nav-dot" style="background:#b03020;"></span>The Warburg Effect
+        <span class="nav-dot" style="background:#B22222;"></span>The Warburg Effect
       </a>
       <a href="#cancer-craving" class="nav-link" data-section="cancer-craving">
-        <span class="nav-dot" style="background:#c87010;"></span>Does Cancer Crave Sugar?
+        <span class="nav-dot" style="background:#D98E4B;"></span>Does Cancer Crave Sugar?
       </a>
       <a href="#sugar-cancer-pathway" class="nav-link" data-section="sugar-cancer-pathway">
-        <span class="nav-dot" style="background:#b03020;"></span>How Sugar Feeds Cancer
+        <span class="nav-dot" style="background:#B22222;"></span>How Sugar Feeds Cancer
       </a>
       <a href="#igf1-cancer" class="nav-link" data-section="igf1-cancer">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>IGF-1 &amp; Cancer Growth
+        <span class="nav-dot" style="background:#B22222;"></span>IGF-1 &amp; Cancer Growth
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label heart-label">❤ Heart Disease</div>
       <a href="#heart-disease" class="nav-link" data-section="heart-disease">
-        <span class="nav-dot" style="background:#b03020;"></span>Sugar &amp; the Heart
+        <span class="nav-dot" style="background:#B22222;"></span>Sugar &amp; the Heart
       </a>
       <a href="#heart-inflammation" class="nav-link" data-section="heart-inflammation">
-        <span class="nav-dot" style="background:#c87010;"></span>Inflammation Pathway
+        <span class="nav-dot" style="background:#D98E4B;"></span>Inflammation Pathway
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label metabolic-label">🩺 Metabolic Disease</div>
       <a href="#diabetes" class="nav-link" data-section="diabetes">
-        <span class="nav-dot" style="background:#c87010;"></span>Type 2 Diabetes
+        <span class="nav-dot" style="background:#D98E4B;"></span>Type 2 Diabetes
       </a>
       <a href="#obesity" class="nav-link" data-section="obesity">
-        <span class="nav-dot" style="background:#b06020;"></span>Obesity &amp; Brain
+        <span class="nav-dot" style="background:#D98E4B;"></span>Obesity &amp; Brain
       </a>
       <a href="#alzheimers" class="nav-link" data-section="alzheimers">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Alzheimer's — Type 3 Diabetes
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Alzheimer's — Type 3 Diabetes
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label immune-label">🛡 Autoimmune</div>
       <a href="#autoimmune" class="nav-link" data-section="autoimmune">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>Autoimmune Epidemic
+        <span class="nav-dot" style="background:#B22222;"></span>Autoimmune Epidemic
       </a>
       <a href="#skin-disease" class="nav-link" data-section="skin-disease">
-        <span class="nav-dot" style="background:#c87010;"></span>Psoriasis &amp; Eczema
+        <span class="nav-dot" style="background:#D98E4B;"></span>Psoriasis &amp; Eczema
       </a>
       <a href="#lupus" class="nav-link" data-section="lupus">
-        <span class="nav-dot" style="background:#b03020;"></span>Lupus (SLE)
+        <span class="nav-dot" style="background:#B22222;"></span>Lupus (SLE)
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label gut-label">🦠 Gut &amp; Immunity</div>
       <a href="#gut-disease" class="nav-link" data-section="gut-disease">
-        <span class="nav-dot" style="background:#1a4a2a;"></span>Gut Disease Root
+        <span class="nav-dot" style="background:#3A9060;"></span>Gut Disease Root
       </a>
       <a href="#microbiome-disease" class="nav-link" data-section="microbiome-disease">
-        <span class="nav-dot" style="background:#1a4a2a;"></span>Microbiome Collapse
+        <span class="nav-dot" style="background:#3A9060;"></span>Microbiome Collapse
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label meat-label">🥩 Meat &amp; Disease</div>
       <a href="#progressive-plan" class="nav-link" data-section="progressive-plan">
-        <span class="nav-dot" style="background:#9a6f00;"></span>God's Dietary Plan
+        <span class="nav-dot" style="background:#C8A84B;"></span>God's Dietary Plan
       </a>
       <a href="#modern-meat-problem" class="nav-link" data-section="modern-meat-problem">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>21st Century Meat Problem
+        <span class="nav-dot" style="background:#B22222;"></span>21st Century Meat Problem
       </a>
       <a href="#processed-meat-disease" class="nav-link" data-section="processed-meat-disease">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>Processed Meat — Group 1
+        <span class="nav-dot" style="background:#B22222;"></span>Processed Meat — Group 1
       </a>
       <a href="#pork-disease" class="nav-link" data-section="pork-disease">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>Pork — Scavenger Biology
+        <span class="nav-dot" style="background:#B22222;"></span>Pork — Scavenger Biology
       </a>
       <a href="#shellfish-disease" class="nav-link" data-section="shellfish-disease">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Shellfish — Filter Feeders
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Shellfish — Filter Feeders
       </a>
       <a href="#meat-disease-combined" class="nav-link" data-section="meat-disease-combined">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Complete Pathway Map
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Complete Pathway Map
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label oral-label">🦷 Oral Health</div>
       <a href="#oral-health" class="nav-link" data-section="oral-health">
-        <span class="nav-dot" style="background:#8b1a1a;"></span>Oral Health &amp; Disease
+        <span class="nav-dot" style="background:#B22222;"></span>Oral Health &amp; Disease
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label matrix-label">📊 Reference</div>
       <a href="#disease-matrix" class="nav-link" data-section="disease-matrix">
-        <span class="nav-dot" style="background:#1a3a5c;"></span>Disease Impact Matrix
+        <span class="nav-dot" style="background:#4A7FD4;"></span>Disease Impact Matrix
       </a>
       <a href="#biblical-view" class="nav-link" data-section="biblical-view">
-        <span class="nav-dot" style="background:#9a6f00;"></span>Biblical Perspective
+        <span class="nav-dot" style="background:#C8A84B;"></span>Biblical Perspective
       </a>
       <a href="#recovery-pathway" class="nav-link" data-section="recovery-pathway">
-        <span class="nav-dot" style="background:#256825;"></span>Recovery Pathway
+        <span class="nav-dot" style="background:#3A9060;"></span>Recovery Pathway
       </a>
     </div>
 
     <div class="nav-group">
       <div class="nav-group-label source-label">📚 Sources</div>
       <a href="#references" class="nav-link" data-section="references">
-        <span class="nav-dot" style="background:#9a6f00;"></span>References [1–26]
+        <span class="nav-dot" style="background:#C8A84B;"></span>References [1–26]
       </a>
     </div>
 
