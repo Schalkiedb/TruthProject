@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Measuring Reed | A Comparative Study of Christian Denominations Against Scripture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"><!--canonical-fonts-->
+<style>
+  :root{
+    --ink-black:#0D0A06;
+    --panel:#1A1208;
+    --panel-2:#241A0E;
+    --parchment:#E8DCC0;
+    --parchment-dim:#A08D62;
+    --gold:#C8A84B;
+    --gold-bright:#E8C96A;
+    --gold-deep:#8B6A1F;
+    --burgundy:#8B1A1A;
+    --burgundy-bright:#B22222;
+    --sage:#3A9060;
+    --sage-bright:#4FB27C;
+    --rule: rgba(200,168,75,0.3);
+    --shadow: 0 10px 40px rgba(0,0,0,0.55);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(139,111,46,0.10), transparent 55%),
+      radial-gradient(ellipse at 80% 10%, rgba(122,46,46,0.08), transparent 50%),
+      var(--ink-black);
+    color:var(--parchment);
+    font-family:'EB Garamond', Georgia, serif;
+    font-size:19px;
+    line-height:1.7;
+  }
+
+  ::selection{background:var(--gold-deep); color:#0c0a07;}
+
+  h1,h2,h3,h4{
+    font-family:'Cinzel', serif;
+    letter-spacing:0.02em;
+    color:var(--gold-bright);
+    font-weight:700;
+    margin:0 0 0.5em 0;
+  }
+
+  a{color:var(--gold-bright);}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:120px 28px 90px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(201,164,76,0.035) 0px, rgba(201,164,76,0.035) 1px, transparent 1px, transparent 3px);
+    pointer-events:none;
+  }
+  .hero-eyebrow{
+    font-family:'Cinzel', serif;
+    font-size:13px;
+    letter-spacing:0.42em;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-family:'Cinzel Decorative', serif;
+    font-size:clamp(38px, 6vw, 68px);
+    line-height:1.08;
+    color:var(--parchment);
+    text-shadow:0 0 40px rgba(201,164,76,0.25);
+    max-width:900px;
+    margin:0 auto 26px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold-bright);
+  }
+  .hero p.sub{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--parchment-dim);
+    max-width:640px;
+    margin:0 auto 40px;
+  }
+  .reed{
+    width:min(600px, 86vw);
+    margin:0 auto;
+    height:3px;
+    background:linear-gradient(90deg, transparent, var(--gold) 15%, var(--gold-bright) 50%, var(--gold) 85%, transparent);
+    position:relative;
+  }
+  .reed::before, .reed::after{
+    content:"";
+    position:absolute; top:-5px;
+    width:1px; height:13px; background:var(--gold);
+  }
+  .reed::before{left:0;} .reed::after{right:0;}
+
+  .verse{
+    font-family:'EB Garamond', serif;
+    font-style:italic;
+    color:var(--parchment-dim);
+    font-size:17px;
+    max-width:560px;
+    margin:34px auto 0;
+    line-height:1.6;
+  }
+  .verse span{display:block; margin-top:8px; font-style:normal; letter-spacing:0.1em; font-size:13px; color:var(--gold); text-transform:uppercase;}
+
+  /* ---------- NAV ---------- */
+  nav.toc{
+    position:sticky; top:0; z-index:50;
+    background:rgba(12,10,7,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav.toc .toc-inner{
+    max-width:1080px; margin:0 auto; padding:14px 28px;
+    display:flex; gap:26px; flex-wrap:wrap;
+    font-family:'Cinzel', serif; font-size:12.5px; letter-spacing:0.09em; text-transform:uppercase;
+  }
+  nav.toc a{
+    color:var(--parchment-dim); text-decoration:none; white-space:nowrap;
+    border-bottom:1px solid transparent; padding-bottom:3px;
+    transition:color .2s, border-color .2s;
+  }
+  nav.toc a:hover{color:var(--gold-bright); border-color:var(--gold);}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:90px 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{margin-bottom:46px; text-align:center;}
+  .section-head .kicker{
+    font-family:'Cinzel', serif; font-size:12.5px; letter-spacing:0.35em;
+    color:var(--gold); text-transform:uppercase; margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(28px,4vw,42px);}
+  .section-head p{
+    font-family:'EB Garamond', serif; color:var(--parchment-dim); max-width:720px; margin:14px auto 0; font-size:18px;
+  }
+  .divider{
+    width:70px; height:1px; background:var(--gold-deep); margin:22px auto 0;
+    position:relative;
+  }
+  .divider::after{content:"✦"; position:absolute; top:-9px; left:50%; transform:translateX(-50%); color:var(--gold); font-size:14px; background:var(--ink-black); padding:0 6px;}
+
+  /* ---------- METHODOLOGY CARDS ---------- */
+  .method-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px; margin-top:40px;
+  }
+  .method-card{
+    background:var(--panel); border:1px solid var(--rule); border-radius:2px; padding:26px 24px;
+    position:relative;
+  }
+  .method-card .num{
+    font-family:'Cinzel', serif; color:var(--gold-deep); font-size:13px; letter-spacing:0.15em; margin-bottom:10px; display:block;
+  }
+  .method-card h3{font-size:19px; margin-bottom:10px;}
+  .method-card p{font-family:'EB Garamond',serif; color:var(--parchment-dim); font-size:16px; margin:0;}
+
+  /* ---------- MATRIX TABLE ---------- */
+  .table-scroll{overflow-x:auto; border:1px solid var(--rule); background:var(--panel);}
+  .filter-pills{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:20px;}
+  .filter-pill{
+    font-family:'Cinzel',serif; font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase;
+    color:var(--parchment-dim); background:var(--panel); border:1px solid var(--rule);
+    padding:8px 14px; border-radius:20px; cursor:pointer; transition:all .2s; user-select:none;
+  }
+  .filter-pill:hover{border-color:var(--gold); color:var(--gold-bright);}
+  .filter-pill.active{background:var(--gold-deep); color:var(--ink-black); border-color:var(--gold-deep);}
+  table.matrix tr.dimmed td, table.matrix tr.dimmed th{opacity:0.28;}
+  table.matrix tr.spotlit th{color:var(--gold-bright);}
+  table.matrix tr.spotlit td{background:rgba(201,164,76,0.06);}
+  table.matrix{
+    width:100%; border-collapse:collapse; min-width:1300px; font-size:15.5px;
+  }
+  table.matrix th, table.matrix td{
+    padding:16px 16px; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top;
+  }
+  table.matrix thead th{
+    font-family:'Cinzel', serif; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--gold-bright); background:var(--panel-2); position:sticky; top:0;
+  }
+  table.matrix tbody th{
+    font-family:'Cinzel', serif; font-size:14px; color:var(--gold); white-space:nowrap; font-weight:600;
+  }
+  table.matrix td.sda{background:rgba(74,107,79,0.10); color:var(--parchment); font-weight:600;}
+  table.matrix td.bible, table.matrix th.bible{
+    background:rgba(201,164,76,0.14);
+    border-left:2px solid var(--gold);
+    border-right:2px solid var(--gold);
+    color:var(--gold-bright);
+    font-weight:600;
+  }
+  table.matrix thead th.bible{background:var(--gold-deep); color:var(--ink-black);}
+  table.matrix td.bible small{color:rgba(230,198,117,0.75);}
+  table.matrix tr:hover td, table.matrix tr:hover th{background:rgba(201,164,76,0.05);}
+  table.matrix td small, table.matrix th small{display:block; color:var(--parchment-dim); font-family:'EB Garamond',serif; font-style:italic; font-weight:400; margin-top:3px;}
+
+  .legend{display:flex; gap:22px; flex-wrap:wrap; margin-top:18px; font-family:'EB Garamond',serif; font-size:14.5px; color:var(--parchment-dim);}
+  .legend span.dot{display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:7px; vertical-align:middle;}
+
+  /* ---------- GAUGE (signature element) ---------- */
+  .gauge-wrap{margin-top:50px;}
+  .gauge-row{
+    display:grid; grid-template-columns:200px 1fr 46px; align-items:center; gap:16px; margin-bottom:22px;
+  }
+  .gauge-label{
+    font-family:'Cinzel', serif; font-size:14.5px; color:var(--parchment); text-align:right;
+  }
+  .gauge-label small{display:block; font-family:'EB Garamond',serif; font-style:italic; color:var(--parchment-dim); font-size:12.5px; margin-top:2px;}
+  .gauge-track{
+    height:14px; background:var(--panel-2); border:1px solid var(--rule); position:relative; border-radius:1px;
+    background-image:repeating-linear-gradient(90deg, transparent, transparent calc(12.5% - 1px), rgba(201,164,76,0.18) calc(12.5% - 1px), rgba(201,164,76,0.18) 12.5%);
+  }
+  .gauge-fill{
+    height:100%; background:linear-gradient(90deg, var(--burgundy) 0%, var(--gold-deep) 55%, var(--sage-bright) 100%);
+    position:relative;
+  }
+  .gauge-fill.rome{background:linear-gradient(90deg, var(--burgundy), var(--burgundy-bright));}
+  .gauge-fill.partial{background:linear-gradient(90deg, var(--burgundy-bright), var(--gold-deep));}
+  .gauge-fill.full{background:linear-gradient(90deg, var(--gold-deep), var(--sage-bright));}
+  .gauge-score{font-family:'Cinzel',serif; font-size:13px; color:var(--gold-bright);}
+  .gauge-scale{
+    display:grid; grid-template-columns:200px 1fr 46px; gap:16px; margin-top:6px; margin-bottom:30px;
+  }
+  .gauge-scale span{font-family:'EB Garamond',serif; font-style:italic; font-size:12.5px; color:var(--parchment-dim);}
+  .gauge-scale .left-label{grid-column:2; text-align:left;}
+  .gauge-scale .right-label{grid-column:2; text-align:right;}
+  .gauge-note{
+    font-family:'EB Garamond',serif; color:var(--parchment-dim); font-size:15.5px; max-width:760px; margin:34px auto 0; text-align:center; line-height:1.75;
+  }
+
+  /* ---------- PRIMARY SOURCES ---------- */
+  .source-grid{display:flex; flex-direction:column; gap:22px; margin-top:40px;}
+  .source-card{
+    background:var(--panel); border:1px solid var(--rule); border-left:3px solid var(--gold-deep);
+    padding:26px 28px;
+  }
+  .source-card h4{font-family:'Cinzel',serif; font-size:16px; color:var(--gold-bright); margin-bottom:4px;}
+  .source-card .doc-name{font-family:'EB Garamond',serif; font-style:italic; color:var(--parchment-dim); font-size:15px; margin-bottom:14px;}
+  .source-quote{
+    font-family:'EB Garamond',serif; font-style:italic; font-size:18px; color:var(--parchment);
+    border-left:2px solid var(--gold); padding-left:18px; margin:0 0 14px 0; line-height:1.6;
+  }
+  .source-quote cite{display:block; font-style:normal; font-size:13px; color:var(--gold); margin-top:8px; letter-spacing:0.03em;}
+  .source-analysis{font-family:'EB Garamond',serif; font-size:15.5px; color:var(--parchment-dim); line-height:1.7;}
+  .verify-box{
+    margin-top:36px; padding:22px 26px; border:1px dashed var(--gold-deep); background:rgba(201,164,76,0.04);
+    font-family:'EB Garamond',serif; font-size:15.5px; color:var(--parchment-dim);
+  }
+  .verify-box h4{font-family:'Cinzel',serif; font-size:14px; color:var(--gold); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;}
+  .verify-box ul{margin:0; padding-left:20px; line-height:1.9;}
+  .verify-box li strong{color:var(--parchment);}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:flex; flex-direction:column; gap:14px; margin-top:40px;}
+  details.faq{background:var(--panel); border:1px solid var(--rule); border-radius:2px;}
+  details.faq[open]{border-color:var(--gold-deep);}
+  details.faq summary{
+    cursor:pointer; list-style:none; padding:20px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-family:'Cinzel',serif; font-size:16.5px; color:var(--parchment);
+  }
+  details.faq summary::-webkit-details-marker{display:none;}
+  .faq-body{padding:0 26px 28px; font-family:'EB Garamond',serif; font-size:16.5px; color:var(--parchment-dim); line-height:1.75;}
+  .faq-body .objection-label{font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--burgundy-bright); display:block; margin-bottom:6px;}
+  .faq-body .response-label{font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--sage-bright); display:block; margin:16px 0 6px;}
+  .faq-body p{margin:0;}
+
+  /* ---------- GLOSSARY ---------- */
+  .glossary-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:22px; margin-top:40px;}
+  .gloss-term{padding:18px 0; border-bottom:1px solid var(--rule);}
+  .gloss-term dt{font-family:'Cinzel',serif; font-size:15px; color:var(--gold-bright); margin-bottom:6px;}
+  .gloss-term dd{font-family:'EB Garamond',serif; font-size:15.5px; color:var(--parchment-dim); margin:0; line-height:1.6;}
+
+  /* ---------- HORIZONTAL FOUNDING TIMELINE ---------- */
+  .hz-panel{margin-top:44px;}
+  .hz-panel-title{font-family:'Cinzel',serif; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:40px; text-align:center;}
+  .hz-timeline{position:relative; height:150px; margin:0 10px 30px;}
+  .hz-track{position:absolute; top:75px; left:0; right:0; height:1px; background:var(--gold-deep);}
+  .hz-point{position:absolute; top:75px; transform:translateX(-50%);}
+  .hz-dot{position:absolute; top:-4px; left:-4px; width:9px; height:9px; border-radius:50%; background:var(--gold); border:1px solid var(--ink-black);}
+  .hz-label{
+    position:absolute; left:50%; transform:translateX(-50%);
+    font-family:'EB Garamond',serif; font-size:12.5px; color:var(--parchment-dim); text-align:center;
+    white-space:nowrap; line-height:1.4;
+  }
+  .hz-point.up .hz-label{bottom:14px;}
+  .hz-point.down .hz-label{top:14px;}
+  .hz-label .yr{display:block; font-family:'Cinzel',serif; font-size:11px; color:var(--gold-bright); margin-bottom:2px;}
+  @media (max-width:700px){
+    .hz-timeline{overflow-x:auto;}
+    .hz-label{font-size:11px;}
+  }
+
+  /* ---------- QUIZ ---------- */
+  .quiz-box{max-width:720px; margin:40px auto 0; background:var(--panel); border:1px solid var(--rule); padding:36px 40px;}
+  .quiz-question{margin-bottom:32px;}
+  .quiz-question:last-of-type{margin-bottom:0;}
+  .quiz-q-title{font-family:'Cinzel',serif; font-size:15.5px; color:var(--gold-bright); margin-bottom:14px; line-height:1.5;}
+  .quiz-options{display:flex; flex-direction:column; gap:9px;}
+  .quiz-option{
+    font-family:'EB Garamond',serif; font-size:16px; color:var(--parchment-dim);
+    border:1px solid var(--rule); background:transparent; padding:12px 16px; text-align:left;
+    cursor:pointer; transition:all .2s; border-radius:2px;
+  }
+  .quiz-option:hover{border-color:var(--gold); color:var(--parchment);}
+  .quiz-option.selected{border-color:var(--gold); background:rgba(201,164,76,0.1); color:var(--parchment);}
+  .quiz-submit{
+    margin-top:10px; width:100%; font-family:'Cinzel',serif; letter-spacing:0.08em; text-transform:uppercase;
+    font-size:13px; background:var(--gold-deep); color:var(--ink-black); border:none; padding:14px; cursor:pointer;
+    transition:background .2s;
+  }
+  .quiz-submit:hover{background:var(--gold-bright);}
+  .quiz-result{
+    display:none; margin-top:30px; padding:26px 28px; border:1px solid var(--gold-deep); background:rgba(201,164,76,0.06);
+  }
+  .quiz-result.visible{display:block;}
+  .quiz-result h4{font-family:'Cinzel',serif; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;}
+  .quiz-result .result-name{font-family:'Cinzel Decorative',serif; font-size:24px; color:var(--gold-bright); margin-bottom:14px;}
+  .quiz-result p{font-family:'EB Garamond',serif; font-size:16px; color:var(--parchment); line-height:1.7; margin:0 0 12px;}
+  .quiz-disclaimer{font-family:'EB Garamond',serif; font-style:italic; font-size:14px; color:var(--parchment-dim); text-align:center; max-width:640px; margin:20px auto 0;}
+
+  /* ---------- CANON ---------- */
+  .canon-compare{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px;}
+  @media (max-width:680px){.canon-compare{grid-template-columns:1fr;}}
+  .canon-card{background:var(--panel); border:1px solid var(--rule); padding:26px 28px;}
+  .canon-card h4{font-family:'Cinzel',serif; font-size:16px; color:var(--gold-bright); margin-bottom:12px;}
+  .canon-card ul{font-family:'EB Garamond',serif; font-size:15.5px; color:var(--parchment-dim); margin:0; padding-left:20px; line-height:1.8;}
+  .canon-card li strong{color:var(--parchment);}
+
+
+
+  /* ---------- PROFILES (accordion) ---------- */
+  .profiles{display:flex; flex-direction:column; gap:14px; margin-top:44px;}
+  details.profile{
+    background:var(--panel); border:1px solid var(--rule); border-radius:2px; overflow:hidden;
+  }
+  details.profile[open]{border-color:var(--gold-deep);}
+  details.profile summary{
+    cursor:pointer; list-style:none; padding:22px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  details.profile summary::-webkit-details-marker{display:none;}
+  .summary-left{display:flex; align-items:baseline; gap:16px;}
+  .summary-left .founded{font-family:'EB Garamond',serif; font-style:italic; color:var(--parchment-dim); font-size:15px;}
+  .summary-left h3{margin:0; font-size:21px;}
+  .chev{
+    width:22px; height:22px; border:1px solid var(--gold-deep); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:13px; transition:transform .25s;
+    flex-shrink:0;
+  }
+  details.profile[open] .chev{transform:rotate(45deg);}
+  .profile-body{padding:0 26px 30px; font-family:'EB Garamond', serif; font-size:17px; color:var(--parchment);}
+  .profile-body .lede{color:var(--parchment-dim); font-style:italic; margin-bottom:20px;}
+  .profile-cols{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  @media (max-width:680px){.profile-cols{grid-template-columns:1fr;}}
+  .profile-cols h4{font-size:14px; color:var(--gold); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px; font-family:'Cinzel',serif;}
+  .profile-cols.align h4{color:var(--sage-bright);}
+  .profile-cols.depart h4{color:var(--burgundy-bright);}
+  .profile-body ul{margin:0; padding-left:20px;}
+  .profile-body li{margin-bottom:9px;}
+  .verdict{
+    margin-top:22px; padding:16px 18px; border-left:2px solid var(--gold-deep); background:rgba(201,164,76,0.05);
+    font-style:italic; color:var(--parchment-dim);
+  }
+  .steelman{
+    margin-top:20px; padding:16px 18px; border:1px solid var(--rule); background:rgba(0,0,0,0.15);
+  }
+  .steelman .t-label{font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block;}
+  .steelman p{margin:0; color:var(--parchment); font-size:16px;}
+
+  .sda-profile summary{background:rgba(74,107,79,0.10);}
+  .sda-profile{border-color:var(--sage-bright) !important;}
+
+  /* ---------- CONCLUSION ---------- */
+  .conclusion{
+    background:var(--panel);
+    border:1px solid var(--gold-deep);
+    padding:52px 46px;
+    position:relative;
+  }
+  .conclusion::before{
+    content:"✦"; position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    background:var(--ink-black); color:var(--gold); padding:0 12px; font-size:16px;
+  }
+  .conclusion h3{font-size:24px; text-align:center; margin-bottom:18px;}
+  .conclusion p{font-family:'EB Garamond',serif; font-size:18px; color:var(--parchment); margin-bottom:16px;}
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin:30px 0;}
+  .step{text-align:center; padding:18px 10px; border:1px solid var(--rule);}
+  .step .who{font-family:'Cinzel',serif; color:var(--gold-bright); font-size:14px; margin-bottom:6px;}
+  .step .what{font-family:'EB Garamond',serif; font-style:italic; color:var(--parchment-dim); font-size:14.5px;}
+
+  .berean{
+    margin-top:60px; text-align:center; font-family:'EB Garamond',serif; font-style:italic; color:var(--parchment-dim);
+    font-size:17px; max-width:680px; margin-left:auto; margin-right:auto; line-height:1.8;
+  }
+
+  /* ---------- REMNANT TIMELINE ---------- */
+  .caveat{
+    max-width:760px; margin:0 auto 50px; padding:18px 24px; border:1px solid var(--rule);
+    background:var(--panel); font-family:'EB Garamond',serif; font-style:italic; color:var(--parchment-dim);
+    font-size:15.5px; text-align:center; line-height:1.7;
+  }
+  .caveat strong{color:var(--gold); font-style:normal;}
+  .timeline{position:relative; margin-top:20px;}
+  .timeline::before{
+    content:""; position:absolute; left:22px; top:6px; bottom:6px; width:1px;
+    background:linear-gradient(180deg, transparent, var(--gold-deep) 4%, var(--gold-deep) 96%, transparent);
+  }
+  .t-item{position:relative; padding:0 0 40px 60px;}
+  .t-item:last-child{padding-bottom:0;}
+  .t-dot{
+    position:absolute; left:14px; top:4px; width:17px; height:17px; border-radius:50%;
+    background:var(--panel); border:2px solid var(--gold); box-shadow:0 0 0 4px var(--ink-black);
+  }
+  .t-era{font-family:'Cinzel', serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
+  .t-item h4{font-family:'Cinzel', serif; font-size:19px; color:var(--parchment); margin:0 0 12px 0; font-weight:600;}
+  .t-cols{display:grid; grid-template-columns:1fr 1fr; gap:18px; font-family:'EB Garamond',serif; font-size:16px;}
+  @media (max-width:640px){.t-cols{grid-template-columns:1fr;}}
+  .t-majority, .t-remnant{padding:14px 16px; border-left:2px solid;}
+  .t-majority{border-color:var(--burgundy-bright); background:rgba(122,46,46,0.06);}
+  .t-remnant{border-color:var(--sage-bright); background:rgba(74,107,79,0.07);}
+  .t-label{font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; display:block;}
+  .t-majority .t-label{color:var(--burgundy-bright);}
+  .t-remnant .t-label{color:var(--sage-bright);}
+  .t-ref{display:block; margin-top:8px; font-style:italic; color:var(--parchment-dim); font-size:14px;}
+
+
+  footer{
+    padding:50px 28px 70px; text-align:center; font-family:'Cinzel',serif; font-size:12px;
+    letter-spacing:0.15em; color:var(--gold-deep); text-transform:uppercase;
+  }
+
+  @media (max-width:640px){
+    .hero{padding:80px 20px 60px;}
+    section{padding:60px 0;}
+    .gauge-row, .gauge-scale{grid-template-columns:110px 1fr 34px; gap:10px;}
+    .gauge-label{font-size:12.5px;}
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    body{background:#f7f0dc !important; color:#231d12 !important; font-size:13px;}
+    nav.toc, .filter-pills, footer{display:none !important;}
+    .hero{border-bottom:2px solid #8b6f2e; padding:40px 10px;}
+    .hero::before{display:none;}
+    h1, h2, h3, h4{color:#5c4813 !important; text-shadow:none !important;}
+    .hero h1{color:#3a2e0c !important;}
+    .hero p.sub, .verse, .section-head p{color:#4a3f2a !important;}
+    section{padding:26px 0; border-bottom:1px solid #d8c99a; page-break-inside:avoid;}
+    .method-card, .source-card, .step, .t-majority, .t-remnant, .caveat, .verify-box, .conclusion, details.profile, details.faq{
+      background:#fffaf0 !important; border-color:#c9a44c !important; page-break-inside:avoid;
+    }
+    table.matrix{min-width:0; width:100%; font-size:10.5px;}
+    table.matrix thead th{background:#e8d9ab !important; color:#3a2e0c !important;}
+    table.matrix td.bible, table.matrix th.bible{background:#f0e2b8 !important; color:#5c4813 !important;}
+    table.matrix td.sda{background:#e2ecdf !important; color:#1f3d24 !important;}
+    .gauge-track{background:#e8d9ab !important; border-color:#c9a44c !important;}
+    details.profile summary, details.faq summary{color:#3a2e0c !important;}
+    .profile-body, .faq-body{color:#231d12 !important;}
+    .profile-body .lede, .t-era, .gauge-note{color:#5a4d33 !important;}
+    /* Force all accordions open so nothing is hidden on the printed page */
+    details:not([open]) summary ~ *{display:block !important;}
+    .chev{display:none !important;}
+    a{color:#5c4813 !important; text-decoration:underline;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">A Comparative Doctrinal Study</div>
+  <h1>The Measuring <em>Reed</em></h1>
+  <p class="sub">Weighing the major Christian denominations against Scripture alone — and asking which tradition let go of Rome's inheritance entirely.</p>
+  <div class="reed"></div>
+  <p class="verse">"And there was given me a reed like unto a rod: and the angel stood, saying, Rise, and measure the temple of God, and the altar, and them that worship therein."<span>Revelation 11:1</span></p>
+</div>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#method">Method</a>
+    <a href="#canon">The Canon</a>
+    <a href="#matrix">The Matrix</a>
+    <a href="#sources">Primary Sources</a>
+    <a href="#faq">Objections</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#gauge">The Gauge</a>
+    <a href="#profiles">Denominations</a>
+    <a href="#remnant">The Few</a>
+    <a href="#sa">South Africa</a>
+    <a href="#glossary">Glossary</a>
+    <a href="#conclusion">The Verdict</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- METHODOLOGY -->
+  <section id="method">
+    <div class="section-head">
+      <div class="kicker">Before We Measure</div>
+      <h2>What "Bible Alone" Actually Tests</h2>
+      <p>Every denomination on this page claims some form of biblical authority. The question this guide asks is narrower and harder: when a church's inherited tradition and the plain text of Scripture disagree, which one wins? Sixteen recurring flashpoints — chosen because each one pits a specific, traceable church tradition directly against a specific biblical text — form the measuring line used throughout, though one of them (women's ordination) is included for completeness without being scored, since Scripture itself doesn't cleanly resolve it the way the other fifteen do.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="method-grid">
+      <div class="method-card"><span class="num">01</span><h3>The Sabbath</h3><p>Seventh day (Saturday, per Genesis 2 and Exodus 20) versus first day (Sunday, per post-apostolic church tradition).</p></div>
+      <div class="method-card"><span class="num">02</span><h3>State of the Dead</h3><p>Unconscious sleep awaiting resurrection (Ecclesiastes 9:5, John 11) versus an immortal soul that departs instantly to heaven or hell.</p></div>
+      <div class="method-card"><span class="num">03</span><h3>Fate of the Wicked</h3><p>Final destruction and non-existence (Malachi 4, Romans 6:23) versus unending conscious torment.</p></div>
+      <div class="method-card"><span class="num">04</span><h3>Mode of Baptism</h3><p>Full immersion of a repentant believer (Romans 6:3-4, Acts 8:36-39) versus infant sprinkling by covenant right.</p></div>
+      <div class="method-card"><span class="num">05</span><h3>The Ten Commandments</h3><p>All ten preserved intact, Sabbath included (Matthew 5:17-19), versus the fourth commandment reassigned or the second removed.</p></div>
+      <div class="method-card"><span class="num">06</span><h3>The Judgment</h3><p>A real, pre-Advent investigative process (Daniel 7-8, Hebrews 9) versus salvation as an already-sealed legal transaction with no ongoing courtroom.</p></div>
+      <div class="method-card"><span class="num">07</span><h3>No Binding Human Creed</h3><p>Doctrine held open to correction by further light (Proverbs 4:18) versus doctrine locked to a 16th- or 17th-century confessional document.</p></div>
+      <div class="method-card"><span class="num">08</span><h3>Health &amp; the Body</h3><p>The Levitical distinction between clean and unclean retained as counsel for the body as God's temple (1 Corinthians 6:19-20) versus no dietary teaching at all.</p></div>
+      <div class="method-card"><span class="num">09</span><h3>Church Governance</h3><p>Local elders and deacons serving a congregation (Titus 1:5) versus a single earthly head or fixed hierarchy standing over the whole church.</p></div>
+      <div class="method-card"><span class="num">10</span><h3>Spiritual Gifts</h3><p>Gifts, including prophecy, continuing and tested against Scripture (1 Corinthians 12, 1 Thessalonians 5:19-21) versus assumed cessation after the apostolic age.</p></div>
+      <div class="method-card"><span class="num">11</span><h3>The Second Coming</h3><p>One single, visible, worldwide event (Acts 1:9-11) versus a secret, staggered return split into a rapture and a later appearing.</p></div>
+      <div class="method-card"><span class="num">12</span><h3>Tithing</h3><p>A tenth returned as a recognition of God's ownership, predating and outlasting the ceremonial law (Genesis 14:20, Malachi 3:8-10) versus optional, unsystematic giving.</p></div>
+      <div class="method-card"><span class="num">13</span><h3>Prophetic Interpretation</h3><p>Prophecy read as a continuous historical line from the prophet's own day to the end (Daniel 2:28) versus confined either entirely to the ancient past or entirely to a still-future window.</p></div>
+      <div class="method-card"><span class="num">14</span><h3>Hellfire</h3><p>A literal fire that finishes its work and goes out (Jude 1:7) versus a literal fire that burns forever without ever completing its judgment.</p></div>
+      <div class="method-card"><span class="num">15</span><h3>Confession &amp; Mediation</h3><p>One mediator between God and man (1 Timothy 2:5) versus a required human priesthood standing between the believer and forgiveness.</p></div>
+      <div class="method-card"><span class="num">16</span><h3>Women's Ordination</h3><p>Included here as a genuinely disputed case — Scripture itself contains real tension (1 Timothy 2:12 against Romans 16:7 and Acts 21:9) rather than a clean text-versus-tradition test like the other fifteen.</p></div>
+    </div>
+  </section>
+
+  <!-- CANON -->
+  <section id="canon">
+    <div class="section-head">
+      <div class="kicker">Before Any of the Sixteen Tests</div>
+      <h2>The Canon Question</h2>
+      <p>Every comparison in this guide quietly assumes agreement on what "the Bible" actually contains. It isn't agreed. This is worth facing honestly before the matrix, not after it.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="canon-compare">
+      <div class="canon-card">
+        <h4>Catholic &amp; Orthodox Canon</h4>
+        <ul>
+          <li>Includes seven additional Old Testament books — <strong>Tobit, Judith, Wisdom, Sirach, Baruch, and 1-2 Maccabees</strong> — plus additions to Esther and Daniel, collectively called the Deuterocanon (or "Apocrypha" by Protestants).</li>
+          <li>These books circulated in the Septuagint, the Greek Old Testament widely used and quoted by New Testament writers, and were read in the earliest centuries of the church.</li>
+          <li>Formally closed and made a required article of faith at the Council of Trent in 1546.</li>
+        </ul>
+      </div>
+      <div class="canon-card">
+        <h4>Protestant &amp; Adventist Canon</h4>
+        <ul>
+          <li>66 books — the same Old Testament contents recognized by the Hebrew/Jewish canon, without the Deuterocanonical additions.</li>
+          <li>The Reformers followed Jerome, who translated the Vulgate and openly distinguished the Hebrew canon from the additional Greek-only books, using the term "apocrypha" for the latter as early as the 4th century.</li>
+          <li>None of the Deuterocanonical books are directly quoted as Scripture anywhere in the New Testament, unlike the Old Testament proper, which the New Testament quotes constantly.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="caveat" style="margin-top:30px;">The honest complication: no book of the Bible supplies a table of contents for itself. Whichever canon a person holds, the list of which books belong in it was settled through a historical process of recognition — not derived from a single verse of Scripture that names the books that count. This is a real point of tension for the "Bible alone" framework this whole guide uses: even the decision about what the "alone" refers to leans on a judgment made by believing communities across history, not on the text alone in a strict sense. The case for the 66-book canon made above is offered as the stronger argument, not as a way of pretending the tension doesn't exist.</p>
+  </section>
+
+  <!-- MATRIX -->
+  <section id="matrix">
+    <div class="section-head">
+      <div class="kicker">The Ledger</div>
+      <h2>The Master Comparison Matrix</h2>
+      <p>Reading left to right: what the text itself says first, held as the fixed standard — then what each tradition actually teaches today, and the point where it departs from that standard.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="filter-pills" id="filterPills">
+      <span class="filter-pill active" data-target="all">All Doctrines</span>
+      <span class="filter-pill" data-target="sabbath">Sabbath</span>
+      <span class="filter-pill" data-target="state">State of the Dead</span>
+      <span class="filter-pill" data-target="fate">Fate of the Wicked</span>
+      <span class="filter-pill" data-target="baptism">Baptism</span>
+      <span class="filter-pill" data-target="commandments">Ten Commandments</span>
+      <span class="filter-pill" data-target="judgment">The Judgment</span>
+      <span class="filter-pill" data-target="creed">Human Creed</span>
+      <span class="filter-pill" data-target="health">Health &amp; Diet</span>
+      <span class="filter-pill" data-target="governance">Governance</span>
+      <span class="filter-pill" data-target="gifts">Spiritual Gifts</span>
+      <span class="filter-pill" data-target="secondcoming">Second Coming</span>
+      <span class="filter-pill" data-target="tithing">Tithing</span>
+      <span class="filter-pill" data-target="prophecy">Prophecy</span>
+      <span class="filter-pill" data-target="hellfire">Hellfire</span>
+      <span class="filter-pill" data-target="mediation">Confession</span>
+      <span class="filter-pill" data-target="women">Women's Ordination</span>
+    </div>
+    <div class="table-scroll">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Doctrine</th>
+            <th class="bible">✦ The Bible<small>the standard every column is measured against</small></th>
+            <th>Rome / Orthodoxy<small>Roman Catholic, Eastern &amp; Greek Orthodox</small></th>
+            <th>Lutheran / Anglican / Reformed<small>e.g. ELCSA, Church of England, NGK, GKSA (Dopper), Presbyterian Church</small></th>
+            <th>Methodist<small>e.g. Methodist Church of SA, Wesleyan</small></th>
+            <th>Baptist / Evangelical<small>e.g. Baptist Union, non-denom evangelical, SATS-aligned</small></th>
+            <th>Pentecostal / Charismatic<small>e.g. AFM, Assemblies of God</small></th>
+            <th class="sda">Seventh-day Adventist</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-doc="sabbath">
+            <th>Weekly Sabbath</th>
+            <td class="bible">Seventh day (Saturday), blessed and sanctified at Creation, kept by Christ himself <small>Genesis 2:1-3, Exodus 20:8-11, Luke 4:16</small></td>
+            <td>Sunday <small>by ecclesiastical decree</small></td>
+            <td>Sunday <small>Reformed covenant theology</small></td>
+            <td>Sunday <small>inherited Anglican practice</small></td>
+            <td>Sunday <small>"the Lord's Day"</small></td>
+            <td>Sunday <small>rarely examined</small></td>
+            <td class="sda">Saturday <small>Genesis 2, Exodus 20, Luke 4:16</small></td>
+          </tr>
+          <tr data-doc="state">
+            <th>State of the Dead</th>
+            <td class="bible">The dead are unconscious, "asleep," knowing nothing, awaiting the resurrection <small>Ecclesiastes 9:5-6, John 11:11-14, 1 Thessalonians 4:13-16</small></td>
+            <td>Immortal soul <small>heaven, hell, or purgatory</small></td>
+            <td>Immortal soul <small>immediate heaven or hell</small></td>
+            <td>Immortal soul</td>
+            <td>Immortal soul</td>
+            <td>Immortal soul</td>
+            <td class="sda">Unconscious sleep <small>Ecclesiastes 9:5, John 11:11-14</small></td>
+          </tr>
+          <tr data-doc="fate">
+            <th>Fate of the Wicked</th>
+            <td class="bible">Final, complete destruction — not unending torment <small>Malachi 4:1-3, Romans 6:23, Matthew 10:28</small></td>
+            <td>Eternal conscious torment <small>plus purgatory for the baptized</small></td>
+            <td>Eternal conscious torment</td>
+            <td>Eternal conscious torment</td>
+            <td>Eternal conscious torment</td>
+            <td>Eternal conscious torment</td>
+            <td class="sda">Annihilation <small>Malachi 4:1-3, Romans 6:23</small></td>
+          </tr>
+          <tr data-doc="baptism">
+            <th>Baptism</th>
+            <td class="bible">Full immersion, following repentance and personal faith <small>Romans 6:3-4, Acts 8:36-39, Mark 16:16</small></td>
+            <td>Infant sprinkling <small>Orthodoxy: infant immersion</small></td>
+            <td>Infant sprinkling <small>Anglican allows either</small></td>
+            <td>Infant or believer's, either mode</td>
+            <td class="sda">Believer's immersion <small>Romans 6:3-4</small></td>
+            <td class="sda">Believer's immersion</td>
+            <td class="sda">Believer's immersion <small>Acts 8:36-39</small></td>
+          </tr>
+          <tr data-doc="commandments">
+            <th>The Ten Commandments</th>
+            <td class="bible">All ten stand undivided and unaltered; not one "jot or tittle" removed <small>Exodus 20:1-17, Matthew 5:17-19, James 2:10-12</small></td>
+            <td>2nd commandment removed, 10th split <small>Catechism of the Catholic Church</small></td>
+            <td>4th commandment reinterpreted as ceremonial</td>
+            <td>4th commandment reinterpreted</td>
+            <td>Law "nailed to the cross" <small>dispensational reading of Colossians 2:14</small></td>
+            <td>Law generally set aside under grace</td>
+            <td class="sda">All ten retained intact <small>Matthew 5:17-19, Revelation 14:12</small></td>
+          </tr>
+          <tr data-doc="judgment">
+            <th>The Judgment</th>
+            <td class="bible">A real, courtroom-style judgment precedes final reward, rooted in the cleansing of the heavenly sanctuary <small>Daniel 7:9-10, Daniel 8:14, Hebrews 9:23-28</small></td>
+            <td>Purgatorial purification, particular &amp; general judgment</td>
+            <td>Judgment at death or the Second Coming, not investigative</td>
+            <td>Judgment at death or the Second Coming</td>
+            <td>Judgment settled at conversion, "once saved always saved" (Baptist/Reformed wings)</td>
+            <td>Judgment at the Second Coming</td>
+            <td class="sda">Pre-Advent investigative judgment since 1844 <small>Daniel 7-8, Hebrews 9</small></td>
+          </tr>
+          <tr data-doc="creed">
+            <th>Binding Human Creed</th>
+            <td class="bible">Scripture alone is the test of doctrine; truth is progressive, not frozen in a human document <small>Isaiah 8:20, Proverbs 4:18, Acts 17:11</small></td>
+            <td>Catechism, papal magisterium, ecumenical councils</td>
+            <td>Book of Concord, Three Forms of Unity, 39 Articles</td>
+            <td>Articles of Religion, Wesleyan standards</td>
+            <td>Varies; often confession-light but tradition-heavy on dispensationalism</td>
+            <td>Varies widely; low formal creed, high experiential tradition</td>
+            <td class="sda">28 Fundamentals, explicitly revisable <small>no fixed 16th-century creed</small></td>
+          </tr>
+          <tr data-doc="health">
+            <th>Health &amp; Diet</th>
+            <td class="bible">The body is God's temple; the clean/unclean distinction predates and outlasts the ceremonial law <small>Leviticus 11, Genesis 7:2, 1 Corinthians 6:19-20</small></td>
+            <td>No dietary teaching</td>
+            <td>No dietary teaching</td>
+            <td>No dietary teaching, Wesley personally taught temperance</td>
+            <td>No dietary teaching</td>
+            <td>No dietary teaching</td>
+            <td class="sda">Levitical clean/unclean retained as health counsel <small>1 Corinthians 6:19-20</small></td>
+          </tr>
+          <tr data-doc="governance">
+            <th>Church Governance</th>
+            <td class="bible">Local elders and deacons serving a congregation; no single earthly head over the whole church <small>Titus 1:5, Acts 14:23, 1 Peter 5:1-4</small></td>
+            <td>Papal primacy, episcopal hierarchy, apostolic succession</td>
+            <td>Episcopal (Anglican) or synodical/presbyterial (Reformed), bishops or ruling elder courts</td>
+            <td>Connectional, bishop-led (episcopal Methodism)</td>
+            <td>Congregational autonomy, no central hierarchy</td>
+            <td>Independent local congregations, loose network structures</td>
+            <td class="sda">Representative — local church, conference, union, and General Conference in session, no single earthly head <small>Acts 15 pattern</small></td>
+          </tr>
+          <tr data-doc="gifts">
+            <th>Spiritual Gifts / Prophecy</th>
+            <td class="bible">Gifts continue in the church until Christ's return, tested against Scripture, not assumed cessationist or unregulated <small>1 Corinthians 12:4-11, Ephesians 4:11-13, 1 Thessalonians 5:19-21</small></td>
+            <td>Cessationist in practice; sainthood and miracles mediated through church canonization</td>
+            <td>Largely cessationist; gifts viewed as belonging to the apostolic age</td>
+            <td>Cessationist in most branches; strong emphasis on personal experience of grace instead</td>
+            <td>Mixed; some affirm ongoing gifts, most emphasize word-and-doctrine over present-day prophecy</td>
+            <td>Continuationist; tongues and prophecy actively practiced and encouraged</td>
+            <td class="sda">Continuationist; the gift of prophecy specifically identified as present in the remnant church <small>Revelation 12:17, 19:10</small></td>
+          </tr>
+          <tr data-doc="secondcoming">
+            <th>The Second Coming</th>
+            <td class="bible">One single, visible, audible, worldwide event — not secret, not staggered <small>Matthew 24:27, Acts 1:9-11, 1 Thessalonians 4:16-17</small></td>
+            <td>A single future event, generally amillennial (no literal thousand-year reign)</td>
+            <td>A single future event, generally amillennial</td>
+            <td>A single future event, generally amillennial or postmillennial</td>
+            <td>Often dispensational: a secret "rapture" of believers precedes a seven-year tribulation, followed by a separate visible return</td>
+            <td>Frequently dispensational; pre-tribulation rapture doctrine widely taught and preached</td>
+            <td class="sda">One single, visible, literal, worldwide event, followed by a literal thousand-year reign in heaven <small>Revelation 20:1-6</small></td>
+          </tr>
+          <tr data-doc="tithing">
+            <th>Tithing &amp; Stewardship</th>
+            <td class="bible">A tenth returned to God as a recognition of ownership, older than the Mosaic law and reaffirmed by Christ <small>Genesis 14:20, Malachi 3:8-10, Matthew 23:23</small></td>
+            <td>Not systematically taught as a binding practice; giving encouraged generally</td>
+            <td>Not systematically taught; giving encouraged as an act of gratitude, not obligation</td>
+            <td>Encouraged strongly as a discipline of holy living, not usually treated as binding law</td>
+            <td>Widely practiced and preached, though theological grounding varies between "law" and "grace giving"</td>
+            <td>Widely practiced, often paired with additional "seed" or offering emphases</td>
+            <td class="sda">Systematically taught as a returned tithe plus freewill offerings, tied directly to Malachi 3</td>
+          </tr>
+          <tr data-doc="prophecy">
+            <th>Interpretation of Prophecy</th>
+            <td class="bible">Prophecy unfolds progressively through history toward a real, future culmination — not confined to one ancient audience or endlessly deferred <small>Daniel 2:28, 2 Peter 1:19-21</small></td>
+            <td>Largely allegorical/spiritual reading of apocalyptic texts; the papacy has not historically read itself into Daniel or Revelation's symbols</td>
+            <td>Mixed; Reformers themselves read the papacy into Revelation's symbols, though this reading faded in later Reformed scholarship</td>
+            <td>Mixed; historically read prophecy historically, softened over time toward general spiritual lessons</td>
+            <td>Predominantly futurist and dispensational; end-time prophecy read as almost entirely still future, disconnected from the intervening centuries</td>
+            <td>Predominantly futurist; heavy emphasis on end-times timelines still ahead</td>
+            <td class="sda">Historicist: prophecy unfolds continuously across the span of history from the prophet's day to the end, with 1844 read as a specific fulfillment within that continuous line <small>Daniel 7-8</small></td>
+          </tr>
+          <tr data-doc="hellfire">
+            <th>Nature of Hellfire</th>
+            <td class="bible">A real, literal fire that completely consumes rather than one that burns without ever finishing its work <small>2 Peter 3:7, Jude 1:7, Malachi 4:1</small></td>
+            <td>Literal and unending for the unsaved outside purgatory</td>
+            <td>Literal and unending</td>
+            <td>Literal and unending</td>
+            <td>Literal and unending</td>
+            <td>Literal and unending</td>
+            <td class="sda">Literal fire, but one that finishes what it starts — final and complete, not without end <small>Jude 1:7's "eternal fire" consumed Sodom and is no longer burning today</small></td>
+          </tr>
+          <tr data-doc="mediation">
+            <th>Confession &amp; Mediation</th>
+            <td class="bible">Direct access to God through Christ alone as the one mediator; confession made to God, with mutual confession among believers for healing, not as a sacrament <small>1 Timothy 2:5, 1 John 1:9, James 5:16</small></td>
+            <td>Sacramental confession to a priest required for the forgiveness of mortal sin; saints and Mary may be petitioned for intercession</td>
+            <td>Private confession available but not required as a sacrament; saints not petitioned</td>
+            <td>No priestly confession; direct access to God through Christ</td>
+            <td>No priestly confession; direct access to God through Christ</td>
+            <td>No priestly confession; direct access to God through Christ</td>
+            <td class="sda">Direct access to God through Christ alone; no human priesthood or confessional booth <small>Hebrews 4:14-16</small></td>
+          </tr>
+          <tr data-doc="women">
+            <th>Ordination of Women</th>
+            <td class="bible">Genuinely disputed within the text itself — 1 Timothy 2:12 restricts teaching authority, while Junia is called "of note among the apostles" (Romans 16:7) and Philip's daughters prophesied (Acts 21:9); serious, faithful readers differ here <small>1 Timothy 2:11-12, Romans 16:7, Acts 21:9</small></td>
+            <td>Ordination reserved for men; formally and consistently taught</td>
+            <td>Varies by national church; many ordain women, others (including most NGK and GKSA congregations) do not</td>
+            <td>Ordains women in most branches</td>
+            <td>Varies widely by congregation and network; many restrict pastoral ordination to men</td>
+            <td>Varies widely; many congregations ordain women, others do not</td>
+            <td class="sda">Formally undecided at the world church level; women serve widely as licensed and commissioned ministers, general ordination remains unresolved after repeated General Conference votes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--burgundy-bright)"></span>Departs from the plain text</span>
+      <span><span class="dot" style="background:var(--gold-deep)"></span>Partial recovery</span>
+      <span><span class="dot" style="background:var(--sage-bright)"></span>Matches the plain text</span>
+    </div>
+    <p class="caveat" style="margin-top:26px;">One doctrine is deliberately left off this matrix as a full column: <strong>the nature of the Godhead.</strong> Every tradition given its own column here — mainstream Seventh-day Adventism included — officially affirms the Trinity, so it wouldn't produce a contrast for a table built to show where traditions diverge. It remains a live internal conversation within Adventist history specifically (early pioneer non-Trinitarian views versus the church's later official position), and deserves its own dedicated study rather than a single row here. One movement covered later in this guide, <strong>Oneness Pentecostalism</strong>, does reject the Trinity outright — its profile card below carries that contrast on its own rather than reshaping this whole table around one exception.</p>
+  </section>
+
+  <!-- PRIMARY SOURCES -->
+  <section id="sources">
+    <div class="section-head">
+      <div class="kicker">Straight From the Documents</div>
+      <h2>What the Confessions Say, In Their Own Words</h2>
+      <p>The claims made in the matrix above aren't paraphrase alone. Here is what three of the confessional documents actually state, quoted directly, on the Sabbath question specifically.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="source-grid">
+      <div class="source-card">
+        <h4>Rome: The Catechism of the Catholic Church</h4>
+        <div class="doc-name">Part Three, Section Two, Article 3 — "The Third Commandment"</div>
+        <p class="source-quote">"The sabbath, which represented the completion of the first creation, has been replaced by Sunday."<cite>Catechism of the Catholic Church, §2190</cite></p>
+        <p class="source-analysis">The Catechism does not claim Sunday was always the day, or that the New Testament commands the change. It states plainly that Sunday <em>replaces</em> the seventh-day Sabbath, framing the change as the church's own doctrinal development rather than a direct scriptural command.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>The Reformed Tradition: The Heidelberg Catechism</h4>
+        <div class="doc-name">Lord's Day 38, Question &amp; Answer 103 (used by NGK, GKSA, and Reformed churches worldwide)</div>
+        <p class="source-quote">"...especially on the sabbath, that is, on the day of rest, diligently frequent the church of God..."<cite>Heidelberg Catechism, Q&amp;A 103</cite></p>
+        <p class="source-analysis">Note the catechism's own language: it calls Sunday "the sabbath," treating the fourth commandment as fulfilled by Sunday church attendance rather than by observing the seventh day the commandment actually names. A Reformed pastor is doctrinally bound to teach it this way.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>The Calvinist Tradition: The Canons of Dort</h4>
+        <div class="doc-name">First Head of Doctrine, Article 6 — on unconditional election</div>
+        <p class="source-quote">"...proceeds from God's eternal decree...He leaves the non-elect in His just judgment to their own wickedness."<cite>Canons of Dort, First Head, Article 6</cite></p>
+        <p class="source-analysis">This is the clause that removes genuine free will from the individual's response to grace — the specific point where Methodism's Arminian break from Calvinism, and Adventism's own Arminian framework, diverge from the confessional Reformed position.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>The Reformed Tradition: The Belgic Confession</h4>
+        <div class="doc-name">Article 25, "The Abolishing of the Ceremonial Law" (the third of the Three Forms of Unity)</div>
+        <p class="source-quote">"...the ceremonies and figures of the law ceased at the coming of Christ...must be abolished."<cite>Belgic Confession, Article 25</cite></p>
+        <p class="source-analysis">This is the article NGK and GKSA pastors cite to fold the fourth commandment in with the ceremonial law — treating "the ceremonies and figures of the law," including the weekly Sabbath, as abolished at the cross alongside temple sacrifice and circumcision, rather than distinguishing the moral Ten Commandments from the ceremonial calendar the way the matrix's Bible column does.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>The Anglican Tradition: The Thirty-Nine Articles</h4>
+        <div class="doc-name">Article XX, "Of the Authority of the Church"</div>
+        <p class="source-quote">"The Church hath power to decree Rites or Ceremonies, and authority in Controversies of Faith."<cite>Thirty-Nine Articles, Article XX</cite></p>
+        <p class="source-analysis">Functionally the same claim the Catechism of the Catholic Church makes about Rome's authority to move the Sabbath to Sunday, restated in Anglican terms — the Church of England explicitly reserves the right to set which day and which rites are observed, independent of a direct scriptural command for that specific day.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>The Lutheran Tradition: The Book of Concord</h4>
+        <div class="doc-name">Augsburg Confession, Article XXVIII, "Of Ecclesiastical Power"</div>
+        <p class="source-quote">"Great, say they, is the power of the Church, since it has dispensed with one of the Ten Commandments!"<cite>Augsburg Confession, Article XXVIII</cite></p>
+        <p class="source-analysis">Important context: this line is the Lutheran confession <em>quoting and reporting</em> Rome's own boast about its authority to move the Sabbath — not a Lutheran endorsement of it. The Augsburg Confession's actual position, stated a few paragraphs later, is that Scripture itself already abrogated the Sabbath and that Sunday was chosen merely as a convenient meeting day, not as a divinely required "Christian Sabbath." Quoting only the first sentence, as some popular apologetics material does, would misrepresent what the document actually argues — worth reading the full Article XXVIII directly rather than the single line alone.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>Rome, Again: The Council of Trent on the Canon</h4>
+        <div class="doc-name">Fourth Session, Decree Concerning the Canonical Scriptures, 8 April 1546</div>
+        <p class="source-quote">"...knowingly and deliberately contemn the traditions aforesaid; let him be anathema."<cite>Council of Trent, Fourth Session</cite></p>
+        <p class="source-analysis">This is the decree discussed in "The Canon Question" above — the moment the Catholic Church formally closed its Old Testament canon to include the Deuterocanonical books, on pain of anathema for anyone who rejected them "entire with all their parts." Notably, this was Trent's direct response to the Reformation, held in 1546 — meaning the Catholic canon was formally fixed as dogma roughly 1,500 years after the books in question were written, a fact worth sitting with regardless of which canon a reader ultimately holds.</p>
+      </div>
+
+      <div class="source-card">
+        <h4>Adventism: Ellen G. White on Her Own Writings</h4>
+        <div class="doc-name">The Review and Herald, January 20, 1903 (quoted in Colporteur Ministry, p. 125) and The Great Controversy, Introduction</div>
+        <p class="source-quote">"...a lesser light to lead men and women to the greater light."<cite>The Review and Herald, Jan. 20, 1903</cite></p>
+        <p class="source-quote">"...the standard by which all teaching and experience must be tested."<cite>The Great Controversy, Introduction</cite></p>
+        <p class="source-analysis">Given a full FAQ entry earlier in this guide, the primary text is worth reading directly rather than taking either side's paraphrase. The Adventist Church's own official reading treats the "greater light" as the Bible and White's writings as subordinate to it, functioning to point readers back to Scripture rather than beside or above it. It's worth noting some Adventist scholars dispute even that reading of the specific 1903 passage, arguing its own context is about pointing people to Christ rather than explicitly ranking the Bible above her other writings — a genuine internal debate, not settled by this single quotation either way. This is exactly the kind of primary-source checking this guide has asked of every other tradition's documents; it applies here too.</p>
+      </div>
+    </div>
+
+    <div class="verify-box">
+      <h4>Check This Yourself</h4>
+      <ul>
+        <li><strong>Catechism of the Catholic Church:</strong> the full English text is published at vatican.va — search paragraphs 2168 through 2195 for the complete section on the Third Commandment.</li>
+        <li><strong>Heidelberg Catechism:</strong> widely republished by Reformed denominations, including the NGK and GKSA's own doctrinal standards pages — search "Heidelberg Catechism Lord's Day 38."</li>
+        <li><strong>Canons of Dort:</strong> published alongside the Belgic Confession and Heidelberg Catechism as the "Three Forms of Unity" — most Reformed denominational websites host the full text.</li>
+        <li><strong>Belgic Confession:</strong> Article 25 in full is short — worth reading alongside Colossians 2 and Galatians 4:10, the texts it's built on.</li>
+        <li><strong>Thirty-Nine Articles:</strong> published on the Church of England's own website under "Book of Common Prayer" resources — Articles VII and XX together give the fullest picture of the Anglican position on the law and church authority.</li>
+        <li><strong>Book of Concord:</strong> the Augsburg Confession and its Apology are both hosted in full at bookofconcord.org — read all of Article XXVIII, not just the single widely-circulated sentence.</li>
+        <li><strong>Council of Trent, Fourth Session:</strong> the full decree is hosted at multiple sites including EWTN and Wikisource — read it alongside a list of the Deuterocanonical books to see exactly what was being made dogma.</li>
+        <li><strong>Ellen G. White, "lesser light" statement:</strong> hosted in full context at the Ellen G. White Estate's own site (whiteestate.org) — read the surrounding paragraphs, not just the isolated sentence, since the Estate's own materials note the interpretive debate around it.</li>
+        <li><strong>The Bible itself:</strong> every reference in the "Bible" column of the matrix above is a live citation — open a concordance or a Bible app and read each one in its surrounding chapter, not just the single verse.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-head">
+      <div class="kicker">Fair Hearing</div>
+      <h2>The Strongest Objections, Stated Plainly</h2>
+      <p>A Reformed, Baptist, or Evangelical reader working through this page will raise these points quickly. Each is stated here in its strongest form before being addressed — not as a strawman to knock down.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq-list">
+
+      <details class="faq">
+        <summary><span>"Colossians 2:16-17 already settled this — don't let anyone judge you regarding a sabbath day, since it was a shadow of things to come."</span><span class="chev">+</span></summary>
+        <div class="faq-body">
+          <span class="objection-label">The Objection</span>
+          <p>Paul explicitly tells the Colossians not to let anyone judge them regarding food, drink, festivals, new moons, or sabbaths — language that, on its face, sounds like a direct dismissal of Sabbath-keeping as obligatory.</p>
+          <span class="response-label">The Response</span>
+          <p>The Greek plural "sabbaths" (sabbaton) in this context sits alongside "new moons" and "festivals" — a standard grouping for Israel's annual ceremonial holy days (Leviticus 23 lists seven such "sabbaths" tied to feasts, distinct from the weekly seventh-day Sabbath of the Ten Commandments). Read this way, Paul is addressing the ceremonial calendar that pointed forward to Christ, not the creation-based weekly Sabbath of Genesis 2 and Exodus 20 — which Paul, writing decades after the resurrection, elsewhere assumes is still functioning as a normal part of Jewish and Gentile life (Acts 13:42-44, 17:2, 18:4). The strength of this response depends on that ceremonial/moral distinction holding up under scrutiny — a reader should check Leviticus 23's own "sabbath" language directly rather than taking the argument secondhand.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary><span>"The thief on the cross went straight to paradise that day — 'today shalt thou be with me in paradise' (Luke 23:43)."</span><span class="chev">+</span></summary>
+        <div class="faq-body">
+          <span class="objection-label">The Objection</span>
+          <p>Jesus tells the repentant thief he will be in paradise that very day, which appears to describe an immediate, conscious arrival in heaven at the moment of death.</p>
+          <span class="response-label">The Response</span>
+          <p>The original Greek text has no punctuation, so where the comma falls is a translation decision, not a feature of the text itself. Read as "Today I say to you, you will be with me in paradise" — placing the emphasis on the moment of the promise rather than the moment of arrival — the verse no longer requires the thief's arrival to happen that same day, which matters because Jesus himself was not in paradise that day; by his own words to Mary three days later, he had "not yet ascended" (John 20:17). Whichever reading a person lands on, it's worth working through both punctuation options directly rather than relying on either side's preferred translation.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary><span>"Romans 14:5 — 'one man esteemeth one day above another; another esteemeth every day alike' — treats the day question as a matter of personal conscience."</span><span class="chev">+</span></summary>
+        <div class="faq-body">
+          <span class="objection-label">The Objection</span>
+          <p>Paul appears to leave the choice of which day to observe up to the individual believer's conscience, which would make binding Sabbath-keeping inconsistent with his own counsel.</p>
+          <span class="response-label">The Response</span>
+          <p>The surrounding context (Romans 14:1-3) is about food — "one believeth that he may eat all things," disputes over meat and vegetables — strongly suggesting the "days" in view are the same disputed fasting and feast days addressed in the Colossians passage above, not the fourth commandment. The Ten Commandments are not raised anywhere in Romans 14's argument, and Paul elsewhere treats the moral law as still binding (Romans 3:31, 7:12). This is genuinely one of the more contested texts on either side of the debate, and deserves a full read of Romans 14 in one sitting rather than the single verse alone.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary><span>"The early church clearly worshiped on Sunday from the beginning — Acts 20:7 and 1 Corinthians 16:2 show it."</span><span class="chev">+</span></summary>
+        <div class="faq-body">
+          <span class="objection-label">The Objection</span>
+          <p>Acts 20:7 describes believers gathering "upon the first day of the week to break bread," and 1 Corinthians 16:2 instructs believers to set aside an offering "upon the first day of the week" — both read as early evidence of established Sunday worship.</p>
+          <span class="response-label">The Response</span>
+          <p>Acts 20:7-11 describes a single farewell gathering, at night, before Paul's early-morning departure — read in the Jewish reckoning of days from evening to evening, this places the meeting on what would now be called Saturday night, not a formalized weekly Sunday service. 1 Corinthians 16:2 instructs believers to set money aside privately at home ("lay by him in store") specifically so that a collection would already be gathered by the time Paul arrived — it describes personal financial planning, not a corporate worship gathering. Neither text uses the language of "the Lord's Day" the way later post-apostolic writings do, which is worth noticing directly in the verses rather than assuming the later terminology back onto them.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary><span>"Annihilation minimizes God's justice — doesn't real justice require eternal punishment for sin against an infinite God?"</span><span class="chev">+</span></summary>
+        <div class="faq-body">
+          <span class="objection-label">The Objection</span>
+          <p>If sin is an offense against an infinite, holy God, the punishment for it arguably needs to be infinite as well — which points toward unending conscious torment rather than a finite process ending in destruction.</p>
+          <span class="response-label">The Response</span>
+          <p>Scripture's own language for the wicked's end leans toward finality rather than duration — "consumed," "ashes," "perish," "destruction" (Malachi 4:1, 2 Peter 3:7, Matthew 10:28) — and Revelation 20:14 identifies the lake of fire itself as "the second death," not a second, unending life in torment. The justice argument itself is a philosophical inference about what infinite offense requires, not a direct citation — worth weighing on its own philosophical merits, separately from what the specific destruction-language texts say.</p>
+        </div>
+      </details>
+
+      <details class="faq">
+        <summary><span>"This whole guide argues for Sola Scriptura, but doesn't Adventism itself elevate Ellen G. White's writings to near-scriptural authority — the very problem it accuses other traditions of?"</span><span class="chev">+</span></summary>
+        <div class="faq-body">
+          <span class="objection-label">The Objection</span>
+          <p>If a tradition's own founding movement produces additional writings that carry real doctrinal weight in practice, treating that tradition as uniquely free of extra-biblical authority looks inconsistent — the same criticism this guide levels at the Three Forms of Unity or the Catechism.</p>
+          <span class="response-label">The Church's Official Position</span>
+          <p>The Seventh-day Adventist Church's own fundamental beliefs state that Ellen White's writings are not a rival or supplement to Scripture but a "continuing and authoritative source of truth" that is itself subject to the Bible's own testing — her own most-cited statement on this, quoted directly with its context in the Primary Sources section above, describes her writings as pointing toward the Bible rather than standing beside it.</p>
+          <span class="response-label">Where the Tension Is Real</span>
+          <p>Stated position and lived practice are two different things, and this guide's own standard — test the claim, don't just accept the label — applies here too. In practice, church publications, sermons, and study guides frequently cite her writings alongside Scripture in ways that function, for many members, closer to a practical authority than a purely advisory one. This is a genuine internal conversation within Adventism, argued from both sides by Adventists themselves, not a settled non-issue manufactured by outside critics. A reader taking this guide's Berean standard seriously should apply it here specifically: read a disputed passage of her writing directly, check it against the biblical text it claims to be built on, and decide whether it functions as commentary subject to Scripture or as an independent source of doctrine — the same test this guide has asked of every catechism and confession above.</p>
+          <span class="response-label">A Structural Difference Worth Naming, Without Resolving the Tension</span>
+          <p>One distinction is at least worth putting on the table: the Three Forms of Unity and the Catechism are formally binding — a Reformed pastor cannot legally teach against them, a Catholic priest cannot contradict the Magisterium. No equivalent binding mechanism exists for Ellen White's writings; a Seventh-day Adventist who disagrees with a specific statement of hers is not violating a formal doctrinal commitment the way a Reformed minister would be by rejecting the Heidelberg Catechism. Whether that structural difference is sufficient to answer the objection, or simply relocates it, is a fair question a careful reader should sit with rather than have settled for them by this paragraph.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz">
+    <div class="section-head">
+      <div class="kicker">A Rough Placement, Not a Verdict</div>
+      <h2>Find Your Tradition</h2>
+      <p>Six quick questions, answered honestly, will place you closest to one of the columns in the matrix above — then show you where that column and the Bible column actually part ways. This is a rough, informal placement, not a scientific instrument; several traditions share answers on any given question.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="quiz-box">
+      <div class="quiz-question" data-q="1">
+        <div class="quiz-q-title">1. Which day do you treat as the Christian day of worship, and why?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-tags="cath,orth">Sunday — the church has the authority to set holy days</button>
+          <button class="quiz-option" data-tags="reformed,methodist,baptist,pentecostal">Sunday — it's simply always been "the Lord's Day"</button>
+          <button class="quiz-option" data-tags="sda">Saturday — the seventh day named in Exodus 20</button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="2">
+        <div class="quiz-q-title">2. What happens to a person immediately after they die?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-tags="cath">Heaven, hell, or a temporary purifying state (purgatory)</button>
+          <button class="quiz-option" data-tags="orth,reformed,methodist,baptist,pentecostal">The soul goes immediately to heaven or hell</button>
+          <button class="quiz-option" data-tags="sda">Nothing — they're unconscious, "asleep," until the resurrection</button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="3">
+        <div class="quiz-q-title">3. How should a person be baptized?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-tags="cath,reformed">As an infant, by sprinkling, as a sign of the covenant</button>
+          <button class="quiz-option" data-tags="orth">As an infant, by full immersion</button>
+          <button class="quiz-option" data-tags="methodist,baptist,pentecostal,sda">As a believer, by full immersion, after personal repentance and faith</button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="4">
+        <div class="quiz-q-title">4. What settles a disputed point of doctrine?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-tags="cath">A living teaching authority (the Pope and bishops)</button>
+          <button class="quiz-option" data-tags="orth,reformed">A historic confessional document or council, binding on pastors</button>
+          <button class="quiz-option" data-tags="methodist,baptist,pentecostal,sda">Scripture alone — though our church has doctrinal statements open to revision</button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="5">
+        <div class="quiz-q-title">5. How will Christ's return unfold?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-tags="cath,orth,reformed,methodist">A single future event, without a detailed timetable attached</button>
+          <button class="quiz-option" data-tags="baptist,pentecostal">A secret rapture first, then a separate visible return later</button>
+          <button class="quiz-option" data-tags="sda">One single, visible, worldwide event, followed by a literal thousand-year reign in heaven</button>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-q="6">
+        <div class="quiz-q-title">6. Do gifts like tongues and prophecy still operate in the church today?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-tags="cath,orth,reformed,methodist,baptist">No — those gifts were for the apostolic age only</button>
+          <button class="quiz-option" data-tags="pentecostal,sda">Yes — actively, today</button>
+        </div>
+      </div>
+
+      <button class="quiz-submit" id="quizSubmit">See My Result</button>
+
+      <div class="quiz-result" id="quizResult">
+        <h4>Closest Match</h4>
+        <div class="result-name" id="resultName"></div>
+        <p id="resultBlurb"></p>
+        <p id="resultGap"></p>
+      </div>
+    </div>
+
+    <p class="quiz-disclaimer">Landing close to a tradition here says something about which inherited answers feel familiar — not which answers are correct. That's still the question this whole page is trying to help you check for yourself.</p>
+  </section>
+
+  <!-- GAUGE -->
+  <section id="gauge">
+    <div class="section-head">
+      <div class="kicker">The Instrument</div>
+      <h2>Measuring the Distance from Rome</h2>
+      <p>Each tradition's score below counts how many of the fifteen <em>scored</em> tests on this page it passes as a matter of formal, mainstream teaching — women's ordination is shown in the matrix but deliberately excluded from scoring, for the reason given above. This measures how much inherited tradition still stands between a church and the open text, not how sincere or devout its members are.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="gauge-wrap">
+      <div class="gauge-scale">
+        <span class="left-label">Tradition-bound</span>
+        <span class="right-label">Bible alone</span>
+      </div>
+
+      <div class="gauge-row">
+        <div class="gauge-label">Roman Catholic<small>the source tradition</small></div>
+        <div class="gauge-track"><div class="gauge-fill rome" style="width:6.7%"></div></div>
+        <div class="gauge-score">1 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label">Eastern Orthodox<small>immersion baptism, but infant</small></div>
+        <div class="gauge-track"><div class="gauge-fill rome" style="width:6.7%"></div></div>
+        <div class="gauge-score">1 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label">Lutheran<small>e.g. ELCSA — sola fide, no required confession</small></div>
+        <div class="gauge-track"><div class="gauge-fill rome" style="width:13.3%"></div></div>
+        <div class="gauge-score">2 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label">Anglican<small>e.g. Church of England, ACSA — no required confession</small></div>
+        <div class="gauge-track"><div class="gauge-fill rome" style="width:13.3%"></div></div>
+        <div class="gauge-score">2 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label">Presbyterian / Reformed<small>falls under this: NGK, GKSA (Dopper), Presbyterian Church of SA</small></div>
+        <div class="gauge-track"><div class="gauge-fill rome" style="width:13.3%"></div></div>
+        <div class="gauge-score">2 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label">Methodist<small>e.g. Methodist Church of SA — free will restored</small></div>
+        <div class="gauge-track"><div class="gauge-fill rome" style="width:13.3%"></div></div>
+        <div class="gauge-score">2 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label">Baptist / Evangelical<small>e.g. Baptist Union, SATS-aligned</small></div>
+        <div class="gauge-track"><div class="gauge-fill partial" style="width:26.7%"></div></div>
+        <div class="gauge-score">4 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label">Pentecostal / Charismatic<small>e.g. AFM, Assemblies of God</small></div>
+        <div class="gauge-track"><div class="gauge-fill partial" style="width:33.3%"></div></div>
+        <div class="gauge-score">5 / 15</div>
+      </div>
+      <div class="gauge-row">
+        <div class="gauge-label" style="color:var(--sage-bright)">Seventh-day Adventist<small>all fifteen scored tests</small></div>
+        <div class="gauge-track"><div class="gauge-fill full" style="width:100%"></div></div>
+        <div class="gauge-score" style="color:var(--sage-bright)">15 / 15</div>
+      </div>
+    </div>
+
+    <p class="gauge-note">Notice the Second Coming and tithing rows actually cut <em>against</em> the simple "SDA vs. everyone" pattern in places — several liturgical traditions hold a single, visible Second Coming closer to the text than the popular dispensational rapture teaching common in some evangelical and Pentecostal circles, while those same evangelical and Pentecostal traditions practice tithing more consistently than most liturgical churches do. Worth noting too: the Reformers themselves originally read the papacy directly into Daniel and Revelation's symbols — a historicist reading much closer to the Bible column than what most of their modern descendants teach on prophecy today. The score is not a straight line from "worst" to "best" — it is fifteen separate, independent tests, and no tradition on this page passes all of them except by accounting for every single row.</p>
+    <p class="gauge-note">The shape of the pattern is still worth naming: the Reformation did not fail to notice these texts, it noticed them one at a time, in sequence, over five centuries — and every branch except one stopped short of the Sabbath and the state of the dead. That sequence is unpacked below.</p>
+  </section>
+
+  <!-- PROFILES -->
+  <section id="profiles">
+    <div class="section-head">
+      <div class="kicker">Case Files</div>
+      <h2>The Denominations, One at a Time</h2>
+      <p>Click any tradition to expand its history, its genuine recoveries of biblical truth, and the specific points where inherited tradition still overrules the open text.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="hz-panel">
+      <div class="hz-panel-title">Centuries 1 – 11 · The Undivided and Then Split Church</div>
+      <div class="hz-timeline">
+        <div class="hz-track"></div>
+        <div class="hz-point up" style="left:2%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">c. AD 33</span>The Apostolic Church</div></div>
+        <div class="hz-point down" style="left:36%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">c. AD 380</span>Rome as State Church</div></div>
+        <div class="hz-point up" style="left:100%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1054</span>East-West Schism</div></div>
+      </div>
+    </div>
+
+    <div class="hz-panel">
+      <div class="hz-panel-title">Centuries 16 – 21 · The Reformation and Its Aftermath</div>
+      <div class="hz-timeline">
+        <div class="hz-track"></div>
+        <div class="hz-point up" style="left:1%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1517</span>Lutheran</div></div>
+        <div class="hz-point down" style="left:6%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1525</span>Anabaptist</div></div>
+        <div class="hz-point up" style="left:12%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1534</span>Anglican</div></div>
+        <div class="hz-point down" style="left:19%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1561</span>Reformed / NGK line</div></div>
+        <div class="hz-point up" style="left:26%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1619</span>Canons of Dort</div></div>
+        <div class="hz-point down" style="left:35%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1650s</span>Baptist</div></div>
+        <div class="hz-point up" style="left:50%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1739</span>Methodist</div></div>
+        <div class="hz-point down" style="left:79%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1863</span>SDA organized</div></div>
+        <div class="hz-point up" style="left:88%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1906</span>Pentecostal</div></div>
+        <div class="hz-point down" style="left:90%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1908</span>AFM (South Africa)</div></div>
+        <div class="hz-point up" style="left:93%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1913</span>Oneness Pentecostal</div></div>
+        <div class="hz-point down" style="left:99%"><div class="hz-dot"></div><div class="hz-label"><span class="yr">1994</span>URCSA</div></div>
+      </div>
+    </div>
+
+    <p class="gauge-note">Notice the spacing: the second panel covers less than five centuries, and most of its points cluster in the final third. Denominational division didn't happen at a steady rate — it accelerated. Whatever conclusion a reader draws from that, it's a pattern worth noticing on its own, separate from any single doctrinal question above.</p>
+
+    <div class="profiles">
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Roman Catholic Church</h3><span class="founded">c. 4th–5th century, institutional consolidation</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">The source tradition every other Western church on this page eventually reacted against, in part.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Affirms the Trinity, the deity of Christ, and the resurrection.</li>
+                <li>Retains a strong sense of the church as a visible, historical community rather than a private idea.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Elevates sacred tradition and the papal magisterium to functional parity with Scripture.</li>
+                <li>Transferred Sabbath observance to Sunday by ecclesiastical authority, a change openly claimed in later Catholic catechetical writing as evidence of the church's authority over Scripture itself.</li>
+                <li>Teaches purgatory and the intercession of saints, neither of which rests on a direct biblical text.</li>
+                <li>The Catechism's standard listing of the Ten Commandments omits the prohibition on graven images as a separate command and splits the tenth to preserve the count of ten.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Without a living teaching authority to settle disputes and fix the canon, Sola Scriptura tends to produce exactly the fragmentation visible across the rest of this page — every reader becomes their own final authority. Catholic apologists point to 2 Thessalonians 2:15's instruction to "hold to the traditions" as evidence Scripture itself expects an authoritative interpretive structure alongside it.</p></div>
+          <div class="verdict">Historically, this is the tradition every other entry on this page is measured against — the baseline every reform movement below either partially or fully corrected.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Eastern Orthodoxy</h3><span class="founded">Formal East-West split, 1054</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Shares Rome's core departures from Sola Scriptura while rejecting papal supremacy.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Baptizes by full triple immersion, even for infants — closer to the biblical mode than Western sprinkling, though the biblical requirement of prior repentance and faith is still absent.</li>
+                <li>Maintains a strong sense of the reality and gravity of sin and repentance.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Holy Tradition (councils, liturgy, patristic writing) functions alongside Scripture as a source of authority.</li>
+                <li>Sunday worship, the immortality of the soul, and eternal conscious torment are held identically to Catholic teaching.</li>
+                <li>Icon veneration, while distinguished theologically from idolatry, sits uneasily beside Exodus 20:4-5.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Orthodoxy never underwent the institutional rupture that produced Rome's medieval innovations or the Reformation's reactions to them — its worship, structure, and theology claim an unbroken continuity with the early centuries described in Acts, closer in form to first-millennium Christian practice than any Western tradition on this page.</p></div>
+          <div class="verdict">Orthodoxy corrects Rome's claim to a single earthly head, but not Rome's calendar or its view of the soul.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Lutheran Church</h3><span class="founded">Founded 1517, Martin Luther</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">The first crack in Rome's authority — restored justification by faith, kept nearly everything else. Churches falling under this category include the <strong>Evangelical Lutheran Church in Southern Africa (ELCSA)</strong> and Lutheran bodies worldwide.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Restored <em>sola fide</em> (salvation by faith) and <em>sola scriptura</em> as formal principles against papal authority.</li>
+                <li>Rejected purgatory and the sale of indulgences.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Retained infant baptism by sprinkling as a continuation of Old Testament covenant circumcision.</li>
+                <li>Kept Sunday sacredness inherited directly from Catholic tradition without re-examining it.</li>
+                <li>The Book of Concord functions as a binding confessional standard a Lutheran pastor may not contradict.</li>
+                <li>Teaches the immediate conscious presence of the soul with Christ or in judgment at death.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Lutherans would argue the mode and timing of baptism matter less than what God does in it — a covenant promise extended to a household, not primarily a decision made by the candidate — tracing the pattern back to Genesis 17's household sign and the family baptisms recorded in Acts 16:15 and 16:33.</p></div>
+          <div class="verdict">Luther restored the doctrine of grace but stopped at the church calendar and the sacraments he grew up with.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Anglican / Episcopal Church</h3><span class="founded">Founded 1534, Henry VIII &amp; the English Reformation</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">A political break from Rome that kept most of Rome's theology intact. Churches falling under this category include the <strong>Church of England</strong>, the <strong>Anglican Church of Southern Africa (ACSA)</strong>, and Episcopal churches worldwide.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>The 39 Articles affirm Scripture as containing everything necessary for salvation.</li>
+                <li>Rejects transubstantiation as formally defined by Rome.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Retains bishops, vestments, liturgical calendar, and much of the Catholic sacramental structure.</li>
+                <li>Infant baptism, Sunday observance, and the immortal soul all carried over unchanged.</li>
+                <li>The break from Rome was substantially about ecclesiastical authority, not a systematic re-examination of doctrine against the text.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Anglicans would argue a deliberate middle path between Rome and the more radical continental reformers is itself a defensible reading of Christ's prayer for unity in John 17 — preserving historic structure and liturgy while still holding, per the 39 Articles, that Scripture contains everything necessary for salvation.</p></div>
+          <div class="verdict">Anglicanism changed who governs the church far more than it changed what the church teaches.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Presbyterian / Reformed (Calvinist)</h3><span class="founded">Founded 1560s, John Calvin &amp; John Knox</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">The most systematic and philosophically rigorous of the magisterial reformers — and the most tightly bound to its own creeds. Churches falling under this category include the <strong>Nederduitse Gereformeerde Kerk (NGK / Dutch Reformed Church)</strong>, the <strong>Gereformeerde Kerke (GKSA, the "Dopper" church)</strong>, the Reformed Church in America, and Presbyterian denominations worldwide — all bound to some form of the same Calvinist confessional core.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>A deep, disciplined emphasis on the sovereignty and holiness of God.</li>
+                <li>Restored congregational and elder-based governance against episcopal hierarchy.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Bound by the Three Forms of Unity (Belgic Confession, Heidelberg Catechism, Canons of Dort) — a pastor who reads the Sabbath or the state of the dead differently from these documents cannot legally teach it in the denomination.</li>
+                <li>The Canons of Dort's unconditional election and limited atonement remove genuine free will from the individual's response to grace, a position hard to reconcile with texts like 2 Peter 3:9 and Revelation 22:17.</li>
+                <li>Infant sprinkling and Sunday sacredness retained as covenant theology, not re-derived from the New Testament.</li>
+                <li>The Heidelberg Catechism explicitly teaches the immediate ascent of the soul to Christ at death and reassigns the Sabbath command to Sunday attendance.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Sola Scriptura without any confessional accountability risks becoming whatever the individual pastor decides it means. The Three Forms of Unity, Reformed theologians would argue, exist precisely to hold the whole church to a public, checkable standard of interpretation rather than each minister's private reading — a structural safeguard, not a replacement for Scripture's authority.</p></div>
+          <div class="verdict">This is the tradition of the Voortrekker leadership and the modern NGK — theologically the most fortified against further reform, precisely because its confessions are treated as a faithful summary of Scripture rather than a historical snapshot open to correction.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Methodist / Wesleyan</h3><span class="founded">Founded 1739, John &amp; Charles Wesley</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">A revival movement that recovered free will and personal holiness, still inside the Anglican calendar. Churches falling under this category include the <strong>Methodist Church of Southern Africa</strong> and Wesleyan bodies worldwide.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Rejected Calvinist predestination outright — taught that grace is genuinely resistible and available to all, closer to Titus 2:11 and John 3:16.</li>
+                <li>Strong emphasis on practical holiness and sanctification as an ongoing work, not merely a legal declaration.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Never re-examined the Sabbath question; Sunday observance carried over from its Anglican origin.</li>
+                <li>Retains belief in the immortality of the soul and conscious eternal punishment.</li>
+                <li>Baptismal mode is left flexible rather than restored to the New Testament pattern of believer's immersion.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Methodists would point to Christ's own test in Matthew 7:16 — "by their fruits ye shall know them" — and argue that two and a half centuries of revival, disciplined holy living, and social reform (abolitionism, education, care for the poor) carry real evidential weight about which movements are genuinely of God.</p></div>
+          <div class="verdict">Wesley restored the doctrine of the will; he did not revisit the calendar he inherited from the Church of England.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Baptist &amp; General Evangelical (incl. SATS-style seminaries)</h3><span class="founded">Radical Reformation roots, 17th century onward</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Rejected the state-church model entirely and restored believer's baptism — but adopted a framework that removes the Law from the Christian life altogether. Churches falling under this category include the <strong>Baptist Union of Southern Africa</strong>, most non-denominational evangelical congregations, and institutions like SATS.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Correctly restored baptism by full immersion, reserved for those who repent and believe.</li>
+                <li>Generally low on formal, binding creeds; a stated commitment to teach "from the text" directly.</li>
+                <li>Strong tradition of personal Bible study, evangelism, and apologetics.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Widespread dispensationalist framework teaches the Ten Commandments as part of an Old Covenant no longer binding on the believer, which is difficult to square with Matthew 5:17-19 and James 2:10-12.</li>
+                <li>Retains the traditional doctrine of the immortal soul and eternal conscious torment, inherited from medieval theology rather than re-derived from Hebrew and Greek terms for death.</li>
+                <li>Sunday is kept as "the Lord's Day" by longstanding assumption rather than direct command.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Dispensationalists would argue their framework takes Israel and the church as genuinely distinct rather than collapsing one into the other, reading Galatians 3:24-25's description of the law as a temporary "tutor" quite literally, and pointing to Jeremiah 31:31's promise of a New Covenant as evidence the Old Covenant law-system was always meant to give way.</p></div>
+          <div class="verdict">The closest of the mainstream traditions to a genuine sola scriptura method — undone specifically by a theological framework (dispensationalism) that pre-decides the Law is obsolete before the text is even opened.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Pentecostal &amp; Charismatic</h3><span class="founded">Azusa Street revival, 1906 onward</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Restored an expectation of the ongoing gifts of the Spirit, largely without revisiting the Reformation's unfinished business. Churches falling under this category include the <strong>Apostolic Faith Mission (AFM)</strong>, Assemblies of God, and most charismatic non-denominational congregations.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Takes seriously that spiritual gifts described in 1 Corinthians 12 and Acts did not necessarily cease with the apostolic age.</li>
+                <li>Generally practices believer's baptism by immersion.</li>
+                <li>High emphasis on personal conversion and an active, felt relationship with God.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Doctrine is often shaped more by present experience and individual revelation than by systematic examination of the text, creating wide variation between congregations.</li>
+                <li>Sunday observance, the immortal soul, and eternal conscious torment are held with the same lack of scrutiny as in the broader evangelical world it emerged from.</li>
+                <li>The emphasis on ongoing individual prophecy is rarely tested against a single, identifiable prophetic gift operating in continuity with the biblical pattern (1 Corinthians 14:29, 1 Thessalonians 5:19-21).</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>A living, felt experience of the Spirit was always meant to be normal Christian life, not a first-century exception — Pentecostals would point to Acts 2's outpouring and Paul's detailed instructions for tongues and prophecy in 1 Corinthians 14 as evidence the New Testament expects these gifts to continue, placing the burden of proof on cessationist traditions to show where Scripture ever announces their end.</p></div>
+          <div class="verdict">Correctly reopened the question of spiritual gifts; largely left the Reformation's Sabbath and state-of-the-dead questions unopened.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Anabaptist (Mennonite, Amish, Hutterite)</h3><span class="founded">Founded 1525, Zurich — the Radical Reformation</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Distinct from the modern Baptist movement above despite the similar name — a separate, older lineage born from the most radical wing of the Reformation itself, historically persecuted by Catholics and Protestants alike.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Rejected infant baptism outright and insisted on believer's baptism decades before the Baptist movement existed — the name "Anabaptist" ("re-baptizer") was originally a hostile label from opponents.</li>
+                <li>Took the Sermon on the Mount with unusual literalism, including nonresistance and a refusal to swear oaths (Matthew 5:34, 5:39).</li>
+                <li>Practiced a strict separation of church and state at a time when every other tradition on this page assumed some form of state-church union.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where tradition overrules the text</h4>
+              <ul>
+                <li>Sunday observance and the immortality of the soul were inherited without re-examination, the same as every other Reformation-era movement.</li>
+                <li>Amish and some conservative Mennonite communities layer centuries of accumulated cultural tradition (dress, technology restrictions, church discipline through shunning) on top of the biblical text, functioning in practice much like a confessional tradition despite the movement's founding rejection of exactly that.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Anabaptists would argue that a church entangled with state power inevitably compromises the gospel — pointing to the Constantinian shift and the violent persecution Anabaptists themselves suffered at the hands of state churches as living proof that separation of church and state isn't a modern political preference but a biblical safeguard against exactly this kind of corruption.</p></div>
+          <div class="verdict">Restored believer's baptism and biblical nonresistance earlier and more thoroughly than any other tradition on this page — while leaving the Sabbath and state-of-the-dead questions as untouched as everyone else.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>Oneness Pentecostalism</h3><span class="founded">Emerged 1913-1916, out of the wider Pentecostal movement</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">The one tradition on this page that breaks with every other column on the single most foundational doctrine none of them dispute: the Trinity.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Shares the wider Pentecostal movement's restoration of believer's baptism by immersion and continuationist view of spiritual gifts.</li>
+                <li>Takes the unity texts about God seriously — Deuteronomy 6:4's "the LORD is one" and John 10:30's "I and my Father are one" are read as making Father, Son, and Spirit three roles or manifestations of a single person, not three distinct persons.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where it departs from the wider Christian reading</h4>
+              <ul>
+                <li>Rejects the Trinity as formulated by every other tradition on this page, teaching instead that Jesus is the one God appearing in three modes — a position historically labeled modalism, and one that struggles to account for texts where the Father and Son address each other as distinct persons, such as Jesus' baptism (Matthew 3:16-17) and Gethsemane (Matthew 26:39).</li>
+                <li>Requires baptism specifically "in the name of Jesus" (Acts 2:38) as necessary for salvation, treating Matthew 28:19's Father-Son-Spirit baptismal formula as secondary to it rather than reading both texts as describing the same act.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="steelman"><span class="t-label">Strongest Case They'd Make</span><p>Oneness Pentecostals would point out that every baptism recorded in the book of Acts explicitly names Jesus alone (Acts 2:38, 8:16, 10:48, 19:5), never the Matthew 28:19 formula, and argue that "Jesus' name" was the earliest church's actual baptismal practice — leaving the burden on Trinitarian traditions to explain why apostolic practice consistently differs from what they treat as the definitive formula.</p></div>
+          <div class="verdict">Included here specifically because it's the one tradition in this guide that gives the Godhead question — deliberately left out of the main matrix — an actual point of contrast to examine.</div>
+        </div>
+      </details>
+
+      <details class="profile sda-profile">
+        <summary>
+          <div class="summary-left"><h3>Seventh-day Adventist Church</h3><span class="founded">Organized 1863, out of the 1840s Millerite movement</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Framed, in this study, as the point where the pieces recovered separately by earlier reformers are gathered and the remaining Roman inheritance is set down.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>What it claims to recover</h4>
+              <ul>
+                <li>The seventh-day Sabbath, kept sunset to sunset, as a creation ordinance never abrogated (Genesis 2:1-3, Mark 2:27-28).</li>
+                <li>Conditional immortality: the dead are unconscious, "asleep," until the resurrection (Ecclesiastes 9:5, 1 Thessalonians 4:13-17).</li>
+                <li>Annihilation of the wicked rather than eternal conscious torment (Malachi 4:1-3, Matthew 10:28).</li>
+                <li>Believer's baptism by full immersion (Romans 6:3-4).</li>
+                <li>All Ten Commandments retained without alteration, framed as the identifying mark of the end-time remnant (Revelation 12:17, 14:12).</li>
+                <li>A pre-Advent investigative judgment beginning in 1844, read from the cleansing of the sanctuary in Daniel 8:14 and the heavenly sanctuary ministry of Hebrews 8-9.</li>
+                <li>Explicitly non-creedal doctrine — the 28 Fundamental Beliefs are stated as open to revision if further biblical light requires it.</li>
+                <li>Levitical health counsel retained as practical wisdom for the body, not as a means of salvation.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Honest tensions worth naming</h4>
+              <ul>
+                <li>The specific date-setting method behind 1844 and the interpretation of the 2,300 days remain a point serious critics from other traditions press hard, and deserve study directly from Daniel 8-9 rather than secondhand summary.</li>
+                <li>The role of Ellen G. White's writings alongside Scripture is a genuine internal conversation within Adventism, not a settled non-issue — worked through in full in the "Objections" section above rather than left as a single line here.</li>
+                <li>As a comparatively young and smaller denomination, it lacks the institutional depth, historical continuity, and cultural embeddedness of the churches above — a fact worth weighing honestly rather than dismissing.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="verdict">The claim examined throughout this page is specific: not that Adventism is beyond critique, but that on these eight named points, it is the only mainstream tradition that revisited every one of them against the text rather than inheriting the answer from Rome, from Wittenberg, or from Geneva.</div>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- REMNANT TIMELINE -->
+  <section id="remnant">
+    <div class="section-head">
+      <div class="kicker">A Pattern Worth Naming</div>
+      <h2>When the Majority Was Wrong</h2>
+      <p>Every doctrine above has, at almost every point in its history, been a minority position. Scripture's own record suggests that is not an accident to explain away, but a pattern to expect.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="caveat">
+      <strong>A necessary caveat:</strong> being a minority does not make a position true — that would simply be the same numbers-based error run in reverse. The claim here is narrower: nowhere does Scripture treat majority consensus as evidence of anything. "Everyone believes it" and "the church has always taught it" are not, on their own, biblical arguments. Each doctrine still has to be tested against the text itself, not against a headcount on either side.
+    </div>
+
+    <div class="timeline">
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">Before the Flood</div>
+        <h4>The Whole Earth, Against Eight People</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>An entire global population, generations deep, whose every inclination of the heart had turned continually toward evil despite 120 years of warning.<span class="t-ref">Genesis 6:5, 6:3, 1 Peter 3:20</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Noah and seven family members — the entire surviving human race reduced to a single household that had kept faith.<span class="t-ref">Genesis 6:8, 7:1, 7:23</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">The Cities of the Plain</div>
+        <h4>Sodom and Gomorrah</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Whole cities so uniformly corrupt that not even ten righteous people could be found in them.<span class="t-ref">Genesis 18:32, 19:24-25</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Lot's household — and even there, faith proved partial; his wife did not survive the journey out.<span class="t-ref">Genesis 19:15-17, 19:26</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">Ur of the Chaldees</div>
+        <h4>Abraham's Call Out of Idolatry</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Abraham's own ancestral household served other gods on the far side of the Euphrates — an ordinary fact of Mesopotamian life, not an exception.<span class="t-ref">Joshua 24:2</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>One man, called individually out of a settled idolatrous culture, with no surrounding movement to join.<span class="t-ref">Genesis 12:1, Hebrews 11:8</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">The Wilderness</div>
+        <h4>The Generation That Left Egypt</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Every adult of an entire delivered generation, save two, refused to trust God's promise at Kadesh-barnea and died in the wilderness over the next forty years.<span class="t-ref">Numbers 14:22-23, 14:29, Hebrews 3:17-19</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Caleb and Joshua alone, of that entire generation, entered the promised land.<span class="t-ref">Numbers 14:30, 26:65</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">The Divided Kingdom</div>
+        <h4>Elijah and the Seven Thousand</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Under Ahab and Jezebel, national worship in Israel had turned to Baal so thoroughly that Elijah, God's own prophet, believed he alone remained faithful.<span class="t-ref">1 Kings 18:22, 19:10</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>God corrected him: seven thousand had not bowed the knee — a real number, but a small fraction of a nation of millions.<span class="t-ref">1 Kings 19:18, Romans 11:2-5</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">The Eve of Exile</div>
+        <h4>Jeremiah Against the Court Prophets</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Jerusalem's own recognized prophets, priests, and king insisted peace and safety were assured, and treated warnings of judgment as treason.<span class="t-ref">Jeremiah 28:1-11, 6:14</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Jeremiah alone, beaten, imprisoned, and lowered into a cistern, kept insisting the unwelcome word was the true one.<span class="t-ref">Jeremiah 26:8-11, 38:6</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">Ministry in Judea</div>
+        <h4>The Broad Way and the Narrow</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Israel's religious establishment rejected Jesus as Messiah, and the same crowd that welcomed him days earlier called for his crucifixion.<span class="t-ref">John 1:11, Matthew 27:20-23</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Jesus named the pattern directly: the gate is narrow and the way is difficult, and only a few find it — roughly a hundred and twenty were left gathered after his ascension.<span class="t-ref">Matthew 7:13-14, Acts 1:15</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">First Century Onward</div>
+        <h4>The Church Against Empire and Synagogue</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Both the machinery of Roman state religion and the established Jewish leadership opposed the apostolic movement as a threat to be suppressed.<span class="t-ref">Acts 8:1, Acts 17:6-7</span></div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Small, scattered, frequently persecuted congregations — several of which, by Revelation 2-3, were themselves warned for drifting from the faith they once held.<span class="t-ref">Revelation 2:4, 3:15-16</span></div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">Medieval Centuries</div>
+        <h4>Hidden Communities in the Alps and Beyond</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>A millennium of institutional Christendom, uniform across Europe on Sunday observance, the veneration of saints, and salvation mediated through the church.</div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Groups worshiping in remote valleys and mountain communities — hunted as heretics for holding to Scripture over accumulated church tradition.</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">The Reformation</div>
+        <h4>One Man Against a Council</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>The full institutional and political weight of Western Christendom, unified for centuries under a single ecclesiastical authority.</div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>Reformers like Wycliffe, Huss, and Luther, who stood — at the outset, individually — on a plain reading of the text against the accumulated judgment of councils.</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-era">1844</div>
+        <h4>A Scattered Company Across Denominations</h4>
+        <div class="t-cols">
+          <div class="t-majority"><span class="t-label">The Majority</span>Established Protestant Christendom by the 1840s had long since settled into its various confessional camps, with little appetite to reopen the sanctuary, the judgment, or the Sabbath.</div>
+          <div class="t-remnant"><span class="t-label">The Remnant</span>A comparatively small, interdenominational group of Bible students — drawn from Baptist, Methodist, and other backgrounds, William Miller among them — who restudied Daniel's sanctuary and judgment texts and, out of that study, the movement that became Seventh-day Adventism took shape.<span class="t-ref">Daniel 8:14, Revelation 14:6-12</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="gauge-note">The lesson this pattern teaches is not "the smaller group is right." It is that Scripture never once treats a doctrine as settled because most people, or even most churches, hold it. Every figure in this timeline was tested against the text available in his own day — the same test this whole page has tried to apply.</p>
+  </section>
+
+  <!-- SOUTH AFRICA -->
+  <section id="sa">
+    <div class="section-head">
+      <div class="kicker">A Closer Look, Locally</div>
+      <h2>How These Traditions Took Root in South Africa</h2>
+      <p>The doctrines above did not arrive in South Africa as abstractions — they arrived embedded in specific institutions, some of which shaped the country's politics as much as its theology.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="profiles">
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>NGK — From Mission Church to "The National Party at Prayer"</h3><span class="founded">Established in the Cape from 1652 onward</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">No denomination on this page is more entangled with a single country's political history than the NGK is with South Africa's.</p>
+          <div class="profile-cols">
+            <div class="depart"><h4>The entanglement</h4>
+              <ul>
+                <li>Through the 20th century the NGK provided sustained theological justification for apartheid as government policy, a role widely described by scholars as the church functioning as "the National Party at prayer."</li>
+                <li>The church's ties to the secretive Afrikaner Broederbond placed many of its senior clergy inside the same organization shaping National Party policy — the overlap your own research into the Broederbond has already traced.</li>
+                <li>Beyers Naudé, an NGK minister who publicly questioned this theological justification, left the church in 1963, founded the Christian Institute, and was placed under a state banning order after the Institute was shut down in 1977.</li>
+              </ul>
+            </div>
+            <div class="align"><h4>The reckoning</h4>
+              <ul>
+                <li>At the Rustenburg Conference of November 1990, NGK theologian Willie Jonker confessed the church's role in apartheid before a national gathering of churches, in a moment Archbishop Desmond Tutu publicly received as repentance.</li>
+                <li>The Dutch Reformed Mission Church (the NGK's own "daughter church" for people classified as Coloured under apartheid) had already declared apartheid a theological heresy in 1982, drafting the Belhar Confession as a formal doctrinal rejection of it.</li>
+                <li>Reunification talks between the NGK and its formerly separated daughter churches — now largely united as the Uniting Reformed Church in Southern Africa (URCSA), given its own card just below — continue into the present as an unfinished process.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="verdict">This history doesn't change any of the doctrinal comparisons made earlier in this guide, but it is a separate and serious question worth holding alongside them: a church can be doctrinally traditional and, at the same time, be captured by a political project its own theology should have resisted.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>GKSA (Dopper Church) — Isolation as a Strategy</h3><span class="founded">Formed 1859, centered on Potchefstroom</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Where the NGK sought influence, the Doppers historically sought distance.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>The pattern</h4>
+              <ul>
+                <li>The Dopper church's founding impulse was suspicion of both British imperial culture and secret societies, Freemasonry included — Paul Kruger's own refusal of Masonic involvement at the 1896 Reformed church cornerstone-laying is the clearest public expression of this instinct.</li>
+                <li>That same isolationism kept the GKSA smaller and more theologically insulated than the NGK, but it did not, on its own, prevent the church from sharing the NGK's broader Reformed doctrinal commitments — Sunday observance and the Three Forms of Unity chief among them.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="verdict">Political isolation and doctrinal reform are not the same thing — a church can withdraw from worldly entanglement without revisiting a single one of its inherited confessional positions.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>URCSA — The Doctrinal Outcome of Belhar</h3><span class="founded">United 1994, from the NGK's separated "daughter churches"</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Where the earlier NGK card treats Belhar as a moment in that church's history, the Uniting Reformed Church in Southern Africa is the actual institutional result — a separate denomination in its own right, not a footnote inside another one.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>What it did differently</h4>
+              <ul>
+                <li>Formed in 1994 from the merger of the (mostly Black) Dutch Reformed Church in Africa and the (mostly Coloured) Dutch Reformed Mission Church — the same daughter churches apartheid-era policy had kept doctrinally identical to the NGK but administratively and racially separate from it.</li>
+                <li>Adopted the Belhar Confession as a fourth confessional standard alongside the historic Three Forms of Unity, formally binding the denomination to reject any theology that uses race, ethnicity, or apartheid-style separation to justify division within the body of Christ.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Where it still shares the Reformed inheritance</h4>
+              <ul>
+                <li>URCSA holds the same Sabbath, baptism, and Ten Commandments positions as the NGK it separated from — Belhar corrected a doctrine of the church and of reconciliation, not the calendar or confessional questions examined throughout the rest of this guide.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="verdict">A useful case study on its own terms: a denomination can undergo a genuine, costly doctrinal reckoning on one axis (racial division within the church) while remaining entirely unchanged on every axis this guide has spent most of its length examining.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>African Independent / Instituted Churches (AICs)</h3><span class="founded">Movement dates from the late 19th century onward; the Zion Christian Church founded 1910s</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Collectively one of the largest religious groupings in South Africa, and arguably the gap most conspicuously missing from an earlier draft of this section — AICs likely outnumber several denominations already given a full card here.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Emerged substantially as a reaction against the racial paternalism of missionary-founded churches, asserting that African Christians could read, interpret, and lead without a European intermediary — a claim with real force alongside 1 Corinthians 12's picture of every believer having direct access to the Spirit's gifts.</li>
+                <li>Bodies like the Zion Christian Church (by far the largest single church grouping in South Africa) emphasize healing, prophecy, and an active, felt experience of the Holy Spirit, continuous with the same "gifts didn't end with the apostles" instinct covered in the Pentecostal card above.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Honest complexity</h4>
+              <ul>
+                <li>The category is enormous and doctrinally uneven — it spans everything from churches essentially Pentecostal in theology to syncretistic movements blending Christian language with ancestor veneration and traditional healing practice, so no single doctrinal profile fairly describes the whole category the way it can for a confessional denomination.</li>
+                <li>Sunday observance and the immortality of the soul are typically inherited from the missionary churches AICs originally broke from, even where church governance and worship style diverge sharply from those same churches.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="verdict">Numerically too significant in the South African context to leave out of this section, and doctrinally too varied to score against the matrix the way a confessional denomination can be — worth flagging honestly as a gap in this guide's method rather than forcing a fit that doesn't hold.</div>
+        </div>
+      </details>
+
+      <details class="profile">
+        <summary>
+          <div class="summary-left"><h3>AFM &amp; South African Pentecostalism</h3><span class="founded">Apostolic Faith Mission founded 1908</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">South Africa's largest Pentecostal body, and, like the mainline churches around it, not exempt from the country's racial history.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>Where it echoes Scripture</h4>
+              <ul>
+                <li>Brought the same restoration of believer's baptism and ongoing spiritual gifts found in Pentecostalism generally.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Honest history</h4>
+              <ul>
+                <li>Despite an interracial founding revival, the AFM formally structured itself along racial lines for most of the 20th century, only unifying its previously separate racial structures after 1994 — a reminder that a movement's origin and its institutional history can diverge sharply.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="profile sda-profile">
+        <summary>
+          <div class="summary-left"><h3>Seventh-day Adventism in South Africa</h3><span class="founded">First workers arrived in the early 1880s</span></div>
+          <span class="chev">+</span>
+        </summary>
+        <div class="profile-body">
+          <p class="lede">Held to the same honesty standard as every other entry on this page.</p>
+          <div class="profile-cols">
+            <div class="align"><h4>What it built</h4>
+              <ul>
+                <li>Helderberg College near Somerset West remains the denomination's tertiary training institution for the region, alongside a network of schools and Cape Town's own hospital work growing out of the same health-reform theology covered earlier in this guide.</li>
+              </ul>
+            </div>
+            <div class="depart"><h4>Honest history</h4>
+              <ul>
+                <li>Like nearly every denomination with a South African footprint spanning the apartheid era, Adventist church structures in the region were also organized along racial lines for much of the 20th century — a fact worth naming directly rather than treating this denomination as exempt from the pattern documented above for the NGK and the AFM.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="verdict">Correct doctrine and just institutional practice are two separate tests. This guide has spent most of its length on the first; the history above is a reminder that the second has to be examined on its own terms, for every church named on this page, including this one.</div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- GLOSSARY -->
+  <section id="glossary">
+    <div class="section-head">
+      <div class="kicker">Reference</div>
+      <h2>Glossary of Terms Used in This Guide</h2>
+      <p>This page uses a fair amount of theological shorthand. Here's what each term actually means.</p>
+      <div class="divider"></div>
+    </div>
+
+    <dl class="glossary-grid">
+      <div class="gloss-term"><dt>Sola Scriptura</dt><dd>"Scripture alone" — the Reformation principle that the Bible, not church tradition or a human authority, is the final test of Christian doctrine.</dd></div>
+      <div class="gloss-term"><dt>Sola Fide</dt><dd>"Faith alone" — salvation received through faith in Christ, not earned through good works or merit.</dd></div>
+      <div class="gloss-term"><dt>Confessional / Confession</dt><dd>A formal written statement of doctrine (like the Heidelberg Catechism or the 39 Articles) that a denomination treats as binding on its ministers.</dd></div>
+      <div class="gloss-term"><dt>Magisterium</dt><dd>The Roman Catholic Church's official teaching authority — the pope and bishops, understood to interpret Scripture and tradition with binding authority.</dd></div>
+      <div class="gloss-term"><dt>Cessationist / Continuationist</dt><dd>Cessationist: the view that miraculous spiritual gifts (tongues, prophecy, healing) ended with the apostolic age. Continuationist: the view that they continue today.</dd></div>
+      <div class="gloss-term"><dt>Calvinist / Reformed</dt><dd>The theological tradition following John Calvin, emphasizing God's sovereignty and predestination, formalized in documents like the Canons of Dort.</dd></div>
+      <div class="gloss-term"><dt>Arminian</dt><dd>The theological tradition (named for Jacobus Arminius) holding that grace is resistible and humans genuinely choose to accept or reject salvation — the position Methodism and Adventism both hold against Calvinism.</dd></div>
+      <div class="gloss-term"><dt>Amillennial</dt><dd>The view that Revelation 20's thousand-year reign is symbolic, not a literal future period — the majority position among Catholic, Orthodox, and Reformed traditions.</dd></div>
+      <div class="gloss-term"><dt>Dispensationalism</dt><dd>A theological framework treating Israel and the church as distinct, and dividing biblical history into separate "dispensations" — commonly includes a future secret rapture and treats the Ten Commandments as belonging to a past dispensation.</dd></div>
+      <div class="gloss-term"><dt>Historicist</dt><dd>Reading prophetic texts (Daniel, Revelation) as unfolding continuously across history, from the prophet's own day to the end — the reading the Reformers themselves originally used for the papacy.</dd></div>
+      <div class="gloss-term"><dt>Futurist</dt><dd>Reading most of Revelation's symbols as describing events still entirely ahead in the future, largely disconnected from the intervening centuries of church history.</dd></div>
+      <div class="gloss-term"><dt>Preterist</dt><dd>Reading most or all of Revelation's prophecies as already fulfilled in the first century, typically around the fall of Jerusalem in AD 70.</dd></div>
+      <div class="gloss-term"><dt>Trinitarian / Oneness</dt><dd>Trinitarian: God as three distinct persons (Father, Son, Holy Spirit) in one essence. Oneness: God as a single person appearing in three modes — the position of Oneness Pentecostalism.</dd></div>
+      <div class="gloss-term"><dt>Remnant</dt><dd>A biblical term for a faithful minority preserved by God within a larger, largely unfaithful group — the theme explored at length in this guide's "The Few" section.</dd></div>
+      <div class="gloss-term"><dt>Historicist Sanctuary Doctrine</dt><dd>The Adventist teaching that Daniel 8:14's "cleansing of the sanctuary" refers to a heavenly, pre-Advent judgment beginning in 1844, not an earthly event.</dd></div>
+      <div class="gloss-term"><dt>Conditional Immortality</dt><dd>The teaching that immortality is a gift given only to the redeemed at the resurrection, not an inherent property every human soul already possesses — the alternative to the "immortal soul" view.</dd></div>
+    </dl>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section id="conclusion">
+    <div class="section-head">
+      <div class="kicker">Putting It Together</div>
+      <h2>A Reformation in Stages, Not a Single Event</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="conclusion">
+      <h3>The Pattern Across Five Centuries</h3>
+      <p>Read chronologically, the story on this page is not really nine unrelated denominations. It is one long, interrupted argument with Rome, picked up by a different reformer roughly once a generation, with each stage recovering one specific truth and then calcifying around it.</p>
+
+      <div class="steps">
+        <div class="step"><div class="who">Luther, 1517</div><div class="what">restored salvation by faith</div></div>
+        <div class="step"><div class="who">Calvin &amp; Knox, 1560s</div><div class="what">restored the sovereignty of God</div></div>
+        <div class="step"><div class="who">Radical Reformers, 17th c.</div><div class="what">restored believer's baptism</div></div>
+        <div class="step"><div class="who">Wesley, 1739</div><div class="what">restored free will &amp; holiness</div></div>
+        <div class="step"><div class="who">Millerites, 1840s</div><div class="what">restored the Sabbath, the state of the dead, and the sanctuary</div></div>
+      </div>
+
+      <p>On this reading, the Reformation was never officially finished — each movement froze its recoveries into a creed and stopped. Adventism's own self-understanding, drawn from Revelation 14:6-12 and the message to the Laodicean church in Revelation 3, is that it exists to gather what was recovered piece by piece and set down what none of the earlier movements got around to questioning: the fourth commandment and the nature of death.</p>
+      <p>That is a claim, not a neutral fact, and it is worth holding the way this guide's own source conversation held every other claim in it — checked against a primary text, not taken on the strength of the tradition asserting it.</p>
+    </div>
+
+    <p class="berean">"These were more noble than those in Thessalonica, in that they received the word with all readiness of mind, and searched the scriptures daily, whether those things were so." — Acts 17:11. This page is a starting map, not a substitute for opening the text at each reference above.</p>
+  </section>
+
+</div>
+
+<footer>Compiled for personal study — verify every reference against Scripture</footer>
+
+<script>
+  // Force all accordions open before printing/saving as PDF so nothing is missing from the output,
+  // then restore their previous state afterward.
+  var reclosePrintTargets = [];
+  window.addEventListener('beforeprint', function(){
+    reclosePrintTargets = [];
+    document.querySelectorAll('details').forEach(function(d){
+      if(!d.open){ reclosePrintTargets.push(d); d.open = true; }
+    });
+  });
+  window.addEventListener('afterprint', function(){
+    reclosePrintTargets.forEach(function(d){ d.open = false; });
+    reclosePrintTargets = [];
+  });
+
+  // --- Find Your Tradition quiz ---
+  var quizAnswers = {};
+  document.querySelectorAll('.quiz-question').forEach(function(q){
+    var qid = q.getAttribute('data-q');
+    q.querySelectorAll('.quiz-option').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        q.querySelectorAll('.quiz-option').forEach(function(b){ b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        quizAnswers[qid] = btn.getAttribute('data-tags').split(',');
+      });
+    });
+  });
+
+  var quizProfiles = {
+    cath: {
+      name: 'Roman Catholic',
+      blurb: 'Your instincts lean toward church authority as a co-equal guide alongside Scripture — structure, continuity, and a teaching office that settles disputes.',
+      gap: 'Biggest gap against the Bible column: the Sabbath (Genesis 2, Exodus 20) and the state of the dead (Ecclesiastes 9:5) — see the Roman Catholic card above for the full comparison.'
+    },
+    orth: {
+      name: 'Eastern Orthodox',
+      blurb: 'Your instincts lean toward historical continuity with the early church over either papal authority or a Reformation-era confession.',
+      gap: 'Biggest gap against the Bible column: Sunday observance and the immortality of the soul — see the Eastern Orthodoxy card above.'
+    },
+    reformed: {
+      name: 'Lutheran / Anglican / Reformed',
+      blurb: 'Your instincts lean toward a confessional standard — a historic document that settles doctrine and holds pastors accountable to a fixed, public reading of Scripture.',
+      gap: 'Biggest gap against the Bible column: the Sabbath, reassigned in confessions like the Heidelberg Catechism — see the Presbyterian/Reformed card above, including the NGK and GKSA discussion.'
+    },
+    methodist: {
+      name: 'Methodist / Wesleyan',
+      blurb: 'Your instincts lean toward free will, personal holiness, and practical fruit as the test of a genuine movement of God.',
+      gap: 'Biggest gap against the Bible column: the Sabbath and the state of the dead, both inherited unexamined from the Anglican tradition Methodism grew out of — see the Methodist card above.'
+    },
+    baptist: {
+      name: 'Baptist / Evangelical',
+      blurb: 'Your instincts lean toward believer\'s baptism, low formal creed, and a dispensational reading that treats the Old Testament law as fulfilled and set aside.',
+      gap: 'Biggest gap against the Bible column: the Sabbath (read as abolished ceremonial law) and a staggered rather than single Second Coming — see the Baptist/Evangelical card above.'
+    },
+    pentecostal: {
+      name: 'Pentecostal / Charismatic',
+      blurb: 'Your instincts lean toward a living, felt experience of the Spirit as the mark of genuine Christian life today, not just in the apostolic age.',
+      gap: 'Biggest gap against the Bible column: the Sabbath, and often a staggered rather than single Second Coming — see the Pentecostal/Charismatic card above.'
+    },
+    sda: {
+      name: 'Seventh-day Adventist',
+      blurb: 'Your answers line up with the position this guide identifies as closest to the Bible column across the matrix.',
+      gap: 'Worth reading the "Honest tensions" list in the Seventh-day Adventist card above rather than stopping here — this guide asks the same scrutiny of every tradition, including this one.'
+    }
+  };
+
+  document.getElementById('quizSubmit').addEventListener('click', function(){
+    var totalQuestions = document.querySelectorAll('.quiz-question').length;
+    var answered = Object.keys(quizAnswers).length;
+    if(answered < totalQuestions){
+      alert('Please answer all ' + totalQuestions + ' questions first.');
+      return;
+    }
+    var tally = {};
+    Object.keys(quizAnswers).forEach(function(qid){
+      quizAnswers[qid].forEach(function(tag){
+        tally[tag] = (tally[tag] || 0) + 1;
+      });
+    });
+    var topTag = null, topScore = -1;
+    Object.keys(tally).forEach(function(tag){
+      if(tally[tag] > topScore){ topScore = tally[tag]; topTag = tag; }
+    });
+    var profile = quizProfiles[topTag];
+    document.getElementById('resultName').textContent = profile.name;
+    document.getElementById('resultBlurb').textContent = profile.blurb;
+    document.getElementById('resultGap').textContent = profile.gap;
+    var resultBox = document.getElementById('quizResult');
+    resultBox.classList.add('visible');
+    resultBox.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+
+  document.getElementById('filterPills').addEventListener('click', function(e){
+    var pill = e.target.closest('.filter-pill');
+    if(!pill) return;
+    var target = pill.getAttribute('data-target');
+    document.querySelectorAll('.filter-pill').forEach(function(p){ p.classList.remove('active'); });
+    pill.classList.add('active');
+    var rows = document.querySelectorAll('table.matrix tbody tr');
+    rows.forEach(function(row){
+      row.classList.remove('dimmed','spotlit');
+      if(target !== 'all'){
+        if(row.getAttribute('data-doc') === target){
+          row.classList.add('spotlit');
+        } else {
+          row.classList.add('dimmed');
+        }
+      }
+    });
+    if(target !== 'all'){
+      var activeRow = document.querySelector('table.matrix tbody tr[data-doc="'+target+'"]');
+      if(activeRow){ activeRow.scrollIntoView({behavior:'smooth', block:'center', inline:'nearest'}); }
+    }
+  });
+</script>
+
+</body>
+</html>

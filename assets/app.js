@@ -889,6 +889,14 @@ const LIBRARY = [
         tagClass: "red",
         desc: "Seven biblical themes on end-time apostasy: nominal Christianity, the narrow way, Laodicea, the form without the power, the ten virgins, and the great falling away — with Greek word studies, EGW quotes, and a prophetic symbol decoder.",
       },
+      {
+        title: "The Measuring Reed — Denominations Weighed Against Scripture",
+        file: "End_Time_Church/denominations_vs_bible_guide.html",
+        icon: "⚖️",
+        tag: "End Times",
+        tagClass: "red",
+        desc: "A comparative study measuring the major Christian denominations against the plain teaching of Scripture — doctrine by doctrine — exposing where tradition has replaced the Bible and what the faithful remnant is called to hold fast.",
+      },
     ],
   },
   {
