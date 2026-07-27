@@ -4643,6 +4643,7 @@ function openModal(i) {
     `<div class="modal-step"><div class="step-num">${j+1}</div><div class="step-text">${s}</div></div>`
   ).join('');
   document.getElementById('mTip').innerHTML = `<strong>Tip:</strong> ${r.tip}`;
+  document.getElementById('modal').scrollTop = 0;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
