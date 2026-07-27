@@ -4627,6 +4627,38 @@ function renderCards() {
   });
 }
 
+// When this page is embedded in the site's auto-height, non-scrolling
+// iframe, `position: fixed` centers against the iframe's full (page-length)
+// height instead of what the visitor can actually see, so the modal can
+// land far below the fold. Detect that case and pin the overlay to the
+// portion of the iframe currently visible in the parent window instead.
+function isEmbeddedNoScroll() {
+  try { return window.top !== window.self && !!window.frameElement; }
+  catch (e) { return false; }
+}
+
+function positionModalForEmbed() {
+  const overlay = document.getElementById('modalOverlay');
+  if (!isEmbeddedNoScroll()) {
+    overlay.style.position = '';
+    overlay.style.top = '';
+    overlay.style.height = '';
+    return;
+  }
+  try {
+    const rect = window.frameElement.getBoundingClientRect();
+    const parentViewH = window.parent.innerHeight;
+    const visibleTop = Math.max(0, -rect.top);
+    const visibleBottom = Math.min(rect.height, parentViewH - rect.top);
+    const visibleHeight = Math.max(visibleBottom - visibleTop, 200);
+    overlay.style.position = 'absolute';
+    overlay.style.top = visibleTop + 'px';
+    overlay.style.height = visibleHeight + 'px';
+  } catch (e) {
+    // Cross-origin parent — can't measure, fall back to plain fixed.
+  }
+}
+
 function openModal(i) {
   const r    = recipes[i];
   const meta = getRecipeMeta(r);
@@ -4644,8 +4676,13 @@ function openModal(i) {
   ).join('');
   document.getElementById('mTip').innerHTML = `<strong>Tip:</strong> ${r.tip}`;
   document.getElementById('modal').scrollTop = 0;
+  positionModalForEmbed();
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  if (isEmbeddedNoScroll()) {
+    try { window.parent.addEventListener('scroll', positionModalForEmbed, { passive: true }); } catch (e) {}
+    window.addEventListener('resize', positionModalForEmbed);
+  }
 }
 
 function closeModal(e) {
@@ -4655,6 +4692,8 @@ function closeModal(e) {
 function closeModalDirect() {
   document.getElementById('modalOverlay').classList.remove('open');
   document.body.style.overflow = '';
+  try { window.parent.removeEventListener('scroll', positionModalForEmbed); } catch (e) {}
+  window.removeEventListener('resize', positionModalForEmbed);
 }
 
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModalDirect(); });
