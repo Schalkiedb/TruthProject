@@ -3786,7 +3786,7 @@ function populateTranslationPill() {
   const remoteOnes = BIBLE_TRANSLATIONS.filter((t) => t.source !== "local");
 
   sel.innerHTML = "";
-  [["Offline — instant", localOnes], ["Online", remoteOnes]].forEach(([label, list]) => {
+  [["Hosted on site", localOnes], ["Online", remoteOnes]].forEach(([label, list]) => {
     if (!list.length) return;
     const g = document.createElement("optgroup");
     g.label = label;
