@@ -1492,6 +1492,11 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   flex-shrink: 0;
   padding: 4px 12px 0;
   gap: 2px;
+  /* 30+ translations wrap into several rows; cap the height and scroll rather
+     than letting the tab strip push the verse text out of the modal. */
+  max-height: 6.5em;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .vm-tab {
   padding: 8px 12px;

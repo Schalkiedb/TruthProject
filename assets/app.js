@@ -2931,24 +2931,222 @@ function initScrollReveal() {
 ══════════════════════════════════════════════════════════════ */
 
 const BIBLE_TRANSLATIONS = [
-  // Free translations via bible-api.com (no API key needed)
-  { id: "kjv",    label: "KJV",   desc: "King James Version (1611)",    source: "free" },
-  { id: "web",    label: "WEB",   desc: "World English Bible (Modern)", source: "free" },
-  { id: "asv",    label: "ASV",   desc: "American Standard (1901)",     source: "free" },
+  /* -- Local JSON translations (source: "local") --------------
+     Read straight from Bible Translations Lookup/ : no API key, no rate
+     limit, no token to run out, and faster than a network round trip.
+     A remote API is used ONLY for translations with no local copy. -- */
+  { id: "kjv",      label: "KJV",    desc: "King James Version (1611)",              source: "local", localDir: "KJV" },
+  { id: "akjv",     label: "AKJV",   desc: "American King James Version",            source: "local", localDir: "AKJV" },
+  { id: "kj21",     label: "KJ21",   desc: "21st Century King James Version",        source: "local", localDir: "KJ21" },
+  { id: "brg",      label: "BRG",    desc: "BRG Bible (KJV colour-letter edition)",  source: "local", localDir: "BRG" },
+  { id: "asv",      label: "ASV",    desc: "American Standard Version (1901)",       source: "local", localDir: "ASV" },
+  { id: "eng_gnv",  label: "GNV",    desc: "Geneva Bible (1599)",                    source: "local", localDir: "GNV" },
+  { id: "web",      label: "WEB",    desc: "World English Bible (Modern)",           source: "local", localDir: "WEB" },
+  { id: "ylt",      label: "YLT",    desc: "Young’s Literal Translation",       source: "local", localDir: "YLT" },
+  { id: "jub",      label: "JUB",    desc: "Jubilee Bible 2000",                     source: "local", localDir: "JUB" },
+  { id: "rsv",      label: "RSV",    desc: "Revised Standard Version",               source: "local", localDir: "RSV" },
+  { id: "nrsv",     label: "NRSV",   desc: "New Revised Standard Version",           source: "local", localDir: "NRSV" },
+  { id: "nrsvue",   label: "NRSVue", desc: "NRSV Updated Edition",                   source: "local", localDir: "NRSVUE" },
+  { id: "esv",      label: "ESV",    desc: "English Standard Version",               source: "local", localDir: "ESV" },
+  { id: "esvuk",    label: "ESVUK",  desc: "English Standard Version (Anglicised)",  source: "local", localDir: "ESVUK" },
+  { id: "nasb",     label: "NASB",   desc: "New American Standard Bible (2020)",     source: "local", localDir: "NASB" },
+  { id: "nasb1995", label: "NASB95", desc: "New American Standard Bible (1995)",     source: "local", localDir: "NASB1995" },
+  { id: "lsb",      label: "LSB",    desc: "Legacy Standard Bible",                  source: "local", localDir: "LSB" },
+  { id: "nkjv",     label: "NKJV",   desc: "New King James Version",                 source: "local", localDir: "NKJV" },
+  { id: "mev",      label: "MEV",    desc: "Modern English Version",                 source: "local", localDir: "MEV" },
+  { id: "niv",      label: "NIV",    desc: "New International Version",              source: "local", localDir: "NIV" },
+  { id: "nivuk",    label: "NIVUK",  desc: "New International Version (Anglicised)", source: "local", localDir: "NIVUK" },
+  { id: "nlt",      label: "NLT",    desc: "New Living Translation",                 source: "local", localDir: "NLT" },
+  { id: "csb",      label: "CSB",    desc: "Christian Standard Bible",               source: "local", localDir: "CSB" },
+  { id: "net",      label: "NET",    desc: "New English Translation",                source: "local", localDir: "NET" },
+  { id: "leb",      label: "LEB",    desc: "Lexham English Bible",                   source: "local", localDir: "LEB" },
+  { id: "isv",      label: "ISV",    desc: "International Standard Version",         source: "local", localDir: "ISV" },
+  { id: "ehv",      label: "EHV",    desc: "Evangelical Heritage Version",           source: "local", localDir: "EHV" },
+  { id: "amp",      label: "AMP",    desc: "Amplified Bible",                        source: "local", localDir: "AMP" },
+  { id: "gw",       label: "GW",     desc: "GOD’S WORD Translation",            source: "local", localDir: "GW" },
+  { id: "nog",      label: "NOG",    desc: "Names of God Bible",                     source: "local", localDir: "NOG" },
+  { id: "nlv",      label: "NLV",    desc: "New Life Version (simple English)",      source: "local", localDir: "NLV" },
+
+  /* -- Remote sources: only translations with no local copy -- */
+  // Free via bible-api.com (no API key needed)
   { id: "bbe",    label: "BBE",   desc: "Bible in Basic English",       source: "free" },
   { id: "oeb-us", label: "OEB",   desc: "Open English Bible (Modern)",  source: "free" },
   { id: "darby",  label: "Darby", desc: "Darby Translation",            source: "free" },
-  // Free translations via bible.helloao.org (no API key, no rate limits)
+  // Free via bible.helloao.org (no API key, no rate limits)
   { id: "BSB",     label: "BSB",  desc: "Berean Standard Bible (2020) — berean.bible", source: "helloao", helloaoId: "BSB" },
-  { id: "eng_gnv", label: "GNV",  desc: "Geneva Bible (1599)",                         source: "helloao", helloaoId: "eng_gnv" },
-  { id: "eng_fbv", label: "FBV",  desc: "Free Bible Version (Modern English)",         source: "helloao", helloaoId: "eng_fbv" },
-  // Copyrighted translations via api.bible (requires free API key)
-  { id: "niv",  label: "NIV",  desc: "New International Version",  source: "api.bible", bibleId: "78a9f6124f344018-01" },
-  { id: "nlt",  label: "NLT",  desc: "New Living Translation",     source: "api.bible", bibleId: "d6e14a625393b4da-01" },
-  { id: "nkjv", label: "NKJV", desc: "New King James Version",     source: "api.bible", bibleId: "63097d2a0a2f7db3-01" },
+  { id: "eng_fbv", label: "FBV",  desc: "Free Bible Version (Modern English)",              source: "helloao", helloaoId: "eng_fbv" },
   // NT-only link-out translations (open Bible Gateway in a new tab)
   { id: "dlnt", label: "DLNT", desc: "Disciples\u2019 Literal New Testament (NT only) \u2014 opens Bible Gateway", source: "biblegateway", ntOnly: true },
 ];
+
+
+/* ══════════════════════════════════════════════════════════════
+   LOCAL JSON BIBLE LOOKUP
+
+   Layout on disk:
+     Bible Translations Lookup/<DIR>/<DIR>_books/<Book>.json
+   File shape:
+     { "<Book>": { "<chapter>": { "<verse>": "text", ... }, ... },
+       "Info":   { "Translation": "KJV", "Copyright": "...", ... } }
+
+   Books are fetched lazily, one file at a time (2 KB - 260 KB, median
+   ~33 KB) and cached for the session, so a full translation is never
+   downloaded just to show one verse.
+══════════════════════════════════════════════════════════════ */
+
+const LOCAL_BIBLE_ROOT = "Bible Translations Lookup";
+
+/* Resolve against app.js's own URL so lookups work from any folder depth. */
+const APP_BASE = (function () {
+  const s = document.currentScript || document.querySelector('script[src*="app.js"]');
+  if (s && s.src) return s.src.replace(/assets\/app\.js.*$/, "");
+  return "";
+})();
+
+/* Exact on-disk filenames. Two differ from the API book names:
+   "Psalm" (not Psalms) and "Song Of Solomon" (capital Of). */
+const LOCAL_BOOK_FILES = [
+  "Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth",
+  "1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles",
+  "Ezra","Nehemiah","Esther","Job","Psalm","Proverbs","Ecclesiastes",
+  "Song Of Solomon","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel",
+  "Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk",
+  "Zephaniah","Haggai","Zechariah","Malachi",
+  "Matthew","Mark","Luke","John","Acts","Romans",
+  "1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians",
+  "Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy",
+  "Titus","Philemon","Hebrews","James","1 Peter","2 Peter",
+  "1 John","2 John","3 John","Jude","Revelation",
+];
+
+const LOCAL_BOOK_BY_KEY = (function () {
+  const m = {};
+  LOCAL_BOOK_FILES.forEach(function (n) { m[n.toLowerCase()] = n; });
+  // Aliases the API layer produces, or that readers may write.
+  m["psalms"] = "Psalm";
+  m["song of songs"] = "Song Of Solomon";
+  m["canticles"] = "Song Of Solomon";
+  return m;
+})();
+
+/* "DIR|Book" -> Promise<{chapters, info, bookName}> */
+const _localBookCache = new Map();
+
+function localBibleUrl(dir, file) {
+  return APP_BASE
+    + encodeURIComponent(LOCAL_BIBLE_ROOT) + "/"
+    + encodeURIComponent(dir) + "/"
+    + encodeURIComponent(dir + "_books") + "/"
+    + encodeURIComponent(file) + ".json";
+}
+
+function loadLocalBook(dir, file) {
+  const key = dir + "|" + file;
+  if (_localBookCache.has(key)) return _localBookCache.get(key);
+
+  const p = fetch(localBibleUrl(dir, file))
+    .then(function (res) {
+      if (!res.ok) throw new Error("LOCAL_MISSING");
+      return res.json();
+    })
+    .then(function (json) {
+      const bookName = Object.keys(json).find(function (k) { return k !== "Info"; });
+      if (!bookName || !json[bookName]) throw new Error("LOCAL_MISSING");
+      return { chapters: json[bookName], info: json.Info || null, bookName: bookName };
+    })
+    .catch(function (err) {
+      // Never cache a failure, so a transient error can be retried.
+      _localBookCache.delete(key);
+      throw err;
+    });
+
+  _localBookCache.set(key, p);
+  return p;
+}
+
+/**
+ * Parse a reference into { file, chapter, verses } for local lookup.
+ * verses === null means "the whole chapter".
+ * Returns null for anything this layer should not answer - notably
+ * cross-chapter ranges like "Genesis 2:1-3:5" - so the caller can fall back.
+ */
+function parseLocalReference(ref) {
+  const normalized = normalizeReferenceForBibleApi(String(ref).trim());
+  const m = normalized.match(/^(.+?)\s+(\d+)(?::(.+))?$/);
+  if (!m) return null;
+
+  const file = LOCAL_BOOK_BY_KEY[m[1].trim().toLowerCase()];
+  if (!file) return null;
+
+  const chapter = parseInt(m[2], 10);
+  if (!chapter) return null;
+
+  const spec = (m[3] || "").trim();
+  if (!spec) return { file: file, chapter: chapter, verses: null };
+  if (spec.indexOf(":") !== -1) return null;   // cross-chapter range
+
+  const verses = [];
+  const parts = spec.split(",");
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i].trim();
+    const range = part.match(/^(\d+)\s*[-–]\s*(\d+)$/);
+    if (range) {
+      const a = parseInt(range[1], 10), b = parseInt(range[2], 10);
+      if (!a || !b || b < a || b - a > 200) return null;
+      for (let v = a; v <= b; v++) verses.push(v);
+    } else {
+      const single = part.match(/^(\d+)$/);
+      if (!single) return null;
+      verses.push(parseInt(single[1], 10));
+    }
+  }
+  return verses.length ? { file: file, chapter: chapter, verses: verses } : null;
+}
+
+/**
+ * Look a reference up in the local JSON files.
+ * Returns the same shape as the bible-api.com response, so the rest of the
+ * verse UI needs no changes.
+ */
+async function fetchVerseLocal(reference, dir, label) {
+  const parsed = parseLocalReference(reference);
+  if (!parsed) throw new Error("LOCAL_UNSUPPORTED");
+
+  const book = await loadLocalBook(dir, parsed.file);
+  const chap = book.chapters[String(parsed.chapter)];
+  if (!chap) throw new Error("Verse not found in this translation.");
+
+  const wanted = parsed.verses || Object.keys(chap)
+    .map(Number).filter(function (n) { return n; }).sort(function (a, b) { return a - b; });
+
+  const verses = [];
+  for (let i = 0; i < wanted.length; i++) {
+    const text = chap[String(wanted[i])];
+    if (text) {
+      verses.push({
+        book_name: book.bookName,
+        chapter: parsed.chapter,
+        verse: wanted[i],
+        text: String(text),
+      });
+    }
+  }
+  if (!verses.length) throw new Error("Verse not found in this translation.");
+
+  const out = {
+    reference: reference,
+    verses: verses,
+    text: verses.map(function (v) { return v.text; }).join(" "),
+    translation_name: label,
+    translation_id: dir,
+  };
+  // The modal renders data.copyright when present — surface the attribution
+  // recorded in each file's Info block.
+  if (book.info && book.info.Copyright) {
+    out.copyright = label + " — " + book.info.Copyright;
+  }
+  return out;
+}
 
 /* ── Bible Gateway link-out helpers ──────────────────────── */
 
@@ -3476,7 +3674,23 @@ async function fetchVerse(reference, translationId) {
   const cleanRef = stripVerseSuffix(reference);
 
   let data;
-  if (t && t.source === "biblegateway") {
+  if (t && t.source === "local") {
+    // Local JSON: no key, no rate limit, no network round trip.
+    try {
+      data = await fetchVerseLocal(cleanRef, t.localDir, t.label);
+    } catch (err) {
+      // Only references this layer cannot express (cross-chapter ranges) or a
+      // missing file fall back — and to a Bible Gateway link-out rather than an
+      // API, so no key is ever needed. localDir doubles as the BG version code.
+      if (err && (err.message === "LOCAL_UNSUPPORTED" || err.message === "LOCAL_MISSING")) {
+        throw Object.assign(
+          new Error("BIBLEGATEWAY_LINK"),
+          { bgUrl: buildBibleGatewayUrl(cleanRef, t.localDir), translation: t.label }
+        );
+      }
+      throw err;
+    }
+  } else if (t && t.source === "biblegateway") {
     // NT-only check
     if (t.ntOnly && !isNtReference(cleanRef)) {
       throw Object.assign(new Error("NT_ONLY"), { translation: t.label });
@@ -3557,6 +3771,39 @@ async function fetchVerse(reference, translationId) {
 
   _verseCache.set(cacheKey, data);
   return data;
+}
+
+/**
+ * Build the translation pill dropdown from BIBLE_TRANSLATIONS, so it can never
+ * drift out of sync with the registry the way a hand-written list does.
+ */
+function populateTranslationPill() {
+  const sel = document.getElementById("verse-default-translation");
+  if (!sel) return;
+
+  const previous = sel.value;
+  const localOnes = BIBLE_TRANSLATIONS.filter((t) => t.source === "local");
+  const remoteOnes = BIBLE_TRANSLATIONS.filter((t) => t.source !== "local");
+
+  sel.innerHTML = "";
+  [["Offline — instant", localOnes], ["Online", remoteOnes]].forEach(([label, list]) => {
+    if (!list.length) return;
+    const g = document.createElement("optgroup");
+    g.label = label;
+    list.forEach((t) => {
+      const o = document.createElement("option");
+      o.value = t.id;
+      o.textContent = t.label
+        + (t.source === "api.bible" ? " ⚷" : "")
+        + (t.source === "biblegateway" ? " ↗" : "");
+      o.title = t.desc;
+      g.appendChild(o);
+    });
+    sel.appendChild(g);
+  });
+
+  const keep = BIBLE_TRANSLATIONS.some((t) => t.id === previous) ? previous : "nlt";
+  sel.value = keep;
 }
 
 /**
@@ -5326,6 +5573,9 @@ async function initApp() {
     clearTimeout(scrollSaveTimer);
     scrollSaveTimer = setTimeout(saveScrollPosition, 500);
   }, { passive: true });
+
+  // Build the translation dropdown from the registry (never hand-maintained).
+  populateTranslationPill();
 
   // When the pill dropdown changes, keep everything in sync.
   document.getElementById("verse-default-translation")?.addEventListener("change", (e) => {

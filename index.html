@@ -364,19 +364,12 @@
   <!-- Floating translation pill (visible when reading a document) -->
   <div id="verse-translation-pill" title="Click a Bible reference to compare translations">
     <span class="pill-icon">📖</span>
+    <!-- Populated from BIBLE_TRANSLATIONS by populateTranslationPill(); this
+         single option is only the pre-JS fallback. -->
     <select id="verse-default-translation" aria-label="Default Bible translation">
-      <option value="kjv">KJV</option>
-      <option value="web">WEB (Modern)</option>
-      <option value="asv">ASV</option>
-      <option value="bbe">BBE (Simple)</option>
-      <option value="oeb-us">OEB (Modern)</option>
-      <option value="darby">Darby</option>
-      <option value="niv">NIV ⚷</option>
-      <option value="nlt" selected>NLT ⚷</option>
-      <option value="nkjv">NKJV ⚷</option>
-      <option value="dlnt">DLNT (NT) ↗</option>
+      <option value="nlt" selected>NLT</option>
     </select>
-    <button id="pill-api-key-btn" onclick="openApiBibleSettings()" title="Set up api.bible key for NIV/NLT/NKJV">⚙️</button>
+    <button id="pill-api-key-btn" onclick="openApiBibleSettings()" title="Set up an api.bible key (only needed for online translations that require one)">⚙️</button>
   </div>
 
   <!-- Verse lookup modal -->

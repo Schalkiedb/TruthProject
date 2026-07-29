@@ -3,7 +3,7 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v7";
+const CACHE_NAME = "babylons-wine-v8";
 
 const PRECACHE_URLS = [
   "./index.html",
@@ -59,6 +59,22 @@ self.addEventListener("fetch", (event) => {
 
   // Skip POST, etc.
   if (event.request.method !== "GET") return;
+
+  // Bible translation JSON is immutable scripture text — once fetched it never
+  // changes, so serve it cache-first. This keeps verse lookups instant and
+  // works offline, instead of paying a network round trip per book.
+  if (/\/Bible%20Translations%20Lookup\/|\/Bible Translations Lookup\//.test(url.pathname)) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        const cached = await cache.match(event.request);
+        if (cached) return cached;
+        const response = await fetch(event.request);
+        if (response.ok) cache.put(event.request, response.clone());
+        return response;
+      })
+    );
+    return;
+  }
 
   // App shell (HTML/JS/CSS) AND text content (.md/.json): network-first
   // so a new deploy is picked up immediately; the cache is only used when
