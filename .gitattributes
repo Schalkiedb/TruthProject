@@ -1,0 +1,6 @@
+# Bible translation data: keep byte-exact and skip line-ending conversion.
+# These are large generated data files, not source, so normalising them would
+# churn ~141 MB of content on checkout for no benefit.
+# NB: the pattern must be quoted — gitattributes splits on whitespace, so an
+# unquoted path containing spaces is parsed as pattern + bogus attributes.
+"Bible Translations Lookup/**" -text

@@ -1,3 +1,8 @@
 # Ignore large PDF files hosted on Google Drive (>100 MB GitHub limit)
 Supporting Documents/Sabbath History.pdf
 Supporting Documents/Quote 52 - The_Catholic_Encyclopedia.pdf
+
+# Combined whole-Bible JSON files (<X>_bible.json, ~143 MB total) are NOT read
+# by the verse lookup — it fetches the per-book files under <X>_books/ so a
+# single verse never pulls a whole translation. Excluded to keep the repo lean.
+Bible Translations Lookup/*/*_bible.json
