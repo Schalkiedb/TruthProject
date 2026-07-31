@@ -14889,9 +14889,10 @@ Many who discover these biblical truths ask: "Isn't it enough that I know? Do I 
    - **A**: "Had she not such power, she could not have done that in which all modern religionists agree with her—she could not have substituted the observance of Sunday, the first day of the week, for the observance of Saturday, the seventh day, a change for which there is no Scriptural authority."
    - **Significance**: Long-standing Catholic teaching (1833-1916) using Sunday change as proof of Church authority
 
-16. **Our Sunday Visitor**, October 7, 1951:
-   - Major Catholic weekly newspaper
+16. **S. C. Mosna, *Storia della domenica dalle origini fino agli inizi del V secolo***, Rome: Pontificia Università Gregoriana, 1969, pp. 366–367:
+   - Catholic scholarly monograph on the history of Sunday, published by the Pontifical Gregorian University
    - **Quote**: "Not the Creator of the Universe in Genesis 2:1-3, but the Catholic Church can claim the honor of having granted man a pause to his work every seven days."
+   - **Note on Attribution**: This quote is very widely circulated online as *Our Sunday Visitor*, October 7, 1951. That attribution is incorrect; the statement comes from Mosna's 1969 academic history of Sunday, pp. 366–367.
    - **Significance**: Claims Catholic Church, not God, granted the weekly rest day
 
 17. **William Gildea, Doctor of Divinity, The Catholic World**, March 1894, p. 809:

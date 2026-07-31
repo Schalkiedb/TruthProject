@@ -179,14 +179,13 @@ These are historical Catholic newspapers, magazines, and journals. Many may be a
 - **Availability**: Catholic university libraries, The Catholic World archives
 - **Key Content**: Scholarly defense of papal authority to change God's laws
 
-#### 25. **Our Sunday Visitor** (October 7, 1951)
-- **Type**: Major Catholic weekly newspaper (still publishing)
-- **Availability**: 
-  - Our Sunday Visitor archives (may be accessible through their organization)
-  - Catholic newspaper archives
-  - Historical microfilm collections
+#### 25. **S. C. Mosna, *Storia della domenica dalle origini fino agli inizi del V secolo*** (Rome: Pontificia Università Gregoriana, 1969), pp. 366–367
+- **Type**: Catholic scholarly monograph on the history of Sunday, published by the Pontifical Gregorian University
+- **Availability**:
+  - Theological and university library holdings (Gregorian University press)
+  - Italian-language original; the quote circulates in English translation
 - **Key Content**: "Not the Creator of the Universe in Genesis 2:1-3, but the Catholic Church can claim the honor of having granted man a pause to his work every seven days."
-- **Note**: Our Sunday Visitor still exists as major Catholic publisher
+- **Note on Attribution**: This quote is widely misattributed online to *Our Sunday Visitor*, October 7, 1951. The quote is genuine but the source is Mosna's 1969 work, pp. 366–367.
 
 #### 26. **Our Sunday Visitor** (February 5, 1950)
 - **Type**: Major Catholic weekly newspaper
