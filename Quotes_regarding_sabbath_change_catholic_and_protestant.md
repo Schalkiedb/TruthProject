@@ -109,12 +109,20 @@
    - **Significance**: Academic theological work acknowledging change happened centuries after Christ, not by apostolic authority
    - 📄 **Source Document**: [View Cover](Supporting%20Documents/Quote_14-Forbidden-cover.jpg) | [View Page 1](Supporting%20Documents/Quote_14-Forbidden-pg1.gif) | [View Page 2](Supporting%20Documents/Quote_14-Forbidden-pg2.gif)
 
-15. **Henry Tuberville, An Abridgment of the Christian Doctrine** (1833 approbation):
-   - Page 58 (Same statement in *Manual of Christian Doctrine*, ed. by Daniel Ferris [1916 ed.], p. 67)
-   - **Q**: "Have you any other way of proving that the Church has power to institute festivals of precept?"
-   - **A**: "Had she not such power, she could not have done that in which all modern religionists agree with her—she could not have substituted the observance of Sunday, the first day of the week, for the observance of Saturday, the seventh day, a change for which there is no Scriptural authority."
-   - **Significance**: Long-standing Catholic teaching (1833-1916) using Sunday change as proof of Church authority
-   - 📄 **Source Document**: [View Original — An Abridgment of the Christian Doctrine](Supporting%20Documents/Quote_15-An_Abridgment_of_the_Christian_Doctrine_Rev_Henry_Tuberville.pdf#search=substituted%20the%20observance%20of%20Sunday)
+15. **Rev. Henry Tuberville, D.D., *An Abridgment of the Christian Doctrine*** (1833 approbation), pp. 58–59 — chapter "The Third Commandment Expounded":
+   - Catechism in question-and-answer form, long used for Catholic instruction
+   - **Q. (p. 58)**: "Why was the Jewish Sabbath changed into Sunday?"
+   - **A**: "Because Christ was born upon a Sunday, rose from the dead upon a Sunday, and sent down the Holy Ghost upon a Sunday: works not inferior to the creation of the world."
+   - **Q. (p. 58)**: "By whom was it changed?"
+   - **A**: "By the Governors of the Church, the Apostles, who also kept it; for St. John was in Spirit on the Lord's Day, (which was Sunday.) Apoc. i. 10."
+   - **Q. (p. 58)**: "How prove you that the Church hath power to command feasts and holydays?"
+   - **A**: "By the very act of changing the sabbath into Sunday, which Protestants allow of; and therefore they fondly contradict themselves, by keeping Sunday strictly, and breaking most other feasts commanded by the same Church."
+   - **Q. (p. 58)**: "How prove you that?"
+   - **A**: "Because by keeping Sunday, they acknowledge the Church's power to ordain feasts, and to command them under sin: and by not keeping the rest by her commanded, they again deny, in fact, the same power."
+   - **Q. (p. 59)**: "If keeping the Sunday be a church precept, why is it numbered in the decalogue, which are the Commandments of God, and the Law of Nature?"
+   - **A**: "Because the substance or chief part of it, namely, 'That a day be set apart for the service of God,' is of Divine Right, and of the Law of Nature; the determinating this particular day, Sunday rather than Saturday, [is] a Church ordinance and precept."
+   - **Significance**: Tuberville concedes the essential distinction outright: the *principle* of setting apart a day is divine, but the *choice of Sunday rather than Saturday* is "a Church ordinance and precept." He then uses Protestant Sunday-keeping as proof of Rome's authority — Protestants "fondly contradict themselves" by obeying the Church on Sunday while rejecting the feasts commanded by that same Church, and by keeping Sunday they "acknowledge the Church's power to ordain feasts, and to command them under sin"
+   - 📄 **Source Document**: [View Original — p. 58](Supporting%20Documents/Quote_15-An_Abridgment_of_the_Christian_Doctrine_Rev_Henry_Tuberville%20-%201.png) | [View p. 59](Supporting%20Documents/Quote_15-An_Abridgment_of_the_Christian_Doctrine_Rev_Henry_Tuberville%20-%202.png) | [View Full Volume (PDF)](Supporting%20Documents/Quote_15-An_Abridgment_of_the_Christian_Doctrine_Rev_Henry_Tuberville.pdf)
 
 16. **C. S. Mosna, S.C.J., *Storia della domenica dalle origini fino agli inizi del V secolo***, Analecta Gregoriana Vol. 170, Series Facultatis Historiae Ecclesiasticae Sectio B n. 28 (Rome: Libreria Editrice dell'Università Gregoriana, 1969), pp. 366–367 — from the chapter "Sguardo retrospettivo e conclusioni" (Retrospective Survey and Conclusions):
    - Doctoral dissertation and scholarly monograph on the history of Sunday, published by the Pontifical Gregorian University in Rome
@@ -215,7 +223,7 @@
    - **Significance**: A diocesan newspaper teaching its own readers that the Sabbath is Saturday, that neither Christ nor the Apostles ordered the change, and that Sunday is kept on the authority of "the Church outside the Bible." The column's title — "To Tell You The Truth" — and its purpose of instructing Catholics rather than debating Protestants make it an unusually candid admission
    - 📄 **Source Document**: [View Original — The Catholic Virginian, Oct 3, 1947](Supporting%20Documents/Quote_28-The_Catholic_Virginian-To_Tell_You_The_Truth_Vol._22_No._49_October_3_1947.gif)
 
-29. **Manual of Christian Doctrine: Comprising Dogma, Moral, and Worship** (Joseph John 1906):
+29. **Manual of Christian Doctrine: Comprising Dogma, Moral, and Worship** — compiled by "a Seminary Professor"; published by John Joseph McVey, Philadelphia, 1906:
    - Catholic doctrinal manual with official Church approval
    - **Q. 4**: "What day is reserved for God under the new law?"
    - **A**: "The first day of the week, called Sunday, or the Lord's day."
@@ -462,8 +470,8 @@
    - **Significance**: Concise and unambiguous — the Church claims "infallible authority" as the sole basis for Sunday. No Scripture, no apostolic mandate — only the Church's own self-declared authority.
    - 📄 **Source Document**: [View Original — History of the Sabbath, p. 802](Supporting%20Documents/Quote_59-History-of-Sabbath-pg802.gif)
 
-60. **Father C. Enright, C.S.S.R.**, Redemptoral College, Kansas City, Mo., June 1893 (cited in *History of the Sabbath*, p. 802):
-   - Catholic priest's public challenge (see also the longer version in Quote 21 above)
+60. **Father Thomas Enright, C.SS.R.**, President of Redemptorist College, Kansas City, Mo., June 1893 (cited in *History of the Sabbath*, p. 802):
+   - A later restatement of the same challenge Enright had been making publicly since at least 1884 (see Quote 21 above, verified from *The Hartford Weekly Call*)
    - **Quote**: "The Bible says, 'Remember the Sabbath day to keep it holy.' The Catholic Church says, No! By my divine power I abolish the Sabbath day, and command you to keep the first day of the week. And lo, the entire civilized world bows down in reverent obedience to the command of the holy Catholic Church!"
    - **Significance**: A Catholic priest publicly declaring the Church "abolishes" the Sabbath day and commands Sunday in its place — with the world in "reverent obedience." No other institution claims this power; no Scripture authorises it.
 
@@ -514,7 +522,7 @@
    - **Significance**: "Nowhere in the Bible can a clear text be found" — Catholic newspaper, 1913. "From tradition only... can Sunday observance be justified" — the admission that settles the question. Protestants who reject tradition have no basis for Sunday.
    - 📄 **Source Document**: [View Original — Our Sunday Visitor, Oct. 26, 1913](Supporting%20Documents/Quote_67-OSV-Oct26-1913.gif)
 
-68. **Rev. Philip Carrington, Anglican Archbishop of Quebec** (Toronto, Oct. 27 — newspaper report):
+68. **Rev. Philip Carrington, Anglican Archbishop of Quebec** (Toronto Daily Star, Oct. 26, 1949):
    - This entry, while included in the original *Quotes.md* numbering sequence, is an Anglican (Protestant) source and has been relocated to the Protestant section of this document. See the Protestant Admissions section (Quote 33, Phillip Carrington, Archbishop of Quebec).
    - *(Retained here as a placeholder to maintain original numbering from the source document.)*
 
@@ -593,8 +601,8 @@
    - **Significance**: A Catholic layman writing for a mass-market secular magazine states as common knowledge that the Sabbath is Saturday and that "the early Christians changed the observance" — not Christ, not the apostles, not Scripture. He simultaneously affirms the Ten Commandments as "the eternal law of nature," binding and needed "perhaps more than ever." The two positions sit side by side without any attempt to reconcile them, which is precisely the unexamined assumption this collection documents
 
 **Catholic Apologetic Works Acknowledging the Change**:
-- Multiple Catholic apologetic books and tracts from 19th-20th centuries spanning 1833-2003
-- Consistent theme across over 170 years: Catholics don't deny changing Sabbath to Sunday; they claim authority to do so
+- Catholic catechisms, encyclicals, newspapers and scholarly works spanning almost four centuries — from Vaux's Catechism (1583) and the Roman Catechism of Trent (1566) through to Mosna's Gregorian University dissertation (1969) and *The New Question Box* (1988), with Cardinal Humbert's testimony reaching back to the 11th century
+- Consistent theme throughout: Catholics do not deny changing the Sabbath to Sunday; they claim the authority to do so
 - Challenge to Protestants: If you follow the Bible alone (sola scriptura), why keep Sunday?
 - Sources include: official catechisms (including the Council of Trent's *Roman Catechism*), cardinal statements, papal encyclicals (*Rerum Novarum*, *Mediator Dei*, *Dies Domini*), theological journals, apologetic pamphlets, diocesan newspapers, educational textbooks, scholarly journals, and Jesuit theological manuals
 
@@ -804,7 +812,7 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
 
 **Presbyterian Additional Quotes**:
 
-20. **Dwight's Theology** (Vol. 14, p. 401):
+20. **Dwight's Theology** (Vol. IV, p. 401):
     - Presbyterian systematic theology
     - **Quote**: "The Christian Sabbath (Sunday) is not in the Scriptures, and was not by the primitive church called the Sabbath."
     - **Significance**: Presbyterian theology admitting Sunday was never called "Sabbath" in Scripture or early church
@@ -851,10 +859,10 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - **Quote**: "The reason we observe the first day instead of the seventh is based on no positive command. One will search the Scriptures in vain for authority for changing from the seventh day to the first. The early Christians began to worship on the first day of the week because Jesus rose from the dead on that day. By and by, this day of worship was made also a day of rest, a legal holiday. This took place in the year 321.... The reason we observe the first day instead of the seventh is based on no positive command. One will search the Scriptures in vain for authority for changing from the seventh day to the first... Our Christian Sabbath, therefore, is not a matter of positive command. It is a gift of the church..."
     - **Significance**: Methodist admission: (1) No scriptural authority for the change, (2) Sunday became a legal holiday in 321 (Constantine's decree), (3) Sunday is "a gift of the church" not biblical command
 
-29. **Charles Buck, *A Theological Dictionary*** (under "Sabbath"):
-    - Methodist theologian
+29. **Charles Buck, *A Theological Dictionary***, article "Sabbath" (p. 403):
+    - Independent/Congregationalist minister; his *Dictionary* was one of the most widely reprinted English theological reference works of the 19th century
     - **Quote**: "Sabbath in the Hebrew language signifies rest, and is the seventh day of the week... and it must be confessed that there is no law in the New Testament concerning the first day."
-    - **Significance**: Methodist theological reference work admitting no New Testament law for Sunday
+    - **Significance**: A standard Protestant reference work stating that the Sabbath is the seventh day and that "there is no law in the New Testament concerning the first day"
 
 30. **Sunday School Advocate** (Dec. 31, 1921):
     - Methodist publication
@@ -971,9 +979,8 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - **Significance**: Prominent Congregationalist leader stating change has "absolutely no authority in New Testament"
 
 50. **Buck's Theological Dictionary** (page 403):
-    - Congregationalist reference work
+    - *(Same work and same sentence as item 29 above — Charles Buck's *A Theological Dictionary*. Retained here for cross-reference; it is one source, not two.)*
     - **Quote**: "It must be confessed that there is no law in the New Testament concerning the first day."
-    - **Significance**: Theological dictionary admitting no New Testament law for first day
 
 **Moody Bible Institute Additional Quote**:
 
@@ -1012,7 +1019,7 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
 56. **The Library of Christian Doctrine: Why Don't You Keep Holy the Sabbath-Day?** (pages 3, 4):
     - Published by Burns and Oates, Ltd., London — a Catholic publisher *(Note: This is the same Catholic publication cited as item 22 in the Catholic Church Sources section above. It is a Catholic apologetic work, written in the form of a direct challenge to Protestant readers. Included here because its argument is addressed specifically to Protestants, exposing their inconsistency in keeping Sunday while professing "Bible only.")*
     - **Quote**: "You will tell me that Saturday was the Jewish Sabbath, but that the Christian Sabbath has been changed to Sunday. Changed! But by whom? Who has authority to change an express commandment of Almighty God? When God has spoken and said, 'Thou shalt keep holy the seventh day,' who shall dare to say, 'Nay, thou mayest work and do all manner of business on the seventh day; but thou shalt keep holy the first day in its stead'? This is a most important question, which I know not how you can answer. You are a Protestant, and you profess to go by the Bible and the Bible only; and yet in so important a matter as the observance of one day in seven as a holy day, you go against the plain letter of the Bible, and put another day in the place of that day which the Bible has commanded. The command to keep holy the seventh day is one of the Ten Commandments; you believe that the other nine are still binding; who gave you authority to tamper with the fourth? If you are consistent with your own principles, if you really follow the Bible and the Bible only, you ought to be able to produce some portion of the New Testament in which this fourth commandment is expressly altered."
-    - **Significance**: Protestant theological work challenging Protestants: (1) Who changed the commandment? (2) Protestants profess "Bible only" yet violate it, (3) If nine commandments are binding, why not the fourth? (4) Must produce biblical evidence for the change
+    - **Significance**: A Catholic tract addressed directly to Protestant readers, pressing four questions they must answer: (1) Who has authority to change an express commandment of God? (2) How can those who profess "the Bible and the Bible only" go against its plain letter? (3) If the other nine commandments still bind, who gave leave to tamper with the fourth? (4) Where in the New Testament is that commandment expressly altered? Included here because the challenge is aimed at Protestants, not because the source is Protestant
 
 57. **H. J. Flowers, B.A., B.D., *The Permanent Value of the Ten Commandments*** (page 13):
     - Protestant theologian
