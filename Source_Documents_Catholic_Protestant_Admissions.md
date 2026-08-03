@@ -179,13 +179,14 @@ These are historical Catholic newspapers, magazines, and journals. Many may be a
 - **Availability**: Catholic university libraries, The Catholic World archives
 - **Key Content**: Scholarly defense of papal authority to change God's laws
 
-#### 25. **S. C. Mosna, *Storia della domenica dalle origini fino agli inizi del V secolo*** (Rome: Pontificia Università Gregoriana, 1969), pp. 366–367
-- **Type**: Catholic scholarly monograph on the history of Sunday, published by the Pontifical Gregorian University
+#### 25. **C. S. Mosna, S.C.J., *Storia della domenica dalle origini fino agli inizi del V secolo***, Analecta Gregoriana Vol. 170 (Rome: Libreria Editrice dell'Università Gregoriana, 1969), pp. 366–367
+- **Type**: Doctoral dissertation on the history of Sunday, published by the Pontifical Gregorian University
 - **Availability**:
-  - Theological and university library holdings (Gregorian University press)
-  - Italian-language original; the quote circulates in English translation
-- **Key Content**: "Not the Creator of the Universe in Genesis 2:1-3, but the Catholic Church can claim the honor of having granted man a pause to his work every seven days."
-- **Note on Attribution**: This quote is widely misattributed online to *Our Sunday Visitor*, October 7, 1951. The quote is genuine but the source is Mosna's 1969 work, pp. 366–367.
+  - Out of print; held in theological and university libraries (OCLC 766953, LCCN 76438897)
+  - Italian-language original — scan of pp. 366–367 held in Supporting Documents
+- **Key Content** (p. 366): "Apart from Sunday worship, it does not seem that biblical foundations can be found for Sunday rest. The primitive Church never thought of transferring the sabbath rest to Sunday."
+- **Key Content** (p. 366): "Since the Church probably influenced Constantine to make Sunday a 'festive' day, She can claim for herself the honour of having wished to grant man a pause from his labours every seven days."
+- **Key Content** (p. 367): "Therefore it would be better to renounce seeking a foundation for Sunday rest in the ancient sabbath precept, understood in a legalistic sense."
 
 #### 26. **Our Sunday Visitor** (February 5, 1950)
 - **Type**: Major Catholic weekly newspaper

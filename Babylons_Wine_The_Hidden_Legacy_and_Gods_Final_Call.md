@@ -14891,9 +14891,9 @@ Many who discover these biblical truths ask: "Isn't it enough that I know? Do I 
 
 16. **S. C. Mosna, *Storia della domenica dalle origini fino agli inizi del V secolo***, Rome: Pontificia Università Gregoriana, 1969, pp. 366–367:
    - Catholic scholarly monograph on the history of Sunday, published by the Pontifical Gregorian University
-   - **Quote**: "Not the Creator of the Universe in Genesis 2:1-3, but the Catholic Church can claim the honor of having granted man a pause to his work every seven days."
-   - **Note on Attribution**: This quote is very widely circulated online as *Our Sunday Visitor*, October 7, 1951. That attribution is incorrect; the statement comes from Mosna's 1969 academic history of Sunday, pp. 366–367.
-   - **Significance**: Claims Catholic Church, not God, granted the weekly rest day
+   - **Quote** (p. 366): "Apart from Sunday worship, it does not seem that biblical foundations can be found for Sunday rest. The primitive Church never thought of transferring the sabbath rest to Sunday."
+   - **Quote** (p. 366): "Since the Church probably influenced Constantine to make Sunday a 'festive' day, She can claim for herself the honour of having wished to grant man a pause from his labours every seven days."
+   - **Significance**: A Pontifical Gregorian University dissertation conceding there is no biblical foundation for Sunday rest, that the primitive Church never conceived of transferring the sabbath, and that the credit belongs to the Church's influence over Constantine
 
 17. **William Gildea, Doctor of Divinity, The Catholic World**, March 1894, p. 809:
    - Catholic intellectual journal
