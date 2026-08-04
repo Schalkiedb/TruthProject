@@ -721,17 +721,22 @@ These documents are foundational primary sources — not later Catholic or Prote
 
 **Official Protestant Statements Acknowledging No Biblical Authority for Sunday**:
 
-While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **64 distinct sources — Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. They are listed as 68 numbered entries: items 35, 50, 55 and 56 are cross-references back to items 1, 29, 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses:
+While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **64 distinct sources — Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. Items 50, 55 and 56 are cross-references back to items 29, 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses:
 
-1. **Isaac Williams, *Plain Sermons on the Catechism*** (Vol. 1, pp. 334, 336):
-   - Anglican clergyman and theologian
-   - **Quote**: "Where are we told in Scripture that we are to keep the first day at all? We are commanded to keep the Seventh; but we are nowhere commanded to keep the first day. The reason why we keep the first day holy instead of the seventh is for the same reason that we observe many things, not because the Bible, but because the Church, has enjoined them."
-   - **Significance**: High Church Anglican tradition, which retained many Catholic practices, explicitly admitted: (1) No Scripture commands keeping the first day, (2) The Sabbath commandment specifies the seventh day, (3) Sunday is kept solely because the Church—not the Bible—commanded it
+1. **Tract 85, "Lectures on the Scripture Proofs of the Doctrines of the Church," Lecture I** — *Tracts for the Times, by Members of the University of Oxford*, Vol. V (London: Rivington, 1838–40), pp. 9–10:
+   - Published anonymously, as all the Tracts were; Tract 85 is attributed to **John Henry Newman**, then an Anglican clergyman of the Oxford Movement (he was received into the Roman Catholic Church seven years later — see also Quote 41 in the Catholic section)
+   - **Quote**: "Again, there is not a single text telling us to keep holy the first day of the week, and that instead of the seventh. God hallowed the seventh day, yet we now observe the first. Why do we do this? Our Scripture warrant for doing so is such as this: 'since the Apostles met on the first day of the week, therefore the first day is to be hallowed; and since St. Paul says the Sabbath is abolished, therefore the seventh day (which is the Sabbath) is not to be hallowed:' — **this is a true inference, but very indirect surely. It is not on the surface of Scripture.**"
+   - **Continued**: "There is nothing on the surface of Scripture to prove that the sacredness conferred in the beginning on the seventh day now by transference attaches to the first."
+   - **Significance**: An Oxford Movement tract, written to defend Church authority against those who demanded chapter-and-verse for every doctrine, concedes the Sabbath case as one of its own examples. Its author states there is "not a single text" commanding the first day, that "God hallowed the seventh day, yet we now observe the first," and that the reasoning used to justify the change is "a true inference, but very indirect surely… not on the surface of Scripture." The admission is made *in passing*, as a point too obvious to dispute, while arguing an entirely different case — which is what makes it unguarded
+   - 📄 **Source Document**: [View Original — Tracts for the Times, Vol. V, Tract 85, Lecture I, pp. 9–10](Supporting%20Documents/Protestant_Quote_1-Tracts_for_the_Times_Vol_V_Tract_85_Lecture_I_pp9-10.pdf)
 
-2. **Canon Eyton, *The Ten Commandments*** (pp. 52, 63, 65):
-   - Anglican canon (church official)
-   - **Summary — no direct quotation on file**: Acknowledged that the Fourth Commandment specifies the seventh day (Saturday), and that the change to Sunday (first day) came from church tradition, not Scripture
-   - **Significance**: Church of England official admitting the commandment itself was not changed by biblical authority
+2. **Canon Robert Eyton, *The Ten Commandments*** (sermons preached at St Peter's, Eaton Square) — Sermon V, "The Fourth Commandment," Quinquagesima Sunday 1893, pp. 61–63:
+   - Canon of Westminster and a leading Church of England preacher of his day
+   - **On Sunday Having No Divine Command** (p. 61): "The observance of Sunday in the Christian Church comes to us with quite a different sanction, based on different grounds, from that of the Jewish Sabbath. **It rests upon no direct Divine command; no word is said about it in the New Testament**; it grew up out of those same necessities in man's nature which had been recognised by the Fourth Commandment and which were felt to be still existing; but **its growth was very gradual. For three centuries at least it was marked by no cessation of work**, though from the first it was marked by religious worship."
+   - **On Sunday Rest Being Absent from Scripture** (pp. 62–63): "**There is no word, no hint in the New Testament about abstaining from work on Sunday.** The only rule for its observance is that given by St Paul, viz., that on the first day men should lay by in store as God has prospered them... As time went on, the opportunities for Christian communion in worship were secured by abstinence from work. The Church grew strong enough to effect this; and **in the time of Constantine the courts of law were closed by the imperial edict**, and all work except that of agriculture was forbidden."
+   - **Significance**: A Canon of Westminster telling his own congregation that Sunday "rests upon no direct Divine command," that "no word is said about it in the New Testament," and that Sunday *rest* in particular has "no word, no hint" behind it in Scripture. He then traces where it did come from: three centuries with no cessation of work, followed by the Church growing "strong enough to effect this" and Constantine's imperial edict closing the courts. Ecclesiastical and imperial power, by his own account — not apostolic command
+   - **Note on Eyton's wider view**: In the same sermon (p. 57) Eyton holds that "the institution of the Sabbath began with the law" and finds "no trace of a Sabbath in the times of the Patriarchs." He is therefore not a witness for the Sabbath as a creation ordinance, and should not be cited as one; his value here is his testimony on Sunday
+   - 📄 **Source Document**: [View Original — Eyton, The Ten Commandments, Sermon V](Supporting%20Documents/Protestant%20Quote_2%20-%20Canon%20Eyton%20-%20The_Ten_commandments_sermons.pdf)
 
 3. **Bishop Seymour, *Why We Keep Sunday***:
    - Episcopal bishop
@@ -912,12 +917,6 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - Anglican rector
     - **Quote**: "Many people think that Sunday is the Sabbath. But neither in the New Testament nor in the early church is there anything to suggest that we have any right to transfer the observance of the seventh day of the week to the first. The Sabbath was and is Saturday and not Sunday, and if it were binding on us then we should observe it on that day, and on no other."
     - **Significance**: Anglican minister clearly stating: (1) Sunday is not the Sabbath, (2) No right to transfer seventh day to first day, (3) If Sabbath is binding, it must be Saturday
-
-35. **Rev. Isaac Williams, *Ser. on Catechism*** (p. 334):
-    - ↪ **Cross-reference, not a separate source.** "Ser. on Catechism" is an abbreviation of *Plain Sermons on the Catechism* — the same work, same author and same quotation already given at **item 1**. Retained here only so the numbering stays stable; it is one witness, not two.
-    - Anglican clergyman
-    - **Quote**: "Where are we told in Scripture that we are to keep the first day at all? We are commanded to keep the Seventh; but we are nowhere commanded to keep the first day. The reason why we keep the first day holy instead of the seventh is for the same reason that we observe many things, not because the Bible, but because the Church, has enjoined them."
-    - **Significance**: Anglican admission: (1) No Scripture commands keeping first day, (2) We keep Sunday because the Church commanded it, not the Bible
 
 36. **Rev. Geo. Hodges**:
     - Anglican minister
@@ -1197,8 +1196,8 @@ This is why Revelation 17:5 calls the Protestant churches "daughters" of Babylon
 
 | # | Title | Author | Link | Format |
 |---|-------|--------|------|--------|
-| 17 | **Plain Sermons on the Catechism** | Isaac Williams (Anglican) | [archive.org/details/a604484304kebluoft](https://archive.org/details/a604484304kebluoft) | ✅ Full text |
-| | *(alternate volume)* | | [archive.org/details/a604484307kebluoft](https://archive.org/details/a604484307kebluoft) | ✅ Full text |
+| 1 | **Tracts for the Times, Vol. V** (Tract 85, Lecture I) | Members of the University of Oxford | *local copy in Supporting Documents* | ✅ Full text |
+| 2 | **The Ten Commandments** (sermons) | Canon Robert Eyton | *local copy in Supporting Documents* | ✅ Full text |
 | 18 | **The Lord's Day in Our Day** *(pub. as "Sabbath Observance")* | William Owen Carver | [archive.org/details/sabbathobservanc0000woca](https://archive.org/details/sabbathobservanc0000woca) | 📖 Borrowable |
 | 19 | **The Ten Commandments** | Dr. R. W. Dale | [archive.org/details/tencommandments00dale_0](https://archive.org/details/tencommandments00dale_0) | ✅ Full text |
 | | *(alternate copy)* | | [archive.org/details/tencommandments0000rwda](https://archive.org/details/tencommandments0000rwda) | ✅ Full text |
