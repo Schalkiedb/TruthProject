@@ -717,11 +717,11 @@ These documents are foundational primary sources — not later Catholic or Prote
 
 ---
 
-### Protestant Churches' Admissions on Sunday Observance (64 Distinct Sources)
+### Protestant Churches' Admissions on Sunday Observance (62 Distinct Sources)
 
 **Official Protestant Statements Acknowledging No Biblical Authority for Sunday**:
 
-While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **64 distinct sources — Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. Items 50, 55 and 56 are cross-references back to items 29, 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses:
+While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **62 distinct sources — Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. Items 50, 55 and 56 are cross-references back to items 29, 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses:
 
 1. **Tract 85, "Lectures on the Scripture Proofs of the Doctrines of the Church," Lecture I** — *Tracts for the Times, by Members of the University of Oxford*, Vol. V (London: Rivington, 1838–40), pp. 9–10:
    - Published anonymously, as all the Tracts were; Tract 85 is attributed to **John Henry Newman**, then an Anglican clergyman of the Oxford Movement (he was received into the Roman Catholic Church seven years later — see also Quote 41 in the Catholic section)
@@ -771,20 +771,12 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
    - **Significance**: The President of Yale, defending Sunday at length, rests his entire case on **example** rather than command — "the Apostles, by their examples, have decisively taught us." His strongest claim for their authority is that they "thought themselves warranted," which is an inference about their state of mind, not a recorded precept. He then states plainly that "they transferred this festival to another day." The same structure appears in *Dies Domini* (Quote 39), where the Vatican says the early Christians "felt that they had the authority" to transfer the Sabbath
    - 📄 **Source Document**: [View Original — Dwight, Theology Explained and Defended, Sermon CVI](Supporting%20Documents/Protestant%20Quote_7%20-%20Theology%20Explained%20and%20Defended%20Timothy%20Dwight.pdf)
 
-8. **Alexander Campbell, *The Christian Baptist*** (Feb. 2, 1824, Vol. 1, No. 7, p. 164):
-   - Founder of the Disciples of Christ (Campbellite) movement
-   - **Quote**: "But,' say some, 'it was changed from the seventh to the first day.' Where? when? and by whom? No, it never was changed, nor could it be, unless creation was to be gone through again: for the reason assigned must be changed before the observance, or respect to the reason, can be changed. It is all old wives' fables to talk of the change of the Sabbath from the seventh to the first day. If it be changed, it was that august personage changed it who changes times and laws *ex officio* – I think his name is *Doctor Antichrist*."
-   - **Significance**: Restoration movement founder explicitly stating: (1) The Sabbath was never changed, (2) It could not be changed without re-doing creation, (3) Anyone claiming to change it is "Doctor Antichrist" (the power that "changes times and laws" from Daniel 7:25)
-
-9. **First Day Observance** (pp. 17, 19):
-   - Protestant pamphlet examining Sunday observance
-   - **Summary — no direct quotation on file**: Acknowledged that first-day observance developed in church history, not from biblical mandate
-   - **Significance**: Even Protestant literature defending Sunday had to admit its non-biblical origin
-
-10. **The Sunday Problem, a study book of the United Lutheran Church** (1923, p. 36):
-    - Official Lutheran Church study publication
-    - **Quote**: "We have seen how gradually the impression of the Jewish Sabbath faded from the mind of the Christian Church, and how completely the later Lord's Day took its place. But what a pity that it comes branded with the mark of Paganism, and christened with the name of the sun-god, then adopted and sanctioned by the Papal apostasy, and bequeathed as a sacred legacy to Protestantism."
-    - **Significance**: The closing sentence is Hiscox's (item 4 above), which this Lutheran study book reproduces and adopts as its own conclusion — so the two entries are one statement endorsed by two traditions, not two independent witnesses. Its value lies in the endorsement: an official United Lutheran Church study publication was willing to tell its own members that Sunday "comes branded with the mark of Paganism," was "christened with the name of the sun-god," and reached Protestantism as a legacy "adopted and sanctioned by the Papal apostasy." The framing sentence before it is the study book's own: that the Jewish Sabbath "faded from the mind of the Christian Church" gradually, not by decree
+8. **Alexander Campbell, *The Christian Baptist***, Vol. I, No. 7 (February 2, 1824):
+   - Founder of the Restoration Movement, from which the Disciples of Christ and Churches of Christ descend
+   - **Quote**: "'But,' say some, 'it was changed from the seventh to the first day.' Where! when! And by whom! **No man can tell.** No, it never was changed, nor could it be, unless creation was to be gone through again: for the reason assigned must be changed before the observance, or respect to the reason, can be changed!! **It is all old wives' fables to talk of the change of the sabbath from the seventh to the first day. If it be changed, it was that august personage changed it who changes times and laws *ex officio* — I think his name is DOCTOR ANTICHRIST.**"
+   - **Preceding Context**: "...either the law remains in all its force, to the utmost extent of its literal requirements, or it is passed away with the Jewish ceremonies. If it yet exist, let us observe it according to law. And if it does not exist, let us abandon a mock observance of another day for it."
+   - **Significance**: Campbell puts the three questions no defender of the change can answer — "Where! when! And by whom!" — and answers them himself: **"No man can tell."** He then identifies the only power that could have done it in the language of Daniel 7:25, as the one "who changes times and laws *ex officio*." His alternative is stark: either keep the seventh day as commanded, or stop pretending that keeping another day satisfies the law
+   - 📄 **Source Document**: [View Original — The Christian Baptist, Vol. I, No. 7](Supporting%20Documents/Protestant%20Quote_8%20-%20Alexander%20Campbell%27s%20The%20Christian%20Baptist_%20Volume%20I.%20No.%207_.pdf)
 
 11. **Augsburg Confession of Faith, Article 28** (written by Melanchthon, approved by Martin Luther, 1530; published in *The Book of Concord of the Evangelical Lutheran Church*, Henry Jacobs, ed., 1911, p. 63):
     - Foundational Lutheran confession of faith
@@ -795,27 +787,36 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
 12. **Dr. Augustus Neander, *The History of the Christian Religion and Church*** (Henry John Rose, tr., 1843, p. 186):
     - German Lutheran church historian
     - **Quote**: "The festival of Sunday, like all other festivals, was always only a human ordinance, and it was far from the intentions of the apostles to establish a Divine command in this respect, far from them, and from the early apostolic Church, to transfer the laws of the Sabbath to Sunday."
-    - **Significance**: Prominent Lutheran historian explicitly stating: (1) Sunday is "only a human ordinance," (2) Apostles never intended to establish it as divine command, (3) Early church did not transfer Sabbath laws to Sunday
+    - **On Why Sunday Displaced the Sabbath**: "**Opposition to Judaism introduced the particular festival of Sunday very early, indeed, into the place of the Sabbath**; the first trace of this custom is in the Acts xx. 7, where we find the Church assembled together on the first day in the week."
+    - **Significance**: A leading German church historian stating that Sunday "was always only a human ordinance," that the apostles never intended to establish a divine command for it, and that neither they nor the early apostolic Church transferred the Sabbath's laws to it. He also names the motive — **"opposition to Judaism"** — and concedes that the earliest trace of the custom is a single verse, Acts 20:7, describing an assembly rather than a command
+   - 📄 **Source Document**: [View Original — Neander, The History of the Christian Religion and Church](Supporting%20Documents/Protestant%20Quote_12%20-%20The_History_of_the_Christian_Religion_an%20Dr.%20Augustus%20Neander.pdf)
 
 13. **John Theodore Mueller, *Sabbath or Sunday*** (pp. 15, 16):
     - Lutheran theologian
     - **Summary — no direct quotation on file**: Acknowledged that the Sabbath commandment specifies Saturday (seventh day), and that Sunday observance came from church tradition
     - **Significance**: Lutheran scholarship admitting Sunday is tradition, not biblical commandment
+    - ⚠️ **Provenance**: Widely cited in published literature; no copy of this work has been located in digital form. Pending a primary source, treat as unverified.
 
 14. **Harris Franklin Rall, *Christian Advocate*** (July 2, 1942, p. 26):
     - Methodist theologian and professor
     - **Quote**: "Take the matter of Sunday. There are indications in the New Testament as to how the church came to keep the first day of the week as its day of worship, but there is no passage telling Christians to keep that day, or to transfer the Jewish Sabbath to that day."
     - **Significance**: Methodist scholar admitting: (1) No passage tells Christians to keep Sunday, (2) No passage authorizes transferring the Sabbath
+    - ⚠️ **Provenance**: Widely cited in published literature; the 1942 issue has not been located in digital form. Pending a primary source, treat as unverified.
 
 15. **John Wesley, *The Works of the Rev. John Wesley, A.M.*** (John Emory, ed., New York: Eaton & Mains, Sermon 25, Vol. 1, p. 221):
     - Founder of Methodism
     - **Quote**: "But, the moral law contained in the ten commandments, and enforced by the prophets, he [Christ] did not take away. It was not the design of his coming to revoke any part of this. This is a law which never can be broken... Every part of this law must remain in force upon all mankind, and in all ages; as not depending either on time or place, or any other circumstances liable to change, but on the nature of God and the nature of man, and their unchangeable relation to each other."
-    - **Significance**: Wesley taught that the Ten Commandments (including the fourth commandment Sabbath) are unchangeable moral law binding on all humanity—yet the Methodist church he founded observes Sunday, not the seventh-day Sabbath commanded in the Fourth Commandment
+    - **Immediately Preceding, on the Ceremonial Law**: "This 'hand-writing of ordinances' our Lord did blot out, take away, and nail to His cross."
+    - **On the Moral Law's Foundation**: "The moral stands on an entirely different foundation from the ceremonial or ritual law, which was only designed for a temporary restraint upon a disobedient and stiff-necked people; whereas this was from the beginning of the world, being 'written not on tables of stone,' but on the hearts of all the children of men, when they came out of the hands of the Creator."
+    - **Significance**: Wesley draws the sharpest possible line: the ceremonial law was nailed to the cross, but the moral law of the Ten Commandments "He did not take away… This is a law which never can be broken." He grounds it "from the beginning of the world," not in the Mosaic covenant, and says "every part of this law must remain in force, upon all mankind, and in all ages." Yet the Methodist church he founded keeps the first day, not the seventh the fourth commandment names
+    - 📄 **Source Document**: [View Original — Wesley, Sermon 25, "Upon Our Lord's Sermon on the Mount," Discourse Five](Supporting%20Documents/Protestant%20Quote_15%20-%20the-sermons-of-john-wesley%20sermon%2025.pdf)
 
 16. **D. L. Moody, *Weighed and Wanting*** (Fleming H. Revell Co.: New York, pp. 47, 48):
     - Famous evangelist, founder of Moody Bible Institute
     - **Quote**: "The Sabbath was binding in Eden, and it has been in force ever since. This fourth commandment begins with the word 'remember,' showing that the Sabbath already existed when God wrote the law on the tables of stone at Sinai. How can men claim that this one commandment has been done away with when they will admit that the other nine are still binding?"
-    - **Significance**: Moody taught that the Sabbath commandment is still binding and has been in force since Eden—yet observed Sunday rather than the seventh-day Sabbath specified in the commandment
+    - **On No Repeal Being Findable**: "...no one has ever been able to point to any place in the Bible where God repealed it. When Christ was on earth, **He did nothing to set it aside**; He freed it from the traces under which the scribes and Pharisees had put it, and gave it its true place."
+    - **Significance**: Moody states that no one has ever located a place in the Bible where God repealed the Sabbath, that Christ "did nothing to set it aside," that it "was binding in Eden, and it has been in force ever since," and asks the question his own practice raises: "**How can men claim that this one commandment has been done away with when they will admit that the other nine are still binding?**" He never answers it with respect to the day — his church kept the first, while the commandment names the seventh
+    - 📄 **Source Document**: [View Original — Moody, Weighed and Wanting: Addresses on the Ten Commandments](Supporting%20Documents/Protestant%20Quote_16%20-%20Weighed%20and%20Wanting%20-%20D.%20L.%20Moody.pdf)
 
 17. **T. C. Blake, D.D., *Theology Condensed*** (pp. 474, 475):
     - Presbyterian theologian
