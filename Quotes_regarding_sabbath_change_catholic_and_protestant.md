@@ -754,15 +754,22 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
    - **Quote**: "There was never any formal or authoritative change from the Jewish seventh-day Sabbath to the Christian first-day observance."
    - **Significance**: Baptist theological scholarship explicitly admitting no formal or authoritative change ever occurred from Saturday Sabbath to Sunday—Sunday observance is entirely traditional, not biblical
 
-6. **Dr. R. W. Dale, *The Ten Commandments*** (New York: Eaton & Mains, pp. 127-129):
-   - Congregationalist minister and theologian
-   - **Quote**: "It is quite clear that however rigidly or devotedly we may spend Sunday, we are not keeping the Sabbath... The Sabbath was founded on a specific Divine command. We can plead no such command for the obligation to observe Sunday... There is not a single sentence in the New Testament to suggest that we incur any penalty by violating the supposed sanctity of Sunday."
-   - **Significance**: Congregationalist scholar explicitly stating: (1) Sunday is not the Sabbath, (2) No divine command for Sunday, (3) No New Testament penalty for not keeping Sunday
+6. **Dr. R. W. Dale, *The Ten Commandments*** — "The Fourth Commandment," pp. 100–101:
+   - Congregationalist minister and theologian, one of the most influential English Nonconformist preachers of the 19th century
+   - **Quote**: "...it is quite clear that however rigidly or devoutly we may spend Sunday, **we are not keeping the Sabbath**. The Christian Sunday and the Jewish Sabbath are absolutely different institutions, different in almost every particular that constitutes a characteristic of either."
+   - **On the Absence of a Command** (point 1): "The Sabbath was founded on a specific Divine command. **We can plead no such command for the obligation to observe Sunday.**"
+   - **On the Change of Day** (point 2): "The Sabbath was to be observed on a particular day which was determined by Divine authority; the Jews were commanded to keep 'holy' the seventh day of the week. **Among us the seventh is a common day, and it is the first day of the week that we celebrate as a religious festival.**"
+   - **On the Absence of Any Penalty** (point 5): "The penalty for breaking the Sabbath was Death. **There is not a single sentence in the New Testament to suggest that we incur any penalty by violating the supposed sanctity of Sunday.**"
+   - **Significance**: Dale sets the two institutions side by side and finds them "absolutely different" at every point that matters: the Sabbath had a specific divine command, Sunday has none; the Sabbath had a day fixed by divine authority, while "among us the seventh is a common day"; the Sabbath carried the death penalty, Sunday carries none in the New Testament. His conclusion is unambiguous — however Sunday is kept, "we are not keeping the Sabbath"
+   - 📄 **Source Document**: [View Original — Dale, The Ten Commandments, pp. 100–101](Supporting%20Documents/Protestant%20Quote_6%20-%20Dr.%20R.%20W.%20Dale%20-%20The_Ten_Commandments.pdf)
 
-7. **Timothy Dwight, *Theology: Explained and Defended*** (1823, Sermon 107, Vol. 3, p. 258):
+7. **Timothy Dwight, S.T.D., LL.D., *Theology Explained and Defended*** — Sermon CVI, "The Fourth Commandment: The Perpetuity and Change of the Sabbath" (Exodus 20:8–11), p. 241:
    - Congregationalist minister, President of Yale University
-   - **Summary — no direct quotation on file**: Acknowledged that the Sabbath commandment specifies the seventh day, and that Christian observance of the first day came from apostolic practice (tradition), not explicit biblical command
-   - **Significance**: Leading American theologian and educator admitting Sunday observance rests on tradition rather than commandment
+   - **Quote**: "**The Apostles, by their examples, have decisively taught us, that the day of Christ's Resurrection was to be the Christian Sabbath.** On the first day of the week, the day of his resurrection, Christ met his disciples, assembled together. On the first day of the week following, he met them, again assembled together. On the first day of the week, at the feast, called Pentecost, the Spirit descended... On the first day of the week, the disciples assembled together customarily, to break bread."
+   - **On What Those Examples Prove**: "From the three first of these facts, it is plain that Christ thought fit to honour this day with peculiar tokens of his approbation. From the last, that **the Apostles thought themselves warranted** to devote it to religious purposes."
+   - **On the Seventh Day Being Abandoned**: "Nor do they appear ever to have regarded the Seventh day, afterwards, as the holy, joyful rest of God. On the contrary, **they transferred this festival to another day**."
+   - **Significance**: The President of Yale, defending Sunday at length, rests his entire case on **example** rather than command — "the Apostles, by their examples, have decisively taught us." His strongest claim for their authority is that they "thought themselves warranted," which is an inference about their state of mind, not a recorded precept. He then states plainly that "they transferred this festival to another day." The same structure appears in *Dies Domini* (Quote 39), where the Vatican says the early Christians "felt that they had the authority" to transfer the Sabbath
+   - 📄 **Source Document**: [View Original — Dwight, Theology Explained and Defended, Sermon CVI](Supporting%20Documents/Protestant%20Quote_7%20-%20Theology%20Explained%20and%20Defended%20Timothy%20Dwight.pdf)
 
 8. **Alexander Campbell, *The Christian Baptist*** (Feb. 2, 1824, Vol. 1, No. 7, p. 164):
    - Founder of the Disciples of Christ (Campbellite) movement
@@ -783,6 +790,7 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - Foundational Lutheran confession of faith
     - **Quote**: "They [the Catholics] allege the Sabbath changed into Sunday, the Lord's day, contrary to the Decalogue, as it appears, neither is there any example more boasted of than the changing of the Sabbath day. Great, say they, is the power and authority of the church, since it dispensed with one of the Ten Commandments."
     - **Significance**: Luther's own confession admitting: (1) Catholics changed Sabbath to Sunday "contrary to the Decalogue" (Ten Commandments), (2) Catholics boast this change proves church authority, (3) This involves "dispensing with one of the Ten Commandments"—yet Lutherans continued observing Sunday
+    - 📄 **Source Document**: [View Original — Augsburg Confession, Article XXVIII, "Of Ecclesiastical Power," Book of Concord](Supporting%20Documents/Protestant%20Quote_11%20-%20Article%20XXVIII.%20Of%20Ecclesiastical%20Power%20_%20Book%20of%20Concord.pdf)
 
 12. **Dr. Augustus Neander, *The History of the Christian Religion and Church*** (Henry John Rose, tr., 1843, p. 186):
     - German Lutheran church historian
