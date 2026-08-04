@@ -637,7 +637,8 @@ These documents are foundational primary sources — not later Catholic or Prote
 
 1. **Emperor Constantine I, Imperial Edict on Sunday Observance** (March 7, A.D. 321):
    - First civil law in history imposing Sunday rest — issued by the pagan Roman Emperor Constantine before any church council formalized the change
-   - **Original Text** (*Codex Justinianus*, lib. 3, tit. 12, 3; also found in *Corpus Juris Civilis*):
+   - **Original Latin** (*Codex Justinianus* 3.12.2 — numbered 3.12.3 in some editions; dated in the Codex itself *"a. 321 pp. v non. mart."* = 7 March 321): *"Imperator Constantinus. Omnes iudices urbanaeque plebes et artium officia cunctarum venerabili die solis quiescant. Ruri tamen positi agrorum culturae libere licenterque inserviant, quoniam frequenter evenit, ut non alio aptius die frumenta sulcis aut vineae scrobibus commendentur, ne occasione momenti pereat commoditas caelesti provisione concessa."*
+   - **English**:
      > "On the venerable Day of the Sun let the magistrates and people residing in cities rest, and let all workshops be closed. In the country, however, persons engaged in agriculture may freely and lawfully continue their pursuits; because it often happens that another day is not so suitable for grain-sowing or for vine-planting; lest by neglecting the proper moment for such operations the bounty of heaven should be lost."
    - **Key Facts**:
      - The edict uses the pagan term *dies Solis* — "Day of the Sun" — not "the Lord's Day"
@@ -645,6 +646,7 @@ These documents are foundational primary sources — not later Catholic or Prote
      - The edict exempts farmers — showing it was a civil/economic regulation, not a religious Sabbath transfer
      - This civil Sunday law preceded the Council of Laodicea's church canon by over 40 years
    - **Significance**: The change from Saturday Sabbath to Sunday rest was first imposed by imperial Roman law, under a pagan emperor who worshipped *Sol Invictus* (the Unconquered Sun), before it was codified by any church council — confirming Daniel 7:25's prediction that a power would "think to change times and laws"
+   - 📄 **Source Document**: [View Original — Codex of Justinian, Liber III (Latin text, CJ 3.12.2)](Supporting%20Documents/Early%20Church%20Quote_1%20-%20Codex%20of%20Justinian_%20Liber%20III.pdf)
 
 2. **Council of Laodicea, Canon 29** (c. A.D. 363–364):
    - Church council held in Laodicea, Asia Minor; its canons represent the first major ecclesiastical legislation against Sabbath observance
@@ -652,41 +654,51 @@ These documents are foundational primary sources — not later Catholic or Prote
      > "Christians must not Judaize by resting on the Sabbath, but must work on that day, rather honouring the Lord's Day; and, if they can, resting then as Christians. But if any shall be found to be Judaizers, let them be anathema from Christ."
    - **Note on Dating**: *The Convert's Catechism* (item 4 in the Catholic section above) dates this council to A.D. 336; most modern historians date it to A.D. 363–364. Neither date changes the substance: the Church, not Christ or the apostles, made this ruling by ecclesiastical authority
    - **Significance**: A church council formally declared that keeping the biblical seventh-day Sabbath was a sin punishable by excommunication ("anathema from Christ") — while providing *no scriptural authority* for the ruling. This is one of the most direct pieces of evidence that the change was made by church power, not biblical mandate
+   - 📄 **Source Document**: [View Original — Synod of Laodicea (363 A.D.), Canon 29](Supporting%20Documents/Early%20Church%20Quote_2%20-%20Synod%20of%20Laodicea%20%28363%20A.D.%29.pdf)
 
 3. **Council of Laodicea, Canon 16** (c. A.D. 363–364):
    - From the same council, a separate canon regulating Saturday practices
    - **Direct Quote**:
-     > "On Saturday, the Gospels and other portions of the Scriptures shall be read aloud."
+     > "The Gospels are to be read on the Sabbath [i.e. Saturday], with the other Scriptures."
    - **Significance**: Remarkably, the *same council* that outlawed Sabbath worship in Canon 29 still acknowledged Saturday as a day for Scripture reading in Canon 16 — proving that: (1) Saturday Sabbath was still being widely observed in churches in A.D. 363, (2) the transition from Saturday to Sunday was a *gradual enforcement process* by church authority, not an apostolic institution from the time of Christ
+   - 📄 **Source Document**: [View Original — Synod of Laodicea (363 A.D.), Canon 16](Supporting%20Documents/Early%20Church%20Quote_3%20-%20Synod%20of%20Laodicea%20%28363%20A.D.%29.pdf)
 
-4. **Eusebius of Caesarea, *Commentary on Psalm 92*** (c. A.D. 325):
+4. **Eusebius of Caesarea, *Commentaria in Psalmos*** (on Psalm 91/92, "A Song for the Sabbath Day") — Migne, *Patrologia Graeca*, Vol. 23, cols. 1171–1172:
    - Eusebius was the official court historian to Emperor Constantine and Bishop of Caesarea — a primary witness to when and how the change occurred
-   - **Direct Quote** (Commentary on Psalm 92 — the Psalm titled "A Song for the Sabbath Day"):
-     > "All things whatsoever that it was duty to do on the Sabbath, these we have transferred to the Lord's Day, as more preferable and first in rank, and more honourable than the Jewish Sabbath. For on that day light was first created by our Saviour; and on the same day He rose from the dead."
-   - **Significance**: Eusebius openly admits the transfer was made by human decision ("we have transferred"), not by divine command. He does not cite Scripture, a word of Christ, or an apostolic decree — only the assertion that Sunday is "more honourable." This is a fourth-century church leader's own admission that the change was an ecclesiastical act, not a biblical one
+   - **Latin of Migne's parallel text** (col. 1171): *"...in summa quotquot alia in Sabbato peragere sanctum erat, ea nos in Dominicam transtulimus, utpote quae magis idonea et propria, ac prima item sit et agmen ducat, et Judaico Sabbato pretiosior. Nam illa die in mundi opificio cum dixisset Deus, Fiat lux, facta est lux: in illa quoque animabus nostris ortus est Sol justitiae."*
+   - **English**:
+     > "All things whatsoever that it was duty to do on the Sabbath, these we have transferred to the Lord's Day, as more preferable and first in rank, and more honourable than the Jewish Sabbath. For on that day, in the making of the world, God said, 'Let there be light,' and there was light; and on that same day the Sun of Righteousness arose upon our souls."
+   - **Significance**: Eusebius openly admits the transfer was made by human decision — *"ea nos in Dominicam transtulimus"*, "these **we** have transferred to the Lord's Day" — not by divine command. He cites no Scripture, no word of Christ and no apostolic decree; his only justification is that the day is "more appropriate," "first in rank," and "more precious than the Jewish Sabbath." This is a fourth-century church leader, writing at Constantine's court, stating in his own words that the change was an ecclesiastical act
+   - 📄 **Source Document**: [View Original — Patrologia Graeca Vol. 23, cols. 1171–1172](Supporting%20Documents/Early%20Church%20Quote_4%20-%20Patrologia%20Graeca%20vol%2023%20column%201171%20and%201172.png) | [View Full Volume (PG 23)](Supporting%20Documents/Early%20Church%20Quote_4%20-%20patrologiae_cursus_completus_gr_vol_023.pdf)
 
 5. **Socrates Scholasticus, *Ecclesiastical History***, Book 5, Chapter 22 (c. A.D. 440):
    - Byzantine church historian writing approximately 100 years after Constantine
    - **Direct Quote**:
      > "For although almost all churches throughout the world celebrate the sacred mysteries on the Sabbath of every week, yet the Christians of Alexandria and at Rome, on account of some ancient tradition, have ceased to do this."
    - **Significance**: By A.D. 440, *most* of the Christian world — outside Rome and Alexandria — was still holding formal worship services on Saturday (the Sabbath). The change to Sunday-only was *not* universal for centuries after the cross; it was a Rome-driven tradition, not an apostolic institution
+   - 📄 **Source Document**: [View Original — Socrates Scholasticus, Ecclesiastical History, Book V](Supporting%20Documents/Early%20Church%20Quote_5%20-%20Ecclesiastical%20History%20-%20Socrates%20Scholasticus%20-%20Book%20V%20_%20True%20Orthodoxy.pdf)
 
 6. **Sozomen, *Ecclesiastical History***, Book 7, Chapter 19 (c. A.D. 440):
    - A companion church historian to Socrates Scholasticus, writing at the same period
    - **Direct Quote**:
-     > "The people of Constantinople, and almost everywhere, assemble together on the Sabbath, as well as on the first day of the week, which custom is never observed at Rome or at Alexandria."
+     > "Assemblies are not held in all churches on the same day, or upon the same occasions. The people of Constantinople, and of several other cities, assemble together on the sabbath, as well as on the next day; which custom is never observed at Rome, or at Alexandria."
    - **Significance**: Corroborates Socrates — 400 years after the cross, most Christians assembled on Saturday (Sabbath) *and* Sunday. The claim that the apostles instituted Sunday-only worship from Pentecost onwards is flatly contradicted by the church's own historians writing 4-5 centuries after Christ
+   - 📄 **Source Document**: [View Original — Sozomen, Ecclesiastical History](Supporting%20Documents/Early%20Church%20Quote_6%20-%20Ecclesiastical%20History%20Sozomen.pdf)
 
 7. **Philip Schaff, *History of the Christian Church*, Vol. III** (Protestant church historian; Vol. III published 1867):
    - Schaff is the most authoritative English-language Protestant church historian of the 19th century; his multi-volume history remains a standard academic reference
    - **On Constantine's Sunday Law**:
-     > "Constantine granted the Christians the first civil Sunday law, in A.D. 321. He commanded... the judges and the inhabitants of the cities to rest on the venerable day of the sun... This is the famous edict of 321, which is the foundation of all subsequent Sunday legislation, religious or civil."
-   - **Significance**: The premier Protestant church historian confirming that Sunday law as a legal institution originated with Constantine's civil edict of 321 — "the foundation of all subsequent Sunday legislation, religious or civil" — not with Christ, the apostles, or any New Testament command
+     > "Constantine in 321 forbade the sitting of courts and all secular labor in towns on 'the venerable day of the sun,' as he expresses himself, perhaps with reference at once to the sun-god, Apollo, and to Christ, the true Sun of righteousness; to his pagan and his Christian subjects. But he distinctly permitted the culture of farms and vineyards in the country, because frequently this could be attended to on no other day so well."
+   - **On the Pagan Framing of the Law**:
+     > "[He] forbade the public desecration of Sunday, not under the name of Sabbatum or Dies Domini, but under its old astrological and heathen title, Dies Solis, familiar to all his subjects, so that the law was as applicable to the worshippers of Hercules, Apollo, and Mithras, as to the Christians. **There is no reference whatever in his law either to the fourth commandment or to the resurrection of Christ.** Besides he expressly exempted the country districts, where paganism still prevailed, from the prohibition of labor."
+   - **Significance**: The premier Protestant church historian confirms that the first Sunday law was framed in pagan terms — *Dies Solis*, not *Sabbatum* or *Dies Domini* — deliberately drafted so that it applied equally to worshippers of Hercules, Apollo and Mithras. Most decisively, Schaff states there is "no reference whatever in his law either to the fourth commandment or to the resurrection of Christ." The foundation of all later Sunday legislation was neither biblical nor Christian in its wording
+   - 📄 **Source Document**: [View Original — Schaff, History of the Christian Church, Vol. III](Supporting%20Documents/Early%20Church%20Quote_7%20-%20History%20of%20the%20Christian%20Church%20volume%203-%20Philip%20Schaff.pdf)
 
-8. **Philip Schaff, *History of the Christian Church*, Vol. I** (on early Sabbath practice):
+8. **Philip Schaff, *History of the Christian Church*, Vol. I: Apostolic Christianity, A.D. 1–100** — section "Sacred Times: The Lord's Day":
    - **Direct Quote**:
-     > "The Sabbath was the great topic of the Jewish national life...The Christian Sunday stands in a historical continuity with the Jewish Sabbath; but it was not transferred from the seventh to the first day either by Moses or by the apostles."
-   - **Significance**: Schaff explicitly states Sunday was NOT transferred by Moses (obviously) or by the apostles. The change came later — through church authority and imperial decree
+     > "The day was transferred from the seventh to the first day of the week, **not on the ground of a particular command, but by the free spirit of the gospel** and by the power of certain great facts which lie at the foundation of the Christian church. It was on that day that Christ rose from the dead; that he appeared to Mary, the disciples of Emmaus, and the assembled apostles; that he poured out his Spirit and founded the church."
+   - **Significance**: Schaff, writing on the apostolic age itself, concedes that the transfer rested on **no particular command**. His stated grounds are "the free spirit of the gospel" and inference from events — resurrection appearances and Pentecost. That is precisely the pattern the rest of this collection documents: Sunday defended from example and inference, never from precept. Schaff is here defending the change, which is what makes the concession weighty
+   - 📄 **Source Document**: [View Original — Schaff, History of the Christian Church, Vol. I](Supporting%20Documents/Early%20Church%20Quote_8%20-%20History%20of%20the%20Christian%20Church%20volume%201-%20Philip%20Schaff.pdf)
 
 9. **Early Church Father Testimony — Justin Martyr, *First Apology*, Chapter 67** (c. A.D. 155):
    - First historical *description* of Sunday worship in the post-apostolic church
@@ -694,12 +706,14 @@ These documents are foundational primary sources — not later Catholic or Prote
      > "And on the day called Sunday, all who live in cities or in the country gather together to one place... Sunday is the day on which we all hold our common assembly, because it is the first day on which God, when he changed the darkness and matter, made the world; and Jesus Christ our Saviour on the same day rose from the dead. For he was crucified on the day before Saturday; and on the day after Saturday, which is the day of Sunday, he appeared to his apostles and disciples, and taught them these things, which we have submitted to you also for your consideration."
    - **Note**: Justin Martyr is the *earliest* post-apostolic source describing Sunday worship — written approximately 55 years after the death of the last apostle. He provides *no Scripture* authorizing Sunday; his justification is creation and resurrection — tradition-based reasoning, not biblical mandate
    - **Significance**: Even the first historical description of Sunday church worship (155 AD) gives *tradition as the reason*, not a biblical text or apostolic command — consistent with all Catholic and Protestant statements above
+   - 📄 **Source Document**: [View Original — Justin Martyr, First Apology, ch. 67](Supporting%20Documents/Early%20Church%20Quote_9%20-%20Logos%20Virtual%20Library_%20Saint%20Justin%20Martyr_%20First%20Apolog%20chapter%2067.pdf)
 
-10. **Tertullian, *De Corona*, Chapter 3** (c. A.D. 211):
+10. **Tertullian, *De Corona*, Chapters III–IV** (c. A.D. 211):
     - North African Latin church father, early 3rd century
-    - **Direct Quote** (on the Lord's Day and unwritten traditions):
+    - **Direct Quote** (ch. III lists the practices; ch. IV states they have no Scripture behind them):
       > "We count fasting or kneeling in worship on the Lord's day to be unlawful. We rejoice in the same privilege also from Easter to Whitsunday... We take anxious care lest something of the cups or the bread, even our own, should fall upon the ground. At every forward step and movement, at every going in and out, when we put on our clothes and shoes, when we bathe, when we sit at table, when we light the lamps, on couch, on seat, in all the ordinary actions of daily life, we trace upon the forehead the sign... If, for these and other such rules, you insist upon having positive Scripture injunction, you will find none. Tradition will be held forth to you as the originator of them, custom as their strengthener, and faith as their observer."
     - **Significance**: Tertullian lists Lord's Day observance among the practices for which, in his own words, "you insist upon having positive Scripture injunction, you will find none." He does not attempt to find a biblical text; he freely admits such practices rest on "tradition... custom... faith" — exactly what Catholic sources say today
+    - 📄 **Source Document**: [View Original — Tertullian, De Corona](Supporting%20Documents/Early%20Church%20Quote_10%20-%20De%20Corona_.pdf)
 
 ---
 
