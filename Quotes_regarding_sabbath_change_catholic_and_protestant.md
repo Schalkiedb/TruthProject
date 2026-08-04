@@ -901,22 +901,29 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - **Note on the Tract's Own Position**: The tract argues that Sunday rests on "the express appointment of the apostles" (quoting Mosheim) and cites Justin Martyr, Irenaeus and Tertullian in support. It is a defence of Sunday, not a witness against it, and should be cited only for its concessions about seventh-day observance and how it ended
     - 📄 **Source Document**: [View Original — Tract No. 118, Presbyterian Board of Publication, Vol. VII (1842)](Supporting%20Documents/Protestant%20Quote_24%20-%20seriesoftractson07pres.pdf)
 
-25. **Westminster Confession of Faith, Chap. 19, Art. 5**:
-    - Foundational Presbyterian confession (still official doctrine)
-    - **Quote**: "The moral law doth for ever bind all, as well justified persons as others, to the obedience thereof; and that not only in regard to the matter contained in it, but also in respect of the authority of God the Creator who gave it. Neither doth Christ in the gospel in any way dissolve, but much strengthen this obligation."
-    - **Significance**: Presbyterian confession stating moral law (Ten Commandments) binds all forever, Christ did not dissolve it—yet Presbyterians observe Sunday instead of the seventh-day Sabbath commanded in the Fourth Commandment
+25. **Westminster Confession of Faith**, Chapter XIX, "Of the Law of God," §5:
+    - Foundational Presbyterian and Reformed confession (1646); still the doctrinal standard of the Orthodox Presbyterian Church and many others
+    - **Quote**: "**The moral law doth forever bind all, as well justified persons as others, to the obedience thereof; and that, not only in regard of the matter contained in it, but also in respect of the authority of God the Creator, who gave it. Neither doth Christ, in the gospel, any way dissolve, but much strengthen this obligation.**"
+    - **Preceding Context** (§4, on the judicial law): "To them also, as a body politic, he gave sundry judicial laws, which expired together with the State of that people; not obliging any other now, further than the general equity thereof may require."
+    - **Significance**: The Confession separates the ceremonial and judicial laws — which it says "expired" — from the moral law, which "doth **forever** bind all." Christ, it states, does not "any way dissolve, but much **strengthen** this obligation." The Ten Commandments are therefore permanently binding by the Confession's own terms, while the churches holding it keep the first day rather than the seventh the fourth commandment names
+    - 📄 **Source Document**: [View Original — Westminster Confession of Faith, Ch. XIX (Orthodox Presbyterian Church)](Supporting%20Documents/Protestant%20Quote_25%20-%20Confession%20of%20Faith_%20The%20Orthodox%20Presbyterian%20Church.pdf)
 
 **Methodist Additional Quotes**:
 
-26. **Methodist Church Discipline** (1904, page 23):
-    - Official Methodist doctrinal statement
-    - **Quote**: "No Christian whatsoever is free from the obedience of the commandments which are called moral."
-    - **Significance**: Official Methodist teaching that all Christians must obey the moral commandments (Ten Commandments)—yet Methodist church observes Sunday, not Saturday Sabbath
+26. **The Doctrines and Discipline of the Methodist Episcopal Church** — Articles of Religion, Article VI, "Of the Old Testament," ¶ 6, p. 25:
+    - The binding doctrinal standard of Methodism, carried forward into the Articles of Religion of the United Methodist Church today
+    - **Quote**: "Although the law given from God by Moses as touching ceremonies and rites doth not bind Christians, nor ought the civil precepts thereof of necessity be received in any commonwealth; yet notwithstanding, **no Christian whatsoever is free from the obedience of the commandments which are called moral.**"
+    - **Significance**: Methodism's own Articles of Religion draw the line exactly where the Sabbath question turns: ceremonies and rites do not bind, but the *moral* commandments bind every Christian without exception. The fourth commandment stands in the Decalogue alongside the other nine, and the Article makes no exception for it — yet the church that holds this Article keeps the first day, not the seventh
+    - 📄 **Source Document**: [View Original — Article VI, p. 25](Supporting%20Documents/Protestant%20Quote_26%20-%20The%20doctrines%20and%20discipline%20of%20the%20Methodist%20Episcopal%20Church.png) | [View Full Volume](Supporting%20Documents/Protestant%20Quote_26%20-%20The%20doctrines%20and%20discipline%20of%20the%20Methodist%20Episcopal%20Church.pdf)
 
-27. **E.O. Haven, *Pillars of Truth*** (page 88):
-    - Methodist theologian
-    - **Quote**: "The Sabbath was made for MAN; not for the Hebrews, but for all men."
-    - **Significance**: Methodist scholar affirming Sabbath is universal, not just for Jews
+27. **E. O. Haven, *Pillars of Truth***, p. 88:
+    - Methodist bishop, and formerly President of the University of Michigan
+    - **On the Fourth Commandment's Precision**: "**The commandment on the Sabbath is the most specific and the most minute in its directions of all the ten.** It is not contented with the general requisition that the Sabbath day should be 'holy.' It also requires that all labor should be confined to the other six days of the week, and that no member of the family should be allowed to labor, and that no beast of burden or of service should be compelled to work for man, on the Sabbath."
+    - **On the Reason Given for It**: "A reason for the commandment is also given: to wit, 'For in six days the Lord made heaven and earth, the sea, and all that in them is, and **rested the seventh day**: wherefore the Lord blessed the Sabbath day, and hallowed it.'"
+    - **Quote**: "Now our belief is that **the whole of the Decalogue is binding upon all men**, and that, in the words of Christ, '**The Sabbath was made for MAN**;' not for the Hebrews, but for all men."
+    - **Significance**: A Methodist bishop holding that the whole Decalogue binds all men, that the Sabbath commandment is "the most specific and the most minute in its directions of all the ten," and that the reason attached to it is God's rest on the seventh day
+    - **Note on Haven's Own Position**: The paragraph immediately following answers his own question — "**What is the Sabbath? Simply one day in seven**, taken in regular order as it recurs, and devoted to religious culture." Haven therefore treats the *proportion* as binding rather than the particular day, which is the standard defence of Sunday. He is a witness for the Decalogue's perpetuity and the commandment's precision, **not** for the seventh day, and should be cited only for the former
+    - 📄 **Source Document**: [View Original — Pillars of Truth, p. 88](Supporting%20Documents/Protestant%20Quote_27%20-%20The_Pillars_of_Truth.png) | [View Full Volume](Supporting%20Documents/Protestant%20Quote_27%20-%20The_Pillars_of_Truth.pdf)
 
 28. **Clovis G. Chappell, *Ten Rules for Living*** (page 61):
     - Methodist minister
