@@ -22,6 +22,13 @@
    - **Significance**: A Catholic diocesan paper conceding that Seventh-day Adventists hold "the exclusive weight of evidence" on the Bible's own terms, that Christ endorsed the seventh day while living, that the apostles kept "that day and no other" for thirty years after His death, and that the Bible-only Protestant "has not a word in self-defense." The Catholic Mirror grants the Adventist reading of Scripture in order to argue that Scripture alone is therefore insufficient — the concession is the price of the argument
    - 📄 **Source Document**: [View Original — Rome's Challenge](Supporting%20Documents/Quote_2-Romes-Challenge.pdf#search=exclusive%20weight%20of%20evidence)
 
+3. **St. Thomas Aquinas, *Summa Theologica***, II-II, Q. 122, Art. 4, Reply to Objection 4 — "Whether the third precept of the decalogue, concerning the hallowing of the Sabbath, is fittingly expressed?":
+   - Doctor of the Church and the pre-eminent theologian of Roman Catholicism; the *Summa* remains the standard framework of Catholic dogmatic theology
+   - **Quote**: "In the New Law **the observance of the Lord's day took the place of the observance of the Sabbath, not by virtue of the precept but by the institution of the Church and the custom of Christian people.**"
+   - **Continued, on the Weaker Obligation**: "For this observance is not figurative, as was the observance of the Sabbath in the Old Law. **Hence the prohibition to work on the Lord's day is not so strict as on the Sabbath**: and certain works are permitted on the Lord's day which were forbidden on the Sabbath, such as the cooking of food and so forth. And again in the New Law, **dispensation is more easily granted** than in the Old, in the matter of certain forbidden works."
+   - **Significance**: The most authoritative theologian in Catholic history states in a single sentence what this entire collection documents: Sunday replaced the Sabbath **"not by virtue of the precept"** — that is, not by any divine command — but "by the institution of the Church and the custom of Christian people." He then draws the logical consequence: because Sunday rests on Church authority rather than divine precept, its obligation is *weaker* than the Sabbath's, work forbidden on the Sabbath is permitted on Sunday, and dispensations are more easily granted. Written c. 1270, two and a half centuries before the Reformation and six before the controversy this collection examines
+   - 📄 **Source Document**: [View Original — Summa Theologica II-II Q.122 A.4 (CCEL)](Supporting%20Documents/Quote%203%20-%20St.%20Thomas%20Aquinas_%20Summa%20Theologica%20-%20Christian%20Classics%20Ethereal%20Library.pdf)
+
 4. **The Convert's Catechism of Catholic Doctrine** (Rev. Peter Geiermann, C.SS.R.):
    - Published 1910, approved by Catholic Church authorities
    - **Question and Answer Format**:
@@ -521,9 +528,15 @@
    - **Significance**: "Nowhere in the Bible can a clear text be found" — Catholic newspaper, 1913. "From tradition only... can Sunday observance be justified" — the admission that settles the question. Protestants who reject tradition have no basis for Sunday.
    - 📄 **Source Document**: [View Original — Our Sunday Visitor, Oct. 26, 1913](Supporting%20Documents/Quote_67-OSV-Oct26-1913.gif)
 
-68. **Rev. Philip Carrington, Anglican Archbishop of Quebec** (Toronto Daily Star, Oct. 26, 1949):
-   - This entry, while included in the original *Quotes.md* numbering sequence, is an Anglican (Protestant) source and has been relocated to the Protestant section of this document. See the Protestant Admissions section (Quote 33, Phillip Carrington, Archbishop of Quebec).
-   - *(Retained here as a placeholder to maintain original numbering from the source document.)*
+68. **Code of Canon Law (1983)**, Book IV, Part III, Title II: "Sacred Times," Canons 1244–1247:
+   - The binding law of the Roman Catholic Church today, promulgated by Pope John Paul II
+   - **Canon 1246 §1 — the ground on which Sunday rests**: "**Sunday, on which by apostolic tradition the paschal mystery is celebrated, must be observed in the universal Church as the primordial holy day of obligation.** The following days must also be observed: the Nativity of our Lord Jesus Christ, the Epiphany, the Ascension, the Body and Blood of Christ, Holy Mary the Mother of God, her Immaculate Conception, her Assumption, Saint Joseph, Saint Peter and Saint Paul the Apostles, and All Saints."
+   - **Canon 1244 §1 — who controls sacred times**: "**It is only for the supreme ecclesiastical authority to establish, transfer, and suppress feast days** and days of penance common to the universal Church."
+   - **Canon 1246 §2 — the power to move holy days**: "With the prior approval of the Apostolic See, however, **the conference of bishops can suppress some of the holy days of obligation or transfer them to a Sunday**."
+   - **Canon 1245 — the power to dispense**: "...for a just cause and according to the prescripts of the diocesan bishop, **a pastor can grant in individual cases a dispensation from the obligation of observing a feast day**."
+   - **Significance**: In the Church's own current legislation, Sunday's authority is stated to rest on **"apostolic tradition"** — not on a command of Christ, not on Scripture. It appears as the first item in a list of holy days that also includes the Assumption and All Saints, and the surrounding canons place the whole category within ecclesiastical power: sacred times are established, transferred and suppressed by "supreme ecclesiastical authority," and individuals may be dispensed from them by a pastor. Sunday is classified, in binding Catholic law, as a *holy day of obligation* — a creature of Church law rather than divine precept, exactly as Aquinas states at Quote 3 above
+   - **Note on the limits of §2**: Canon 1246 §2 permits bishops' conferences to suppress or move **the other holy days** listed in §1 — it does not authorise the suppression of Sunday itself. The canon should not be cited as saying the Church can abolish Sunday
+   - 📄 **Source Document**: [View Original — Code of Canon Law, Canons 1244–1253](Supporting%20Documents/Quote_68%20-%20SACRED%20TIMES%20Cann.%201244%20-%201253.pdf)
 
 69. **St. Paul Family Catechism**, p. 253:
    - Catholic catechism for families
@@ -600,6 +613,15 @@
    - **On the Perpetuity of the Ten Commandments**: "I do not pretend to be even an amateur scholar of the Scriptures. I read the Decalogue merely as an average man searching for guidance, and in the immortal 'Ten Words' I find a blueprint for the good life....Most certainly the Commandments are needed today, perhaps more than ever before. Their divine message confronts us with a profound moral challenge in an epidemic of evil; a unifying message acceptable alike to Jew, Moslem, and Christian. Who, reading the Ten in the light of history and of current events, can doubt their identity with the eternal law of nature?"
    - **Significance**: Oursler quotes the fourth commandment in full — including its reason, that God "rested on the seventh day; therefore the Lord blessed the seventh day and sanctified it" — then states in the very next sentence that "early Christians changed the observance to Sunday." Not Christ, not the apostles, not Scripture: *early Christians*. He goes on to call the Ten Commandments "the eternal law of nature," needed "perhaps more than ever before." The commandment's own stated ground is the seventh day; the observance is admitted to have been moved by men; and the law is called eternal — all on the same pages, with no attempt to reconcile them
    - 📄 **Source Document**: [View Original — Cosmopolitan, Vol. 131 No. 3, September 1951](Supporting%20Documents/Quote_77%20-%20Cosmopolitan%20v131%20n03%20%5B1951-09%5D.pdf#search=Sabbath%20means)
+
+78. **Catechism of the Catholic Church**, §§2175, 2189–2192 — the section headed "Sunday — fulfillment of the sabbath":
+   - The official catechism of the Roman Catholic Church, promulgated by Pope John Paul II in 1992; the current authoritative statement of Catholic doctrine
+   - **§2175 — on replacement**: "Sunday is expressly distinguished from the sabbath which it follows chronologically every week; **for Christians its ceremonial observance replaces that of the sabbath.**"
+   - **§2189 — the commandment as the Catechism itself states it**: "'Observe the sabbath day, to keep it holy' (Deut 5:12). '**The seventh day is a sabbath of solemn rest, holy to the Lord**' (Ex 31:15)."
+   - **§2190 — the very next paragraph**: "**The sabbath, which represented the completion of the first creation, has been replaced by Sunday** which recalls the new creation inaugurated by the Resurrection of Christ."
+   - **§2192 — the authority cited for it**: "'Sunday... is to be observed as the foremost holy day of obligation in the universal Church' (**CIC, can. 1246 §1**). 'On Sundays and other holy days of obligation the faithful are bound to participate in the Mass' (CIC, can. 1247)."
+   - **Significance**: The current Catechism uses the word **"replaced"** twice, without qualification. Its "In Brief" summary is the sharpest statement in this entire collection: §2189 quotes Exodus 31:15 — "the seventh day is a sabbath of solemn rest, holy to the Lord" — and §2190, the sentence immediately following, declares that this sabbath "**has been replaced by Sunday**." The commandment is quoted and its replacement announced in consecutive paragraphs. When the Catechism then cites authority for the Sunday obligation in §2192, it does not cite Scripture: it cites the **Code of Canon Law** (see Quote 68 above). The Church's own current teaching document thus grounds Sunday in Church law, and states plainly that it replaced the seventh day
+   - 📄 **Source Document**: [View Original — Catechism of the Catholic Church, §§2168–2257](Supporting%20Documents/Quote_78%20-%20The%20Catechism%20Of%20The%20Catholic%20Church%2C%20numbers%202168%20to%202257.pdf)
 
 **Catholic Apologetic Works Acknowledging the Change**:
 - Catholic catechisms, encyclicals, newspapers and scholarly works spanning almost four centuries — from Vaux's Catechism (1583) and the Roman Catechism of Trent (1566) through to Mosna's Gregorian University dissertation (1969) and *The New Question Box* (1988), with Cardinal Humbert's testimony reaching back to the 11th century
@@ -822,6 +844,7 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - Presbyterian theologian
     - **Summary — no direct quotation on file**: Acknowledged that the seventh day is the Sabbath according to the commandment, and that the change to Sunday observance came through church history and tradition
     - **Significance**: Presbyterian scholarship admitting Sunday is based on tradition, not the biblical commandment
+    - ⚠️ **Provenance**: Widely cited in published literature; no copy has been located in digital form and the work is out of print. Pending a primary source, treat as unverified.
 
 ---
 
@@ -833,33 +856,41 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - Southern Baptist theologian
     - **Quote**: "The sacred name of the Seventh day is Sabbath. This fact is too clear to require argument [Exodus 20:10 quoted]… on this point the plain teaching of the Word has been admitted in all ages… Not once did the disciples apply the Sabbath law to the first day of the week, -- that folly was left for a later age, nor did they pretend that the first day supplanted the seventh."
     - **Significance**: Baptist scholar calling it "folly" to apply Sabbath law to Sunday, admitting disciples never made this change
+    - ⚠️ **Provenance**: The work and the quotation are attested, but no free digital copy is available. Pending access to a primary source, treat as unverified.
 
 19. **Adult Quarterly, Southern Baptist Convention series** (Aug. 15, 1937):
     - Official Southern Baptist publication
     - **Quote**: "The first four commandments set forth man's obligations directly toward God.... But when we keep the first four commandments, we are likely to keep the other six.... The fourth commandment sets forth God's claim on man's time and thought.... The six days of labour and the rest on the Sabbath are to be maintained as a witness to God's toil and rest in the creation.... No one of the ten words is of merely racial significance.... The Sabbath was established originally (long before Moses) in no special connection with the Hebrews, but as an institution for all mankind, in commemoration of God's rest after the six days of creation. It was designed for all the descendants of Adam."
     - **Significance**: Official Southern Baptist teaching that: (1) The Sabbath is for all mankind, not just Jews, (2) Established at Creation before Moses, (3) Part of the Ten Commandments binding on all humanity
+    - ⚠️ **Provenance**: A dated Sunday-school quarterly; no digital copy of this issue has been located. Pending a primary source, treat as unverified.
 
 **Presbyterian Additional Quotes**:
 
-20. **Dwight's Theology** (Vol. IV, p. 401):
-    - Presbyterian systematic theology
-    - **Quote**: "The Christian Sabbath (Sunday) is not in the Scriptures, and was not by the primitive church called the Sabbath."
-    - **Significance**: Presbyterian theology admitting Sunday was never called "Sabbath" in Scripture or early church
+20. **Timothy Dwight, *Theology Explained and Defended*** — Sermon CVII, "The Fourth Commandment: Objections Answered," p. 259:
+    - President of Yale; the same work as item 7 above, a later sermon in the same series
+    - **Quote**: "...the **Christian Sabbath is not in the Scriptures, and was not by the primitive Church, called the Sabbath**; but the first day of the week, and the Lord's day."
+    - **Significance**: Dwight concedes two distinct points while answering objections to Sunday: that "the Christian Sabbath is not in the Scriptures," and that the primitive Church did not even use the word — it called the day "the first day of the week" and "the Lord's day." The term *Christian Sabbath* is therefore a later construction laid over a day Scripture never names as such
+    - 📄 **Source Document**: [View Original — Dwight, Theology Explained and Defended, Sermon CVII](Supporting%20Documents/Protestant%20Quote_20%20-%20Theology%20Explained%20and%20Defended%20Timothy%20Dwight%27s.pdf)
 
-21. **Jonathan Edwards, *Works*** (Vol. 4, p. 621):
-    - Presbyterian/Congregationalist theologian
-    - **Quote**: "A further argument for the perpetuity of the Sabbath we have in Matthew 24:20, Pray ye that your flight be not in the winter neither on the Sabbath day. But the final destruction of Jerusalem was after the Christian dispensation was fully set up (AD 70). Yet it is plainly implied in these words of the Lord that even then Christians were bound to strict observation of the Sabbath."
-    - **Significance**: Edwards noting that Jesus expected Sabbath observance 40 years after the cross (AD 70), proving it wasn't abolished
+21. **Jonathan Edwards, *The Perpetuity and Change of the Sabbath***:
+    - Congregationalist theologian and preacher, the foremost mind of American Puritanism
+    - **Quote**: "Seventh, a further argument for the perpetuity of the Sabbath, we have in Mat. 24:20, 'Pray ye that your flight be not in the winter, neither on the sabbath-day.' Christ is here speaking of the flight of the apostles and other Christians out of Jerusalem and Judea, just before their final destruction... But **this final destruction of Jerusalem was after the dissolution of the Jewish constitution, and after the Christian dispensation was fully set up. Yet, it is plainly implied in these words of our Lord, that even then Christians were bound to a strict observation of the Sabbath.**"
+    - **Significance**: Edwards argues that Christ, speaking of events some forty years after the crucifixion — after the Jewish system had ended and the Christian dispensation was "fully set up" — still assumed His followers would be keeping the Sabbath. On Edwards's own reading, the commandment had not lapsed at the cross. He goes on in the next section to argue that the day should nonetheless be the first of the week, resting that case on inference rather than command
+    - 📄 **Source Document**: [View Original — Edwards, The Perpetuity and Change of the Sabbath](Supporting%20Documents/Protestant%20Quote_21%20-%20The%20Perpetuity%20And%20Change%20Of%20The%20Sabbath%C2%A0-%C2%A0%20Jonathan%20Edwards.pdf)
 
-22. **John Calvin, *Commentary on a Harmony of the Gospels*** (Vol. 1, page 277):
-    - Presbyterian/Reformed founder
-    - **Quote**: "We must not imagine that the coming of Christ has freed us from the authority of the law; for it is the eternal rule of a devout and holy life, and must therefore be as unchangeable as the justice of God, which it embraced, is constant and uniform."
-    - **Significance**: Calvin taught the moral law (Ten Commandments) is "eternal" and "unchangeable"—yet Reformed churches observe Sunday, not the seventh-day Sabbath commanded in the Fourth Commandment
+22. **John Calvin, *Commentary on a Harmony of the Evangelists Matthew, Mark and Luke***, Vol. 1 — on Matthew 5:17:
+    - Founder of the Reformed tradition
+    - **Quote**: "**With respect to doctrine, we must not imagine that the coming of Christ has freed us from the authority of the law: for it is the eternal rule of a devout and holy life, and must, therefore, be as unchangeable, as the justice of God, which it embraced, is constant and uniform.**"
+    - **Immediately Following, on Ceremonies**: "With respect to ceremonies, there is some appearance of a change having taken place; but it was only the use of them that was abolished, for their meaning was more fully confirmed. The coming of Christ has taken nothing away even from ceremonies, but, on the contrary, confirms them by exhibiting the truth of shadows."
+    - **Significance**: Calvin holds the moral law to be "the eternal rule of a devout and holy life," as unchangeable as the justice of God itself. He separates it explicitly from ceremonies — and says even of those that only their *use* was abolished, not their meaning. The Reformed churches that follow him keep the first day, not the seventh the fourth commandment names
+    - 📄 **Source Document**: [View Original — Calvin, Commentary on a Harmony of the Evangelists, Vol. 1](Supporting%20Documents/Protestant%20Quote_22%20-%20John%20CalvinCommentary%20on%20Matthew%20Mark%20Luke%20-%20Volume%201%20-%202.pdf)
 
-23. **American Presbyterian Board of Publication, Tract No. 175**:
-    - Official Presbyterian publication
-    - **Quote**: "God instituted the Sabbath at the creation of man, setting apart the seventh day for the purpose, and imposed its observance as a universal and perpetual moral obligation upon the race."
-    - **Significance**: Presbyterian official teaching that Sabbath is "universal and perpetual" moral obligation
+23. **A. A. Hodge, "The Sabbath: The Day Changed, The Sabbath Preserved"** — the substance of American Presbyterian Board of Publication Tract No. 175:
+    - Principal of Princeton Theological Seminary; son of Charles Hodge (item 65 below)
+    - **Quote** (proposition 2): "God instituted the Sabbath at the creation of man, setting apart the seventh day for that purpose, and imposed [its] observance as a universal and perpetual moral obligation upon the race."
+    - **Hodge's Next Proposition, stated in full**: "After the resurrection of Christ, instead of abrogating an old and introducing a new institution, God, through his inspired agents, perpetuated the Sabbath, re-imposing it upon Christians with increased obligations, and **by changing the day from the seventh to the first day of the week** enriched it with new and higher significance."
+    - **Significance**: Hodge affirms that the Sabbath was instituted at creation, set on the seventh day, and imposed as a "universal and perpetual moral obligation upon the race" — not a Jewish ordinance and not abolished. He then asserts that God Himself changed the day "through his inspired agents," but offers no command in evidence; the claim rests on his reading of apostolic practice. He is therefore a witness for the Sabbath's creation origin and perpetuity, **not** against Sunday, and should be cited only for the former
+    - 📄 **Source Document**: [View Original — A. A. Hodge, The Sabbath: The Day Changed, The Sabbath Preserved](Supporting%20Documents/Protestant%20Quote%2023%20-%20Sabbath%20The%20Day%20Changed%20The%20Sabbath%20Preserved%20-%20by%20Dr.%20A.%20A.%20Hodge.pdf)
 
 24. **American Presbyterian Board of Publication, Tract No. 118**:
     - Official Presbyterian publication
