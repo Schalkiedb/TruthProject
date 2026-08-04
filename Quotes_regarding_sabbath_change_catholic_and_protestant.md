@@ -892,10 +892,14 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - **Significance**: Hodge affirms that the Sabbath was instituted at creation, set on the seventh day, and imposed as a "universal and perpetual moral obligation upon the race" — not a Jewish ordinance and not abolished. He then asserts that God Himself changed the day "through his inspired agents," but offers no command in evidence; the claim rests on his reading of apostolic practice. He is therefore a witness for the Sabbath's creation origin and perpetuity, **not** against Sunday, and should be cited only for the former
     - 📄 **Source Document**: [View Original — A. A. Hodge, The Sabbath: The Day Changed, The Sabbath Preserved](Supporting%20Documents/Protestant%20Quote%2023%20-%20Sabbath%20The%20Day%20Changed%20The%20Sabbath%20Preserved%20-%20by%20Dr.%20A.%20A.%20Hodge.pdf)
 
-24. **American Presbyterian Board of Publication, Tract No. 118**:
-    - Official Presbyterian publication
-    - **Quote**: "The observance of the seventh-day Sabbath did not cease till it was abolished after the [Roman] empire became Christian..."
-    - **Significance**: Presbyterian admission that seventh-day Sabbath was only "abolished" when the Roman Empire became Christian (under Constantine)—not by biblical authority
+24. **Presbyterian Board of Publication, Tract No. 118, "The First-Day Sabbath, or The Lord's-Day the Christian Sabbath"** — in *A Series of Tracts on the Doctrines, Order, and Polity of the Presbyterian Church in the United States*, Vol. VII (Philadelphia: Presbyterian Board of Publication, 1842):
+    - An official Presbyterian tract written **to defend** Sunday observance against Sabbatarian arguments
+    - **On the Primitive Christians Keeping the Seventh Day**: "But was there no more? Did not the primitive Christians also keep the seventh day of the week? **Some of them did**, but by no means all; and so, for a time, some of them were circumcised."
+    - **On How Dual Observance Ended**: "**This observance of two days, whatever there was of it, gradually faded away, and was finally abolished after the empire became Christian.**"
+    - **Quoting Mosheim**: "All Christians were unanimous in setting apart the first day of the week... **The seventh day of the week was also observed as a festival**..."
+    - **Significance**: A tract arguing *for* Sunday nonetheless concedes that primitive Christians kept the seventh day as well as the first, that this dual observance persisted for centuries, and — the decisive point — that it "was finally abolished **after the empire became Christian**." Not by Christ, not by the apostles, not by any Scripture the tract can produce: the seventh day fell out of use when imperial power stood behind the Church. The tract's own authority, Mosheim, likewise records that "the seventh day of the week was also observed as a festival"
+    - **Note on the Tract's Own Position**: The tract argues that Sunday rests on "the express appointment of the apostles" (quoting Mosheim) and cites Justin Martyr, Irenaeus and Tertullian in support. It is a defence of Sunday, not a witness against it, and should be cited only for its concessions about seventh-day observance and how it ended
+    - 📄 **Source Document**: [View Original — Tract No. 118, Presbyterian Board of Publication, Vol. VII (1842)](Supporting%20Documents/Protestant%20Quote_24%20-%20seriesoftractson07pres.pdf)
 
 25. **Westminster Confession of Faith, Chap. 19, Art. 5**:
     - Foundational Presbyterian confession (still official doctrine)
