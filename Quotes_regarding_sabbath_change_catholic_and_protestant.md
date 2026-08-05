@@ -743,7 +743,7 @@ These documents are foundational primary sources — not later Catholic or Prote
 
 **Official Protestant Statements Acknowledging No Biblical Authority for Sunday**:
 
-While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **62 distinct sources — Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. Items 50, 55 and 56 are cross-references back to items 29, 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses:
+While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **62 distinct sources — Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. Items 55 and 56 are cross-references back to items 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses:
 
 1. **Tract 85, "Lectures on the Scripture Proofs of the Doctrines of the Church," Lecture I** — *Tracts for the Times, by Members of the University of Oxford*, Vol. V (London: Rivington, 1838–40), pp. 9–10:
    - Published anonymously, as all the Tracts were; Tract 85 is attributed to **John Henry Newman**, then an Anglican clergyman of the Oxford Movement (he was received into the Roman Catholic Church seven years later — see also Quote 41 in the Catholic section)
@@ -928,12 +928,16 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
 28. **Clovis G. Chappell, *Ten Rules for Living*** (page 61):
     - Methodist minister
     - **Quote**: "The reason we observe the first day instead of the seventh is based on no positive command. One will search the Scriptures in vain for authority for changing from the seventh day to the first. The early Christians began to worship on the first day of the week because Jesus rose from the dead on that day. By and by, this day of worship was made also a day of rest, a legal holiday. This took place in the year 321.... The reason we observe the first day instead of the seventh is based on no positive command. One will search the Scriptures in vain for authority for changing from the seventh day to the first... Our Christian Sabbath, therefore, is not a matter of positive command. It is a gift of the church..."
-    - **Significance**: Methodist admission: (1) No scriptural authority for the change, (2) Sunday became a legal holiday in 321 (Constantine's decree), (3) Sunday is "a gift of the church" not biblical command
+    - **Significance**: A Methodist minister stating without qualification that observing the first day "is based on **no positive command**," that "one will **search the Scriptures in vain** for authority for changing from the seventh day to the first," that Sunday rest began as a legal holiday **in the year 321**, and that "our Christian Sabbath... is **a gift of the church**." He names the century, the mechanism and the authority — and none of them is Scripture
+    - **Note on Chappell's Own Position**: He continues: "Of course the vital matter is not what day we observe, but that we observe one day in seven." Like several others in this section he treats the proportion as binding rather than the particular day, and should be cited for his admissions about Sunday's origin, not as a witness for the seventh day
+    - 📄 **Source Document**: [View Original — Chappell, Ten Rules for Living](Supporting%20Documents/Protestant%20Quote_28%20-%20Ten%20Rules%20For%20Living.pdf) not biblical command
 
 29. **Charles Buck, *A Theological Dictionary***, article "Sabbath" (p. 403):
     - Independent/Congregationalist minister; his *Dictionary* was one of the most widely reprinted English theological reference works of the 19th century
-    - **Quote**: "Sabbath in the Hebrew language signifies rest, and is the seventh day of the week... and it must be confessed that there is no law in the New Testament concerning the first day."
-    - **Significance**: A standard Protestant reference work stating that the Sabbath is the seventh day and that "there is no law in the New Testament concerning the first day"
+    - **Quote** (article "Sabbath"): "**Sabbath, in the Hebrew language, signifies rest, and is the seventh day of the week**: a day appointed for religious duties, and a total cessation from work, in commemoration of God's resting on the seventh day; and likewise in memorial of the redemption of the Israelites from Egyptian bondage."
+    - **Also in the Dictionary** (article "Sabbatarians"): "Sabbatarians, those who keep the seventh day as the sabbath. They are to be found principally, if not wholly, among the Baptists. They object to the reasons which are generally alleged for keeping the first day; and assert, that **the change from the seventh to the first was effected by Constantine on his conversion to Christianity**."
+    - **Significance**: A standard Protestant reference work defining the Sabbath as "the seventh day of the week," grounded in God's rest at creation. Its separate entry on Sabbatarians records — without rebutting it — their claim that the change to the first day "was effected by Constantine"
+    - 📄 **Source Document**: [View Original — Buck, A Theological Dictionary](Supporting%20Documents/Protestant%20Quote_29%20-%20A%20Theological%20Dictionary%20Charles%20Buck.pdf)
 
 30. **Sunday School Advocate** (Dec. 31, 1921):
     - Methodist publication
@@ -1042,12 +1046,6 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - Congregationalist minister and editor
     - **Quote**: "The current notion that Christ and His apostles authoritatively substituted the first day for the seventh, is absolutely without any authority in the New Testament."
     - **Significance**: Prominent Congregationalist leader stating change has "absolutely no authority in New Testament"
-
-50. **Buck's Theological Dictionary** (page 403):
-    - ↪ **Cross-reference, not a separate source.** Same work and same sentence as **item 29** above — Charles Buck's *A Theological Dictionary*, p. 403. Retained here only so the numbering stays stable; it is one witness, not two.
-    - **Quote**: "It must be confessed that there is no law in the New Testament concerning the first day."
-
-**Moody Bible Institute Additional Quote**:
 
 51. **D.L. Moody** (at San Francisco, Jan. 1st, 1881):
     - Founder of Moody Bible Institute
