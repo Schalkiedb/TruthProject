@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When the State Forces Worship — A Historical &amp; Prophetic Reference</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+
+  :root{
+    --bg: #14100c;
+    --bg2: #1c1712;
+    --panel: #201a14;
+    --parchment: #ece2c8;
+    --parchment-dim: #cfc3a2;
+    --gold: #c9a24b;
+    --gold-bright: #e8c774;
+    --gold-dim: #8a6f34;
+    --line: #3a2f22;
+    --red: #8a2c2c;
+    --maxw: 880px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at top, #221b13 0%, var(--bg) 55%),
+      var(--bg);
+    color: var(--parchment);
+    font-family: 'EB Garamond', serif;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  header.hero{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 5rem 1.5rem 3rem;
+    text-align:center;
+    border-bottom: 1px solid var(--line);
+  }
+  header.hero .kicker{
+    font-family:'Cinzel', serif;
+    letter-spacing: 0.35em;
+    font-size: 0.72rem;
+    color: var(--gold);
+    text-transform:uppercase;
+    margin-bottom:1.4rem;
+  }
+  header.hero h1{
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    font-size: 2.5rem;
+    line-height:1.25;
+    color: var(--gold-bright);
+    margin: 0 0 1rem;
+    text-shadow: 0 0 30px rgba(201,162,75,0.15);
+  }
+  header.hero p.sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.25rem;
+    color: var(--parchment-dim);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  nav.toc{
+    max-width: var(--maxw);
+    margin: 2.5rem auto;
+    padding: 1.5rem 1.8rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  nav.toc h2{
+    font-family:'Cinzel',serif;
+    font-size:0.85rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color: var(--gold);
+    margin: 0 0 0.9rem;
+  }
+  nav.toc ol{
+    margin:0; padding-left: 1.3rem; columns: 2; column-gap: 2rem;
+  }
+  nav.toc li{ margin-bottom: 0.5rem; break-inside: avoid; }
+  nav.toc a{ color: var(--parchment); text-decoration:none; border-bottom: 1px dotted var(--gold-dim); }
+  nav.toc a:hover{ color: var(--gold-bright); }
+
+  main{ max-width: var(--maxw); margin: 0 auto; padding: 1rem 1.5rem 6rem; }
+
+  section{ padding: 3.2rem 0; border-bottom: 1px solid var(--line); }
+  section:last-child{ border-bottom:none; }
+
+  .section-label{
+    font-family:'Cinzel',serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.6rem;
+  }
+  h2{
+    font-family:'Cinzel',serif;
+    color: var(--gold-bright);
+    font-size: 1.7rem;
+    margin: 0 0 1.3rem;
+    line-height:1.3;
+  }
+  h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    color: var(--gold);
+    font-size: 1.35rem;
+    margin: 1.8rem 0 0.7rem;
+  }
+  h4.kingdom-h{
+    font-family:'Cinzel',serif;
+    color: var(--gold-bright);
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.3rem;
+  }
+  p{ margin: 0 0 1.1rem; color: var(--parchment); }
+  strong{ color: var(--gold-bright); font-weight:600; }
+  em.ref{ color: var(--parchment-dim); font-style:italic; }
+
+  ul, ol.list{ margin: 0 0 1.2rem; padding-left: 1.4rem; }
+  li{ margin-bottom: 0.55rem; }
+
+  blockquote{
+    margin: 1.5rem 0;
+    padding: 1rem 1.4rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(201,162,75,0.06);
+    font-family:'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--parchment-dim);
+  }
+  blockquote cite{
+    display:block;
+    margin-top:0.5rem;
+    font-style:normal;
+    font-family:'EB Garamond',serif;
+    font-size:0.85rem;
+    color: var(--gold-dim);
+  }
+
+  /* --- Pull quotes for primary sources --- */
+  blockquote.pullquote{
+    max-width: 620px;
+    margin: 2.2rem auto;
+    text-align: center;
+    border: none;
+    background: none;
+    padding: 0 1rem;
+    position: relative;
+  }
+  blockquote.pullquote::before{
+    content: '\201C';
+    display:block;
+    font-family: Georgia, serif;
+    font-size: 3.2rem;
+    line-height: 0.4;
+    color: var(--gold-dim);
+    margin-bottom: 1.1rem;
+  }
+  blockquote.pullquote p{
+    font-family:'Cormorant Garamond',serif;
+    font-style: italic;
+    font-size: 1.55rem;
+    line-height: 1.5;
+    color: var(--gold-bright);
+    margin: 0;
+  }
+  blockquote.pullquote cite{ text-align:center; margin-top: 1.1rem; }
+
+  table{
+    width:100%;
+    border-collapse: collapse;
+    margin: 1.4rem 0;
+    font-size: 0.95rem;
+  }
+  th, td{
+    border: 1px solid var(--line);
+    padding: 0.6rem 0.8rem;
+    text-align:left;
+    vertical-align: top;
+  }
+  th{
+    font-family:'Cinzel',serif;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color: var(--gold);
+    background: rgba(201,162,75,0.05);
+  }
+  .resist-table{ font-size: 0.88rem; }
+  .resist-table td{ line-height:1.5; }
+
+  .timeline{ position:relative; margin: 2rem 0; padding-left: 2rem; border-left: 2px solid var(--gold-dim); }
+  .tl-item{ position:relative; margin-bottom: 1.8rem; }
+  .tl-item::before{
+    content:''; position:absolute; left:-2.05rem; top:0.35rem;
+    width:10px; height:10px; border-radius:50%;
+    background: var(--gold); box-shadow: 0 0 8px rgba(201,162,75,0.6);
+  }
+  .tl-date{ font-family:'Cinzel',serif; color: var(--gold-bright); font-size:0.95rem; letter-spacing:0.05em; }
+  .tl-title{ font-weight:600; color: var(--parchment); }
+
+  .callout{
+    margin: 1.5rem 0;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(201,162,75,0.08), transparent);
+  }
+  .callout .callout-label{
+    font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.25em;
+    text-transform:uppercase; color: var(--gold); margin-bottom:0.5rem;
+  }
+
+  .caution{
+    margin: 1.5rem 0;
+    padding: 1.2rem 1.4rem;
+    border: 1px dashed #7a5a3a;
+    border-radius: 4px;
+    background: rgba(138,44,44,0.06);
+  }
+  .caution .caution-label{
+    font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em;
+    text-transform:uppercase; color: #c98a5a; margin-bottom:0.5rem;
+  }
+  .caution p:last-child{ margin-bottom:0; }
+
+  /* --- Objection callouts --- */
+  .objection{
+    margin: 1.6rem 0;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--gold-dim);
+    border-left: 4px solid var(--gold);
+    border-radius: 2px;
+    background: rgba(0,0,0,0.15);
+  }
+  .objection .obj-label{
+    font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.2em;
+    text-transform:uppercase; color: var(--gold); margin-bottom:0.5rem;
+  }
+  .objection .obj-q{
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.1rem; color: var(--parchment-dim); margin-bottom: 0.7rem;
+  }
+  .objection p:last-child{ margin-bottom:0; }
+
+  .two-col{ display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+  @media (max-width: 640px){ .two-col{ grid-template-columns: 1fr; } nav.toc ol{ columns:1; } }
+  .col-card{
+    padding: 1.1rem 1.3rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  .col-card h4{
+    font-family:'Cinzel',serif; font-size:0.85rem; letter-spacing:0.1em;
+    color: var(--gold-bright); margin: 0 0 0.6rem; text-transform:uppercase;
+  }
+
+  /* --- Kingdom cards --- */
+  .kingdom-card{
+    margin: 2.2rem 0;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--panel);
+  }
+  .kingdom-head{
+    padding: 1.1rem 1.4rem;
+    background: linear-gradient(90deg, rgba(201,162,75,0.14), transparent);
+    border-bottom: 1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap;
+  }
+  .kingdom-num{
+    font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.25em;
+    color: var(--gold-dim); text-transform:uppercase;
+  }
+  .kingdom-body{ padding: 1.4rem; }
+  .commandment-chips{ display:flex; flex-wrap:wrap; gap:0.5rem; margin: 0.9rem 0 1.2rem; }
+  .chip{
+    font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.06em;
+    padding: 0.35rem 0.75rem; border-radius: 20px;
+    border: 1px solid var(--gold-dim); color: var(--gold-bright);
+    background: rgba(201,162,75,0.08); white-space:nowrap;
+  }
+  .kingdom-verse{
+    font-size:0.9rem; color: var(--parchment-dim);
+  }
+
+  /* --- Commandment tablet mini-diagram --- */
+  .tablet-legend{
+    display:flex; flex-wrap:wrap; gap:0.9rem; margin: 1rem 0 1.8rem;
+    font-size: 0.82rem; color: var(--parchment-dim);
+    padding: 0.9rem 1.1rem; border: 1px dashed var(--line); border-radius:4px;
+  }
+  .tablet-legend b{ color: var(--gold); font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.05em; }
+  .tablet-row{ display:flex; align-items:center; gap:0.7rem; margin: 0.6rem 0; }
+  .tablet-row .tr-label{
+    font-family:'Cinzel',serif; font-size:0.68rem; letter-spacing:0.06em;
+    color: var(--parchment-dim); width: 128px; flex-shrink:0;
+  }
+  .tablet-mini{ display:flex; gap:0.4rem; }
+  .tablet-box{
+    width:34px; height:34px; border-radius:4px;
+    border:1px solid var(--gold-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-size:0.85rem; color: var(--parchment-dim);
+    background: rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+  }
+  .tablet-box.lit{
+    background: var(--gold); color:#1c1712; border-color: var(--gold-bright);
+    box-shadow: 0 0 10px rgba(201,162,75,0.55);
+    font-weight:700;
+  }
+
+  /* --- Empire map --- */
+  .empire-map{
+    position:relative;
+    display:flex; justify-content:space-between; align-items:flex-start;
+    margin: 2.4rem 0 3.4rem;
+    padding: 0 0.5rem;
+  }
+  .empire-map::before{
+    content:''; position:absolute; top:27px; left:8%; right:8%; height:2px;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold) 50%, var(--gold-dim));
+    z-index:1;
+  }
+  .empire-node{
+    position:relative; z-index:2;
+    display:flex; flex-direction:column; align-items:center;
+    text-decoration:none; width: 23%; text-align:center;
+  }
+  .empire-node .node-circle{
+    width:54px; height:54px; border-radius:50%;
+    background: var(--bg2); border:2px solid var(--gold-dim);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif; font-size:1.3rem; color: var(--gold);
+    transition: all 0.25s ease;
+  }
+  .empire-node:hover .node-circle{
+    border-color: var(--gold-bright); background: rgba(201,162,75,0.15);
+    box-shadow: 0 0 16px rgba(201,162,75,0.45);
+    transform: translateY(-2px);
+  }
+  .empire-node .node-label{
+    font-family:'Cinzel',serif; font-size:0.72rem; letter-spacing:0.04em;
+    color: var(--parchment); margin-top:0.6rem;
+  }
+  .empire-node .node-sub{
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.78rem;
+    color: var(--gold-dim); margin-top:0.15rem;
+  }
+  @media (max-width: 640px){
+    .empire-map{ flex-wrap:wrap; gap: 1.6rem 0; justify-content:space-around; }
+    .empire-map::before{ display:none; }
+    .empire-node{ width: 45%; }
+  }
+
+  /* --- Timeline scrubber --- */
+  .scrubber-wrap{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 2rem 1.6rem 1.8rem;
+  }
+  .scrubber-track-outer{
+    position: relative;
+    margin: 2.6rem 0.5rem 3.2rem;
+    height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+  }
+  .scrubber-fill{
+    position:absolute; left:0; top:0; height:100%;
+    background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.35s ease;
+  }
+  .scrubber-stop{
+    position:absolute; top:50%; transform:translate(-50%,-50%);
+    width:16px; height:16px; border-radius:50%;
+    background: var(--bg2); border: 2px solid var(--gold-dim);
+    cursor:pointer;
+    transition: all 0.25s ease;
+    z-index:2;
+  }
+  .scrubber-stop.active{
+    background: var(--gold); border-color: var(--gold-bright);
+    box-shadow: 0 0 14px rgba(201,162,75,0.6);
+    width:20px; height:20px;
+  }
+  .scrubber-stop:hover{ border-color: var(--gold-bright); }
+  .scrubber-label{
+    position:absolute; top: -2.3rem; left:50%; transform: translateX(-50%);
+    font-family:'Cinzel',serif; font-size:0.66rem; letter-spacing:0.03em;
+    color: var(--parchment-dim); white-space:nowrap;
+  }
+  .scrubber-stop.active + .scrubber-label,
+  .scrubber-stop .scrubber-label{ color: var(--gold-bright); }
+  .scrubber-year{
+    position:absolute; bottom: -1.9rem; left:50%; transform: translateX(-50%);
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.76rem;
+    color: var(--gold-dim); white-space:nowrap;
+  }
+  .scrubber-panel{
+    min-height: 200px;
+    padding: 1.5rem 1.6rem;
+    background: rgba(0,0,0,0.18);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  .scrubber-panel h3{ margin-top:0; }
+  .scrubber-panel .sp-tag{
+    display:inline-block;
+    font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.2em;
+    text-transform:uppercase; color: var(--gold); margin-bottom: 0.6rem;
+  }
+  .scrubber-nav-btns{ display:flex; justify-content:space-between; margin-top:1.2rem; }
+  .scrubber-nav-btns button{
+    font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.08em;
+    background:transparent; color: var(--gold); border: 1px solid var(--gold-dim);
+    padding: 0.5rem 1rem; border-radius:3px; cursor:pointer;
+    transition: all 0.2s ease;
+  }
+  .scrubber-nav-btns button:hover:not(:disabled){ background: rgba(201,162,75,0.12); color: var(--gold-bright); }
+  .scrubber-nav-btns button:disabled{ opacity:0.3; cursor:default; }
+
+  .related-list{ list-style:none; padding:0; margin: 1rem 0; }
+  .related-list li{
+    padding: 0.9rem 1.1rem; margin-bottom:0.7rem;
+    border: 1px dashed var(--line); border-radius:4px;
+    display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    font-size:0.95rem;
+  }
+  .related-list .rl-status{
+    font-family:'Cinzel',serif; font-size:0.65rem; letter-spacing:0.1em;
+    color: var(--gold-dim); text-transform:uppercase; white-space:nowrap;
+  }
+
+  .synthesis-box{
+    margin: 1.5rem 0; padding: 1.8rem 1.8rem;
+    border: 1px solid var(--gold-dim); border-radius:6px;
+    background: linear-gradient(180deg, rgba(201,162,75,0.07), transparent 60%);
+  }
+
+  .back-top{
+    display:inline-block; margin-top:1rem; font-size:0.85rem;
+    color: var(--gold-dim); text-decoration:none; font-family:'Cinzel',serif;
+    letter-spacing:0.08em;
+  }
+  .back-top:hover{ color: var(--gold-bright); }
+
+  footer{
+    max-width: var(--maxw); margin: 0 auto; padding: 2.5rem 1.5rem 5rem;
+    text-align:center; color: var(--gold-dim); font-size: 0.85rem;
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">A Study in Church, State &amp; Conscience</div>
+  <h1>When the State Forces Worship</h1>
+  <p class="sub">The four-kingdom pattern of Daniel and Revelation, how each empire broke the first tablet of the law, who resisted and how, and Rome's own two-act version of the story — from Decius to Charlemagne.</p>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#tablets">1. The Two Tablets of the Law</a></li>
+    <li><a href="#second-tablet">2. Why Only the First Tablet Counts Here</a></li>
+    <li><a href="#empires">3. The Pattern: Four Kingdoms, One Tablet</a></li>
+    <li><a href="#empire-map">3a. The Four Kingdoms at a Glance</a></li>
+    <li><a href="#scrubber">3b. Interactive Timeline (Daniel 3 to Charlemagne)</a></li>
+    <li><a href="#babylon-k">3c. Babylon — Commandments 1 &amp; 2</a></li>
+    <li><a href="#medopersia-k">3d. Medo-Persia — Commandment 1</a></li>
+    <li><a href="#greece-k">3e. Greece — Commandments 1, 2 &amp; 4</a></li>
+    <li><a href="#rome-k">3f. Rome — Two Acts, Same Tablet</a></li>
+    <li><a href="#resistance">4. Who Resisted, and How</a></li>
+    <li><a href="#decius">5a. The Edict of Decius (250 AD)</a></li>
+    <li><a href="#laodicea">5b. Council of Laodicea, Canon 29</a></li>
+    <li><a href="#theodosius">5c. Theodosius &amp; the Edict of Thessalonica</a></li>
+    <li><a href="#charlemagne">5d. Charlemagne's Sunday Laws</a></li>
+    <li><a href="#perdition">6. "Son of Perdition": Judas &amp; the Antichrist</a></li>
+    <li><a href="#babylon-mystery">7. Mystery Babylon &amp; the Harlot's Daughters</a></li>
+    <li><a href="#obrien">8. "A Lock of Her Hair" — The O'Brien Quote</a></li>
+    <li><a href="#euphrates">9. The Euphrates Dries Up</a></li>
+    <li><a href="#modern">10. Reading This Pattern Into the Present</a></li>
+    <li><a href="#synthesis">11. Closing Synthesis</a></li>
+    <li><a href="#sources">12. Sources &amp; Further Study</a></li>
+    <li><a href="#related">13. Related Documents</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="tablets">
+  <div class="section-label">Framework</div>
+  <h2>The Two Tablets of the Law</h2>
+  <p>Across Jewish and Christian tradition, the Ten Commandments are commonly read as falling into two groups: duties toward God (the "first tablet") and duties toward one's neighbor (the "second tablet"). Where exactly the line falls differs slightly by tradition.</p>
+
+  <table>
+    <tr><th>Jewish &amp; Protestant division</th><th>Catholic &amp; Lutheran division</th></tr>
+    <tr><td>1. No other gods<br>2. No idols<br>3. No taking God's name in vain<br>4. Remember the Sabbath</td><td>1. No other gods / no idols (combined)<br>2. No taking God's name in vain<br>3. Keep the Lord's Day holy<br>(The final commandment against coveting is split in two to reach ten total)</td></tr>
+  </table>
+
+  <p>What follows traces four world empires across Scripture and history, each of which — on this reading — used state power to intervene in that first-tablet territory: matters of worship, loyalty, and allegiance to God, rather than civil crimes against a neighbor. Rome does this twice, in two very different costumes, which is why it gets a section of its own.</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="second-tablet">
+  <div class="section-label">A Necessary Qualification</div>
+  <h2>Why Only the First Tablet Counts Here</h2>
+  <p>It's worth pausing on why this document tracks first-tablet violations specifically, rather than persecution or state violence in general. Most historical atrocity — conquest, ethnic conflict, seizure of land or property, political purges — falls under the second tablet: theft, murder, false witness, coveting. That kind of state violence is real, common, and thoroughly documented across every empire in history, including all four discussed here. It simply isn't what this document is about.</p>
+  <p>What distinguishes the episodes collected below is narrower and more specific: a government compelling or forbidding a particular act of <em>worship</em>, under civil or capital penalty, rather than regulating conduct between people. Nebuchadnezzar's furnace, Darius's lions, Antiochus's Sabbath ban, Decius's libelli, and Charlemagne's Sunday courts are not being cited as examples of "persecution" in a generic sense — plenty of that has nothing to do with the first tablet — but as a specific, recurring device: <strong>the state as guarantor of a particular answer to the question of who, or what, is to be worshiped.</strong></p>
+  <div class="callout">
+    <div class="callout-label">Scripture's own distinction</div>
+    <p style="margin:0;">This isn't a distinction imposed on the text from outside. Jesus himself separates the two categories when summarizing the law as love of God and love of neighbor (Matthew 22:37–40) — two commandments, not one — and Paul does the same in Romans 13:9, listing only second-tablet commands ("you shall not murder... steal... covet") as being "summed up" in love of neighbor, leaving the first tablet as a distinct category of its own. The two-tablet division isn't a later theological gloss; it runs through the text these episodes are drawn from.</p>
+  </div>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="empires">
+  <div class="section-label">Pattern Recognition</div>
+  <h2>The Pattern: Four Kingdoms, One Tablet</h2>
+  <p>In the historicist prophetic tradition — the interpretive lineage running through the Reformers and into Millerite/Adventist reading of Daniel and Revelation — the four world empires of Daniel's visions (Babylon, Medo-Persia, Greece, and Rome) are read as a sequence, each one at some point turning the machinery of the state against the first tablet of the law. The commandment broken differs by empire, but the shape of the act — a decree, backed by the threat of death, demanding or forbidding an act of worship — repeats each time.</p>
+
+  <div class="caution">
+    <div class="caution-label">A note before the details</div>
+    <p>This is a real and old line of biblical interpretation, not something invented for this document. But it's worth being honest about its shape: it is a <em>thematic</em> pattern — state coercion of worship — not a claim that these four episodes are one single continuous conspiracy. Sincere, informed Christians disagree on how tightly the "four kingdoms" scheme points to any single future fulfillment versus describing something that has simply recurred, in different forms, many times across history.</p>
+  </div>
+
+  <div class="tablet-legend">
+    <b>Reading the diagrams below —</b>
+    <span><strong>I</strong> No other gods</span>
+    <span><strong>II</strong> No idols</span>
+    <span><strong>III</strong> No vain use of God's name</span>
+    <span><strong>IV</strong> Remember the Sabbath</span>
+  </div>
+</section>
+
+<section id="empire-map" style="border-bottom:none; padding-top:0;">
+  <div class="section-label">Overview</div>
+  <h2>The Four Kingdoms at a Glance</h2>
+  <p>Click any kingdom to jump straight to its section below.</p>
+  <div class="empire-map">
+    <a class="empire-node" href="#babylon-k">
+      <span class="node-circle">I·II</span>
+      <span class="node-label">Babylon</span>
+      <span class="node-sub">Daniel 3</span>
+    </a>
+    <a class="empire-node" href="#medopersia-k">
+      <span class="node-circle">I</span>
+      <span class="node-label">Medo-Persia</span>
+      <span class="node-sub">Daniel 6</span>
+    </a>
+    <a class="empire-node" href="#greece-k">
+      <span class="node-circle">I·II·IV</span>
+      <span class="node-label">Greece</span>
+      <span class="node-sub">1–2 Maccabees</span>
+    </a>
+    <a class="empire-node" href="#rome-k">
+      <span class="node-circle">I·II→IV</span>
+      <span class="node-label">Rome</span>
+      <span class="node-sub">Two acts, 250–800 AD</span>
+    </a>
+  </div>
+</section>
+
+<section id="scrubber" style="border-bottom:none; padding-top:0;">
+  <div class="section-label">Drag or Click Through</div>
+  <h2>Interactive Timeline: Daniel 3 to Charlemagne</h2>
+  <p>The whole sequence in seven stops — three from the earlier kingdoms, four from Rome's own two-act version of the pattern.</p>
+  <div class="scrubber-wrap">
+    <div class="scrubber-track-outer" id="scrubTrack">
+      <div class="scrubber-fill" id="scrubFill"></div>
+      <div class="scrubber-stop" data-i="0" style="left:0%;"><span class="scrubber-label">Babylon</span><span class="scrubber-year">6th c. BC</span></div>
+      <div class="scrubber-stop" data-i="1" style="left:16.66%;"><span class="scrubber-label">Medo-Persia</span><span class="scrubber-year">6th c. BC</span></div>
+      <div class="scrubber-stop" data-i="2" style="left:33.33%;"><span class="scrubber-label">Greece</span><span class="scrubber-year">167 BC</span></div>
+      <div class="scrubber-stop" data-i="3" style="left:50%;"><span class="scrubber-label">Decius</span><span class="scrubber-year">250 AD</span></div>
+      <div class="scrubber-stop" data-i="4" style="left:66.66%;"><span class="scrubber-label">Laodicea</span><span class="scrubber-year">c. 363 AD</span></div>
+      <div class="scrubber-stop" data-i="5" style="left:83.33%;"><span class="scrubber-label">Theodosius</span><span class="scrubber-year">380–392 AD</span></div>
+      <div class="scrubber-stop" data-i="6" style="left:100%;"><span class="scrubber-label">Charlemagne</span><span class="scrubber-year">789–800 AD</span></div>
+    </div>
+    <div class="scrubber-panel" id="scrubPanel"><!-- filled by JS --></div>
+    <div class="scrubber-nav-btns">
+      <button id="scrubPrev">← Earlier</button>
+      <button id="scrubNext">Later →</button>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="babylon-k-section">
+  <!-- BABYLON -->
+  <div class="kingdom-card" id="babylon-k">
+    <div class="kingdom-head">
+      <span class="kingdom-num">Kingdom I</span>
+      <span class="kingdom-verse">Daniel 3</span>
+    </div>
+    <div class="kingdom-body">
+      <h4 class="kingdom-h">Babylon — Nebuchadnezzar's Golden Image</h4>
+      <div class="commandment-chips">
+        <span class="chip">Commandment 1 — No Other Gods</span>
+        <span class="chip">Commandment 2 — No Idols</span>
+      </div>
+      <div class="tablet-row">
+        <span class="tr-label">First tablet hit:</span>
+        <div class="tablet-mini">
+          <div class="tablet-box lit">I</div>
+          <div class="tablet-box lit">II</div>
+          <div class="tablet-box">III</div>
+          <div class="tablet-box">IV</div>
+        </div>
+      </div>
+      <p>Nebuchadnezzar erects a golden image, ninety feet tall, on the plain of Dura and issues a decree: when the royal orchestra sounds, every nation, tribe, and language is to fall down and worship the image, on pain of being cast into a furnace of blazing fire (Daniel 3:4–6). This is state coercion in its most direct form — no ambiguity, no gradual drift, just a decree and an execution method attached to it.</p>
+      <p><strong>Which commandments it breaks:</strong> The decree violates the first commandment by demanding worship of something other than God, and the second by requiring homage to a manufactured image — the very two things Exodus 20:3–5 forbids in successive verses. Shadrach, Meshach, and Abednego's refusal (Daniel 3:16–18) is framed in the text as precisely a first-tablet stand: not treason against the king in any ordinary sense, but a refusal to transfer worship due to God alone.</p>
+      <p>A secondary episode reinforces the same empire's disregard for the sacred: Belshazzar's feast (Daniel 5), where the king drinks wine from vessels looted from the Jerusalem temple while praising "gods of gold and silver, bronze, iron, wood, and stone" (Daniel 5:4) — profaning objects set apart for God's worship for the sake of pagan revelry, the night the kingdom fell.</p>
+    </div>
+  </div>
+
+  <!-- MEDO-PERSIA -->
+  <div class="kingdom-card" id="medopersia-k">
+    <div class="kingdom-head">
+      <span class="kingdom-num">Kingdom II</span>
+      <span class="kingdom-verse">Daniel 6</span>
+    </div>
+    <div class="kingdom-body">
+      <h4 class="kingdom-h">Medo-Persia — Darius's Thirty-Day Prayer Ban</h4>
+      <div class="commandment-chips">
+        <span class="chip">Commandment 1 — No Other Gods</span>
+      </div>
+      <div class="tablet-row">
+        <span class="tr-label">First tablet hit:</span>
+        <div class="tablet-mini">
+          <div class="tablet-box lit">I</div>
+          <div class="tablet-box">II</div>
+          <div class="tablet-box">III</div>
+          <div class="tablet-box">IV</div>
+        </div>
+      </div>
+      <p>Persian administrators maneuver King Darius into signing an irrevocable decree: for thirty days, no one may petition any god or man except the king himself, on pain of being thrown into a den of lions (Daniel 6:7–9). Unlike Babylon's image, this law targets not a single ceremonial act but ongoing devotional practice — it makes prayer itself, addressed to anyone but the king, a capital offense.</p>
+      <p><strong>Which commandment it breaks:</strong> This is a narrower but sharper violation than Babylon's — a direct assault on the first commandment alone, since the law doesn't require worship of an idol, only the exclusion of God as an object of address. Daniel's response (Daniel 6:10) is deliberately public and unchanged in form: he continues praying toward Jerusalem three times a day, window open, exactly as before. The text frames the conflict as being entirely about who receives his petitions — nothing else about his conduct as a Persian administrator is in question.</p>
+      <p>The device of "the law of the Medes and Persians, which cannot be altered" (Daniel 6:8, 12, 15) is itself notable: an empire builds a legal system around the fiction of an unchangeable human decree, in a story whose entire tension comes from that decree colliding with the one unchangeable law that actually claims that status — God's.</p>
+    </div>
+  </div>
+
+  <!-- GREECE -->
+  <div class="kingdom-card" id="greece-k">
+    <div class="kingdom-head">
+      <span class="kingdom-num">Kingdom III</span>
+      <span class="kingdom-verse">1 &amp; 2 Maccabees</span>
+    </div>
+    <div class="kingdom-body">
+      <h4 class="kingdom-h">Greece — Antiochus IV Epiphanes</h4>
+      <div class="commandment-chips">
+        <span class="chip">Commandment 1 — No Other Gods</span>
+        <span class="chip">Commandment 2 — No Idols</span>
+        <span class="chip">Commandment 4 — Sabbath</span>
+      </div>
+      <div class="tablet-row">
+        <span class="tr-label">First tablet hit:</span>
+        <div class="tablet-mini">
+          <div class="tablet-box lit">I</div>
+          <div class="tablet-box lit">II</div>
+          <div class="tablet-box">III</div>
+          <div class="tablet-box lit">IV</div>
+        </div>
+      </div>
+      <p>Of the four, the Seleucid king Antiochus IV Epiphanes (r. 175–164 BC) mounts the broadest assault on the first tablet, and the only one of the four recorded outside Daniel itself, in the intertestamental books of 1 and 2 Maccabees. His campaign to forcibly Hellenize Judea is not a single decree but a sustained policy:</p>
+      <ul>
+        <li><strong>Commandments 1 &amp; 2:</strong> he desecrates the Second Temple by rededicating it to Olympian Zeus and setting up "the abomination of desolation" — almost certainly a pagan altar or idol — on the sacred altar itself (1 Maccabees 1:54; cf. Daniel 11:31), and orders sacrifice of pigs on it, a direct substitution of pagan worship for the worship of God in God's own house.</li>
+        <li><strong>Commandment 4:</strong> he explicitly outlaws Sabbath observance and the traditional feasts under penalty of death (1 Maccabees 1:44–50) — the clearest case among the four empires of a state directly criminalizing the fourth commandment by name, not merely sidelining it.</li>
+        <li>He further orders the burning of Torah scrolls and the execution of anyone found possessing a copy of "the book of the covenant" (1 Maccabees 1:56–57) — an attack not just on an act of worship but on the very text that defines what worship God requires.</li>
+      </ul>
+      <p>This is the episode that provoked the Maccabean Revolt, and it stands in the tradition as the most complete first-tablet assault of the pre-Roman empires — touching worship, idolatry, and Sabbath-keeping all at once, rather than isolating a single commandment as Babylon and Persia each did.</p>
+    </div>
+  </div>
+
+  <!-- ROME -->
+  <div class="kingdom-card" id="rome-k">
+    <div class="kingdom-head">
+      <span class="kingdom-num">Kingdom IV</span>
+      <span class="kingdom-verse">Two acts, four centuries apart</span>
+    </div>
+    <div class="kingdom-body">
+      <h4 class="kingdom-h">Rome — Two Acts, Same Tablet</h4>
+      <div class="commandment-chips">
+        <span class="chip">Pagan phase: Commandments 1 &amp; 2</span>
+        <span class="chip">Christianized phase: Commandment 4</span>
+      </div>
+      <div class="tablet-row">
+        <span class="tr-label">Pagan phase:</span>
+        <div class="tablet-mini">
+          <div class="tablet-box lit">I</div>
+          <div class="tablet-box lit">II</div>
+          <div class="tablet-box">III</div>
+          <div class="tablet-box">IV</div>
+        </div>
+      </div>
+      <div class="tablet-row">
+        <span class="tr-label">Christianized phase:</span>
+        <div class="tablet-mini">
+          <div class="tablet-box">I</div>
+          <div class="tablet-box">II</div>
+          <div class="tablet-box">III</div>
+          <div class="tablet-box lit">IV</div>
+        </div>
+      </div>
+      <p>Rome is the odd one out in this list, because it breaks the first tablet <em>twice</em>, from opposite directions, separated by roughly a century and a half and a change of official religion.</p>
+      <p><strong>Phase one — pagan Rome (Decius, 250 AD; later Diocletian, c. 303 AD):</strong> the empire, still openly polytheistic, demands sacrifice to the Roman gods on pain of death — a direct rerun of Babylon's Commandments 1 &amp; 2 violation, complete with its own version of the golden-image ultimatum, this time formalized into empire-wide bureaucratic procedure (the libellus certificate system, detailed below).</p>
+      <p><strong>Phase two — Christianized Rome (Laodicea, c. 363 AD; Theodosius, 380–392 AD; Charlemagne, 789–800 AD):</strong> once the empire itself becomes nominally Christian, the direction of coercion inverts, but on the historicist reading it lands on the same tablet from a different angle. Rather than forcing pagan worship, the state and church together discourage, then forbid, then criminalize the biblical seventh-day Sabbath, replacing it with Sunday observance backed by increasingly severe civil penalty — a slower-motion, more legally layered version of what Antiochus did to Judea by outright decree. The claim isn't that Sunday observance itself is a "graven image"; it's that a human institution was substituted, under civil compulsion, for what this tradition reads as a specific, named requirement of the fourth commandment.</p>
+
+      <div class="objection">
+        <div class="obj-label">Objection Considered</div>
+        <div class="obj-q">"Isn't it inconsistent to call pagan Rome and Christian Rome the 'same kingdom' committing the 'same' violation, when their theology is the opposite of each other?"</div>
+        <p>The claim isn't that the theology is identical — it plainly isn't. The claim is narrower: that the same political entity, understood in Daniel's own scheme as one continuous "fourth kingdom" (the legs and feet of iron in Daniel 2, read by historicists as running unbroken through the Papal era), used the same tool — civil law backed by penalty — against the same target — the first tablet — twice, from opposite theological directions. Continuity of method and continuity of political entity is the argument; continuity of doctrine is explicitly not being claimed.</p>
+      </div>
+
+      <p>The next section works through that second phase in the detail it deserves — it's the one with the most surviving primary-source paper trail, four documented steps across four centuries, and it's the one this document's larger series (<em class="ref">The Venerable Day</em>) is built around.</p>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="resistance">
+  <div class="section-label">Comparative View</div>
+  <h2>Who Resisted, and How</h2>
+  <p>Each episode above produced its own faithful minority — and the shape of their resistance is remarkably consistent: not armed defiance of the state generally, but continuation, in public, of the specific act of worship the decree targeted.</p>
+  <table class="resist-table">
+    <tr><th>Kingdom</th><th>The Decree</th><th>Who Resisted</th><th>How</th><th>Outcome</th></tr>
+    <tr>
+      <td>Babylon</td>
+      <td>Bow to the golden image</td>
+      <td>Shadrach, Meshach, Abednego</td>
+      <td>Public refusal to bow; no attempt to hide or flee</td>
+      <td>Delivered from the furnace (Daniel 3:26–27)</td>
+    </tr>
+    <tr>
+      <td>Medo-Persia</td>
+      <td>Pray to no god or man but the king</td>
+      <td>Daniel</td>
+      <td>Continued praying openly, in his usual place, at his usual times</td>
+      <td>Delivered from the lions (Daniel 6:22–23)</td>
+    </tr>
+    <tr>
+      <td>Greece</td>
+      <td>Eat unclean sacrificial meat; abandon Sabbath and Torah</td>
+      <td>The Maccabee family; Eleazar; the mother and seven sons (2 Maccabees 6–7)</td>
+      <td>Refusal of forced pagan sacrifice, at the cost of torture and death; eventually armed revolt</td>
+      <td>Martyrdom for many; the Maccabean Revolt ultimately restores Jewish worship (commemorated at Hanukkah)</td>
+    </tr>
+    <tr>
+      <td>Rome (pagan)</td>
+      <td>Sacrifice to the Roman gods, obtain a libellus</td>
+      <td>Christians who refused sacrifice, vs. the <em class="ref">lapsi</em> who complied</td>
+      <td>Public refusal (martyrdom) or, for the lapsi, compliance followed by later church controversy over readmission</td>
+      <td>A generation-long dispute in the church over how to treat the lapsi; no uniform outcome</td>
+    </tr>
+    <tr>
+      <td>Rome (Christianized)</td>
+      <td>Rest and worship on Sunday; abandon the seventh-day Sabbath</td>
+      <td>Sabbath-keeping minorities across later centuries (variously identified with groups such as the Waldenses and, after the Reformation, emerging Sabbatarian movements)</td>
+      <td>Continued Saturday observance despite social, economic, and at times legal penalty</td>
+      <td>Persistence as a minority position through to the present rather than a single decisive resolution</td>
+    </tr>
+  </table>
+  <p style="font-size:0.88rem; color:var(--parchment-dim);">The Rome (Christianized) row is the least tightly documented of the five — unlike the Maccabean martyrs or the Decian libelli, the historical continuity of specific Sabbath-keeping groups across many centuries is itself debated among historians, and this document doesn't overstate that continuity as a single unbroken chain.</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="decius">
+  <div class="section-label">Rome, Phase One · 250 AD</div>
+  <h2>The Edict of Decius</h2>
+  <p>In 250 AD, Emperor <strong>Decius</strong> issued an empire-wide decree requiring every inhabitant of Rome to perform a public sacrifice to the Roman gods, pour a wine libation, and taste the sacrificial meat — all before a Roman magistrate. It wasn't aimed specifically at Christians; it was a loyalty test following a period of instability, intended to restore <em class="ref">pax deorum</em>, the "peace of the gods." But for a monotheistic minority who viewed any participation as idolatry, it functioned as a direct assault on conscience — Babylon's golden image, reissued in bureaucratic form.</p>
+
+  <h3>The Libellus: Proof of Compliance</h3>
+  <p>Citizens who complied received a signed certificate — a <strong>libellus</strong> — as legal proof they had sacrificed. Because Rome recorded permanent law in stone or bronze but everyday bureaucracy on papyrus, these certificates only survive where the climate is exceptionally dry. Nearly all known examples were recovered from Egypt, particularly the town rubbish heaps of Oxyrhynchus and Theadelphia.</p>
+
+  <blockquote class="pullquote">
+    <p>"I have always sacrificed to the gods, and now in your presence I have poured a libation, sacrificed, and tasted the meat."</p>
+    <cite>Formula recorded on surviving libelli, 250 AD</cite>
+  </blockquote>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h4>What survives</h4>
+      <p style="margin:0;">A 22-line Greek libellus belonging to Aurelia Charis of Theadelphia (Berlin Neues Museum, with a duplicate in Hamburg); the Libellus of Aurelia Bellias, dated 21 June 250 AD (University of Michigan Library); and P.Oxy. XII 1464, dated 27 June 250 AD, held among the Oxyrhynchus Papyri at Oxford's Sackler/Bodleian Libraries.</p>
+    </div>
+    <div class="col-card">
+      <h4>The countersignature</h4>
+      <p style="margin:0;">Roman magistrates then signed in a different hand, witnessing the act — typically some version of "We, the commissioners, witnessed you sacrificing."</p>
+    </div>
+  </div>
+
+  <p>Refusal carried real consequences — imprisonment, torture, or execution — which is why the Decian persecution produced both martyrs and a large number of <em class="ref">lapsi</em>, Christians who complied (or bought forged certificates) to survive, a controversy that occupied the church for a generation afterward.</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="laodicea">
+  <div class="section-label">Rome, Phase Two, Step One · c. 363–364 AD</div>
+  <h2>Council of Laodicea, Canon 29</h2>
+  <p>A little over a century after Decius, the direction of coercion begins to invert. A synod of bishops meeting in Laodicea (Asia Minor) issued a set of disciplinary canons aimed at drawing a firmer line between Christian and Jewish practice. Canon 29 addressed the Sabbath directly — the first documented instance in this sequence of Rome's first-tablet violation shifting from Commandments 1–2 (pagan sacrifice) toward Commandment 4 (the Sabbath):</p>
+
+  <blockquote class="pullquote">
+    <p>"Christians must not judaize by resting on the Sabbath, but must work on that day, rather honouring the Lord's Day; and, if they can, resting then as Christians. But if any shall be found to be judaizers, let them be anathema from Christ."</p>
+    <cite>Council of Laodicea, Canon 29 (trans., New Advent Church Fathers Archive)</cite>
+  </blockquote>
+
+  <p>Read plainly, the canon does three things: it forbids Saturday rest as "judaizing," commends Sunday observance instead, and threatens excommunication (<em class="ref">anathema</em>) for noncompliance. It sat alongside other anti-Judaizing canons from the same council — Canon 37 forbidding Christians from receiving festival gifts from Jews, and Canon 38 forbidding the eating of unleavened bread during Passover — indicating the council's broader concern was separating Christian identity from Jewish practice, not sabbath theology as an isolated question.</p>
+
+  <div class="callout">
+    <div class="callout-label">Historical context worth holding onto</div>
+    <p style="margin:0;">Laodicea was a regional council, not an ecumenical one binding the whole church, and it had no civil enforcement power of its own. Its significance here is that it shows church leadership, well before any Roman emperor legislated the matter, already treating Sabbath-keeping as something to be actively discouraged — church discipline preparing the ground that civil law would later occupy.</p>
+  </div>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="theodosius">
+  <div class="section-label">Rome, Phase Two, Step Two · 380–392 AD</div>
+  <h2>Theodosius I and the Edict of Thessalonica</h2>
+  <p>A little over a century after Decius forced pagan worship on everyone, the direction of state coercion reversed entirely. <strong>Theodosius I</strong> (r. 379–395) made Nicene Christianity the empire's official religion and, through a series of decrees between 389 and 392 AD, criminalized the paganism Decius had once enforced.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">380 AD</div>
+      <div class="tl-title">Edict of Thessalonica</div>
+      <p>Declared Nicene Christianity the empire's official state religion, explicitly naming the Bishops of Rome and Alexandria as the standard of correct doctrine. Non-Nicene Christians — chiefly Arians, who held Christ to be a created, subordinate being — were branded "foolish madmen" holding "infamous heresies" and made legally liable to punishment.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">389–392 AD</div>
+      <div class="tl-title">The Theodosian decrees</div>
+      <p>Criminalized animal sacrifice, divination, and both public and private pagan worship — including household offerings of wine or incense to the Lares and Penates. Authorized the closure and demolition of pagan temples across the empire, and is widely credited with ending the ancient Olympic Games (c. 393 AD) on account of their pagan origin.</p>
+    </div>
+  </div>
+
+  <h3>Church and state entwined</h3>
+  <p>Theodosius went further than Constantine, who had merely legalized Christianity in 313 AD. He wove it into imperial law itself: bishops received state insignia and were increasingly given civil roles as judges and administrators. But the union cut both ways. After Theodosius ordered a massacre of roughly 7,000 citizens in Thessalonica in 390 AD following a riot, <strong>Bishop Ambrose of Milan</strong> barred him from the cathedral and refused him communion until he performed months of public penance — establishing, for the first time, that even the emperor was answerable to ecclesiastical authority. This is the moment the "church-state alliance" pattern this document traces becomes formal and mutual, rather than one side simply dominating the other.</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="charlemagne">
+  <div class="section-label">Rome, Phase Two, Step Three · c. 789–800 AD</div>
+  <h2>Charlemagne's Sunday Laws</h2>
+  <p>Four centuries after Laodicea, <strong>Charlemagne</strong>, King of the Franks, took what had been church discipline and turned it into binding civil law across the territories he ruled. He was already a baptized Christian; Pope Leo III did not convert him. What happened on Christmas Day, 800 AD, in Old St. Peter's Basilica was a coronation — Leo crowned him <strong>"Emperor of the Romans,"</strong> reviving the title of the fallen Western Roman Empire and effectively founding what became the Holy Roman Empire.</p>
+
+  <p>The relationship behind that coronation was transactional as much as spiritual: Leo III had been attacked by political rivals in Rome and needed Charlemagne's military protection; Charlemagne, in turn, gained religious legitimacy for his rule. Einhard, Charlemagne's biographer, records that the king claimed the coronation caught him by surprise — historians still debate whether that was genuine or political theater.</p>
+
+  <h3>The Admonitio Generalis and beyond</h3>
+  <p>Through capitularies such as the <em class="ref">Admonitio Generalis</em> (789 AD), Charlemagne mandated not just a day of rest but compulsory church attendance, going further than Constantine's original 321 AD civil rest day — and completing, in effect, the same journey Antiochus IV made by decree in a single stroke centuries earlier in Judea, except spread across four centuries and several distinct legal instruments:</p>
+
+  <div class="two-col">
+    <div class="col-card">
+      <h4>Required</h4>
+      <p style="margin:0;">Attendance at Mass. Public markets, court cases, and business dealings were banned on Sundays so nothing would compete with it.</p>
+    </div>
+    <div class="col-card">
+      <h4>Forbidden work (by law)</h4>
+      <p style="margin:0;">For men: plowing, harvesting hay, felling trees, building, gardening. For women: sewing, weaving, washing clothes — spelled out in granular detail.</p>
+    </div>
+  </div>
+
+  <p>Enforcement varied sharply by population. Frankish subjects faced fines or public shaming. In newly conquered, still-pagan Saxon territory, the <em class="ref">Capitulatio de partibus Saxoniae</em> made refusal of baptism or failure to observe Christian holy days a capital offense — civil penalty for a first-tablet matter, the same structural move as Antiochus's decree in 1 Maccabees, now enforced by a self-identified Christian emperor instead of a pagan one.</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="perdition">
+  <div class="section-label">Word Study</div>
+  <h2>"Son of Perdition": Judas and the Antichrist</h2>
+  <p>The exact phrase <strong>"son of perdition"</strong> (Greek <em class="ref">ho huios tēs apōleias</em>) occurs only twice in the New Testament: once applied to Judas Iscariot (John 17:12) and once to the end-time "man of lawlessness" (2 Thessalonians 2:3).</p>
+
+  <h3>The parallel</h3>
+  <ul>
+    <li><strong>Insider status</strong> — Judas was not an outsider to Christ's ministry; he was one of the twelve, present at healings and preaching, entrusted with the money bag.</li>
+    <li><strong>Concealment</strong> — at the Last Supper, the other disciples didn't suspect him; each asked "Lord, is it I?" (Matthew 26:22).</li>
+    <li><strong>Inward vs. outward reality</strong> — Luke 22:3 states "Satan entered Judas," describing a hidden spiritual reality behind an outwardly faithful appearance.</li>
+  </ul>
+
+  <p>Paul's description in 2 Thessalonians 2:4 places the parallel figure not in a pagan temple but <em>"in the temple of God, showing himself that he is God"</em> — language many commentators (both historicist Protestant and otherwise) take to indicate the deception arises from <em>within</em> professed Christianity rather than as an openly hostile external force. On the linguistic point: the Greek prefix <em class="ref">anti-</em> can carry the sense "against" but also "in place of, a substitute for" — which is why "antichrist," in much of the historic Christian tradition (not only Adventist), has been read as "a counterfeit standing in Christ's place" rather than simply "an opponent of Christ."</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="babylon-mystery">
+  <div class="section-label">Symbolism</div>
+  <h2>Mystery Babylon and the Harlot's Daughters</h2>
+  <p>Revelation 17–18 describes a woman named "Mystery, Babylon the Great, the Mother of Harlots" (Rev. 17:5). In the prophetic symbolism used throughout Scripture, a chaste woman typically represents a faithful covenant community, and an unfaithful woman an apostate one (see Jeremiah 6:2, Hosea, Ezekiel 16 and 23). On that convention:</p>
+
+  <ul>
+    <li><strong>The Mother</strong> — historicist interpreters, going back through the Reformation, have widely identified this figure with a corrupted, politically empowered church-state system centered on Rome — the same phase-two Rome traced through Laodicea, Theodosius, and Charlemagne above.</li>
+    <li><strong>The Daughters</strong> — the "harlot's daughters" are read as bodies that separated from that system at the Reformation but, in this reading, retained inherited traditions not directly rooted in Scripture — Sunday observance being the most frequently cited example, since it traces to Constantine's civil decree and later church councils rather than to a New Testament command.</li>
+  </ul>
+
+  <p>Revelation 18:7 has the woman boast, <em>"I sit as a queen, and am no widow, and will not see sorrow"</em> — language that closely echoes Isaiah 47:8, where the prophet puts nearly identical words in the mouth of literal ancient Babylon. That verbal echo is one of the strongest textual links historicist readers point to for treating Revelation's "Babylon" as a conscious, deliberate reuse of the Isaiah 47 oracle rather than coincidence.</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="obrien">
+  <div class="section-label">Primary Source Check</div>
+  <h2>"A Lock of Her Hair" — The O'Brien Quote, Verified</h2>
+  <p>This quote circulates widely in Adventist and other Sabbatarian literature, so it's worth sourcing precisely. It comes from <strong>Fr. John A. O'Brien</strong>, a Catholic priest and theologian, in his book <em>The Faith of Millions</em> (first published 1938, revised 1956):</p>
+
+  <blockquote class="pullquote">
+    <p>"That [Sunday] observance remains as a reminder of the Mother Church from which the non-Catholic sects broke away — like a boy running away from home, but still carrying in his pocket a picture of his mother or a lock of her hair."</p>
+    <cite>John A. O'Brien, The Faith of Millions (1956 ed.)</cite>
+  </blockquote>
+
+  <p>The argument O'Brien is making is a Catholic apologetic one: since Scripture nowhere commands Sunday observance in place of the Sabbath, Protestants who hold "Scripture alone" as their rule of faith are, by his account, unknowingly still deferring to Catholic ecclesiastical tradition every time they keep Sunday. It's used here by Sabbatarian writers to make the same point from the opposite direction — as evidence that the change is acknowledged, by Rome's own writers, to be a matter of church authority rather than biblical command.</p>
+
+  <div class="callout">
+    <div class="callout-label">Also commonly cited alongside it</div>
+    <p style="margin:0;"><em>The Catechism of Catholic Doctrine (Baltimore Catechism tradition)</em>, "Convert's Catechism" editions (e.g. 1910): Q: "Which is the Sabbath day?" A: "Saturday is the Sabbath day." Q: "Why do we observe Sunday instead of Saturday?" A: "We observe Sunday instead of Saturday because the Catholic Church transferred the solemnity from Saturday to Sunday." These catechetical Q&amp;A quotes are genuine and widely reprinted, though it's worth noting Catholic theology generally frames the change as apostolic-era practice honoring the Resurrection, formalized by later church authority — not as evidence the church claims power superior to Scripture, which is the inference Sabbatarian writers draw from it.</p>
+  </div>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="euphrates">
+  <div class="section-label">Typology</div>
+  <h2>The Euphrates Dries Up: Isaiah 47 and Revelation 16</h2>
+  <p>Ancient Babylon fell to Cyrus the Great in 539 BC by a specific stratagem: Persian engineers diverted the Euphrates, which ran directly through the city and fed its defensive moats, into an upstream basin. The river dropped low enough for Cyrus's troops to march in along the riverbed, beneath the unguarded river gates, during a night of royal feasting (the events behind Daniel 5's "handwriting on the wall").</p>
+
+  <p>Revelation 16:12 reuses this image for the sixth plague: <em>"the great river Euphrates... its water was dried up, so that the way of the kings from the east might be prepared."</em> Because Revelation elsewhere defines its own symbols, and Revelation 17:15 explicitly glosses "the waters... where the harlot sits" as <em>"peoples, multitudes, nations, and tongues,"</em> historicist readers take the Euphrates in 16:12 the same way: not a literal river, but the mass of popular and political support sustaining the Babylon system. On that reading, its "drying up" pictures the withdrawal of that global support rather than a literal hydrological event — paired with Revelation 17:16, where the same nations that once supported the system turn against it.</p>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="modern">
+  <div class="section-label">Applying the Pattern Today</div>
+  <h2>Reading This Pattern Into the Present</h2>
+  <p>Everything above — the four kingdoms, Rome's two phases, the Babylon typology — is either documented history or a long-standing line of biblical interpretation. What follows is different in kind: it's the step of mapping that pattern onto <em>current</em> institutions and technologies (digital currency, digital ID, AI surveillance). That step deserves to be held more loosely, for a specific reason.</p>
+
+  <div class="caution">
+    <div class="caution-label">Worth being clear-eyed about</div>
+    <p>Central bank digital currencies, national digital ID systems, and AI-driven data analysis are real and developing. But whether any of them will be repurposed as the specific enforcement mechanism of a future religious persecution is <strong>interpretation of unfolding events, not something that can be verified now</strong> — in the way the libelli in a Berlin museum case or the text of Canon 29 can be. Every generation of Sabbath-keeping and historicist writers since at least the 19th century has pointed to the "current" technology or institution of their day (national ID cards, barcodes, the EU, RFID chips, smartphones) as the likely mechanism — and been wrong about the timing each time. That track record doesn't mean the underlying theological pattern is wrong; it does mean confidence about <em>which specific present-day technology</em> fulfills it should be held with real humility, and stated as "how I read current events through this framework" rather than as settled fact when you're writing for others.</p>
+  </div>
+
+  <div class="objection">
+    <div class="obj-label">Objection Considered</div>
+    <div class="obj-q">"Isn't finding this pattern in every era just confirmation bias — selecting only the examples that fit and ignoring everything that doesn't?"</div>
+    <p>Worth taking seriously rather than waving off. The four kingdoms themselves aren't cherry-picked for this document — they're the anchor structure of Daniel's own visions (Daniel 2 and 7), so the base pattern is textual, not imposed. The risk of confirmation bias rises sharply, though, the moment the pattern gets extended past those four named kingdoms to arbitrary modern institutions — that's exactly the move the "Reading This Pattern Into the Present" section above is flagging as interpretation rather than established fact, and it's a fair challenge to keep asking of any specific modern application, including ones made in this document's own related pieces.</p>
+  </div>
+
+  <h3>What can be said more confidently</h3>
+  <ul>
+    <li>The <em>historical pattern</em> of state power being used to coerce worship, from Nebuchadnezzar through Charlemagne, is real and well documented — that part of the case doesn't rest on speculation.</li>
+    <li>Modern financial and surveillance infrastructure genuinely does make certain forms of large-scale economic exclusion more technically feasible than in earlier centuries — that's a factual observation about capability, separate from any claim about intent or prophetic timing.</li>
+    <li>Where the case becomes speculative is the leap from "this is now technically possible" to "this is what Revelation is describing and it's imminent." That's a theological judgment call, not a historical or technical fact, and sincere, informed Christians — including within Sabbatarian traditions — differ on how far to press it.</li>
+  </ul>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="synthesis">
+  <div class="section-label">Bringing It Together</div>
+  <h2>Closing Synthesis</h2>
+  <div class="synthesis-box">
+    <p>Strip away the specific empires and the pattern is simple: Scripture divides the law into duties toward God and duties toward neighbor, and four times in the historical record a state used its full coercive power — not against theft or murder, but against the first category — worship itself. Babylon demanded it; Medo-Persia forbade its rightful object; Greece did both, and outlawed the Sabbath by name; Rome did all of it twice, once as a pagan power compelling sacrifice, and once as a Christianized power compelling a different day of rest in the Sabbath's place.</p>
+    <p>What stays constant across all four is not the theology of the empire doing the compelling — that varies from openly pagan to explicitly Christian — but the method: civil law reaching into the first tablet, backed by penalties ranging from social exclusion to execution. And what stays constant on the other side is the shape of the response: not rebellion against the state as such, but the quiet, public, unhidden continuation of a specific act of worship, regardless of the cost attached to it.</p>
+    <p style="margin-bottom:0;">Whether that pattern is presently repeating in some new form is a question this document has deliberately declined to answer with confidence — the historical chain from Decius to Charlemagne stands on its own primary sources regardless of how that further question is resolved.</p>
+  </div>
+  <a class="back-top" href="#top">↑ back to contents</a>
+</section>
+
+<section id="sources">
+  <div class="section-label">For Further Study</div>
+  <h2>Sources &amp; Further Reading</h2>
+  <ul>
+    <li><strong>Maccabean history:</strong> 1 Maccabees 1 and 2 Maccabees 6–7, on the decrees of Antiochus IV Epiphanes and the martyrdoms that followed.</li>
+    <li><strong>Libelli:</strong> J. R. Knipfing, "The Libelli of the Decian Persecution," <em>Harvard Theological Review</em> 16 (1923) — the classic scholarly catalogue.</li>
+    <li><strong>Council of Laodicea:</strong> Canon 29, in the New Advent Church Fathers Archive (Nicene and Post-Nicene Fathers, Series II, Vol. 14).</li>
+    <li><strong>Theodosian Code:</strong> Codex Theodosianus 16.1.2 (Edict of Thessalonica, 380 AD) and the anti-pagan laws of 391–392 AD.</li>
+    <li><strong>Charlemagne:</strong> Admonitio Generalis (789 AD) and Capitulatio de partibus Saxoniae, in the Monumenta Germaniae Historica; Einhard's Vita Karoli Magni for the coronation account.</li>
+    <li><strong>O'Brien quote:</strong> John A. O'Brien, <em>The Faith of Millions</em> (Our Sunday Visitor Press, 1938; rev. 1956), p. 400 (page varies by edition).</li>
+    <li><strong>Comparative reading:</strong> for a Catholic framing of the Sunday question, see the Catechism of the Catholic Church §2174–2188; for the Adventist historicist framing, Ellen G. White, <em>The Great Controversy</em>, chs. on the Reformation and the "Image to the Beast."</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-label">A suggestion for your Measuring Reed / Venerable Day series</div>
+    <p style="margin:0;">This guide would slot naturally as a chapter feeding into <em>The Venerable Day</em> — the historical chain (Decius → Laodicea → Theodosius → Charlemagne) gives you documented ground before the more interpretive Revelation 13/17 material, and the four-kingdom section now gives readers the whole pattern, the commandment-by-commandment breakdown, and the resistance table before Rome narrows in on it.</p>
+  </div>
+</section>
+
+<section id="related">
+  <div class="section-label">Cross-References</div>
+  <h2>Related Documents in This Series</h2>
+  <p>This guide is written to sit inside your existing apologetics set. I don't have the actual files or hosted links in this session, so the slots below are placeholders — send me the filenames or URLs (or the files themselves) and I'll wire in working links and add matching "see also" callouts inside the sections above where they're most relevant (e.g. the Laodicea and O'Brien sections would link naturally to your Sabbath Hebrew/Greek word-study piece; the Babylon and Greece kingdom cards to the Daniel 2 statue visualization).</p>
+  <ul class="related-list">
+    <li><span>The Venerable Day — full Sunday-legislation history</span><span class="rl-status">Link pending</span></li>
+    <li><span>The Measuring Reed — SDA doctrine vs. denominational comparison</span><span class="rl-status">Link pending</span></li>
+    <li><span>Sabbath word study (qādash / hagiazō)</span><span class="rl-status">Link pending</span></li>
+    <li><span>Daniel 2 statue — animated SVG visualization</span><span class="rl-status">Link pending</span></li>
+    <li><span>Beside Himself — rhetorical analysis guide</span><span class="rl-status">Link pending</span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  Compiled as a study reference. Primary-source citations are given wherever a specific document, canon, or quotation is invoked — verify against the originals before using in published material.
+</footer>
+
+<script>
+(function(){
+  const episodes = [
+    {
+      tag: "Babylon · 6th c. BC",
+      title: "Nebuchadnezzar's Golden Image",
+      body: "A decree that all peoples, on hearing the royal music, fall down and worship a golden image on the plain of Dura, on pain of death. Shadrach, Meshach, and Abednego refuse and are cast into the furnace. Breaks Commandments 1 &amp; 2.",
+      link: "#babylon-k"
+    },
+    {
+      tag: "Medo-Persia · 6th c. BC",
+      title: "Darius's Prayer Ban",
+      body: "An irrevocable decree forbidding petition to any god or man but the king for thirty days. Daniel continues praying openly and is thrown to the lions. Breaks Commandment 1.",
+      link: "#medopersia-k"
+    },
+    {
+      tag: "Greece · 167 BC",
+      title: "Antiochus IV Epiphanes",
+      body: "Temple rededicated to Zeus, pig sacrifice forced on the altar, Sabbath and Torah outlawed under penalty of death. The broadest first-tablet assault of the pre-Roman kingdoms — Commandments 1, 2 &amp; 4.",
+      link: "#greece-k"
+    },
+    {
+      tag: "Rome (pagan) · 250 AD",
+      title: "The Edict of Decius",
+      body: "Every inhabitant of the empire ordered to sacrifice to the Roman gods, pour a wine libation, and taste the meat — and to obtain a signed libellus proving it. Breaks Commandments 1 &amp; 2.",
+      link: "#decius"
+    },
+    {
+      tag: "Rome (Christianized) · c. 363–364 AD",
+      title: "Council of Laodicea, Canon 29",
+      body: "A regional synod forbids Christians to \u201cjudaize\u201d by resting on the Sabbath, commends Sunday instead, and threatens anathema for noncompliance — church discipline, not yet civil law.",
+      link: "#laodicea"
+    },
+    {
+      tag: "Rome (Christianized) · 380\u2013392 AD",
+      title: "Theodosius I and the Edict of Thessalonica",
+      body: "Nicene Christianity made the empire's official religion; all other worship, pagan or heterodox Christian, criminalized. Church and state formally entwined \u2014 and Bishop Ambrose shows the arrangement runs both ways.",
+      link: "#theodosius"
+    },
+    {
+      tag: "Rome (Christianized) · 789\u2013800 AD",
+      title: "Charlemagne's Sunday Laws",
+      body: "What began as a church canon becomes binding civil law: mandatory Mass attendance, a detailed list of forbidden Sunday labor, and for conquered pagan Saxons, death for refusing baptism or holy-day observance.",
+      link: "#charlemagne"
+    }
+  ];
+
+  const track = document.getElementById('scrubTrack');
+  const fill = document.getElementById('scrubFill');
+  const panel = document.getElementById('scrubPanel');
+  const stops = Array.from(track.querySelectorAll('.scrubber-stop'));
+  const prevBtn = document.getElementById('scrubPrev');
+  const nextBtn = document.getElementById('scrubNext');
+  let current = 0;
+
+  function render(i){
+    current = i;
+    const pct = (i / (episodes.length - 1)) * 100;
+    fill.style.width = pct + '%';
+    stops.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    const ep = episodes[i];
+    panel.innerHTML =
+      '<span class="sp-tag">' + ep.tag + '</span>' +
+      '<h3 style="margin-top:0;">' + ep.title + '</h3>' +
+      '<p style="margin-bottom:0.8rem;">' + ep.body + '</p>' +
+      '<a href="' + ep.link + '" style="color:var(--gold); font-family:\'Cinzel\',serif; font-size:0.78rem; letter-spacing:0.05em; text-decoration:none; border-bottom:1px dotted var(--gold-dim);">Read full section \u2192</a>';
+    prevBtn.disabled = (i === 0);
+    nextBtn.disabled = (i === episodes.length - 1);
+  }
+
+  stops.forEach(s => {
+    s.addEventListener('click', () => render(parseInt(s.dataset.i, 10)));
+  });
+  prevBtn.addEventListener('click', () => { if (current > 0) render(current - 1); });
+  nextBtn.addEventListener('click', () => { if (current < episodes.length - 1) render(current + 1); });
+
+  render(0);
+})();
+</script>
+</body>
+</html>

@@ -897,6 +897,14 @@ const LIBRARY = [
         tagClass: "red",
         desc: "A comparative study measuring the major Christian denominations against the plain teaching of Scripture — doctrine by doctrine — exposing where tradition has replaced the Bible and what the faithful remnant is called to hold fast.",
       },
+      {
+        title: "When the State Forces Worship — A Historical & Prophetic Reference",
+        file: "Sign_of_the_times/state-forced-worship-guide.html",
+        icon: "🔥",
+        tag: "End Times",
+        tagClass: "red",
+        desc: "Every time a state has compelled worship it has legislated on the first tablet of the law — from Nebuchadnezzar's golden image through the Edict of Decius, Council of Laodicea Canon 29, Theodosius, and Charlemagne's Sunday laws. With an interactive timeline, the resisters in each era, the 'son of perdition' and Mystery Babylon studies, and the verified O'Brien quotation.",
+      },
     ],
   },
   {
