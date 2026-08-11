@@ -1182,6 +1182,24 @@ const EXTERNAL_SOURCE_DOCS = [
   },
   {
     title:
+      "Protestant Quote 61 - Schaff-Herzog, A Religious Encyclopaedia, art. “Sunday”",
+    file: SOURCE_DRIVE_FOLDER,
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "The Schaff-Herzog article stating that no regulations for Sunday observance are laid down in the New Testament, “nor, indeed, is its observance even enjoined” (71 MB) — hosted on Google Drive; opens in a new tab.",
+  },
+  {
+    title:
+      "Protestant Quote 65 - Charles Hodge, Systematic Theology, Vol. 3 (complete volume)",
+    file: SOURCE_DRIVE_FOLDER,
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "Princeton's Systematic Theology, Vol. 3, pp. 321–348 on the origin and perpetual obligation of the Sabbath (106 MB) — hosted on Google Drive; opens in a new tab.",
+  },
+  {
+    title:
       "Quote 25 - The Faith of Millions, 6th edition 1938 (complete volume)",
     file: SOURCE_DRIVE_FOLDER,
     icon: "☁️",
