@@ -1064,15 +1064,20 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
 
 **Congregational Additional Quotes**:
 
-48. **Orin Fowler, A.M., *Mode and Subjects of Baptism***:
-    - Congregationalist minister
-    - **Quote**: "There is no command in the Bible requiring us to observe the first day of the week as the Christian Sabbath."
-    - **Significance**: Congregationalist admission of no biblical command for Sunday
+48. **Orin Fowler, A.M., *Four Sabbath Evening Lectures on the Mode and Subjects of Baptism*** (Boston: William Peirce, 1835), pp. 93–94:
+    - Congregationalist minister, arguing against the Baptists in defence of infant baptism
+    - **Quote**: "I ask, is there no duty binding upon us, except those which are enjoined by express command? Then why do we observe the first day of the week as the Christian Sabbath? **There is no command in the Bible, requiring us to observe the first day of the week as the Christian Sabbath.** If we admit the duty of keeping the first day of the week as the Christian Sabbath, we must rest the obligation to this duty on the original institution as enjoined in the fourth command; and we must admit that after the resurrection of Christ, a change of the day, from the seventh to the first day of the week, took place. **But there is no command recorded in the Bible, enjoining this change.**"
+    - **On What Sunday Rests Upon Instead**: "How then do we know that we are right in keeping the first instead of the seventh day, as the Sabbath of the Lord? I answer: the Apostles and Christians of the first three or four centuries, as we learn from ecclesiastical history, kept the first day and not the seventh. And we are warranted, from the purity of their faith and lives... to conclude, **without any express command**, that we are authorized to observe the first day of the week, as the Christian Sabbath." He adds that "the original institution of the Sabbath has undergone the change of observing the first instead of the seventh day, and **this change was not brought about by express divine command specifically recorded in the word of God**"
+    - **Significance**: The admission is unusually candid because Fowler *needs* it. Arguing against Baptists who demanded express scriptural warrant for infant baptism, he answers by pointing at Sunday: if Christians already keep a day with no command behind it, then a practice can bind without a command. He concludes — "Apply the universal agreement of Christians in this case, to the case of Infant Baptism, and there is a most striking analogy between the institution of the Christian Sabbath and that of Infant Baptism." Sunday's lack of biblical authority is not a concession dragged out of him; it is the **premise of his own argument**
+    - 📄 **Source Document**: [View Original — Fowler, *Four Sabbath Evening Lectures*, 1835, pp. 93–94](Supporting%20Documents/Protestant%20Quote_48%20-%20foursabbatheveni00fowl.pdf#search=no%20command%20in%20the%20Bible)
 
-49. **Dr. Lyman Abbott, *Christian Union*** (Jan. 18, 1882):
-    - Congregationalist minister and editor
-    - **Quote**: "The current notion that Christ and His apostles authoritatively substituted the first day for the seventh, is absolutely without any authority in the New Testament."
-    - **Significance**: Prominent Congregationalist leader stating change has "absolutely no authority in New Testament"
+49. **Dr. Lyman Abbott, *The Christian Union***, Vol. XXV, No. 3 (January 19, 1882), p. 73:
+    - Congregationalist minister and editor of *The Christian Union*, writing on Christ's method as a reformer
+    - **Quote**: "the fasting is still maintained in the Christian church but the Jewish Sabbath has been entirely superseded. **The current notion that Christ and his Apostles authoritatively substituted the first day of the week for the seventh is absolutely without any authority in the New Testament.**"
+    - **On How the Change Actually Happened**: "As gradually the Christian church lost its Jewish character, and its Jewish membership became merged in the world-wide membership, **the historical associations which had given sacredness to the seventh day were forgotten**, the associations which gave peculiar sacredness to the resurrection day became predominant, and thus Christian experience found its new expression, not only in a new day but in a new [form of worship]"
+    - **Significance**: A leading Congregationalist editor stating in his own paper that the belief Christ and the apostles authoritatively moved the day is "absolutely without any authority in the New Testament," and describing the actual mechanism as gradual forgetting rather than apostolic decree
+    - **Note on Abbott's Own Position**: Abbott is not arguing for the seventh day. He holds that "the Jewish Sabbath has been entirely superseded" and treats the shift as the natural outworking of Christian experience. He is a witness that no apostolic transfer occurred — not that Christians should return to Saturday
+    - 📄 **Source Document**: [View Original — *The Christian Union*, 19 Jan 1882, p. 73](Supporting%20Documents/Protestant%20Quote_49%20-%20sim_new-outlook_the-christian-union_1882-01-19_25_3.pdf#search=without%20any%20authority%20in%20the%20New%20Testament)
 
 51. **D.L. Moody** (at San Francisco, Jan. 1st, 1881):
     - Founder of Moody Bible Institute
