@@ -12,16 +12,23 @@ INFOGRAPHICS_OUTPUT_FILE = REPO_ROOT / "assets" / "infographics-manifest.json"
 SOURCE_SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".gif"}
 INFOGRAPHICS_SUPPORTED_EXTENSIONS = {".html"}
 
-# Files too large for GitHub (>100 MB) — hosted on Google Drive instead.
-# They may still exist locally but must not enter the manifest; the site
-# links to them via EXTERNAL_SOURCE_DOCS in assets/app.js.
-SOURCE_EXCLUDED_FILES = {
-    "Sabbath History.pdf",
-    "Quote 52 - The_Catholic_Encyclopedia.pdf",
-}
+# Source documents at or above this size are kept out of the repository to
+# save Git space (GitHub's hard limit is 100 MB, but we cut well below it).
+# They may still exist locally but must not enter the manifest; the site links
+# to them via EXTERNAL_SOURCE_DOCS in assets/app.js, which points at the shared
+# Google Drive folder. Keep .gitignore in step with this threshold.
+SOURCE_MAX_BYTES = 60 * 1024 * 1024
+
+# Named exclusions, applied on top of the size rule — for files that must stay
+# out of the manifest regardless of how large they happen to be.
+SOURCE_EXCLUDED_FILES: set[str] = set()
 
 
-def collect_paths(directory: Path, extensions: set[str]) -> list[str]:
+def collect_paths(
+    directory: Path,
+    extensions: set[str],
+    max_bytes: int | None = None,
+) -> list[str]:
     if not directory.exists():
         return []
 
@@ -31,6 +38,7 @@ def collect_paths(directory: Path, extensions: set[str]) -> list[str]:
         if path.is_file()
         and path.suffix.lower() in extensions
         and path.name not in SOURCE_EXCLUDED_FILES
+        and (max_bytes is None or path.stat().st_size < max_bytes)
     ]
     paths.sort(key=str.casefold)
     return paths
@@ -48,7 +56,9 @@ def write_manifest(output_file: Path, paths: list[str]) -> bool:
 
 
 def main() -> int:
-    source_paths = collect_paths(SOURCE_DIR, SOURCE_SUPPORTED_EXTENSIONS)
+    source_paths = collect_paths(
+        SOURCE_DIR, SOURCE_SUPPORTED_EXTENSIONS, max_bytes=SOURCE_MAX_BYTES
+    )
     source_changed = write_manifest(SOURCE_OUTPUT_FILE, source_paths)
     if source_changed:
         print(

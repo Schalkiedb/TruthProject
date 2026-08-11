@@ -1,6 +1,14 @@
-# Ignore large PDF files hosted on Google Drive (>100 MB GitHub limit)
+# Large source documents (>60 MB) are hosted in the shared Google Drive folder
+# instead of the repo, to save Git space. The site links to them via
+# EXTERNAL_SOURCE_DOCS in assets/app.js; scripts/generate_source_manifest.py
+# keeps them out of the manifest via SOURCE_MAX_BYTES. Keep the two in step.
 Supporting Documents/Sabbath History.pdf
 Supporting Documents/Quote 52 - The_Catholic_Encyclopedia.pdf
+Supporting Documents/Protestant Quote_38 - Ductor Dubitantium Bishop Jeremy Taylor.pdf
+Supporting Documents/Quote_49-Patrologi-cursus_completus.pdf
+Supporting Documents/THE_CATHOLIC_EDUCATOR_A_LIBRARY_OF_CATHOLIC_INSTRUCTION_AND_DEVOTIONClaim_Pope_can_change_divine_law.pdf
+Supporting Documents/Early Church Quote_4 - patrologiae_cursus_completus_gr_vol_023.pdf
+Supporting Documents/Quote_25-Faith_of_Millions_page_147_sunday_claim_6th_edition_1938.pdf
 
 # Combined whole-Bible JSON files (<X>_bible.json, ~143 MB total) are NOT read
 # by the verse lookup — it fetches the per-book files under <X>_books/ so a

@@ -1120,6 +1120,14 @@ const INFOGRAPHICS_MANIFEST = "assets/infographics-manifest.json";
    hosted on Google Drive (view access for anyone with the link) and
    open in a new tab. Folder:
    https://drive.google.com/drive/folders/1KFwulHXlwJGCsqqax-iYDmuIEf7fJwox */
+/* Source documents over the 60 MB threshold in
+   scripts/generate_source_manifest.py. These are not committed to the repo —
+   they live in the shared Google Drive folder and open in a new tab. Where a
+   direct per-file Drive link is known it is used; otherwise the entry points
+   at the shared folder below. Keep in step with .gitignore. */
+const SOURCE_DRIVE_FOLDER =
+  "https://drive.google.com/drive/folders/1KFwulHXlwJGCsqqax-iYDmuIEf7fJwox?usp=sharing";
+
 const EXTERNAL_SOURCE_DOCS = [
   {
     title: "Quote 52 - The Catholic Encyclopedia (1913, full volume)",
@@ -1137,21 +1145,63 @@ const EXTERNAL_SOURCE_DOCS = [
     tagClass: "blue",
     desc: "Primary source document (205 MB) — hosted on Google Drive; opens in a new tab.",
   },
+  {
+    title:
+      "Protestant Quote 38 - Jeremy Taylor, Ductor Dubitantium (complete volume)",
+    file: SOURCE_DRIVE_FOLDER,
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "Bishop Jeremy Taylor's Ductor Dubitantium, containing the Sec. 51 and 59 admissions that the Lord's Day 'did not succeed in the place of the Sabbath' and was 'merely of Ecclesiastical institution' (133 MB) — hosted on Google Drive; opens in a new tab.",
+  },
+  {
+    title: "Quote 49 - Patrologia Cursus Completus, Vol. 143 (complete volume)",
+    file: "https://drive.google.com/file/d/1p3h-rXtiT_7m5nTdSoWtqUPLv-sQVZ9S/view",
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "Migne's Patrologia Latina Vol. 143, col. 937 (81 MB) — hosted on Google Drive; opens in a new tab. The cited column is also available as a page image in the repository.",
+  },
+  {
+    title:
+      "The Catholic Educator - A Library of Catholic Instruction and Devotion",
+    file: "https://drive.google.com/file/d/1E8cmHBs2pcu6VtEVQDo_i72FdsXWvFoM/view",
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "Contains the claim that the Pope can change divine law (79 MB) — hosted on Google Drive; opens in a new tab.",
+  },
+  {
+    title:
+      "Early Church Quote 4 - Patrologiae Cursus Completus, Graeca Vol. 23 (complete volume)",
+    file: SOURCE_DRIVE_FOLDER,
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "Eusebius in Migne's Patrologia Graeca Vol. 23, cols. 1171–1172 (65 MB) — hosted on Google Drive; opens in a new tab. The cited columns are also available as a page image in the repository.",
+  },
+  {
+    title:
+      "Quote 25 - The Faith of Millions, 6th edition 1938 (complete volume)",
+    file: SOURCE_DRIVE_FOLDER,
+    icon: "☁️",
+    tag: "Drive PDF",
+    tagClass: "blue",
+    desc: "John A. O'Brien's The Faith of Millions, p. 147 — the 'Saturday, not Sunday' admission (60 MB) — hosted on Google Drive; opens in a new tab. The 1974 edition page image remains in the repository.",
+  },
 ];
 
 function isExternalUrl(filePath) {
   return /^https?:\/\//i.test(String(filePath));
 }
 
-/* Large PDFs (60–85 MB) that still ship via GitHub but have a Google
-   Drive fallback for slow connections or if GitHub serving fails. */
+/* Large PDFs that still ship via GitHub but have a Google Drive fallback for
+   slow connections or if GitHub serving fails. Documents over the 60 MB
+   threshold are not in the repo at all — they belong in EXTERNAL_SOURCE_DOCS
+   above, not here. */
 const DRIVE_FALLBACKS = {
   "Supporting Documents/Quote_35-Sunday_Visitor_1950-02-05.pdf":
     "https://drive.google.com/file/d/1tezFOZcQwEm1aRSdr2uPbzJeDZmjxvFU/view",
-  "Supporting Documents/Quote_49-Patrologi-cursus_completus.pdf":
-    "https://drive.google.com/file/d/1p3h-rXtiT_7m5nTdSoWtqUPLv-sQVZ9S/view",
-  "Supporting Documents/THE_CATHOLIC_EDUCATOR_A_LIBRARY_OF_CATHOLIC_INSTRUCTION_AND_DEVOTIONClaim_Pope_can_change_divine_law.pdf":
-    "https://drive.google.com/file/d/1E8cmHBs2pcu6VtEVQDo_i72FdsXWvFoM/view",
 };
 
 /** Show/hide the "also on Google Drive" banner above the PDF viewer. */
@@ -1169,7 +1219,7 @@ function updateDriveFallbackBanner(filePath) {
     iframe.parentNode.insertBefore(banner, iframe);
   }
   banner.innerHTML =
-    `☁️ Large document (60–85 MB). Slow to load or not displaying? ` +
+    `☁️ Large document. Slow to load or not displaying? ` +
     `<a href="${driveUrl}" target="_blank" rel="noopener noreferrer">Open it on Google Drive ↗</a>`;
   banner.style.display = "";
 }
