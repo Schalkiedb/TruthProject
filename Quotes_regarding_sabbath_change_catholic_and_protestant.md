@@ -1171,9 +1171,10 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
 **Charles H. Spurgeon (Baptist — "Prince of Preachers")**:
 
 64. **Charles H. Spurgeon** — the most famous Baptist preacher in history; his sermons remain the most widely read Protestant sermons ever published:
-    - **On Why Baptists Keep the First Day**: "The first day of the week commemorates the resurrection of Christ, and following apostolical example, we have made the first day of the week to be our Sabbath."
+    - **On Why Baptists Keep the First Day** — sermon "The Lord is Risen Indeed," No. 1106, *Metropolitan Tabernacle Pulpit* Vol. 19, delivered on Lord's-Day morning, April 13th, 1873, at the Metropolitan Tabernacle, Newington, on Luke 24:5–6 — the opening sentence of the sermon: "The first day of the week commemorates the resurrection of Christ, and, following apostolical example, we have made the first day of the week to be our Sabbath."
     - **His Position**: Spurgeon held the fourth commandment to be perpetual moral law, binding on Christians, and preached repentance for Sabbath-breaking. He taught that the day of observance moved from the seventh to the first at the resurrection, and regarded that transfer as divinely sanctioned — the position of the *Second London Baptist Confession*, which he subscribed
     - **Significance**: Spurgeon cannot be cited as a witness that Sunday lacks warrant; he believed it had warrant. His value to this collection is the ground he rests it on. Asked why Christians keep the first day, the most influential Baptist preacher of the 19th century answers not with a command of Christ or an apostolic decree, but with **"apostolical example"** — practice, not precept. He affirms an unchangeable commandment and then applies it to a day that commandment does not name, exactly as Adam Clarke does (Quote 62). The strongest Protestant defenders of Sunday reach for example and inference precisely because no direct command exists
+    - 📄 **Source Document**: [View Original — *Metropolitan Tabernacle Pulpit*, "The Lord is Risen Indeed," Sermon No. 1106](Supporting%20Documents/Protestant%20Quote_64%20-%2019_The_20Lord_20is_20Risen_20Indeed.pdf) | [View Online ↗](https://www.spurgeon.org/resource-library/sermons/the-lord-is-risen-indeed/)
 
 **Reformed/Calvinist Theological Quotes**:
 
