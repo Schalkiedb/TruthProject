@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import datetime as _dt
 import json
+import re
+import urllib.parse
+import xml.sax.saxutils as _xml
 from pathlib import Path
 
 
@@ -9,6 +13,19 @@ SOURCE_DIR = REPO_ROOT / "Supporting Documents"
 SOURCE_OUTPUT_FILE = REPO_ROOT / "assets" / "source-documents-catholic.json"
 INFOGRAPHICS_DIR = REPO_ROOT / "infographics"
 INFOGRAPHICS_OUTPUT_FILE = REPO_ROOT / "assets" / "infographics-manifest.json"
+
+# --- sitemap ----------------------------------------------------------------
+# Every study is addressed as "?doc=<path>" (see parseDocHash in assets/app.js),
+# which gives it a crawlable URL. Hash-fragment variants are not indexed as
+# separate pages, so the sitemap must use the query form.
+SITE_BASE_URL = "https://schalkiedb.github.io/TruthProject/"
+APP_JS = REPO_ROOT / "assets" / "app.js"
+SITEMAP_FILE = REPO_ROOT / "sitemap.xml"
+ROBOTS_FILE = REPO_ROOT / "robots.txt"
+# Registry entries that are generated in the browser rather than real files.
+SITEMAP_SKIP_FILES = {"__scripture-index__"}
+# Standalone pages that work as their own URL, outside the ?doc= router.
+SITEMAP_EXTRA_PAGES = ["prophecy_map.html"]
 SOURCE_SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".gif"}
 INFOGRAPHICS_SUPPORTED_EXTENSIONS = {".html"}
 
@@ -55,6 +72,72 @@ def write_manifest(output_file: Path, paths: list[str]) -> bool:
     return True
 
 
+def registry_files() -> list[str]:
+    """Local document paths registered in assets/app.js."""
+    app = APP_JS.read_text(encoding="utf-8")
+    files = re.findall(r'^\s*file:\s*"([^"]+)"', app, re.M)
+    out: list[str] = []
+    for f in files:
+        if f.startswith(("http://", "https://")) or f in SITEMAP_SKIP_FILES:
+            continue
+        if f not in out:
+            out.append(f)
+    return out
+
+
+def build_sitemap() -> str:
+    """Sitemap of the home page plus one crawlable ?doc= URL per study."""
+    entries: list[tuple[str, str, str]] = []  # (loc, lastmod, priority)
+
+    def add(loc: str, path: Path | None, priority: str) -> None:
+        stamp = ""
+        if path is not None and path.exists():
+            stamp = _dt.datetime.fromtimestamp(
+                path.stat().st_mtime, _dt.timezone.utc
+            ).strftime("%Y-%m-%d")
+        entries.append((loc, stamp, priority))
+
+    add(SITE_BASE_URL, REPO_ROOT / "index.html", "1.0")
+    for page in SITEMAP_EXTRA_PAGES:
+        target = REPO_ROOT / page
+        if target.exists():
+            add(SITE_BASE_URL + urllib.parse.quote(page), target, "0.8")
+    for rel in registry_files():
+        target = REPO_ROOT / rel
+        if not target.exists():
+            continue
+        add(SITE_BASE_URL + "?doc=" + urllib.parse.quote(rel, safe=""), target, "0.7")
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for loc, stamp, priority in entries:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{_xml.escape(loc)}</loc>")
+        if stamp:
+            lines.append(f"    <lastmod>{stamp}</lastmod>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append("  </url>")
+    lines.append("</urlset>")
+    return "\n".join(lines) + "\n"
+
+
+def build_robots() -> str:
+    return (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "\n"
+        f"Sitemap: {SITE_BASE_URL}sitemap.xml\n"
+    )
+
+
+def write_text_if_changed(output_file: Path, content: str) -> bool:
+    old = output_file.read_text(encoding="utf-8") if output_file.exists() else ""
+    if old == content:
+        return False
+    output_file.write_text(content, encoding="utf-8")
+    return True
+
+
 def main() -> int:
     source_paths = collect_paths(
         SOURCE_DIR, SOURCE_SUPPORTED_EXTENSIONS, max_bytes=SOURCE_MAX_BYTES
@@ -87,6 +170,18 @@ def main() -> int:
             f"({len(infographic_paths)} infographic entries): "
             f"{INFOGRAPHICS_OUTPUT_FILE.relative_to(REPO_ROOT).as_posix()}"
         )
+
+    sitemap = build_sitemap()
+    url_count = sitemap.count("<loc>")
+    if write_text_if_changed(SITEMAP_FILE, sitemap):
+        print(f"Updated sitemap.xml with {url_count} URLs.")
+    else:
+        print(f"sitemap.xml already up to date ({url_count} URLs).")
+
+    if write_text_if_changed(ROBOTS_FILE, build_robots()):
+        print("Updated robots.txt.")
+    else:
+        print("robots.txt already up to date.")
 
     return 0
 

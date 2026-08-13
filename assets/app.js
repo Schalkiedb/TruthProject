@@ -2144,31 +2144,62 @@ function buildHomeCards() {
    the browser back/forward buttons work, and a refresh returns
    the reader to the same study. Legacy "#<path>" links (used by
    prophecy_map.html) are also understood. */
-function parseDocHash() {
-  const raw = decodeURIComponent((window.location.hash || "").replace(/^#/, ""));
+/* Documents are addressed as "?doc=<path>" so each study has a real,
+   crawlable URL that can appear in sitemap.xml — search engines do not
+   index "#fragment" variants as separate pages. Legacy "#doc=<path>"
+   and bare "#<path>" links (shared links, bookmarks, prophecy_map.html)
+   are still understood and are upgraded to the query form on arrival. */
+function resolveDocPath(raw) {
   if (!raw) return null;
   const path = raw.startsWith("doc=") ? raw.slice(4) : raw;
+  if (!path) return null;
   const item = ALL_ITEMS.find((i) => normalise(i.file) === normalise(path));
   return item ? item.file : null;
 }
 
+function parseDocHash() {
+  let raw = "";
+  try {
+    raw = new URLSearchParams(window.location.search || "").get("doc") || "";
+  } catch { /* no URLSearchParams (very old browser) */ }
+  if (raw) return resolveDocPath(raw);
+  // Fall back to the legacy hash form.
+  const hash = (window.location.hash || "").replace(/^#/, "");
+  if (!hash) return null;
+  return resolveDocPath(decodeURIComponent(hash));
+}
+
+function docUrlFor(filePath) {
+  return window.location.pathname + "?doc=" + encodeURIComponent(filePath);
+}
+
 function pushDocHash(filePath) {
-  const target = "#doc=" + encodeURIComponent(filePath);
-  if (window.location.hash === target) return;
+  const target = docUrlFor(filePath);
+  const current = window.location.pathname + window.location.search;
+  if (current === target && !window.location.hash) return;
   try { history.pushState(null, "", target); } catch { /* file:// etc. */ }
 }
 
 function clearDocHash() {
-  if (!window.location.hash) return;
+  if (!window.location.search && !window.location.hash) return;
   try {
-    history.pushState(null, "", window.location.pathname + window.location.search);
+    const params = new URLSearchParams(window.location.search || "");
+    params.delete("doc");
+    const rest = params.toString();
+    history.pushState(null, "", window.location.pathname + (rest ? "?" + rest : ""));
   } catch { /* ignore */ }
 }
 
 function routeFromLocation() {
   const file = parseDocHash();
-  if (file) loadDocument(file, undefined, { fromHistory: true });
-  else showHome({ fromHistory: true });
+  if (file) {
+    // A legacy "#doc=" link resolved: rewrite the address bar to the
+    // crawlable "?doc=" form without adding a history entry.
+    if (window.location.hash && !window.location.search) {
+      try { history.replaceState(null, "", docUrlFor(file)); } catch { /* ignore */ }
+    }
+    loadDocument(file, undefined, { fromHistory: true });
+  } else showHome({ fromHistory: true });
 }
 
 window.addEventListener("popstate", routeFromLocation);

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://schalkiedb.github.io/TruthProject/sitemap.xml
