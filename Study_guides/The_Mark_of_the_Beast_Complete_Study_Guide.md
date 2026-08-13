@@ -978,7 +978,7 @@ The following documents in this library provide the primary-source evidence, his
 
 > **[Commandments.md](../Commandments.md)** — The critical companion to this guide. Contains: the complete three-way comparison of Biblical, Catholic, and Protestant Ten Commandments showing exactly which commandment was altered; a MARK connection table documenting 4 Catholic sources that use the exact words *"mark"* and *"distinguishing sign"* for Sunday observance; and 10 Catholic + 8 Protestant direct-quote admissions that Saturday is the biblical Sabbath and Sunday has no scriptural basis. Distribute this document as a standalone reference.
 
-> **[Quotes Regarding Sabbath Change — Catholic and Protestant](../Quotes%20regarding%20sabbath%20change%20catholic%20and%20protestant.md)** — A curated collection of the most powerful direct-admission quotes, formatted for sharing. The confessions of Rome's own authorities regarding the Sabbath-to-Sunday transfer — in their own words.
+> **[Quotes Regarding Sabbath Change — Catholic and Protestant](../Quotes_regarding_sabbath_change_catholic_and_protestant.md)** — A curated collection of the most powerful direct-admission quotes, formatted for sharing. The confessions of Rome's own authorities regarding the Sabbath-to-Sunday transfer — in their own words.
 
 > **[The Vatican Empire — Complete Exposure](../The_Vatican_Empire_Complete_Exposure.md)** — The historical and institutional profile of the beast power identified in this guide: Vatican finances, political structure, diplomatic reach, property holdings, and documented history of law-enforcement and persecution — the infrastructure behind the mark's enforcement.
 

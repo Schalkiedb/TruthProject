@@ -269,8 +269,8 @@ Multiple official Catholic sources use the word **"mark"** or **"sign"** to desc
 ### Internal Study Documents (This Series)
 
 - [Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md](Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md) — Section: "The Ten Commandments: Biblical vs. Catholic"
-- [Quotes regarding sabbath change catholic and protestant.md](Quotes%20regarding%20sabbath%20change%20catholic%20and%20protestant.md) — Direct quotes from both traditions
-- [Study guides/The_Mark_of_the_Beast_Complete_Study_Guide.md](Study%20guides/The_Mark_of_the_Beast_Complete_Study_Guide.md) — Part 18: The Convert's Catechism
-- [Study guides/The_Little_Horn_Complete_Study_Guide.md](Study%20guides/The_Little_Horn_Complete_Study_Guide.md) — Daniel 7:25 and the change of law
-- [Study guides/Daniel_7 & 8_The_Kingdoms_Revealed_Study_Guide.md](Study%20guides/Daniel_7%20%26%208_The_Kingdoms_Revealed_Study_Guide.md) — Visual chart: 10 Commandments Bible vs. Catholic
-- [Study guides/ten_commandments_twice_removed.txt](Study%20guides/ten_commandments_twice_removed.txt) — Full text: *Ten Commandments Twice Removed* (Danny Shelton & Shelley Quinn)
+- [Quotes_regarding_sabbath_change_catholic_and_protestant.md](Quotes_regarding_sabbath_change_catholic_and_protestant.md) — Direct quotes from both traditions
+- [Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md](Study_guides/The_Mark_of_the_Beast_Complete_Study_Guide.md) — Part 18: The Convert's Catechism
+- [Study_guides/The_Little_Horn_Complete_Study_Guide.md](Study_guides/The_Little_Horn_Complete_Study_Guide.md) — Daniel 7:25 and the change of law
+- [Study_guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md](Study_guides/Daniel_7_and_8_The_Kingdoms_Revealed_Study_Guide.md) — Visual chart: 10 Commandments Bible vs. Catholic
+- [Additional Reading/ten_commandments_twice_removed.pdf](Additional%20Reading/ten_commandments_twice_removed.pdf) — Full text: *Ten Commandments Twice Removed* (Danny Shelton & Shelley Quinn)

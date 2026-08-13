@@ -1046,7 +1046,7 @@ This guide covers the conspiracy against the Sabbath, ancient Babylon's fall, Re
 
 > **[Babylon's Wine — The Hidden Legacy and God's Final Call](../Babylons_Wine_The_Hidden_Legacy_and_Gods_Final_Call.md)** — The series master document and the direct companion to Part 2's central message: the full prophetic narrative of Babylon's wine, its Constantine origins, its Protestant spread, and God's final call for His people to come out — the same call this guide sounds from Revelation 18.
 
-> **[Quotes Regarding Sabbath Change — Catholic and Protestant](../Quotes%20regarding%20sabbath%20change%20catholic%20and%20protestant.md)** — Direct evidence of the conspiracy of priests and prophets (Ezekiel 22:25-26) examined in Part 1 of this guide: Catholic and Protestant authorities openly admitting the Sabbath was hidden and replaced by Sunday through church tradition, not Scripture.
+> **[Quotes Regarding Sabbath Change — Catholic and Protestant](../Quotes_regarding_sabbath_change_catholic_and_protestant.md)** — Direct evidence of the conspiracy of priests and prophets (Ezekiel 22:25-26) examined in Part 1 of this guide: Catholic and Protestant authorities openly admitting the Sabbath was hidden and replaced by Sunday through church tradition, not Scripture.
 
 > **[The Vatican Empire — Complete Exposure](../The_Vatican_Empire_Complete_Exposure.md)** — The institutional profile of end-time Babylon: the wealth, the political alliances, the doctrinal compromises, and the coming healing of the wound that sets the stage for the events of Revelation 17-18 this guide covers.
 

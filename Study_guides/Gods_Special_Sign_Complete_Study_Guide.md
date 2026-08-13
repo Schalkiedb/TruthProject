@@ -1031,7 +1031,7 @@ In the New Testament, **all believers in Jesus are spiritual Israel**:
 
 This guide establishes the Sabbath as God's special sign. The following library documents provide the historical evidence, primary sources, and extended apologetics that demonstrate how that sign was attacked, displaced, and must be restored:
 
-> **[Sabbath Study Guide](Sabbath%20study%20guide.md)** — The comprehensive apologetics companion to this guide: 39 objections to Sabbath-keeping answered with Scripture and history; 2,000 years of documented Sabbath-keeping communities (Armenia, Ethiopia, Nestorians, Waldensians, Bogomils, Subbotniks, and more); the complete historical record of who kept the sign and what it cost them.
+> **[Sabbath Study Guide](Sabbath_study_guide.md)** — The comprehensive apologetics companion to this guide: 39 objections to Sabbath-keeping answered with Scripture and history; 2,000 years of documented Sabbath-keeping communities (Armenia, Ethiopia, Nestorians, Waldensians, Bogomils, Subbotniks, and more); the complete historical record of who kept the sign and what it cost them.
 
 > **[The Sabbath Rest — Complete Guide](../The_Sabbath_Rest_Complete_Guide.md)** — The theological depth companion: creation rest, covenant theology, Hebrews 4 analysis, the eschatological Sabbath, and what Sabbath-keeping means in the context of salvation by grace.
 
