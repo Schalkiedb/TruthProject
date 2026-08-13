@@ -22,11 +22,13 @@
   <meta name="theme-color" content="#0c0f1a" />
   <meta name="color-scheme" content="dark light" />
   <link rel="apple-touch-icon" href="assets/icon-192.svg" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="assets/style.css?v=20260714b" />
-  <script defer src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <!-- Self-hosted so markdown still renders offline: the service worker can
+       precache these, but cross-origin CDN scripts cannot be precached.
+       marked v4.3.0 · DOMPurify 3.1.6 — same versions previously loaded from
+       jsdelivr/cdnjs. Update the files and sw.js CACHE_NAME together. -->
+  <script defer src="assets/vendor/marked/marked.min.js"></script>
+  <script defer src="assets/vendor/dompurify/purify.min.js"></script>
 </head>
 <body>
 

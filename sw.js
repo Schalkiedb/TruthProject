@@ -3,7 +3,7 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v8";
+const CACHE_NAME = "babylons-wine-v9";
 
 const PRECACHE_URLS = [
   "./index.html",
@@ -26,6 +26,9 @@ const PRECACHE_URLS = [
   "./assets/vendor/d3/d3.min.js",
   "./assets/vendor/d3/topojson.min.js",
   "./assets/vendor/d3/countries-110m.json",
+  // Markdown pipeline — self-hosted so documents render offline.
+  "./assets/vendor/marked/marked.min.js",
+  "./assets/vendor/dompurify/purify.min.js",
 ];
 
 /* ── Install — precache the app shell ──────────────────────── */
