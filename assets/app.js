@@ -1147,7 +1147,7 @@ const EXTERNAL_SOURCE_DOCS = [
   },
   {
     title:
-      "Protestant Quote 38 - Jeremy Taylor, Ductor Dubitantium (complete volume)",
+      "Protestant Quote 36 - Jeremy Taylor, Ductor Dubitantium (complete volume)",
     file: SOURCE_DRIVE_FOLDER,
     icon: "☁️",
     tag: "Drive PDF",
@@ -1182,7 +1182,7 @@ const EXTERNAL_SOURCE_DOCS = [
   },
   {
     title:
-      "Protestant Quote 61 - Schaff-Herzog, A Religious Encyclopaedia, art. “Sunday”",
+      "Protestant Quote 57 - Schaff-Herzog, A Religious Encyclopaedia, art. “Sunday”",
     file: SOURCE_DRIVE_FOLDER,
     icon: "☁️",
     tag: "Drive PDF",
@@ -1191,7 +1191,7 @@ const EXTERNAL_SOURCE_DOCS = [
   },
   {
     title:
-      "Protestant Quote 65 - Charles Hodge, Systematic Theology, Vol. 3 (complete volume)",
+      "Protestant Quote 61 - Charles Hodge, Systematic Theology, Vol. 3 (complete volume)",
     file: SOURCE_DRIVE_FOLDER,
     icon: "☁️",
     tag: "Drive PDF",
