@@ -2935,3 +2935,58 @@ body.light-theme .symbol-swap-label { color: #2a5fa4; }
     max-height: 60vh;
   }
 }
+
+/* ── Citable entry anchors ────────────────────────────────────
+   Every numbered entry gets a "#" affordance that copies a direct
+   link to it. Hidden until the entry is hovered or the link has
+   keyboard focus, so the reading experience is unchanged. */
+li.has-entry-anchor {
+  position: relative;
+}
+a.entry-anchor {
+  position: absolute;
+  left: -1.35em;
+  top: 0.05em;
+  width: 1.2em;
+  text-align: right;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--gold-dim);
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+li.has-entry-anchor:hover > a.entry-anchor,
+a.entry-anchor:focus-visible {
+  opacity: 1;
+}
+a.entry-anchor:hover {
+  color: var(--gold-light);
+}
+a.entry-anchor:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+/* Brief highlight when arriving via a deep link. */
+.anchor-flash {
+  animation: anchor-flash 1.6s ease-out;
+  border-radius: 4px;
+}
+@keyframes anchor-flash {
+  0%   { background: rgba(201, 162, 39, 0.28); }
+  100% { background: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anchor-flash { animation: none; }
+}
+/* Narrow screens have no room in the gutter — sit it inline instead. */
+@media (max-width: 720px) {
+  a.entry-anchor {
+    position: static;
+    opacity: 0.55;
+    margin-right: 0.4em;
+    width: auto;
+  }
+}

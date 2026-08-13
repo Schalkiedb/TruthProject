@@ -285,3 +285,9 @@
 @media print and (min-width: 1200px) {
   /* If the user's browser supports it and the doc is wide, suggest landscape */
 }
+
+/* ── PRINT: hide the click-to-copy entry anchors ── */
+@media print {
+  a.entry-anchor { display: none !important; }
+  .anchor-flash { animation: none !important; background: transparent !important; }
+}

@@ -2596,16 +2596,27 @@ async function loadDocument(filePath, fragment, opts) {
     // Highlight Bible symbols inside quoted passages (hover for meaning)
     annotateBibleSymbols(contentEl, filePath);
 
+    // Give every numbered entry a stable, citable id (#protestant-42) and a
+    // click-to-copy link, so a single quote can be shared by URL
+    annotateEntryAnchors(contentEl);
+
     // Build floating table of contents from headings
     buildTOC();
 
     // Track reading progress
     trackReadingProgress(filePath);
 
-    // If the user is returning to a guide they previously read, jump them
-    // back to approximately where they stopped. Fragment links take priority
-    // (the fragment scroll is handled separately for each link type).
-    if (!fragment) restoreScrollPosition(filePath);
+    // A "?doc=…#protestant-42" URL should land on that entry. Internal links
+    // pass their own fragment, so only handle the address-bar case here.
+    const urlAnchor = !fragment ? (window.location.hash || "").replace(/^#/, "") : "";
+    if (urlAnchor && scrollToAnchor(decodeURIComponent(urlAnchor))) {
+      // landed on the anchor — don't fight it with the saved scroll position
+    } else if (!fragment) {
+      // If the user is returning to a guide they previously read, jump them
+      // back to approximately where they stopped. Fragment links take priority
+      // (the fragment scroll is handled separately for each link type).
+      restoreScrollPosition(filePath);
+    }
   } catch (err) {
     console.error("Failed to load document:", err);
     if (
@@ -2926,6 +2937,106 @@ function slugify(text) {
     .replace(/\s+/g, "-") // spaces → hyphens
     .replace(/-+/g, "-") // collapse consecutive hyphens
     .trim();
+}
+
+/* ── Citable entry anchors ───────────────────────────────────
+   Numbered entries (quotes, objections, doctrines) are the unit people
+   cite, but markdown gives <li> elements no id. After each render we
+   stamp one on every numbered item: the first word of the enclosing
+   section heading plus the number the reader sees — "#protestant-42",
+   "#catholic-17". Deriving the prefix from the heading's first word
+   keeps ids stable when the rest of the heading text changes (a source
+   count, for instance). Documents with no heading above the list fall
+   back to "#item-42". */
+function entryAnchorPrefix(list) {
+  // Only h1–h3 count as sections. Lower levels are sub-groupings inside a
+  // section ("Lutheran Additional Quotes", "FURTHER DENOMINATIONAL
+  // ADMISSIONS"), and inheriting those would split one numbered run across
+  // several prefixes. A long section may put hundreds of siblings between
+  // the heading and a later list, so the walk is not capped.
+  let node = list.previousElementSibling;
+  while (node) {
+    if (/^H[1-3]$/.test(node.tagName)) {
+      const slug = node.id || slugify(node.textContent || "");
+      const word = String(slug).split("-").filter(Boolean)[0];
+      if (word && !/^\d+$/.test(word)) return word.toLowerCase();
+      return "item";
+    }
+    node = node.previousElementSibling;
+  }
+  // Nested or wrapped list: try the level above.
+  const parent = list.parentElement;
+  if (parent) {
+    const outer = parent.closest("ol");
+    if (outer && outer !== list) return entryAnchorPrefix(outer);
+    if (parent.tagName !== "BODY" && parent.previousElementSibling !== undefined) {
+      return entryAnchorPrefix(parent);
+    }
+  }
+  return "item";
+}
+
+function annotateEntryAnchors(contentEl) {
+  if (!contentEl) return;
+  const used = new Set([...contentEl.querySelectorAll("[id]")].map((e) => e.id));
+  contentEl.querySelectorAll("ol").forEach((list) => {
+    // Only top-level lists carry citable numbering; nested ones restart at 1.
+    if (list.parentElement && list.parentElement.closest("li")) return;
+    const prefix = entryAnchorPrefix(list);
+    const start = parseInt(list.getAttribute("start") || "1", 10) || 1;
+    [...list.children].forEach((li, i) => {
+      if (li.tagName !== "LI" || li.id) return;
+      const number = start + i;
+      // Real entries come first in document order and so keep the clean id.
+      // Later short lists that restart at 1 (the closing summaries) fall
+      // through to a suffixed form rather than stealing "#protestant-1".
+      const base = `${prefix}-${number}`;
+      let id = base;
+      for (let n = 2; used.has(id); n++) id = `${base}-${n}`;
+      used.add(id);
+      li.id = id;
+      li.classList.add("has-entry-anchor");
+
+      const link = document.createElement("a");
+      link.className = "entry-anchor";
+      link.href = "#" + id;
+      link.textContent = "#";
+      link.title = `Copy link to ${prefix} ${number}`;
+      link.setAttribute("aria-label", link.title);
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const url =
+          window.location.origin +
+          window.location.pathname +
+          window.location.search +
+          "#" + id;
+        try { history.replaceState(null, "", "#" + id); } catch { /* ignore */ }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(
+            () => showToast("Link copied"),
+            () => showToast(url),
+          );
+        } else {
+          showToast(url);
+        }
+      });
+      li.insertBefore(link, li.firstChild);
+    });
+  });
+}
+
+/** Smooth-scroll to an id, allowing for the fixed topbar. */
+function scrollToAnchor(hash) {
+  if (!hash) return false;
+  const target = findAnchorTarget(hash);
+  if (!target) return false;
+  const topbar = document.getElementById("topbar");
+  const topbarH = topbar ? topbar.offsetHeight : 0;
+  const y = target.getBoundingClientRect().top + window.scrollY - topbarH - 12;
+  window.scrollTo({ top: y, behavior: "smooth" });
+  target.classList.add("anchor-flash");
+  setTimeout(() => target.classList.remove("anchor-flash"), 1600);
+  return true;
 }
 
 /* ── Fuzzy anchor lookup ─────────────────────────────────────
