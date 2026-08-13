@@ -288,6 +288,9 @@
 
 /* ── PRINT: hide the click-to-copy entry anchors ── */
 @media print {
-  a.entry-anchor { display: none !important; }
+  a.entry-anchor, button.entry-cite, span.entry-tools { display: none !important; }
+  .provenance-filter { display: none !important; }
+  /* Never print a filtered subset as if it were the whole collection. */
+  li.entry-classified { display: list-item !important; }
   .anchor-flash { animation: none !important; background: transparent !important; }
 }

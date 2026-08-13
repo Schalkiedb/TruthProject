@@ -2600,6 +2600,10 @@ async function loadDocument(filePath, fragment, opts) {
     // click-to-copy link, so a single quote can be shared by URL
     annotateEntryAnchors(contentEl);
 
+    // Tag entries by whether their source can be inspected, and offer a
+    // filter when the document mixes verified and unverified quotations
+    buildProvenanceFilter(contentEl);
+
     // Build floating table of contents from headings
     buildTOC();
 
@@ -2997,32 +3001,214 @@ function annotateEntryAnchors(contentEl) {
       li.id = id;
       li.classList.add("has-entry-anchor");
 
+      const tools = document.createElement("span");
+      tools.classList.add("entry-tools");
+
       const link = document.createElement("a");
-      link.className = "entry-anchor";
+      link.classList.add("entry-anchor");
       link.href = "#" + id;
       link.textContent = "#";
       link.title = `Copy link to ${prefix} ${number}`;
       link.setAttribute("aria-label", link.title);
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        const url =
-          window.location.origin +
-          window.location.pathname +
-          window.location.search +
-          "#" + id;
         try { history.replaceState(null, "", "#" + id); } catch { /* ignore */ }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(url).then(
-            () => showToast("Link copied"),
-            () => showToast(url),
-          );
-        } else {
-          showToast(url);
-        }
+        copyToClipboard(entryPermalink(id), "Link copied");
       });
-      li.insertBefore(link, li.firstChild);
+      tools.appendChild(link);
+
+      // Only entries that actually carry a quotation get a citation button.
+      if (extractQuoteText(li)) {
+        const cite = document.createElement("button");
+        cite.type = "button";
+        cite.classList.add("entry-cite");
+        cite.textContent = "❝";
+        cite.title = `Copy quotation and citation for ${prefix} ${number}`;
+        cite.setAttribute("aria-label", cite.title);
+        cite.addEventListener("click", (e) => {
+          e.preventDefault();
+          copyToClipboard(buildCitation(li, id), "Citation copied");
+        });
+        tools.appendChild(cite);
+      }
+
+      li.insertBefore(tools, li.firstChild);
     });
   });
+}
+
+/* ── Provenance classification and filter ────────────────────
+   A reader cannot tell, without opening each entry, which quotations
+   are backed by a page scan and which rest on secondary literature.
+   Each entry is tagged from what it already contains — a source-document
+   link, or a "⚠️ Provenance" note — and a filter bar lets the reader show
+   only the ones they can verify themselves. Entries with no nested detail
+   (closing summary lists) are left out of the classification entirely. */
+function classifyEntryProvenance(contentEl) {
+  const counts = { total: 0, verified: 0, unverified: 0, other: 0 };
+  if (!contentEl) return counts;
+  contentEl.querySelectorAll("li.has-entry-anchor").forEach((li) => {
+    // Only entries with nested detail are quote entries.
+    if (!li.querySelector("ul") && !li.querySelector("ol")) return;
+    counts.total++;
+    li.classList.add("entry-classified");
+
+    const flagged = [...li.querySelectorAll("li")].some((b) => {
+      const strong = b.querySelector("strong");
+      return strong && /provenance/i.test(strong.textContent || "");
+    });
+    if (extractSourceUrl(li)) {
+      li.classList.add("entry-verified");
+      counts.verified++;
+    } else if (flagged) {
+      li.classList.add("entry-unverified");
+      counts.unverified++;
+    } else {
+      li.classList.add("entry-other");
+      counts.other++;
+    }
+  });
+  return counts;
+}
+
+function buildProvenanceFilter(contentEl) {
+  if (!contentEl) return;
+  const existing = contentEl.querySelector(".provenance-filter");
+  if (existing) existing.remove();
+
+  const counts = classifyEntryProvenance(contentEl);
+  // Only worth showing when the document actually mixes the two states.
+  if (!counts.verified || !counts.unverified) return;
+
+  const bar = document.createElement("div");
+  bar.classList.add("provenance-filter");
+  bar.setAttribute("role", "group");
+  bar.setAttribute("aria-label", "Filter entries by provenance");
+
+  const label = document.createElement("span");
+  label.classList.add("pf-label");
+  label.textContent = "Sourcing:";
+  bar.appendChild(label);
+
+  const modes = [
+    ["all", `All ${counts.total}`, "Show every entry"],
+    ["verified", `Document-verified ${counts.verified}`,
+      "Show only entries linked to a page scan of the original"],
+    ["unverified", `Unverified ${counts.unverified}`,
+      "Show only entries with no obtainable original"],
+  ];
+  const buttons = [];
+  modes.forEach(([mode, text, title]) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.classList.add("pf-btn");
+    b.dataset.pf = mode;
+    b.textContent = text;
+    b.title = title;
+    b.setAttribute("aria-pressed", mode === "all" ? "true" : "false");
+    b.addEventListener("click", () => {
+      contentEl.dataset.provenanceFilter = mode;
+      buttons.forEach((other) =>
+        other.setAttribute("aria-pressed", other === b ? "true" : "false"),
+      );
+      if (typeof showToast === "function" && mode !== "all") {
+        const shown = mode === "verified" ? counts.verified : counts.unverified;
+        showToast(`Showing ${shown} of ${counts.total} entries`);
+      }
+    });
+    buttons.push(b);
+    bar.appendChild(b);
+  });
+
+  contentEl.dataset.provenanceFilter = "all";
+  contentEl.insertBefore(bar, contentEl.firstChild);
+}
+
+/** Absolute URL for one entry, preserving the ?doc= route. */
+function entryPermalink(id) {
+  return (
+    window.location.origin +
+    window.location.pathname +
+    window.location.search +
+    "#" + id
+  );
+}
+
+function copyToClipboard(text, okMessage) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(
+      () => showToast(okMessage),
+      () => showToast("Copy failed — select and copy manually"),
+    );
+  } else {
+    showToast("Clipboard unavailable in this browser");
+  }
+}
+
+/** The heading line of an entry: author, work, edition, page. */
+function extractEntryHeading(li) {
+  let text = "";
+  for (const node of li.childNodes) {
+    if (node.nodeType === 1 && /^(UL|OL)$/.test(node.tagName)) break;
+    if (node.nodeType === 1 && node.classList && node.classList.contains("entry-tools")) continue;
+    text += node.textContent || "";
+  }
+  return text.replace(/\s+/g, " ").trim().replace(/[:\s]+$/, "");
+}
+
+/** The quoted passage, preferring a bullet explicitly labelled "Quote". */
+function extractQuoteText(li) {
+  const bullets = [...li.querySelectorAll("li")];
+  const labelled = bullets.filter((b) => {
+    const strong = b.querySelector("strong");
+    return strong && /\bquote\b/i.test(strong.textContent || "");
+  });
+  const pick = (b) => {
+    let t = (b.textContent || "").replace(/\s+/g, " ").trim();
+    // Drop the bold label ("Quote:", "Quote (p. 73):") from the front.
+    t = t.replace(/^[^:]{0,60}?\bquote\b[^:]{0,60}:\s*/i, "");
+    return t;
+  };
+  if (labelled.length) return pick(labelled[0]);
+  // Fall back to the longest bullet that contains a quotation mark.
+  const quoted = bullets
+    .map((b) => (b.textContent || "").replace(/\s+/g, " ").trim())
+    .filter((t) => /["“”]/.test(t))
+    .sort((a, b) => b.length - a.length);
+  return quoted[0] || "";
+}
+
+/** The scan/source link a reader would use to verify the quotation. */
+function extractSourceUrl(li) {
+  const links = [...li.querySelectorAll("a")].filter(
+    (a) => !a.classList || !a.classList.contains("entry-anchor"),
+  );
+  const href = (a) => a.getAttribute("href") || "";
+  const preferred =
+    links.find((a) => /view original/i.test(a.textContent || "")) ||
+    links.find((a) => !href(a).startsWith("#"));
+  if (!preferred) return "";
+  const raw = href(preferred);
+  if (!raw || raw.startsWith("#")) return "";
+  if (/^https?:/i.test(raw)) return raw;
+  try {
+    return new URL(raw, window.location.href).href;
+  } catch {
+    return raw;
+  }
+}
+
+/** Assemble a paste-ready block: quotation, citation, scan, permalink. */
+function buildCitation(li, id) {
+  const heading = extractEntryHeading(li);
+  const quote = extractQuoteText(li);
+  const source = extractSourceUrl(li);
+  const lines = [];
+  if (quote) lines.push(/^["“]/.test(quote) ? quote : `"${quote}"`);
+  if (heading) lines.push(`— ${heading}`);
+  if (source) lines.push(`Source document: ${source}`);
+  lines.push(entryPermalink(id));
+  return lines.join("\n");
 }
 
 /** Smooth-scroll to an id, allowing for the fixed topbar. */
