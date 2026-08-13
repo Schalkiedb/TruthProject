@@ -739,11 +739,11 @@ These documents are foundational primary sources — not later Catholic or Prote
 
 ---
 
-### Protestant Churches' Admissions on Sunday Observance (65 Distinct Sources)
+### Protestant Churches' Admissions on Sunday Observance (64 Distinct Sources)
 
 **Official Protestant Statements Acknowledging No Biblical Authority for Sunday**:
 
-While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **65 distinct sources — Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. Items 51 and 52 are cross-references back to item 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses.
+While Catholics openly claim authority to change the Sabbath, Protestant churches face a more difficult position: most acknowledge Sunday has no biblical basis, yet continue observing it despite their doctrine of *sola scriptura* (Bible alone). The following **66 numbered entries — comprising 64 distinct sources: Protestant theologians, pastors, and denominational publications** — reveal this inconsistency. Items 51 and 52 are cross-references back to item 5 and Catholic 22 respectively, retained in place so the numbering stays stable, and are **not** counted as separate witnesses.
 
 > **A note on the quotations marked ⚠️ below.** Most entries in this section link to a page scan of the original, and those quotations can be checked directly. A minority — chiefly short-run denominational magazines, single newspaper issues, out-of-print booklets and one private letter — have no digitised copy in any public archive, sit behind paid newspaper databases, or remain in copyright. They are quoted consistently across the published literature, but **this collection cannot put the original page in front of you**, and they are marked accordingly. They can be corroborated through third-party compilations if you wish to pursue them. **If you prefer to set them aside, do so** — the argument does not rest on them. The documented quotations that follow are sufficient on their own, and they are the ones to cite.
 
@@ -1220,17 +1220,7 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
     - **Significance**: The foremost Quaker theologian states plainly that neither the fourth commandment nor any other Scripture creates a moral obligation to keep the first day above any other, and that there is no "holiness inherent in it." Written in 1678 as the foundational doctrinal statement of an entire Protestant body — not as a concession under pressure, but as settled teaching
     - **Note on Barclay's Own Position**: Barclay is **not** a witness for the seventh day. In the same sentence he denies that the Jewish sabbath "now continues," and he claims Calvin's authority for reading the sabbath in "a more spiritual sense." He is a witness that Sunday has no warrant in the fourth commandment — and he reaches that conclusion by holding that **no** day does
     - 📄 **Source Document**: [View Original — Barclay, *Apology for the True Christian Divinity*, 1678, Prop. XI](Supporting%20Documents/Protestant%20Quote_62%20-%20apologyfor00barc.pdf#search=holiness%20inherent%20in%20it)
-
-**Encyclopaedia Britannica (Secular/Neutral Reference)**:
-
-63. ***Encyclopaedia Britannica*, 11th edition, article: "Sunday"** (Cambridge University Press, 1911):
-    - The premier English-language secular reference work of the early 20th century
-    - **Direct Quote**: "Sunday was the name given by the Romans to the first day of the week, because it was the day on which they made their devotions to the sun. Among the Anglo-Saxons it was called *Sunnandæg* (Sun's day)... It might be thought that Christians, worshipping Christ as the Sun of Righteousness, would have gladly adopted the heathen title; but it was not until the 4th century that this day was generally observed as one of rest. Constantine the Great, who had formed an alliance with the Christians to overthrow Maxentius, after his victory, issued the edict of 321 A.D., which commanded that 'all judges, city people and craftsmen shall rest upon the venerable day of the sun.'"
-    - **Significance**: A completely secular, neutral reference confirming: (1) Sunday is named after pagan sun-worship; (2) Sunday rest was not "generally observed" until the 4th century; (3) It was Constantine's 321 AD civil edict — not apostolic mandate — that established it
-
-**Dutch Reformed Church (Official Synodical Ruling)**:
-
-64. **Synod of Dort (Dordrecht), *Regulae de Observatione Sabbathi* — "Rules on the Observation of the Sabbath"**, Post-Acta, 164th session, 17 May 1619:
+63. **Synod of Dort (Dordrecht), *Regulae de Observatione Sabbathi* — "Rules on the Observation of the Sabbath"**, Post-Acta, 164th session, 17 May 1619:
     - The national synod of the **Dutch Reformed Church** — the same synod that produced the Canons of Dort and approved the Heidelberg Catechism and Belgic Confession. The six rules were drafted by the synod's theological professors, among them **Franciscus Gomarus** and **Antonius Thysius** of Leiden, in answer to a request from the province of Zeeland, and adopted by the synod as its official deliverance on the question
     - **The Six Rules** (English translation from the Latin):
       1. "There is in the fourth commandment of the divine law a ceremonial and a moral element."
@@ -1246,26 +1236,26 @@ While Catholics openly claim authority to change the Sabbath, Protestant churche
 
 **Anglican, Presbyterian and Puritan Sources**:
 
-65. **Rev. Isaac Williams, B.D., *Plain Sermons on the Catechism***, Vol. 1, pp. 334, 336 — on the Fourth Commandment:
+64. **Rev. Isaac Williams, B.D., *Plain Sermons on the Catechism***, Vol. 1, pp. 334, 336 — on the Fourth Commandment:
     - Anglican; Fellow of Trinity College, Oxford, and a leading figure of the Oxford Movement
     - **Quote**: "Where are we told in Scripture that we are to keep the first day at all? We are commanded to keep the seventh; but we are nowhere commanded to keep the first day... The reason why we keep the first day holy instead of the seventh is for the same reason that we observe many other things, **not because the Bible, but because the Church has enjoined it**."
     - **Significance**: About as explicit as a Protestant admission can be. Williams does not merely concede that Scripture is silent — he names the alternative authority outright: the first day is kept "not because the Bible, but because the Church has enjoined it," and he places it alongside the other things Anglicans observe on the same footing
     - ⚠️ **Provenance**: The volume of *Plain Sermons on the Catechism* covering the Creed and Ten Commandments is not available in full view on Archive.org or HathiTrust; only the companion volume on the latter part of the Catechism has been digitised. Quoted consistently across the published literature.
 
-66. **Lyman Coleman, *Ancient Christianity Exemplified*** (Philadelphia: Lippincott, Grambo, 1852), ch. 26, p. 530:
+65. **Lyman Coleman, *Ancient Christianity Exemplified*** (Philadelphia: Lippincott, Grambo, 1852), ch. 26, p. 530:
     - Presbyterian church historian and professor; his handbooks of Christian antiquities were standard American reference works
     - **Quote**: "**No law or precept appears to have been given by Christ or the apostles, either for the abrogation of the Jewish Sabbath or the institution of the Lord's day, or the substitution of the first for the seventh day of the week.**"
     - **On the Two Days Kept Together**: "At first, and for several centuries, it **was kept in connection with the Jewish Sabbath**; but by degrees the observance of the latter fell into disuse, and the former has ever since continued to be the sacred day of the Christian church."
     - **Significance**: A Presbyterian historian stating that **no law or precept** of Christ or the apostles exists for any of the three things that would be needed — abrogating the Sabbath, instituting the Lord's Day, or substituting one for the other. He also records that the two days were kept **together** for several centuries, the Sabbath falling away only "by degrees"
     - **Note on Coleman's Own Position**: Coleman is defending Sunday. Having said no law or precept exists, he supplies the reasons for it from **Justin Martyr** and quotes **Leo the Great** at length on the resurrection — patristic authority rather than Scripture. He is a witness that the change has no scriptural warrant, and his own substitute for that warrant is the testimony of the fathers
-    - 📄 **Source Document**: [View Original — Coleman, *Ancient Christianity Exemplified*, 1852, p. 530](Supporting%20Documents/Protestant%20Quote_66%20-%20ancientchristi00cole.pdf#search=No%20law%20or%20precept%20appears%20to%20have%20been%20given)
+    - 📄 **Source Document**: [View Original — Coleman, *Ancient Christianity Exemplified*, 1852, p. 530](Supporting%20Documents/Protestant%20Quote_65%20-%20ancientchristi00cole.pdf#search=No%20law%20or%20precept%20appears%20to%20have%20been%20given)
 
-67. **William Prynne, *A Briefe Polemicall Dissertation Concerning the True Time of the Inchoation and Determination of the Lordsday-Sabbath*** (London, 1655), pp. 33–34:
+66. **William Prynne, *A Briefe Polemicall Dissertation Concerning the True Time of the Inchoation and Determination of the Lordsday-Sabbath*** (London, 1655), pp. 33–34:
     - Puritan lawyer and controversialist, arguing **for** the Lord's Day — a hostile witness on this point
     - **Quote**: "It is certain, that **Christ himself, his Apostles, and the Primitive Christians, for some good space of time did constantly observe the seventh day Sabbath, after Christs Passion, and Resurrection**; the Evangelists, and Saint Luke in the Acts, ever stiling it, the Sabbath-day."
     - **Significance**: A Puritan writing in defence of Sunday concedes that Christ, the apostles and the earliest Christians went on keeping **the seventh-day Sabbath** after the resurrection, "for some good space of time," and that the New Testament writers still call that day "the Sabbath-day." The change, on his own account, is not visible in the apostolic period
     - **Note on Prynne's Own Position**: Prynne is not a seventh-day advocate. His subject is when the Lord's Day *begins* (evening or morning), and he holds that the Lord's Day was instituted in memory of the resurrection by Christ or the apostles. Cite him for the continuance of seventh-day observance after the resurrection, not as a witness against Sunday
-    - 📄 **Source Document**: [View Original — Prynne, *Dissertation on the Lord's-Day Sabbath*, pp. 33–34](Supporting%20Documents/Protestant%20Quote_67%20-%20William%20Prynne%20Dissertation%20on%20the%20Lords%20Day%20Sabbath.pdf#search=did%20constantly%20observe)
+    - 📄 **Source Document**: [View Original — Prynne, *Dissertation on the Lord's-Day Sabbath*, pp. 33–34](Supporting%20Documents/Protestant%20Quote_66%20-%20William%20Prynne%20Dissertation%20on%20the%20Lords%20Day%20Sabbath.pdf#search=did%20constantly%20observe)
 
 **Significance of Protestant Admissions**:
 
