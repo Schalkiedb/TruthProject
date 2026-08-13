@@ -259,6 +259,14 @@ const LIBRARY = [
     id: "interactive-tools",
     items: [
       {
+        title: "Ask the Library — Search by Question",
+        file: "__ask__",
+        icon: "❓",
+        tag: "Study Tool",
+        tagClass: "gold",
+        desc: "Ask a question in your own words and get the passages that answer it, quoted from the studies themselves with a link to each source. No AI writes the answer — every sentence shown is text from this library, exactly as it stands.",
+      },
+      {
         title: "Scripture Index — Find Studies by Bible Book",
         file: "__scripture-index__",
         icon: "📇",
@@ -2208,6 +2216,7 @@ window.addEventListener("popstate", routeFromLocation);
 function showHome(opts) {
   if (!opts || !opts.fromHistory) clearDocHash();
   hideScriptureIndexPage();
+  hideAskPage();
   document.getElementById("home-page").style.display = "";
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "none";
@@ -2253,6 +2262,7 @@ function showHome(opts) {
 
 function showLoading() {
   hideScriptureIndexPage();
+  hideAskPage();
   const _dfBanner = document.getElementById("drive-fallback-banner");
   if (_dfBanner) _dfBanner.style.display = "none";
   document.getElementById("home-page").style.display = "none";
@@ -2265,6 +2275,7 @@ function showLoading() {
 
 function showError(msg) {
   hideScriptureIndexPage();
+  hideAskPage();
   document.getElementById("home-page").style.display = "none";
   document.getElementById("doc-page").style.display = "none";
   document.getElementById("loading").style.display = "none";
@@ -2286,6 +2297,13 @@ async function loadDocument(filePath, fragment, opts) {
   if (filePath === SCRIPTURE_INDEX_FILE) {
     if (!opts || !opts.fromHistory) pushDocHash(filePath);
     showScriptureIndex();
+    return;
+  }
+
+  // Ask the Library — likewise a view, not a document
+  if (filePath === ASK_PAGE_FILE) {
+    if (!opts || !opts.fromHistory) pushDocHash(filePath);
+    showAskPage();
     return;
   }
 
@@ -4558,6 +4576,7 @@ function showVideoCategory(catIdx) {
   const cat = _videosData[catIdx];
   if (!cat) return;
   hideScriptureIndexPage();
+  hideAskPage();
 
   // Hide other views
   document.getElementById("home-page").style.display = "none";
@@ -4994,6 +5013,206 @@ function showSearchResults(query) {
 }
 
 /* ══════════════════════════════════════════════════════════════
+   ASK THE LIBRARY
+   A question goes in; the passages that already answer it come
+   back, quoted verbatim with a link to the source. The ranking
+   lives in assets/answer.js (pure functions, unit-tested); this
+   section is only the view.
+
+   There is deliberately no language model. Every sentence a reader
+   sees here is text that exists in this repository, which means the
+   worst case is "nothing found" rather than a confident invention.
+══════════════════════════════════════════════════════════════ */
+const ASK_PAGE_FILE = "__ask__";
+let _askWired = false;
+let _askLastQuery = "";
+
+function hideAskPage() {
+  const page = document.getElementById("ask-page");
+  if (page) page.style.display = "none";
+}
+
+function askSetStatus(html, busy) {
+  const el = document.getElementById("ask-status");
+  if (!el) return;
+  el.innerHTML = busy
+    ? `<span class="ask-spinner" aria-hidden="true"></span>${html}`
+    : html;
+}
+
+/** Wrap the words the reader actually typed, matching on the stem so
+ *  "changing" lights up for a query of "change". */
+function highlightAnswerText(text, typedSet) {
+  return String(text)
+    .split(/([A-Za-z0-9À-ɏ']+)/)
+    .map((part, i) => {
+      if (i % 2 === 0) return escapeHtml(part);
+      const stem = answerStem(answerNormalise(part).replace(/[^a-z0-9]/g, ""));
+      return typedSet.has(stem)
+        ? `<mark>${escapeHtml(part)}</mark>`
+        : escapeHtml(part);
+    })
+    .join("");
+}
+
+/** Open a result, landing on its anchor.
+ *  The hash is written before loading so the existing address-bar anchor
+ *  path in loadDocument() does the scrolling — passing a fragment argument
+ *  instead would suppress it. */
+function openAnswerResult(file, anchor) {
+  const url = docUrlFor(file) + (anchor ? "#" + encodeURIComponent(anchor) : "");
+  try {
+    history.pushState(null, "", url);
+  } catch {
+    /* ignore — navigation still works, it just won't deep-link */
+  }
+  loadDocument(file, undefined, { fromHistory: true });
+}
+
+function renderAnswerResults(results, typed) {
+  const wrap = document.getElementById("ask-results");
+  if (!wrap) return;
+  const typedSet = new Set(typed);
+
+  wrap.innerHTML = results
+    .map((r, i) => {
+      const href =
+        docUrlFor(r.file) + (r.anchor ? "#" + encodeURIComponent(r.anchor) : "");
+      const trail = [r.section, r.heading].filter(Boolean).join(" › ");
+      return `
+        <article class="ask-card">
+          <div class="ask-card-rank">${i + 1}</div>
+          <div class="ask-card-body">
+            <p class="ask-card-text">${highlightAnswerText(r.text, typedSet)}</p>
+            <div class="ask-card-meta">
+              <a class="ask-card-link" href="${escapeHtml(href)}"
+                 data-file="${escapeHtml(r.file)}"
+                 data-anchor="${escapeHtml(r.anchor || "")}">${escapeHtml(r.title)}</a>
+              ${trail ? `<span class="ask-card-trail">${escapeHtml(trail)}</span>` : ""}
+              ${r.isEntry ? '<span class="ask-card-badge">numbered entry</span>' : ""}
+            </div>
+          </div>
+        </article>`;
+    })
+    .join("");
+
+  wrap.querySelectorAll(".ask-card-link").forEach((a) => {
+    a.addEventListener("click", (e) => {
+      // Let the browser handle modified clicks so "open in new tab" works.
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      openAnswerResult(a.dataset.file, a.dataset.anchor);
+    });
+  });
+}
+
+async function runAskQuery(question) {
+  const q = String(question || "").trim();
+  const wrap = document.getElementById("ask-results");
+  if (!q) {
+    if (wrap) wrap.innerHTML = "";
+    askSetStatus("");
+    return;
+  }
+  _askLastQuery = q;
+  askSetStatus("Searching the library…", true);
+  if (wrap) wrap.innerHTML = "";
+
+  let index;
+  try {
+    index = await loadAnswerIndex();
+  } catch (err) {
+    console.error("Answer index failed to load:", err);
+    askSetStatus(
+      "The search index could not be loaded. Check your connection and try again.",
+    );
+    return;
+  }
+  // A slower question may have finished after a newer one was asked.
+  if (_askLastQuery !== q) return;
+
+  const { results, query } = rankAnswers(q, { index, limit: 12 });
+
+  if (!results.length) {
+    const missing = unmatchedTerms(q, index);
+    const detail = missing.length
+      ? ` Nothing in the library uses ${missing
+          .slice(0, 4)
+          .map((w) => `<strong>${escapeHtml(w)}</strong>`)
+          .join(", ")}.`
+      : "";
+    askSetStatus(
+      `No passage answers that.${detail} Try different words, or browse the studies from the sidebar.`,
+    );
+    return;
+  }
+
+  const docs = new Set(results.map((r) => r.file)).size;
+  askSetStatus(
+    `${results.length} passage${results.length === 1 ? "" : "s"} from ` +
+      `${docs} ${docs === 1 ? "study" : "studies"}, ranked by relevance. ` +
+      `Every one is quoted as it stands — follow a link to read it in context.`,
+  );
+  renderAnswerResults(results, query.typed);
+}
+
+function wireAskPage() {
+  if (_askWired) return;
+  _askWired = true;
+
+  const form = document.getElementById("ask-form");
+  const input = document.getElementById("ask-input");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      runAskQuery(input ? input.value : "");
+    });
+  }
+  document.querySelectorAll("#ask-examples .ask-chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      if (input) input.value = chip.textContent;
+      runAskQuery(chip.textContent);
+    });
+  });
+}
+
+function showAskPage() {
+  // Hide the other views
+  document.getElementById("home-page").style.display = "none";
+  document.getElementById("doc-page").style.display = "none";
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("error-state").style.display = "none";
+  const vcPage = document.getElementById("video-cat-page");
+  if (vcPage) vcPage.style.display = "none";
+  hideScriptureIndexPage();
+  const pill = document.getElementById("verse-translation-pill");
+  if (pill) pill.style.display = "none";
+  hideTOC();
+  setReadingProgressVisible(false);
+  const addBmBtn = document.getElementById("btn-add-bookmark");
+  if (addBmBtn) addBmBtn.style.display = "none";
+  const docMeta = document.getElementById("doc-meta");
+  if (docMeta) docMeta.style.display = "none";
+
+  const page = document.getElementById("ask-page");
+  if (page) page.style.display = "";
+
+  document.getElementById("breadcrumb-section").textContent = "Interactive Tools";
+  document.getElementById("breadcrumb-sep").style.display = "";
+  document.getElementById("breadcrumb-title").textContent = "Ask the Library";
+  document.querySelectorAll(".nav-item").forEach((el) => {
+    el.classList.toggle("active", el.dataset.file === ASK_PAGE_FILE);
+  });
+  window.scrollTo({ top: 0 });
+
+  wireAskPage();
+  // Warm the index while the reader is typing their first question.
+  loadAnswerIndex().catch(() => { /* reported when they actually ask */ });
+  const input = document.getElementById("ask-input");
+  if (input && window.innerWidth > 900) input.focus();
+}
+
+/* ══════════════════════════════════════════════════════════════
    SCRIPTURE INDEX
    Maps every Bible book → the studies that cite it, using the
    same verse-reference detector as the translation lookup. The
@@ -5078,6 +5297,7 @@ async function showScriptureIndex() {
   setReadingProgressVisible(false);
   const addBmBtn = document.getElementById("btn-add-bookmark");
   if (addBmBtn) addBmBtn.style.display = "none";
+  hideAskPage();
 
   const page = document.getElementById("scripture-index-page");
   page.style.display = "";

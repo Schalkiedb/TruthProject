@@ -16,3 +16,7 @@ Supporting Documents/Protestant Quote_57 - religiousencyclo04herz.pdf
 # by the verse lookup — it fetches the per-book files under <X>_books/ so a
 # single verse never pulls a whole translation. Excluded to keep the repo lean.
 Bible Translations Lookup/*/*_bible.json
+
+# Python bytecode from scripts/
+__pycache__/
+*.pyc

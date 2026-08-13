@@ -3,9 +3,13 @@ from __future__ import annotations
 import datetime as _dt
 import json
 import re
+import sys
 import urllib.parse
 import xml.sax.saxutils as _xml
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import build_answer_index  # noqa: E402
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -23,7 +27,7 @@ APP_JS = REPO_ROOT / "assets" / "app.js"
 SITEMAP_FILE = REPO_ROOT / "sitemap.xml"
 ROBOTS_FILE = REPO_ROOT / "robots.txt"
 # Registry entries that are generated in the browser rather than real files.
-SITEMAP_SKIP_FILES = {"__scripture-index__"}
+SITEMAP_SKIP_FILES = {"__scripture-index__", "__ask__"}
 # Standalone pages that work as their own URL, outside the ?doc= router.
 SITEMAP_EXTRA_PAGES = ["prophecy_map.html"]
 SOURCE_SUPPORTED_EXTENSIONS = {".pdf", ".png", ".jpg", ".jpeg", ".gif"}
@@ -182,6 +186,12 @@ def main() -> int:
         print("Updated robots.txt.")
     else:
         print("robots.txt already up to date.")
+
+    # The Ask the Library index is generated from the study text, so it goes
+    # stale the moment a document is edited. Running it here means the one
+    # command that refreshes the manifests refreshes the index too, rather
+    # than leaving a second step to be forgotten.
+    build_answer_index.main()
 
     return 0
 

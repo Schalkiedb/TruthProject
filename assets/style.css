@@ -560,6 +560,7 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 .topic-card[data-accent="red"]:hover   { box-shadow: 0 8px 32px rgba(176,48,64,0.15), 0 0 0 1px rgba(176,48,64,0.12); }
 .topic-card[data-accent="blue"]:hover  { box-shadow: 0 8px 32px rgba(74,127,212,0.15), 0 0 0 1px rgba(74,127,212,0.12); }
 .topic-card[data-accent="green"]:hover { box-shadow: 0 8px 32px rgba(58,144,96,0.15), 0 0 0 1px rgba(58,144,96,0.12); }
+.topic-card[data-accent="gold"]:hover  { box-shadow: 0 8px 32px rgba(201,162,39,0.15), 0 0 0 1px rgba(201,162,39,0.12); }
 
 .card-icon { font-size: 28px; margin-bottom: 4px; transition: transform 0.3s ease; }
 
@@ -596,11 +597,15 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 .card-tag.red   { background: rgba(176,48,64,0.12); color: #c06070; border-color: rgba(176,48,64,0.25); }
 .card-tag.blue  { background: rgba(74,127,212,0.12); color: #7aabf0; border-color: rgba(74,127,212,0.25); }
 .card-tag.green { background: rgba(58,144,96,0.12); color: #60c080; border-color: rgba(58,144,96,0.25); }
+/* Gold matches the .card-tag default; named so a card can ask for it
+   explicitly and still pick up the accent rules below. */
+.card-tag.gold  { background: rgba(201,162,39,0.12); color: var(--gold-light); border-color: rgba(201,162,39,0.28); }
 
 /* Card accent top-line colors by tag */
 .topic-card[data-accent="red"]::before   { background: linear-gradient(90deg, transparent, #b03040, transparent); }
 .topic-card[data-accent="blue"]::before  { background: linear-gradient(90deg, transparent, #4a7fd4, transparent); }
 .topic-card[data-accent="green"]::before { background: linear-gradient(90deg, transparent, #3a9060, transparent); }
+.topic-card[data-accent="gold"]::before  { background: linear-gradient(90deg, transparent, #c9a227, transparent); }
 
 /* ══════════════════════════════════════════════════════════════
    SCROLL REVEAL ANIMATIONS
@@ -3058,4 +3063,206 @@ button.entry-cite:focus-visible {
 [data-provenance-filter="verified"] li.entry-classified:not(.entry-verified),
 [data-provenance-filter="unverified"] li.entry-classified:not(.entry-unverified) {
   display: none;
+}
+
+/* ── Ask the Library ──────────────────────────────────────────
+   Retrieval results, not generated prose. The passage text is the
+   hero of the card and the citation sits under it, so the reader
+   sees the evidence before the label. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+#ask-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 48px 60px;
+}
+.ask-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 4vw, 36px);
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+.ask-intro {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 660px;
+  margin-bottom: 26px;
+}
+
+.ask-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+#ask-input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 16px;
+  font-size: 16px; /* 16px or iOS zooms the page on focus */
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+#ask-input:focus {
+  outline: none;
+  border-color: var(--gold-dim);
+}
+#ask-input::placeholder { color: var(--text-muted); }
+#ask-submit {
+  padding: 13px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--bg-base);
+  background: var(--gold);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+#ask-submit:hover { background: var(--gold-light); }
+
+.ask-examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.ask-chip {
+  padding: 6px 12px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.ask-chip:hover {
+  color: var(--gold-light);
+  border-color: var(--gold-dim);
+  background: var(--bg-card-hover);
+}
+
+.ask-status {
+  min-height: 22px;
+  margin-bottom: 18px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.ask-spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 9px;
+  vertical-align: -1px;
+  border: 2px solid var(--border-light);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: ask-spin 0.7s linear infinite;
+}
+@keyframes ask-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .ask-spinner { animation-duration: 2.5s; }
+}
+
+.ask-results {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ask-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition), background var(--transition);
+}
+.ask-card:hover {
+  background: var(--bg-card-hover);
+  border-left-color: var(--gold);
+}
+.ask-card-rank {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(201, 162, 39, 0.12);
+  border-radius: 50%;
+}
+.ask-card-body { min-width: 0; flex: 1; }
+.ask-card-text {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  overflow-wrap: break-word;
+}
+.ask-card-text mark {
+  padding: 0 2px;
+  color: var(--gold-light);
+  background: rgba(201, 162, 39, 0.16);
+  border-radius: 3px;
+}
+.ask-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+.ask-card-link {
+  font-weight: 600;
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+.ask-card-link:hover { text-decoration: underline; }
+.ask-card-trail {
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+.ask-card-trail::before { content: "· "; }
+.ask-card-badge {
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--gold-light);
+  border: 1px solid var(--gold-dim);
+  border-radius: 999px;
+}
+
+@media (max-width: 900px) {
+  #ask-page { padding: 24px 18px 48px; }
+  .ask-form { flex-wrap: wrap; }
+  #ask-submit { width: 100%; }
+  .ask-card { padding: 15px 16px; gap: 11px; }
+  .ask-card-text { font-size: 15px; }
 }

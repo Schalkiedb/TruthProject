@@ -297,6 +297,38 @@
         </div>
       </div>
 
+      <!-- ASK THE LIBRARY (retrieval over the studies — no language model) -->
+      <div id="ask-page" style="display:none">
+        <div class="ask-header">
+          <h1>❓ Ask the Library</h1>
+          <p class="ask-intro">Ask a question in your own words. The answer is assembled from passages already written in these studies — quoted as they stand, with a link to the source. Nothing is generated, so nothing can be invented.</p>
+        </div>
+
+        <form id="ask-form" class="ask-form" role="search">
+          <label class="sr-only" for="ask-input">Your question</label>
+          <input id="ask-input" type="search" autocomplete="off"
+                 placeholder="e.g. Who changed the Sabbath to Sunday?"
+                 aria-describedby="ask-status" />
+          <button type="submit" id="ask-submit">Ask</button>
+        </form>
+
+        <div class="ask-examples" id="ask-examples">
+          <span>Try:</span>
+          <button type="button" class="ask-chip">Who changed the Sabbath to Sunday?</button>
+          <button type="button" class="ask-chip">Does Rome admit the change?</button>
+          <button type="button" class="ask-chip">What is the mark of the beast?</button>
+          <button type="button" class="ask-chip">What happens when we die?</button>
+          <button type="button" class="ask-chip">What is the cleansing of the sanctuary?</button>
+        </div>
+
+        <div id="ask-status" class="ask-status" role="status" aria-live="polite"></div>
+        <div id="ask-results" class="ask-results"></div>
+
+        <div class="doc-nav-footer">
+          <button onclick="showHome()">⌂ Home</button>
+        </div>
+      </div>
+
       <!-- SCRIPTURE INDEX (books → studies that cite them) -->
       <div id="scripture-index-page" style="display:none">
         <div class="si-header">
@@ -396,6 +428,7 @@
 
   <!-- FUMS tracking for api.bible (required by terms of service) -->
   <script defer src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
+  <script defer src="assets/answer.js?v=20260813a"></script>
   <script defer src="assets/app.js?v=20260714b"></script>
   <script>
     // Register service worker for offline support

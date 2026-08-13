@@ -294,3 +294,27 @@
   li.entry-classified { display: list-item !important; }
   .anchor-flash { animation: none !important; background: transparent !important; }
 }
+
+/* ── PRINT: Ask the Library — keep the answers, drop the controls ── */
+@media print {
+  .ask-form, .ask-examples, .ask-spinner { display: none !important; }
+  .ask-card {
+    background: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    border-left: 3px solid #888 !important;
+    break-inside: avoid;
+  }
+  /* The citation is the point of a printed answer, so show where each
+     passage came from rather than a link the paper cannot follow. */
+  .ask-card-link::after {
+    content: " (" attr(href) ")";
+    font-size: 10px;
+    word-break: break-all;
+  }
+  .ask-card-text mark {
+    background: none !important;
+    color: inherit !important;
+    font-weight: 600;
+  }
+}

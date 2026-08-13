@@ -3,7 +3,7 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v9";
+const CACHE_NAME = "babylons-wine-v10";
 
 const PRECACHE_URLS = [
   "./index.html",
@@ -29,6 +29,11 @@ const PRECACHE_URLS = [
   // Markdown pipeline — self-hosted so documents render offline.
   "./assets/vendor/marked/marked.min.js",
   "./assets/vendor/dompurify/purify.min.js",
+  // Ask the Library. The ranking code is precached because it is small; the
+  // index it reads (assets/answer-index.json, several megabytes) deliberately
+  // is not — downloading that on install would charge every visitor for a
+  // feature they may never open. It is cached on first use instead.
+  "./assets/answer.js",
 ];
 
 /* ── Install — precache the app shell ──────────────────────── */
