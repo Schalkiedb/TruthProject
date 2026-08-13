@@ -2697,6 +2697,7 @@ function processLinks(contentEl, filePath, flushFn) {
     if (href.startsWith("http://") || href.startsWith("https://")) {
       anchor.setAttribute("target", "_blank");
       anchor.setAttribute("rel", "noopener noreferrer");
+      anchor.dataset.origHref = href;
       return;
     }
 
@@ -2709,6 +2710,10 @@ function processLinks(contentEl, filePath, flushFn) {
     const hashIdx = resolved.indexOf("#");
     const resolvedFile = hashIdx >= 0 ? resolved.substring(0, hashIdx) : resolved;
     const resolvedFragment = hashIdx >= 0 ? resolved.substring(hashIdx) : "";
+    // Remember where this link really pointed. The SPA replaces href with "#"
+    // for anything it loads itself, which would otherwise erase the only
+    // record of the target — needed for citations and provenance tagging.
+    anchor.dataset.origHref = resolved;
     const targetItem = ALL_ITEMS.find(
       (i) => normalise(i.file) === normalise(resolvedFile),
     );
@@ -3178,18 +3183,23 @@ function extractQuoteText(li) {
   return quoted[0] || "";
 }
 
-/** The scan/source link a reader would use to verify the quotation. */
+/** The scan/source link a reader would use to verify the quotation.
+    processLinks() rewrites href to "#" for anything the SPA loads itself,
+    so the original target is read from data-orig-href where present. */
 function extractSourceUrl(li) {
   const links = [...li.querySelectorAll("a")].filter(
     (a) => !a.classList || !a.classList.contains("entry-anchor"),
   );
-  const href = (a) => a.getAttribute("href") || "";
+  const target = (a) =>
+    (a.dataset && a.dataset.origHref) || a.getAttribute("href") || "";
+  const usable = links.filter((a) => {
+    const t = target(a);
+    return t && !t.startsWith("#");
+  });
+  if (!usable.length) return "";
   const preferred =
-    links.find((a) => /view original/i.test(a.textContent || "")) ||
-    links.find((a) => !href(a).startsWith("#"));
-  if (!preferred) return "";
-  const raw = href(preferred);
-  if (!raw || raw.startsWith("#")) return "";
+    usable.find((a) => /view original/i.test(a.textContent || "")) || usable[0];
+  const raw = target(preferred);
   if (/^https?:/i.test(raw)) return raw;
   try {
     return new URL(raw, window.location.href).href;
