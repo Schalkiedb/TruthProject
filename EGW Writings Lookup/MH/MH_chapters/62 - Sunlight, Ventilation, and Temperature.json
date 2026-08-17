@@ -1,0 +1,17 @@
+{
+ "MH": {
+  "code": "MH",
+  "title": "The Ministry of Healing",
+  "chapter": 62,
+  "chapterTitle": "Sunlight, Ventilation, and Temperature",
+  "refcode": "MH 220",
+  "pages": {
+   "220": {
+    "3": "To afford the patient the most favorable conditions for recovery, the room he occupies should be large, light, and cheerful, with opportunity for thorough ventilation. The room in the house that best meets these requirements should be chosen as the sickroom. Many houses have no special provision for proper ventilation, and to secure it is difficult; but every possible effort should be made to arrange the sickroom so that a current of fresh air can pass through it night and day."
+   },
+   "221": {
+    "1": "So far as possible an even temperature should be maintained in the sickroom. The thermometer should be consulted. Those who have the care of the sick, being often deprived of sleep or awakened in the night to attend to the patient, are liable to chilliness and are not good judges of a healthful temperature."
+   }
+  }
+ }
+}

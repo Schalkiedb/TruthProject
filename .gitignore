@@ -20,3 +20,17 @@ Bible Translations Lookup/*/*_bible.json
 # Python bytecode from scripts/
 __pycache__/
 *.pyc
+
+# API credentials. This repository is served publicly by GitHub Pages, so a
+# secret committed here would be readable at a public URL. Keep them out.
+.env
+.env.*
+secrets.json
+egw-credentials.json
+scripts/.egw-token-cache.json
+
+# EGW lookup: the whole-work files duplicate the per-chapter ones and are only
+# a convenience for offline use. Same rule as the Bible lookup, where the
+# monolithic *_bible.json are ignored and the per-book files are tracked.
+EGW Writings Lookup/*/*_book.json
+scripts/.egw-probe-ids.json
