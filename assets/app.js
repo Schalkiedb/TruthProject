@@ -565,6 +565,14 @@ const LIBRARY = [
     id: "history-reformation",
     items: [
       {
+        title: "History of the Sabbath and First Day of the Week — J.N. Andrews",
+        file: "History/Reformation/Andrews-J-N-history-of-sabbath-anym.org_.pdf",
+        icon: "📜",
+        tag: "Primary Source",
+        tagClass: "blue",
+        desc: "J.N. Andrews's landmark 19th-century study tracing Sabbath observance from Creation through the patriarchs, Israel, the apostolic church, and the centuries that followed — alongside his account of how first-day observance arose and displaced it. The most heavily documented Adventist treatment of the question, and the source much later writing on the subject draws from.",
+      },
+      {
         title: "History of Sabbath Observance",
         file: "History/Reformation/History of Sabbath Observance.pdf",
         icon: "📅",
