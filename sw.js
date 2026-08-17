@@ -34,6 +34,11 @@ const PRECACHE_URLS = [
   // is not — downloading that on install would charge every visitor for a
   // feature they may never open. It is cached on first use instead.
   "./assets/answer.js",
+  // Ellen White citation lookup. As with the answer index, the code is
+  // precached but the data under "EGW Writings Lookup/" is not — it is
+  // fetched one chapter at a time, only when a citation is opened.
+  "./assets/egw-refs.js",
+  "./assets/egw-lookup.js",
 ];
 
 /* ── Install — precache the app shell ──────────────────────── */

@@ -426,8 +426,26 @@
     </div>
   </div>
 
+  <!-- ELLEN WHITE PAGE LOOKUP -->
+  <div id="egw-modal-overlay" onclick="if(event.target===this)closeEgwModal()">
+    <div id="egw-modal" role="dialog" aria-label="Ellen White page">
+      <div id="egw-modal-header">
+        <span class="em-icon">✒️</span>
+        <span id="egw-modal-ref">Loading…</span>
+        <button id="egw-modal-close" onclick="closeEgwModal()" title="Close">✕</button>
+      </div>
+      <div id="egw-modal-body"></div>
+      <div id="egw-modal-footer">
+        Public-domain text, read from this site's own copy &bull;
+        <a id="egw-modal-external" href="#" target="_blank" rel="noopener noreferrer">View on egwwritings.org</a>
+      </div>
+    </div>
+  </div>
+
   <!-- FUMS tracking for api.bible (required by terms of service) -->
   <script defer src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
+  <script defer src="assets/egw-refs.js?v=20260813a"></script>
+  <script defer src="assets/egw-lookup.js?v=20260813a"></script>
   <script defer src="assets/answer.js?v=20260813a"></script>
   <script defer src="assets/app.js?v=20260714b"></script>
   <script>

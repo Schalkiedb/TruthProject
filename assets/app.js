@@ -2614,6 +2614,11 @@ async function loadDocument(filePath, fragment, opts) {
     // Highlight Bible symbols inside quoted passages (hover for meaning)
     annotateBibleSymbols(contentEl, filePath);
 
+    // Make Ellen White citations clickable, so a reader can check the page
+    // being cited without leaving the study. Deliberately not awaited: it
+    // needs the lookup index, and the document must render regardless.
+    wireEgwReferences(contentEl);
+
     // Give every numbered entry a stable, citable id (#protestant-42) and a
     // click-to-copy link, so a single quote can be shared by URL
     annotateEntryAnchors(contentEl);
@@ -4899,6 +4904,10 @@ async function buildSearchIndex() {
 
   const mdItems = ALL_ITEMS.filter((item) =>
     !isExternalUrl(item.file) &&
+    // "__ask__" and "__scripture-index__" are in-app views, not files. They
+    // have no extension, so the markdown test below lets them through and the
+    // fetch below 404s on every visit.
+    !/^__.*__$/.test(item.file) &&
     !/\.(html|pdf|png|jpe?g|gif)$/i.test(item.file)); // only index markdown
 
   // Fetch with limited concurrency — much faster than one-at-a-time,
@@ -5010,6 +5019,145 @@ function showSearchResults(query) {
   });
 
   panel.classList.add("visible");
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ELLEN WHITE CITATIONS — click to read the page
+   ──────────────────────────────────────────────────────────────
+   The studies cite her by work and printed page ("The Great
+   Controversy, p. 434"). Those citations are detected in the
+   rendered text and made clickable, opening the actual page from
+   "EGW Writings Lookup/" — the same idea as the Bible references,
+   and read the same way, straight from local JSON.
+
+   Parsing lives in assets/egw-refs.js, data access in
+   assets/egw-lookup.js. This is the wiring and the modal.
+══════════════════════════════════════════════════════════════ */
+
+/* Never rewrite text inside these — a citation in a link or a code
+   sample must be left exactly as the author wrote it. */
+const EGW_SKIP_TAGS = new Set([
+  "A", "CODE", "PRE", "SCRIPT", "STYLE", "TEXTAREA", "BUTTON", "H1", "H2", "H3",
+]);
+
+function egwSkipNode(node) {
+  for (let el = node.parentElement; el; el = el.parentElement) {
+    if (EGW_SKIP_TAGS.has(el.tagName)) return true;
+    if (el.classList && (el.classList.contains("verse-ref") ||
+                         el.classList.contains("egw-ref") ||
+                         el.classList.contains("entry-tools"))) return true;
+  }
+  return false;
+}
+
+/**
+ * Make every Ellen White citation in the rendered document clickable.
+ * Only citations whose work was actually extracted become links; the rest
+ * are left as plain text rather than promising a page that cannot open.
+ */
+async function wireEgwReferences(container) {
+  if (!container || typeof findEgwReferences !== "function") return;
+
+  let index;
+  try {
+    index = await loadEgwIndex();
+  } catch {
+    return; // lookup data unavailable — leave the text untouched
+  }
+
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null);
+  const targets = [];
+  let node;
+  while ((node = walker.nextNode())) {
+    const text = node.nodeValue;
+    if (!text || text.length < 8) continue;
+    if (egwSkipNode(node)) continue;
+    const refs = findEgwReferences(text).filter(
+      (r) => !r.paraphrased && egwHasWork(r.code, index),
+    );
+    if (refs.length) targets.push({ node, refs });
+  }
+
+  let wired = 0;
+  for (const { node, refs } of targets) {
+    const text = node.nodeValue;
+    const frag = document.createDocumentFragment();
+    let cursor = 0;
+    for (const ref of refs) {
+      if (ref.start < cursor) continue;
+      if (ref.start > cursor) {
+        frag.appendChild(document.createTextNode(text.slice(cursor, ref.start)));
+      }
+      const span = document.createElement("span");
+      span.classList.add("egw-ref");
+      span.textContent = text.slice(ref.start, ref.end);
+      span.setAttribute("role", "button");
+      span.setAttribute("tabindex", "0");
+      span.title = `Read ${egwCitationLabel(ref.code, ref.page, index)}`;
+      span.dataset.egwCode = ref.code;
+      span.dataset.egwPage = String(ref.page);
+      const open = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openEgwModal(ref.code, ref.page);
+      };
+      span.addEventListener("click", open);
+      span.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") open(e);
+      });
+      frag.appendChild(span);
+      cursor = ref.end;
+      wired++;
+    }
+    if (cursor < text.length) {
+      frag.appendChild(document.createTextNode(text.slice(cursor)));
+    }
+    node.parentNode.replaceChild(frag, node);
+  }
+  return wired;
+}
+
+function closeEgwModal() {
+  const overlay = document.getElementById("egw-modal-overlay");
+  if (overlay) overlay.classList.remove("visible");
+}
+
+async function openEgwModal(code, page) {
+  const overlay = document.getElementById("egw-modal-overlay");
+  const refEl = document.getElementById("egw-modal-ref");
+  const bodyEl = document.getElementById("egw-modal-body");
+  const linkEl = document.getElementById("egw-modal-external");
+  if (!overlay || !bodyEl) return;
+
+  overlay.classList.add("visible");
+  if (refEl) refEl.textContent = egwCitationLabel(code, page);
+  bodyEl.innerHTML = '<div class="egw-loading"><span class="spin">⟳</span> Loading page…</div>';
+  if (linkEl) linkEl.href = egwExternalUrl(code, page);
+
+  let data;
+  try {
+    data = await fetchEgwPage(code, page);
+  } catch (err) {
+    console.error("EGW lookup failed:", err);
+    bodyEl.innerHTML =
+      '<p class="egw-empty">That page could not be loaded. ' +
+      'Check your connection and try again.</p>';
+    return;
+  }
+  if (!data || !data.paragraphs.length) {
+    bodyEl.innerHTML =
+      '<p class="egw-empty">No text is recorded for that page. ' +
+      "Front matter and illustration plates carry no paragraphs.</p>";
+    return;
+  }
+
+  const heading = data.chapterTitle
+    ? `<p class="egw-chapter">${escapeHtml(data.chapterTitle)}</p>`
+    : "";
+  bodyEl.innerHTML = heading + data.paragraphs.map((p) =>
+    `<p class="egw-para"><span class="egw-para-n">${escapeHtml(data.code)} ` +
+    `${data.page}.${escapeHtml(p.n)}</span>${escapeHtml(p.text)}</p>`,
+  ).join("");
 }
 
 /* ══════════════════════════════════════════════════════════════
