@@ -34,3 +34,9 @@ scripts/.egw-token-cache.json
 # monolithic *_bible.json are ignored and the per-book files are tracked.
 EGW Writings Lookup/*/*_book.json
 scripts/.egw-probe-ids.json
+
+# Internal working notes. Kept locally, but never published: GitHub Pages
+# serves every tracked file, so these were readable at a public URL even
+# though nothing linked to them.
+DOCUMENT_VERIFICATION_STATUS.md
+WEBSITE_REVAMP_REPORT.md

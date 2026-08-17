@@ -1384,7 +1384,36 @@ function naturalSortCompare(a, b) {
   return aParts.length - bParts.length;
 }
 
+/**
+ * True only where a directory URL can return a browsable listing.
+ *
+ * The discovery crawl below finds files by fetching a folder URL and reading
+ * the HTML index the server generates for it. Python's http.server does that,
+ * which is why it works while developing; GitHub Pages answers 404 for any
+ * directory without an index.html, so on the deployed site every crawl was a
+ * guaranteed 404 — several per page load, filling the console and buying
+ * nothing, because the generated manifests already list every file.
+ *
+ * Keeping the crawl for local use means a newly dropped PDF still appears
+ * without regenerating the manifest first.
+ */
+function supportsDirectoryListing() {
+  try {
+    const host = window.location.hostname || "";
+    return (
+      window.location.protocol === "file:" ||
+      host === "localhost" ||
+      host === "127.0.0.1" ||
+      host === "[::1]" ||
+      host.endsWith(".local")
+    );
+  } catch {
+    return false;
+  }
+}
+
 async function discoverSourceDocumentFiles(rootDir) {
+  if (!supportsDirectoryListing()) return [];
   const visitedDirs = new Set();
   const foundFiles = new Set();
   const rootNormalized = decodeURIComponent(rootDir).replace(/\\/g, "/");
@@ -1468,6 +1497,8 @@ async function loadSourceDocumentManifest() {
 }
 
 async function discoverInfographicFiles(rootDir) {
+  // See supportsDirectoryListing(): pointless and noisy off a local server.
+  if (!supportsDirectoryListing()) return [];
   const visitedDirs = new Set();
   const foundFiles = new Set();
   const rootNormalized = decodeURIComponent(rootDir).replace(/\\/g, "/");
@@ -2189,6 +2220,36 @@ function docUrlFor(filePath) {
   return window.location.pathname + "?doc=" + encodeURIComponent(filePath);
 }
 
+/**
+ * Point <link rel="canonical"> at the "?doc=" form of whatever is on screen.
+ *
+ * The router accepts three shapes for the same study — "?doc=x", "#doc=x" and
+ * a bare "#x" — and a crawler that meets more than one has no way to know they
+ * are the same page. Declaring the query form canonical consolidates them.
+ * Anchors are dropped: "#protestant-42" is a position within a page, not a
+ * page of its own.
+ *
+ * @param {string|null} filePath  registered document, or null for the home page
+ */
+function updateCanonicalUrl(filePath) {
+  try {
+    const link = document.querySelector('link[rel="canonical"]');
+    if (!link) return;
+    const origin = window.location.origin && window.location.origin !== "null"
+      ? window.location.origin
+      : "";
+    // Virtual views ("__ask__") are tools rather than documents; the home page
+    // stays canonical for them so they are not indexed as thin pages.
+    const isVirtual = !filePath || /^__.*__$/.test(filePath);
+    link.setAttribute(
+      "href",
+      origin + (isVirtual ? window.location.pathname : docUrlFor(filePath)),
+    );
+  } catch {
+    /* a missing canonical is not worth breaking navigation over */
+  }
+}
+
 function pushDocHash(filePath) {
   const target = docUrlFor(filePath);
   const current = window.location.pathname + window.location.search;
@@ -2223,6 +2284,7 @@ window.addEventListener("popstate", routeFromLocation);
 /* ── Show / Hide States ───────────────────────────────────── */
 function showHome(opts) {
   if (!opts || !opts.fromHistory) clearDocHash();
+  updateCanonicalUrl(null);
   hideScriptureIndexPage();
   hideAskPage();
   document.getElementById("home-page").style.display = "";
@@ -2300,6 +2362,10 @@ async function loadDocument(filePath, fragment, opts) {
     window.open(filePath, "_blank", "noopener,noreferrer");
     return;
   }
+
+  // Declare this document's canonical URL before anything can fail below, so
+  // the tag never describes the previously viewed page.
+  updateCanonicalUrl(filePath);
 
   // Scripture Index — an in-app view rather than a document
   if (filePath === SCRIPTURE_INDEX_FILE) {
