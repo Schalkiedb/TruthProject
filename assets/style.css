@@ -1497,11 +1497,23 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   flex-shrink: 0;
   padding: 4px 12px 0;
   gap: 2px;
-  /* 30+ translations wrap into several rows; cap the height and scroll rather
-     than letting the tab strip push the verse text out of the modal. */
-  max-height: 6.5em;
+  /* 37 translations wrap into about four rows. The cap used to be 6.5em, which
+     showed only ~20 of them and hid the rest behind an inner scroll almost
+     nobody would notice — so most translations were simply unreachable. The
+     cap now clears all four rows at normal widths, and where it still has to
+     scroll (narrow screens, large text) the scrollbar below is made visible so
+     there is something to grab. */
+  max-height: 11em;
   overflow-y: auto;
   overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold-dim) transparent;
+}
+#verse-modal-tabs::-webkit-scrollbar { width: 9px; }
+#verse-modal-tabs::-webkit-scrollbar-track { background: transparent; }
+#verse-modal-tabs::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 5px;
 }
 .vm-tab {
   padding: 8px 12px;
@@ -1556,93 +1568,7 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
 #pill-api-key-btn:hover { opacity: 1; }
 
 /* ── api.bible Settings Overlay ─────────────────────────── */
-#api-bible-settings-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 10100;
-  background: rgba(0,0,0,.7);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.api-settings-panel {
-  background: linear-gradient(160deg, #13172a 0%, #1a1f36 100%);
-  border: 1px solid rgba(201,162,39,.2);
-  border-radius: 14px;
-  padding: 28px 32px;
-  max-width: 460px;
-  width: 92%;
-  color: var(--text-primary);
-}
-.api-settings-panel h3 {
-  margin: 0 0 12px;
-  font-size: 18px;
-  color: var(--gold);
-}
-.api-settings-panel p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0 0 10px;
-}
-.api-settings-panel ol {
-  margin: 0 0 16px;
-  padding-left: 20px;
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-}
-.api-settings-panel a { color: var(--gold); text-decoration: underline; }
-.api-settings-panel input[type="text"] {
-  width: 100%;
-  padding: 10px 14px;
-  background: rgba(0,0,0,.3);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
-  margin-bottom: 14px;
-  box-sizing: border-box;
-}
-.api-settings-panel input[type="text"]:focus {
-  outline: none;
-  border-color: var(--gold-dim);
-}
-.api-settings-buttons {
-  display: flex;
-  gap: 10px;
-}
-.btn-gold {
-  padding: 9px 22px;
-  background: var(--gold);
-  color: #0c0f1a;
-  border: none;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background .2s;
-}
-.btn-gold:hover { background: #d4af37; }
-.btn-ghost {
-  padding: 9px 22px;
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 8px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all .2s;
-}
-.btn-ghost:hover { border-color: var(--text-secondary); color: var(--text-secondary); }
-.api-settings-note {
-  margin-top: 12px;
-  font-size: 11px !important;
-  color: var(--text-muted) !important;
-  font-style: italic;
-}
+
 
 /* Verse body */
 #verse-modal-body {

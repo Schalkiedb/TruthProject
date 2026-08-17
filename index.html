@@ -407,7 +407,6 @@
     <select id="verse-default-translation" aria-label="Default Bible translation">
       <option value="nlt" selected>NLT</option>
     </select>
-    <button id="pill-api-key-btn" onclick="openApiBibleSettings()" title="Set up an api.bible key (only needed for online translations that require one)">⚙️</button>
   </div>
 
   <!-- Verse lookup modal -->
@@ -425,7 +424,7 @@
         <div id="verse-error"></div>
       </div>
       <div id="verse-modal-footer">
-        Click any <strong>bold Bible reference</strong> in the study guide to compare translations &bull; Free: bible-api.com &bull; NIV/NLT/NKJV: <a href="#" onclick="openApiBibleSettings();return false" style="color:var(--gold)">api.bible</a>
+        Click any <strong>bold Bible reference</strong> in a study to compare translations &bull; 31 translations are hosted on this site and work offline
       </div>
     </div>
   </div>
@@ -446,8 +445,6 @@
     </div>
   </div>
 
-  <!-- FUMS tracking for api.bible (required by terms of service) -->
-  <script defer src="https://cdn.scripture.api.bible/fums/fumsv2.js"></script>
   <script defer src="assets/egw-refs.js?v=20260813a"></script>
   <script defer src="assets/egw-lookup.js?v=20260813a"></script>
   <script defer src="assets/answer.js?v=20260813a"></script>

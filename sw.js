@@ -3,7 +3,11 @@
    Cache-first for static assets, network-first for documents.
 ══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = "babylons-wine-v10";
+/* Bump this on every change to index.html, assets/app.js or assets/style.css.
+   The cache is served before the network, so a returning reader keeps running
+   the previous build until the name changes — fixes that are deployed but not
+   bumped simply never reach them. */
+const CACHE_NAME = "babylons-wine-v11";
 
 const PRECACHE_URLS = [
   "./index.html",

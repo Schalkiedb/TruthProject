@@ -2285,6 +2285,10 @@ window.addEventListener("popstate", routeFromLocation);
 function showHome(opts) {
   if (!opts || !opts.fromHistory) clearDocHash();
   updateCanonicalUrl(null);
+  // Leaving the reader's place untouched: no document is on screen, so the
+  // home page's own scrolling must not be recorded against one.
+  _currentDocPath = null;
+  resumeScrollSave();
   hideScriptureIndexPage();
   hideAskPage();
   document.getElementById("home-page").style.display = "";
@@ -2366,6 +2370,11 @@ async function loadDocument(filePath, fragment, opts) {
   // Declare this document's canonical URL before anything can fail below, so
   // the tag never describes the previously viewed page.
   updateCanonicalUrl(filePath);
+
+  // Claim the reading position for this document before anything scrolls, and
+  // hold off saving until the render has settled. See saveScrollPosition().
+  _currentDocPath = filePath;
+  suspendScrollSave(12000);
 
   // Scripture Index — an in-app view rather than a document
   if (filePath === SCRIPTURE_INDEX_FILE) {
@@ -2490,6 +2499,10 @@ async function loadDocument(filePath, fragment, opts) {
       : "";
     document.getElementById("btn-next").style.visibility = _next ? "" : "hidden";
 
+    // Nothing here scrolls the window (PDFs and infographics scroll inside
+    // their own frame), so no reading position applies.
+    _currentDocPath = null;
+    resumeScrollSave();
     window.scrollTo({ top: 0 });
     return;
   }
@@ -2575,6 +2588,10 @@ async function loadDocument(filePath, fragment, opts) {
     document.getElementById("btn-next").style.visibility = _next
       ? ""
       : "hidden";
+    // Nothing here scrolls the window (PDFs and infographics scroll inside
+    // their own frame), so no reading position applies.
+    _currentDocPath = null;
+    resumeScrollSave();
     window.scrollTo({ top: 0 });
     return;
   }
@@ -2712,6 +2729,9 @@ async function loadDocument(filePath, fragment, opts) {
     const urlAnchor = !fragment ? (window.location.hash || "").replace(/^#/, "") : "";
     if (urlAnchor && scrollToAnchor(decodeURIComponent(urlAnchor))) {
       // landed on the anchor — don't fight it with the saved scroll position
+      resumeScrollSave();
+    } else if (fragment) {
+      resumeScrollSave();
     } else if (!fragment) {
       // If the user is returning to a guide they previously read, jump them
       // back to approximately where they stopped. Fragment links take priority
@@ -3685,22 +3705,10 @@ function buildBibleGatewayUrl(reference, version) {
     + encodeURIComponent(reference) + "&version=" + encodeURIComponent(version);
 }
 
-/* ── api.bible API key management ────────────────────────── */
-const API_BIBLE_KEY_STORAGE = "apiBibleApiKey";
-// Built-in key — works for all visitors out of the box (free non-commercial tier).
-// Override via the ⚙️ settings button if you have your own key.
-const API_BIBLE_BUILTIN_KEY = "IYyhVb_8ypT1jinjBioh9";
-
-function getApiBibleKey() {
-  // Prefer a user-supplied key from localStorage, fall back to the built-in key
-  return localStorage.getItem(API_BIBLE_KEY_STORAGE) || API_BIBLE_BUILTIN_KEY;
-}
-function setApiBibleKey(key) {
-  localStorage.setItem(API_BIBLE_KEY_STORAGE, key.trim());
-}
-
 /**
- * Book name → api.bible 3-letter code mapping.
+ * Book name → standard three-letter book code (USFM). Kept because
+ * fetchVerseHelloAO() uses it for the BSB and FBV translations; the
+ * api.bible code that originally needed it has been removed.
  */
 const BOOK_TO_API_CODE = {
   "genesis":"GEN","exodus":"EXO","leviticus":"LEV","numbers":"NUM","deuteronomy":"DEU",
@@ -3735,88 +3743,6 @@ const BOOK_TO_API_CODE = {
   "col":"COL","thess":"1TH","tim":"1TI","heb":"HEB","jas":"JAS",
   "pet":"1PE","rev":"REV",
 };
-
-/**
- * Convert a human-readable reference like "Genesis 2:1-3" to
- * api.bible passage ID format like "GEN.2.1-GEN.2.3".
- * Handles comma-separated verses like "Isaiah 56:2,6-7" by using the
- * widest range (first verse to last verse mentioned).
- */
-function toApiBiblePassageId(reference) {
-  const ref = reference.trim();
-  // Match: "Book Chapter:VerseStart[-VerseEnd][,VerseStart[-VerseEnd]]*"
-  const m = ref.match(/^(.+?)\s+(\d+)\s*:\s*(\d+)(?:\s*[-–]\s*(\d+))?/);
-  if (!m) return null;
-
-  const bookRaw = m[1].trim().toLowerCase().replace(/\.$/, "");
-  const chapter = m[2];
-  const verseStart = m[3];
-  let verseEnd = m[4] || null;
-
-  const code = BOOK_TO_API_CODE[bookRaw];
-  if (!code) return null;
-
-  // If there are comma-separated additional verse numbers, find the last one
-  // to create a single range spanning the entire reference.
-  // e.g. "Isaiah 56:2,6-7" → ISA.56.2-ISA.56.7
-  const commaMatches = ref.match(/,\s*(\d+)(?:\s*[-–]\s*(\d+))?/g);
-  if (commaMatches) {
-    for (const cm of commaMatches) {
-      const parts = cm.match(/(\d+)(?:\s*[-–]\s*(\d+))?/);
-      if (parts) {
-        const lastNum = parts[2] || parts[1];
-        if (!verseEnd || parseInt(lastNum) > parseInt(verseEnd)) {
-          verseEnd = lastNum;
-        }
-      }
-    }
-  }
-
-  if (verseEnd) {
-    return `${code}.${chapter}.${verseStart}-${code}.${chapter}.${verseEnd}`;
-  }
-  return `${code}.${chapter}.${verseStart}`;
-}
-
-/**
- * Fetch a passage from api.bible.
- * Returns a normalised object matching the bible-api.com shape.
- */
-async function fetchVerseApiBible(reference, bibleId) {
-  const apiKey = getApiBibleKey();
-  if (!apiKey) throw new Error("API_KEY_MISSING");
-
-  const passageId = toApiBiblePassageId(reference);
-  if (!passageId) throw new Error("Could not parse reference for api.bible.");
-
-  const url = `https://rest.api.bible/v1/bibles/${bibleId}/passages/${passageId}`
-    + `?content-type=text&include-verse-numbers=true&include-titles=false&include-chapter-numbers=false`;
-
-  const res = await fetch(url, {
-    headers: { "api-key": apiKey },
-  });
-
-  if (!res.ok) {
-    if (res.status === 401) throw new Error("Invalid API key. Check your api.bible key in settings.");
-    if (res.status === 403) throw new Error("This Bible version is not available for your API key.");
-    if (res.status === 404) throw new Error("Verse not found in this translation.");
-    if (res.status === 429) throw new Error("api.bible error (429)");
-    throw new Error(`api.bible error (${res.status})`);
-  }
-
-  const json = await res.json();
-  const data = json.data || {};
-
-  // Handle FUMS tracking (required by api.bible terms)
-  if (json.meta && json.meta.fumsId && typeof _BAPI !== "undefined" && _BAPI.t) {
-    try { _BAPI.t(json.meta.fumsId); } catch (_) { /* non-critical */ }
-  }
-
-  // Parse plain-text content into verse-like structure
-  const text = (data.content || "").trim();
-  const copyright = data.copyright || "";
-  return { text, reference: data.reference || reference, copyright, _raw: data };
-}
 
 /**
  * Fetch a verse from bible.helloao.org (free, no API key, no rate limits).
@@ -4210,34 +4136,6 @@ async function fetchVerse(reference, translationId) {
       new Error("BIBLEGATEWAY_LINK"),
       { bgUrl: buildBibleGatewayUrl(cleanRef, t.id.toUpperCase()), translation: t.label }
     );
-  } else if (t && t.source === "api.bible") {
-    // Copyrighted translations via api.bible — throttled with retry
-    const doFetch = () => fetchVerseApiBible(cleanRef, t.bibleId);
-    try {
-      data = await _fetchQueue.enqueue(doFetch);
-    } catch (err) {
-      if (err.message && (err.message.includes("api.bible error") || err.name === "TypeError")) {
-        // Wait and retry once on transient errors
-        await new Promise(r => setTimeout(r, 1500));
-        try {
-          data = await _fetchQueue.enqueue(doFetch);
-        } catch (err2) {
-          // On second failure, fall back to Bible Gateway link-out
-          throw Object.assign(
-            new Error("BIBLEGATEWAY_LINK"),
-            { bgUrl: buildBibleGatewayUrl(cleanRef, t.label), translation: t.label }
-          );
-        }
-      } else if (err.message && err.message.includes("429")) {
-        // Quota exceeded — fall back to Bible Gateway link-out immediately
-        throw Object.assign(
-          new Error("BIBLEGATEWAY_LINK"),
-          { bgUrl: buildBibleGatewayUrl(cleanRef, t.label), translation: t.label }
-        );
-      } else {
-        throw err;
-      }
-    }
   } else if (t && t.source === "helloao") {
     // Free translations via bible.helloao.org (no API key, no rate limits)
     data = await fetchVerseHelloAO(cleanRef, t.helloaoId);
@@ -4305,7 +4203,6 @@ function populateTranslationPill() {
       const o = document.createElement("option");
       o.value = t.id;
       o.textContent = t.label
-        + (t.source === "api.bible" ? " ⚷" : "")
         + (t.source === "biblegateway" ? " ↗" : "");
       o.title = t.desc;
       g.appendChild(o);
@@ -4332,21 +4229,18 @@ function openBibleModal(reference) {
   refEl.textContent = reference;
 
   // Build translation tabs
-  const defaultTranslation = document.getElementById("verse-default-translation")?.value || "web";
-  const hasApiKey = !!getApiBibleKey();
+  const defaultTranslation = document.getElementById("verse-default-translation")?.value || "kjv";
   tabsEl.innerHTML = "";
   BIBLE_TRANSLATIONS.forEach((t) => {
     const tab = document.createElement("div");
-    const isLocked = t.source === "api.bible" && !hasApiKey;
-    tab.className = "vm-tab" + (t.id === defaultTranslation ? " active" : "") + (isLocked ? " locked" : "");
-    tab.textContent = t.label + (isLocked ? " 🔒" : "");
-    tab.title = isLocked ? `${t.desc} — requires free api.bible key (click to set up)` : t.desc;
+    // No translation is gated any more: 31 are read from JSON in this
+    // repository and the rest come from open endpoints, so there is nothing
+    // to unlock and no key to ask the reader for.
+    tab.className = "vm-tab" + (t.id === defaultTranslation ? " active" : "");
+    tab.textContent = t.label;
+    tab.title = t.desc;
     tab.dataset.translation = t.id;
     tab.addEventListener("click", () => {
-      if (isLocked) {
-        openApiBibleSettings();
-        return;
-      }
       tabsEl.querySelectorAll(".vm-tab").forEach((el) => el.classList.remove("active"));
       tab.classList.add("active");
       // Keep the pill dropdown in sync with the tab
@@ -4364,11 +4258,9 @@ function openBibleModal(reference) {
   const closeBtn = document.getElementById("verse-modal-close");
   if (closeBtn) closeBtn.focus();
 
-  // Load default translation (fall back to 'web' if the default is a locked api.bible one)
-  let startTranslation = defaultTranslation;
-  const startT = BIBLE_TRANSLATIONS.find((x) => x.id === defaultTranslation);
-  if (startT && startT.source === "api.bible" && !hasApiKey) startTranslation = "web";
-  loadVerseInModal(reference, startTranslation);
+  // Fall back to KJV if the remembered choice is no longer in the registry.
+  const known = BIBLE_TRANSLATIONS.some((x) => x.id === defaultTranslation);
+  loadVerseInModal(reference, known ? defaultTranslation : "kjv");
 
   // Close on overlay click
   overlay.onclick = (e) => {
@@ -4460,82 +4352,6 @@ async function loadVerseInModal(reference, translationId) {
       ? `This verse may not be available in this translation. Try KJV or WEB.`
       : `Could not fetch verse: ${escapeHtml(err.message)}`;
   }
-}
-
-/**
- * Open the api.bible API key settings dialog.
- */
-function openApiBibleSettings() {
-  const existing = document.getElementById("api-bible-settings-overlay");
-  if (existing) existing.remove();
-
-  const storedKey = localStorage.getItem(API_BIBLE_KEY_STORAGE) || "";
-  const overlay = document.createElement("div");
-  overlay.id = "api-bible-settings-overlay";
-  overlay.innerHTML = `
-    <div class="api-settings-panel">
-      <h3>⚙️ api.bible API Key</h3>
-      <p>NIV, NLT, and NKJV are already enabled for all visitors using the built-in key.</p>
-      <p>If you have your own <a href="https://scripture.api.bible/signup" target="_blank" rel="noopener">api.bible</a> key and want to use it instead, paste it below. Leave blank to use the default.</p>
-      <input type="text" id="api-bible-key-input" placeholder="Paste your own API key (optional)…"
-             value="${escapeHtml(storedKey)}" spellcheck="false" autocomplete="off" />
-      <div class="api-settings-buttons">
-        <button id="api-bible-save-btn" class="btn-gold">Save</button>
-        <button id="api-bible-clear-btn" class="btn-ghost">Use Default</button>
-        <button id="api-bible-cancel-btn" class="btn-ghost">Cancel</button>
-      </div>
-      <p class="api-settings-note">A custom key is stored in this browser's localStorage only.</p>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-
-  // Focus input
-  const input = document.getElementById("api-bible-key-input");
-  setTimeout(() => input.focus(), 100);
-
-  // Save
-  document.getElementById("api-bible-save-btn").addEventListener("click", () => {
-    const key = input.value.trim();
-    if (key) {
-      setApiBibleKey(key);
-      // Clear cache for api.bible translations so they re-fetch
-      for (const [k] of _verseCache) {
-        const tId = k.split("|")[1];
-        const t = BIBLE_TRANSLATIONS.find((x) => x.id === tId);
-        if (t && t.source === "api.bible") _verseCache.delete(k);
-      }
-    }
-    overlay.remove();
-    // Refresh modal tabs if the verse modal is open
-    const verseOverlay = document.getElementById("verse-modal-overlay");
-    if (verseOverlay && verseOverlay.classList.contains("active")) {
-      const ref = document.getElementById("verse-modal-ref")?.textContent;
-      if (ref) openBibleModal(ref);
-    }
-  });
-
-  // Cancel
-  document.getElementById("api-bible-cancel-btn").addEventListener("click", () => overlay.remove());
-
-  // Clear override — revert to built-in key
-  document.getElementById("api-bible-clear-btn").addEventListener("click", () => {
-    localStorage.removeItem(API_BIBLE_KEY_STORAGE);
-    for (const [k] of _verseCache) {
-      const tId = k.split("|")[1];
-      const t = BIBLE_TRANSLATIONS.find((x) => x.id === tId);
-      if (t && t.source === "api.bible") _verseCache.delete(k);
-    }
-    overlay.remove();
-  });
-
-  // Close on overlay click
-  overlay.addEventListener("click", (e) => { if (e.target === overlay) overlay.remove(); });
-
-  // Close on Escape
-  const escHandler = (e) => {
-    if (e.key === "Escape") { overlay.remove(); document.removeEventListener("keydown", escHandler); }
-  };
-  document.addEventListener("keydown", escHandler);
 }
 
 /** Escape HTML entities */
@@ -4785,18 +4601,66 @@ function trackReadingProgress(filePath) {
   localStorage.setItem("lastReadTime", Date.now().toString());
 }
 
+/* Which document the reader is looking at right now.
+ *
+ * Saving used to key off localStorage "lastReadDoc", which is written by
+ * trackReadingProgress() only after a document has rendered. Moving from one
+ * guide to another scrolls the window to the top, that fires a scroll event,
+ * and the debounced save then ran while "lastReadDoc" still named the guide
+ * being left — writing scrollPos_<previous guide> = 0 and destroying the
+ * reader's place. Going out via Home escaped it only because the save is
+ * skipped while #doc-page is hidden.
+ *
+ * This is set synchronously at the start of loadDocument, before anything can
+ * scroll, so a save can never be attributed to the wrong document. */
+let _currentDocPath = null;
+
+/* Saves are held off during a navigation, because the scroll-to-top that
+ * happens on the way in is not the reader moving. The deadline expires by
+ * itself so no early return can leave saving switched off for good. */
+let _scrollSaveSuspendedUntil = 0;
+
+function suspendScrollSave(ms) {
+  _scrollSaveSuspendedUntil = Date.now() + (ms || 0);
+}
+
+function resumeScrollSave() {
+  _scrollSaveSuspendedUntil = 0;
+}
+
 function saveScrollPosition() {
-  const lastDoc = localStorage.getItem("lastReadDoc");
-  if (lastDoc && document.getElementById("doc-page").style.display !== "none") {
-    localStorage.setItem("scrollPos_" + lastDoc, window.scrollY.toString());
-  }
+  if (Date.now() < _scrollSaveSuspendedUntil) return;
+  if (!_currentDocPath) return;
+  const docPage = document.getElementById("doc-page");
+  if (!docPage || docPage.style.display === "none") return;
+  localStorage.setItem("scrollPos_" + _currentDocPath, window.scrollY.toString());
 }
 
 function restoreScrollPosition(filePath) {
-  const saved = localStorage.getItem("scrollPos_" + filePath);
-  if (saved) {
-    setTimeout(() => window.scrollTo({ top: parseInt(saved, 10) }), 100);
+  const saved = parseInt(localStorage.getItem("scrollPos_" + filePath) || "", 10);
+  if (!Number.isFinite(saved) || saved <= 0) {
+    resumeScrollSave();
+    return;
   }
+  /* A long guide renders progressively, so the page can still be shorter than
+   * the saved offset when this runs — and scrollTo() silently clamps to the
+   * height available at that moment. Re-apply until the document is tall
+   * enough to honour it, then give up rather than fight the reader. */
+  const deadline = Date.now() + 8000;
+  const attempt = () => {
+    if (localStorage.getItem("lastReadDoc") !== filePath && _currentDocPath !== filePath) {
+      resumeScrollSave();   // reader moved on; stop trying
+      return;
+    }
+    window.scrollTo({ top: saved });
+    const landed = Math.abs(window.scrollY - saved) < 4;
+    if (landed || Date.now() > deadline) {
+      resumeScrollSave();
+      return;
+    }
+    setTimeout(attempt, 250);
+  };
+  setTimeout(attempt, 100);
 }
 
 function clearReadStatus(filePath) {
