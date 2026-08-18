@@ -3995,6 +3995,16 @@ function wireVerseReferences(container) {
   const pill = document.getElementById("verse-translation-pill");
   if (pill && count > 0) {
     pill.style.display = "flex";
+    /* Self-heal: index.html carries a single hard-coded <option> as a pre-JS
+       placeholder, and the real list is built by populateTranslationPill()
+       during init. If init failed part-way, that placeholder is all the reader
+       ever sees — which is exactly how every translation but NLT disappeared on
+       older iPhones and iPads. Rebuilding here costs nothing and means the
+       dropdown can never be left showing one entry. */
+    const sel = document.getElementById("verse-default-translation");
+    if (sel && sel.options.length <= 1 && BIBLE_TRANSLATIONS.length > 1) {
+      try { populateTranslationPill(); } catch (e) { console.error(e); }
+    }
   }
 
   // Auto-expand all verse references in the currently selected translation
@@ -6216,6 +6226,18 @@ function openBookmarksPanel() {
 /* ══════════════════════════════════════════════════════════════
    INIT APP
 ══════════════════════════════════════════════════════════════ */
+/**
+ * Run work when the browser is idle, falling back to a timer.
+ * typeof-guarded because not every engine defines requestIdleCallback.
+ */
+function whenIdle(fn, fallbackDelay) {
+  if (typeof window !== "undefined" && typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(() => fn());
+  } else {
+    setTimeout(fn, fallbackDelay || 1000);
+  }
+}
+
 async function initApp() {
   applyStoredTheme();
   rebuildAllItems();
@@ -6243,8 +6265,14 @@ async function initApp() {
   if (deepLink) loadDocument(deepLink, undefined, { fromHistory: true });
 
   // Build full-text search index + Bible symbols map in background
-  requestIdleCallback ? requestIdleCallback(() => buildSearchIndex()) : setTimeout(buildSearchIndex, 2000);
-  requestIdleCallback ? requestIdleCallback(() => loadBibleSymbols()) : setTimeout(loadBibleSymbols, 1500);
+  // Guarded with typeof, not a bare reference. Safari had no
+  // requestIdleCallback until 18.2, and reading an undeclared identifier
+  // throws ReferenceError rather than yielding undefined — so the bare form
+  // aborted initApp() on every older iPhone and iPad, taking the rest of the
+  // setup with it (the translation dropdown and the scroll-position listener
+  // both live further down). window.x is undefined-safe; x is not.
+  whenIdle(() => buildSearchIndex(), 2000);
+  whenIdle(() => loadBibleSymbols(), 1500);
 
   // Enhanced search — full-text when index is ready, title-only otherwise
   let searchDebounce = null;
@@ -6332,4 +6360,12 @@ async function initApp() {
   });
 }
 
-initApp();
+/* Catching this matters: initApp() is async, so anything that throws inside it
+   rejects a promise nobody was watching — the page keeps working while later
+   setup steps silently never ran. That is precisely how the missing
+   translations went unnoticed. */
+initApp().catch((err) => {
+  console.error("initApp failed — some features may not be wired:", err);
+  // Re-run the parts a reader would notice immediately.
+  try { populateTranslationPill(); } catch (e) { console.error(e); }
+});
