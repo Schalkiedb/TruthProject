@@ -54,6 +54,13 @@ const LiveEvents = (function () {
 
     // Requests are fired in small waves instead of all at once, to avoid
     // bursting past rate limits on the free proxies.
+    // Left at 8/400ms. Every request now goes through the one proxy that
+    // answers, so I expected gentler waves to raise the yield — but measured
+    // on real scans, 3-at-a-time/1200ms produced exactly the same 6 ok and 10
+    // failed as 8/400ms, while making the scan several times longer. The free
+    // rss2json tier is not limiting on concurrency; it is a per-IP quota.
+    // Spacing requests cannot fix that. Setting rss2jsonApiKey above is what
+    // would, and until it is set, roughly 10 of every 16 requests are lost.
     requestBatchSize: 8,
     requestBatchDelay: 400, // ms between waves
   };
@@ -142,6 +149,63 @@ const LiveEvents = (function () {
     },
   };
 
+  /* ── Magisterial Sunday queries ────────────────────────────
+     These are fetched unconditionally (see fetchAllEvents), NOT added to
+     KEYWORD_GROUPS.sl.queries. Only queries[0..2] of each group are ever
+     issued — [3] and [4] need CONFIG.deepScan, which is off by default, and
+     [5] onward are issued by nothing at all. Appending here would have
+     produced config that reads as active and never runs.
+
+     Every query in KEYWORD_GROUPS.sl looks for a statute, so a pope or
+     bishops' conference pressing for Sunday observance was never searched
+     for. Each of these pairs Sunday with obligation, sanctification or
+     work/rest language, so they don't just return the week's Mass times. */
+  const MAGISTERIAL_SUNDAY_QUERIES = [
+    '"Sunday Mass" pope OR Vatican OR bishops "time off work" OR "working conditions"',
+    '"sanctify Sunday" OR "sanctify the Lord\'s Day" OR "keep Sunday holy"',
+    '"Sunday obligation" OR "Sunday observance" pope OR bishops OR Vatican',
+    'pope OR Vatican OR bishops "Sunday rest" OR "Sunday free" OR "protect Sunday"',
+  ];
+
+  /* ── Magisterial Sunday advocacy ───────────────────────────
+     RELEVANCE_PATTERNS.sl only recognises *legislative* Sunday language
+     ("Sunday law", "blue law", "Sunday trading ban"). That missed a whole
+     class of source material: a pope or bishops' conference pressing for
+     Sunday observance and for working conditions that free people to keep
+     it. Pope Leo XIV's 12 Aug 2026 general audience is the case in point —
+     "I urge everyone to seek the best possible conditions so that even
+     those who are unable to take time off work on Sundays may take part in
+     holy Mass" — reported by ACI Africa and America Magazine and picked up
+     by neither gate, because no statute was involved.
+
+     Prophetically that is the Dies Domini §§66–67 pattern: the church
+     asking the civil order to protect Sunday. So these clauses are written
+     to catch the *asking*, and deliberately not to catch ordinary Catholic
+     life. Each clause needs sanctification/obligation language or a
+     work-and-rest clause — never a bare "Sunday" next to "Mass", which
+     would pull in every parish bulletin, Angelus address and Sunday Gospel
+     reflection published anywhere. */
+  const SL_MAGISTERIAL_SUNDAY = new RegExp([
+    // "To sanctify Sunday…", "sanctify the Lord's Day" — magisterial idiom
+    // that effectively never appears in secular or routine parish copy.
+    "sanctif\\w*\\s+(?:sunday|the\\s+lord.?s\\s+day)",
+    "keep(?:ing)?\\s+sunday\\s+holy",
+    // "Sunday obligation", "holy day of obligation" applied to Sunday.
+    "(?:sunday|lord.?s\\s+day)[^.]{0,40}\\bobligation",
+    "\\bobligation[^.]{0,40}(?:sunday|lord.?s\\s+day)",
+    // The work/rest ask — the clause with the civil consequence.
+    "(?:time\\s+off|off\\s+work|work(?:ing)?\\s+conditions|free\\s+from\\s+work|day\\s+off)[^.]{0,70}sunday",
+    "sunday[^.]{0,70}(?:time\\s+off|off\\s+work|work(?:ing)?\\s+conditions|free\\s+from\\s+work)",
+    // Named magisterial documents on the Lord's Day.
+    "dies\\s+domini",
+    // A church authority advocating for Sunday rest or protection.
+    "(?:pope|pontiff|vatican|holy\\s+see|cardinal|archbishop|bishops.{0,15}conference|" +
+      "episcopal\\s+conference|usccb|comece)" +
+      "[^.]{0,90}(?:sunday\\s+rest|rest\\s+on\\s+sunday|sunday\\s+observance|" +
+      "protect\\w*\\s+sunday|guarantee\\w*\\s+sunday|sunday\\s+free|" +
+      "sunday\\s+as\\s+a\\s+day\\s+of\\s+rest)",
+  ].join("|"), "i");
+
   /* ── Content-based category re-tagging ──────────────────────
      Previously an event's `category` was just whatever query/source first
      pulled it in, so an article that's genuinely both Sunday-law AND
@@ -151,6 +215,7 @@ const LiveEvents = (function () {
      above) test the actual article text so an event can carry multiple
      legitimate category tags. `category` is left as-is for backward
      compatibility; `categories` is the new array to filter/count on. */
+
   const CATEGORY_TAGS = {
     sl: /\b(sunday law|blue law|day of rest|national rest day|mandatory rest|sabbath legislation|sunday closing|sunday trading)\b/i,
     cs: /\b(church and state|church-state|separation of church and state|establishment clause|christian nationalism|christian nation|faith.based (government|policy|office)|vatican|pope|papal)\b/i,
@@ -162,6 +227,12 @@ const LiveEvents = (function () {
 
   function deriveCategories(text, originCategory) {
     const matched = Object.keys(CATEGORY_TAGS).filter((cat) => CATEGORY_TAGS[cat].test(text));
+    // Magisterial Sunday advocacy belongs under Sunday Laws even though it
+    // cites no statute, and even though it usually arrives tagged "cs" via
+    // the Vatican News feed. Without this the two Pope Leo XIV Sunday-Mass
+    // articles would survive the relevance guard and then still be invisible
+    // behind the Sunday Laws pill.
+    if (SL_MAGISTERIAL_SUNDAY.test(text) && matched.indexOf("sl") === -1) matched.push("sl");
     if (matched.indexOf(originCategory) === -1) matched.push(originCategory);
     return matched.length ? matched : [originCategory];
   }
@@ -182,11 +253,19 @@ const LiveEvents = (function () {
     bs: /cashless (society|payment|economy|world)|social credit (system|score|china|expand|adopt|implement)|financial (surveillance|control|restrict|monitor).{0,20}(govern|law|bill|mandate|implement)|buy.{0,15}sell.{0,15}(restrict|ban|digital|require)|global governance.{0,20}(financ|econom|religio)|great reset|laudato si|papal (decree|encyclical).{0,20}(rest|sunday|govern|law)|pope.{0,20}encyclical/i,
   };
 
+
   function isEventRelevant(event) {
     if (event.origin === "curated") return true; // curated events are pre-verified
+    const text = `${event.title} ${event.snippet}`;
+    // Magisterial Sunday advocacy qualifies whatever query pulled the
+    // article in. It matters because these arrive through the Vatican News
+    // RSS feed, which is registered under "cs" and "bs" — so testing only
+    // the origin category's pattern threw them away before deriveCategories
+    // ever got the chance to file them under Sunday Laws.
+    if (SL_MAGISTERIAL_SUNDAY.test(text)) return true;
     const filter = RELEVANCE_PATTERNS[event.category];
     if (!filter) return true;
-    return filter.test(`${event.title} ${event.snippet}`);
+    return filter.test(text);
   }
 
   /* ── Country code detection from article text ──────────── */
@@ -264,6 +343,22 @@ const LiveEvents = (function () {
     /\b(president|executive order|proclamation|decree).{0,30}(rest|worship|prayer|Sabbath|Sunday)\b/i,
     /\b(national).{0,15}(Shabbat|Sabbath|rest day|day of rest|prayer)\b/i,
     /\b(Vatican|Pope).{0,20}(president|congress|government|legislation)\b/i,
+    /* A church authority asking the civil order to free people from Sunday
+       work is the Dies Domini §§66–67 move, and the ticker and header badge
+       only surface critical/high — so at "medium" these were reaching the
+       panel but never the parts of the UI that flag something as new.
+
+       The leading lookahead requires a church actor somewhere in the text;
+       the body then matches the work-and-Sunday clause. They are usually in
+       different sentences ("Pope Leo XIV urged… . …unable to take time off
+       work on Sundays"), so this cannot be one contiguous match — an earlier
+       attempt using [^.] to stay inside a sentence never fired. The actor
+       requirement is what keeps an ordinary retail-hours story out.
+
+       Both word orders live in ONE pattern on purpose. As two entries they
+       both matched the same sentence and each added 3, pushing a single fact
+       to "critical" — severity has to count the signal once. */
+    /(?=[\s\S]*?\b(?:pope|pontiff|vatican|holy see|bishops?|episcopal conference|usccb|comece|cardinal|archbishop)\b)[\s\S]*?(?:\b(?:time off|off)\s+work\b[^.]{0,30}sunday|sunday[^.]{0,45}\b(?:free from work|off from work|time off work|working conditions)\b)/i,
   ];
   const MEDIUM_SEVERITY = [
     /\b(propos(?:e|al|ed)|bill|draft|resolution|legislation)\b/i,
@@ -705,18 +800,46 @@ const LiveEvents = (function () {
     // lets us stagger the burst instead of firing everything at once.
     const taskFactories = [];
 
+    /* Source selection is the result of an audit run from a browser page, so
+       CORS applied exactly as it does for a reader. Measured, not assumed:
+
+         Google News via rss2json  — WORKING (10 items, ~900ms)
+         Vatican News (both feeds) — WORKING
+         Christian Post            — WORKING
+         GDELT via rss2json        — HTTP 500. GDELT enforces one request per
+                                     5 seconds and answers 429 above that; a
+                                     scan fired six at once, and rss2json's
+                                     shared IP is throttled independently of
+                                     us, so spacing our own calls cannot fix
+                                     it. Needs its own proxy or an API key.
+         Bing News RSS             — well-formed RSS with a permanently EMPTY
+                                     channel: 0 <item> elements for any query.
+                                     Microsoft retired news RSS results.
+         Reddit (direct)           — CORS blocked, no proxy in front of it.
+
+       Three of six source types could never return anything, which was 18 of
+       ~28 requests per scan guaranteed to fail. Worse, they were failing
+       *silently*, and the wasted burst made the one working proxy fail too —
+       6 of 20 concurrent rss2json calls returned HTTP 500, p95 latency 9.6s.
+       So the dead sources are now behind deepScan (kept, not deleted, so they
+       can be revived if a key or proxy is added) and their slots go to Google
+       News, which is the search source that actually answers. */
     for (const [cat, group] of Object.entries(KEYWORD_GROUPS)) {
-      // Primary query per source — always runs.
-      if (group.queries[0]) taskFactories.push(() => queryGDELT(group.queries[0], cat));
+      // Google News is the only working search source, so it takes the slots.
       if (group.queries[1]) taskFactories.push(() => queryGoogleNews(group.queries[1], cat));
-      if (group.queries[2]) taskFactories.push(() => queryBingNews(group.queries[2], cat));
-      const redditQuery = getRedditQuery(cat);
-      if (redditQuery) taskFactories.push(() => queryReddit(redditQuery, cat));
+      if (group.queries[0]) taskFactories.push(() => queryGoogleNews(group.queries[0], cat));
 
       // Secondary queries — only when deepScan is on (see CONFIG comment).
       if (CONFIG.deepScan) {
+        // Kept behind deepScan so the code stays exercised if a GDELT proxy
+        // or rss2json key is added later. As measured, GDELT 429s and Bing
+        // returns an empty channel, so on the default scan these are pure
+        // waste — and their burst was making the working proxy fail too.
         if (group.queries[3]) taskFactories.push(() => queryGDELT(group.queries[3], cat));
         if (group.queries[4]) taskFactories.push(() => queryGoogleNews(group.queries[4], cat));
+        if (group.queries[2]) taskFactories.push(() => queryBingNews(group.queries[2], cat));
+        const redditQuery = getRedditQuery(cat);
+        if (redditQuery) taskFactories.push(() => queryReddit(redditQuery, cat));
       }
     }
 
@@ -740,6 +863,14 @@ const LiveEvents = (function () {
     // Christian Post covers US church-state and religious liberty from an
     // evangelical perspective. The relevance filter below removes off-topic
     // articles so adding broad feeds doesn't pollute the event list.
+    // Magisterial Sunday advocacy — always fetched, filed under "sl". All via
+    // Google News: an earlier version alternated with GDELT for redundancy,
+    // but the audit showed GDELT 429s every time, so half these queries were
+    // simply being thrown away.
+    MAGISTERIAL_SUNDAY_QUERIES.forEach((q) => {
+      taskFactories.push(() => queryGoogleNews(q, "sl"));
+    });
+
     taskFactories.push(() => queryRSSFeed("https://www.vaticannews.va/en.rss.xml", "cs", "vatican_news"));
     taskFactories.push(() => queryRSSFeed("https://www.vaticannews.va/en/pope.rss.xml", "bs", "vatican_news"));
     taskFactories.push(() => queryRSSFeed("https://www.christianpost.com/rss/", "rl", "christian_post"));

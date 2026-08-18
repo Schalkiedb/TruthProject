@@ -83,6 +83,96 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .sr-empty b{color:#c9a227;display:block;margin-bottom:4px;font-size:13px}
 .sr-hint{padding:6px 10px 8px;font-size:9.5px;color:#4a5568;text-align:center;line-height:1.6}
 
+/* ── Evidence item metadata (date + source) ──────────────── */
+.ev-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+.ev-date{font-size:9.5px;font-weight:700;letter-spacing:.03em;color:#c9a227;
+  background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.22);
+  border-radius:6px;padding:1px 6px;white-space:nowrap}
+.ev-src{font-size:9.5px;font-weight:700;color:#63b3ed;text-decoration:none;
+  background:rgba(99,179,237,.1);border:1px solid rgba(99,179,237,.25);
+  border-radius:6px;padding:1px 6px;white-space:nowrap;transition:background .2s}
+.ev-src:hover{background:rgba(99,179,237,.22);text-decoration:underline}
+.ev-nosrc{font-size:9.5px;font-weight:600;color:#6b7280;white-space:nowrap;
+  border:1px dashed rgba(255,255,255,.14);border-radius:6px;padding:1px 6px}
+.ev-coverage{margin-top:12px;padding:7px 10px;border-radius:7px;font-size:10px;
+  line-height:1.6;color:#8b93a8;background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.08);border-left:2px solid rgba(221,107,32,.5)}
+.ev-coverage b{color:#f6ad55}
+.ev-coverage.all{border-left-color:rgba(72,187,120,.6);color:#9aa3c0}
+.ev-coverage.all b{color:#68d391}
+.ev-link{margin-left:6px;padding:0 3px;background:none;border:none;cursor:pointer;
+  font-size:10px;line-height:1;opacity:0;color:#7f89a8;font-family:inherit;
+  transition:opacity .15s;vertical-align:middle}
+.cat-points > li:hover .ev-link,.ev-link:focus-visible{opacity:.75}
+.ev-link:hover{opacity:1}
+.ev-link.copied{opacity:1;color:#68d391}
+/* Touch devices get no hover, so the button has to be visible from the start
+   or it is unreachable on a phone. */
+@media (hover:none){.ev-link{opacity:.6}}
+
+/* ── Timeline button + panel ─────────────────────────────── */
+#timeline-btn{display:flex;align-items:center;gap:6px;padding:5px 12px;
+  background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.3);
+  border-radius:20px;color:#c9a227;font-size:12px;font-weight:700;
+  cursor:pointer;white-space:nowrap;transition:background .2s;flex-shrink:0}
+#timeline-btn:hover{background:rgba(201,162,39,.22)}
+#timeline-btn.open{background:rgba(201,162,39,.3);color:#ffe9a8}
+
+#timeline-panel{position:fixed;top:90px;right:0;bottom:0;width:min(520px,100vw);
+  z-index:2600;display:flex;flex-direction:column;
+  background:rgba(8,11,20,.985);backdrop-filter:blur(12px);
+  border-left:1px solid rgba(201,162,39,.28);box-shadow:-8px 0 40px rgba(0,0,0,.55)}
+#timeline-panel[hidden]{display:none}
+#tl-hdr{flex-shrink:0;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+#tl-hdr h3{font-size:13px;font-weight:700;color:#e6c04c;letter-spacing:.03em;margin-bottom:9px}
+#tl-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+#tl-controls select,#tl-close{padding:5px 8px;border-radius:12px;font-family:inherit;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+  color:#9aa3c0;font-size:10.5px;font-weight:600;cursor:pointer;outline:none}
+#tl-controls select:focus,#tl-close:focus{border-color:rgba(201,162,39,.45)}
+#tl-close{margin-left:auto;color:#7f89a8}
+#tl-close:hover{color:#e2e8f0}
+#tl-coverage{margin-top:9px;font-size:9.5px;line-height:1.6;color:#6b7280}
+#tl-coverage b{color:#c9a227}
+#tl-body{flex:1;overflow-y:auto;padding:8px 16px 24px;
+  scrollbar-width:thin;scrollbar-color:#2b3550 transparent}
+#tl-body::-webkit-scrollbar{width:5px}
+#tl-body::-webkit-scrollbar-thumb{background:#2b3550;border-radius:3px}
+
+.tl-year{position:sticky;top:0;z-index:2;padding:9px 0 5px;
+  background:linear-gradient(rgba(8,11,20,.99) 70%,rgba(8,11,20,0));
+  font-size:15px;font-weight:800;color:#e6c04c;letter-spacing:.05em}
+.tl-year .tl-n{font-size:9.5px;font-weight:600;color:#6b7280;margin-left:7px}
+/* The spine: a single vertical rule the entries hang off, so a dense year
+   reads as dense rather than as an undifferentiated list. */
+.tl-entries{position:relative;padding-left:18px;
+  border-left:1px solid rgba(201,162,39,.18);margin-left:4px}
+.tl-item{position:relative;padding:7px 0 9px;cursor:pointer;border:none;
+  background:none;text-align:left;width:100%;font-family:inherit;display:block}
+.tl-item::before{content:'';position:absolute;left:-23px;top:12px;
+  width:7px;height:7px;border-radius:50%;background:#c9a227;
+  box-shadow:0 0 0 3px rgba(8,11,20,1)}
+.tl-item.approx::before{background:#4a5568}
+.tl-item:hover .tl-text,.tl-item:focus-visible .tl-text{color:#e2e8f0}
+.tl-item:focus-visible{outline:1px solid rgba(201,162,39,.5);outline-offset:2px;border-radius:4px}
+.tl-top{display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap}
+.tl-when{font-size:9.5px;font-weight:700;color:#c9a227;white-space:nowrap}
+.tl-when.approx{color:#7f89a8;font-weight:600}
+.tl-flag{font-size:12px}
+.tl-where{font-size:10px;font-weight:700;color:#9aa3c0;white-space:nowrap}
+.tl-cat{padding:1px 6px;border-radius:7px;font-size:8px;font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase}
+.tl-text{font-size:11.5px;line-height:1.55;color:#9aa3c0;
+  display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tl-empty{padding:26px 8px;text-align:center;color:#7f89a8;font-size:12px;line-height:1.7}
+
+@media(max-width:800px){
+  #timeline-panel{top:90px;width:100vw;border-left:none}
+  #timeline-btn span{display:none}
+  #timeline-btn::after{content:'🕰';font-size:13px}
+  #timeline-btn{padding:5px 10px}
+}
+
 /* ── Stats Bar ───────────────────────────────────────────── */
 #stats{position:fixed;top:56px;left:0;right:0;z-index:1999;height:34px;
   background:rgba(10,13,26,.92);backdrop-filter:blur(8px);
@@ -428,6 +518,19 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   margin-top:7px;font-size:10px;font-weight:600;color:#4fd1c5;letter-spacing:.03em;
 }
 #live-result-count[hidden]{display:none}
+#live-health{margin-top:8px;font-size:9.5px;color:#6b7280}
+#live-health summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:5px;
+  font-weight:700;letter-spacing:.03em;color:#7a839c;padding:2px 0}
+#live-health summary::-webkit-details-marker{display:none}
+#live-health summary::before{content:'▸';font-size:9px;transition:transform .15s}
+#live-health[open] summary::before{transform:rotate(90deg)}
+#live-health summary:hover{color:#9aa3c0}
+#lh-body{padding:6px 0 2px;display:flex;flex-direction:column;gap:3px}
+.lh-row{display:flex;align-items:center;gap:6px;font-size:9.5px;line-height:1.5}
+.lh-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.lh-ok{background:#48bb78}.lh-part{background:#dd6b20}.lh-dead{background:#e53e3e}
+.lh-name{color:#9aa3c0;font-weight:600}
+.lh-note{color:#5c6684}
 #live-result-count button{
   margin-left:7px;padding:1px 7px;border-radius:8px;cursor:pointer;font-family:inherit;
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
@@ -638,6 +741,10 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       <div id="srch-body"></div>
     </div>
   </div>
+  <div id="timeline-btn" onclick="toggleTimeline()" role="button" tabindex="0" aria-label="Toggle chronology view"
+       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTimeline()}">
+    <span>🕰 Timeline</span>
+  </div>
   <div id="live-btn" onclick="toggleLivePanel()" role="button" tabindex="0" aria-label="Toggle live prophecy event feed"
        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleLivePanel()}">
     <div id="live-dot" aria-hidden="true"></div>
@@ -793,6 +900,14 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       </select>
     </div>
     <div id="live-result-count" hidden></div>
+    <!-- Source health. LiveEvents has always tracked per-source ok/fail
+         counts but nothing displayed them, which is how three of six sources
+         stayed dead without anyone noticing. Shown so the next one is
+         obvious. -->
+    <details id="live-health">
+      <summary><span id="lh-summary">Sources</span></summary>
+      <div id="lh-body"></div>
+    </details>
   </div>
   <div id="live-loading">
     <div class="spinner"></div>
@@ -805,6 +920,36 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     <span style="font-size:11px">Try selecting a different category or refresh.</span>
   </div>
   <div id="live-events-list"></div>
+</div>
+
+<!-- ══ TIMELINE / CHRONOLOGY ══
+     A map has no time axis, so the convergence the dossiers describe — the
+     clustering of dated events into 2024–2026 — is the one thing the map
+     cannot show. This reads the same evidence items and orders them by date.
+     It states its own coverage in the header, because it can only chart the
+     items that carry a date. -->
+<div id="timeline-panel" hidden>
+  <div id="tl-hdr">
+    <h3>🕰 Chronology</h3>
+    <div id="tl-controls">
+      <select id="tl-cat" aria-label="Filter chronology by category">
+        <option value="all">🌐 All categories</option>
+        <option value="sl">📅 Sunday Laws</option>
+        <option value="cs">⛪ Church &amp; State</option>
+        <option value="cbdc">💳 CBDC</option>
+        <option value="did">👁 Digital ID</option>
+        <option value="rl">✝ Religious Liberty</option>
+        <option value="bs">🔗 Beast System</option>
+      </select>
+      <select id="tl-order" aria-label="Chronology direction">
+        <option value="desc">Newest first</option>
+        <option value="asc">Oldest first</option>
+      </select>
+      <button type="button" id="tl-close" onclick="toggleTimeline()">✕ Close</button>
+    </div>
+    <div id="tl-coverage"></div>
+  </div>
+  <div id="tl-body"></div>
 </div>
 
 <!-- ══ LIVE TICKER BAR ══ -->
@@ -847,6 +992,134 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
    level: "red" | "orange" | "blue" | "green" | "gray"
 ═══════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════════════════════
+   EVIDENCE ITEM SHAPE
+   ───────────────────────────────────────────────────────────
+   An item in a country's `items` array is EITHER a plain HTML string
+   (the original shape, still valid) OR an object:
+
+     { t:    "<strong>Utah HB441…</strong> — Bars franchisors…",  // required
+       date: "2025-03-08",   // ISO. "2025-03" and "2025" are also accepted
+                             //  and rendered as approximate.
+       src:  "https://le.utah.gov/~2025/bills/static/HB0441.html",
+       srcTitle: "Utah Legislature — HB441 text" }
+
+   Both shapes coexist so items can be upgraded a few at a time instead of
+   in one 861-item rewrite. Everything downstream goes through the three
+   accessors below, so a consumer never has to know which shape it got.
+
+   `date` exists because the dates were only ever in the prose: of the 861
+   items, 3% state a day, 4% a month, 16% a bare year and 78% say nothing.
+   An explicit field is authoritative; parsing the text is the fallback.
+   `src` exists because items assert specifics — "Article L3132-3", "p.589"
+   — with nothing to click through to.
+═══════════════════════════════════════════════════════════ */
+function itemText(item) {
+  return typeof item === 'string' ? item : (item && item.t) || '';
+}
+function itemSrc(item) {
+  return (item && typeof item === 'object' && item.src) || null;
+}
+function itemSrcTitle(item) {
+  return (item && typeof item === 'object' && item.srcTitle) || null;
+}
+/** Explicit ISO date if the item declares one, else null. Never guesses. */
+function itemDeclaredDate(item) {
+  if (!item || typeof item !== 'object' || !item.date) return null;
+  const m = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/.exec(String(item.date).trim());
+  if (!m) return null;
+  const y = +m[1], mo = m[2] ? +m[2] - 1 : 0, d = m[3] ? +m[3] : 1;
+  const MN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return {
+    rank: m[3] ? 3 : m[2] ? 2 : 1,
+    ts: Date.UTC(y, mo, d),
+    label: m[3] ? d + ' ' + MN[mo] + ' ' + y : m[2] ? MN[mo] + ' ' + y : String(y),
+    declared: true,
+  };
+}
+
+/* Shared by the header search and the timeline. Defined at top level
+   because both need it — while it lived inside the search IIFE the
+   timeline threw "parseEvidenceDate is not defined" and rendered empty. */
+/* ── Date extraction from evidence prose ───────────────────
+   Dossier items are hand-written sentences, not records, so their dates
+   live in the text: "Jan 8, 2026", "March 2022", "(founded 1888)". This
+   pulls the most specific date it can and records how precise it is, so
+   "8 Jan 2026" can outrank a bare "2026" and an undated item can sort
+   last honestly instead of pretending to be from 1970.
+
+   Coverage is genuinely partial: of the 861 items, 3% carry a day, 4% a
+   month, 16% a bare year, and 78% carry no date at all. Sorting by date
+   therefore orders the dated quarter and parks the rest under "no date". */
+const MONTHS = {
+  jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+  jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+};
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const RE_MDY = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s*((?:19|20)\d{2})\b/gi;
+const RE_DMY = /\b(\d{1,2})(?:st|nd|rd|th)?\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?,?\s*((?:19|20)\d{2})\b/gi;
+const RE_MY  = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+((?:19|20)\d{2})\b/gi;
+const RE_Y   = /\b((?:19|20)\d{2})\b/g;
+
+/**
+ * The item's own heading — the leading <strong>, else the text before the
+ * first em-dash or colon. Dates in the heading describe the item; dates in
+ * the body are usually incidental (when a law commenced, when someone
+ * died), so the heading is scanned first. See scripts/backfill_evidence_dates.js
+ * for the four items this rule demonstrably corrected.
+ */
+function evidenceHeading(html) {
+  const bold = /^\s*<strong>([\s\S]*?)<\/strong>/i.exec(String(html));
+  if (bold) return bold[1].replace(/<[^>]+>/g, ' ');
+  const plain = String(html).replace(/<[^>]+>/g, ' ');
+  const cut = plain.search(/—|:/);
+  return cut > 0 ? plain.slice(0, cut) : '';
+}
+
+function parseEvidenceDate(text) {
+  return scanForDate(evidenceHeading(text)) ||
+         scanForDate(String(text).replace(/<[^>]+>/g, ' '));
+}
+
+function scanForDate(text) {
+  const plain = String(text);
+  let best = null;
+  const better = (cand) => {
+    if (!cand) return;
+    // More precise wins; at equal precision, the later date wins, because
+    // an item that mentions "1891 ... never rescinded ... 2026" is news
+    // about 2026, not about 1891.
+    if (!best || cand.rank > best.rank || (cand.rank === best.rank && cand.ts > best.ts)) best = cand;
+  };
+  let m;
+  RE_MDY.lastIndex = 0;
+  while ((m = RE_MDY.exec(plain))) {
+    const mo = MONTHS[m[1].toLowerCase().slice(0, 3)];
+    const d = parseInt(m[2], 10);
+    if (d >= 1 && d <= 31) {
+      better({ rank: 3, ts: Date.UTC(+m[3], mo, d), label: d + ' ' + MONTH_NAMES[mo] + ' ' + m[3] });
+    }
+  }
+  RE_DMY.lastIndex = 0;
+  while ((m = RE_DMY.exec(plain))) {
+    const mo = MONTHS[m[2].toLowerCase().slice(0, 3)];
+    const d = parseInt(m[1], 10);
+    if (d >= 1 && d <= 31) {
+      better({ rank: 3, ts: Date.UTC(+m[3], mo, d), label: d + ' ' + MONTH_NAMES[mo] + ' ' + m[3] });
+    }
+  }
+  RE_MY.lastIndex = 0;
+  while ((m = RE_MY.exec(plain))) {
+    const mo = MONTHS[m[1].toLowerCase().slice(0, 3)];
+    better({ rank: 2, ts: Date.UTC(+m[2], mo, 1), label: MONTH_NAMES[mo] + ' ' + m[2] });
+  }
+  RE_Y.lastIndex = 0;
+  while ((m = RE_Y.exec(plain))) {
+    better({ rank: 1, ts: Date.UTC(+m[1], 0, 1), label: m[1] });
+  }
+  return best;
+}
+
 const CATS = {
   sl:   { label: "Sunday Laws",      icon: "📅" },
   cs:   { label: "Church & State",   icon: "⛪" },
@@ -872,25 +1145,28 @@ const COUNTRIES = {
     summary:"Prophetically identified as the second beast of Revelation 13. In 2026 the convergence is accelerating: Heritage Foundation SR323 (Jan. 8, 2026) calls for Blue Law restoration as a 'culture-wide Manhattan Project'; Project 2025 embedded Sunday FLSA language on p.589; a White House Faith Office, Anti-Christian Bias Task Force, and Presidential Commission on Religious Liberty now form a permanent institutional pipeline from religious lobbies to the Oval Office; Trump proclaimed 2026 a 'Year of Rededication — one Nation under God'; and 'Rededicate 250' schedules a 12-hour Christian worship event on the National Mall on Sunday May 17, 2026. The last comparable convergence was 1888 — when one senator stood between America and a national Sunday law.",
     guides:["Daniel 2","Daniel 7 & 8","The Other Beast","The Mark of the Beast"],
     sl:{ level:"red", items:[
-      "<strong>Heritage Foundation SR323 — Jan 8, 2026</strong> — 'Saving America by Saving the Family' calls Blue Law restoration a 'culture-wide Manhattan Project.' Proposes FLSA amendment requiring time-and-a-half for Sunday work — economic pressure without a direct religious mandate. Authors: Roger Severino and Jay W. Richards. SDA Church formally responded within 10 days. Most significant US Sunday law proposal in over a century.",
+      { date: "2026-01-08", t: "<strong>Heritage Foundation SR323 — Jan 8, 2026</strong> — 'Saving America by Saving the Family' calls Blue Law restoration a 'culture-wide Manhattan Project.' Proposes FLSA amendment requiring time-and-a-half for Sunday work — economic pressure without a direct religious mandate. Authors: Roger Severino and Jay W. Richards. SDA Church formally responded within 10 days. Most significant US Sunday law proposal in over a century." },
       "<strong>Project 2025 (2023) — p.589: 'God ordained the Sabbath'</strong> — Heritage Foundation's 900-page Mandate for Leadership embedded a Sunday FLSA amendment on page 589. Explicitly theological language: 'God ordained the Sabbath as a day of rest, and until very recently the Judeo-Christian tradition sought to honor that mandate by moral and legal regulation of work on that day.' With 50%+ of Project 2025 already implemented, the Sunday rest proposal is next in the pipeline.",
       "<strong>White House Faith Architecture (2025–2026)</strong> — White House Faith Office (Feb. 7, 2025, Paula White-Cain director); Task Force to Eradicate Anti-Christian Bias (Feb. 7, 2025, DOJ-funded, 2-year mandate); Presidential Commission on Religious Liberty (May 1, 2025, chaired by Texas Lt. Gov. Dan Patrick). SR323 now has institutional receptors inside the White House, DOJ, and Domestic Policy Council simultaneously.",
-      "<strong>'Rededicate 250' — National Mall, Sunday May 17, 2026</strong> — 12-hour presidential Christian worship event announced at the 74th National Prayer Breakfast (Feb. 5, 2026) by Trump, flanked by Speaker Mike Johnson and introduced by White House Faith Office director. Separate from the National Day of Prayer (May 7) — two distinct federal Christian observance events within 10 days, unprecedented in modern US history.",
-      "<strong>Utah HB441 — Signed March 8, 2025</strong> — Bars franchisors from forcing franchise owners to open on Sundays. Passed unanimously on the final day of the 2025 session. Triggered by Nothing Bundt Cakes retroactively forcing Sunday openings on LDS franchisees. First US state legislation of the new Sunday protection wave — framed as religious freedom, identical effect to a blue law.",
-      "<strong>Stephen Wolfe — Feb 27, 2026</strong> — Presbyterian 'Christian Nationalism' scholar co-publishes study arguing magistrates are 'duty-bound' to enforce Sunday closing laws and that Sunday business is an 'act of tyranny.' Distributed directly to clergy. Represents the Reformed/Christian Nationalist flanking of SR323.",
+      { date: "2026-05-17", t: "<strong>'Rededicate 250' — National Mall, Sunday May 17, 2026</strong> — 12-hour presidential Christian worship event announced at the 74th National Prayer Breakfast (Feb. 5, 2026) by Trump, flanked by Speaker Mike Johnson and introduced by White House Faith Office director. Separate from the National Day of Prayer (May 7) — two distinct federal Christian observance events within 10 days, unprecedented in modern US history." },
+      { date: "2025-03-08", t: "<strong>Utah HB441 — Signed March 8, 2025</strong> — Bars franchisors from forcing franchise owners to open on Sundays. Passed unanimously on the final day of the 2025 session. Triggered by Nothing Bundt Cakes retroactively forcing Sunday openings on LDS franchisees. First US state legislation of the new Sunday protection wave — framed as religious freedom, identical effect to a blue law." },
+      { date: "2026-02-27", t: "<strong>Stephen Wolfe — Feb 27, 2026</strong> — Presbyterian 'Christian Nationalism' scholar co-publishes study arguing magistrates are 'duty-bound' to enforce Sunday closing laws and that Sunday business is an 'act of tyranny.' Distributed directly to clergy. Represents the Reformed/Christian Nationalist flanking of SR323." },
       "<strong>49 States retain Sunday laws on the books</strong> — SR323 is not building from zero: every US state except Alaska retains some Sunday law. 46 states restrict Sunday alcohol sales. 17 states restrict Sunday motor vehicle sales (Rhode Island bans them entirely). 22 states prohibit legal procedures including court orders and warrants on Sunday. Nebraska, Minnesota and New York explicitly call Sunday 'the Sabbath' in state law; Massachusetts calls it 'the Lord's Day.'",
       "<strong>Lord's Day Alliance</strong> (founded 1888, still active) — the primary US institution dedicated exclusively to Sunday rest advocacy since 1888, supported by Baptist, Catholic, Episcopalian, Lutheran, Methodist, Orthodox, and Reformed denominations. Mirrors the National Reform Association (NRA) that nearly succeeded in passing a federal Sunday law in 1888.",
-      "<strong>SDA NAD formal warning — Jan 18, 2026</strong> — North American Division issued statement on Religious Liberty Sabbath: 'For more than 160 years the Church has forcefully advocated against any form of Sunday law as attempts to compel conscience.' Launched a 3-month campaign (Jan 10–March 31) distributing Liberty magazine to every federal/state judge and elected official in the country. Mirrors the 1888 campaign when Alonzo T. Jones testified before the Senate and collected 260,000 petition signatures.",
+      { date: "2026-01-18", t: "<strong>SDA NAD formal warning — Jan 18, 2026</strong> — North American Division issued statement on Religious Liberty Sabbath: 'For more than 160 years the Church has forcefully advocated against any form of Sunday law as attempts to compel conscience.' Launched a 3-month campaign (Jan 10–March 31) distributing Liberty magazine to every federal/state judge and elected official in the country. Mirrors the 1888 campaign when Alonzo T. Jones testified before the Senate and collected 260,000 petition signatures." },
       "<strong>USCCB</strong> actively lobbies Congress for 'workers day of rest' legislation framed as a labor rights issue; <strong>Pope Francis' Laudato Si' §237 (2015)</strong> explicitly calls for Sunday as the day of rest and is simultaneously cited in EU lobbying, US policy papers, and climate campaigns",
       "<strong>Michigan HR 222 — 2025</strong> — Resolution designating the last Sunday of November as 'Christ the King Sunday' in the State of Michigan. First US state to OFFICIALLY name a Sunday in explicitly Catholic theological language.",
-      "<strong>Bishop David Bard (UMC) — March 2, 2026</strong> — Chair of the UMC Committee on Faith and Order publicly stated 'Sunday closing laws were seen as support for Christian churches' and called for reviving civil structures that once supported religious life. Mainstream Protestantism re-engages with Sunday enforcement for the first time since mid-20th century.",
-      "<strong>VP JD Vance — Dec 2025</strong> — At TPUSA AmericaFest, declared America a 'Christian nation' and that 'religious liberty is a Christian concept.' At an Oct 2025 TPUSA event, said the Supreme Court's Establishment Clause interpretation was 'a terrible mistake.' Combined with Heritage Foundation Project 2025's religious liberty framework, this signals acceleration toward religious legislation.",
-      "<strong>Charlie Kirk — 'Stop, In the Name of God' (posthumous, Dec 2025)</strong> — Kirk (assassinated Sept 10, 2025) recognized the biblical Saturday Sabbath but taught a compromise position (Saturday OR Sunday). His posthumous bestseller gives the Christian nationalist movement a voice that validates Sabbath truth yet legitimizes Sunday substitution — removing biblical objection to future Sunday law enforcement."
+      { date: "2026-03-02", t: "<strong>Bishop David Bard (UMC) — March 2, 2026</strong> — Chair of the UMC Committee on Faith and Order publicly stated 'Sunday closing laws were seen as support for Christian churches' and called for reviving civil structures that once supported religious life. Mainstream Protestantism re-engages with Sunday enforcement for the first time since mid-20th century." },
+      { date: "2025-12", t: "<strong>VP JD Vance — Dec 2025</strong> — At TPUSA AmericaFest, declared America a 'Christian nation' and that 'religious liberty is a Christian concept.' At an Oct 2025 TPUSA event, said the Supreme Court's Establishment Clause interpretation was 'a terrible mistake.' Combined with Heritage Foundation Project 2025's religious liberty framework, this signals acceleration toward religious legislation." },
+      { date: "2025-12", t: "<strong>Charlie Kirk — 'Stop, In the Name of God' (posthumous, Dec 2025)</strong> — Kirk (assassinated Sept 10, 2025) recognized the biblical Saturday Sabbath but taught a compromise position (Saturday OR Sunday). His posthumous bestseller gives the Christian nationalist movement a voice that validates Sabbath truth yet legitimizes Sunday substitution — removing biblical objection to future Sunday law enforcement." }
     ]},
     cbdc:{ level:"orange", items:[
-      "<strong>FedNow</strong> instant payment system launched July 2023 — the entire transaction infrastructure is now in place for a digital currency layer",
-      "<strong>Executive Order 14067</strong> (March 2022) mandated US government research and development of a Central Bank Digital Currency",
-      "<strong>Trump Executive Order (Jan 2025)</strong> — halted all retail CBDC development; US is now the only major economy to formally reverse CBDC plans. However wholesale CBDC (bank-to-bank settlement) continues via Project Agorá and FedNow remains fully operational.",
+      { date: "2023-07", t: "<strong>FedNow</strong> instant payment system launched July 2023 — the entire transaction infrastructure is now in place for a digital currency layer" },
+      { date: "2022-03",
+        src: "https://www.federalregister.gov/documents/2022/03/14/2022-05471/ensuring-responsible-development-of-digital-assets",
+        srcTitle: "Executive Order 14067, Ensuring Responsible Development of Digital Assets — Federal Register",
+        t: "<strong>Executive Order 14067</strong> (March 2022) mandated US government research and development of a Central Bank Digital Currency" },
+      { date: "2025-01", t: "<strong>Trump Executive Order (Jan 2025)</strong> — halted all retail CBDC development; US is now the only major economy to formally reverse CBDC plans. However wholesale CBDC (bank-to-bank settlement) continues via Project Agorá and FedNow remains fully operational." },
       "<strong>Digital Dollar Project</strong> — private-sector consortium conducted pilot programs 2020–2024 with major banks; infrastructure and research fully complete regardless of political reversal",
       "CBDC infrastructure built regardless: FedNow (real-time payments), REAL ID (federated digital ID), TSA facial recognition, IRS Direct File — the rails are all in place",
       "<strong>IMF Article IV consultations</strong> repeatedly pressure US toward CBDC interoperability with global systems — external pressure continues even with Trump EO"
@@ -905,7 +1181,10 @@ const COUNTRIES = {
     ]},
     rl:{ level:"blue", items:[
       "<strong>First Amendment</strong> — strongest constitutional free exercise protection in the world, currently intact",
-      "<strong>Groff v. DeJost (2023)</strong> — Supreme Court significantly strengthened employer obligations to accommodate Sabbath observance",
+      { date: "2023-06-29",
+        src: "https://www.supremecourt.gov/opinions/22pdf/22-174_k536.pdf",
+        srcTitle: "Groff v. DeJoy, 600 U.S. 447 (2023) — slip opinion, No. 22-174",
+        t: "<strong>Groff v. DeJoy (2023)</strong> — Supreme Court significantly strengthened employer obligations to accommodate Sabbath observance" },
       "Growing secularism and progressive ideology applying legal pressure to faith-based adoption agencies, schools, and hospitals",
       "<strong>COVID-19 precedent (2020–2022)</strong> — state governments shut down churches with legal backing; courts split on constitutionality",
       "Non-profit status (501c3) increasingly weaponized: government can threaten tax-exempt status for 'political' speech",
@@ -921,13 +1200,13 @@ const COUNTRIES = {
     ]},
     cs:{ level:"red", items:[
       "<strong>Trump calls for National Shabbat (2025)</strong> — First U.S. president to call for a national day of rest (Shabbat). Government endorsing religious rest day observance — direct church-state merger regardless of which day is named.",
-      "<strong>White House Faith Office (Feb 2025)</strong> — Permanent institutional pipeline from religious lobbies to the Oval Office. Paula White-Cain as director. Church-state wall structurally breached.",
-      "<strong>'Rededicate 250' — National Mall, Sunday May 17, 2026</strong> — Presidential Christian worship event on federal property with government endorsement. Announced at the 74th National Prayer Breakfast by the President.",
-      "<strong>Task Force to Eradicate Anti-Christian Bias (Feb 2025)</strong> — DOJ-funded federal task force explicitly for one religion. Government declaring preferred religious identity.",
-      "<strong>VP Vance: 'America is a Christian nation' (Dec 2025)</strong> — Vice President explicitly rejecting church-state separation and calling the Establishment Clause interpretation 'a terrible mistake.'",
-      "<strong>Presidential Commission on Religious Liberty (May 2025)</strong> — Chaired by Texas Lt. Gov. Dan Patrick. Government body to define religious freedom policy — historically these bodies produce legislation.",
+      { date: "2025-02", t: "<strong>White House Faith Office (Feb 2025)</strong> — Permanent institutional pipeline from religious lobbies to the Oval Office. Paula White-Cain as director. Church-state wall structurally breached." },
+      { date: "2026-05-17", t: "<strong>'Rededicate 250' — National Mall, Sunday May 17, 2026</strong> — Presidential Christian worship event on federal property with government endorsement. Announced at the 74th National Prayer Breakfast by the President." },
+      { date: "2025-02", t: "<strong>Task Force to Eradicate Anti-Christian Bias (Feb 2025)</strong> — DOJ-funded federal task force explicitly for one religion. Government declaring preferred religious identity." },
+      { date: "2025-12", t: "<strong>VP Vance: 'America is a Christian nation' (Dec 2025)</strong> — Vice President explicitly rejecting church-state separation and calling the Establishment Clause interpretation 'a terrible mistake.'" },
+      { date: "2025-05", t: "<strong>Presidential Commission on Religious Liberty (May 2025)</strong> — Chaired by Texas Lt. Gov. Dan Patrick. Government body to define religious freedom policy — historically these bodies produce legislation." },
       "<strong>Trump: 2026 a 'Year of Rededication — One Nation Under God'</strong> — Presidential proclamation dedicating an entire year to religious identity. Government endorsing religious commitment.",
-      "<strong>Heritage Foundation SR323 (Jan 2026)</strong> — Uses explicitly theological language ('God ordained the Sabbath') in a policy paper that feeds directly into the White House Faith Office pipeline.",
+      { date: "2026-01", t: "<strong>Heritage Foundation SR323 (Jan 2026)</strong> — Uses explicitly theological language ('God ordained the Sabbath') in a policy paper that feeds directly into the White House Faith Office pipeline." },
       "<strong>Majority-Catholic Supreme Court (6 of 9 justices)</strong> — The judicial branch now reflects Catholic institutional influence at its highest level in US history."
     ]}
   },
@@ -940,7 +1219,7 @@ const COUNTRIES = {
       "Federal Lord's Day Act repealed in 1985 — Sunday trading legally permitted nationally",
       "Some provinces retain partial Sunday restrictions in practice (Quebec, parts of Ontario)",
       "Catholic Church maintains strong cultural Sunday observance through political channels",
-      "<strong>Ontario Right to Disconnect — Nov 2021</strong>: Ontario passed the Working for Workers Act 2021 (Bill 27), the first Canadian province to require employers with 25+ employees to have a formal policy on disconnecting from work outside of hours. Effective March 2022. Mirrors France's pioneering Right to Disconnect law and encodes rest as a workplace right.",
+      { date: "2021-11", t: "<strong>Ontario Right to Disconnect — Nov 2021</strong>: Ontario passed the Working for Workers Act 2021 (Bill 27), the first Canadian province to require employers with 25+ employees to have a formal policy on disconnecting from work outside of hours. Effective March 2022. Mirrors France's pioneering Right to Disconnect law and encodes rest as a workplace right." },
       "No active federal Sunday law legislation currently on the table"
     ]},
     cbdc:{ level:"orange", items:[
@@ -1011,7 +1290,7 @@ const COUNTRIES = {
       "Sunday liquor sales banned in several islands"
     ]},
     cbdc:{ level:"red", items:[
-      "<strong>Sand Dollar launched October 2020</strong> — world's FIRST nationally deployed retail CBDC",
+      { date: "2020-10", t: "<strong>Sand Dollar launched October 2020</strong> — world's FIRST nationally deployed retail CBDC" },
       "Issued by the Central Bank of The Bahamas; works on smartphones across all 700 islands",
       "Government can set spending limits, geographic restrictions, and expiry dates on digital money",
       "Fully programmable — money can be targeted, restricted, or cancelled by the central bank",
@@ -1037,7 +1316,7 @@ const COUNTRIES = {
       "Strong Christian (70% Protestant) Sunday observance culture"
     ]},
     cbdc:{ level:"red", items:[
-      "<strong>JAM-DEX</strong> (Jamaican Digital Exchange) launched May 2022 — second country to deploy a live CBDC",
+      { date: "2022-05", t: "<strong>JAM-DEX</strong> (Jamaican Digital Exchange) launched May 2022 — second country to deploy a live CBDC" },
       "Bank of Jamaica issued the currency; Lynk app used for transactions",
       "Government offered a <strong>J$2,500 bonus</strong> (approx. US$16) to citizens who signed up — using financial incentive to drive adoption",
       "Fully programmable digital dollar — government has spending visibility on all transactions",
@@ -1161,11 +1440,11 @@ const COUNTRIES = {
       "Exceptions: only travel hubs, gas stations, bakeries, and a maximum 4 state-approved 'shopping Sundays' per year",
       "'Quiet Sunday' laws additionally prohibit lawn mowing, power tools, loud music, and many public activities before noon on Sundays",
       "<strong>CDU/CSU (Christian Democratic Union)</strong> — dominant political force in Germany for 70 years — has always maintained Sunday rest laws as Christian social policy; currently in federal government coalition",
-      "<strong>European Sunday Alliance (ESA) — founded at EU Parliament, March 2011</strong> — 100+ organizations lobbying for a work-free Sunday across all 27 EU member states. COMECE (Catholic bishops' EU body) and CESI (trade unions) are key founders. German MEP Dennis Radtke (EPP) is a principal ESA sponsor. New ESA Manifesto issued March 1, 2024 for EU elections. Annual 'European Day for a Work-Free Sunday' (March 3, 2026) — COMECE, FAFCE and trade union confederations issue joint statement.",
+      { date: "2011-03", t: "<strong>European Sunday Alliance (ESA) — founded at EU Parliament, March 2011</strong> — 100+ organizations lobbying for a work-free Sunday across all 27 EU member states. COMECE (Catholic bishops' EU body) and CESI (trade unions) are key founders. German MEP Dennis Radtke (EPP) is a principal ESA sponsor. New ESA Manifesto issued March 1, 2024 for EU elections. Annual 'European Day for a Work-Free Sunday' (March 3, 2026) — COMECE, FAFCE and trade union confederations issue joint statement." },
       "German Catholic and Protestant churches jointly fund the Allianz für den freien Sonntag which coordinates with ESA at EU level — religious-labour coalition lobbying for EU-wide Sunday mandate",
       "<strong>4-day week government trial — 2024–2025</strong> — German firms piloting 4-day week with reduced hours. A 4-day week + Sunday closures mathematically makes Saturday the default third free day — the biblical Sabbath",
-      "<strong>Bavaria Shop Closing Act (Ladenschlussgesetz) — July 2025</strong> — Bavaria (Germany's largest and most Catholic state) maintains Germany's strictest Sunday trading ban. Garden centers, bakeries, and convenience stores remain fully closed Sundays.",
-      "<strong>Hesse ruling — Dec 2023</strong> — Court ruled automated Sunday stores (cashierless, no staff) still violate Sunday trading law — even technology cannot bypass Sunday rest enforcement"
+      { date: "2025-07", t: "<strong>Bavaria Shop Closing Act (Ladenschlussgesetz) — July 2025</strong> — Bavaria (Germany's largest and most Catholic state) maintains Germany's strictest Sunday trading ban. Garden centers, bakeries, and convenience stores remain fully closed Sundays." },
+      { date: "2023-12", t: "<strong>Hesse ruling — Dec 2023</strong> — Court ruled automated Sunday stores (cashierless, no staff) still violate Sunday trading law — even technology cannot bypass Sunday rest enforcement" }
     ]},
     cbdc:{ level:"orange", items:[
       "Germany is part of the EU Digital Euro project — ECB pilot phase 2023–2025",
@@ -1236,8 +1515,8 @@ const COUNTRIES = {
     summary:"Home of the Vatican — the physical headquarters of the papal system identified in Revelation 17 as the great city on seven hills. In 2025–2026, Italy's own parliament has voted 247-to-2 to restore a Catholic saint's feast day as a mandatory national holiday, and the Italian Bishops' Conference newspaper deployed the identical 'secular framing' as Heritage Foundation SR323 — 13 days before SR323 was published in the US.",
     guides:["The Little Horn","Babylon's Wine"],
     sl:{ level:"red", items:[
-      "<strong>Italy Reinstates St. Francis Feast Day — Oct. 2025</strong> — Italy's parliament voted 247 votes to 2 to restore October 4 (Feast of St. Francis of Assisi) as a compulsory national public holiday effective 2026, to mark the 800th anniversary of his death. PM Giorgia Meloni called it 'a moment of unity.' Cardinal Matteo Zuppi (Italian Bishops' Conference) welcomed the law. Italy now has among the highest count of religious national holidays in Europe — the large majority are Catholic feast days.",
-      "<strong>CEI Avvenire — Jan 26, 2026 (13 days before SR323)</strong> — The official national newspaper of the Italian Episcopal Conference published a feature arguing Sunday must be legally protected — framed entirely in secular terms: 'Sunday is a public relational good: a social resource that supports parenthood, solidarity between generations, and family cohesion… reflection on Sunday is neither nostalgic nor confessional.' Identical secular framing to Heritage SR323, from Rome, a continent away, 13 days earlier. Same argument, two continents, same week.",
+      { date: "2025-10", t: "<strong>Italy Reinstates St. Francis Feast Day — Oct. 2025</strong> — Italy's parliament voted 247 votes to 2 to restore October 4 (Feast of St. Francis of Assisi) as a compulsory national public holiday effective 2026, to mark the 800th anniversary of his death. PM Giorgia Meloni called it 'a moment of unity.' Cardinal Matteo Zuppi (Italian Bishops' Conference) welcomed the law. Italy now has among the highest count of religious national holidays in Europe — the large majority are Catholic feast days." },
+      { date: "2026-01-26", t: "<strong>CEI Avvenire — Jan 26, 2026 (13 days before SR323)</strong> — The official national newspaper of the Italian Episcopal Conference published a feature arguing Sunday must be legally protected — framed entirely in secular terms: 'Sunday is a public relational good: a social resource that supports parenthood, solidarity between generations, and family cohesion… reflection on Sunday is neither nostalgic nor confessional.' Identical secular framing to Heritage SR323, from Rome, a continent away, 13 days earlier. Same argument, two continents, same week." },
       "Sunday designated as official day of rest; Italian Labor Law mandates Sunday as the default weekly rest day",
       "Vatican's proximity means Catholic influence on Sunday observance is overwhelming",
       "Regional Sunday trading laws vary — southern Italy enforces stricter Sunday closings"
@@ -1274,7 +1553,7 @@ const COUNTRIES = {
       "Keep Sunday Special campaign — ongoing lobbying (supported by Lord's Day Observance Society) to restore stricter Sunday closing laws",
       "Sunday still treated as the day of worship in law — courts give Sunday special legal status",
       "<strong>4-Day Week National Trial (2022)</strong> — UK ran the world's largest 4-day week corporate pilot: 61 firms, 2,900 workers, 6 months. Results: productivity maintained, worker wellbeing improved markedly. 56 of 61 firms continued 4-day week permanently. UK now has the most empirical corporate evidence supporting reduced-hour weeks of any nation.",
-      "ESA engagement — UK MEPs participated in EU ESA Parliamentary Breakfast (April 2024) before Brexit alignment ended"
+      { date: "2024-04", t: "ESA engagement — UK MEPs participated in EU ESA Parliamentary Breakfast (April 2024) before Brexit alignment ended" }
     ]},
     cbdc:{ level:"orange", items:[
       "<strong>Digital Pound (Britcoin)</strong> — HM Treasury and Bank of England published consultation paper (2023)",
@@ -1345,7 +1624,7 @@ const COUNTRIES = {
       "The law is framed as protecting 'family values' and 'Christian heritage' — identical framing to papal encyclicals and Heritage Foundation SR323",
       "<strong>ESA lobbying hub</strong> — Polish MEPs among most active ESA endorsers in the EU Parliament; Polish Sunday model is what ESA is seeking to replicate EU-wide",
       "Poland's Sunday ban is the most recent and most complete Sunday law enacted in a major European democracy — a prophetic signpost",
-      "<strong>Dec 2024</strong> — Polish parliament added Christmas Eve (Dec 24) as a public holiday; further expanding Catholic calendar enforcement into law"
+      { date: "2024-12", t: "<strong>Dec 2024</strong> — Polish parliament added Christmas Eve (Dec 24) as a public holiday; further expanding Catholic calendar enforcement into law" }
     ]},
     cbdc:{ level:"blue", items:[
       "National Bank of Poland conducting CBDC research; no active deployment yet",
@@ -1442,7 +1721,7 @@ const COUNTRIES = {
       "Russian Orthodox Church actively promotes Sunday as the sacred day and lobbies for stronger observance protections"
     ]},
     cbdc:{ level:"orange", items:[
-      "<strong>Digital Ruble</strong> — launched in pilot form August 2023; Bank of Russia targeting full rollout 2025–2026",
+      { date: "2023-08", t: "<strong>Digital Ruble</strong> — launched in pilot form August 2023; Bank of Russia targeting full rollout 2025–2026" },
       "Digital ruble is programmable — government can set expiry dates, geographic restrictions, and spending categories",
       "Russia developing CBDC partly to evade Western financial sanctions (SWIFT exclusion 2022)",
       "Russia-China cross-border CBDC testing as alternative to dollar system",
@@ -1474,10 +1753,14 @@ const COUNTRIES = {
     summary:"Vatican City is the sovereign headquarters of the Roman Catholic Church — the power identified in Revelation 17 as the woman sitting on seven hills. Four consecutive popes spanning 135 years have explicitly called for state-enforced Sunday rest. The Vatican maintains diplomatic relations with 183 nations and is the single most persistent institutional force driving Sunday law globally.",
     guides:["The Little Horn","Babylon's Wine","The Mark of the Beast"],
     sl:{ level:"red", items:[
-      "<strong>Dies Domini §§66–67 (1998)</strong> — Pope John Paul II issued the first explicit papal mandate for lobbying secular governments: 'Christians will naturally strive to ensure that civil legislation respects their duty to keep Sunday holy… Sunday rest as a worker's right which the State must guarantee.' He cited Pope Leo XIII's Rerum Novarum (1891) as the legal basis. Never rescinded.",
-      "<strong>Laudato Si' §237 (June 2015)</strong> — Pope Francis, addressing 'every person living on this planet': 'Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world.' Now simultaneously cited in EU lobbying, US Heritage Foundation policy papers, and climate campaigns.",
-      "<strong>Pope Leo XIV (elected May 2025)</strong> — The new pontiff embeds Sabbath in papal theology from the start. In his September 17, 2025 audience he called Holy Saturday 'the day of the great silence.' In his February 2026 preface he quotes Augustine: 'O Lord God, grant your peace to us… the peace of the Sabbath which has no evening.' Sabbath concept is now embedded at the highest level of the new pontificate.",
-      "<strong>Magnifica Humanitas — expected ~May 15, 2026</strong> — Pope Leo XIV's first major encyclical on AI, human dignity, and the future of work. Expected on the 135th anniversary of Rerum Novarum (which first enshrined Sunday rest as a worker's right). Vatican sources confirm it will defend 'authentic human time' against AI disruption — landing two days before 'Rededicate 250' on the National Mall.",
+      { date: "1998-05-31", src: "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html",
+        srcTitle: "Dies Domini, apostolic letter of John Paul II, 31 May 1998 - vatican.va",
+        t: "<strong>Dies Domini §§66–67 (1998)</strong> — Pope John Paul II issued the first explicit papal mandate for lobbying secular governments: 'Christians will naturally strive to ensure that civil legislation respects their duty to keep Sunday holy… Sunday rest as a worker's right which the State must guarantee.' He cited Pope Leo XIII's Rerum Novarum (1891) as the legal basis. Never rescinded." },
+      { date: "2015-06", src: "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+        srcTitle: "Laudato Si', encyclical of Pope Francis, 24 May 2015 - vatican.va",
+        t: "<strong>Laudato Si' §237 (June 2015)</strong> — Pope Francis, addressing 'every person living on this planet': 'Sunday, like the Jewish Sabbath, is meant to be a day which heals our relationships with God, with ourselves, with others and with the world.' Now simultaneously cited in EU lobbying, US Heritage Foundation policy papers, and climate campaigns." },
+      { date: "2025-05", t: "<strong>Pope Leo XIV (elected May 2025)</strong> — The new pontiff embeds Sabbath in papal theology from the start. In his September 17, 2025 audience he called Holy Saturday 'the day of the great silence.' In his February 2026 preface he quotes Augustine: 'O Lord God, grant your peace to us… the peace of the Sabbath which has no evening.' Sabbath concept is now embedded at the highest level of the new pontificate." },
+      { date: "2026-05-15", t: "<strong>Magnifica Humanitas — expected ~May 15, 2026</strong> — Pope Leo XIV's first major encyclical on AI, human dignity, and the future of work. Expected on the 135th anniversary of Rerum Novarum (which first enshrined Sunday rest as a worker's right). Vatican sources confirm it will defend 'authentic human time' against AI disruption — landing two days before 'Rededicate 250' on the National Mall." },
       "<strong>Papal chain: 135 years, 4 popes, one call</strong> — Leo XIII Rerum Novarum (1891) → John Paul II Dies Domini (1998) → Francis Laudato Si' (2015) → Leo XIV Magnifica Humanitas (2026). Each pope has strengthened the institutional call for state-enforced Sunday rest.",
       "Catholic Catechism para. 2188 — calls on Catholics to 'advocate for laws that respect the Lord's Day'",
       "The Vatican explicitly acknowledges it changed the Sabbath from Saturday to Sunday and that there is no biblical support for Sunday — documented in Catholic sources including Catechism references and the Council of Laodicea (363 AD)"
@@ -1500,7 +1783,7 @@ const COUNTRIES = {
       "Revelation 17:18 — 'The woman you saw is the great city that rules over the kings of the earth' — Vatican has no army but rules diplomatically",
       "The Pope's audience with US Presidents, UN General Assembly speeches, EU Parliament address — unprecedented political reach for a religious institution",
       "<strong>This is the first beast of Revelation 13</strong> — power identified through 11 biblical marks including: rose from Rome, changed the law (Sabbath→Sunday), 42 months of dominance (538-1798 AD), received a deadly wound (1798), deadly wound healed (1929 Lateran Treaty)",
-      "<strong>Pope Leo XIV (Robert Prevost) — elected May 8, 2025</strong> — First American pope; Augustinian order; took name Leo XIV signaling continuity with Leo XIII (Rerum Novarum social teaching). Encyclical 'Magnifica Humanitas' (May 2026) furthers Vatican's social governance agenda"
+      { date: "2025-05-08", t: "<strong>Pope Leo XIV (Robert Prevost) — elected May 8, 2025</strong> — First American pope; Augustinian order; took name Leo XIV signaling continuity with Leo XIII (Rerum Novarum social teaching). Encyclical 'Magnifica Humanitas' (May 2026) furthers Vatican's social governance agenda" }
     ]},
     cs:{ level:"red", items:[
       "<strong>Vatican IS the merger of church and state</strong> — a sovereign state that is also the headquarters of a religious institution. The only theocracy in the Western world.",
@@ -1516,7 +1799,7 @@ const COUNTRIES = {
     name:"Montenegro", flag:"🇲🇪", lat:42.5, lng:19.3, r:11, level:"red",
     summary:"Montenegro's parliament voted to legally reinstate Sunday as a mandatory day of rest in February 2026 — the first new national Sunday law enacted in Europe in the modern era. Critically, both left-wing and right-wing parties voted together for this — mirroring how Constantine's 321 AD edict united secular and religious interests under a single political outcome, 1,700 years later.",
     sl:{ level:"red", items:[
-      "<strong>Parliament reinstates Sunday rest — February 16, 2026</strong> — Montenegro's parliament voted to legally reinstate Sunday as a mandatory day of rest, reported by Vijesti News (Feb. 16, 2026). Framed as a worker health and wellbeing measure, not a religious one.",
+      { date: "2026-02-16", t: "<strong>Parliament reinstates Sunday rest — February 16, 2026</strong> — Montenegro's parliament voted to legally reinstate Sunday as a mandatory day of rest, reported by Vijesti News (Feb. 16, 2026). Framed as a worker health and wellbeing measure, not a religious one." },
       "<strong>Left AND right voted together</strong> — the bipartisan convergence on Sunday rest mirrors the historical template exactly: Constantine's 321 AD Sunday law united the pagan solar tradition and the emerging Christian church under one civic edict. The secular framing concealing a religious outcome is the identical pattern, 1,700 years later.",
       "Montenegro is an EU candidate country — its Sunday legislation feeds into the European Sunday Alliance's push for an EU-wide Sunday mandate"
     ]},
@@ -1582,7 +1865,7 @@ const COUNTRIES = {
     name:"Slovakia", flag:"🇸🇰", lat:48.7, lng:19.7, r:13, level:"orange",
     summary:"Slovakia passed one of Europe's earliest Right to Disconnect laws in March 2021 and is home to MEP Miriam Lexmann, the principal co-sponsor of the EU's 'Sunday Protection' resolution lobbied by the European Sunday Alliance (100+ organisations). Slovakia exemplifies how Catholic political networks in Central Europe are driving the convergence of rest legislation and Sunday advocacy.",
     sl:{ level:"orange", items:[
-      "<strong>Right to Disconnect — March 1, 2021</strong>: Slovakia amended its Labour Code (Act No. 311/2001) granting all remote and home workers the right to abstain from work communications during rest periods, including weekends, public holidays and annual leave (Section 52(10)). Employers cannot treat disconnection as a breach of duty.",
+      { date: "2021-03-01", t: "<strong>Right to Disconnect — March 1, 2021</strong>: Slovakia amended its Labour Code (Act No. 311/2001) granting all remote and home workers the right to abstain from work communications during rest periods, including weekends, public holidays and annual leave (Section 52(10)). Employers cannot treat disconnection as a breach of duty." },
       "<strong>MEP Miriam Lexmann (EPP, Slovakia)</strong> — principal sponsor of the EU Parliamentary Resolution on Sunday Protection (2024), initiated through the European Sunday Alliance. Represents the Catholic-political nexus driving Sunday rest into EU law from Central Europe.",
       "Slovakia's Sunday rest is protected under Labour Code — Sunday premium pay and restricted commercial hours enforced",
       "ESA coalition lobbying with 100+ organisations includes Slovak church federations"
@@ -1611,7 +1894,7 @@ const COUNTRIES = {
     name:"Slovenia", flag:"🇸🇮", lat:46.1, lng:14.8, r:13, level:"orange",
     summary:"Slovenia passed Europe's most recent major Right to Disconnect law in November 2024 — part of a wave of European countries legislating mandatory rest. As a Catholic-majority EU member, Slovenia exemplifies the convergence of secular rest legislation with the Catholic political framework driving Sunday protection across Europe.",
     sl:{ level:"orange", items:[
-      "<strong>Right to Disconnect — November 16, 2024</strong>: Slovenia's amended Employment Relationships Act (ZDR-1D) entered into force, requiring employers to provide workers with the right to be unavailable (disconnected from digital tools) during rest periods, weekends, annual leave, sick leave, and holidays. Collective agreements set the specific terms; where no agreement exists, the employer must regulate via internal policy.",
+      { date: "2024-11-16", t: "<strong>Right to Disconnect — November 16, 2024</strong>: Slovenia's amended Employment Relationships Act (ZDR-1D) entered into force, requiring employers to provide workers with the right to be unavailable (disconnected from digital tools) during rest periods, weekends, annual leave, sick leave, and holidays. Collective agreements set the specific terms; where no agreement exists, the employer must regulate via internal policy." },
       "This is the most recently passed Right to Disconnect law in Europe as of 2025 — part of the rolling wave of EU member states encoding mandatory rest.",
       "Sunday is the statutory weekly rest day; retail restrictions vary by municipality",
       "Catholic Church influences national culture strongly — Sunday as sacred rest day is culturally embedded"
@@ -1715,7 +1998,7 @@ const COUNTRIES = {
       "<strong>National Information Network (NIN)</strong> — Iran's domestic internet that can be isolated from the global web — full communication control",
       "National ID card mandatory and linked to food ration subsidy system",
       "Ration card system: citizens access subsidized food through government-controlled digital cards — near-CBDC level of economic control",
-      "<strong>Digital Monitoring Law — September 2023</strong>: Iran's government approved legislation giving instant, undeniable access to all digital life of citizens — including location data, photos, and all records tied to real identities. Part of Iran's 7th Quinquennial Development Program. Iran becomes the first country to explicitly legislate real-time warrantless access to every aspect of citizens' digital life."
+      { date: "2023-09", t: "<strong>Digital Monitoring Law — September 2023</strong>: Iran's government approved legislation giving instant, undeniable access to all digital life of citizens — including location data, photos, and all records tied to real identities. Part of Iran's 7th Quinquennial Development Program. Iran becomes the first country to explicitly legislate real-time warrantless access to every aspect of citizens' digital life." }
     ]},
     rl:{ level:"red", items:[
       "<strong>Christians face arrest, torture, and execution</strong> for apostasy from Islam or proselytism",
@@ -1771,7 +2054,7 @@ const COUNTRIES = {
       "No national Sunday law; religious practice mirrors population distribution"
     ]},
     cbdc:{ level:"red", items:[
-      "<strong>eNaira launched October 2021</strong> — one of only <strong>3 fully-launched retail CBDCs in the world</strong> (along with Bahamas Sand Dollar and Jamaica JAM-DEX) — Africa's first CBDC (Atlantic Council CBDC Tracker, 2025)",
+      { date: "2021-10", t: "<strong>eNaira launched October 2021</strong> — one of only <strong>3 fully-launched retail CBDCs in the world</strong> (along with Bahamas Sand Dollar and Jamaica JAM-DEX) — Africa's first CBDC (Atlantic Council CBDC Tracker, 2025)" },
       "Designed by Bitt Inc. (same company as Eastern Caribbean DCash), issued by Central Bank of Nigeria",
       "Adoption was initially very low — government mandated taxi drivers, market vendors, and government workers accept eNaira",
       "In 2023, government restricted ATM cash withdrawals to force eNaira adoption — explicit economic coercion; historic proof-of-concept for CBDC adoption by financial exclusion",
@@ -1898,14 +2181,14 @@ const COUNTRIES = {
     ]},
     cbdc:{ level:"red", items:[
       "<strong>e-CNY (Digital Yuan)</strong> — CBDC active in 17+ provinces; 300+ million digital wallets; used at 2022 Winter Olympics",
-      "<strong>¥7 trillion ($986 billion) in total transactions by June 2024</strong> — nearly 4× the 2023 figure of $253B; growing at extraordinary speed (Atlantic Council, 2025)",
+      { date: "2024-06", t: "<strong>¥7 trillion ($986 billion) in total transactions by June 2024</strong> — nearly 4× the 2023 figure of $253B; growing at extraordinary speed (Atlantic Council, 2025)" },
       "e-CNY has built-in expiry dates — money expires if not spent, preventing saving",
       "Government can freeze e-CNY wallets instantly for political/social compliance",
       "e-CNY has programmable restrictions — can be limited to specific geographic areas or product categories",
       "<strong>Full transaction visibility</strong>: People's Bank of China (PBoC) can see every purchase in real time",
       "China using e-CNY to eliminate physical cash — China's cash usage dropped from 60% to 20% since 2018",
       "<strong>Project mBridge</strong> (China, UAE, Thailand, Hong Kong, Saudi Arabia) — now managed by participating central banks WITHOUT BIS involvement; positions e-CNY as an alternative to SWIFT",
-      "<strong>e-CNY cumulative volume reached ¥7 trillion (~$986 billion) by June 2024</strong> — Atlantic Council CBDC Tracker confirms e-CNY is the world's largest CBDC pilot, deployed in 17 provincial regions across education, healthcare, and tourism sectors. Nearly 4× the ¥1.8 trillion recorded in June 2023."
+      { date: "2024-06", t: "<strong>e-CNY cumulative volume reached ¥7 trillion (~$986 billion) by June 2024</strong> — Atlantic Council CBDC Tracker confirms e-CNY is the world's largest CBDC pilot, deployed in 17 provincial regions across education, healthcare, and tourism sectors. Nearly 4× the ¥1.8 trillion recorded in June 2023." }
     ]},
     did:{ level:"red", items:[
       "<strong>Social Credit System</strong> — algorithmic scoring of citizens' behavior; low scores result in travel bans, school exclusions, and public shaming",
@@ -1940,7 +2223,7 @@ const COUNTRIES = {
     summary:"Japan is technologically advanced and developing a digital yen CBDC. Crucially, Tokyo began a 4-day work week for all government employees in April 2025 — creating a structural 3-day weekend that includes the biblical Saturday Sabbath without any religious intent. Japan is the world's third-largest economy and its 4-day week decision reverberates globally.",
     sl:{ level:"orange", items:[
       "No religious Sunday closing laws — Japan has flexible retail trading hours",
-      "<strong>Tokyo 4-Day Work Week — April 2025</strong> — Japan's capital city began a 4-day work week for all Tokyo Metropolitan Government employees (April 2025). Explicitly linked to <em>karoshi</em> (death by overwork) and Japan's catastrophically declining birth rate (fertility rate 1.2 in 2023). When combined with Sunday as the conventional day off, this creates a 3-day weekend — effectively a 3-day rest block that includes the biblical Sabbath (Saturday). Japan joins Belgium and Iceland as countries where 4-day week is now institutional policy.",
+      { date: "2025-04", t: "<strong>Tokyo 4-Day Work Week — April 2025</strong> — Japan's capital city began a 4-day work week for all Tokyo Metropolitan Government employees (April 2025). Explicitly linked to <em>karoshi</em> (death by overwork) and Japan's catastrophically declining birth rate (fertility rate 1.2 in 2023). When combined with Sunday as the conventional day off, this creates a 3-day weekend — effectively a 3-day rest block that includes the biblical Sabbath (Saturday). Japan joins Belgium and Iceland as countries where 4-day week is now institutional policy." },
       "<strong>Convergence point:</strong> 4-day week + Sunday closures = Saturday as the natural third free day — the biblical Sabbath inserted structurally without any religious intent"
     ]},
     cbdc:{ level:"orange", items:[
@@ -1971,11 +2254,11 @@ const COUNTRIES = {
       "Sunday is the legal weekly holiday (inherited from British colonial law)",
       "No Sunday religious laws — India is constitutionally secular",
       "Sunday rest is civil, not religious — though colonial Christian heritage embedded it",
-      "<strong>Mawlynnong village (Meghalaya) — Jan 2026</strong> — 'Asia's Cleanest Village' imposes total Sunday ban on visitors and commercial activity, enforced by village council with fines. A micro-level Sunday enforcement in the world's largest democracy."
+      { date: "2026-01", t: "<strong>Mawlynnong village (Meghalaya) — Jan 2026</strong> — 'Asia's Cleanest Village' imposes total Sunday ban on visitors and commercial activity, enforced by village council with fines. A micro-level Sunday enforcement in the world's largest democracy." }
     ]},
     cbdc:{ level:"orange", items:[
-      "<strong>Digital Rupee (e₹)</strong> — Reserve Bank of India launched retail CBDC pilot December 2022; now the <strong>world's 2nd largest CBDC pilot</strong> (Atlantic Council, 2025)",
-      "<strong>₹10.16 billion in circulation by March 2025 — up 334% from 2024</strong>; growing faster than any other CBDC pilot globally",
+      { date: "2022-12", t: "<strong>Digital Rupee (e₹)</strong> — Reserve Bank of India launched retail CBDC pilot December 2022; now the <strong>world's 2nd largest CBDC pilot</strong> (Atlantic Council, 2025)" },
+      { date: "2025-03", t: "<strong>₹10.16 billion in circulation by March 2025 — up 334% from 2024</strong>; growing faster than any other CBDC pilot globally" },
       "Wholesale digital rupee operational for government securities settlement",
       "India plans full digital rupee rollout by 2026 — legislative framework being developed",
       "UPI (Unified Payments Interface) — 300 million users; most advanced real-time payment system in the world (200+ million transactions/day)",
@@ -2074,8 +2357,8 @@ const COUNTRIES = {
     sl:{ level:"blue", items:[
       "Shopping Hours Act varies by state — some states restrict Sunday trading hours",
       "Western Australia still has some of the strongest Sunday trading restrictions among developed nations",
-      "<strong>Right to Disconnect — Feb 12, 2024</strong>: Australia passed the Fair Work Legislation Amendment (Closing Loopholes No. 2) Bill 2024, granting all employees the legal right to refuse work-related communications outside of work hours. The Fair Work Commission oversees enforcement. Australia becomes one of the most significant non-European nations to encode a right to disconnect — effectively a legally mandated daily rest boundary.",
-      "<strong>Smartphone ban for children under 16 — Nov 2024</strong>: Australia enacted the world's strictest children's smartphone ban, influenced by psychologist Jonathan Haidt's research (*The Anxious Generation*). Haidt publicly cites the need for a 'phone-free childhood' citing technology's disruption of rest, sleep, and Sabbath-like offline time. Australia joins Brazil, France, and other nations in this global movement.",
+      { date: "2024-02-12", t: "<strong>Right to Disconnect — Feb 12, 2024</strong>: Australia passed the Fair Work Legislation Amendment (Closing Loopholes No. 2) Bill 2024, granting all employees the legal right to refuse work-related communications outside of work hours. The Fair Work Commission oversees enforcement. Australia becomes one of the most significant non-European nations to encode a right to disconnect — effectively a legally mandated daily rest boundary." },
+      { date: "2024-11", t: "<strong>Smartphone ban for children under 16 — Nov 2024</strong>: Australia enacted the world's strictest children's smartphone ban, influenced by psychologist Jonathan Haidt's research (*The Anxious Generation*). Haidt publicly cites the need for a 'phone-free childhood' citing technology's disruption of rest, sleep, and Sabbath-like offline time. Australia joins Brazil, France, and other nations in this global movement." },
       "Catholic and Protestant churches maintain cultural Sunday observance pressure"
     ]},
     cbdc:{ level:"orange", items:[
@@ -2169,7 +2452,7 @@ const COUNTRIES = {
     name:"Pakistan", flag:"🇵🇰", lat:30, lng:70, r:22, level:"orange",
     summary:"Pakistan is a 96% Muslim nation, yet in November 2025 the Lahore High Court chose Sunday — not Friday — as the mandatory commercial closure day across Punjab province, citing a smog crisis (AQI 372). This is a stunning prophetic development: an Islamic nation enforcing Sunday rest.",
     sl:{ level:"red", items:[
-      "<strong>Lahore High Court — Nov 4, 2025</strong> — Imposes complete ban on ALL commercial activities every Sunday across Lahore (Punjab capital, 11 million people). Justified by environmental/smog crisis (AQI 372 'hazardous'). Legal penalties for violations.",
+      { date: "2025-11-04", t: "<strong>Lahore High Court — Nov 4, 2025</strong> — Imposes complete ban on ALL commercial activities every Sunday across Lahore (Punjab capital, 11 million people). Justified by environmental/smog crisis (AQI 372 'hazardous'). Legal penalties for violations." },
       "<strong>96% Muslim nation chose SUNDAY, not Friday</strong> — This is the most startling Sunday law development of 2025: an Islamic country enforcing Sunday commercial closure. Mirrors Constantine 321 AD pattern — secular justification, religious outcome.",
       "Pakistan Labour Act already mandates one weekly rest day; this order made it explicitly Sunday",
       "Sets precedent for other Pakistani provinces and potentially other Islamic nations"
@@ -2199,13 +2482,13 @@ const COUNTRIES = {
     name:"Croatia", flag:"🇭🇷", lat:45.1, lng:15.2, r:14, level:"red",
     summary:"Croatia passed the Sunday Trade Act on July 1, 2023 — the third legislative attempt to restrict Sunday trading after two prior laws were struck down by the Constitutional Court. The law restricts shops to a maximum of 16 trading Sundays per year. PM Andrej Plenković (HDZ) declared 'Sundays should be His day' — while the statute itself uses secular language, the PM's framing was openly theological.",
     sl:{ level:"red", items:[
-      "<strong>Sunday Trade Act — July 1, 2023</strong> — Croatia's third attempt at Sunday trading restrictions; allows maximum 16 trading Sundays per year. The statute uses exclusively secular language, but PM Andrej Plenković (HDZ, Catholic conservative) told press 'Sundays should be His day — a step in strengthening the family.' Overtly theological framing in an EU member state.",
+      { date: "2023-07-01", t: "<strong>Sunday Trade Act — July 1, 2023</strong> — Croatia's third attempt at Sunday trading restrictions; allows maximum 16 trading Sundays per year. The statute uses exclusively secular language, but PM Andrej Plenković (HDZ, Catholic conservative) told press 'Sundays should be His day — a step in strengthening the family.' Overtly theological framing in an EU member state." },
       "Croatian Catholic Bishops' Conference was a primary driver of the legislation",
       "Croatia joins Poland and Germany as EU states actively enforcing Sunday shopping restrictions",
       "EU candidate country alignment means Croatia's Sunday law feeds into ESA's EU-wide push"
     ]},
     cbdc:{ level:"blue", items:[
-      "Croatia joined the Eurozone January 1, 2023 — now part of ECB Digital Euro project",
+      { date: "2023-01-01", t: "Croatia joined the Eurozone January 1, 2023 — now part of ECB Digital Euro project" },
       "Croatian National Bank participates in wholesale digital euro pilots"
     ]},
     did:{ level:"blue", items:["Croatian eID card mandatory; EU eIDAS 2.0 compliance in progress"]},
@@ -2296,7 +2579,7 @@ const COUNTRIES = {
     name:"Denmark", flag:"🇩🇰", lat:56, lng:9.5, r:14, level:"orange",
     summary:"Denmark has less than 10% cash transactions and MobilePay digital payments at 90% adoption. Denmark abolished Sunday shopping restrictions in October 2012, but holiday restrictions remain. Denmark is an ESA member and EU participant in Digital Euro and eIDAS 2.0 frameworks.",
     sl:{ level:"blue", items:[
-      "Denmark abolished Sunday shopping restrictions effective October 1, 2012 — shops now free to open on Sundays. Only public holidays (Christmas, Easter, etc.) remain restricted.",
+      { date: "2012-10-01", t: "Denmark abolished Sunday shopping restrictions effective October 1, 2012 — shops now free to open on Sundays. Only public holidays (Christmas, Easter, etc.) remain restricted." },
       "ESA member — Denmark participates in European Sunday Alliance lobbying despite having abolished Sunday restrictions. Trade unions and Church of Denmark support Sunday rest culturally.",
       "Lutheran Church of Denmark (state church, 75% of Danes are members) — Sunday culturally significant even without legal enforcement"
     ]},
@@ -2321,7 +2604,7 @@ const COUNTRIES = {
     summary:"Finland has a documented history of Sabbath-keeping in the 16th century (Finnish Sabbatarians, 1554). Finland removed all Sunday trading restrictions in January 2016, but remains an ESA participant. Finland participates in the ECB Digital Euro project and has advanced digital ID infrastructure.",
     sl:{ level:"blue", items:[
       "<strong>Historical</strong>: Finnish Sabbatarians documented from 1554 — suppressed by King Gustavus I of Sweden",
-      "Finland removed all grocery retailer opening hour restrictions effective January 1, 2016. Sunday trading is now unrestricted.",
+      { date: "2016-01-01", t: "Finland removed all grocery retailer opening hour restrictions effective January 1, 2016. Sunday trading is now unrestricted." },
       "ESA participant — Finland's Evangelical Lutheran Church (state church, 67% of Finns are members) and unions support Sunday rest culturally, even after legal restrictions were lifted"
     ]},
     cbdc:{ level:"blue", items:[
@@ -2354,7 +2637,7 @@ const COUNTRIES = {
     name:"Netherlands", flag:"🇳🇱", lat:52.3, lng:5.3, r:16, level:"blue",
     summary:"The Netherlands passed a parliamentary resolution in June 2021 protecting Sunday conscience rights for franchise owners. The Dutch Reformed tradition has deep Sabbath theology roots. The Netherlands hosts the International Criminal Court and is a global financial hub.",
     sl:{ level:"blue", items:[
-      "<strong>Parliament resolution — June 2021</strong> — Dutch parliament passed resolution protecting Sunday conscience rights for franchise owners; franchisors cannot force franchisees to open on Sundays",
+      { date: "2021-06", t: "<strong>Parliament resolution — June 2021</strong> — Dutch parliament passed resolution protecting Sunday conscience rights for franchise owners; franchisors cannot force franchisees to open on Sundays" },
       "Sunday trading liberalized since 2013 — but some municipalities (Bible Belt) still restrict Sunday shops",
       "Dutch Reformed Church tradition maintains strong Sunday observance culture"
     ]},
@@ -2379,7 +2662,7 @@ const COUNTRIES = {
     summary:"Kazakhstan launched the Digital Tenge in November 2023 — making it the first Central Asian nation to deploy a live CBDC. Full implementation is targeted by end 2025. Kazakhstan's proximity to both Russia and China means it straddles two competing beast-system financial architectures.",
     sl:{ level:"gray", items:["No Sunday law tradition; Friday and Sunday both observed by different communities"]},
     cbdc:{ level:"red", items:[
-      "<strong>Digital Tenge launched November 2023</strong> — first CBDC in Central Asia; full implementation targeted by end 2025",
+      { date: "2023-11", t: "<strong>Digital Tenge launched November 2023</strong> — first CBDC in Central Asia; full implementation targeted by end 2025" },
       "National Bank of Kazakhstan actively expanding digital tenge to retail payments and government transfers",
       "Kazakhstan positions itself as a CBDC bridge between Russian and Chinese digital currency systems"
     ]},
@@ -2578,10 +2861,11 @@ function makeIcon(level, r, pulse) {
    this country, respecting the current category filter so the badge stays
    consistent with the marker's own threat color. */
 function getLiveInfoForCountry(key) {
-  if (!window.LiveEvents || typeof window.LiveEvents.getEventsForCountry !== 'function') {
+  const LE = liveEvents();
+  if (!LE || typeof LE.getEventsForCountry !== 'function') {
     return { count: 0, hasCritical: false };
   }
-  const events = window.LiveEvents.getEventsForCountry(key) || [];
+  const events = LE.getEventsForCountry(key) || [];
   const cutoff = Date.now() - 72 * 60 * 60 * 1000; // last 72h
   const recent = events.filter(e => {
     const t = new Date(e.date).getTime();
@@ -2733,6 +3017,79 @@ function libLink(file) {
   return 'index.html#doc=' + encodeURIComponent(file);
 }
 
+/**
+ * The LiveEvents module, or null if live-events.js has not loaded.
+ *
+ * live-events.js declares `const LiveEvents = …` at the top level of a
+ * classic script. That creates a script-scoped global binding but NOT a
+ * property of `window` — only `var` and function declarations do that. So
+ * every `window.LiveEvents` test on this page was permanently false, and
+ * three features quietly did nothing: the live-activity badges on the map
+ * markers, the "📡 N live events" button in the category briefing, and the
+ * inclusion of live articles in the header search.
+ *
+ * `typeof` rather than a bare reference, because reading an undeclared
+ * identifier throws ReferenceError while `typeof` on one is safe — so this
+ * still returns null cleanly if the script fails to load.
+ */
+function liveEvents() {
+  return typeof LiveEvents !== 'undefined' && LiveEvents ? LiveEvents : null;
+}
+
+/**
+ * The date badge and source link shown under one evidence item.
+ * Returns "" for a legacy string item, so upgrading items is purely additive
+ * and an un-upgraded dossier looks exactly as it did before.
+ *
+ * Missing citations are reported once per tab by citationCoverageHtml(),
+ * not per item. Flagging each uncited item individually only worked for the
+ * items that already carried a date — a legacy string item rendered nothing
+ * at all, which made the un-upgraded claims look like the sourced ones. One
+ * honest count per tab covers every item and does not bury the text.
+ */
+function evidenceMetaHtml(item) {
+  if (typeof item === 'string') return '';
+  const d = itemDeclaredDate(item);
+  const src = itemSrc(item);
+  if (!d && !src) return '';
+  let h = '<span class="ev-meta">';
+  if (d) {
+    const approx = d.rank < 3 ? '~' : '';
+    h += '<span class="ev-date" title="' + (d.rank < 3 ? 'Approximate — the source gives no exact day' : 'Dated') + '">📅 ' +
+         approx + escText(d.label) + '</span>';
+  }
+  if (src) {
+    h += '<a class="ev-src" href="' + escText(src) + '" target="_blank" rel="noopener noreferrer"' +
+         ' title="' + escText(itemSrcTitle(item) || src) + '">🔗 Source</a>';
+  }
+  h += '</span>';
+  return h;
+}
+
+/**
+ * One line per tab stating how many of its claims carry a citation.
+ *
+ * These items assert specifics — "Article L3132-3", "p.589", statute numbers,
+ * vote counts — and a reader cannot otherwise tell a sourced claim from an
+ * unsourced one. Saying "2 of 14 cited" is uncomfortable but true, and it is
+ * the only rendering that does not quietly present assertion as evidence.
+ */
+function citationCoverageHtml(items) {
+  const total = (items || []).length;
+  if (!total) return '';
+  const cited = items.filter((it) => itemSrc(it)).length;
+  if (cited === total) {
+    return '<div class="ev-coverage all">🔗 ' +
+      (total === 1 ? 'The single item on this tab carries a source citation.'
+                   : 'All ' + total + ' items on this tab carry a source citation.') + '</div>';
+  }
+  const verb = cited === 1 ? 'carries' : 'carry';
+  return '<div class="ev-coverage">🔗 <b>' + cited + ' of ' + total +
+    '</b> item' + (total === 1 ? '' : 's') + ' on this tab ' + verb +
+    ' a source citation. The rest are summaries awaiting a citation — check ' +
+    'them against a primary source before relying on them.</div>';
+}
+
 function escText(str) {
   const d = document.createElement('div');
   d.textContent = String(str);
@@ -2740,8 +3097,9 @@ function escText(str) {
 }
 
 function countLiveEventsFor(cat) {
-  if (!(window.LiveEvents && typeof window.LiveEvents.getEvents === 'function')) return null;
-  const events = window.LiveEvents.getEvents() || [];
+  const LE = liveEvents();
+  if (!LE || typeof LE.getEvents !== 'function') return null;
+  const events = LE.getEvents() || [];
   if (cat === 'cs') return events.filter(e => e.churchStateFlag || (Array.isArray(e.categories) ? e.categories.includes('cs') : e.category === 'cs')).length;
   return events.filter(e => (Array.isArray(e.categories) ? e.categories : [e.category]).indexOf(cat) !== -1).length;
 }
@@ -2904,6 +3262,7 @@ function selectCountry(key) {
     t.setAttribute('tabindex', isActive ? '0' : '-1');
   });
   renderTab(key, startTab);
+  writeDeepLink(key, startTab, null);
 }
 
 /* ── Render tab content ────────────────────────────────────── */
@@ -2927,10 +3286,17 @@ function renderTab(key, cat) {
   </div>
   <ul class="cat-points">`;
 
-  (data.items || []).forEach(item => {
-    html += `<li>${item}</li>`;
+  (data.items || []).forEach((item, i) => {
+    // data-idx lets a search result and a #US/sl/4 deep link address one
+    // specific claim rather than the tab it sits on. The 🔗 button hands the
+    // reader that link — the routing is useless if there is no way to get one.
+    html += `<li data-idx="${i}">${itemText(item)}` +
+      `<button type="button" class="ev-link" data-cat="${cat}" data-idx="${i}"` +
+      ` title="Copy a link to this item" aria-label="Copy a link to this item">🔗</button>` +
+      `${evidenceMetaHtml(item)}</li>`;
   });
   html += `</ul>`;
+  html += citationCoverageHtml(data.items || []);
 
   // Guide links — the country's own guide list first…
   const linkedFiles = new Set();
@@ -2977,6 +3343,29 @@ function renderTab(key, cat) {
 }
 
 /* ── Tab click + keyboard events (WAI-ARIA tabs pattern) ──── */
+/* Copy-link buttons are delegated off #p-body because the list is rebuilt on
+   every tab switch, so per-button listeners would leak on each render. */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest && e.target.closest('.ev-link');
+  if (!btn || !selectedKey) return;
+  e.stopPropagation();
+  const url = location.origin + location.pathname +
+    '#' + selectedKey + '/' + btn.dataset.cat + '/' + btn.dataset.idx;
+  const done = (ok) => {
+    btn.textContent = ok ? '✓' : '✕';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '🔗'; btn.classList.remove('copied'); }, 1400);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => done(true), () => done(false));
+  } else {
+    // Older iOS Safari has no clipboard API in a non-secure context; put the
+    // link in the address bar so it can still be copied by hand.
+    history.replaceState(null, '', '#' + selectedKey + '/' + btn.dataset.cat + '/' + btn.dataset.idx);
+    done(true);
+  }
+});
+
 function activatePanelTab(tab) {
   if (!selectedKey) return;
   document.querySelectorAll('.p-tab').forEach(t => {
@@ -2988,6 +3377,7 @@ function activatePanelTab(tab) {
   tab.setAttribute('aria-selected', 'true');
   tab.setAttribute('tabindex', '0');
   renderTab(selectedKey, tab.dataset.tab);
+  writeDeepLink(selectedKey, tab.dataset.tab, null);
 }
 document.querySelectorAll('.p-tab').forEach(tab => {
   tab.addEventListener('click', () => activatePanelTab(tab));
@@ -3090,64 +3480,6 @@ window.renderTab = renderTab;
     ME: ['montenegrin'],
   };
 
-  /* ── Date extraction from evidence prose ───────────────────
-     Dossier items are hand-written sentences, not records, so their dates
-     live in the text: "Jan 8, 2026", "March 2022", "(founded 1888)". This
-     pulls the most specific date it can and records how precise it is, so
-     "8 Jan 2026" can outrank a bare "2026" and an undated item can sort
-     last honestly instead of pretending to be from 1970.
-
-     Coverage is genuinely partial: of the 861 items, 3% carry a day, 4% a
-     month, 16% a bare year, and 78% carry no date at all. Sorting by date
-     therefore orders the dated quarter and parks the rest under "no date". */
-  const MONTHS = {
-    jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
-    jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
-  };
-  const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const RE_MDY = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s*((?:19|20)\d{2})\b/gi;
-  const RE_DMY = /\b(\d{1,2})(?:st|nd|rd|th)?\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?,?\s*((?:19|20)\d{2})\b/gi;
-  const RE_MY  = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+((?:19|20)\d{2})\b/gi;
-  const RE_Y   = /\b((?:19|20)\d{2})\b/g;
-
-  function parseEvidenceDate(text) {
-    const plain = String(text).replace(/<[^>]+>/g, ' ');
-    let best = null;
-    const better = (cand) => {
-      if (!cand) return;
-      // More precise wins; at equal precision, the later date wins, because
-      // an item that mentions "1891 ... never rescinded ... 2026" is news
-      // about 2026, not about 1891.
-      if (!best || cand.rank > best.rank || (cand.rank === best.rank && cand.ts > best.ts)) best = cand;
-    };
-    let m;
-    RE_MDY.lastIndex = 0;
-    while ((m = RE_MDY.exec(plain))) {
-      const mo = MONTHS[m[1].toLowerCase().slice(0, 3)];
-      const d = parseInt(m[2], 10);
-      if (d >= 1 && d <= 31) {
-        better({ rank: 3, ts: Date.UTC(+m[3], mo, d), label: d + ' ' + MONTH_NAMES[mo] + ' ' + m[3] });
-      }
-    }
-    RE_DMY.lastIndex = 0;
-    while ((m = RE_DMY.exec(plain))) {
-      const mo = MONTHS[m[2].toLowerCase().slice(0, 3)];
-      const d = parseInt(m[1], 10);
-      if (d >= 1 && d <= 31) {
-        better({ rank: 3, ts: Date.UTC(+m[3], mo, d), label: d + ' ' + MONTH_NAMES[mo] + ' ' + m[3] });
-      }
-    }
-    RE_MY.lastIndex = 0;
-    while ((m = RE_MY.exec(plain))) {
-      const mo = MONTHS[m[1].toLowerCase().slice(0, 3)];
-      better({ rank: 2, ts: Date.UTC(+m[2], mo, 1), label: MONTH_NAMES[mo] + ' ' + m[2] });
-    }
-    RE_Y.lastIndex = 0;
-    while ((m = RE_Y.exec(plain))) {
-      better({ rank: 1, ts: Date.UTC(+m[1], 0, 1), label: m[1] });
-    }
-    return best;
-  }
 
   /* ── Corpus ────────────────────────────────────────────────
      Built once on first keystroke, not at load, so it costs nothing for a
@@ -3174,7 +3506,8 @@ window.renderTab = renderTab;
       CAT_KEYS.forEach((cat) => {
         const block = c[cat];
         if (!block || !Array.isArray(block.items)) return;
-        block.items.forEach((item, i) => {
+        block.items.forEach((rawItem, i) => {
+          const item = itemText(rawItem);
           const plain = String(item).replace(/<[^>]+>/g, '');
           // Most items lead with a <strong> heading ("Utah HB441 — Signed
           // March 8, 2025"). That heading is the item's title; using the
@@ -3194,7 +3527,10 @@ window.renderTab = renderTab;
             // or not the item itself says so. The chips filter by category.
             haystack: (c.name + ' ' + aliases.join(' ') + ' ' + plain).toLowerCase(),
             nameHay: (key + ' ' + c.name + ' ' + aliases.join(' ')).toLowerCase(),
-            date: parseEvidenceDate(item),
+            // A declared date wins over one scraped out of the prose. Parsing
+            // stays as the fallback for the items not yet upgraded.
+            date: itemDeclaredDate(rawItem) || parseEvidenceDate(item),
+            src: itemSrc(rawItem),
           });
         });
       });
@@ -3206,8 +3542,9 @@ window.renderTab = renderTab;
   /* Live articles are re-read on every search rather than cached, because
      the feed refreshes on its own timer. */
   function liveRecords() {
-    if (!(window.LiveEvents && typeof window.LiveEvents.getEvents === 'function')) return [];
-    return (window.LiveEvents.getEvents() || []).map((e) => {
+    const LE = liveEvents();
+    if (!LE || typeof LE.getEvents !== 'function') return [];
+    return (LE.getEvents() || []).map((e) => {
       const cats = Array.isArray(e.categories) ? e.categories : [e.category];
       const countryNames = (e.countries || [])
         .map((cc) => (COUNTRIES[cc] ? COUNTRIES[cc].name : cc)).join(' ');
@@ -3451,19 +3788,11 @@ window.renderTab = renderTab;
         getComputedStyle(document.getElementById('mob-overlay')).display !== 'none') {
       mobTab.click();
     }
+    // Shared with the deep-link router so a search hit and a pasted
+    // #US/sl/4 URL land in exactly the same place.
     setTimeout(function () {
-      const scopes = [document.getElementById('p-body'), document.getElementById('mob-d-body')];
-      scopes.forEach(function (scope) {
-        if (!scope) return;
-        const rows = scope.querySelectorAll('.cat-points > li');
-        const target = rows[rec.index] || rows[0];
-        if (!target) return;
-        target.scrollIntoView({ block: 'center', behavior: 'smooth' });
-        target.style.transition = 'background .3s';
-        const prev = target.style.background;
-        target.style.background = 'rgba(201,162,39,.22)';
-        setTimeout(function () { target.style.background = prev; }, 1600);
-      });
+      highlightEvidence(rec.cat, rec.index);
+      writeDeepLink(rec.key, rec.cat, rec.index);
     }, 120);
   }
 
@@ -3526,21 +3855,246 @@ window.renderTab = renderTab;
 
 })();
 
-/* ── Deep-link via URL hash ───────────────────────────────── */
-if (location.hash) {
-  const key = location.hash.slice(1).toUpperCase();
-  if (COUNTRIES[key]) {
-    setTimeout(() => {
-      if (clusterGroup && markers[key] && typeof clusterGroup.zoomToShowLayer === 'function') {
-        clusterGroup.zoomToShowLayer(markers[key], () => selectCountry(key));
-      } else {
-        const c = COUNTRIES[key];
-        map.flyTo([c.lat, c.lng], 4, { duration: 1.5 });
-        setTimeout(() => selectCountry(key), 1600);
-      }
-    }, 800);
+/* ══════════════════════════════════════════════════════════
+   DEEP LINKS
+   ──────────────────────────────────────────────────────────
+   Three shapes, each a superset of the last:
+
+     #US            → open the United States dossier
+     #US/sl         → …on the Sunday Laws tab
+     #US/sl/4       → …scrolled to and highlighting evidence item 5
+
+   The country-only form is what the page already supported, so existing
+   links keep working. The deeper forms exist because the page's real content
+   is the individual claims: without them you can only ever send someone to
+   a country and tell them to go hunting.
+
+   The hash is rewritten as the reader navigates, so the address bar is
+   always a link to what is on screen — with replaceState, not a new history
+   entry, so the back button still leaves the map rather than stepping back
+   through every tab you looked at.
+═══════════════════════════════════════════════════════════ */
+const DEEPLINK_CATS = ['sl', 'cs', 'cbdc', 'did', 'rl', 'bs'];
+
+function parseDeepLink(hash) {
+  const raw = String(hash || '').replace(/^#/, '');
+  if (!raw) return null;
+  const parts = raw.split('/');
+  const key = decodeURIComponent(parts[0] || '').toUpperCase();
+  if (!COUNTRIES[key]) return null;
+  const cat = parts[1] && DEEPLINK_CATS.indexOf(parts[1].toLowerCase()) !== -1
+    ? parts[1].toLowerCase() : null;
+  const idx = parts[2] !== undefined && /^\d+$/.test(parts[2]) ? parseInt(parts[2], 10) : null;
+  return { key: key, cat: cat, idx: idx };
+}
+
+let _suppressHashWrite = false;
+
+function writeDeepLink(key, cat, idx) {
+  if (_suppressHashWrite) return;
+  let h = '#' + key;
+  if (cat) h += '/' + cat;
+  if (cat && typeof idx === 'number') h += '/' + idx;
+  if (location.hash !== h) history.replaceState(null, '', h);
+}
+
+/** Scroll to one evidence item and flash it, on whichever layout is showing. */
+function highlightEvidence(cat, idx) {
+  const scopes = [document.getElementById('p-body'), document.getElementById('mob-d-body')];
+  scopes.forEach((scope) => {
+    if (!scope) return;
+    const target = scope.querySelector('.cat-points > li[data-idx="' + idx + '"]');
+    if (!target) return;
+    target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    target.style.transition = 'background .3s';
+    const prev = target.style.background;
+    target.style.background = 'rgba(201,162,39,.22)';
+    setTimeout(() => { target.style.background = prev; }, 1800);
+  });
+}
+
+function applyDeepLink(link, opts) {
+  if (!link) return;
+  const settle = () => {
+    // The hash is the source of truth during a deep-link jump, so don't let
+    // selectCountry's own hash write clobber the tab/item part of it.
+    _suppressHashWrite = true;
+    selectCountry(link.key);
+    if (link.cat) {
+      const tab = document.querySelector('.p-tab[data-tab="' + link.cat + '"]');
+      if (tab && !tab.hidden) tab.click();
+      const mobTab = document.querySelector('#mob-d-tabs [data-tid="' + link.cat + '"]');
+      if (mobTab) mobTab.click();
+    }
+    _suppressHashWrite = false;
+    writeDeepLink(link.key, link.cat, link.idx);
+    if (link.cat && typeof link.idx === 'number') {
+      setTimeout(() => highlightEvidence(link.cat, link.idx), 140);
+    }
+  };
+  const key = link.key;
+  if (clusterGroup && markers[key] && typeof clusterGroup.zoomToShowLayer === 'function') {
+    clusterGroup.zoomToShowLayer(markers[key], settle);
+  } else {
+    const c = COUNTRIES[key];
+    map.flyTo([c.lat, c.lng], 4, { duration: 1.5 });
+    setTimeout(settle, (opts && opts.delay) || 1600);
   }
 }
+
+if (location.hash) {
+  const initial = parseDeepLink(location.hash);
+  if (initial) setTimeout(() => applyDeepLink(initial), 800);
+}
+
+/* Back/forward and pasted-hash changes re-resolve. Guarded so the
+   replaceState writes made while navigating don't re-enter this. */
+window.addEventListener('hashchange', () => {
+  if (_suppressHashWrite) return;
+  const link = parseDeepLink(location.hash);
+  if (link) applyDeepLink(link);
+});
+
+/* ══════════════════════════════════════════════════════════
+   TIMELINE / CHRONOLOGY
+   ──────────────────────────────────────────────────────────
+   Reads the same evidence items the dossiers show and orders them by date,
+   grouped by year. Clicking an entry deep-links to the item in its dossier.
+
+   It reports its own coverage in the header rather than presenting a partial
+   chart as a complete one: only a minority of items state a date, and a
+   chronology that quietly omits the rest would overstate what it knows.
+   Items dated to a bare year are marked approximate and drawn with a grey
+   node, so "sometime in 2011" never looks like "3 March 2011".
+═══════════════════════════════════════════════════════════ */
+(function () {
+
+  let open = false;
+  let built = null;   // cached; the dossier data does not change at runtime
+
+  function collect() {
+    if (built) return built;
+    const cats = ['sl', 'cs', 'cbdc', 'did', 'rl', 'bs'];
+    const dated = [];
+    let total = 0;
+    Object.keys(COUNTRIES).forEach((key) => {
+      const c = COUNTRIES[key];
+      cats.forEach((cat) => {
+        const block = c[cat];
+        if (!block || !Array.isArray(block.items)) return;
+        block.items.forEach((raw, i) => {
+          total++;
+          const d = itemDeclaredDate(raw) || parseEvidenceDate(itemText(raw));
+          if (!d) return;
+          const plain = String(itemText(raw)).replace(/<[^>]+>/g, '');
+          dated.push({
+            key: key, cat: cat, idx: i, date: d,
+            year: new Date(d.ts).getUTCFullYear(),
+            text: plain,
+            declared: !!d.declared,
+          });
+        });
+      });
+    });
+    built = { dated: dated, total: total };
+    return built;
+  }
+
+  function render() {
+    const data = collect();
+    const cat = document.getElementById('tl-cat').value;
+    const asc = document.getElementById('tl-order').value === 'asc';
+    const rows = data.dated.filter((r) => cat === 'all' || r.cat === cat);
+
+    const scopeTotal = cat === 'all'
+      ? data.total
+      : Object.keys(COUNTRIES).reduce((n, k) => {
+          const b = COUNTRIES[k][cat];
+          return n + (b && b.items ? b.items.length : 0);
+        }, 0);
+    const declared = rows.filter((r) => r.declared).length;
+
+    document.getElementById('tl-coverage').innerHTML =
+      'Charting <b>' + rows.length + '</b> of ' + scopeTotal + ' evidence items — the ones that state a date. ' +
+      declared + ' carry a declared date; ' + (rows.length - declared) +
+      ' were read out of the text. The remaining ' + (scopeTotal - rows.length) +
+      ' give no date and cannot be placed.';
+
+    if (!rows.length) {
+      document.getElementById('tl-body').innerHTML =
+        '<div class="tl-empty">No dated items in this category.</div>';
+      return;
+    }
+
+    rows.sort((a, b) => (asc ? a.date.ts - b.date.ts : b.date.ts - a.date.ts));
+
+    const years = [];
+    const byYear = {};
+    rows.forEach((r) => {
+      if (!byYear[r.year]) { byYear[r.year] = []; years.push(r.year); }
+      byYear[r.year].push(r);
+    });
+
+    let html = '';
+    years.forEach((y) => {
+      const group = byYear[y];
+      html += '<div class="tl-year">' + y +
+        '<span class="tl-n">' + group.length + (group.length === 1 ? ' entry' : ' entries') + '</span></div>';
+      html += '<div class="tl-entries">';
+      group.forEach((r) => {
+        const c = COUNTRIES[r.key];
+        const info = CATS[r.cat] || {};
+        const approx = r.date.rank < 3;
+        html += '<button type="button" class="tl-item' + (approx ? ' approx' : '') + '"' +
+          ' data-key="' + r.key + '" data-cat="' + r.cat + '" data-idx="' + r.idx + '">';
+        html += '<span class="tl-top">';
+        html += '<span class="tl-when' + (approx ? ' approx' : '') + '">' +
+          (approx ? '~' : '') + escText(r.date.label) + '</span>';
+        html += '<span class="tl-flag" aria-hidden="true">' + (c.flag || '🌍') + '</span>';
+        html += '<span class="tl-where">' + escText(c.name) + '</span>';
+        html += '<span class="tl-cat le-cat-' + r.cat + '">' + (info.icon || '') + '</span>';
+        html += '</span>';
+        html += '<span class="tl-text">' + escText(r.text) + '</span>';
+        html += '</button>';
+      });
+      html += '</div>';
+    });
+    document.getElementById('tl-body').innerHTML = html;
+  }
+
+  window.toggleTimeline = function () {
+    open = !open;
+    const panel = document.getElementById('timeline-panel');
+    const btn = document.getElementById('timeline-btn');
+    panel.hidden = !open;
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    if (open) render();
+  };
+
+  document.addEventListener('change', (e) => {
+    if (e.target && (e.target.id === 'tl-cat' || e.target.id === 'tl-order')) render();
+  });
+
+  /* Delegated because the list is rebuilt on every filter change. */
+  document.addEventListener('click', (e) => {
+    const item = e.target.closest && e.target.closest('.tl-item');
+    if (!item) return;
+    applyDeepLink({
+      key: item.dataset.key,
+      cat: item.dataset.cat,
+      idx: parseInt(item.dataset.idx, 10),
+    });
+    // Close on a phone, where the panel covers the whole screen and would
+    // otherwise hide the dossier the reader just asked for.
+    if (window.innerWidth <= 800) window.toggleTimeline();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && open) window.toggleTimeline();
+  });
+
+})();
 
 /* ══ MOBILE FULL-SCREEN OVERLAY ═════════════════════════════════ */
 (function() {
@@ -3615,7 +4169,7 @@ if (location.hash) {
     var c = COUNTRIES[k];
     var parts = [c.name, c.summary || ''];
     ['sl','cs','cbdc','did','rl','bs'].forEach(function(cat){
-      if (c[cat] && c[cat].items) parts.push(c[cat].items.join(' '));
+      if (c[cat] && c[cat].items) parts.push(c[cat].items.map(itemText).join(' '));
     });
     _hayCache[k] = parts.join(' ').replace(/<[^>]+>/g, ' ').toLowerCase();
     return _hayCache[k];
@@ -3754,11 +4308,13 @@ if (location.hash) {
     /* class="cat-points" matches the desktop panel so search results can
        locate and flash an individual evidence item on either layout. */
     html += '<ul class="cat-points" style="list-style:none;display:flex;flex-direction:column;gap:10px;padding:0">';
-    (data.items||[]).forEach(function(item){
-      html += '<li style="font-size:12.5px;line-height:1.65;color:#9aa3c0;padding-left:18px;position:relative">'+
-        '<span style="position:absolute;left:0;color:#c9a227">▸</span>'+item+'</li>';
+    (data.items||[]).forEach(function(item, i){
+      html += '<li data-idx="'+i+'" style="font-size:12.5px;line-height:1.65;color:#9aa3c0;padding-left:18px;position:relative">'+
+        '<span style="position:absolute;left:0;color:#c9a227">▸</span>'+
+        itemText(item)+evidenceMetaHtml(item)+'</li>';
     });
     html += '</ul>';
+    html += citationCoverageHtml(data.items||[]);
     if (c.guides && c.guides.length && cat !== 'did') {
       html += '<div style="margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)">'+
         '<h4 style="font-size:11px;color:#7f89a8;font-weight:600;text-transform:uppercase;'+
@@ -3810,7 +4366,10 @@ if (location.hash) {
 </script>
 
 <!-- ══ LIVE EVENTS ENGINE ══ -->
-<script src="assets/live-events.js"></script>
+<!-- "?v=" is the real cache key: the service worker serves this file
+     stale-while-revalidate, so without a version bump a returning reader
+     runs the previous build for one more visit. Bump on every change. -->
+<script src="assets/live-events.js?v=20260818b"></script>
 <script>
 "use strict";
 
@@ -3871,6 +4430,7 @@ if (location.hash) {
     document.getElementById("live-loading").style.display = "none";
 
     updatePillCounts(events);
+    renderSourceHealth();
 
     _newSinceLastVisit = 0;
     events.forEach(function (e) {
@@ -3943,6 +4503,64 @@ if (location.hash) {
       var k = p.dataset.lf === "church-state" ? "csFlag" : p.dataset.lf;
       p.classList.toggle("lf-void", searchTokens.length > 0 && counts[k] === 0);
     });
+  }
+
+  /* ── Source health ───────────────────────────────────────
+     Turns the ok/fail counts LiveEvents already keeps into something a
+     reader — or I, next time — can actually see. A source that answers
+     nothing now says so, instead of the feed just quietly being thinner. */
+  var SOURCE_LABELS = {
+    google_news: "Google News",
+    gdelt: "GDELT",
+    bing_news: "Bing News",
+    reddit: "Reddit",
+    vatican_news: "Vatican News",
+    christian_post: "Christian Post",
+  };
+
+  function renderSourceHealth() {
+    var el = document.getElementById("lh-body");
+    var sum = document.getElementById("lh-summary");
+    if (!el || !LiveEvents.getSourceHealth) return;
+    var health = LiveEvents.getSourceHealth() || {};
+    var names = Object.keys(health).filter(function (k) {
+      var h = health[k];
+      return h && (h.ok || h.fail);
+    });
+    if (!names.length) {
+      sum.textContent = "Sources — no scan yet (showing cache)";
+      el.innerHTML = '<div class="lh-row lh-note">Health is recorded per scan. Press 🔄 Refresh to test the sources.</div>';
+      return;
+    }
+    var live = 0;
+    var html = "";
+    names.sort().forEach(function (k) {
+      var h = health[k];
+      var cls = h.ok && !h.fail ? "lh-ok" : h.ok ? "lh-part" : "lh-dead";
+      if (h.ok) live++;
+      var note = h.ok && !h.fail ? h.ok + " ok"
+        : h.ok ? h.ok + " ok, " + h.fail + " failed"
+        : "all " + h.fail + " requests failed";
+      html += '<div class="lh-row"><span class="lh-dot ' + cls + '"></span>' +
+        '<span class="lh-name">' + escHtml(SOURCE_LABELS[k] || k) + '</span>' +
+        '<span class="lh-note">' + note + "</span></div>";
+    });
+    // Every source reaches us through one proxy, so a wall of failures is
+    // usually its quota rather than the news outlets going dark. Say which,
+    // otherwise the obvious reading is "there is no news".
+    var totalOk = 0, totalFail = 0;
+    names.forEach(function (k) { totalOk += health[k].ok; totalFail += health[k].fail; });
+    if (totalFail > totalOk) {
+      html += '<div class="lh-row lh-note" style="margin-top:5px">' +
+        totalFail + " of " + (totalOk + totalFail) +
+        " requests were refused. All sources share one free proxy (rss2json) " +
+        "with a per-IP quota; this is its limit, not an absence of news." +
+        (LiveEvents.CONFIG && !LiveEvents.CONFIG.rss2jsonApiKey
+          ? " Setting an rss2json API key removes it." : "") +
+        "</div>";
+    }
+    sum.textContent = "Sources — " + live + " of " + names.length + " answering";
+    el.innerHTML = html;
   }
 
   /* ── Match highlighting ──────────────────────────────────── */
