@@ -38,11 +38,50 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   background:rgba(255,255,255,.05);color:#9aa3c0;font-size:12px;font-weight:600;
   cursor:pointer;white-space:nowrap;transition:all .2s}
 .flt.active,.flt:hover{border-color:rgba(201,162,39,.5);background:rgba(201,162,39,.15);color:#e6c04c}
-#srch{margin-left:auto;padding:6px 12px;background:rgba(255,255,255,.07);
+#srch-wrap{margin-left:auto;position:relative;flex-shrink:0}
+#srch{padding:6px 12px;background:rgba(255,255,255,.07);
   border:1px solid rgba(255,255,255,.12);border-radius:20px;color:#eaeef8;
-  font-size:12px;width:150px;outline:none;transition:border .2s}
-#srch:focus{border-color:rgba(201,162,39,.5);width:190px}
+  font-size:12px;width:170px;outline:none;transition:border .2s,width .2s;font-family:inherit}
+#srch:focus{border-color:rgba(201,162,39,.5);width:240px}
 #srch::placeholder{color:#7f89a8}
+
+/* ── Search results dropdown ──────────────────────────────── */
+#srch-results{position:absolute;top:calc(100% + 8px);right:0;width:min(460px,calc(100vw - 24px));
+  max-height:min(70vh,560px);display:flex;flex-direction:column;
+  background:rgba(10,13,26,.98);backdrop-filter:blur(14px);
+  border:1px solid rgba(201,162,39,.28);border-radius:12px;
+  box-shadow:0 18px 50px rgba(0,0,0,.6);overflow:hidden;z-index:3200}
+#srch-results[hidden]{display:none}
+#srch-head{display:flex;align-items:center;gap:8px;padding:8px 12px;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03)}
+#srch-count{flex:1;font-size:10px;font-weight:600;color:#7f89a8;letter-spacing:.03em}
+#srch-sort{padding:3px 9px;border-radius:10px;border:1px solid rgba(201,162,39,.28);
+  background:rgba(201,162,39,.1);color:#c9a227;font-size:10px;font-weight:700;
+  cursor:pointer;white-space:nowrap;font-family:inherit;transition:background .2s}
+#srch-sort:hover{background:rgba(201,162,39,.22)}
+#srch-body{overflow-y:auto;padding:6px;scrollbar-width:thin;scrollbar-color:#1e2740 transparent}
+#srch-body::-webkit-scrollbar{width:5px}
+#srch-body::-webkit-scrollbar-thumb{background:#2b3550;border-radius:3px}
+.sr-group{padding:7px 8px 3px;font-size:9px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:#5c6684}
+.sr-item{display:block;width:100%;text-align:left;padding:8px 9px;border-radius:8px;
+  border:1px solid transparent;background:none;cursor:pointer;font-family:inherit;
+  color:#cbd5e0;transition:background .15s,border-color .15s}
+.sr-item:hover,.sr-item.sel{background:rgba(201,162,39,.1);border-color:rgba(201,162,39,.28)}
+.sr-item:focus-visible{outline:2px solid rgba(201,162,39,.6);outline-offset:-2px}
+.sr-top{display:flex;align-items:center;gap:6px;margin-bottom:3px;flex-wrap:wrap}
+.sr-flag{font-size:14px;line-height:1}
+.sr-where{font-size:10px;font-weight:700;color:#e6c04c;white-space:nowrap}
+.sr-cat{padding:1px 6px;border-radius:7px;font-size:8px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase}
+.sr-date{margin-left:auto;font-size:9px;font-weight:700;color:#7f89a8;white-space:nowrap}
+.sr-date.undated{color:#4a5568;font-weight:500;font-style:italic}
+.sr-text{font-size:11.5px;line-height:1.5;color:#9aa3c0;
+  display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sr-text mark{background:rgba(201,162,39,.28);color:#ffe9a8;border-radius:2px;padding:0 1px}
+.sr-empty{padding:22px 16px;text-align:center;color:#7f89a8;font-size:12px;line-height:1.7}
+.sr-empty b{color:#c9a227;display:block;margin-bottom:4px;font-size:13px}
+.sr-hint{padding:6px 10px 8px;font-size:9.5px;color:#4a5568;text-align:center;line-height:1.6}
 
 /* ── Stats Bar ───────────────────────────────────────────── */
 #stats{position:fixed;top:56px;left:0;right:0;z-index:1999;height:34px;
@@ -276,6 +315,12 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
   .stat-item .lbl{display:none}
   #srch{width:80px}
   #srch:focus{width:110px}
+  /* Content search is now the main way into the dossier text, so on a phone
+     the box takes over the header on focus rather than shrinking to 80px —
+     otherwise the results panel is wider than the input that drives it. */
+  #srch-wrap:focus-within{position:absolute;left:8px;right:8px;top:11px;z-index:3300}
+  #srch-wrap:focus-within #srch{width:100%}
+  #srch-results{width:auto;left:0;right:0;max-height:min(70vh,440px)}
 }
 
 /* ══ LIVE EVENTS FEED ─────────────────────────────────────── */
@@ -358,6 +403,39 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .lf-pill .lf-n{
   display:inline-block;min-width:14px;text-align:center;margin-left:3px;
   padding:1px 4px;border-radius:6px;background:rgba(255,255,255,.08);font-size:9px;
+}
+/* A pill whose count drops to 0 under the current text query is dimmed rather
+   than hidden, so the category set stays stable while you type. */
+.lf-pill.lf-void{opacity:.35}
+
+/* Search + sort row inside the live panel */
+#live-tools{display:flex;gap:6px;margin-top:8px}
+#live-search{
+  flex:1;min-width:0;padding:6px 11px;border-radius:14px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  color:#e2e8f0;font-size:11px;font-family:inherit;outline:none;
+  -webkit-appearance:none;appearance:none;transition:border-color .2s;
+}
+#live-search:focus{border-color:rgba(56,178,172,.45)}
+#live-search::placeholder{color:#5c6684}
+#live-sort{
+  padding:6px 8px;border-radius:14px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);color:#9aa3c0;font-size:10px;
+  font-family:inherit;outline:none;cursor:pointer;flex-shrink:0;
+}
+#live-sort:focus{border-color:rgba(56,178,172,.45)}
+#live-result-count{
+  margin-top:7px;font-size:10px;font-weight:600;color:#4fd1c5;letter-spacing:.03em;
+}
+#live-result-count[hidden]{display:none}
+#live-result-count button{
+  margin-left:7px;padding:1px 7px;border-radius:8px;cursor:pointer;font-family:inherit;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  color:#9aa3c0;font-size:9px;font-weight:700;
+}
+#live-result-count button:hover{color:#e2e8f0}
+.le-card .le-title mark,.le-card .le-snippet mark{
+  background:rgba(56,178,172,.28);color:#c6f4ef;border-radius:2px;padding:0 1px;
 }
 
 /* Live event cards */
@@ -549,7 +627,17 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     <div class="flt" data-cat="rl" role="button" tabindex="0" aria-pressed="false">✝ Religious Liberty</div>
     <div class="flt" data-cat="bs" role="button" tabindex="0" aria-pressed="false">🔗 Beast System</div>
   </div>
-  <input id="srch" type="text" placeholder="🔍 Search country…" aria-label="Search country">
+  <div id="srch-wrap">
+    <input id="srch" type="text" placeholder="🔍 Search countries & evidence…" aria-label="Search countries and evidence"
+           autocomplete="off" role="combobox" aria-expanded="false" aria-controls="srch-results" aria-autocomplete="list">
+    <div id="srch-results" role="listbox" aria-label="Search results" hidden>
+      <div id="srch-head">
+        <span id="srch-count"></span>
+        <button type="button" id="srch-sort" aria-label="Change result order">📅 Newest first</button>
+      </div>
+      <div id="srch-body"></div>
+    </div>
+  </div>
   <div id="live-btn" onclick="toggleLivePanel()" role="button" tabindex="0" aria-label="Toggle live prophecy event feed"
        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleLivePanel()}">
     <div id="live-dot" aria-hidden="true"></div>
@@ -657,6 +745,11 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
     </div>
     <div id="p-tabs" role="tablist" aria-label="Country detail categories">
       <div class="p-tab active" data-tab="sl" role="tab" tabindex="0" aria-selected="true" aria-controls="p-body"><span class="ticon" aria-hidden="true">📅</span>Sunday Laws</div>
+      <!-- Only a couple of countries carry Church & State evidence, so this
+           tab is shown or hidden per country by selectCountry(). Before it
+           existed the "⛪ Church & State" chip filtered the map to countries
+           whose cs items no panel could actually open. -->
+      <div class="p-tab" data-tab="cs" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body" hidden><span class="ticon" aria-hidden="true">⛪</span>Church &amp; State</div>
       <div class="p-tab" data-tab="cbdc" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body"><span class="ticon" aria-hidden="true">💳</span>CBDC</div>
       <div class="p-tab" data-tab="did" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body"><span class="ticon" aria-hidden="true">👁</span>Digital ID</div>
       <div class="p-tab" data-tab="rl" role="tab" tabindex="-1" aria-selected="false" aria-controls="p-body"><span class="ticon" aria-hidden="true">✝</span>Liberty</div>
@@ -689,6 +782,17 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
       <div class="lf-pill" data-lf="bs">🔗 Beast System <span class="lf-n" id="lf-n-bs">0</span></div>
       <div class="lf-pill" data-lf="church-state" title="Any event flagged church-state-relevant, regardless of which category it's filed under">⚠️ CS-Flagged (any cat.) <span class="lf-n" id="lf-n-cs">0</span></div>
     </div>
+    <div id="live-tools">
+      <input id="live-search" type="search" placeholder="🔍 Search headlines, summaries, sources…"
+             aria-label="Search live events" autocomplete="off">
+      <select id="live-sort" aria-label="Sort live events">
+        <option value="date" selected>📅 Newest first</option>
+        <option value="oldest">📅 Oldest first</option>
+        <option value="severity">🔴 Severity, then date</option>
+        <option value="relevance">🎯 Best match</option>
+      </select>
+    </div>
+    <div id="live-result-count" hidden></div>
   </div>
   <div id="live-loading">
     <div class="spinner"></div>
@@ -745,6 +849,7 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 
 const CATS = {
   sl:   { label: "Sunday Laws",      icon: "📅" },
+  cs:   { label: "Church & State",   icon: "⛪" },
   cbdc: { label: "CBDC / Digital Currency", icon: "💳" },
   did:  { label: "Digital ID & Surveillance", icon: "👁" },
   rl:   { label: "Religious Liberty", icon: "✝" },
@@ -2705,6 +2810,9 @@ document.querySelectorAll('.flt').forEach(btn => {
     refreshMarkers();
     updateStats();
     renderCatBriefing(activeCat);
+    // An open results list is scoped to the active category, so it has to be
+    // rebuilt when the category changes underneath it.
+    if (typeof window.rerunMapSearch === 'function') window.rerunMapSearch();
   };
   btn.addEventListener('click', applyFilter);
   btn.addEventListener('keydown', (e) => {
@@ -2779,6 +2887,13 @@ function selectCountry(key) {
 
   // Open mobile bottom-sheet when a country is selected
   if (window._mobileOpenPanel) window._mobileOpenPanel(c.flag + ' ' + c.name);
+
+  // Hide tabs this country has no data for, so a visible tab always opens
+  // something. In practice only "cs" varies — every country carries the
+  // other five — but driving it off the data keeps it honest if that changes.
+  document.querySelectorAll('.p-tab').forEach(t => {
+    t.hidden = !c[t.dataset.tab];
+  });
 
   // Set active tab
   const startTab = (activeCat !== 'all' && c[activeCat]) ? activeCat : 'sl';
@@ -2898,38 +3013,518 @@ document.querySelectorAll('.p-tab').forEach(tab => {
 window.selectCountry = selectCountry;
 window.renderTab = renderTab;
 
-/* ── Search ───────────────────────────────────────────────── */
-document.getElementById('srch').addEventListener('input', function() {
-  const q = this.value.toLowerCase().trim();
-  if (!q) return;
-  const found = Object.keys(COUNTRIES).find(k => COUNTRIES[k].name.toLowerCase().startsWith(q));
-  if (found) {
-    if (clusterGroup && markers[found] && typeof clusterGroup.zoomToShowLayer === 'function') {
-      clusterGroup.zoomToShowLayer(markers[found], () => selectCountry(found));
-    } else {
-      const c = COUNTRIES[found];
-      map.flyTo([c.lat, c.lng], 4, { duration: 1.2 });
-      setTimeout(() => selectCountry(found), 1300);
-    }
-    return;
-  }
-  // No country name match — this box used to ignore live-feed content
-  // entirely, so e.g. typing "CBDC" found nothing even with matching
-  // headlines in the feed. Check live event titles too, and surface the
-  // panel + fly to the first tagged country if there's a hit.
-  if (window.LiveEvents && typeof window.LiveEvents.getEvents === 'function' && q.length >= 3) {
-    const hit = window.LiveEvents.getEvents().find(e => e.title.toLowerCase().includes(q));
-    if (hit) {
-      if (hit.countries && hit.countries[0] && typeof window.flyToCountry === 'function') {
-        window.flyToCountry(hit.countries[0]);
+/* ══════════════════════════════════════════════════════════
+   SEARCH — countries, dossier evidence, and live articles
+   ──────────────────────────────────────────────────────────
+   The old box matched COUNTRIES[k].name.startsWith(query) and flew the map
+   on every keystroke. Three consequences: "korea" and "usa" found nothing;
+   the map lurched to whichever country happened to start with "s" while you
+   were still typing "sweden"; and the 861 evidence items inside the country
+   dossiers — the substance of the page — were not searchable at all.
+
+   This replaces it with a scored search over three corpora, shown in a
+   results list you choose from, restricted to the active category chip when
+   one is set, and ordered newest-first by default.
+═══════════════════════════════════════════════════════════ */
+(function () {
+
+  /* ── Country name aliases ──────────────────────────────────
+     Everything a reader is likely to type that is not the formal name
+     already in COUNTRIES. Without these, "uk", "usa", "holland" and
+     "britain" all returned nothing. */
+  const COUNTRY_ALIASES = {
+    US: ['usa', 'u.s.', 'u.s.a.', 'america', 'american', 'united states of america', 'states'],
+    GB: ['uk', 'u.k.', 'britain', 'great britain', 'british', 'england', 'english', 'scotland', 'wales'],
+    NL: ['holland', 'dutch', 'netherlands'],
+    VA: ['vatican', 'holy see', 'rome', 'papacy', 'pope', 'roman curia'],
+    KR: ['korea', 'south korea', 'republic of korea', 'korean', 'seoul'],
+    KP: ['korea', 'north korea', 'dprk', 'korean'],
+    DE: ['german', 'deutschland'],
+    FR: ['french'],
+    IT: ['italian'],
+    ES: ['spanish', 'spain'],
+    CH: ['swiss', 'switzerland'],
+    RU: ['russian', 'soviet', 'ussr', 'moscow'],
+    CN: ['china', 'chinese', 'prc', 'peoples republic of china', "people's republic of china"],
+    IN: ['indian', 'bharat'],
+    JP: ['japanese', 'nippon'],
+    AU: ['aussie', 'australian'],
+    ZA: ['south african', 'rsa'],
+    AE: ['emirates', 'uae'],
+    IL: ['israeli', 'jewish state'],
+    IR: ['iranian', 'persia', 'persian'],
+    TR: ['turkish', 'turkiye', 'türkiye', 'ottoman'],
+    BR: ['brazilian', 'brasil'],
+    MX: ['mexican'],
+    AR: ['argentinian', 'argentine'],
+    GR: ['greek', 'hellenic'],
+    PL: ['polish'],
+    PT: ['portuguese'],
+    SE: ['swedish'],
+    NO: ['norwegian'],
+    DK: ['danish'],
+    FI: ['finnish'],
+    HU: ['hungarian', 'magyar'],
+    HR: ['croatian'],
+    AT: ['austrian'],
+    BE: ['belgian'],
+    CA: ['canadian'],
+    NG: ['nigerian'],
+    KE: ['kenyan'],
+    EG: ['egyptian'],
+    ET: ['ethiopian', 'abyssinia'],
+    PH: ['filipino', 'philippine'],
+    ID: ['indonesian'],
+    TH: ['thai', 'siam'],
+    PK: ['pakistani'],
+    SA: ['saudi', 'saudi arabian'],
+    KZ: ['kazakh'],
+    CL: ['chilean'],
+    CO: ['colombian'],
+    UG: ['ugandan'],
+    JM: ['jamaican'],
+    BS: ['bahamian'],
+    VE: ['venezuelan'],
+    SK: ['slovakian', 'slovak'],
+    SI: ['slovenian'],
+    ME: ['montenegrin'],
+  };
+
+  /* ── Date extraction from evidence prose ───────────────────
+     Dossier items are hand-written sentences, not records, so their dates
+     live in the text: "Jan 8, 2026", "March 2022", "(founded 1888)". This
+     pulls the most specific date it can and records how precise it is, so
+     "8 Jan 2026" can outrank a bare "2026" and an undated item can sort
+     last honestly instead of pretending to be from 1970.
+
+     Coverage is genuinely partial: of the 861 items, 3% carry a day, 4% a
+     month, 16% a bare year, and 78% carry no date at all. Sorting by date
+     therefore orders the dated quarter and parks the rest under "no date". */
+  const MONTHS = {
+    jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+    jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+  };
+  const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const RE_MDY = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s*((?:19|20)\d{2})\b/gi;
+  const RE_DMY = /\b(\d{1,2})(?:st|nd|rd|th)?\s+(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?,?\s*((?:19|20)\d{2})\b/gi;
+  const RE_MY  = /\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+((?:19|20)\d{2})\b/gi;
+  const RE_Y   = /\b((?:19|20)\d{2})\b/g;
+
+  function parseEvidenceDate(text) {
+    const plain = String(text).replace(/<[^>]+>/g, ' ');
+    let best = null;
+    const better = (cand) => {
+      if (!cand) return;
+      // More precise wins; at equal precision, the later date wins, because
+      // an item that mentions "1891 ... never rescinded ... 2026" is news
+      // about 2026, not about 1891.
+      if (!best || cand.rank > best.rank || (cand.rank === best.rank && cand.ts > best.ts)) best = cand;
+    };
+    let m;
+    RE_MDY.lastIndex = 0;
+    while ((m = RE_MDY.exec(plain))) {
+      const mo = MONTHS[m[1].toLowerCase().slice(0, 3)];
+      const d = parseInt(m[2], 10);
+      if (d >= 1 && d <= 31) {
+        better({ rank: 3, ts: Date.UTC(+m[3], mo, d), label: d + ' ' + MONTH_NAMES[mo] + ' ' + m[3] });
       }
-      const panel = document.getElementById('live-panel');
-      if (panel && !panel.classList.contains('open') && typeof window.toggleLivePanel === 'function') {
-        window.toggleLivePanel();
+    }
+    RE_DMY.lastIndex = 0;
+    while ((m = RE_DMY.exec(plain))) {
+      const mo = MONTHS[m[2].toLowerCase().slice(0, 3)];
+      const d = parseInt(m[1], 10);
+      if (d >= 1 && d <= 31) {
+        better({ rank: 3, ts: Date.UTC(+m[3], mo, d), label: d + ' ' + MONTH_NAMES[mo] + ' ' + m[3] });
       }
     }
+    RE_MY.lastIndex = 0;
+    while ((m = RE_MY.exec(plain))) {
+      const mo = MONTHS[m[1].toLowerCase().slice(0, 3)];
+      better({ rank: 2, ts: Date.UTC(+m[2], mo, 1), label: MONTH_NAMES[mo] + ' ' + m[2] });
+    }
+    RE_Y.lastIndex = 0;
+    while ((m = RE_Y.exec(plain))) {
+      better({ rank: 1, ts: Date.UTC(+m[1], 0, 1), label: m[1] });
+    }
+    return best;
   }
-});
+
+  /* ── Corpus ────────────────────────────────────────────────
+     Built once on first keystroke, not at load, so it costs nothing for a
+     reader who never searches. 54 country records + 861 evidence records. */
+  let _corpus = null;
+
+  function buildCorpus() {
+    if (_corpus) return _corpus;
+    const CAT_KEYS = ['sl', 'cs', 'cbdc', 'did', 'rl', 'bs'];
+    const records = [];
+    Object.keys(COUNTRIES).forEach((key) => {
+      const c = COUNTRIES[key];
+      const aliases = COUNTRY_ALIASES[key] || [];
+      records.push({
+        kind: 'country',
+        key: key,
+        cat: null,
+        title: c.name,
+        text: c.summary || '',
+        haystack: (key + ' ' + c.name + ' ' + aliases.join(' ') + ' ' + (c.summary || '')).toLowerCase(),
+        nameHay: (key + ' ' + c.name + ' ' + aliases.join(' ')).toLowerCase(),
+        date: null,
+      });
+      CAT_KEYS.forEach((cat) => {
+        const block = c[cat];
+        if (!block || !Array.isArray(block.items)) return;
+        block.items.forEach((item, i) => {
+          const plain = String(item).replace(/<[^>]+>/g, '');
+          // Most items lead with a <strong> heading ("Utah HB441 — Signed
+          // March 8, 2025"). That heading is the item's title; using the
+          // country name instead meant a term in the heading scored no
+          // better than one buried in the last sentence.
+          const bold = /<strong>([\s\S]*?)<\/strong>/i.exec(String(item));
+          const heading = bold ? bold[1].replace(/<[^>]+>/g, '') : plain.slice(0, 90);
+          records.push({
+            kind: 'evidence',
+            key: key,
+            cat: cat,
+            index: i,
+            title: heading,
+            text: plain,
+            // Category label left out on purpose — see eventHaystack() below:
+            // indexing it makes "sunday" match every Sunday-Laws item whether
+            // or not the item itself says so. The chips filter by category.
+            haystack: (c.name + ' ' + aliases.join(' ') + ' ' + plain).toLowerCase(),
+            nameHay: (key + ' ' + c.name + ' ' + aliases.join(' ')).toLowerCase(),
+            date: parseEvidenceDate(item),
+          });
+        });
+      });
+    });
+    _corpus = records;
+    return records;
+  }
+
+  /* Live articles are re-read on every search rather than cached, because
+     the feed refreshes on its own timer. */
+  function liveRecords() {
+    if (!(window.LiveEvents && typeof window.LiveEvents.getEvents === 'function')) return [];
+    return (window.LiveEvents.getEvents() || []).map((e) => {
+      const cats = Array.isArray(e.categories) ? e.categories : [e.category];
+      const countryNames = (e.countries || [])
+        .map((cc) => (COUNTRIES[cc] ? COUNTRIES[cc].name : cc)).join(' ');
+      const ts = new Date(e.date).getTime();
+      return {
+        kind: 'article',
+        key: (e.countries && e.countries[0]) || null,
+        cat: e.category,
+        cats: cats,
+        title: e.title,
+        text: e.snippet || '',
+        source: e.source,
+        url: e.url,
+        severity: e.severity,
+        haystack: (e.title + ' ' + (e.snippet || '') + ' ' + (e.source || '') + ' ' +
+                   countryNames).toLowerCase(),
+        nameHay: (countryNames + ' ' + (e.countries || []).join(' ')).toLowerCase(),
+        date: isNaN(ts) ? null : { rank: 3, ts: ts, label: fmtShort(ts) },
+      };
+    });
+  }
+
+  function fmtShort(ts) {
+    const d = new Date(ts);
+    return d.getUTCDate() + ' ' + MONTH_NAMES[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+  }
+
+  /* ── Scoring ───────────────────────────────────────────────
+     Deliberately simple: every query token must appear somewhere in the
+     record (AND, not OR — "sunday law" should not return every article
+     containing "law"), and the score rewards where the tokens landed. */
+  function tokenise(q) {
+    return q.toLowerCase().split(/[^a-z0-9À-ÿ.]+/i).filter((t) => t.length > 1 || /\d/.test(t));
+  }
+
+  /* True when the query is about the country itself rather than something
+     its prose happens to mention. This is what separates "sweden" (show me
+     Sweden) from "aadhaar" (show me the item that discusses Aadhaar, even
+     though India's summary mentions it too). */
+  function hitsName(rec, tokens) {
+    return tokens.every((t) => rec.nameHay.indexOf(t) !== -1);
+  }
+
+  function score(rec, tokens, phrase) {
+    let s = 0;
+    const nameHit = hitsName(rec, tokens);
+    for (const t of tokens) {
+      if (rec.haystack.indexOf(t) === -1) return 0;   // AND across tokens
+      if (rec.nameHay.indexOf(t) !== -1) s += 12;
+      if (rec.title.toLowerCase().indexOf(t) !== -1) s += 6;
+      s += 2;
+    }
+    if (phrase.length > 2 && rec.haystack.indexOf(phrase) !== -1) s += 10;
+    if (rec.nameHay.split(/\s+/).some((w) => w === phrase)) s += 30; // exact country
+    // The country hub outranks its own evidence only when the reader was
+    // actually searching for the country. Boosting it unconditionally meant
+    // a search for "aadhaar" opened India's overview instead of the item
+    // about Aadhaar.
+    if (rec.kind === 'country' && nameHit) s += 20;
+    // …and it is the weaker answer when they were not. A reader who typed a
+    // specific term wants the paragraph that discusses it, not the overview
+    // that mentions it in passing.
+    if (rec.kind === 'country' && !nameHit) s -= 6;
+    return Math.max(s, 1);
+  }
+
+  /* ── Ordering ─────────────────────────────────────────────
+     Newest-first is the default the reader asked for. Undated records keep
+     their relevance order and always land after the dated ones — burying
+     them at 1970 or floating them to the top would both misrepresent them. */
+  let sortMode = 'date';
+
+  function orderResults(list) {
+    const byRelevance = (a, b) => b.score - a.score || (b.date ? b.date.ts : 0) - (a.date ? a.date.ts : 0);
+    if (sortMode === 'relevance') return list.sort(byRelevance);
+    return list.sort((a, b) => {
+      if (!a.date && !b.date) return byRelevance(a, b);
+      if (!a.date) return 1;
+      if (!b.date) return -1;
+      if (a.date.ts !== b.date.ts) return b.date.ts - a.date.ts;
+      return byRelevance(a, b);
+    });
+  }
+
+  const MAX_RESULTS = 60;
+
+  function runSearch(query) {
+    const tokens = tokenise(query);
+    if (!tokens.length) return { hits: [], total: 0, tokens: tokens };
+    const phrase = query.toLowerCase().trim();
+    const catFilter = (typeof activeCat !== 'undefined' && activeCat !== 'all') ? activeCat : null;
+
+    const pool = buildCorpus().concat(liveRecords());
+    const hits = [];
+    for (const rec of pool) {
+      // The active category chip narrows the search, which is what makes
+      // this "search within a category". A country record survives the
+      // narrowing only when the query names the country — otherwise
+      // filtering to Religious Liberty and searching "digital yuan" still
+      // returned China, on the strength of CBDC prose in its summary.
+      if (catFilter) {
+        if (rec.kind === 'country') {
+          if (!hitsName(rec, tokens)) continue;
+        } else {
+          const recCats = rec.cats || [rec.cat];
+          if (recCats.indexOf(catFilter) === -1) continue;
+        }
+      }
+      const s = score(rec, tokens, phrase);
+      if (s > 0) hits.push(Object.assign({ score: s }, rec));
+    }
+    const total = hits.length;
+    return { hits: orderResults(hits).slice(0, MAX_RESULTS), total: total, tokens: tokens };
+  }
+
+  /* ── Rendering ─────────────────────────────────────────── */
+  const box = document.getElementById('srch');
+  const drop = document.getElementById('srch-results');
+  const body = document.getElementById('srch-body');
+  const countEl = document.getElementById('srch-count');
+  const sortBtn = document.getElementById('srch-sort');
+
+  const SORT_LABEL = { date: '📅 Newest first', relevance: '🎯 Best match' };
+  let selIdx = -1;
+  let lastQuery = '';
+
+  function highlight(text, tokens) {
+    let html = escText(text);
+    for (const t of tokens) {
+      if (t.length < 2) continue;
+      const re = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+      html = html.replace(re, '<mark>$1</mark>');
+    }
+    return html;
+  }
+
+  function dateChip(rec) {
+    if (!rec.date) return '<span class="sr-date undated">no date</span>';
+    const approx = rec.date.rank < 3 ? '~' : '';
+    return '<span class="sr-date">' + approx + escText(rec.date.label) + '</span>';
+  }
+
+  function renderResults(query) {
+    const res = runSearch(query);
+    selIdx = -1;
+
+    if (!res.hits.length) {
+      const scoped = (typeof activeCat !== 'undefined' && activeCat !== 'all')
+        ? ' in ' + ((CAT_CONTENT[activeCat] || {}).label || activeCat) : '';
+      countEl.textContent = 'No matches';
+      body.innerHTML = '<div class="sr-empty"><b>Nothing found' + escText(scoped) + '</b>' +
+        (scoped ? 'Select 🌐 All to search every category.' : 'Try a country, a law, or a term like CBDC or blue law.') +
+        '</div>';
+      open();
+      return;
+    }
+
+    countEl.textContent = res.total > res.hits.length
+      ? res.hits.length + ' of ' + res.total + ' matches'
+      : res.total + (res.total === 1 ? ' match' : ' matches');
+
+    const GROUP = { country: '🌍 Countries', evidence: '📑 Evidence in dossiers', article: '📡 Live articles' };
+    let html = '';
+    let lastGroup = null;
+    res.hits.forEach((rec, i) => {
+      // Grouping headers only make sense when the list is relevance-ordered;
+      // in date order the kinds interleave by design.
+      if (sortMode === 'relevance' && rec.kind !== lastGroup) {
+        html += '<div class="sr-group">' + GROUP[rec.kind] + '</div>';
+        lastGroup = rec.kind;
+      }
+      const c = rec.key ? COUNTRIES[rec.key] : null;
+      const catInfo = rec.cat ? (CAT_CONTENT[rec.cat] || {}) : null;
+      html += '<button type="button" class="sr-item" role="option" aria-selected="false" data-i="' + i + '">';
+      html += '<span class="sr-top">';
+      html += '<span class="sr-flag" aria-hidden="true">' + (c ? (c.flag || '🌍') : (rec.kind === 'article' ? '📡' : '🌐')) + '</span>';
+      html += '<span class="sr-where">' + escText(c ? c.name : (rec.source || 'Global')) + '</span>';
+      if (catInfo) {
+        html += '<span class="sr-cat le-cat-' + rec.cat + '">' + (catInfo.icon || '') + ' ' + escText(catInfo.label || rec.cat) + '</span>';
+      } else if (rec.kind === 'country') {
+        html += '<span class="sr-cat le-cat-sl">Country dossier</span>';
+      }
+      html += dateChip(rec);
+      html += '</span>';
+      html += '<span class="sr-text">' + highlight(rec.kind === 'country' ? (rec.text || rec.title) : (rec.kind === 'article' ? rec.title + ' — ' + rec.text : rec.text), res.tokens) + '</span>';
+      html += '</button>';
+    });
+    html += '<div class="sr-hint">↑ ↓ to move · Enter to open · Esc to close</div>';
+    body.innerHTML = html;
+
+    Array.prototype.forEach.call(body.querySelectorAll('.sr-item'), function (el) {
+      el.addEventListener('click', function () { activate(res.hits[+el.dataset.i]); });
+    });
+    _hits = res.hits;
+    open();
+  }
+
+  let _hits = [];
+
+  function open() {
+    drop.hidden = false;
+    box.setAttribute('aria-expanded', 'true');
+  }
+
+  function close() {
+    drop.hidden = true;
+    box.setAttribute('aria-expanded', 'false');
+    selIdx = -1;
+  }
+
+  /* ── Acting on a result ───────────────────────────────────
+     A country opens its dossier; an evidence item opens the dossier on the
+     tab that item lives in and flashes it; an article opens in a new tab. */
+  function activate(rec) {
+    if (!rec) return;
+    close();
+    if (rec.kind === 'article') {
+      window.open(rec.url, '_blank', 'noopener');
+      return;
+    }
+    const key = rec.key;
+    const goTo = function () {
+      if (typeof selectCountry !== 'function') return;
+      selectCountry(key);
+      if (rec.kind === 'evidence') openEvidence(rec);
+    };
+    if (clusterGroup && markers[key] && typeof clusterGroup.zoomToShowLayer === 'function') {
+      clusterGroup.zoomToShowLayer(markers[key], goTo);
+    } else if (COUNTRIES[key]) {
+      map.flyTo([COUNTRIES[key].lat, COUNTRIES[key].lng], 4, { duration: 1.2 });
+      setTimeout(goTo, 1300);
+    }
+  }
+
+  function openEvidence(rec) {
+    const tab = document.querySelector('.p-tab[data-tab="' + rec.cat + '"]');
+    if (tab) tab.click();
+    // Mobile overlay keeps its own tab strip and its own body element.
+    const mobTab = document.querySelector('#mob-d-tabs [data-tid="' + rec.cat + '"]');
+    if (mobTab && document.getElementById('mob-overlay') &&
+        getComputedStyle(document.getElementById('mob-overlay')).display !== 'none') {
+      mobTab.click();
+    }
+    setTimeout(function () {
+      const scopes = [document.getElementById('p-body'), document.getElementById('mob-d-body')];
+      scopes.forEach(function (scope) {
+        if (!scope) return;
+        const rows = scope.querySelectorAll('.cat-points > li');
+        const target = rows[rec.index] || rows[0];
+        if (!target) return;
+        target.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        target.style.transition = 'background .3s';
+        const prev = target.style.background;
+        target.style.background = 'rgba(201,162,39,.22)';
+        setTimeout(function () { target.style.background = prev; }, 1600);
+      });
+    }, 120);
+  }
+
+  /* ── Wiring ──────────────────────────────────────────────── */
+  let debounce = null;
+  box.addEventListener('input', function () {
+    const q = this.value.trim();
+    lastQuery = q;
+    clearTimeout(debounce);
+    if (!q) { close(); body.innerHTML = ''; return; }
+    // Debounced so the list settles instead of thrashing on every keystroke,
+    // and so the map no longer flies anywhere until you pick a result.
+    debounce = setTimeout(function () { renderResults(q); }, 140);
+  });
+
+  box.addEventListener('focus', function () {
+    if (lastQuery && body.innerHTML) open();
+  });
+
+  box.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { close(); this.blur(); return; }
+    if (drop.hidden) {
+      if (e.key === 'Enter' && lastQuery) { renderResults(lastQuery); e.preventDefault(); }
+      return;
+    }
+    const items = body.querySelectorAll('.sr-item');
+    if (!items.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      selIdx = (selIdx + (e.key === 'ArrowDown' ? 1 : items.length - 1) + (selIdx < 0 && e.key === 'ArrowUp' ? 1 : 0)) % items.length;
+      Array.prototype.forEach.call(items, function (el, i) {
+        el.classList.toggle('sel', i === selIdx);
+        el.setAttribute('aria-selected', String(i === selIdx));
+      });
+      items[selIdx].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      activate(_hits[selIdx >= 0 ? selIdx : 0]);
+    }
+  });
+
+  sortBtn.addEventListener('click', function () {
+    sortMode = sortMode === 'date' ? 'relevance' : 'date';
+    sortBtn.textContent = SORT_LABEL[sortMode];
+    if (lastQuery) renderResults(lastQuery);
+  });
+
+  document.addEventListener('click', function (e) {
+    // isTrusted only — opening a result fires synthetic .click() calls on the
+    // panel tabs, and while the map is still flying those land after the
+    // reader may have started a new search. Treating them as "clicked
+    // outside" closed a dropdown the reader had just reopened.
+    if (!e.isTrusted) return;
+    if (!document.getElementById('srch-wrap').contains(e.target)) close();
+  });
+
+  // Re-run when the category chip changes, so the visible results always
+  // match the category the reader is looking at.
+  window.rerunMapSearch = function () { if (lastQuery && !drop.hidden) renderResults(lastQuery); };
+
+})();
 
 /* ── Deep-link via URL hash ───────────────────────────────── */
 if (location.hash) {
@@ -2989,6 +3584,7 @@ if (location.hash) {
   };
   var TABS = [
     {id:'sl', icon:'📅',label:'Sunday Laws'},
+    {id:'cs',  icon:'⛪',label:'Church & State'},
     {id:'cbdc',icon:'💳',label:'CBDC'},
     {id:'did', icon:'👁',label:'Digital ID'},
     {id:'rl',  icon:'✝',label:'Liberty'},
@@ -3011,13 +3607,34 @@ if (location.hash) {
   }
 
   /* ── Build country list ── */
+  /* Lower-cased dossier text per country, built on first use and kept, so a
+     phone builds it once rather than on every keystroke. */
+  var _hayCache = {};
+  function countryHaystack(k) {
+    if (_hayCache[k]) return _hayCache[k];
+    var c = COUNTRIES[k];
+    var parts = [c.name, c.summary || ''];
+    ['sl','cs','cbdc','did','rl','bs'].forEach(function(cat){
+      if (c[cat] && c[cat].items) parts.push(c[cat].items.join(' '));
+    });
+    _hayCache[k] = parts.join(' ').replace(/<[^>]+>/g, ' ').toLowerCase();
+    return _hayCache[k];
+  }
+
   function buildList(filter) {
     var keys = Object.keys(COUNTRIES).sort(function(a,b){
       return COUNTRIES[a].name.localeCompare(COUNTRIES[b].name);
     });
     if (filter) {
       var f = filter.toLowerCase();
-      keys = keys.filter(function(k){ return COUNTRIES[k].name.toLowerCase().indexOf(f) !== -1; });
+      // Matches the country name OR anything in its dossier, so typing
+      // "CBDC" or "blue law" on a phone lists the countries that discuss it
+      // instead of returning nothing because no country is named that.
+      keys = keys.filter(function(k){
+        if (COUNTRIES[k].name.toLowerCase().indexOf(f) !== -1) return true;
+        if (k.toLowerCase() === f) return true;
+        return countryHaystack(k).indexOf(f) !== -1;
+      });
     }
     cList.innerHTML = '';
     if (!keys.length) {
@@ -3082,7 +3699,9 @@ if (location.hash) {
     var firstTab = 'sl';
     dTabs.setAttribute('role', 'tablist');
     dTabs.setAttribute('aria-label', 'Country detail categories');
-    TABS.forEach(function(t) {
+    // Skip categories this country carries no evidence for — otherwise the
+    // strip offers a tab whose only content is "No data for this category".
+    TABS.filter(function(t){ return !!c[t.id]; }).forEach(function(t) {
       var el = document.createElement('div');
       el.style.cssText = 'flex:1;padding:10px 2px;text-align:center;font-size:10px;font-weight:600;'+
         'cursor:pointer;touch-action:manipulation;color:#7f89a8;'+
@@ -3132,7 +3751,9 @@ if (location.hash) {
         'padding:8px 12px;border-radius:8px;background:rgba(255,255,255,.04)">'+
         '<span style="font-size:11px;font-weight:600;color:'+(LC[lv]||'#cbd5e0')+'">'+(LL[lv]||lv)+'</span>'+
       '</div>';
-    html += '<ul style="list-style:none;display:flex;flex-direction:column;gap:10px;padding:0">';
+    /* class="cat-points" matches the desktop panel so search results can
+       locate and flash an individual evidence item on either layout. */
+    html += '<ul class="cat-points" style="list-style:none;display:flex;flex-direction:column;gap:10px;padding:0">';
     (data.items||[]).forEach(function(item){
       html += '<li style="font-size:12.5px;line-height:1.65;color:#9aa3c0;padding-left:18px;position:relative">'+
         '<span style="position:absolute;left:0;color:#c9a227">▸</span>'+item+'</li>';
@@ -3145,7 +3766,10 @@ if (location.hash) {
       c.guides.forEach(function(g){
         var file = FM[g];
         if (file) {
-          html += '<a href="index.html#'+encodeURIComponent(file)+'" '+
+          /* The router accepts a bare "#<path>" too, but "#doc=" is the form
+             it rewrites to the canonical "?doc=" URL — and the form libLink()
+             uses everywhere else on this page. */
+          html += '<a href="index.html#doc='+encodeURIComponent(file)+'" '+
             'style="display:flex;align-items:center;gap:8px;padding:10px 12px;margin-bottom:8px;'+
             'background:rgba(201,162,39,.08);border:1px solid rgba(201,162,39,.2);'+
             'border-radius:8px;color:#c9a227;font-size:13px;font-weight:600;text-decoration:none;'+
@@ -3246,29 +3870,12 @@ if (location.hash) {
     // Hide loading
     document.getElementById("live-loading").style.display = "none";
 
-    // Count using the multi-category `categories` array so an article that
-    // is legitimately both "sl" and "cs" increments both pill counters —
-    // previously a single-category string meant it only ever counted once.
-    var counts = { all: events.length, sl: 0, cs: 0, cbdc: 0, did: 0, rl: 0, bs: 0, csFlag: 0 };
+    updatePillCounts(events);
+
     _newSinceLastVisit = 0;
     events.forEach(function (e) {
-      var cats = Array.isArray(e.categories) ? e.categories : [e.category];
-      cats.forEach(function (cat) {
-        if (counts[cat] !== undefined) counts[cat]++;
-      });
-      if (e.churchStateFlag) counts.csFlag++;
       if (_lastViewedTs && new Date(e.date).getTime() > _lastViewedTs) _newSinceLastVisit++;
     });
-
-    document.getElementById("live-count").textContent = counts.all;
-    document.getElementById("lf-n-all").textContent = counts.all;
-    document.getElementById("lf-n-sl").textContent = counts.sl;
-    document.getElementById("lf-n-cs2").textContent = counts.cs;
-    document.getElementById("lf-n-cbdc").textContent = counts.cbdc;
-    document.getElementById("lf-n-did").textContent = counts.did;
-    document.getElementById("lf-n-rl").textContent = counts.rl;
-    document.getElementById("lf-n-bs").textContent = counts.bs;
-    document.getElementById("lf-n-cs").textContent = counts.csFlag;
 
     // Update badge on header button — shows new-since-last-visit count
     // when available (more meaningful than raw critical count), falls back
@@ -3310,15 +3917,84 @@ if (location.hash) {
     }
   }
 
+  /* ── Pill counters ───────────────────────────────────────
+     Counted using the multi-category `categories` array so an article that
+     is legitimately both "sl" and "cs" increments both counters — a single
+     category string meant it only ever counted once. Counts are taken after
+     the text query is applied, so while you are searching each pill tells
+     you how many matches it holds rather than how many it holds in total. */
+  var PILL_IDS = { all: "lf-n-all", sl: "lf-n-sl", cs: "lf-n-cs2", cbdc: "lf-n-cbdc",
+                   did: "lf-n-did", rl: "lf-n-rl", bs: "lf-n-bs", csFlag: "lf-n-cs" };
+
+  function updatePillCounts(events) {
+    var pool = events.filter(matchesQuery);
+    var counts = { all: pool.length, sl: 0, cs: 0, cbdc: 0, did: 0, rl: 0, bs: 0, csFlag: 0 };
+    pool.forEach(function (e) {
+      var cats = Array.isArray(e.categories) ? e.categories : [e.category];
+      cats.forEach(function (cat) { if (counts[cat] !== undefined) counts[cat]++; });
+      if (e.churchStateFlag) counts.csFlag++;
+    });
+    document.getElementById("live-count").textContent = counts.all;
+    Object.keys(PILL_IDS).forEach(function (k) {
+      var el = document.getElementById(PILL_IDS[k]);
+      if (el) el.textContent = counts[k];
+    });
+    document.querySelectorAll(".lf-pill").forEach(function (p) {
+      var k = p.dataset.lf === "church-state" ? "csFlag" : p.dataset.lf;
+      p.classList.toggle("lf-void", searchTokens.length > 0 && counts[k] === 0);
+    });
+  }
+
+  /* ── Match highlighting ──────────────────────────────────── */
+  function hlQuery(text) {
+    var html = escHtml(text);
+    if (!searchTokens.length) return html;
+    searchTokens.forEach(function (t) {
+      if (t.length < 2) return;
+      var re = new RegExp("(" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+      html = html.replace(re, "<mark>$1</mark>");
+    });
+    return html;
+  }
+
   /* ── Render event cards ──────────────────────────────────── */
   function renderEventsList(events) {
     var filtered = filterEvents(events);
     var list = document.getElementById("live-events-list");
     var empty = document.getElementById("live-empty");
 
+    // Result line — states plainly how much of the feed is on screen, and
+    // offers one click back out of a query that found nothing.
+    var rc = document.getElementById("live-result-count");
+    if (rc) {
+      if (searchTokens.length) {
+        rc.hidden = false;
+        rc.innerHTML = filtered.length + " of " + events.length + ' matching "' + escHtml(searchQuery) + '"' +
+          '<button type="button" id="live-clear-search">✕ clear</button>';
+        var cb = document.getElementById("live-clear-search");
+        if (cb) cb.addEventListener("click", function () {
+          var inp = document.getElementById("live-search");
+          if (inp) inp.value = "";
+          setQuery("");
+        });
+      } else {
+        rc.hidden = true;
+        rc.innerHTML = "";
+      }
+    }
+
     if (filtered.length === 0) {
       list.style.display = "none";
       empty.style.display = "flex";
+      var eSpans = empty.querySelectorAll("span");
+      if (eSpans.length >= 2) {
+        eSpans[0].textContent = searchTokens.length
+          ? 'No events match "' + searchQuery + '"' + (activeFilter === "all" ? "" : " in this category.")
+          : "No events found for this filter.";
+        eSpans[1].textContent = searchTokens.length
+          ? "Try fewer words, or select 🌐 All."
+          : "Try selecting a different category or refresh.";
+      }
       return;
     }
 
@@ -3356,14 +4032,16 @@ if (location.hash) {
         html += '<span class="le-church-state">⚠️ CHURCH-STATE</span>';
       }
       html += "</div>";
-      html += '<div class="le-title">' + escHtml(e.title) + "</div>";
+      html += '<div class="le-title">' + hlQuery(e.title) + "</div>";
       if (e.snippet) {
-        html += '<div class="le-snippet">' + escHtml(e.snippet) + "</div>";
+        html += '<div class="le-snippet">' + hlQuery(e.snippet) + "</div>";
       }
       html += '<div class="le-footer">';
       html += '<span class="le-source">' + escHtml(e.source) + "</span>";
       html += "<span>·</span>";
-      html += "<span>" + timeAgo + "</span>";
+      // Absolute date alongside "3d ago" — with the feed now sorted by date,
+      // the reader needs to see the date the order is based on.
+      html += '<span title="' + escHtml(formatTime(e.date)) + '">' + timeAgo + "</span>";
       if (e.countries && e.countries.length) {
         html += '<div class="le-countries">';
         e.countries.forEach(function (cc) {
@@ -3384,18 +4062,94 @@ if (location.hash) {
   }
 
   /* ── Filter logic ────────────────────────────────────────── */
-  function filterEvents(events) {
-    if (activeFilter === "all") return events;
-    if (activeFilter === "church-state") {
-      return events.filter(function (e) { return e.churchStateFlag; });
-    }
+  function matchesCategory(e, cat) {
+    if (cat === "all") return true;
+    if (cat === "church-state") return !!e.churchStateFlag;
     // Use the multi-category `categories` array so an article tagged both
     // "sl" and "cs" shows up under either filter pill — not just whichever
     // single category string was assigned at fetch time.
-    return events.filter(function (e) {
-      var cats = Array.isArray(e.categories) ? e.categories : [e.category];
-      return cats.indexOf(activeFilter) !== -1;
+    var cats = Array.isArray(e.categories) ? e.categories : [e.category];
+    return cats.indexOf(cat) !== -1;
+  }
+
+  /* ── Text query over the feed ─────────────────────────────
+     The panel had category pills but no way to search inside them, so a
+     reader hunting one bill among 150 headlines had to scroll. Tokens are
+     ANDed across title, summary, source and tagged country names, so
+     "germany sunday" narrows instead of widening. */
+  var searchQuery = "";
+  var searchTokens = [];
+
+  function eventHaystack(e) {
+    if (e._hay) return e._hay;
+    var countryNames = (e.countries || []).map(function (cc) {
+      return (window.COUNTRIES && window.COUNTRIES[cc]) ? window.COUNTRIES[cc].name : cc;
+    }).join(" ");
+    // Deliberately excludes the category label. Folding "Sunday Laws" into the
+    // haystack made a query for "sunday" match every sl-tagged article even
+    // when its own text never said it — a false positive that reads as a bug.
+    // Categories are what the pills are for.
+    e._hay = (e.title + " " + (e.snippet || "") + " " + (e.source || "") + " " +
+              countryNames + " " + (e.countries || []).join(" ")).toLowerCase();
+    return e._hay;
+  }
+
+  function matchesQuery(e) {
+    if (!searchTokens.length) return true;
+    var hay = eventHaystack(e);
+    for (var i = 0; i < searchTokens.length; i++) {
+      if (hay.indexOf(searchTokens[i]) === -1) return false;
+    }
+    return true;
+  }
+
+  function queryScore(e) {
+    if (!searchTokens.length) return 0;
+    var title = e.title.toLowerCase();
+    var s = 0;
+    searchTokens.forEach(function (t) {
+      if (title.indexOf(t) !== -1) s += 8;
+      s += 2;
     });
+    if (searchQuery.length > 2 && title.indexOf(searchQuery) !== -1) s += 12;
+    return s;
+  }
+
+  /* ── Ordering ─────────────────────────────────────────────
+     LiveEvents hands the panel a severity-first list, which meant a
+     "critical" item from early 2025 sat above this week's news. The feed is
+     a news feed, so newest-first is now the default; severity order is still
+     available for anyone who wants triage order instead. */
+  var SEV_RANK = { critical: 0, high: 1, medium: 2, low: 3 };
+  var sortMode = "date";
+
+  function eventTs(e) {
+    var t = new Date(e.date).getTime();
+    return isNaN(t) ? 0 : t;
+  }
+
+  function sortEvents(list) {
+    var out = list.slice();
+    if (sortMode === "oldest") {
+      out.sort(function (a, b) { return eventTs(a) - eventTs(b); });
+    } else if (sortMode === "severity") {
+      out.sort(function (a, b) {
+        var d = (SEV_RANK[a.severity] === undefined ? 9 : SEV_RANK[a.severity]) -
+                (SEV_RANK[b.severity] === undefined ? 9 : SEV_RANK[b.severity]);
+        return d || eventTs(b) - eventTs(a);
+      });
+    } else if (sortMode === "relevance" && searchTokens.length) {
+      out.sort(function (a, b) { return queryScore(b) - queryScore(a) || eventTs(b) - eventTs(a); });
+    } else {
+      out.sort(function (a, b) { return eventTs(b) - eventTs(a); });
+    }
+    return out;
+  }
+
+  function filterEvents(events) {
+    return sortEvents(events.filter(function (e) {
+      return matchesCategory(e, activeFilter) && matchesQuery(e);
+    }));
   }
 
   /* ── Filter pill clicks (mouse + keyboard) ───────────────── */
@@ -3418,6 +4172,38 @@ if (location.hash) {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); applyPill(); }
     });
   });
+
+  /* ── Search box + sort control ───────────────────────────── */
+  function setQuery(q) {
+    searchQuery = q.toLowerCase().trim();
+    searchTokens = searchQuery.split(/[^a-z0-9À-ÿ.]+/i).filter(function (t) {
+      return t.length > 1 || /\d/.test(t);
+    });
+    var events = LiveEvents.getEvents();
+    updatePillCounts(events);
+    renderEventsList(events);
+  }
+
+  var _liveSearchDebounce = null;
+  var _liveSearchInput = document.getElementById("live-search");
+  if (_liveSearchInput) {
+    _liveSearchInput.addEventListener("input", function () {
+      var v = this.value;
+      clearTimeout(_liveSearchDebounce);
+      _liveSearchDebounce = setTimeout(function () { setQuery(v); }, 130);
+    });
+    _liveSearchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { this.value = ""; setQuery(""); }
+    });
+  }
+
+  var _liveSortSel = document.getElementById("live-sort");
+  if (_liveSortSel) {
+    _liveSortSel.addEventListener("change", function () {
+      sortMode = this.value;
+      renderEventsList(LiveEvents.getEvents());
+    });
+  }
 
   /* ── Ticker ──────────────────────────────────────────────── */
   function renderTicker(events) {
