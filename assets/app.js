@@ -6297,6 +6297,23 @@ async function initApp() {
   // Build the translation dropdown from the registry (never hand-maintained).
   populateTranslationPill();
 
+  /* Make the whole pill open the translation picker.
+     On a phone the <select> alone was a 68x15px target and the book icon was
+     inert, so tapping the badge appeared to do nothing and its current value
+     read as the only available translation. showPicker() is the supported way
+     to open a native picker; focus() is the fallback for older browsers. */
+  const _pill = document.getElementById("verse-translation-pill");
+  _pill?.addEventListener("click", (e) => {
+    const sel = document.getElementById("verse-default-translation");
+    if (!sel || e.target === sel) return;   // let a direct tap behave normally
+    try {
+      if (typeof sel.showPicker === "function") sel.showPicker();
+      else sel.focus();
+    } catch {
+      sel.focus();   // showPicker throws without a user gesture in some browsers
+    }
+  });
+
   // When the pill dropdown changes, keep everything in sync.
   document.getElementById("verse-default-translation")?.addEventListener("change", (e) => {
     const newTranslation = e.target.value;

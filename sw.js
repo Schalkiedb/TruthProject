@@ -1,13 +1,20 @@
 /* ══════════════════════════════════════════════════════════════
    Babylon's Wine — Service Worker (Offline Support)
-   Cache-first for static assets, network-first for documents.
+   Network-first for the app shell (index.html, app.js, style.css) and for
+   .md/.json content, so a deploy is picked up as soon as the reader is online.
+   Cache-first only for Bible translation JSON, which never changes. Heavy
+   assets (PDFs, images, vendor libraries) use stale-while-revalidate.
+
+   NOTE: the "?v=" query strings on app.js and style.css in index.html are the
+   real cache key. Leaving them unchanged across a deploy lets a device keep an
+   old copy under the same URL — bump them whenever those files change.
 ══════════════════════════════════════════════════════════════ */
 
 /* Bump this on every change to index.html, assets/app.js or assets/style.css.
    The cache is served before the network, so a returning reader keeps running
    the previous build until the name changes — fixes that are deployed but not
    bumped simply never reach them. */
-const CACHE_NAME = "babylons-wine-v11";
+const CACHE_NAME = "babylons-wine-v12";
 
 const PRECACHE_URLS = [
   "./index.html",

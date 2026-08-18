@@ -1409,15 +1409,28 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   border-color: var(--gold-dim);
   transform: translateY(-2px);
 }
-#verse-translation-pill .pill-icon { font-size: 16px; }
+/* The icon is decoration, not a control. Letting it swallow taps was the whole
+   bug on touch devices: the reader would tap the book, nothing would happen,
+   and the pill's current value ("NLT") read as if it were the only choice.
+   Taps now fall through to the pill, which opens the picker. */
+#verse-translation-pill .pill-icon {
+  font-size: 16px;
+  pointer-events: none;
+}
 #verse-translation-pill select {
   background: transparent;
   border: none;
   color: var(--gold);
-  font-size: 13px;
+  /* 16px keeps iOS from zooming the page when the picker takes focus. */
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   outline: none;
+  /* The select was 68x15px — a third of the 44px minimum a finger can hit
+     reliably. It now fills the pill so the whole badge is the target. */
+  min-height: 44px;
+  min-width: 88px;
+  flex: 1;
   -webkit-appearance: none;
   appearance: none;
   padding-right: 2px;
