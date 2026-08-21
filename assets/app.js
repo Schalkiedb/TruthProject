@@ -1390,7 +1390,7 @@ function showPdfLoading(pageNumber) {
   const text = document.getElementById("pdf-loading-text");
   if (text) {
     text.textContent = pageNumber
-      ? "Loading the source document, then jumping to page " + pageNumber + "…"
+      ? "Loading the source document, then jumping to quote and to page " + pageNumber + "…"
       : "Loading the source document…";
   }
   const sub = document.getElementById("pdf-loading-sub");
