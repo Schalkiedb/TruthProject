@@ -1354,6 +1354,133 @@ function shouldUseNativePdfViewer() {
  * So "page" is what makes this work on Chrome, Edge and Android, while
  * "search" is preserved because Firefox's viewer uses it to highlight.
  */
+/**
+ * Show or hide the iframe together with its wrapper.
+ *
+ * The wrapper exists purely so the PDF loading notice can be positioned over
+ * the frame; every place that toggled the iframe now has to toggle both, or
+ * the notice would be left floating in an empty document body.
+ */
+function setDocFrameVisible(visible) {
+  const wrap = document.getElementById("doc-frame-wrap");
+  const iframe = document.getElementById("doc-iframe");
+  if (wrap) wrap.style.display = visible ? "block" : "none";
+  if (iframe) iframe.style.display = visible ? "block" : "none";
+  if (!visible) { _pdfLoadToken++; hidePdfLoading(); }
+}
+
+let _pdfLoadingTimer = null;
+// Bumped on every PDF navigation so a slow download that is no longer
+// wanted cannot write progress text over the document that replaced it.
+let _pdfLoadToken = 0;
+
+/**
+ * Tell the reader the document is on its way, and which page it will land on.
+ *
+ * A source PDF here can be 12 MB (and one is 200 MB). The viewer applies
+ * "#page=N" the instant it opens — the page counter reads the right number
+ * straight away — but it cannot paint anything until the file has arrived.
+ * Measured on the live site for a 12 MB scan: the frame stayed blank for
+ * ~12 seconds. With no explanation on screen that reads as "the jump is
+ * broken" rather than "the file is loading".
+ */
+function showPdfLoading(pageNumber) {
+  const box = document.getElementById("pdf-loading");
+  if (!box) return;
+  const text = document.getElementById("pdf-loading-text");
+  if (text) {
+    text.textContent = pageNumber
+      ? "Loading the source document, then jumping to page " + pageNumber + "…"
+      : "Loading the source document…";
+  }
+  const sub = document.getElementById("pdf-loading-sub");
+  if (sub) sub.textContent = "Scanned volumes are large — this can take a few seconds.";
+  box.hidden = false;
+  clearTimeout(_pdfLoadingTimer);
+  // Never leave the notice up for ever. Whatever goes wrong, the reader should
+  // end up looking at the document rather than at a spinner.
+  _pdfLoadingTimer = setTimeout(hidePdfLoading, 120000);
+}
+
+function formatMb(bytes) {
+  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+}
+
+/**
+ * Fetch the PDF ourselves so the wait can be reported honestly, then let the
+ * viewer load it from cache.
+ *
+ * The obvious signal — the iframe's load event — is useless here: measured on
+ * the live site it fires at ~1.0s while the page does not paint until ~12s,
+ * so hiding the notice on it left eleven seconds of unexplained blank frame.
+ * There is no event for "the embedded viewer has finished", and the viewer's
+ * internals are not reachable from script.
+ *
+ * So the download is the part we can actually observe. The body is streamed
+ * and discarded — never buffered — so this costs no memory even for the
+ * 200 MB volume, and because these files are served with "Cache-Control:
+ * max-age=600" the iframe then reads them from cache instead of fetching
+ * again. If the fetch fails for any reason we simply carry on and let the
+ * iframe do its own request, exactly as before.
+ */
+async function loadPdfIntoFrame(iframe, filePath, fragment) {
+  const viewerUrl = pdfViewerUrl(filePath, fragment);
+  const fetchUrl = encodeURI(filePath).replace(/#/g, "%23");
+  const pageMatch = /(?:^|[#&])page=(\d+)/.exec(String(fragment || ""));
+  const token = ++_pdfLoadToken;
+  showPdfLoading(pageMatch ? pageMatch[1] : null);
+
+  try {
+    const resp = await fetch(fetchUrl);
+    if (resp.ok && resp.body && typeof resp.body.getReader === "function") {
+      const total = parseInt(resp.headers.get("content-length") || "0", 10);
+      const reader = resp.body.getReader();
+      const sub = document.getElementById("pdf-loading-sub");
+      let got = 0;
+      for (;;) {
+        const chunk = await reader.read();
+        // A newer navigation started while this was downloading: stop
+        // updating, and stop reading, so we are not fighting over the frame.
+        if (token !== _pdfLoadToken) {
+          try { await reader.cancel(); } catch (e) { /* already closed */ }
+          return;
+        }
+        if (chunk.done) break;
+        got += chunk.value.length;
+        if (sub) {
+          sub.textContent = total
+            ? formatMb(got) + " of " + formatMb(total) + " downloaded"
+            : formatMb(got) + " downloaded";
+        }
+      }
+    } else if (resp.ok) {
+      await resp.arrayBuffer();
+    }
+  } catch (e) {
+    // Offline, or the fetch was blocked — the iframe can still try itself.
+    console.warn("PDF prefetch failed, loading directly:", e && e.message);
+  }
+
+  if (token !== _pdfLoadToken) return;
+  const sub = document.getElementById("pdf-loading-sub");
+  if (sub) sub.textContent = "Rendering page…";
+  // Bytes are cached now, but the viewer still has to rasterise a large scan.
+  // Give it the load event plus a short grace period rather than guessing.
+  iframe.onload = () => {
+    if (token === _pdfLoadToken) setTimeout(() => {
+      if (token === _pdfLoadToken) hidePdfLoading();
+    }, 900);
+  };
+  iframe.src = viewerUrl;
+}
+
+function hidePdfLoading() {
+  const box = document.getElementById("pdf-loading");
+  clearTimeout(_pdfLoadingTimer);
+  _pdfLoadingTimer = null;
+  if (box) box.hidden = true;
+}
+
 function pdfViewerUrl(filePath, fragment) {
   const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
   const raw = String(fragment || "").replace(/^#/, "");
@@ -2495,7 +2622,7 @@ async function loadDocument(filePath, fragment, opts) {
     const docPage = document.getElementById("doc-page");
 
     contentEl.style.display = "none";
-    iframe.style.display = "block";
+    setDocFrameVisible(true);
     iframe.setAttribute("scrolling", "auto");
     iframe.style.height = window.innerWidth <= 900 ? "68vh" : "calc(100vh - 210px)";
     const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
@@ -2504,10 +2631,15 @@ async function loadDocument(filePath, fragment, opts) {
     // "#search=" fragment appended — a second full fetch of a file that can
     // be 200 MB, to apply a parameter Chrome ignores anyway. Viewers read
     // these parameters at load time, so one request is enough.
-    iframe.src = isPdfFile(filePath)
-      ? pdfViewerUrl(filePath, fragment)
-      : encodedPath;
-    iframe.onload = null;
+    if (isPdfFile(filePath)) {
+      // Progress-reporting loader; see loadPdfIntoFrame().
+      loadPdfIntoFrame(iframe, filePath, fragment);
+    } else {
+      _pdfLoadToken++;
+      hidePdfLoading();
+      iframe.onload = null;
+      iframe.src = encodedPath;
+    }
 
     docPage.classList.remove("infographic-mode");
     docPage.classList.add("pdf-mode");
@@ -2541,7 +2673,7 @@ async function loadDocument(filePath, fragment, opts) {
     const contentEl = document.getElementById("doc-content");
     const docPage = document.getElementById("doc-page");
     contentEl.style.display = "none";
-    iframe.style.display = "block";
+    setDocFrameVisible(true);
     iframe.setAttribute("scrolling", "no");
     iframe.style.height = "80vh"; // initial height while loading
     iframe.src = filePath;
@@ -2642,7 +2774,7 @@ async function loadDocument(filePath, fragment, opts) {
     document.getElementById("doc-page").classList.remove("infographic-mode");
     document.getElementById("doc-page").classList.remove("pdf-mode");
     contentEl.style.display = "";
-    document.getElementById("doc-iframe").style.display = "none";
+    setDocFrameVisible(false);
     document.getElementById("doc-iframe").src = "";
     contentEl.innerHTML = "";
 

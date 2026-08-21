@@ -14,7 +14,7 @@
    The cache is served before the network, so a returning reader keeps running
    the previous build until the name changes — fixes that are deployed but not
    bumped simply never reach them. */
-const CACHE_NAME = "babylons-wine-v16";
+const CACHE_NAME = "babylons-wine-v17";
 
 const PRECACHE_URLS = [
   "./index.html",

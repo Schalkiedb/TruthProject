@@ -816,6 +816,62 @@ body.sidebar-collapsed #main-wrapper { margin-left: 0; }
   overflow: hidden;
 }
 
+/* ── PDF loading notice ────────────────────────────────────────
+   A source scan can be 12 MB (one is 200 MB). The viewer honours "#page=N"
+   the moment it opens, but paints nothing until the whole file has arrived —
+   measured at ~15s for a 12 MB scan — so the frame sits blank and the jump
+   looks broken. This says what is happening and which page is coming.
+   pointer-events:none so it never blocks the viewer underneath it. */
+#pdf-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+  background: #0f1420;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  z-index: 3;
+}
+#pdf-loading[hidden] {
+  display: none;
+}
+#pdf-loading-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold, #c9a227);
+}
+#pdf-loading-sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #7f89a8;
+  max-width: 34em;
+  line-height: 1.6;
+}
+.pdf-loading-spinner {
+  width: 26px;
+  height: 26px;
+  border: 2px solid rgba(201, 162, 39, 0.25);
+  border-top-color: #c9a227;
+  border-radius: 50%;
+  animation: pdf-spin 0.9s linear infinite;
+}
+@keyframes pdf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pdf-loading-spinner {
+    animation-duration: 3s;
+  }
+}
+
 .markdown-body {
   font-family: var(--font-sans);
   font-size: 17px;

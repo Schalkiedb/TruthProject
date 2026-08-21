@@ -26,7 +26,7 @@
   <meta name="theme-color" content="#0c0f1a" />
   <meta name="color-scheme" content="dark light" />
   <link rel="apple-touch-icon" href="assets/icon-192.svg" />
-  <link rel="stylesheet" href="assets/style.css?v=20260818c" />
+  <link rel="stylesheet" href="assets/style.css?v=20260821a" />
   <!-- Self-hosted so markdown still renders offline: the service worker can
        precache these, but cross-origin CDN scripts cannot be precached.
        marked v4.3.0 · DOMPurify 3.1.6 — same versions previously loaded from
@@ -360,11 +360,23 @@
         <div id="doc-meta" class="doc-meta" style="display:none"></div>
         <div id="doc-content" class="markdown-body"></div>
         <!-- Infographic viewer: shown instead of doc-content for .html files -->
-        <iframe id="doc-iframe"
-          style="display:none; width:100%; border:none; overflow:hidden;"
-          scrolling="no"
-          title="Infographic viewer">
-        </iframe>
+        <!-- Wrapper exists so the loading notice can sit over the frame. -->
+        <div id="doc-frame-wrap" style="display:none; position:relative;">
+          <iframe id="doc-iframe"
+            style="display:none; width:100%; border:none; overflow:hidden;"
+            scrolling="no"
+            title="Infographic viewer">
+          </iframe>
+          <!-- Source PDFs are scans of 10-200 MB. The viewer reports the right
+               page immediately but paints nothing until the file has arrived,
+               so without this the reader watches a blank frame and reasonably
+               concludes the jump did not work. -->
+          <div id="pdf-loading" role="status" aria-live="polite" hidden>
+            <div class="pdf-loading-spinner" aria-hidden="true"></div>
+            <div id="pdf-loading-text">Loading the source document…</div>
+            <div id="pdf-loading-sub">Scanned volumes are large — this can take a few seconds.</div>
+          </div>
+        </div>
         <div class="doc-nav-footer">
           <button id="btn-prev" onclick="navigatePrev()">← Previous</button>
           <button id="btn-back-home" onclick="showHome()">⌂ Home</button>
@@ -445,10 +457,10 @@
     </div>
   </div>
 
-  <script defer src="assets/egw-refs.js?v=20260818c"></script>
-  <script defer src="assets/egw-lookup.js?v=20260818c"></script>
-  <script defer src="assets/answer.js?v=20260818c"></script>
-  <script defer src="assets/app.js?v=20260818c"></script>
+  <script defer src="assets/egw-refs.js?v=20260821a"></script>
+  <script defer src="assets/egw-lookup.js?v=20260821a"></script>
+  <script defer src="assets/answer.js?v=20260821a"></script>
+  <script defer src="assets/app.js?v=20260821a"></script>
   <script>
     // Register service worker for offline support
     if ('serviceWorker' in navigator) {
