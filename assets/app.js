@@ -2379,14 +2379,39 @@ function docUrlFor(filePath) {
   return window.location.pathname + "?doc=" + encodeURIComponent(filePath);
 }
 
+/** Directory the site is served from, e.g. "/TruthProject/". */
+function siteBasePath() {
+  return window.location.pathname.replace(/[^/]*$/, "");
+}
+
 /**
- * Point <link rel="canonical"> at the "?doc=" form of whatever is on screen.
+ * The one URL that should represent this study to a crawler.
  *
- * The router accepts three shapes for the same study — "?doc=x", "#doc=x" and
+ * Studies come in two shapes. An .html study is a complete page that also
+ * exists at its own URL and serves its own static title, description and
+ * social cards — so that URL is canonical, and anything which does not run
+ * JavaScript (every social scraper, and search engines other than Google)
+ * still gets the right preview. Markdown and PDF entries have no standalone
+ * page at all; they exist only inside the reader, so they stay on the "?doc="
+ * form and their metadata is necessarily set here at runtime.
+ *
+ * @param {string} filePath  registered document path
+ */
+function canonicalPathFor(filePath) {
+  if (/\.html?$/i.test(filePath)) {
+    return siteBasePath() + filePath.split("/").map(encodeURIComponent).join("/");
+  }
+  return docUrlFor(filePath);
+}
+
+/**
+ * Point <link rel="canonical"> at the one URL that represents what is on
+ * screen — see canonicalPathFor() for which shape that is.
+ *
+ * The router accepts three forms for the same study — "?doc=x", "#doc=x" and
  * a bare "#x" — and a crawler that meets more than one has no way to know they
- * are the same page. Declaring the query form canonical consolidates them.
- * Anchors are dropped: "#protestant-42" is a position within a page, not a
- * page of its own.
+ * are the same page. Declaring one canonical consolidates them. Anchors are
+ * dropped: "#protestant-42" is a position within a page, not a page of its own.
  *
  * @param {string|null} filePath  registered document, or null for the home page
  */
@@ -2402,7 +2427,7 @@ function updateCanonicalUrl(filePath) {
     const isVirtual = !filePath || /^__.*__$/.test(filePath);
     link.setAttribute(
       "href",
-      origin + (isVirtual ? window.location.pathname : docUrlFor(filePath)),
+      origin + (isVirtual ? window.location.pathname : canonicalPathFor(filePath)),
     );
   } catch {
     /* a missing canonical is not worth breaking navigation over */

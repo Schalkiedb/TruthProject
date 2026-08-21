@@ -19,9 +19,18 @@ INFOGRAPHICS_DIR = REPO_ROOT / "infographics"
 INFOGRAPHICS_OUTPUT_FILE = REPO_ROOT / "assets" / "infographics-manifest.json"
 
 # --- sitemap ----------------------------------------------------------------
-# Every study is addressed as "?doc=<path>" (see parseDocHash in assets/app.js),
-# which gives it a crawlable URL. Hash-fragment variants are not indexed as
-# separate pages, so the sitemap must use the query form.
+# Studies come in two shapes, and the sitemap lists whichever URL is canonical
+# for each (canonicalPathFor in assets/app.js applies the same rule).
+#
+#   .html  a complete page that also exists at its own URL and serves its own
+#          static title, description and social cards. That URL is listed, so
+#          scrapers and crawlers which do not run the reader's JavaScript --
+#          every social preview, and search engines other than Google -- still
+#          see the real metadata.
+#   .md    no standalone page exists; these live only inside the reader, so
+#   .pdf   they are listed as "?doc=<path>" (see parseDocHash in app.js).
+#
+# Hash-fragment variants are never indexed as separate pages.
 SITE_BASE_URL = "https://schalkiedb.github.io/TruthProject/"
 APP_JS = REPO_ROOT / "assets" / "app.js"
 SITEMAP_FILE = REPO_ROOT / "sitemap.xml"
@@ -89,11 +98,25 @@ def registry_files() -> list[str]:
     return out
 
 
+def canonical_url(rel: str) -> str:
+    """The one URL that represents this entry — see the note at the top."""
+    if rel.lower().endswith((".html", ".htm")):
+        return SITE_BASE_URL + urllib.parse.quote(rel)
+    return SITE_BASE_URL + "?doc=" + urllib.parse.quote(rel, safe="")
+
+
 def build_sitemap() -> str:
-    """Sitemap of the home page plus one crawlable ?doc= URL per study."""
+    """Sitemap of the home page plus the canonical URL of each study."""
     entries: list[tuple[str, str, str]] = []  # (loc, lastmod, priority)
+    seen: set[str] = set()
 
     def add(loc: str, path: Path | None, priority: str) -> None:
+        # Standalone pages appear in SITEMAP_EXTRA_PAGES and in the registry,
+        # and both now resolve to the same URL, so guard against listing one
+        # study twice.
+        if loc in seen:
+            return
+        seen.add(loc)
         stamp = ""
         if path is not None and path.exists():
             stamp = _dt.datetime.fromtimestamp(
@@ -110,7 +133,7 @@ def build_sitemap() -> str:
         target = REPO_ROOT / rel
         if not target.exists():
             continue
-        add(SITE_BASE_URL + "?doc=" + urllib.parse.quote(rel, safe=""), target, "0.7")
+        add(canonical_url(rel), target, "0.7")
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

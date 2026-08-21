@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- This study is reachable both directly and through the reader
-     at "?doc="; sitemap.xml lists the reader URL, so that one is
-     canonical and the two stop competing for the same content. -->
+<!-- This study is reachable both directly and through the reader at
+     "?doc=". This page is canonical because it serves these tags
+     statically: social scrapers and non-Google crawlers do not run the
+     reader's JavaScript, so only here do they see the real title. -->
 <meta name="description" content="The biblical definitions of prophet, priest, and king — the Old Testament office of the prophet, the tests Scripture gives, and the framework for evaluating any claim to prophetic ministry." />
-<link rel="canonical" href="https://schalkiedb.github.io/TruthProject/?doc=Study_guides%2Fprophet-priest-definitions.html" />
+<link rel="canonical" href="https://schalkiedb.github.io/TruthProject/Study_guides/prophet-priest-definitions.html" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Prophet, Priest &amp; King — Biblical Definitions of the Prophetic Office" />
 <meta property="og:description" content="The biblical definitions of prophet, priest, and king — the Old Testament office of the prophet, the tests Scripture gives, and the framework for evaluating any claim to prophetic ministry." />
-<meta property="og:url" content="https://schalkiedb.github.io/TruthProject/?doc=Study_guides%2Fprophet-priest-definitions.html" />
+<meta property="og:url" content="https://schalkiedb.github.io/TruthProject/Study_guides/prophet-priest-definitions.html" />
 <meta property="og:image" content="https://schalkiedb.github.io/TruthProject/assets/og-image.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Prophet, Priest &amp; King — Biblical Definitions of the Prophetic Office" />
@@ -254,8 +255,40 @@
     .application { padding: 24px 20px; }
   }
 </style>
+<style>
+/* Route back to the library for anyone who arrived on this page directly,
+   from a search result or a shared link. Bottom-left is the one corner free
+   on every study page; z-index clears sticky navigation (100-200) but stays
+   under modal overlays (1000+). */
+.library-back-link {
+  position: fixed; bottom: 16px; left: 16px; z-index: 400;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 14px; border-radius: 4px;
+  background: rgba(12, 15, 26, .88);
+  border: 1px solid rgba(214, 172, 69, .45);
+  color: #e6c04c; text-decoration: none;
+  font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+  font-size: 12px; font-weight: 600; letter-spacing: .07em;
+  line-height: 1; white-space: nowrap;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .4);
+  transition: background .18s ease, border-color .18s ease;
+}
+.library-back-link:hover,
+.library-back-link:focus-visible {
+  background: rgba(26, 31, 43, .96);
+  border-color: rgba(214, 172, 69, .9);
+  color: #f0d178; outline: none;
+}
+.library-back-link:focus-visible { box-shadow: 0 0 0 3px rgba(214, 172, 69, .35); }
+@media (max-width: 640px) {
+  .library-back-link { bottom: 10px; left: 10px; padding: 6px 11px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .library-back-link { transition: none; } }
+@media print { .library-back-link { display: none !important; } }
+</style>
 </head>
 <body>
+<a href="../index.html" class="library-back-link"><span aria-hidden="true">&#8592;</span> Library</a>
 
 <!-- HERO -->
 <section class="hero">
