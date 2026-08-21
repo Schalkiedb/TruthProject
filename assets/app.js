@@ -2409,6 +2409,73 @@ function updateCanonicalUrl(filePath) {
   }
 }
 
+/* ── Page title, description and social cards ─────────────────
+ * The whole library is served from one HTML document, so without this every
+ * "?doc=" URL in sitemap.xml — around 125 of them — reports index.html's own
+ * <title> and description. Search results and shared links then describe the
+ * library in general instead of the study actually open, and every entry
+ * looks identical. The registry already carries a real title and desc per
+ * item, so this only has to copy them onto the document.
+ */
+const SITE_META = {
+  title: document.title,
+  description: (() => {
+    const el = document.querySelector('meta[name="description"]');
+    return el ? el.getAttribute("content") || "" : "";
+  })(),
+};
+
+function setMetaContent(selector, value) {
+  const el = document.querySelector(selector);
+  if (el) el.setAttribute("content", value);
+}
+
+/**
+ * Describe whatever is on screen.
+ *
+ * @param {string|null} filePath  registered document, or null for the home page
+ */
+function updatePageMetadata(filePath) {
+  try {
+    const item = filePath
+      ? ALL_ITEMS.find((i) => i.file === filePath)
+      : null;
+
+    // Fall back to the site's own title whenever the path is not a known
+    // entry, so a previous study's title never lingers over the home page.
+    //
+    // The site name is appended only when the result still fits in what a
+    // search engine will actually show (~60 characters). Several study titles
+    // are long enough on their own that a suffix would only be truncated
+    // away, taking part of the real title with it.
+    const SUFFIX = " · Babylon's Wine";
+    let title = SITE_META.title;
+    if (item) {
+      title = item.title.length + SUFFIX.length <= 60
+        ? item.title + SUFFIX
+        : item.title;
+    }
+    const description =
+      item && item.desc ? item.desc : SITE_META.description;
+
+    document.title = title;
+    setMetaContent('meta[name="description"]', description);
+    setMetaContent('meta[property="og:title"]', title);
+    setMetaContent('meta[property="og:description"]', description);
+    setMetaContent('meta[name="twitter:title"]', title);
+    setMetaContent('meta[name="twitter:description"]', description);
+
+    // og:url follows the canonical tag, which updateCanonicalUrl() has
+    // already pointed at the "?doc=" form of this same page.
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      setMetaContent('meta[property="og:url"]', canonical.getAttribute("href") || "");
+    }
+  } catch {
+    /* metadata is not worth breaking navigation over */
+  }
+}
+
 function pushDocHash(filePath) {
   const target = docUrlFor(filePath);
   const current = window.location.pathname + window.location.search;
@@ -2444,6 +2511,7 @@ window.addEventListener("popstate", routeFromLocation);
 function showHome(opts) {
   if (!opts || !opts.fromHistory) clearDocHash();
   updateCanonicalUrl(null);
+  updatePageMetadata(null);
   // Leaving the reader's place untouched: no document is on screen, so the
   // home page's own scrolling must not be recorded against one.
   _currentDocPath = null;
@@ -2529,6 +2597,7 @@ async function loadDocument(filePath, fragment, opts) {
   // Declare this document's canonical URL before anything can fail below, so
   // the tag never describes the previously viewed page.
   updateCanonicalUrl(filePath);
+  updatePageMetadata(filePath);
 
   // Claim the reading position for this document before anything scrolls, and
   // hold off saving until the render has settled. See saveScrollPosition().

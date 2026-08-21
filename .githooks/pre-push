@@ -23,16 +23,23 @@ for manifest_path in "$source_manifest" "$infographics_manifest"; do
   fi
 done
 
+# Stop the push rather than committing behind its back.
+#
+# Git works out which commits to send before it runs this hook, so a commit
+# created here is NOT part of the push in progress — it sits locally and goes
+# out with whatever you push next. The hook used to do exactly that and print
+# "Push will continue", which meant the regenerated manifests silently shipped
+# one push late. Failing here costs one extra command and keeps the deployed
+# manifests honest.
 if [ "$changed" -eq 1 ]; then
-  if ! git diff --cached --quiet -- "$source_manifest" "$infographics_manifest"; then
-    echo "[pre-push] Creating auto-commit for updated manifests..."
-    if git commit -m "chore: update generated manifests" -- "$source_manifest" "$infographics_manifest"; then
-      echo "[pre-push] Auto-commit created. Push will continue."
-    else
-      echo "[pre-push] Failed to commit manifests."
-      exit 1
-    fi
-  fi
+  echo
+  echo "[pre-push] The generated manifests are out of date and have been staged."
+  echo "[pre-push] Commit them and push again:"
+  echo
+  echo "    git commit -m \"chore: update generated manifests\""
+  echo "    git push"
+  echo
+  exit 1
 fi
 
 echo "[pre-push] Manifests are up to date."

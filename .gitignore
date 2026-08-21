@@ -40,3 +40,13 @@ scripts/.egw-probe-ids.json
 # though nothing linked to them.
 DOCUMENT_VERIFICATION_STATUS.md
 WEBSITE_REVAMP_REPORT.md
+# Same rule. This one is a list of bare-year date guesses awaiting
+# confirmation, so publishing it advertised unverified dates on a site whose
+# whole claim is verified sourcing.
+evidence-date-review.txt
+
+# Dead files that the Pages deploy was serving. live-events.preview.js is a
+# stale 35 KB sibling of live-events.js and is referenced by no page; err.log
+# has always been empty.
+assets/live-events.preview.js
+err.log

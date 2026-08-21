@@ -3,8 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- This study is reachable both directly and through the reader
+     at "?doc="; sitemap.xml lists the reader URL, so that one is
+     canonical and the two stop competing for the same content. -->
+<meta name="description" content="Full-page interactive world map showing the geographic spread of Saturday Sabbath observance throughout history and today." />
+<link rel="canonical" href="https://schalkiedb.github.io/TruthProject/?doc=infographics%2Fworldmap.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="World Map — Global Saturday Keeping" />
+<meta property="og:description" content="Full-page interactive world map showing the geographic spread of Saturday Sabbath observance throughout history and today." />
+<meta property="og:url" content="https://schalkiedb.github.io/TruthProject/?doc=infographics%2Fworldmap.html" />
+<meta property="og:image" content="https://schalkiedb.github.io/TruthProject/assets/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="World Map — Global Saturday Keeping" />
+<meta name="twitter:description" content="Full-page interactive world map showing the geographic spread of Saturday Sabbath observance throughout history and today." />
 <title>Truth Project — Global Prophetic Intelligence Map</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 <script src="../assets/vendor/d3/d3.min.js"></script>
 <script src="../assets/vendor/d3/topojson.min.js"></script>
 <link rel="stylesheet" href="../assets/infographics-theme.css" />
@@ -107,8 +122,7 @@ body::after {
   font-family:'Cinzel Decorative',serif;
   font-size:15px; letter-spacing:2px;
   color:var(--gold-hi);
-  text-shadow:0 0 30px var(--gold-glow);
-}
+  text-shadow:0 0 30px var(--gold-glow); font-weight: 400; margin: 0;}
 
 /* Legend */
 .hdr-legend {
@@ -730,7 +744,7 @@ if (window.self !== window.top) {
   <header id="hdr">
     <div class="hdr-left">
       <div class="hdr-eyebrow">Truth Project — Prophetic Research Series · Last updated: March 2026</div>
-      <div class="hdr-title">Global Prophetic Intelligence Map</div>
+      <h1 class="hdr-title">Global Prophetic Intelligence Map</h1>
     </div>
     <div style="display:flex;align-items:center;gap:14px;">
       <select id="jump-select" onchange="jumpToRegion(this.value)" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;background:rgba(13,10,6,0.92);border:1px solid rgba(200,168,74,0.35);color:var(--text-dim);padding:5px 10px;cursor:pointer;outline:none;max-width:200px;" title="Jump to region">
