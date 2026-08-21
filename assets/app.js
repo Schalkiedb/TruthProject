@@ -1334,19 +1334,51 @@ function shouldUseNativePdfViewer() {
   return isIOS || isAndroid || (hasTouch && (coarsePointer || smallViewport));
 }
 
-function openInNativeViewer(filePath) {
+/**
+ * Build the URL to hand a PDF viewer, carrying any "jump to the quote"
+ * instruction from the markdown link.
+ *
+ * A quote file links to a supporting PDF that may run to 1,255 pages, and the
+ * reader was landing on page 1 every time. The link fragment is how a viewer
+ * is told where to go, but every path here escaped "#" to "%23" — so the
+ * fragment was thrown away before the viewer ever saw it.
+ *
+ * Only "page" and "search" are carried through, and "page" only as digits:
+ * the fragment comes from authored markdown, but there is no reason to pass
+ * arbitrary text into a URL. "view=FitH" is kept as the default fit.
+ *
+ * Which viewer honours what, as measured in Chrome 151:
+ *   #page=N   jumps correctly (verified: 30/45 shown for #page=30)
+ *   #search=  ignored entirely — it is a PDF.js/Firefox extension, and a
+ *             screenshot with it applied stayed on page 1 of 45
+ * So "page" is what makes this work on Chrome, Edge and Android, while
+ * "search" is preserved because Firefox's viewer uses it to highlight.
+ */
+function pdfViewerUrl(filePath, fragment) {
+  const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
+  const raw = String(fragment || "").replace(/^#/, "");
+  const params = [];
+  const page = /(?:^|&)page=(\d+)/.exec(raw);
+  if (page) params.push("page=" + page[1]);
+  const search = /(?:^|&)search=([^&]+)/.exec(raw);
+  if (search) params.push("search=" + search[1]);
+  params.push("view=FitH");
+  return encodedPath + "#" + params.join("&");
+}
+
+function openInNativeViewer(filePath, fragment) {
   const ua = navigator.userAgent || "";
   const isIOS = /iPhone|iPad|iPod/i.test(ua);
-  const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
+  const url = pdfViewerUrl(filePath, fragment);
 
   if (isIOS) {
-    window.location.href = encodedPath;
+    window.location.href = url;
     return;
   }
 
-  const popup = window.open(encodedPath, "_blank", "noopener,noreferrer");
+  const popup = window.open(url, "_blank", "noopener,noreferrer");
   if (!popup) {
-    window.location.href = encodedPath;
+    window.location.href = url;
   }
 }
 
@@ -2393,7 +2425,7 @@ async function loadDocument(filePath, fragment, opts) {
   // Mobile PDF behaviour: open in the browser's native viewer so users can
   // scroll all pages reliably (iOS Safari iframe PDF is often first-page only).
   if (isPdfFile(filePath) && shouldUseNativePdfViewer()) {
-    openInNativeViewer(filePath);
+    openInNativeViewer(filePath, fragment);
     return;
   }
 
@@ -2453,8 +2485,7 @@ async function loadDocument(filePath, fragment, opts) {
   if (isPdfFile(filePath) || isSourceImageFile(filePath)) {
     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent || "");
     if (isIOS) {
-      const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
-      window.open(encodedPath, "_blank", "noopener,noreferrer");
+      window.open(pdfViewerUrl(filePath, fragment), "_blank", "noopener,noreferrer");
       return;
     }
 
@@ -2468,18 +2499,15 @@ async function loadDocument(filePath, fragment, opts) {
     iframe.setAttribute("scrolling", "auto");
     iframe.style.height = window.innerWidth <= 900 ? "68vh" : "calc(100vh - 210px)";
     const encodedPath = encodeURI(filePath).replace(/#/g, "%23");
-    // Use #search= fragment if provided (for jumping to quote text), otherwise default to #view=FitH
-    const hasSearch = fragment && fragment.startsWith("#search=");
-    // Load PDF without search first; apply search only after PDF is fully loaded
-    iframe.src = isPdfFile(filePath) ? `${encodedPath}#view=FitH` : encodedPath;
-    if (isPdfFile(filePath) && hasSearch) {
-      iframe.onload = () => {
-        // Give the PDF viewer time to fully render before triggering search
-        setTimeout(() => {
-          iframe.src = `${encodedPath}${fragment}`;
-        }, 1500);
-      };
-    }
+    // The page/search fragment goes in on the FIRST load. This used to load
+    // the PDF once with "#view=FitH", then reload it 1.5s later with the
+    // "#search=" fragment appended — a second full fetch of a file that can
+    // be 200 MB, to apply a parameter Chrome ignores anyway. Viewers read
+    // these parameters at load time, so one request is enough.
+    iframe.src = isPdfFile(filePath)
+      ? pdfViewerUrl(filePath, fragment)
+      : encodedPath;
+    iframe.onload = null;
 
     docPage.classList.remove("infographic-mode");
     docPage.classList.add("pdf-mode");
