@@ -2696,6 +2696,18 @@ Jesus does promise soul-rest (Matthew 11:28). And Jesus is Lord of the Sabbath (
 
 ---
 
+**The "Rest" Jesus Offers May Be Naming the Sabbath's Own Meaning — Not Replacing It**:
+
+> **Matthew 11:28-29** — "Come to Me, all you who **labor and are heavy laden**, and I will give you **rest** [*anapausō*]. Take My yoke upon you and learn from Me, for I am gentle and lowly in heart, and you will find **rest** [*anapausin*] for your souls."
+
+The people Jesus addresses are worn out from trying to produce their own standing before God — a burden made heavier by the Pharisaic fence-laws He confronts one chapter later in the very Sabbath dispute quoted above (Matthew 12:1-13). His invitation is not "stop keeping the Sabbath." It is "stop trying to labor your own rest into existence." That is the Sabbath commandment's own stated point:
+
+> **Exodus 31:13** — "Surely My Sabbaths you shall keep, for it is a **sign** between Me and you throughout your generations, that you may know that **I am the LORD who sanctifies you**."
+
+The Sabbath was never a reward for effort — it is the weekly sign that sanctification is God's work, not the worshiper's (Ezekiel 20:12 repeats the same purpose). Read against that backdrop, "I will give you rest" (*anapausō*) is not a rival offer competing with the fourth commandment for the believer's loyalty. It is Jesus naming, in words, the very thing the Sabbath enacts every week: cease from self-produced righteousness and rest in what God accomplishes and completes. The weekly observance is the lesson lived out; Matthew 11:28 is that same lesson spoken. On this reading there is no tension to resolve between the two texts — and no need to read Jesus as quietly announcing the Sabbath's end one chapter before He personally corrects its misuse and reaffirms its lawful practice (Matthew 12:1-13).
+
+---
+
 **If "Jesus Is Our Rest" Abolishes the Sabbath Day, Hebrews 4:9 Is Inexplicable**:
 
 > **Hebrews 4:9** — "There remains therefore a **Sabbath rest** [*sabbatismos*] for the people of God."
@@ -3192,6 +3204,18 @@ Jesus appeals to their own practice: circumcision — a physical procedure — w
 > **Matthew 12:10-12** — "Is it lawful to **heal on the Sabbath?**... What man is there among you who has one sheep, and if it falls into a pit on the Sabbath, will not lay hold of it and lift it out? Of how much more value then is a man than a sheep? Therefore **it is lawful to do good on the Sabbath**."
 
 Jesus redefines Sabbath practice not by **abolishing** it but by **restoring its original meaning** — the day is for doing good, for healing, for life-giving acts. He consistently kept the actual fourth commandment while dismantling the man-made fence laws built around it.
+
+---
+
+**Correcting Practice Presupposes Continuing Obligation**:
+
+Notice what Jesus does *not* do in this exchange. The Pharisees hand Him a direct opening — "Is it lawful to heal on the Sabbath?" (Matthew 12:10) — and He answers by arguing, from the sheep-in-the-pit analogy, for the *correct way to keep* the Sabbath: doing good is lawful on it. A teacher who corrects how a command is kept is affirming that the command still stands. If Jesus intended to retire the Sabbath, this confrontation — where the question is placed directly in His mouth — is where that announcement belongs. Instead, He teaches Sabbath-keeping, not Sabbath-ending, and then heals the man's hand as a demonstration of the principle He just taught (Matthew 12:13).
+
+**The Immediately Preceding Chapter Makes This Sharper**:
+
+One chapter earlier, Jesus said: "Come to Me, all you who labor and are heavy laden, and I will give you **rest**" (Matthew 11:28). This is the verse mainstream Christianity commonly reads as Jesus declaring Himself the fulfillment and replacement of the Sabbath — "I am your Sabbath rest; believing in Me is what now satisfies the commandment." If that were Jesus' intent, Matthew 12 is the natural place to say it outright: the Pharisees raise the Sabbath question directly, and He has just finished speaking of Himself as "rest." He does not connect the two claims. He does not say "you no longer need the seventh day because you have Me." He argues instead, from Scripture and reason, that Sabbath observance continues and that doing good on it is lawful.
+
+This is an argument from silence, and arguments from silence carry less weight than a positive statement — Jesus' silence here does not, by itself, prove the Sabbath's perpetuity. But the silence is not incidental. It falls at the exact literary moment where the "I am your rest, so the day is no longer needed" claim would be most natural to make, immediately after Jesus has spoken of Himself as rest and immediately when the Sabbath question is put to Him directly. He had the opening mainstream Christianity's reading of Matthew 11:28 requires Him to use, and He used it instead to teach correct Sabbath observance.
 
 ---
 
