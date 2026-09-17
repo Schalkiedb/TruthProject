@@ -2964,6 +2964,10 @@ async function loadDocument(filePath, fragment, opts) {
     // needs the lookup index, and the document must render regardless.
     wireEgwReferences(contentEl);
 
+    // Recover lettered sub-entries ("17a.") that marked cannot parse as
+    // list items before anchors/classification run over the document.
+    repairAlphaSuffixedEntries(contentEl);
+
     // Give every numbered entry a stable, citable id (#protestant-42) and a
     // click-to-copy link, so a single quote can be shared by URL
     annotateEntryAnchors(contentEl);
@@ -3354,6 +3358,36 @@ function entryAnchorPrefix(list) {
     }
   }
   return "item";
+}
+
+/* marked only recognises purely numeric ordered-list markers ("17."), so a
+   lettered sub-entry inserted between two numbered ones ("17a.", sitting
+   between 17 and 18) is never parsed as a list item. It falls out of the
+   <ol> and renders as a bare <p> followed by an unwrapped <ul>, which means
+   it never becomes an <li> for annotateEntryAnchors or classifyEntryProvenance
+   below to find — it gets no anchor or citation button, and the verified/
+   unverified filter can never hide it, so it stays visible under every
+   filter and looks permanently "unverified" regardless of its actual source.
+   Re-wrap the orphaned <p>+<ul> pair into a proper single-item <ol> so the
+   normal entry pipeline picks it up exactly like every other entry. The
+   "17a." label is left in the text as-is; the native list marker is hidden
+   so the number is not shown a second time next to it. */
+function repairAlphaSuffixedEntries(contentEl) {
+  if (!contentEl) return;
+  [...contentEl.querySelectorAll("p")].forEach((p) => {
+    const m = /^(\d+)[a-z]\.\s/.exec(p.textContent || "");
+    if (!m) return;
+    const next = p.nextElementSibling;
+    if (!next || (next.tagName !== "UL" && next.tagName !== "OL")) return;
+    const ol = document.createElement("ol");
+    ol.setAttribute("start", m[1]);
+    ol.style.listStyle = "none";
+    const li = document.createElement("li");
+    while (p.firstChild) li.appendChild(p.firstChild);
+    li.appendChild(next);
+    ol.appendChild(li);
+    p.replaceWith(ol);
+  });
 }
 
 function annotateEntryAnchors(contentEl) {
