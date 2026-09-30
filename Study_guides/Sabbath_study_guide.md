@@ -1133,6 +1133,44 @@ The weekly Sabbath is a **memorial** of completed Creation — not a prophecy of
 
 ---
 
+**Let the Bible Define "Shadow" — Hebrews Tells Us Exactly What the Shadows Are**:
+
+Colossians 2:17 uses the word but does not define it. The book of Hebrews does, and it uses the same picture (Greek *skia*, "shadow") for a specific, named system:
+
+> **Hebrews 10:1** — "For the law, having a **shadow of the good things to come**, and not the very image of the things, can never with **these same sacrifices, which they offer continually year by year**, make those who approach perfect."
+
+The shadow in Hebrews 10:1 is the sacrificial system, identified by its **yearly** sacrifices. The context points to the Day of Atonement:
+
+> **Hebrews 9:7** — "But into the second part the high priest went alone **once a year**, not without blood, which he offered for himself and for the people's sins committed in ignorance."
+
+> **Hebrews 10:3** — "But in those sacrifices there is a reminder of sins **every year**."
+
+Hebrews 8:5 says the same about the priestly service: "who serve the copy and **shadow of the heavenly things**." And Hebrews 9:9-10 lists what these ordinances were made of:
+
+> **Hebrews 9:9-10** — "It was symbolic for the present time in which both gifts and sacrifices are offered... **concerned only with foods and drinks, various washings, and fleshly ordinances** imposed until the time of reformation."
+
+Notice the phrase "**foods and drinks**." Colossians 2:16 opens with "**food or drink**." Paul and the author of Hebrews are describing the same category. It is the sacrificial and ceremonial calendar (food and drink offerings, festivals, new moons, feast-day sabbaths), and it was "imposed **until the time of reformation**," that is, until Christ. That is a built-in expiry date, and Scripture attaches it to this system alone.
+
+**The Test Scripture Gives for a Shadow**:
+
+By Hebrews' own usage, something is a shadow when it meets all of these conditions:
+
+1. It **points forward** to "good things to come" (Hebrews 10:1)
+2. It is tied to **sin and its remedy**: sacrifices that "can never... make those who approach perfect," and a "reminder of sins" (Hebrews 10:1-3)
+3. It was **imposed for a period**, "until the time of reformation" (Hebrews 9:10)
+
+The annual feasts and new moons pass all three tests. Passover, Firstfruits, and the Day of Atonement each pointed to a stage of Christ's redeeming work. The new moons were marked by their own sacrifices (Numbers 28:11-15).
+
+The seventh-day Sabbath fails every one of them:
+
+- **It was instituted before sin.** God blessed and sanctified the seventh day in Genesis 2:2-3, before the Fall in Genesis 3. A day set apart before there was any sin to remedy cannot be a shadow of the remedy. The salvation plan had not yet been needed when the Sabbath was given.
+- **It points backward.** Exodus 20:11 grounds it in what God *already finished* ("in six days the LORD made the heavens and the earth... and rested the seventh day"), not in what He would later do.
+- **It carries no expiry date.** It is called a "perpetual covenant" and a "sign forever" (Exodus 31:16-17), and Isaiah 66:22-23 places it in the new earth, after every shadow has been fulfilled.
+
+**Honest limit of this argument**: Hebrews 10:1 does not itself name new moons or sabbaths. The connection to Colossians 2:16 comes through the shared vocabulary ("shadow," "foods and drinks") and the shared category (the ceremonial system). This reading rests on how Scripture uses the word "shadow" elsewhere. It does not rest on any single verse that says "the Sabbath is not a shadow." That is enough for the point, because Colossians 2:17 must be read the way the rest of Scripture uses the term.
+
+---
+
 **Paul Continued Keeping the Weekly Sabbath After Writing Colossians**:
 
 If Paul taught in Colossians that the weekly Sabbath was abolished, why did he continue observing it?
