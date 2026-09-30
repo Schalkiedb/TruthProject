@@ -49,6 +49,26 @@ The belief that the soul consciously survives death in an immediately conscious 
 
 > "**For dust you are, and to dust you shall return.**" (Genesis 3:19)
 
+**Job 14:10-15 — The Dead Sleep Until the Heavens Are No More** (King James Version):
+
+> "But man dieth, and wasteth away: yea, man giveth up the ghost, and **where is he?** As the waters fail from the sea, and the flood decayeth and drieth up: **So man lieth down, and riseth not: till the heavens be no more, they shall not awake, nor be raised out of their sleep.** O that thou wouldest hide me in the grave, that thou wouldest keep me secret, until thy wrath be past, that thou wouldest appoint me a set time, and remember me! **If a man die, shall he live again?** all the days of my appointed time will I wait, till my change come. **Thou shalt call, and I will answer thee:** thou wilt have a desire to the work of thine hands." (Job 14:10-15, KJV)
+
+This is one of the oldest passages in the Bible, and it describes death in the same terms Jesus and Paul later used:
+
+- **Death is "lying down," "sleep."** The word is not used of a conscious soul departing to another place. The person "lieth down" and does not "awake."
+- **There is a waiting period.** Job says "all the days of my appointed time will I wait." He expects to wait in the grave ("hide me in the grave"), not to be in heaven.
+- **The waking is a call and an answer.** "Thou shalt call, and I will answer thee" is resurrection language. God calls, and the sleeper answers. It does not describe a soul that was already conscious and never stopped answering.
+- **The boundary is "till the heavens be no more."** The same event is described in the New Testament as the passing of the present heavens at the Day of the Lord and the final judgment:
+
+> "But the day of the Lord will come as a thief in the night; in the which the heavens shall pass away with a great noise, and the elements shall melt with fervent heat, the earth also and the works that are therein shall be burned up." (2 Peter 3:10, KJV)
+
+> "And I saw a great white throne, and him that sat on it, from whose face the earth and the heaven fled away; and there was found no place for them." (Revelation 20:11, KJV)
+
+**Two cautions for an honest reading**:
+
+1. Job 14 does not use the word "judgment." The link to judgment comes from setting "till the heavens be no more" beside 2 Peter 3:10 and Revelation 20:11. That is a sound cross-reference, but it is an inference from combining texts, not something Job 14:12 states on its own.
+2. Job is speaking in the middle of his suffering, and this verse is a general statement that does not separate the resurrection of the righteous at Christ's return (1 Thessalonians 4:16) from the final resurrection. It shows what death is, sleep and not conscious life elsewhere. The Bible's order of resurrections is taught in other passages (see Part 3).
+
 ---
 
 ### 2.2 Jesus Himself Called Death "Sleep"
