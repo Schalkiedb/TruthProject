@@ -501,6 +501,19 @@ In the New Testament, **all believers in Jesus are spiritual Israel**:
 
 **Pharaoh's complaint** was that Moses was disrupting the labor force by causing the people to rest. While this may allude to Sabbath-keeping (consistent with Exodus 16 showing the Sabbath was observed before Sinai), the text does not specify the seventh-day Sabbath explicitly — Pharaoh's language is broader, referring to any rest from work. The connection is reasonable but should be read as suggestive rather than definitive proof.
 
+**The Hebrew word Pharaoh used**: "You make them rest" is one Hebrew word, **וְהִשְׁבַּתֶּם** (*wehishbattem*). It comes from the same root, **שָׁבַת** (*shabat*, "to cease, to stop"), that gives us the word *Shabbat* and that describes God's own rest in Genesis 2:2:
+
+| | **Genesis 2:2** | **Exodus 5:5** |
+|---|---|---|
+| Word | **וַיִּשְׁבֹּת** (*wayyishbot*) | **וְהִשְׁבַּתֶּם** (*wehishbattem*) |
+| Verb form | Simple form: the subject stops | Causative form: the subject makes others stop |
+| Meaning | "And He **rested** (ceased)" | "And you **make them rest** (cease)" |
+| Speaker's view | God blesses the ceasing | Pharaoh condemns it |
+
+The irony is real: the word Scripture uses for God's blessed ceasing at Creation is the word Pharaoh throws at Moses as an accusation. To a slave master, a people who stop working for God is a loss to be stamped out.
+
+**The limit of this point**: the shared root shows that both verses are about *stopping work*. It does not by itself show that Pharaoh meant the weekly Sabbath. The same causative form is used for things that have nothing to do with Sabbath rest. Daniel 9:27 uses it when the Messiah will "cause the sacrifice and the oblation to cease," and Hosea 2:11 uses it when God says, "I will also cause all her mirth to cease." So the word in Exodus 5:5 can mean simply "make them stop." The language fits a Sabbath reading, but it does not prove one.
+
 **The broader spiritual lesson is clear**: in Egypt, any act of covenant loyalty to God — including Sabbath rest — came at a cost:
 - Economic disadvantage (lost labor)
 - Ridicule and opposition from the surrounding culture
