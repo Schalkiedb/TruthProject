@@ -2560,7 +2560,7 @@ If Jesus had meant "these two replace all the others," the word would be *replac
 
 > **Jeremiah 31:33** — "But this is the covenant that I will make with the house of Israel after those days, says the LORD: I will put **My law in their minds**, and write it on their hearts; and I will be their God, and they shall be My people."
 
-The New Covenant does not **abolish** the law. It **relocates** the law — from external stone tablets to internal hearts and minds. The laws that God writes internally in the New Covenant are the same laws He wrote externally on stone at Sinai. The method changes (external → internal). The content remains the same.
+The New Covenant does not **abolish** the law. It **relocates** the law — from external stone tablets to internal hearts and minds. The laws that God writes internally in the New Covenant are the same laws He wrote externally on stone at Sinai. The method changes (external → internal). The content remains the same. Paul says the same thing in **2 Corinthians 3:3**: written "not in tables of stone, but in fleshy tables of the heart" (see Objection 32).
 
 ---
 
@@ -3428,6 +3428,30 @@ This passage explicitly calls the law "engraved on stones" (the Ten Commandments
 ### The Biblical Answer
 
 This is one of the most frequently misread passages in Scripture. A careful reading of the context reveals Paul is speaking about something entirely different from abolishing the moral law.
+
+---
+
+**Paul Opens the Chapter With Jeremiah's New Covenant Promise**
+
+The objection starts at verse 7. Paul's argument starts at verse 3:
+
+> **2 Corinthians 3:3** (KJV) — "Forasmuch as ye are manifestly declared to be the epistle of Christ ministered by us, written not with ink, but with the Spirit of the living God; **not in tables of stone, but in fleshy tables of the heart**."
+
+"Tables of stone" is the phrase used for the tablets of the Ten Commandments (Exodus 31:18; Deuteronomy 4:13). Paul sets those tablets beside "tables of the heart," which is the New Covenant promise in Jeremiah:
+
+> **Jeremiah 31:31-33** (KJV) — "Behold, the days come, saith the LORD, that I will make a new covenant with the house of Israel, and with the house of Judah: Not according to the covenant that I made with their fathers in the day that I took them by the hand to bring them out of the land of Egypt; **which my covenant they brake**, although I was an husband unto them, saith the LORD: But this shall be the covenant that I will make with the house of Israel; After those days, saith the LORD, **I will put my law in their inward parts, and write it in their hearts**; and will be their God, and they shall be my people."
+
+The word "fleshy" also points to Ezekiel's version of the same promise:
+
+> **Ezekiel 36:26-27** (KJV) — "A new heart also will I give you, and a new spirit will I put within you: and I will take away the **stony heart** out of your flesh, and I will give you an **heart of flesh**. And I will put my spirit within you, and **cause you to walk in my statutes**, and ye shall keep my judgments, and do them."
+
+Read together, these passages say the same thing:
+
+- **What changes is where the law is written.** It moves from stone to the heart, from ink to the Spirit.
+- **What does not change is which law.** Jeremiah says "my law," the same law. He does not announce a different one. Ezekiel says the result is that God's people "walk in my statutes" and "keep my judgments."
+- **The fault was in the people, not the law.** Jeremiah says "my covenant they brake." Hebrews 8:8 quotes Jeremiah 31 and introduces it with "For **finding fault with them**." The problem was a stony heart that could not keep the law. The remedy was a new heart that can.
+
+So by the time Paul reaches the "ministry of death, written and engraved on stones" in verse 7, he has already told the reader what happens to what was on those stones. It is written on the heart. A reading of verse 7 that throws the law away contradicts the verse 3 that introduces it.
 
 ---
 
