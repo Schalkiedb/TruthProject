@@ -687,7 +687,7 @@ None of these apply to the Ten Commandments. The Sabbath commandment has no sacr
 | Ten Commandments (moral law) | Continues | Written by God's finger, eternal, "stand fast forever" |
 | Ceremonial law (sacrifices, feasts, regulations) | Fulfilled/ended | Pointed to Christ — fulfilled when Christ came |
 | Fourth Commandment (Sabbath) | Continues | Part of the Ten Commandments, established at Creation, eternal |
-| Dietary regulations (Leviticus 11) | Affirmed in Acts 15:20, but ceremonially fulfilled | Clean/unclean distinctions pre-date Sinai |
+| Clean and unclean food (Leviticus 11) | Continues | Clean/unclean distinctions pre-date Sinai (Genesis 7:2); not part of the sacrificial system; still in force at the Lord's coming (Isaiah 66:15-17) |
 
 ---
 
@@ -1095,7 +1095,7 @@ Crucially, Paul does **not** use the word **σαββατισμός** (*sabbatism
 Colossians 2:16 lists: **"food or drink, festival, new moon, sabbaths"**
 
 This is a standard **Old Testament calendar sequence**:
-- **Food and drink** = ceremonial dietary and drink offering regulations
+- **Food and drink** = the meat and drink offerings of the ceremonial calendar (Numbers 28-29; Hebrews 9:10), not the clean/unclean distinction, which pre-dates Sinai (Genesis 7:2)
 - **Festival** = annual feast days (Passover, Tabernacles, etc.)
 - **New moon** = monthly new moon observances
 - **Sabbaths** = the annual feast day sabbaths associated with this calendar cycle
@@ -1345,7 +1345,7 @@ Paul uses nearly identical language in Ephesians 2:14-16, and the context makes 
 
 > **Ephesians 2:14-16** — "For He Himself is our peace, who has made both one, and has broken down the middle wall of separation, having abolished in His flesh the enmity, that is, **the law of commandments contained in ordinances**, so as to create in Himself one new man from the two, thus making peace, and that He might reconcile them both to God in one body through the cross."
 
-Paul says Christ abolished "the law of commandments contained in **ordinances**" — the exact same Greek word *dogmasin* found in Colossians 2:14. The purpose stated: to remove the wall of separation between **Jew and Gentile**. That wall was the Mosaic ceremonial system — circumcision, dietary laws, festival requirements — that separated Israel from the nations. Paul is not saying God's moral law was abolished. He is saying the dividing fence of Mosaic ordinances is gone, reconciling all peoples into one body in Christ.
+Paul says Christ abolished "the law of commandments contained in **ordinances**" — the exact same Greek word *dogmasin* found in Colossians 2:14. The purpose stated: to remove the wall of separation between **Jew and Gentile**. That wall was the Mosaic ceremonial system — circumcision, purity rules that kept Jews from eating with Gentiles (Acts 10:28; Galatians 2:12), festival requirements — that separated Israel from the nations. Paul is not saying God's moral law was abolished. He is saying the dividing fence of Mosaic ordinances is gone, reconciling all peoples into one body in Christ.
 
 The two passages — Colossians 2:14 and Ephesians 2:14-16 — are Paul interpreting himself: both refer to the same thing, the Law of Moses with its ordinances, nailed to the cross.
 
@@ -2061,7 +2061,7 @@ Furthermore, the identification of Sunday as "the Lord's Day" in mainstream Chri
 
 **The entire letter of Galatians must be read in its historical context**:
 
-Paul wrote Galatians to address a specific crisis: **Judaizing teachers** were telling Gentile believers that they had to be **circumcised** and keep the **Mosaic ceremonial covenant** (including its dietary regulations and calendar observances) in order to be saved. Paul's response is against **salvation by ceremonial law-keeping** — adding circumcision and Mosaic ritual to faith in Christ as a **requirement for salvation**.
+Paul wrote Galatians to address a specific crisis: **Judaizing teachers** were telling Gentile believers that they had to be **circumcised** and keep the **Mosaic ceremonial covenant** (including its purity rules about eating with Gentiles, Galatians 2:12, and its calendar observances) in order to be saved. Paul's response is against **salvation by ceremonial law-keeping** — adding circumcision and Mosaic ritual to faith in Christ as a **requirement for salvation**.
 
 ---
 
@@ -2970,7 +2970,7 @@ The church rightly rejects this reasoning in every other area. Commands are comm
 
 **The question before the council**: Must Gentiles be **circumcised** (and by implication, keep the full Mosaic ceremonial law) as a condition of **salvation**? This is the *only* question being addressed.
 
-The council was not convened to list everything a Christian must practice. It was addressing the specific question of whether Gentile salvation required adopting the Jewish ceremonial system (circumcision, dietary laws of the Mosaic code, etc.).
+The council was not convened to list everything a Christian must practice. It was addressing the specific question of whether Gentile salvation required adopting the Jewish ceremonial system (circumcision and keeping "the law of Moses" as a condition of salvation, Acts 15:1, 5).
 
 ---
 
@@ -3996,7 +3996,7 @@ When New Covenant practices genuinely replaced Old Covenant practices, the New T
 - **Circumcision** — explicitly addressed (Acts 15; Galatians 5; Romans 2:25-29; Colossians 2:11)
 - **Animal sacrifice** — explicitly replaced (Hebrews 7-10; full treatment of Christ as High Priest and final sacrifice)
 - **Levitical priesthood** — explicitly superseded (Hebrews 7:11-19)
-- **Dietary regulations (ceremonial)** — explicitly addressed (Acts 10; Romans 14; Colossians 2:16)
+- **Meat offered to idols** — explicitly addressed (Acts 15:29; Romans 14; 1 Corinthians 8). This is not the clean/unclean distinction of Leviticus 11, which pre-dates Sinai (Genesis 7:2) and was never abolished. Acts 10:28 explains Peter's vision as being about people, not food; Colossians 2:16 concerns the food and drink offerings of the ceremonial calendar (see Objection 5). For Mark 7:19, Acts 10 and Romans 14 in full, see the *Pork Study Guide*.
 - **Physical temple** — explicitly superseded (John 2:19-21; Acts 7:48-50)
 
 **For every significant Old Covenant practice that changed under the New Covenant, the New Testament provides explicit explanation.** The Sabbath receives no such treatment. Instead, it receives consistent positive affirmation (Luke 23:56; Acts 17:2; 18:4; Hebrews 4:9; Matthew 24:20). The silence on changing the Sabbath — combined with the affirmations of its continuation — is decisive.
@@ -4067,7 +4067,7 @@ The surrounding verses show exactly what Paul is flexing on:
 
 > **1 Corinthians 9:20** — "and to the Jews I became as a Jew, that I might win Jews; to those who are under the law, as under the law, that I might win those who are under the law."
 
-Paul is describing his willingness to observe or set aside **circumcision, dietary customs, and ceremonial regulations** depending on his audience (compare Acts 16:3, circumcising Timothy for Jewish sensitivities, and Acts 21:20-26, Paul purifying himself in the temple) — the same category of "works of the law" (ceremonial identity markers) addressed throughout Galatians. Nothing in the passage suggests Paul murdered, stole, or broke the Sabbath depending on his audience. Moral law and ceremonial custom are different categories, and 1 Corinthians 9 is explicitly about the latter.
+Paul is describing his willingness to observe or set aside **circumcision, Jewish customs about eating with Gentiles, and ceremonial regulations** depending on his audience (compare Acts 16:3, circumcising Timothy for Jewish sensitivities, and Acts 21:20-26, Paul purifying himself in the temple) — the same category of "works of the law" (ceremonial identity markers) addressed throughout Galatians. Nothing in the passage suggests Paul murdered, stole, or broke the Sabbath depending on his audience. Moral law and ceremonial custom are different categories, and 1 Corinthians 9 is explicitly about the latter.
 
 **3. Paul's Own Practice Elsewhere Confirms He Kept the Sabbath as His Custom**:
 

@@ -251,6 +251,14 @@ const LIBRARY = [
         tagClass: "blue",
         desc: "The Mercy Seat, the Day of Atonement, and the Close of Probation as sanctuary typology — every Scripture witness to the sealing of mercy, when Christ's intercession ends, the harvest is reaped, and God's Spirit ceases to strive.",
       },
+      {
+        title: "The Sons of Levi: Called to Be a Holy Priesthood",
+        file: "Typology/Antitypical_Levites_Study_Guide.md",
+        icon: "🕎",
+        tag: "Typology",
+        tagClass: "blue",
+        desc: "Believers as antitypical Levites — what God required of the tribe of Levi, point by point, and what He still requires of His people: separation, holiness, clean living, obedience, and service under Christ our High Priest. Only the sacrifices and the mediation ended.",
+      },
     ],
   },
   {
