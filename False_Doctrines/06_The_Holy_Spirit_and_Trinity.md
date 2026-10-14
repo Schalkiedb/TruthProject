@@ -98,49 +98,134 @@ These passages are not diminishments of Christ's nature — they reflect the rel
 
 ## Part 4: Who Is the Holy Spirit? — The Biblical Answer
 
-### 4.1 The Holy Spirit Is the Shared Presence and Power of the Father and Son
+Scripture speaks of the Holy Spirit in two ways, and both must be held together:
 
-> "But you are not in the flesh but in the Spirit, if indeed the **Spirit of God** dwells in you. Now if anyone does not have the **Spirit of Christ**, he is not His." (Romans 8:9)
+1. He is **the Spirit of God and the Spirit of Christ** — the one through whom the Father and the Son dwell in believers.
+2. He **acts as a person** — He speaks, calls, forbids, decides, intercedes, can be grieved, and can be lied to.
 
-**The Spirit of God** and **the Spirit of Christ** are used interchangeably in a single sentence. The Holy Spirit is the presence of both the Father and the Son — not a separate third being.
+Rejecting the Nicene formula does not require denying the second point. The question this study raises about the creeds is their "one substance" metaphysics, not whether the Holy Spirit is a person. *(Verses in this part are quoted from the King James Version.)*
 
-> "I will not leave you orphans; **I will come to you.**" (John 14:18)
+### 4.1 The Spirit Acts as a Person
 
-Jesus said HE would come to them — then immediately discusses the coming of the Holy Spirit (John 14:16). The coming of the Holy Spirit IS Christ's spiritual presence.
+> **Acts 13:2** — "As they ministered to the Lord, and fasted, the Holy Ghost said, Separate me Barnabas and Saul for the work whereunto I have called them."
 
-> "...that Christ may **dwell in your hearts** through faith..." (Ephesians 3:17)
+The Spirit speaks in the first person: "separate *me*," "*I* have called them."
 
-Christ dwells in hearts through the Holy Spirit — this is God's presence with believers.
+> **Acts 16:6-7** — "...and were forbidden of the Holy Ghost to preach the word in Asia, After they were come to Mysia, they assayed to go into Bithynia: but the Spirit suffered them not."
 
-> "**Christ in you**, the hope of glory." (Colossians 1:27)
+> **Acts 15:28** — "For it seemed good to the Holy Ghost, and to us, to lay upon you no greater burden than these necessary things;"
 
-> "I [Paul] have been crucified with Christ; it is no longer I who live, but **Christ lives in me**." (Galatians 2:20)
+The council places the Spirit's decision beside its own: "to the Holy Ghost, and to us."
 
-### 4.2 The Holy Spirit Is Described as the Father's Spirit
+> **1 Corinthians 12:11** — "But all these worketh that one and the selfsame Spirit, dividing to every man severally as he will."
 
-> "For it is not you who speak, but the **Spirit of your Father** who speaks in you." (Matthew 10:20)
+> **Romans 8:27** — "And he that searcheth the hearts knoweth what is the mind of the Spirit, because he maketh intercession for the saints according to the will of God."
 
-> "And when they had prayed, the place where they were assembled together was shaken; and they were all filled with the **Holy Spirit**, and they spoke the word of God with boldness." (Acts 4:31) [= the Father's Spirit poured out — Acts 2:17-18 equates with Joel 2:28]
+> **Ephesians 4:30** — "And grieve not the holy Spirit of God, whereby ye are sealed unto the day of redemption."
 
-### 4.3 The Spirit Speaks What It "Hears" — From the Father and Son
+A will, a mind, intercession, and grief are personal. A power or an influence cannot be grieved.
 
-> "However, when He, the Spirit of truth, has come, He will guide you into all truth; for **He will not speak on His own authority, but whatever He hears He will speak**; and He will tell you things to come. He will glorify Me, for **He will take of what is Mine and declare it to you**. All things that the Father has are Mine. Therefore I said that **He will take of Mine and declare it to you.**" (John 16:13-15)
+> **Acts 5:3-4** — "But Peter said, Ananias, why hath Satan filled thine heart to lie to the Holy Ghost... thou hast not lied unto men, but unto God."
 
-If the Holy Spirit were a fully co-equal, co-eternal separate person, speaking "on His own authority" — with His own independent will — would not be a restriction. The Spirit speaks what He "hears" from the Father and Son, and takes what belongs to THEM to declare. This is the shared presence and communication of the Father and Son—not an independent third being.
+Lying to the Holy Ghost is lying to God.
+
+**An honest note**: the KJV sometimes says "the Spirit itself" (Romans 8:16, 26) because the Greek word *pneuma* is grammatically neuter. Grammatical gender does not decide the question either way. The case for the Spirit's personhood rests on what He does — speaking, deciding, willing, interceding, being grieved — not on pronouns.
+
+### 4.2 He Is the Spirit of the Father and of the Son
+
+> **Romans 8:9** — "But ye are not in the flesh, but in the Spirit, if so be that the Spirit of God dwell in you. Now if any man have not the Spirit of Christ, he is none of his."
+
+> **Matthew 10:20** — "For it is not ye that speak, but the Spirit of your Father which speaketh in you."
+
+**The Spirit of God** and **the Spirit of Christ** are used of the same Spirit in a single sentence. He belongs to both the Father and the Son, and through Him both dwell in believers:
+
+> **Ephesians 3:17** — "That Christ may dwell in your hearts by faith;"
+
+> **Colossians 1:27** — "...Christ in you, the hope of glory:"
+
+> **Galatians 2:20** — "...nevertheless I live; yet not I, but Christ liveth in me:"
+
+### 4.3 How Both Fit Together: Christ's Representative
+
+Jesus promised the Spirit in words that hold both points at once:
+
+> **John 14:16-18** — "And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth... I will not leave you comfortless: I will come to you."
+
+The Spirit is "another Comforter" — distinct from Jesus, a second helper of the same kind. And yet through Him, Jesus Himself comes: "I will come to you."
+
+Ellen White explains the relationship this way:
+
+> "The Holy Spirit is Christ's representative, but divested of the personality of humanity, and independent thereof. Cumbered with humanity, Christ could not be in every place personally. Therefore it was for their interest that He should go to the Father, and send the Spirit to be His successor on earth." — *The Desire of Ages*, p. 669
+
+Christ, having taken human nature, is in one place. The Spirit, not limited by a human body, is everywhere, and through Him Christ is present with every believer.
+
+### 4.4 The Spirit Speaks What He Hears
+
+> **John 16:13-14** — "Howbeit when he, the Spirit of truth, is come, he will guide you into all truth: for he shall not speak of himself; but whatsoever he shall hear, that shall he speak: and he will shew you things to come. He shall glorify me: for he shall receive of mine, and shall shew it unto you."
+
+This passage shows order and harmony within the Godhead, not the absence of personhood. Jesus says the same of Himself: "I can of mine own self do nothing... because I seek not mine own will, but the will of the Father which hath sent me" (**John 5:30**). The Son does not speak on His own initiative, and He is a person. The same is true of the Spirit. Notice too that John uses "he" for the Spirit throughout (John 16:13-14), though *pneuma* is neuter — the writer chose the personal pronoun.
+
+### 4.5 Ellen White on the Holy Spirit
+
+Ellen White's writings say plainly that the Spirit is a divine person, and they also refuse to speculate about His nature.
+
+**The Third Person of the Godhead:**
+
+> "Sin could be resisted and overcome only through the mighty agency of the Third Person of the Godhead, who would come with no modified energy, but in the fullness of divine power." — *The Desire of Ages*, p. 671
+
+**Three powers working together:**
+
+> "In the great closing work we shall meet with perplexities that we know not how to deal with; but let us not forget that the three great powers of heaven are working, that a divine hand is on the wheel, and that God will bring His promises to pass." — *Testimonies for the Church*, vol. 8, p. 254
+
+**A warning against speculation:**
+
+> "The nature of the Holy Spirit is a mystery. Men cannot explain it, because the Lord has not revealed it to them... Regarding such mysteries, which are too deep for human understanding, silence is golden." — *The Acts of the Apostles*, p. 52
+
+She affirms that the Spirit is the Third Person of the Godhead, working in the fullness of divine power, while refusing to define *how* the three are related. That is the opposite of the creeds, which define the "how" in philosophical terms. The word "Trinity" and the "one substance" formula do not appear in any of the 22 Ellen White books held on this site.
+
+**Her explicit statements on the Spirit's personhood** are gathered in *Evangelism* (pp. 615-617, compiled 1946). Each sentence below has been checked against the EGW Writings database, with the original source she wrote it in:
+
+> "We need to realize that the Holy Spirit, who is as much a person as God is a person, is walking through these grounds." — Manuscript 66, 1899, a talk to the students at Avondale (*Evangelism*, p. 616)
+
+> "The Holy Spirit is a person, for He beareth witness with our spirits that we are the children of God." — *Evangelism*, p. 616 (also *20 Manuscript Releases*, p. 68)
+
+> "The Holy Spirit has a personality, else He could not bear witness to our spirits and with our spirits that we are the children of God." — *Evangelism*, p. 617 (also *20 Manuscript Releases*, p. 69)
+
+> "The prince of the power of evil can only be held in check by the power of God in the third person of the Godhead, the Holy Spirit." — *Special Testimonies*, Series A, No. 10, p. 37 (1897) (*Evangelism*, p. 617)
+
+> "There are three living persons of the heavenly trio." — *Special Testimonies*, Series B, No. 7, p. 63 (*Evangelism*, p. 615)
+
+> "We are to co-operate with the three highest powers in heaven,—the Father, the Son, and the Holy Ghost..." — *Special Testimonies*, Series B, No. 7, p. 51 (*Evangelism*, p. 617)
+
+> "...the eternal heavenly dignitaries—God, and Christ, and the Holy Spirit..." — *16 Manuscript Releases*, p. 204 (*Evangelism*, p. 616)
+
+**A note on the word "Trinity" in *Evangelism***: the bold headings in *Evangelism* were written by the 1946 compilers, not by Ellen White. On page 616 the compilers' heading reads "The Eternal Dignitaries of the Trinity," but her own sentence beneath it says "God, and Christ, and the Holy Spirit." When reading compilations, quote her words, not the headings.
+
+### 4.6 The Pioneers
+
+The early Adventist pioneers rejected the Trinity formula of the creeds. Ellen White's writings, including *The Desire of Ages* (1898), call the Holy Spirit "the Third Person of the Godhead" while never adopting the creeds' formula. This study holds the same two positions: it rejects the "one substance" metaphysics of Nicaea and Constantinople, and it affirms the personhood of the Holy Spirit that Scripture describes (4.1).
 
 ---
 
-## Part 5: The Apostolic Greetings — A Decisive Pattern
+## Part 5: The Apostolic Greetings — What They Show
 
-If the Holy Spirit were a third co-equal person of the Godhead, we would expect the apostles to include Him in their greetings alongside the Father and Son. They never do.
+Paul opens every one of his letters with grace and peace from the Father and the Son:
 
-> "Grace to you and peace from **God our Father and the Lord Jesus Christ**." (Romans 1:7; 1 Corinthians 1:3; 2 Corinthians 1:2; Galatians 1:3; Ephesians 1:2; Philippians 1:2; Colossians 1:2; 1 Thessalonians 1:1; 2 Thessalonians 1:2; Philemon 1:3)
-
-This greeting pattern appears in TWELVE Pauline letters — always "God the Father and the Lord Jesus Christ." **The Holy Spirit is never listed as a separate sender.**
+> "Grace to you and peace from **God our Father and the Lord Jesus Christ**." (Romans 1:7; 1 Corinthians 1:3; 2 Corinthians 1:2; Galatians 1:3; Ephesians 1:2; Philippians 1:2; Colossians 1:2; 1 Thessalonians 1:1; 2 Thessalonians 1:2; 1 Timothy 1:2; 2 Timothy 1:2; Titus 1:4; Philemon 1:3)
 
 > "Grace and peace from **God the Father and from our Lord Jesus Christ**, the Son of the Father..." (2 John 1:3)
 
-> "From **Him who is and who was and who is to come** [the Father], and from the **seven Spirits** who are before His throne, and from **Jesus Christ**, the faithful witness..." (Revelation 1:4-5)
+These greetings name the Father and the Son as the **source** of grace. They fit the way Scripture describes the Spirit as the one **through whom** that grace reaches the believer: "the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us" (**Romans 5:5**, KJV).
+
+But the greetings cannot be used to argue that the Spirit is not a person, because the Spirit is named alongside the Father and the Son elsewhere in the same kind of blessing:
+
+> "The grace of the Lord Jesus Christ, and the love of God, and the **communion of the Holy Ghost**, be with you all. Amen." (**2 Corinthians 13:14**, KJV)
+
+> "Grace be unto you, and peace, from him which is, and which was, and which is to come; and **from the seven Spirits which are before his throne**; And from Jesus Christ, who is the faithful witness..." (**Revelation 1:4-5**, KJV)
+
+In Revelation 1:4-5, grace and peace come from three: the Father, "the seven Spirits," and Jesus Christ. "Seven" in Revelation is the number of fullness, and the "seven Spirits of God" are "sent forth into all the earth" (**Revelation 5:6**).
+
+**An honest note**: most readers take "the seven Spirits" as the Holy Spirit in His fullness; a minority read them as seven angels. On either reading, Revelation 1:4-5 is not a greeting from the Father and the Son alone.
 
 ---
 
@@ -150,17 +235,18 @@ This greeting pattern appears in TWELVE Pauline letters — always "God the Fath
 
 > "For there are **three that bear record in heaven, the Father, the Word, and the Holy Ghost: and these three are one**." (1 John 5:7, KJV)
 
-This is the most explicit Trinitarian statement in the New Testament — and it is **a proven forgery, not in the original Greek**.
+This is the most explicit Trinitarian statement in the New Testament — and it is **a later addition, not part of what John wrote**. The words in bold, known as the "Johannine Comma," are not found in the Greek text of the early church.
 
 **The facts**:
-- This verse is **absent from ALL Greek manuscripts except 4 late, minor ones** (all post-14th century)
-- No Greek church father ever quoted it to defend the Trinity in any debate — though they desperately needed it during fierce Trinitarian controversies
-- It first appears in a **Latin translation** in the 8th century CE
-- **Erasmus** (who compiled the Greek New Testament in 1516 CE) was pressured to include it after he initially excluded it due to lack of manuscript evidence
-- **ALL major modern translations** (NIV, ESV, NASB, RSV, NRSV, NLT, CSB) omit it or footnote it as a later addition
-- Biblical scholars of all theological backgrounds agree it is the "Johannine Comma" — a scribal interpolation
+- **Greek manuscripts**: the words are found in fewer than ten Greek manuscripts, all of them late. The earliest that has them in the text itself is from the 14th century (minuscule 629). In several others they appear only as a note in the margin. None of the hundreds of other Greek manuscripts of 1 John, including all the early ones, contains them.
+- **Greek church fathers**: none quotes the passage in the Trinitarian debates of the 4th and 5th centuries, when it would have been the strongest proof text available.
+- **First appearance**: it first appears in Latin, in a late 4th-century treatise, the *Liber Apologeticus* (c. 380), attributed to Priscillian or his follower Instantius. It entered Latin Bible manuscripts between about the 5th and 7th centuries; some major early Latin Bibles, such as Codex Fuldensis (546), still lack it in the text.
+- **Erasmus**: he left it out of the first two editions of his Greek New Testament (1516, 1519) because his Greek manuscripts did not have it. He added it in the third edition (1522), after critics accused him of favouring Arianism and he was shown a Greek manuscript containing it (minuscule 61, copied around 1520). He recorded his doubts about it in his *Annotations*. The popular story that he *promised* to include it if one Greek manuscript were found has no documentary evidence, and Bruce Metzger removed it from later editions of his textbook.
+- **Modern translations**: all major ones (NIV, ESV, NASB, RSV, NRSV, NLT, CSB) omit it or footnote it as a later addition.
 
-**This verse was inserted into Scripture to support the Trinity doctrine. It is not original.**
+**How it most likely arose**: as an interpretive note on verse 8 — reading "the Spirit, and the water, and the blood" as a figure of the Father, the Word, and the Spirit — which a copyist later took into the Latin text. Whether that first happened by mistake or on purpose cannot be known. What can be known is that it is not original, and it should not be used as a proof text for any position.
+
+*Sources*: Bruce M. Metzger, *A Textual Commentary on the Greek New Testament*, on 1 John 5:7-8; Bruce M. Metzger and Bart D. Ehrman, *The Text of the New Testament* (4th ed., Oxford University Press, 2005), p. 146 (Erasmus).
 
 ---
 
@@ -168,20 +254,25 @@ This is the most explicit Trinitarian statement in the New Testament — and it 
 
 > "Go therefore and make disciples of all the nations, baptizing them **in the name of the Father and of the Son and of the Holy Spirit**." (Matthew 28:19)
 
-This is genuine — but observe several important points:
+This verse is genuine. Observe several points:
 
-**1. The word is "name" singular, not "names" plural** — though three are mentioned, they share A SINGLE name. This is consistent with the Father and Son having one divine name, and the Spirit being their shared presence — not three separate beings with separate names.
+**1. The word is "name," singular, not "names."** Three are named, and they share one name. This shows the unity of the Father, the Son, and the Holy Spirit in the work of salvation. It does not require the creeds' "one substance" definition, and it places the Spirit alongside the Father and the Son, not beneath them as a mere force.
 
-**2. Throughout Acts, baptism is consistently performed "in the name of Jesus Christ" (singular)**:
+**2. In Acts, baptism is described as "in the name of Jesus Christ":**
 - Acts 2:38 — "be baptized... **in the name of Jesus Christ**"
 - Acts 8:16 — "baptized **in the name of the Lord Jesus**"
 - Acts 10:48 — "baptized **in the name of the Lord**"
 - Acts 19:5 — "baptized **in the name of the Lord Jesus**"
 - Acts 22:16 — "be baptized, and wash away your sins, **calling on the name of the Lord**"
 
-**The apostles never baptized using the Trinitarian formula.** They baptized **in Jesus's name**.
+Acts never records the words spoken at a baptism, so it cannot be said that the apostles never used the threefold formula. What Acts shows is that baptism was into the authority of Jesus Christ, which Matthew 28:18-19 itself grounds in His words: "All power is given unto me... Go ye therefore..."
 
-**3. Eusebius of Caesarea** (260–340 CE), the leading church historian who was PRESENT at the Council of Nicaea, quoted Matthew 28:19 in EIGHTEEN of his writings BEFORE Nicaea — and consistently wrote "in **My name**" instead of "in the name of the Father, Son, and Holy Spirit." After Nicaea, his quotations changed. This raises serious questions about potential textual alteration.
+**3. The textual question.** Eusebius of Caesarea (c. 260–340 CE), who attended the Council of Nicaea, often quoted this verse in a shorter form, "make disciples of all the nations **in My name**." Some have argued from this that the threefold phrase was added later. Two facts weigh heavily against that:
+
+- **The Didache**, a church manual usually dated to the late first or early second century — about two hundred years before Nicaea — already gives the threefold formula: "baptize into the name of the Father, and of the Son, and of the Holy Spirit" (Didache 7:1).
+- **Every surviving manuscript of Matthew** that contains this passage includes the threefold phrase.
+
+Eusebius' shorter form is best explained as a paraphrase or abbreviation, which ancient writers often used when quoting from memory. The verse should be treated as original.
 
 ---
 
@@ -247,11 +338,11 @@ Jesus — identified with Michael — **receives and accepts worship** from both
 | **Claim** | **Trinitarian Doctrine** | **Biblical Evidence** |
 |-----------|------------------------|----------------------|
 | God is three co-equal persons | Father, Son, Spirit co-equal | Father is "greater than" the Son (John 14:28); Son is subject to Father (1 Corinthians 15:28) |
-| Holy Spirit is a co-equal third person | Yes | Spirit of God = Spirit of Christ (Romans 8:9); Spirit speaks what He "hears" (John 16:13-15) |
-| 1 John 5:7 supports Trinity | Primary proof text | Proven scribal insertion; absent from all Greek manuscripts |
-| Matthew 28:19 = Trinitarian baptism | Yes | Apostles baptized in "Jesus's name" only (Acts 2:38; 8:16; 10:48; 19:5) |
+| Holy Spirit is a person | Yes, as one of three persons in one substance | A person: He speaks, calls, forbids and can be grieved (Acts 13:2; 16:6-7; Ephesians 4:30); the Spirit of the Father and of Christ (Romans 8:9); "the Third Person of the Godhead" (DA 671) — but Scripture never defines the three as "one substance" |
+| 1 John 5:7 supports Trinity | Primary proof text | Later addition: in fewer than ten late Greek manuscripts (earliest 14th century); first appears in Latin c. 380 |
+| Matthew 28:19 = Trinitarian baptism | Yes | Genuine (Didache 7:1; every manuscript): one name shared by Father, Son and Spirit; Acts describes baptism "in the name of Jesus" (Acts 2:38; 8:16; 10:48; 19:5) |
 | "Godhead" means three persons | Yes | Greek = "divine nature/deity" — not "three persons" |
-| Apostolic greetings include Spirit | Implied | Never included — always "God the Father and Lord Jesus Christ" (12 letters) |
+| Apostolic greetings include Spirit | Implied | Opening greetings name the Father and Son as the source of grace (all of Paul's letters); the Spirit is named in 2 Corinthians 13:14 and Revelation 1:4-5 |
 | Trinity word is in the Bible | Assumed | Not in Scripture; coined by Tertullian ~200 CE |
 | Council defined Bible doctrine | Nicaea/Constantinople legitimate | Councils defined metaphysical language Scripture never uses; convened under political pressure |
 | Prayer to the Holy Spirit | Implied | Not one example in all of Scripture |
@@ -263,11 +354,11 @@ Jesus — identified with Michael — **receives and accepts worship** from both
 Scripture teaches:
 1. **One God = the Father** — the ultimate source and authority (1 Corinthians 8:6; Deuteronomy 6:4; John 17:3)
 2. **Jesus Christ = the only begotten Son** — fully divine, sharing the Father's nature, distinct in person, subordinate in role (John 1:1-3; John 16:28; Philippians 2:6-7; John 14:28)
-3. **The Holy Spirit = the Father and Son's shared presence and power** — not an independently existing third person, but the way the Father and Son dwell in and communicate with believers (Romans 8:9; John 14:16-18; Colossians 1:27)
+3. **The Holy Spirit = the Third Person of the Godhead** — a divine person who speaks, calls, decides and can be grieved (Acts 13:2; 15:28; Ephesians 4:30), the Spirit of the Father and of Christ, through whom the Father and Son dwell in believers (Romans 8:9; John 14:16-18; Colossians 1:27)
 
 This does NOT reduce Christ or dismiss the Holy Spirit. It accurately reflects the language Scripture actually uses, rather than the metaphysical formulas developed by post-biblical councils under political pressure.
 
-The unity of God is not the unity of "three persons in one substance" (a concept Paul and Jesus never articulated). It is the unity of Father and Son — like the unity of marriage (Genesis 2:24 "they shall become **one flesh**" — two persons, truly one).
+The unity of God is not the unity of "three persons in one substance" (a concept Paul and Jesus never articulated). It is the unity of the Father, the Son, and the Holy Spirit, one in purpose and in the work of salvation — like the unity of marriage (Genesis 2:24 "they shall become **one flesh**" — distinct persons, truly one). How the three are related beyond what Scripture says is not revealed, and "regarding such mysteries... silence is golden" (AA 52).
 
 > **"Now this is eternal life: that they know You, the only true God, and Jesus Christ, whom You have sent."** (John 17:3)
 
